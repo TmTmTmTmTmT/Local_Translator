@@ -380,7 +380,7 @@
         const h = String((s && s.host) || s || '').toLowerCase().replace(/^\*\./, '');
         if (h && (host === h || host.endsWith('.' + h)) && s.exclude) ex.push(s.exclude);
       }
-      start({ excludeSelector: ex.join(','), translateAttrs: !!(settings && settings.translateAttrs) });
+      start({ excludeSelector: ex.join(','), translateAttrs: !!(settings && settings.translateAttrs), fixParticles: !(settings && settings.fixParticles === false) });
     };
     try {
       if (api && api.storage && api.storage.sync) {

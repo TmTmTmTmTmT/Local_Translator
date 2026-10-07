@@ -8,10 +8,13 @@
   "sites": [ { "host": "example.com", "exclude": "" } ],
   "engine": { "default": "native:apple-mt", "byLang": { "ja": null, "zh": null } },
   "localhost": { "baseUrl": "http://127.0.0.1:11434", "kind": "ollama|mlx|ct2", "model": "", "family": "hymt2|translategemma|chat", "keepAlive": 300 },
-  "enabled": true
+  "enabled": true,
+  "translateAttrs": false,
+  "fixParticles": true
 }
 ```
 - `localhost.family`/`keepAlive`(초, 기본 300)는 MT 모드 엔진(`local:mt-ollama`, `local:mt-mlx`) 전용. `family` 미지정/무효 시 모델명에서 추정(translategemma/hy-mt) 후 `chat`. `local:mt-mlx`는 `model` 무시(요청 model=`default_model`). `baseUrl`은 모든 localhost 엔진 공통이므로 mlx는 8080 등으로 직접 지정. 루프백 검증 동일.
+- `translateAttrs`(boolean, 기본 false): true면 `content/extra.js`를 main.js 앞에 추가 주입해 title/alt/placeholder/aria-label 속성도 번역. `fixParticles`(boolean, 기본 true): main.js `start({fixParticles})` → `createApplier({fixParticles})`로 전달, false면 링크 뒤 조사 보정 안 함. 알 수 없는 키는 병합 시 그대로 통과.
 - `engine` 값은 엔진 ID 문자열. 엔진 레지스트리(`engines/registry.js`)가 ID → 엔진 객체 해석.
 
 ## 2. 메시지 (runtime.sendMessage, `{type, ...}`)

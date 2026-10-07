@@ -67,3 +67,15 @@ test('mt-mode localhost settings: family and keepAlive', () => {
   assert.equal(lib.validateLocalhost({ baseUrl: 'http://127.0.0.1:1', kind: 'mlx', family: 'zz', keepAlive: -5 }).length, 2);
   assert.equal(lib.validateLocalhost({ baseUrl: 'http://evil.com', kind: 'mlx', family: 'chat', keepAlive: 300 }).length, 1);
 });
+
+test('translateAttrs / fixParticles defaults, merge and garbage handling', () => {
+  const d = lib.defaults();
+  assert.equal(d.translateAttrs, false);
+  assert.equal(d.fixParticles, true);
+  const m = lib.mergeSettings({ translateAttrs: true, fixParticles: false });
+  assert.equal(m.translateAttrs, true);
+  assert.equal(m.fixParticles, false);
+  const bad = lib.mergeSettings({ translateAttrs: 'yes', fixParticles: 0 });
+  assert.equal(bad.translateAttrs, false);
+  assert.equal(bad.fixParticles, true);
+});

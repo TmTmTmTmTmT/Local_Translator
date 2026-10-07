@@ -199,3 +199,12 @@ test('onMessage ignores unknown types and replies async', async () => {
   const res = await new Promise((resolve) => { assert.equal(bg.onMessage({ type: 'clearCache' }, {}, resolve), true); });
   eq(res, { ok: true });
 });
+
+test('DEFAULT_SETTINGS: translateAttrs=false, fixParticles=true; merge keeps stored values and unknown keys', () => {
+  eq(BG.DEFAULT_SETTINGS.translateAttrs, false);
+  eq(BG.DEFAULT_SETTINGS.fixParticles, true);
+  const m = BG.mergeSettings(BG.DEFAULT_SETTINGS, { translateAttrs: true, fixParticles: false, futureKey: { a: 1 } });
+  eq([m.translateAttrs, m.fixParticles, m.futureKey], [true, false, { a: 1 }]);
+  const d = BG.mergeSettings(BG.DEFAULT_SETTINGS, {});
+  eq([d.translateAttrs, d.fixParticles], [false, true]);
+});

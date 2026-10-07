@@ -20,6 +20,8 @@
       engine: { default: 'native:apple-mt', byLang: { ja: null, zh: null } },
       localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '', family: 'hymt2', keepAlive: DEFAULT_KEEP_ALIVE },
       enabled: true,
+      translateAttrs: false,
+      fixParticles: true,
     };
   }
 
@@ -49,6 +51,8 @@
         keepAlive: Number.isFinite(lh.keepAlive) && lh.keepAlive >= -1 ? Math.trunc(lh.keepAlive) : d.localhost.keepAlive,
       },
       enabled: typeof s.enabled === 'boolean' ? s.enabled : true,
+      translateAttrs: typeof s.translateAttrs === 'boolean' ? s.translateAttrs : d.translateAttrs,
+      fixParticles: typeof s.fixParticles === 'boolean' ? s.fixParticles : d.fixParticles,
     };
   }
 

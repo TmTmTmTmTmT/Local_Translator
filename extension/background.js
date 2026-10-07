@@ -25,6 +25,8 @@
     engine: { default: 'native:apple-mt', byLang: { ja: null, zh: null } },
     localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '' },
     enabled: true,
+    translateAttrs: false, // true면 content/extra.js 추가 주입(속성 번역)
+    fixParticles: true, // 링크 뒤 조사 자동 보정(apply.js 옵션)
     pdfAuto: false, // D7: 자동 진입 방식 Safari 검증 전까지 기본 OFF
   };
 
