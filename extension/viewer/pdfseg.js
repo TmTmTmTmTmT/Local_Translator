@@ -394,7 +394,61 @@
     return { pages: res.map((r) => (Array.isArray(r) ? r : [])) };
   }
 
-  const api = { segmentPage, segmentDocument, pageLines, findRepeated, isNonlinguistic };
+  // 문단 -> 번역 블록(PLAN §4.3 한도 ≤2000자로 분할) / 결과 병합.
+    const BLOCK_CHARS = 2000;
+  function makeBlocks(para, lang) {
+    const atoms = [];
+    para.items.forEach((it, idx) => {
+      if (it.k !== 't') { atoms.push({ k: 'x', text: it.text }); return; }
+      if (it.text.length <= BLOCK_CHARS) { atoms.push({ k: 't', text: it.text, item: idx }); return; }
+      let rest = it.text;
+      while (rest.length > BLOCK_CHARS) {
+        let cut = rest.lastIndexOf(' ', BLOCK_CHARS);
+        const m = rest.slice(0, BLOCK_CHARS).match(/[\s\S]*[.!?。！？]\s*/);
+        if (m && m[0].length > BLOCK_CHARS / 2) cut = m[0].length;
+        if (cut < BLOCK_CHARS / 2) cut = BLOCK_CHARS;
+        atoms.push({ k: 't', text: rest.slice(0, cut), item: idx });
+        rest = rest.slice(cut);
+      }
+      if (rest) atoms.push({ k: 't', text: rest, item: idx });
+    });
+    const blocks = [];
+    let cur = null;
+    let size = 0;
+    const flush = () => { if (cur && cur.atoms.some((a) => a.k === 't')) blocks.push(cur); cur = null; size = 0; };
+    for (const a of atoms) {
+      if (!cur) cur = { atoms: [] };
+      if (a.k === 't' && size + a.text.length > BLOCK_CHARS && size > 0) { flush(); cur = { atoms: [] }; }
+      cur.atoms.push(a);
+      if (a.k === 't') size += a.text.length;
+    }
+    flush();
+    return blocks.map((b, n) => {
+      let j = 0;
+      const items = b.atoms.map((a) => (a.k === 't' ? { k: 't', i: j++, text: a.text } : { k: 'x', text: a.text }));
+      return { id: para.id + (blocks.length > 1 ? '~' + n : ''), lang, items, atoms: b.atoms.filter((a) => a.k === 't') };
+    });
+  }
+
+  // slots 누락 슬롯은 원문 유지. 반환: 문단 최종 텍스트 + 번역된 슬롯 수.
+  function mergeResult(para, blocks, resultsById) {
+    const parts = para.items.map((it) => (it.k === 't' ? { text: it.text, pieces: [] } : { text: it.text, fixed: true }));
+    let hit = 0;
+    for (const b of blocks) {
+      const r = resultsById.get(b.id);
+      b.atoms.forEach((a, j) => {
+        const tr = r && r.slots ? r.slots[String(j)] : undefined;
+        const p = parts[a.item];
+        p.pieces.push(typeof tr === 'string' ? tr : a.text);
+        if (typeof tr === 'string') hit++;
+      });
+    }
+    const text = parts.map((p) => (p.fixed ? p.text : p.pieces.length ? p.pieces.join('') : p.text)).join('');
+    return { text, hit };
+  }
+
+
+  const api = { segmentPage, segmentDocument, pageLines, findRepeated, isNonlinguistic, makeBlocks, mergeResult };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.pdfseg = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

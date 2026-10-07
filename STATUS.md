@@ -32,7 +32,14 @@
 - 미검증: 실제 Safari 로드, sendNativeMessage 왕복(GUI 필요)
 - 컨테이너 앱: 확장 활성화 버튼, 언어팩 상태·설치, Apple Intelligence 상태
 
+## T9 완료 (PDF 뷰어)
+- `extension/vendor/pdfjs`(pdfjs-dist 6.4.299, 4.2MB), `viewer/{pdfseg.js,viewer.html,viewer.js,viewer.css}`, 테스트 163개 전체 통과
+- 미검증: Safari에서 viewer.js 실행(문법 검사만), pdfjs 6.x의 Promise.try·Uint8Array.toHex 지원(Safari 18.2+ 추정)
+- 한계: 다단·하이픈 휴리스틱, JPX/JBIG2 wasm 미포함, 세로쓰기 미지원
+
 ## Opus 확인 필요
+- (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
+- (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
 - (T8) FM 시스템 프롬프트 [출력 형식] 단락이 prompt.js와 다름(guided generation 스키마 때문). GUIDELINES "문구 동일" 규칙과 상충 — 허용 여부 확인
 - (T8) 요청 lang이 "zh"만 오면 간체로 처리(블록 lang 우선). 필요 시 content에서 zh-Hans/zh-Hant 판별 전달
 - (T3) content 쪽 자체 캐시와 background 캐시 이중 구조 — 유지해도 무방(교체 노드 즉시 적용 목적). 역할 분담 확인

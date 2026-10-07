@@ -1,0 +1,230 @@
+{
+  "batchLimit" : {
+    "blocks" : 40,
+    "chars" : 6000
+  },
+  "batches" : [
+    {
+      "blockIds" : [
+        "zh-Hans-tech-01",
+        "zh-Hans-tech-02",
+        "zh-Hans-tech-03",
+        "zh-Hans-tech-04",
+        "zh-Hans-tech-05",
+        "zh-Hans-tech-06",
+        "zh-Hans-news-01",
+        "zh-Hans-news-02",
+        "zh-Hans-news-03",
+        "zh-Hans-news-04",
+        "zh-Hans-news-05",
+        "zh-Hans-news-06",
+        "zh-Hans-community-01",
+        "zh-Hans-community-02",
+        "zh-Hans-community-03",
+        "zh-Hans-community-04",
+        "zh-Hans-community-05",
+        "zh-Hans-community-06",
+        "zh-Hans-ui-01",
+        "zh-Hans-ui-02",
+        "zh-Hans-ui-03",
+        "zh-Hans-link-01",
+        "zh-Hans-link-02",
+        "zh-Hans-link-03",
+        "zh-Hans-seq-01",
+        "zh-Hans-seq-02",
+        "zh-Hans-seq-03",
+        "zh-Hans-seq-04",
+        "zh-Hans-seq-05"
+      ],
+      "ms" : 242.474708
+    }
+  ],
+  "blocks" : [
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-tech-01",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-tech-02",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-tech-03",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-tech-04",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-tech-05",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-tech-06",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-news-01",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-news-02",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-news-03",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-news-04",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-news-05",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-news-06",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-community-01",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-community-02",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-community-03",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-community-04",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-community-05",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-community-06",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-ui-01",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-ui-02",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-ui-03",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-link-01",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-link-02",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-link-03",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-seq-01",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-seq-02",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-seq-03",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-seq-04",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    },
+    {
+      "error" : "TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil)",
+      "id" : "zh-Hans-seq-05",
+      "ms" : 8.361196827586207,
+      "slots" : null
+    }
+  ],
+  "coldMs" : 242.474708,
+  "engine" : "apple-mt-plain-lowlatency",
+  "env" : {
+    "keepAliveSec" : null,
+    "notes" : "headless TranslationSession(installedSource:target:) used, no SwiftUI/translationTask; strategy=lowlatency. plain: x-split run translation (PLAN 4.4).",
+    "os" : "Version 27.2 (Build 26B5101f)"
+  },
+  "error" : "needs_language_pack:zh-Hans",
+  "lang" : "zh-Hans",
+  "model" : "apple-translation",
+  "run" : 1,
+  "totalMs" : 242.552417
+}

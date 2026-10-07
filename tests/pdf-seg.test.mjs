@@ -11,7 +11,11 @@ const sandbox = { console };
 sandbox.globalThis = sandbox;
 vm.createContext(sandbox);
 vm.runInContext(fs.readFileSync(file, 'utf8'), sandbox, { filename: 'pdfseg.js' });
-const seg = sandbox.KT.pdfseg;
+// vm 컨텍스트 객체의 프로토타입이 달라 deepEqual이 실패하므로 결과를 JSON으로 복제.
+const raw = sandbox.KT.pdfseg;
+const plain = (v) => JSON.parse(JSON.stringify(v));
+const seg = {};
+for (const k of ['segmentPage', 'segmentDocument']) seg[k] = (...a) => plain(raw[k](...a));
 
 const W = 612;
 const H = 792;
@@ -51,7 +55,7 @@ test('hyphenation joined when next line starts lowercase', () => {
 
 test('hyphen kept (no space) when next starts uppercase; soft hyphen removed', () => {
   assert.equal(seg.segmentPage(page(lines(72, 100, ['Anglo-', 'Saxon era'])))[0].text, 'Anglo-Saxon era');
-  assert.equal(seg.segmentPage(page(lines(72, 100, ['inter­', 'national')))) [0].text, 'international');
+  assert.equal(seg.segmentPage(page(lines(72, 100, ['inter­', 'national'])))[0].text, 'international');
 });
 
 test('CJK lines joined without space', () => {
@@ -99,7 +103,7 @@ test('repeated rule: header with digits, margin only; body repeats kept', () => 
 test('link overlap becomes x item and order is preserved', () => {
   const items = [it('See ', 72, 100, { width: 20 }), it('example.org', 92, 100, { width: 55 }), it(' for details here.', 147, 100, { width: 90 })];
   // link rect in PDF space: [x1,y1,x2,y2]
-  const r = seg.segmentPage(page(items, { links: [[90, H - 104, 150, H - 98]] }));
+  const r = seg.segmentPage(page(items, { links: [[90, H - 102, 150, H - 90]] }));
   assert.deepEqual(r[0].items.map((x) => x.k), ['t', 'x', 't']);
   assert.equal(r[0].items[1].text, 'example.org');
   assert.equal(r[0].items[0].text, 'See ');
@@ -110,7 +114,7 @@ test('link overlap becomes x item and order is preserved', () => {
 test('link covering part of one item splits it', () => {
   const str = 'Visit the docs site now';
   const items = [it(str, 72, 100, { width: 230 })]; // 10 per char
-  const r = seg.segmentPage(page(items, { links: [[72 + 100, H - 104, 72 + 140, H - 98]] })); // chars 10..14 'docs'
+  const r = seg.segmentPage(page(items, { links: [[72 + 100, H - 102, 72 + 140, H - 90]] })); // chars 10..14 'docs'
   assert.deepEqual(r[0].items.map((x) => x.k), ['t', 'x', 't']);
   assert.equal(r[0].items[1].text, 'docs');
 });
@@ -131,7 +135,7 @@ test('nonlinguistic paragraph is only x', () => {
 test('vertical writing -> unsupported', () => {
   const items = [it('縦書き', 300, 100), it('テスト', 330, 100)];
   const r = seg.segmentPage(page(items, { fonts: { f1: { vertical: true } } }));
-  assert.deepEqual(JSON.parse(JSON.stringify(r)), { unsupported: 'vertical' });
+  assert.deepEqual(r, { unsupported: 'vertical' });
   assert.equal(seg.segmentDocument([page(items, { fonts: { f1: { vertical: true } } })]).unsupported, 'vertical');
 });
 
@@ -152,4 +156,28 @@ test('superscript stays on the same line', () => {
   const r = seg.segmentPage(page(items));
   assert.equal(r.length, 1);
   assert.match(r[0].text, /mc2 in physics\./);
+});
+
+test('makeBlocks splits >2000 chars and mergeResult keeps missing slots as original', () => {
+  const long = ('Sentence number one is here. ').repeat(150); // ~4350 chars
+  const para = { id: 'p1-0', text: long, items: [{ k: 't', i: 0, text: long }] };
+  const blocks = plain(raw.makeBlocks(para, 'en'));
+  assert.ok(blocks.length >= 3);
+  assert.ok(blocks.every((b) => b.items.reduce((s, i) => s + i.text.length, 0) <= 2000));
+  assert.equal(blocks.map((b) => b.items.map((i) => i.text).join('')).join(''), long);
+  const results = new Map(blocks.map((b, n) => [b.id, { id: b.id, slots: n === 0 ? { 0: 'T' } : {} }]));
+  const m = raw.mergeResult(para, blocks, results);
+  assert.equal(m.text.startsWith('T'), true);
+  assert.equal(m.hit, 1);
+  assert.equal(m.text.length, 1 + long.length - blocks[0].items[0].text.length);
+});
+
+test('makeBlocks keeps x items in order with local slot indexes', () => {
+  const para = { id: 'p2-1', text: '', items: [{ k: 't', i: 0, text: 'See ' }, { k: 'x', text: 'a.org' }, { k: 't', i: 1, text: ' now' }] };
+  const blocks = plain(raw.makeBlocks(para, 'ja'));
+  assert.equal(blocks.length, 1);
+  assert.equal(blocks[0].id, 'p2-1');
+  assert.deepEqual(blocks[0].items, [{ k: 't', i: 0, text: 'See ' }, { k: 'x', text: 'a.org' }, { k: 't', i: 1, text: ' now' }]);
+  const m = raw.mergeResult(para, blocks, new Map([['p2-1', { slots: { 0: '보라 ', 1: ' 지금' } }]]));
+  assert.equal(m.text, '보라 a.org 지금');
 });

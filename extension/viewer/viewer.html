@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF 번역 뷰어</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <header id="bar" data-kt-ui>
+    <h1 id="title">PDF</h1>
+    <span id="lang" class="chip"></span>
+    <span id="status" class="chip" role="status">준비 중…</span>
+    <span class="spacer"></span>
+    <button id="toggle" type="button">번역만 보기</button>
+    <a id="original" href="#" target="_blank" rel="noopener noreferrer">원본 PDF 열기</a>
+  </header>
+  <div id="message" hidden></div>
+  <main id="pages"></main>
+  <script src="../lib/lang.js"></script>
+  <script src="pdfseg.js"></script>
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>
