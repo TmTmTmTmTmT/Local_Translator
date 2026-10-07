@@ -5,9 +5,10 @@
 Xcode 27의 새 프로젝트 형식(`project.xcproj`)이므로 Xcode 27 이상에서 연다. 배포 대상 macOS 26.4, Swift 6.
 
 ## 구성
-- `Local Translator Extension/` — Swift 핸들러. `Protocol.swift`(Codable, PROTOCOL §4), `EngineMT.swift`(apple-mt: attr/plain), `EngineFM.swift`(apple-fm, 온디바이스 전용), `SafariWebExtensionHandler.swift`(디스패치).
+- `Local Translator Extension/` — Swift 핸들러. `Protocol.swift`(Codable, PROTOCOL §4), `EngineMT.swift`(apple-mt: marker/attr/plain), `EngineFM.swift`(apple-fm, 온디바이스 전용), `SafariWebExtensionHandler.swift`(디스패치).
 - `Local Translator/` — SwiftUI 컨테이너 앱 (확장 켜기 버튼, 언어팩 설치 `translationTask`+`prepareTranslation()`, Apple Intelligence 상태).
-- 메시지 필드 `variant: "attr"|"plain"` (apple-mt, 기본 `attr`).
+- 메시지 필드 `variant: "marker"|"attr"|"plain"` (apple-mt, 기본 `marker`).
+- 하드닝(타임아웃 MT 45s/FM 90s, 엔진별 서킷브레이커, 30초 가용성 캐시, 세션 8개·60초 유휴 해제, 깨진 메시지 → `bad_response`)은 `extension/PROTOCOL.md` §4.
 - 확장 프로세스는 언어팩을 다운로드하지 않는다. 미설치면 `{ok:false,error:{code:"needs_language_pack",lang}}`.
 
 ## 빌드

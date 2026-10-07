@@ -14,6 +14,8 @@
     maxBatchBlocks: 40,
     cacheSize: 2000,
     rootMargin: '0px 0px 150% 0px',
+    fixParticles: true, // 조사 병기 확정(apply.js)
+    translateAttrs: false, // title/alt/aria-label/placeholder 번역
   };
 
   let S = null; // 실행 상태(없으면 정지)
@@ -94,18 +96,19 @@
     const send = opt.send || defaultSend;
     const raf = opt.raf || ((f) => (win.requestAnimationFrame ? win.requestAnimationFrame(f) : win.setTimeout(f, 16)));
     const idle = opt.idle || ((f) => (win.requestIdleCallback ? win.requestIdleCallback(f, { timeout: 200 }) : win.setTimeout(f, 0)));
-    const applier = KT.createApplier();
+    const applier = KT.createApplier({ fixParticles: opt.fixParticles !== false });
     const cache = new LRU(opt.cacheSize);
     const handled = new WeakSet(); // 이미 블록에 등록된 텍스트 노드
     const slotOf = new WeakMap(); // node -> slot (등록 시점 원문)
     const byEl = new Map(); // IntersectionObserver 대기 중 el -> recs
     const live = new Set(); // observed/queued/inflight 레코드
     const shadowSeen = new WeakSet();
+    const attrSeen = new WeakMap(); // el -> 이미 등록한 속성명 Set
     const st = {
       applier, cache, queue: [], applyQueue: [], inflight: 0, flushTimer: null, mutTimer: null, tickPending: false,
       rafPending: false, reportTimer: null, seq: 0, done: 0, error: 0, lastReport: '', lastUrl: win.location ? win.location.href : '',
       work: [], chars: new Set(), workSet: new Set(), needPrune: false, shadowTodo: [],
-      metrics: { requests: 0, cacheHits: 0, ticks: 0, maxUnitsPerTick: 0 }, stopped: false,
+      metrics: { requests: 0, cacheHits: 0, ticks: 0, maxUnitsPerTick: 0, ownWrites: 0, coalesced: 0, deduped: 0 }, stopped: false,
     };
     S = st;
 
@@ -124,6 +127,12 @@
         onShadowRoot: observeShadow,
       });
       register(recs);
+      if (opt.translateAttrs) {
+        register(KT.segmenter.collectAttrs(root, {
+          excludeSelector: opt.excludeSelector,
+          isHandledAttr: (el, n) => { const a = attrSeen.get(el); return !!a && a.has(n); },
+        }));
+      }
       while (st.shadowTodo.length) {
         const sr = st.shadowTodo.pop();
         if (st.mo) st.mo.observe(sr, { childList: true, subtree: true, characterData: true });
@@ -135,7 +144,13 @@
         rec.seq = ++st.seq;
         rec.state = 'observed';
         live.add(rec);
-        for (const s of rec.slots) { handled.add(s.node); slotOf.set(s.node, s); }
+        for (const s of rec.slots) {
+          if (s.attr) {
+            let a = attrSeen.get(s.node);
+            if (!a) { a = new Set(); attrSeen.set(s.node, a); }
+            a.add(s.attr);
+          } else { handled.add(s.node); slotOf.set(s.node, s); }
+        }
         if (st.io) {
           let arr = byEl.get(rec.el);
           if (!arr) { arr = []; byEl.set(rec.el, arr); }
@@ -251,9 +266,16 @@
       if (st.stopped) return;
       for (const m of list) {
         if (m.type === 'childList') {
-          for (const n of m.addedNodes) if (!st.workSet.has(n)) { st.workSet.add(n); st.work.push(n); }
+          for (const n of m.addedNodes) {
+            if (st.workSet.has(n)) st.metrics.coalesced++; else { st.workSet.add(n); st.work.push(n); }
+          }
           if (m.removedNodes.length) st.needPrune = true;
-        } else if (m.type === 'characterData') st.chars.add(m.target);
+        } else if (m.type === 'characterData') {
+          // 루프 가드: 우리가 쓴 값이면 즉시 무시. 같은 타깃의 반복 변경은 최종 상태 한 번만 처리.
+          if (applier.isOwnWrite(m.target)) st.metrics.ownWrites++;
+          else if (st.chars.has(m.target)) st.metrics.coalesced++;
+          else st.chars.add(m.target);
+        }
       }
       if (!st.mutTimer && !st.tickPending) st.mutTimer = win.setTimeout(() => { st.mutTimer = null; runTick(); }, opt.mutationDebounceMs);
     }
@@ -294,6 +316,11 @@
         }
       }
     }
+    // 조상이 아직 대기 중이면 그 스캔이 이 노드를 포함하므로 따로 처리하지 않는다.
+    function queuedAncestor(n) {
+      for (let p = n.parentNode; p; p = p.parentNode) if (st.workSet.has(p)) return true;
+      return false;
+    }
     function processWork() {
       checkUrl();
       let budget = opt.tickLimit;
@@ -304,6 +331,7 @@
         st.chars = new Set();
         for (let i = 0; i < arr.length; i++) {
           if (budget <= 0) { for (let j = i; j < arr.length; j++) st.chars.add(arr[j]); break; }
+          if (!handled.has(arr[i]) && queuedAncestor(arr[i])) { st.metrics.deduped++; continue; }
           budget--; units++;
           handleChar(arr[i]);
         }
@@ -312,6 +340,7 @@
         const n = st.work.shift();
         st.workSet.delete(n);
         if (!n.isConnected) continue;
+        if (queuedAncestor(n)) { st.metrics.deduped++; continue; }
         budget--; units++;
         // 큰 서브트리는 자식 단위로 쪼개 다음 틱들에 분배
         if (n.nodeType === 1 && n.childNodes.length > opt.tickLimit) {

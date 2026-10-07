@@ -126,3 +126,84 @@ actor AsyncGate {
         if waiters.isEmpty { busy = false } else { waiters.removeFirst().resume() }
     }
 }
+
+// MARK: hardening helpers (timeout, circuit breaker, availability cache)
+
+/// Resumes exactly once, from whichever of the racing tasks finishes first.
+private final class Once<T: Sendable>: @unchecked Sendable {
+    private let lock = NSLock()
+    private var cont: CheckedContinuation<T, Error>?
+    init(_ c: CheckedContinuation<T, Error>) { cont = c }
+    func finish(_ r: Result<T, Error>) {
+        lock.lock(); let c = cont; cont = nil; lock.unlock()
+        c?.resume(with: r)
+    }
+}
+
+/// Runs `op`, failing with code `timeout` after `seconds`. Does not wait for `op` to honor cancellation
+/// (framework calls may ignore it), so the caller is never stuck behind a hung session.
+func withDeadline<T: Sendable>(seconds: Double, _ op: @escaping @Sendable () async throws -> T) async throws -> T {
+    try await withCheckedThrowingContinuation { (c: CheckedContinuation<T, Error>) in
+        let once = Once<T>(c)
+        let work = Task {
+            do { once.finish(.success(try await op())) } catch { once.finish(.failure(error)) }
+        }
+        Task {
+            try? await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
+            work.cancel()
+            once.finish(.failure(EngineError(code: "timeout", message: "timed out after \(Int(seconds))s")))
+        }
+    }
+}
+
+/// N consecutive failures within `window` open the breaker for `cooldown`; while open the framework is not invoked.
+actor CircuitBreaker {
+    let threshold: Int, window: Duration, cooldown: Duration
+    private var failures: [ContinuousClock.Instant] = []
+    private var openUntil: ContinuousClock.Instant?
+
+    init(threshold: Int = 3, window: Duration = .seconds(60), cooldown: Duration = .seconds(30)) {
+        self.threshold = threshold; self.window = window; self.cooldown = cooldown
+    }
+
+    func isOpen(now: ContinuousClock.Instant = .now) -> Bool {
+        if let u = openUntil {
+            if now < u { return true }
+            openUntil = nil; failures.removeAll()
+        }
+        return false
+    }
+
+    func recordSuccess() { failures.removeAll(); openUntil = nil }
+
+    func recordFailure(now: ContinuousClock.Instant = .now) {
+        failures.append(now)
+        failures.removeAll { $0 + window < now }
+        if failures.count >= threshold { openUntil = now + cooldown; failures.removeAll() }
+    }
+
+    /// Codes that indicate a broken framework rather than a user-state answer (missing pack, unsupported language).
+    static func counts(_ code: String) -> Bool {
+        ["timeout", "engine_unavailable", "unknown", "bad_response"].contains(code)
+    }
+}
+
+/// Per-key TTL cache of language-pack status; the whole cache is dropped on any engine error.
+actor TTLCache<V: Sendable> {
+    let ttl: Duration
+    private var map: [String: (V, ContinuousClock.Instant)] = [:]
+    init(ttl: Duration = .seconds(30)) { self.ttl = ttl }
+    func get(_ k: String, now: ContinuousClock.Instant = .now) -> V? {
+        guard let (v, t) = map[k], t + ttl > now else { map[k] = nil; return nil }
+        return v
+    }
+    func set(_ k: String, _ v: V, now: ContinuousClock.Instant = .now) { map[k] = (v, now) }
+    func invalidate() { map.removeAll() }
+}
+
+enum Limits {
+    static let mtTimeout = 45.0
+    static let fmTimeout = 90.0
+    static let maxSessions = 8
+    static let idleSeconds = 60
+}

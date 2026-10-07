@@ -14,15 +14,15 @@
 
   // Swift 에러 {code, message} -> JS 에러. "needs_language_pack:ja" 형태의 접미 언어는 lang 필드로 분리.
   function mapNativeError(err) {
-    const raw = err && typeof err === 'object' ? err : { message: String(err || '') };
+    const raw = err && typeof err === 'object' ? err : { message: typeof err === 'string' ? err : '' };
     let code = String(raw.code || 'unknown');
-    let lang;
+    let lang = typeof raw.lang === 'string' && raw.lang ? raw.lang : undefined;
     const m = code.match(/^([a-z_]+):(.+)$/);
-    if (m) { code = m[1]; lang = m[2]; }
+    if (m) { code = m[1]; lang = lang || m[2]; }
     code = CODE_ALIASES[code] || code;
     if (!KNOWN_CODES.has(code)) code = 'unknown';
     const extra = lang ? { lang } : {};
-    return E().makeError(code, raw.message || code, extra);
+    return E().makeError(code, (typeof raw.message === 'string' && raw.message) || code, extra);
   }
 
   function baseLang(lang) { return String(lang || '').split('-')[0]; }
@@ -52,7 +52,7 @@
         if (!langs.includes(baseLang(lang))) throw E().makeError('unsupported_lang', `unsupported lang: ${lang}`);
         const res = await call({ type: 'translate', engine: name, lang, context: context || {}, blocks });
         if (!res || typeof res !== 'object') throw E().makeError('bad_response', 'empty native response');
-        if (res.ok === false || res.error) throw mapNativeError(res.error);
+        if (res.ok === false || res.error) throw mapNativeError(res.error || { code: 'unknown', message: 'native error' });
         if (!Array.isArray(res.results)) throw E().makeError('bad_response', 'missing results');
         const out = new Map();
         for (const r of res.results) {
@@ -77,7 +77,7 @@
         if (!isFm && lang && res.languagePacks) {
           const st = res.languagePacks[baseLang(lang)];
           if (st === 'unsupported') return { available: false, reason: 'unsupported_lang' };
-          if (st === 'supported') return { available: false, reason: 'needs_language_pack' };
+          if (st === 'supported') return { available: false, reason: 'needs_language_pack', lang: baseLang(lang) };
         }
         return { available: true };
       },

@@ -77,6 +77,39 @@
     return out;
   }
 
-  KT.segmenter = { collectBlocks, MAX_BLOCK_CHARS };
+  // 옵션 translateAttrs용: 요소별 속성 1개 = 슬롯 1개짜리 블록. 슬롯의 node는 요소, attr은 속성명.
+  const ATTRS = ['title', 'alt', 'aria-label', 'placeholder'];
+  const ATTR_SEL = '[title],[alt],[aria-label],[placeholder]';
+  // opts: excludeSelector, isHandledAttr(el, name), langs(Set)
+  function collectAttrs(root, opts) {
+    opts = opts || {};
+    const T = KT.text, F = KT.filter;
+    const langs = opts.langs || SUPPORTED;
+    const out = [];
+    if (!root || (root.nodeType !== 1 && root.nodeType !== 11 && root.nodeType !== 9)) return out;
+    const els = Array.from(root.querySelectorAll(ATTR_SEL));
+    if (root.nodeType === 1 && root.matches(ATTR_SEL)) els.unshift(root);
+    for (const el of els) {
+      if (F.exclusionReason(el, opts) !== null) continue;
+      for (const name of ATTRS) {
+        const raw = el.getAttribute(name);
+        const txt = raw == null ? '' : T.cleanText(raw);
+        if (!txt || T.isNonlinguistic(txt) || T.hangulRatio(txt) >= 0.5 || txt.length > MAX_BLOCK_CHARS) continue;
+        if (opts.isHandledAttr && opts.isHandledAttr(el, name)) continue;
+        const lang = T.detectLang(txt);
+        if (!lang || !langs.has(lang)) continue;
+        const rec = newRec(el);
+        rec.attr = true;
+        rec.lang = rec.block.lang = lang;
+        rec.chars = txt.length;
+        rec.block.items.push({ k: 't', i: 0, text: txt });
+        rec.slots.push({ node: el, attr: name, original: raw });
+        out.push(rec);
+      }
+    }
+    return out;
+  }
+
+  KT.segmenter = { collectBlocks, collectAttrs, MAX_BLOCK_CHARS };
   KT.collectBlocks = collectBlocks;
 })();

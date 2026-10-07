@@ -1,15 +1,21 @@
 // 번역 적용: 텍스트 노드 nodeValue 교체 + 블록 lang/data-kt 속성만 변경(PLAN §4.4). 요소 생성·이동·삭제 없음.
+// 옵션 translateAttrs 사용 시에 한해 같은 요소의 title/alt 등 속성 값도 setAttribute로 교체(원문 기록, 토글 복원).
 (function () {
   'use strict';
 
   const KT = (globalThis.KT = globalThis.KT || {});
   const MAX_REAPPLY = 3;
 
-  function createApplier() {
-    const recs = new Map(); // node -> {node, original, translated, el, reapply, gaveUp}
+  // 슬롯 값 읽기/쓰기: 텍스트 노드(nodeValue) 또는 속성 슬롯({attr}).
+  function rd(r) { return r.attr ? r.node.getAttribute(r.attr) : r.node.nodeValue; }
+  function wr(r, v) { if (r.attr) r.node.setAttribute(r.attr, v); else r.node.nodeValue = v; }
+
+  function createApplier(aopts) {
+    const fixP = !(aopts && aopts.fixParticles === false);
+    const recs = new Map(); // node(텍스트) 또는 slot(속성) -> {node, attr, original, translated, el, reapply, gaveUp}
     const langBackup = new WeakMap(); // el -> 원래 lang 속성(null = 없음)
     let mode = 'translation';
-    const stats = { applied: 0, errors: 0, skipped: 0, reapplied: 0, gaveUp: 0 };
+    const stats = { particlesFixed: 0, applied: 0, errors: 0, skipped: 0, reapplied: 0, gaveUp: 0 };
 
     function setLang(el, on) {
       if (!el || !el.setAttribute) return;
@@ -31,8 +37,24 @@
       return typeof v === 'string' ? v : undefined;
     }
 
-    function markPending(blockRec) { setState(blockRec.el, 'pending'); }
-    function markError(blockRec) { stats.errors++; setState(blockRec.el, 'error'); }
+    function markPending(blockRec) { if (!blockRec.attr) setState(blockRec.el, 'pending'); }
+    function markError(blockRec) { stats.errors++; if (!blockRec.attr) setState(blockRec.el, 'error'); }
+
+    // 슬롯 i 바로 앞 항목이 x(링크·코드)이고 번역문이 병기 조사로 시작하면 x 마지막 글자로 확정. 슬롯 내부 병기도 정리.
+    function fixSlot(blockRec, i, v) {
+      const J = KT.lib && KT.lib.josa;
+      if (!fixP || !J || blockRec.attr) return v;
+      const items = blockRec.block.items;
+      let prev = null;
+      for (let k = 0; k < items.length; k++) {
+        if (items[k].k === 't' && items[k].i === i) { prev = k > 0 ? items[k - 1] : null; break; }
+      }
+      let out = v.trimStart();
+      if (prev && prev.k === 'x') out = J.fixLeadingParticle(prev.text, out);
+      out = J.fixPairedParticles(out);
+      if (out !== v.trimStart()) { stats.particlesFixed++; return out; }
+      return v;
+    }
 
     // 반환 {status:'done'|'error'|'skipped', applied, skipped, missing}
     function apply(blockRec, slotMap) {
@@ -48,18 +70,21 @@
       for (let i = 0; i < total; i++) {
         const v = slotValue(slotMap, i);
         if (v === undefined) continue;
-        const { node, original } = slots[i];
+        const slot = slots[i];
+        const { node, original } = slot;
+        const rec = { node, attr: slot.attr || null, original, translated: '', el: blockRec.el, reapply: 0, gaveUp: false };
         // 페이지가 그 사이 바꿨거나 제거한 노드는 건드리지 않음
-        if (!node.isConnected || node.nodeValue !== original) { skipped++; stats.skipped++; continue; }
-        const translated = KT.text.withOuterWhitespace(original, v);
-        const rec = { node, original, translated, el: blockRec.el, reapply: 0, gaveUp: false };
-        recs.set(node, rec);
-        if (mode === 'translation') node.nodeValue = translated;
+        if (!node.isConnected || rd(rec) !== original) { skipped++; stats.skipped++; continue; }
+        rec.translated = KT.text.withOuterWhitespace(original, fixSlot(blockRec, i, v));
+        recs.set(rec.attr ? slot : node, rec);
+        if (mode === 'translation') wr(rec, rec.translated);
         applied++; stats.applied++;
       }
       if (applied > 0) {
-        if (mode === 'translation') setLang(blockRec.el, true);
-        setState(blockRec.el, 'done');
+        if (!blockRec.attr) {
+          if (mode === 'translation') setLang(blockRec.el, true);
+          setState(blockRec.el, 'done');
+        }
         return { status: 'done', applied, skipped, missing };
       }
       return { status: 'skipped', applied, skipped, missing };
@@ -69,8 +94,8 @@
       mode = 'original';
       const els = new Set();
       for (const r of recs.values()) {
-        if (r.node.isConnected && r.node.nodeValue === r.translated) r.node.nodeValue = r.original;
-        els.add(r.el);
+        if (r.node.isConnected && rd(r) === r.translated) wr(r, r.original);
+        if (!r.attr) els.add(r.el);
       }
       for (const el of els) setLang(el, false);
     }
@@ -78,8 +103,8 @@
       mode = 'translation';
       const els = new Set();
       for (const r of recs.values()) {
-        if (r.node.isConnected && r.node.nodeValue === r.original) r.node.nodeValue = r.translated;
-        els.add(r.el);
+        if (r.node.isConnected && rd(r) === r.original) wr(r, r.translated);
+        if (!r.attr) els.add(r.el);
       }
       for (const el of els) setLang(el, true);
     }
@@ -106,15 +131,20 @@
       const r = recs.get(node);
       return !!r && (node.nodeValue === r.translated || node.nodeValue === r.original);
     }
+    // 현재 모드에서 우리가 방금 쓴 값인가(MutationObserver 루프 가드).
+    function isOwnWrite(node) {
+      const r = recs.get(node);
+      return !!r && node.nodeValue === (mode === 'translation' ? r.translated : r.original);
+    }
     function forget(node) { return recs.delete(node); }
     function prune() {
       let n = 0;
-      for (const [node] of recs) if (!node.isConnected) { recs.delete(node); n++; }
+      for (const [key, r] of recs) if (!r.node.isConnected) { recs.delete(key); n++; }
       return n;
     }
 
     return {
-      apply, showOriginal, showTranslation, reapply, isOwnValue, forget, prune, markPending, markError, get,
+      apply, showOriginal, showTranslation, reapply, isOwnValue, isOwnWrite, forget, prune, markPending, markError, get,
       has: (node) => recs.has(node),
       get mode() { return mode; },
       get records() { return Array.from(recs.values()); },

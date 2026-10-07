@@ -6,6 +6,8 @@
     'input', 'textarea', 'select', 'option', 'optgroup']);
   // 링크·코드: 번역하지 않지만 문맥(x 항목)으로는 전달.
   const KEEP_TAGS = new Set(['a', 'pre', 'code', 'kbd', 'samp', 'var', 'tt']);
+  // 태그 외 규칙: role=code(ARIA)는 코드와 같이 취급.
+  const KEEP_SELECTOR = '[role="code"]';
   const BASE_SELECTOR = '[translate="no"],.notranslate,[contenteditable="true"],[contenteditable=""],[data-kt-ui]';
 
   const BLOCK_TAGS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'td', 'th', 'dd', 'dt', 'blockquote', 'figcaption',
@@ -42,7 +44,7 @@
       try { matched = el.matches(BASE_SELECTOR); } catch (_2) { matched = false; } // 사용자 셀렉터 오류는 무시
     }
     if (matched) return 'skip';
-    if (KEEP_TAGS.has(tag)) return 'keep';
+    if (KEEP_TAGS.has(tag) || el.matches(KEEP_SELECTOR)) return 'keep';
     return null;
   }
 

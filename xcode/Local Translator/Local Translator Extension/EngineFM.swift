@@ -60,7 +60,7 @@ actor FMEngine {
     static let maxChars = 1500
     static let maxCharsCJK = 600
     static let maxBlocks = 8
-    static let idleSeconds: UInt64 = 60
+    static let idleSeconds = Limits.idleSeconds
 
     private var sessions: [String: LanguageModelSession] = [:]   // per source lang
     private let gate = AsyncGate()

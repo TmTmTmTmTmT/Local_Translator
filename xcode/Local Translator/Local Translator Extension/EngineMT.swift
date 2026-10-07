@@ -20,9 +20,22 @@ final class SessionBox: @unchecked Sendable {
 
 actor MTEngine {
     static let shared = MTEngine()
-    private var sessions: [String: SessionBox] = [:]   // per source lang (target fixed ko)
+    private struct Entry { var box: SessionBox; var lastUse: ContinuousClock.Instant }
+    private var sessions: [String: Entry] = [:]   // per source lang (target fixed ko), bounded by Limits.maxSessions
+    private var idleTask: Task<Void, Never>?
+    private static let availability = TTLCache<String>(ttl: .seconds(30))
 
-    static func packStatus(_ lang: String) async -> String {
+    static func invalidateAvailability() async { await availability.invalidate() }
+
+    /// Cached for 30s unless `fresh`; `fresh` still refreshes the cache entry.
+    static func packStatus(_ lang: String, fresh: Bool = false) async -> String {
+        if !fresh, let c = await availability.get(lang) { return c }
+        let v = await queryPackStatus(lang)
+        await availability.set(lang, v)
+        return v
+    }
+
+    private static func queryPackStatus(_ lang: String) async -> String {
         let st = await LanguageAvailability().status(from: Locale.Language(identifier: lang),
                                                      to: Locale.Language(identifier: "ko"))
         switch st {
@@ -34,14 +47,44 @@ actor MTEngine {
     }
 
     private func session(for lang: String) -> SessionBox {
-        if let s = sessions[lang] { return s }
+        let now = ContinuousClock.now
+        if var e = sessions[lang] { e.lastUse = now; sessions[lang] = e; return e.box }
+        if sessions.count >= Limits.maxSessions, let oldest = sessions.min(by: { $0.value.lastUse < $1.value.lastUse })?.key {
+            sessions[oldest] = nil
+        }
         let s = SessionBox(TranslationSession(installedSource: Locale.Language(identifier: lang),
                                               target: Locale.Language(identifier: "ko")))
-        sessions[lang] = s
+        sessions[lang] = Entry(box: s, lastUse: now)
+        startIdleReaper()
         return s
     }
 
+    private func startIdleReaper() {
+        guard idleTask == nil else { return }
+        idleTask = Task { [weak self] in await self?.reapLoop() }
+    }
+
+    private func reapLoop() async {
+        while !Task.isCancelled {
+            try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+            let now = ContinuousClock.now
+            sessions = sessions.filter { $0.value.lastUse.duration(to: now) < .seconds(Limits.idleSeconds) }
+            if sessions.isEmpty { idleTask = nil; return }
+        }
+    }
+
+    func releaseAllSessions() { sessions.removeAll() }
+
     func translate(blocks: [ProtoBlock], requestLang: String?, variant: MTVariant) async throws -> [ProtoResult] {
+        do {
+            return try await translateInner(blocks: blocks, requestLang: requestLang, variant: variant)
+        } catch {
+            await Self.invalidateAvailability()
+            throw error
+        }
+    }
+
+    private func translateInner(blocks: [ProtoBlock], requestLang: String?, variant: MTVariant) async throws -> [ProtoResult] {
         // Group by effective source language, keeping document order within each group.
         var byLang: [String: [ProtoBlock]] = [:]
         var order: [String] = []
