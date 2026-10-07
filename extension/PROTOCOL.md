@@ -17,7 +17,7 @@
 | type | 방향 | 요청 | 응답 |
 |---|---|---|---|
 | `translate` | content/viewer → background | `{blocks:[Block], context:{title,host}, lang}` | `{ok:true, results:[{id, slots:{"0":"…"}}], engine}` 또는 `{ok:false, code, message}` |
-| `getState` | popup/content → background | `{url?}` | `{siteEnabled, host, engine, status, pending, errorCode?}` |
+| `getState` | popup/content → background | `{url?, tabId?}` (popup은 tabId 권장) | `{siteEnabled, host, engine, status, pending, errorCode?}` |
 | `setSiteEnabled` | popup → background | `{host, enabled}` | `{ok:true}` |
 | `toggleOriginal` | popup → content(tabs.sendMessage) | `{}` | `{mode:"translated"|"original"}` |
 | `reportStatus` | content → background | `{pending, done, error}` | — |
@@ -48,3 +48,8 @@
 
 ## 6. 캐시 키
 `hash(engineId + "|" + model + "|" + JSON(block.items))`. 값 = slotMap.
+
+## 7. 구현 중 확정된 해석 (T4/T6 보고)
+- native `status` 응답: `engines: {"apple-mt": true|{available,reason}, ...}`, `languagePacks: {en: "installed"|"supported"|"unsupported"}` — `supported`(= 지원되나 미설치)면 `needs_language_pack`. native 에러 코드는 `error:{code:"needs_language_pack", lang:"ja"}` 형식 권장(접미형 `needs_language_pack:ja`도 허용).
+- `getState.status`: `ready|translating|error`. 배지 `!`: `engine_unavailable`, `needs_language_pack`.
+- Apple FM 컨텍스트 4096토큰 → 배치 ≤1500자, 오버플로 시 새 세션으로 재시도.
