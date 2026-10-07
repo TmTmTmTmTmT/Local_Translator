@@ -14,12 +14,12 @@ function env(html, opts, withJosa = true) {
 const mapper = (m) => (msg) => fakeTranslateResponse(msg, (t) => (t in m ? m[t] : 'KO:' + t));
 
 test('particles: x item last Hangul char decides single form; Latin end keeps pair', async () => {
-  const e = env('<body><p id=a>Click <a href="#">문서</a> to go</p><p id=b>Click <a href="#">API</a> to go</p></body>', {
+  const e = env('<body><p id=a>Click <a href="#">책</a> to go</p><p id=b>Click <a href="#">API</a> to go</p></body>', {
     respond: mapper({ Click: '클릭: ', 'to go': '을(를) 보세요' }),
   });
   e.start(); await e.idle();
-  assert.equal(e.q('#a').lastChild.nodeValue, '을 보세요');
-  assert.equal(e.q('#b').lastChild.nodeValue, '을(를) 보세요');
+  assert.equal(e.q('#a').lastChild.nodeValue, '을 보세요'); // 조사는 x에 붙여 씀(원문 앞 공백 제거)
+  assert.equal(e.q('#b').lastChild.nodeValue, ' 을(를) 보세요');
   e.close();
 });
 
@@ -27,9 +27,9 @@ test('particles: option fixParticles=false and missing josa lib leave pair as is
   const html = '<body><p>Click <a href="#">문서</a> to go</p></body>';
   const r = mapper({ Click: '클릭: ', 'to go': '을(를) 보세요' });
   let e = env(html, { respond: r }); e.start({ fixParticles: false }); await e.idle();
-  assert.equal(e.q('p').lastChild.nodeValue, '을(를) 보세요'); e.close();
+  assert.equal(e.q('p').lastChild.nodeValue, ' 을(를) 보세요'); e.close();
   e = env(html, { respond: r }, false); e.start(); await e.idle();
-  assert.equal(e.q('p').lastChild.nodeValue, '을(를) 보세요'); e.close();
+  assert.equal(e.q('p').lastChild.nodeValue, ' 을(를) 보세요'); e.close();
 });
 
 test('particles: inside a slot, pair after Hangul resolved; toggle round trip restores original', async () => {

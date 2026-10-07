@@ -13,7 +13,7 @@
     GET_SITE_CONFIG: 'getSiteConfig',
   };
   const SCRIPT_ID = 'kt-main';
-  const CONTENT_JS = ['content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
+  const CONTENT_JS = ['lib/lang.js', 'lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
   const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown']);
   // 사용자 조치가 필요한 에러만 배지 '!'.
   const BADGE_CODES = new Set(['engine_unavailable', 'needs_language_pack']);

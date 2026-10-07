@@ -70,6 +70,13 @@
 - 적용 진행: (1) Apple 세션 하드닝(가용성 캐시·타임아웃·서킷브레이커·유휴 해제) (2) DOM 병합 변이·속성 번역 옵션 (3) 한국어 조사 후처리 lib/josa.js. 보류: PDF 구획 규칙 개선(4), Bergamot 벤치(5)
 - background.js content 스크립트 목록에 lib/josa.js 추가 필요(작업 완료 후 반영)
 
+## 오픈소스 적용 완료 (2026-10-07)
+- Apple 세션 하드닝(가용성 30초 캐시·타임아웃 45/90초·서킷브레이커·세션 8개 상한·유휴 해제·비정상 메시지 방어), 확장 기본 MT 변형 marker(README 정정)
+- 한국어 조사 후처리 `lib/josa.js`(x 뒤 조사 받침 맞춤), DOM 변이 병합·조상 중복 제거·자기 쓰기 메트릭, 속성 번역 옵션 `translateAttrs`(기본 꺼짐), `[role=code]` 제외
+- background CONTENT_JS에 lib/lang.js, lib/josa.js 추가. bench/prompt.json에 조사 규칙(6) 동기화
+- 테스트 196 통과. 미검증: Safari 실제 동작
+- 알려진 초과: content/*.js 38.9KB(목표 30KB 초과, 기존에도 33KB). 압축 시 문제 없으나 정리 필요 시 main.js 분리
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

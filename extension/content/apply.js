@@ -43,17 +43,19 @@
     // 슬롯 i 바로 앞 항목이 x(링크·코드)이고 번역문이 병기 조사로 시작하면 x 마지막 글자로 확정. 슬롯 내부 병기도 정리.
     function fixSlot(blockRec, i, v) {
       const J = KT.lib && KT.lib.josa;
-      if (!fixP || !J || blockRec.attr) return v;
+      if (!fixP || !J || blockRec.attr) return v; // 문자열이면 변경 없음
       const items = blockRec.block.items;
       let prev = null;
       for (let k = 0; k < items.length; k++) {
         if (items[k].k === 't' && items[k].i === i) { prev = k > 0 ? items[k - 1] : null; break; }
       }
-      let out = v.trimStart();
-      if (prev && prev.k === 'x') out = J.fixLeadingParticle(prev.text, out);
+      const v0 = v.trimStart();
+      let out = v0, lead = false;
+      if (prev && prev.k === 'x') { out = J.fixLeadingParticle(prev.text, v0); lead = out !== v0; }
       out = J.fixPairedParticles(out);
-      if (out !== v.trimStart()) { stats.particlesFixed++; return out; }
-      return v;
+      if (out === v0) return v;
+      stats.particlesFixed++;
+      return { text: out, lead }; // lead: 조사는 x에 붙여 쓰므로 원문 앞 공백을 이식하지 않음
     }
 
     // 반환 {status:'done'|'error'|'skipped', applied, skipped, missing}
@@ -75,7 +77,9 @@
         const rec = { node, attr: slot.attr || null, original, translated: '', el: blockRec.el, reapply: 0, gaveUp: false };
         // 페이지가 그 사이 바꿨거나 제거한 노드는 건드리지 않음
         if (!node.isConnected || rd(rec) !== original) { skipped++; stats.skipped++; continue; }
-        rec.translated = KT.text.withOuterWhitespace(original, fixSlot(blockRec, i, v));
+        const fx = fixSlot(blockRec, i, v);
+        rec.translated = typeof fx === 'string' ? KT.text.withOuterWhitespace(original, fx)
+          : KT.text.withOuterWhitespace(fx.lead ? original.replace(/^\s+/, '') : original, fx.text);
         recs.set(rec.attr ? slot : node, rec);
         if (mode === 'translation') wr(rec, rec.translated);
         applied++; stats.applied++;

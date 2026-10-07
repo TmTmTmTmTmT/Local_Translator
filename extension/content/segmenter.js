@@ -90,7 +90,10 @@
     const els = Array.from(root.querySelectorAll(ATTR_SEL));
     if (root.nodeType === 1 && root.matches(ATTR_SEL)) els.unshift(root);
     for (const el of els) {
-      if (F.exclusionReason(el, opts) !== null) continue;
+      // input/textarea는 값은 건드리지 않지만 placeholder/title은 대상: 요소 자신의 태그 규칙은 건너뛰고 조상 규칙만 적용.
+      const form = el.localName === 'input' || el.localName === 'textarea';
+      if (form ? (el.closest('[translate="no"],.notranslate') || F.exclusionReason(el.parentNode, opts) !== null)
+        : F.exclusionReason(el, opts) !== null) continue;
       for (const name of ATTRS) {
         const raw = el.getAttribute(name);
         const txt = raw == null ? '' : T.cleanText(raw);

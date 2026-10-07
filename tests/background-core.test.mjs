@@ -55,7 +55,7 @@ test('registration: ids, matches, idempotent, empty -> unregister only', async (
   const r = browser.calls.register[0][0];
   assert.equal(r.id, 'kt-main');
   eq(r.matches, ['*://example.com/*', '*://*.example.com/*', '*://b.org/*', '*://*.b.org/*']);
-  eq(r.js, ['content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js']);
+  eq(r.js, ['lib/lang.js', 'lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js']);
   assert.equal(r.runAt, 'document_idle');
   assert.equal(r.allFrames, true);
 

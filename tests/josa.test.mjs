@@ -59,7 +59,7 @@ test('josa: idempotent and no-op without pairs', () => {
 });
 
 test('josa: fixLeadingParticle', () => {
-  assert.equal(J.fixLeadingParticle('문서', '을(를) 클릭하세요'), '를 클릭하세요'.replace('를', '을'));
+  assert.equal(J.fixLeadingParticle('문서', '을(를) 클릭하세요'), '를 클릭하세요');
   assert.equal(J.fixLeadingParticle('here 설정', '은(는) 중요'), '은 중요');
   assert.equal(J.fixLeadingParticle('API', '을(를) 클릭'), '을(를) 클릭');
   assert.equal(J.fixLeadingParticle('Python3', '이(가) 필요'), '이(가) 필요');

@@ -267,7 +267,9 @@
       for (const m of list) {
         if (m.type === 'childList') {
           for (const n of m.addedNodes) {
-            if (st.workSet.has(n)) st.metrics.coalesced++; else { st.workSet.add(n); st.work.push(n); }
+            if (st.workSet.has(n)) st.metrics.coalesced++;
+            else if (queuedAncestor(n)) st.metrics.deduped++;
+            else { st.workSet.add(n); st.work.push(n); }
           }
           if (m.removedNodes.length) st.needPrune = true;
         } else if (m.type === 'characterData') {
