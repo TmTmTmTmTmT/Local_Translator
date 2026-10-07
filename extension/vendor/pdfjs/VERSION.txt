@@ -1,0 +1,1 @@
+pdfjs-dist 6.4.299 (Apache-2.0), unmodified from npm tarball. Files: build/pdf.min.mjs, build/pdf.worker.min.mjs, web/pdf_viewer.css, cmaps/, standard_fonts/

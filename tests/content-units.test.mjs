@@ -75,14 +75,14 @@ test('segmenter: slots, x items, nested blocks, limits, skipping', () => {
   e.close();
 });
 
-test('segmenter: 2000-char block limit splits records; handled nodes become x', () => {
+test('segmenter: block char limit splits records; handled nodes become x', () => {
   const long = 'word '.repeat(300); // 1500자
   const e = env(`<body><p id=p>${long}<b>${long}</b></p></body>`);
-  const recs = e.KT.collectBlocks(e.document.body, {});
+  const recs = e.KT.collectBlocks(e.document.body, { maxBlockChars: 2000 });
   assert.equal(recs.length, 2);
   for (const r of recs) assert.ok(r.chars <= 2000);
   const handled = new Set([recs[0].slots[0].node]);
-  const again = e.KT.collectBlocks(e.document.body, { isHandled: (n) => handled.has(n) });
+  const again = e.KT.collectBlocks(e.document.body, { maxBlockChars: 2000, isHandled: (n) => handled.has(n) });
   assert.equal(again.length, 1);
   assert.equal(again[0].block.items.filter((i) => i.k === 'x').length, 1);
   e.close();
