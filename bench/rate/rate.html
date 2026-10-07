@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>번역 블라인드 평가</title>
+<!-- 템플릿: build.mjs가 CSS/JS/데이터를 인라인해 단독 HTML(rate-<lang>.html)을 생성한다 -->
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="title">번역 블라인드 평가</h1>
+  <div class="progress" aria-label="진행률"><div id="bar"></div></div>
+  <div id="progressText" class="small"></div>
+</header>
+<main id="app"></main>
+<section id="reveal" hidden></section>
+<footer>
+  <div class="actions">
+    <button id="download" type="button" class="primary">결과 다운로드</button>
+    <button id="reset" type="button">평가 초기화</button>
+  </div>
+  <p class="small">다운로드한 파일을 <code>bench/results/ratings-&lt;언어&gt;.json</code> 으로 직접 옮겨 두세요 (예: <code>ratings-en.json</code>). 평가 중에는 엔진명이 숨겨지며, 다운로드 파일에만 실제 엔진명이 기록됩니다. 진행 상황은 이 브라우저(localStorage)에 자동 저장됩니다.</p>
+</footer>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>

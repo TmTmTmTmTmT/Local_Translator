@@ -1,0 +1,470 @@
+{
+ "lang": "en",
+ "context": {
+  "title": "Field Notes: Running a Small Home Server",
+  "host": "notes.brightfern.example"
+ },
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "genre": "tech",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "To install the CLI, run "
+    },
+    {
+     "k": "x",
+     "text": "npm install -g fernctl"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " and then check the version with "
+    },
+    {
+     "k": "x",
+     "text": "fernctl --version"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": ". Version 2.4.1 or later is required."
+    }
+   ]
+  },
+  {
+   "id": "en-tech-02",
+   "genre": "tech",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The "
+    },
+    {
+     "k": "x",
+     "text": "timeout"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " option accepts a value in milliseconds; the default is 30000 (30 seconds), and setting it to 0 disables the limit entirely."
+    }
+   ]
+  },
+  {
+   "id": "en-tech-03",
+   "genre": "tech",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Before upgrading from v1.x, back up your "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "configuration directory"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": " because the migration script rewrites every file in place and cannot be undone."
+    }
+   ]
+  },
+  {
+   "id": "en-tech-04",
+   "genre": "tech",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "If the daemon fails to start, make sure port 8443 is not already bound by another process. You can inspect the logs at http://localhost:8443/debug/logs."
+    }
+   ]
+  },
+  {
+   "id": "en-tech-05",
+   "genre": "tech",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Each worker thread keeps its own cache of roughly 64 MB, so a machine with 8 GB of RAM should not run more than eight workers."
+    }
+   ]
+  },
+  {
+   "id": "en-tech-06",
+   "genre": "tech",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Requests are retried up to three times with exponential backoff; if all attempts fail, the error is surfaced to the caller as a "
+    },
+    {
+     "k": "x",
+     "text": "TransientError"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "."
+    }
+   ]
+  },
+  {
+   "id": "en-news-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The city council voted 7 to 2 on Tuesday to extend bus service into the eastern suburbs, a move that supporters say will cut commute times by up to 25 percent."
+    }
+   ]
+  },
+  {
+   "id": "en-news-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Researchers at the Halvorsen Institute reported that a new type of battery retained 90 percent of its capacity after 2,000 charge cycles, roughly double that of current commercial cells."
+    }
+   ]
+  },
+  {
+   "id": "en-news-03",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Critics, however, point out that the results have not yet been peer reviewed and that the prototype costs about $340 per kilowatt-hour to produce."
+    }
+   ]
+  },
+  {
+   "id": "en-news-04",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Heavy rain is expected across the northern coast through Thursday, with gusts of up to 70 km/h and temperatures hovering around 12 degrees Celsius."
+    }
+   ]
+  },
+  {
+   "id": "en-news-05",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "In a statement released Monday, the company said it would "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "delay the launch of its flagship phone"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": " until early next year, citing ongoing supply-chain problems."
+    }
+   ]
+  },
+  {
+   "id": "en-news-06",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Why do so many small bakeries close within five years? Economists say the answer has less to do with bread than with rent, "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "staffing"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": " and thin margins."
+    }
+   ]
+  },
+  {
+   "id": "en-community-01",
+   "genre": "community",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "ok so I finally got my Raspberry Pi to boot and it immediately caught fire. well, not literally. but my soul did."
+    }
+   ]
+  },
+  {
+   "id": "en-community-02",
+   "genre": "community",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Hot take: tabs are fine, spaces are fine, and anyone who argues about it at 2 a.m. needs a snack and a nap."
+    }
+   ]
+  },
+  {
+   "id": "en-community-03",
+   "genre": "community",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "lol I've been staring at this error for three hours and it was a missing semicolon. a SEMICOLON. I'm going to go live in the woods now."
+    }
+   ]
+  },
+  {
+   "id": "en-community-04",
+   "genre": "community",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Not gonna lie, that "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "update broke literally everything"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": " on my setup. Rolled back, touched grass, will try again tomorrow."
+    }
+   ]
+  },
+  {
+   "id": "en-community-05",
+   "genre": "community",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Can confirm. My cat has been sitting on the router for a week and honestly the wifi has never been better. Don't question it."
+    }
+   ]
+  },
+  {
+   "id": "en-community-06",
+   "genre": "community",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Y'all, I just spent $60 on a keyboard that sounds like rain. Zero regrets, my coworkers on the other hand... "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "TBD"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": "."
+    }
+   ]
+  },
+  {
+   "id": "en-ui-01",
+   "genre": "ui",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Save changes"
+    }
+   ]
+  },
+  {
+   "id": "en-ui-02",
+   "genre": "ui",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Something went wrong. Please try again later."
+    }
+   ]
+  },
+  {
+   "id": "en-ui-03",
+   "genre": "ui",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "You have 3 unread messages"
+    }
+   ]
+  },
+  {
+   "id": "en-link-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Click "
+    },
+    {
+     "k": "x",
+     "text": "here"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " to continue."
+    }
+   ]
+  },
+  {
+   "id": "en-link-02",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "See "
+    },
+    {
+     "k": "x",
+     "text": "the installation guide"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " for details on supported platforms."
+    }
+   ]
+  },
+  {
+   "id": "en-link-03",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "If you run into trouble, "
+    },
+    {
+     "k": "x",
+     "text": "open an issue on the tracker"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " and include your log file."
+    }
+   ]
+  },
+  {
+   "id": "en-seq-01",
+   "genre": "seq",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Last spring I decided to turn an old laptop into a home server for my family's photos."
+    }
+   ]
+  },
+  {
+   "id": "en-seq-02",
+   "genre": "seq",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The laptop, a 2014 "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "ThinkBook"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": " with 8 GB of RAM, turned out to be perfect for the job."
+    }
+   ]
+  },
+  {
+   "id": "en-seq-03",
+   "genre": "seq",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "First, I installed "
+    },
+    {
+     "k": "x",
+     "text": "Debian 12"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " and set up a small web app called Fernbox to browse the pictures."
+    }
+   ]
+  },
+  {
+   "id": "en-seq-04",
+   "genre": "seq",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "My sister was skeptical at first, but after a week she admitted that Fernbox was faster than any cloud service she had used."
+    }
+   ]
+  },
+  {
+   "id": "en-seq-05",
+   "genre": "seq",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Now the old laptop sits quietly on a shelf, and "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "Fernbox"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": " has become the first thing my whole family opens after a trip."
+    }
+   ]
+  }
+ ]
+}

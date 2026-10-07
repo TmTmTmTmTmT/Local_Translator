@@ -13,5 +13,12 @@
 - §4.5.1 동적 콘텐츠(더보기·무한스크롤·AJAX·SPA·details·iframe·open shadow DOM) 추가, T7·DoD·테스트 반영
 - §5.4 상주/즉시 언로드/실사용 모사 3시나리오 자원 측정, gemma4:e2b 전체 측정·문맥 모드 후보 허용
 
+## 2026-10-07 — Sonnet T0, T0.1, T0.2 완료
+- T0: repo 생성 https://github.com/TmTmTmTmTmT/Local_Translator (private), 골격 커밋
+- T0.1: 후보 15개 조사 → `bench/CANDIDATES.md` (합계 ~23GB, 승인 대기)
+- T0.2: 코퍼스 4언어×29블록 `bench/corpus/*.json`
+- 진행 중: T0.3 Swift CLI, T0.4 Node 어댑터·실행기, T0.5 MT 서버, T0.6 평가 페이지
+- 다음: 다운로드 승인 → 설치·변환(bench/.venv) → T0.7 1차 실행
+
 ## Opus 확인 필요
 - (없음)

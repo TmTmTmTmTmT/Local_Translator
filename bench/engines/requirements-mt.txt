@@ -1,0 +1,5 @@
+# Not installed automatically. See README-mt.md.
+ctranslate2
+transformers
+sentencepiece
+protobuf
