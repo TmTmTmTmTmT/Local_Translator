@@ -37,6 +37,11 @@
 - 미검증: Safari에서 viewer.js 실행(문법 검사만), pdfjs 6.x의 Promise.try·Uint8Array.toHex 지원(Safari 18.2+ 추정)
 - 한계: 다단·하이픈 휴리스틱, JPX/JBIG2 wasm 미포함, 세로쓰기 미지원
 
+## 모델 다운로드 완료 (15:30)
+- MLX 10, CT2 4(+opus 원본), Ollama 3(translategemma:4b, qwen3.5:2b, qwen3:1.7b) 전부 성공. 총 bench/models + HF 캐시
+- bench/orchestrate.mjs: 모델별 서버 기동·모니터·run·종료 (mlx.mjs는 default_model 사용으로 이중 로드 방지)
+- 진행: Apple 엔진 1차 실행 → 이어서 orchestrate로 나머지 모델
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

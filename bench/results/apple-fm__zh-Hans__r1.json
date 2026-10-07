@@ -1,0 +1,229 @@
+{
+  "batchLimit" : {
+    "blocks" : 40,
+    "chars" : 1500
+  },
+  "batches" : [
+    {
+      "blockIds" : [
+        "zh-Hans-tech-01",
+        "zh-Hans-tech-02",
+        "zh-Hans-tech-03",
+        "zh-Hans-tech-04",
+        "zh-Hans-tech-05",
+        "zh-Hans-tech-06",
+        "zh-Hans-news-01",
+        "zh-Hans-news-02",
+        "zh-Hans-news-03",
+        "zh-Hans-news-04",
+        "zh-Hans-news-05",
+        "zh-Hans-news-06",
+        "zh-Hans-community-01",
+        "zh-Hans-community-02",
+        "zh-Hans-community-03",
+        "zh-Hans-community-04",
+        "zh-Hans-community-05",
+        "zh-Hans-community-06",
+        "zh-Hans-ui-01",
+        "zh-Hans-ui-02",
+        "zh-Hans-ui-03",
+        "zh-Hans-link-01",
+        "zh-Hans-link-02",
+        "zh-Hans-link-03",
+        "zh-Hans-seq-01",
+        "zh-Hans-seq-02",
+        "zh-Hans-seq-03",
+        "zh-Hans-seq-04",
+        "zh-Hans-seq-05"
+      ],
+      "ms" : 108669.650917
+    }
+  ],
+  "blocks" : [
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-tech-01",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-tech-02",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-tech-03",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-tech-04",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-tech-05",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-tech-06",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-news-01",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-news-02",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-news-03",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-news-04",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-news-05",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-news-06",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-community-01",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-community-02",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-community-03",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-community-04",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-community-05",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-community-06",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-ui-01",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-ui-02",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-ui-03",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-link-01",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-link-02",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-link-03",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-seq-01",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-seq-02",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-seq-03",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-seq-04",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    },
+    {
+      "error" : "Content contains 4098 tokens, which exceeds the maximum allowed context size of 4096.",
+      "id" : "zh-Hans-seq-05",
+      "ms" : 3747.2293419655175,
+      "slots" : null
+    }
+  ],
+  "coldMs" : 108669.650917,
+  "engine" : "apple-fm",
+  "env" : {
+    "keepAliveSec" : null,
+    "notes" : "on-device SystemLanguageModel(guardrails: permissiveContentTransformations); mode=guided(@Generable); one session reused per document (transcript accumulates), contextResets=1; prompt=file:/Users/kimmingyu/Documents/Claude/translator/bench/prompt.json; batch<=1500 chars, 1 request at a time; no prewarm.",
+    "os" : "Version 27.2 (Build 26B5101f)"
+  },
+  "lang" : "zh-Hans",
+  "model" : "apple-foundation-models-ondevice",
+  "run" : 1,
+  "totalMs" : 108670.176666
+}
