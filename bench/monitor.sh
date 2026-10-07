@@ -35,7 +35,12 @@ sample_sys() { # $1=now $2=free_pct
   local so pf
   so=$(vm_stat 2>/dev/null | awk '/Swapouts/ { gsub(/\./, "", $2); print $2 }')
   pf=$(vm_stat 2>/dev/null | awk '/Pages free/ { gsub(/\./, "", $3); print $3 }')
-  echo "$1,sys,${so:-},${2:-},${pf:-},"
+  # f4 = 압력단계(1 정상/2 경고/4 위험)|스왑사용MB|swapins|압축페이지
+  lvl=$(sysctl -n kern.memorystatus_vm_pressure_level 2>/dev/null)
+  sw=$(sysctl -n vm.swapusage 2>/dev/null | awk '{ for (i=1;i<=NF;i++) if ($i=="used") { v=$(i+2); gsub(/M/, "", v); print int(v) } }')
+  si=$(vm_stat 2>/dev/null | awk '/Swapins/ { gsub(/\./, "", $2); print $2 }')
+  cp=$(vm_stat 2>/dev/null | awk '/occupied by compressor/ { gsub(/\./, "", $5); print $5 }')
+  echo "$1,sys,${so:-},${2:-},${pf:-},${lvl:-}|${sw:-}|${si:-}|${cp:-}"
 }
 
 loop() {

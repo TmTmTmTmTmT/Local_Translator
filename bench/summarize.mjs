@@ -156,11 +156,11 @@ export function buildReport({ groups, corpora, scenarios, monitors, power, ratin
   } else L.push('scenario 결과 없음.', '');
 
   if (monitors.length) {
-    L.push('### 모니터 (monitor.sh CSV)', '', '| 엔진 | 시나리오 | 최대 추가 RSS | 상위 프로세스(최대 추가) | 스왑아웃 증가 | 최소 free% | 유휴 +1분 | +3분 | +5분 | 언로드 |', '|---|---|---|---|---|---|---|---|---|---|');
+    L.push('### 모니터 (monitor.sh CSV)', '', '| 엔진 | 시나리오 | 최대 추가 RSS | 상위 프로세스(최대 추가) | 스왑아웃 증가 | 최소 free% | 압력/스왑사용/swapin/압축 | 유휴 +1분 | +3분 | +5분 | 언로드 |', '|---|---|---|---|---|---|---|---|---|---|---|');
     for (const m of monitors) {
       const a = m.analysis;
       const top = a.peakByName.slice(0, 3).map(([n, kb]) => `${n} ${mb(kb)}`).join(', ') || '-';
-      L.push(`| ${m.engine} | ${m.scenario} | ${mb(a.peakTotalKb)} | ${esc(top)} | ${a.swapDeltaPages ?? '-'}p (${num(a.swapDeltaMb, 0)}MB) | ${a.minFreePct ?? '-'} | ${mb(a.idle[60])} | ${mb(a.idle[180])} | ${mb(a.idle[300])} | ${a.unloaded === null ? '-' : a.unloaded ? '예' : '아니오'} |`);
+      L.push(`| ${m.engine} | ${m.scenario} | ${mb(a.peakTotalKb)} | ${esc(top)} | ${a.swapDeltaPages ?? '-'}p (${num(a.swapDeltaMb, 0)}MB) | ${a.minFreePct ?? '-'} | P${a.maxPressureLevel ?? '-'}/스왑${a.swapUsedMaxMb ?? '-'}MB(Δ${a.swapUsedDeltaMb ?? '-'})/in${a.swapinsDelta ?? '-'}/압축${a.compressorPeakMb ?? '-'}MB | ${mb(a.idle[60])} | ${mb(a.idle[180])} | ${mb(a.idle[300])} | ${a.unloaded === null ? '-' : a.unloaded ? '예' : '아니오'} |`);
     }
     L.push('');
   } else L.push('모니터 CSV(`monitor__<engine>__<scenario>.csv`) 없음.', '');

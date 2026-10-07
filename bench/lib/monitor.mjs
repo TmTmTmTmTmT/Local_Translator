@@ -34,6 +34,11 @@ export function analyzeMonitor(rows) {
   const sys = rows.filter((r) => r.kind === 'sys');
   const swaps = sys.map((r) => Number(r.f1)).filter(Number.isFinite);
   const frees = sys.map((r) => Number(r.f2)).filter(Number.isFinite);
+  const ext = sys.map((r) => String(r.f4 || '').split('|')).filter((a) => a.length === 4);
+  const lv = ext.map((a) => Number(a[0])).filter(Number.isFinite);
+  const swUsed = ext.map((a) => Number(a[1])).filter(Number.isFinite);
+  const sIn = ext.map((a) => Number(a[2])).filter(Number.isFinite);
+  const comp = ext.map((a) => Number(a[3])).filter(Number.isFinite);
   const marks = rows.filter((r) => r.kind === 'mark').map((r) => ({ epoch: r.epoch, label: r.f1 }));
   const endMark = [...marks].reverse().find((m) => m.label === 'end') || [...marks].reverse().find((m) => m.label !== 'stop');
   const lastEpoch = epochs[epochs.length - 1];
@@ -58,6 +63,11 @@ export function analyzeMonitor(rows) {
     swapDeltaPages: swaps.length ? swaps[swaps.length - 1] - swaps[0] : null,
     swapDeltaMb: swaps.length ? ((swaps[swaps.length - 1] - swaps[0]) * PAGE_KB) / 1024 : null,
     minFreePct: frees.length ? Math.min(...frees) : null,
+    maxPressureLevel: lv.length ? Math.max(...lv) : null,
+    swapUsedMaxMb: swUsed.length ? Math.max(...swUsed) : null,
+    swapUsedDeltaMb: swUsed.length ? swUsed[swUsed.length - 1] - swUsed[0] : null,
+    swapinsDelta: sIn.length ? sIn[sIn.length - 1] - sIn[0] : null,
+    compressorPeakMb: comp.length ? Math.round((Math.max(...comp) * PAGE_KB) / 1024) : null,
     marks, idle, unloaded,
   };
 }

@@ -92,6 +92,11 @@
 - 한계: localhost.baseUrl 하나를 모든 localhost 엔진이 공유(MLX는 8080 직접 지정 필요) — 엔진별 URL 분리는 설정 구조 변경이라 Opus 확인 필요
 - chat family 프롬프트는 확장판과 bench 판을 나중에 맞춤
 
+## 메모리·압력 모니터 강화 (사용자 요청)
+- monitor.sh sys 행에 압력단계(kern.memorystatus_vm_pressure_level 1/2/4), 스왑 사용량 MB, swapins, 압축 메모리 페이지 추가. summarize 리포트에 `압력/스왑사용/swapin/압축` 열 추가. 이전 CSV는 해당 값 '-'
+- 현재 머신 기준선: 다른 앱 때문에 이미 스왑 ~2.6GB 사용(swapusage 4GB 중), free 36%, 압력 1(정상). 판정은 엔진 실행 중 증가분(Δ)과 압력 단계 변화로 본다
+- 이후 재측정 대상(압력 데이터 필요): 최종 후보 엔진은 `--idle-wait 300`과 usage-sim 시나리오로 재측정
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
