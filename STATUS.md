@@ -26,7 +26,15 @@
 - 진행 중: 모델 다운로드(15개, bench/results/download.log), T0.7 Apple 엔진 1차 실행, T8 Xcode/Swift, T9 PDF 뷰어
 - 조정: segmenter MAX_BLOCK_CHARS 2000→6000 (긴 단일 텍스트 노드가 번역 제외되던 문제)
 
+## T8 완료 (Xcode/Swift)
+- 프로젝트 `xcode/Local Translator/Local Translator.xcodeproj`(JSON 형식 project.xcproj), 스킴 1개, 앱+appex, macOS 26.4, Swift 6. ad-hoc 서명 Debug 빌드 성공(codesign verify 통과)
+- 핸들러: translate/status, apple-mt(attr 기본, plain 선택)·apple-fm, 언어팩 미설치 시 needs_language_pack. 임시 CLI로 Dispatcher 직접 실행 검증(세 방식 슬롯 반환, fr→unsupported_lang)
+- 미검증: 실제 Safari 로드, sendNativeMessage 왕복(GUI 필요)
+- 컨테이너 앱: 확장 활성화 버튼, 언어팩 상태·설치, Apple Intelligence 상태
+
 ## Opus 확인 필요
+- (T8) FM 시스템 프롬프트 [출력 형식] 단락이 prompt.js와 다름(guided generation 스키마 때문). GUIDELINES "문구 동일" 규칙과 상충 — 허용 여부 확인
+- (T8) 요청 lang이 "zh"만 오면 간체로 처리(블록 lang 우선). 필요 시 content에서 zh-Hans/zh-Hant 판별 전달
 - (T3) content 쪽 자체 캐시와 background 캐시 이중 구조 — 유지해도 무방(교체 노드 즉시 적용 목적). 역할 분담 확인
 - (T3) SPA URL 감지: Safari content script 격리 월드라 pushState 래핑 불완전 → popstate/hashchange/변이 틱 비교 병행
 - (없음)
