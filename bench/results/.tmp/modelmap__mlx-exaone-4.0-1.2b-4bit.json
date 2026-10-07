@@ -1,6 +1,0 @@
-{
- "mlx-exaone-4.0-1.2b-4bit": {
-  "model": "mlx-community/exaone-4.0-1.2b-4bit",
-  "args": []
- }
-}

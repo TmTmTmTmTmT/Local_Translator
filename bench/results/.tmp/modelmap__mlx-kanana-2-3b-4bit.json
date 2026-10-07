@@ -1,6 +1,0 @@
-{
- "mlx-kanana-2-3b-4bit": {
-  "model": "mlx-community/kanana-2-3b-instruct-4bit",
-  "args": []
- }
-}

@@ -1,9 +1,0 @@
-{
- "ollama-qwen3-1.7b": {
-  "model": "qwen3:1.7b",
-  "args": [
-   "--keep-alive",
-   "600"
-  ]
- }
-}

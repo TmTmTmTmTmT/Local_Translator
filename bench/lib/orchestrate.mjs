@@ -71,7 +71,7 @@ export function serverCommand(entry, { venvPython, benchDir }) {
 export const ollamaStopCommand = (entry) => ({ cmd: 'ollama', args: ['stop', entry.model] });
 
 export function modelMapFor(entry, { keepAliveSec = 600 } = {}) {
-  const args = entry.runtime === 'ollama' ? ['--keep-alive', String(keepAliveSec)] : [];
+  const args = [...(entry.runtime === 'ollama' ? ['--keep-alive', String(keepAliveSec)] : []), ...(entry.args || [])];
   return { [entry.engineId]: { model: entry.model, args } };
 }
 

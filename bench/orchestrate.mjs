@@ -149,6 +149,12 @@ export async function main(argv) {
       const left = Math.max(60000, engineTimeout - (Date.now() - t0));
       const rr = await runProc(process.execPath, runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, force: !a.skipExisting }), { timeoutMs: left });
       if (/\[timeout\]/.test(rr.tail)) detail += ' run.mjs timeout';
+      if (entry.runtime === 'ollama') {
+        // Metal 가중치는 RSS에 안 잡힘 → `ollama ps`의 적재 크기를 기록
+        const ps = await runProc('ollama', ['ps'], { timeoutMs: 15000 });
+        const line = ps.tail.split('\n').slice(1).join(' ').replace(/\s+/g, ' ').trim();
+        if (line) detail += ` ollamaPs="${line}"`;
+      }
 
       if (monitorOn) {
         await runProc('bash', [join(BENCH, 'monitor.sh'), 'mark', 'end'], { timeoutMs: 20000 });
