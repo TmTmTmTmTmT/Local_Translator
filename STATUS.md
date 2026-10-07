@@ -112,6 +112,10 @@
 - 기본 주입(lib/josa+content 5개) 45.9KB → 34.2KB (content/*.js 31.6KB). lib/lang.js 제거(text.js 내장 detectLang), 속성 번역은 content/extra.js로 분리(translateAttrs 켤 때만 주입). 목표 30KB 미달 4.2KB → D14로 이관(DoD 해석 or 선택 주입 확대)
 - translateAttrs 옵션 UI 없음(storage에 직접) → 옵션 UI 추가 예정
 
+## 내장 브라우저 harness 재검증 (trim 후) — 보류
+- 증상: trim 후 harness.html에서 로드 시 보이는 블록(h1, p1)이 번역 호출 안 됨, 스크롤로 들어온 p5만 번역(호출 kt8). 단위 테스트 231 통과(jsdom, 첫 로드 번역 포함)
+- 추정: harness 환경 문제 — 창이 숨김이고 에뮬레이션 뷰포트가 턴 종료 시 해제되어 innerHeight=0 → 폴링 IO 스텁이 rect.top < innerHeight*2.5 판정 실패. 실제 코드 회귀 아님 가능성 높음. 사용자가 browser 도구 호출을 거부한 상태라 재확인 보류(허용 시 재시도: harness.html?r=…, 뷰포트 설정 후 3초 대기)
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

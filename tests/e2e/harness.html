@@ -14,6 +14,24 @@
 <div class="pad"></div>
 <p id="p5">This paragraph sits far below the fold and should be translated lazily once scrolled.</p>
 <script>
+  // 숨겨진 브라우저 창에서는 IntersectionObserver가 멈추므로 rect 폴링으로 대체 (rootMargin 아래 150%)
+  window.IntersectionObserver = class {
+    constructor(cb) { this.cb = cb; this.els = new Set(); this.t = setInterval(() => this.poll(), 150); }
+    observe(el) { this.els.add(el); }
+    unobserve(el) { this.els.delete(el); }
+    disconnect() { clearInterval(this.t); this.els.clear(); }
+    poll() {
+      const out = [];
+      for (const el of this.els) {
+        const r = el.getBoundingClientRect(); const vis = !!(r.width || r.height) && r.bottom > 0 && r.top < innerHeight * 2.5;
+        if (vis) out.push({ target: el, isIntersecting: true, intersectionRatio: 1 });
+      }
+      if (out.length) this.cb(out);
+    }
+  };
+  window.requestAnimationFrame = (cb) => setTimeout(() => cb(performance.now()), 0);
+</script>
+<script>
   window.__calls = [];
   window.browser = { runtime: {
     onMessage: { addListener() {} },
