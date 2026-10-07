@@ -60,6 +60,11 @@
 - 재개 명령: `node bench/orchestrate.mjs --only all --langs en,ja,zh-Hans,zh-Hant --runs 1 --skip-existing`
 - 이후: apple-fm ja/zh 3종·apple-mt-marker 4종, opus-mt 변환(torch 필요 — 설치 승인 필요), summarize, 2차(속도·자원)
 
+## 메모 (재개 시 반영)
+- sim-runner(Haiku)의 마지막 요약은 시간 단위·완료 여부가 부정확(ms/초 혼동, 중지 후 "완료" 보고). 수치는 `node bench/summarize.mjs` 결과로만 판단
+- 관측: mlx-hy-mt2-1.8b, translategemma-4b는 JSON 슬롯 출력이 거의 실패 → 번역 특화 모델은 JSON 대신 모델 고유 평문 프롬프트(마커 방식으로 x 처리)로 어댑터 변경 필요. qwen3-1.7b는 ja/zh에서 오류 다수, 하드 조건 후보는 NLLB 계열(en 기준)
+- Ollama 메모리는 runner 프로세스 기준으로 재측정 필요(ollama serve RSS만 잡힘)
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
