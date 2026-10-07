@@ -42,6 +42,14 @@
 - bench/orchestrate.mjs: 모델별 서버 기동·모니터·run·종료 (mlx.mjs는 default_model 사용으로 이중 로드 방지)
 - 진행: Apple 엔진 1차 실행 → 이어서 orchestrate로 나머지 모델
 
+## T0.7 Apple 1차 결과 (16 실행, 완료)
+- apple-mt-plain/attr: 4개 언어 모두 오류 0. 문서 1개(29블록) 총 49~76초(블록당 ~2초) — 목표(첫 화면 <1s) 대비 느림, 단 다운로드·다른 작업 동시 실행 중 측정이라 2차에서 재측정
+- 링크(x) 낀 문장: plain은 x 경계 분할 번역이라 어색("클릭 [here] 계속하기 위해."), attr은 일부 깨짐("기를 ."). → 마커 방식(문장 통째 번역 후 마커로 슬롯 복원) 시험 작업 진행 중(a137…)
+- apple-fm: en OK(121초), ja/zh는 4096토큰 초과로 블록 대부분 실패 → CJK는 배치 축소 + 배치마다 새 세션 + 초과 시 반분 재시도 필요(마커 작업 끝난 뒤 FM.swift·EngineFM.swift 수정)
+- apple-mt-*-lowlatency: needs_language_pack — lowLatency 전략은 별도 설치 모델 필요(미설치). 후보에서 제외, D5에 추가
+- 참고: Haiku 요약의 "ms" 표기는 초 단위 오기(55226ms = 55초)
+- 진행: orchestrate로 나머지 모델 1차 실행 중(abde…)
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

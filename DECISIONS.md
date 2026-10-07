@@ -15,3 +15,4 @@
 | D8 | 라이선스 NC 계열 모델(NLLB/EXAONE) 사용 가능 범위 | 개인용으로만 벤치, 기본 후보에서 제외 가능 | CANDIDATES.md |
 | D9 | repo 라이선스 선택 (공개 repo) | 미지정 | LICENSE |
 | D10 | 서명: Team 서명 vs ad-hoc (Safari 재시작마다 "서명되지 않은 확장 허용" 재설정 필요) | ad-hoc 서명 | xcode/README.md |
+| D11 | Apple lowLatency 번역 전략 사용하려면 별도 언어 모델 설치 필요(현재 미설치, 측정 보류) | 제외 | bench/models.json |
