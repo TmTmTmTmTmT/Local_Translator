@@ -18,5 +18,8 @@
   {"engineId":"mlx-gemma-4-e2b-4bit","runtime":"mlx","model":"mlx-community/gemma-4-e2b-it-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"Gemma 4 E2B"},
   {"engineId":"mlx-hyperclovax-seed-1.5b-4bit","runtime":"mlx","model":"senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"community MLX port"},
   {"engineId":"ollama-gemma4-e2b","runtime":"ollama","model":"gemma4:e2b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"installed; H-tier reference (7.2GB)"},
-  {"engineId":"ollama-gemma4-e4b","runtime":"ollama","model":"gemma4:e4b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"installed; H-tier reference (9.6GB)"}
+  {"engineId":"ollama-gemma4-e4b","runtime":"ollama","model":"gemma4:e4b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"installed; H-tier reference (9.6GB)"},
+  {"engineId":"mlx-hy-mt2-1.8b-4bit-mt","runtime":"mlx","model":"mlx-community/Hy-MT2-1.8B-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"Hy-MT2 with its own plain translation prompt (--mode mt); JSON-mode result kept as mlx-hy-mt2-1.8b-4bit","args":["--mode","mt"]},
+  {"engineId":"mlx-translategemma-4b-4bit-mt","runtime":"mlx","model":"mlx-community/translategemma-4b-it-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"TranslateGemma with its documented template (--mode mt)","args":["--mode","mt"]},
+  {"engineId":"ollama-translategemma-4b-mt","runtime":"ollama","model":"translategemma:4b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"TranslateGemma on Ollama with plain prompt (--mode mt)","args":["--mode","mt"]}
 ]

@@ -51,6 +51,7 @@ export function makeOllamaChat(opts) {
 
 export async function main(argv) {
   const a = parseArgs(argv);
+  if (a.mode === 'mt' || /-mt$/.test(String(a.engine))) return (await import('./mtchat.mjs')).mtMain('ollama', argv);
   return runAdapter({
     argv,
     makeTranslator: (opts) => {

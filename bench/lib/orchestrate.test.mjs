@@ -13,9 +13,9 @@ const models = JSON.parse(readFileSync(join(BENCH, 'models.json'), 'utf8'));
 const byId = (id) => models.find((m) => m.engineId === id);
 const ctx0 = { benchDir: '/b', venvPython: '/b/.venv/bin/python', venvBin: '/b/.venv/bin' };
 
-test('models.json passes schema validation with 20 entries', () => {
+test('models.json passes schema validation with 23 entries', () => {
   assert.deepEqual(validateModels(models), []);
-  assert.equal(models.length, 20);
+  assert.equal(models.length, 23);
   assert.ok(byId('ollama-gemma4-e2b').tier === 'H' && byId('ollama-gemma4-e4b').tier === 'H');
   assert.deepEqual(byId('ct2-opus-tc-big-en-ko').langs, ['en']);
 });
@@ -35,7 +35,7 @@ test('validateModels catches bad entries', () => {
 });
 
 test('selectEntries / applicableLangs', () => {
-  assert.equal(selectEntries(models, 'all').entries.length, 20);
+  assert.equal(selectEntries(models, 'all').entries.length, 23);
   const r = selectEntries(models, 'ct2-nllb-600m,nope');
   assert.deepEqual(r.entries.map((e) => e.engineId), ['ct2-nllb-600m']);
   assert.deepEqual(r.unknown, ['nope']);
