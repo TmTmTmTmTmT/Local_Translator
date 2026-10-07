@@ -113,3 +113,26 @@ func runSpeed(corpusDir: String, lang: String) async {
         print("E3 1 session x all-concurrent: total=\(Int(ms(clock.now - t0))) ms")
     }
 }
+
+/// E4b: distinct-text length scaling and multi-block-per-request (joined by "\n") cost vs the sum of single requests.
+func runSpeed2(corpusDir: String, lang: String) async {
+    guard let corpus = try? JSONDecoder().decode(Corpus.self, from: Data(contentsOf: URL(fileURLWithPath: "\(corpusDir)/\(lang).json"))) else { return }
+    let clock = ContinuousClock()
+    let texts = corpus.blocks.map(blockText).filter { hasLetters($0) }
+    let box = SBox(TranslationSession(installedSource: Locale.Language(identifier: lang), target: Locale.Language(identifier: "ko")))
+    _ = try? await box.s.translate(texts[0])   // warm
+    var single: [Double] = []
+    for t in texts.prefix(8) { let t0 = clock.now; _ = try? await box.s.translate(t); single.append(ms(clock.now - t0)) }
+    print("singles first 8: sum=\(Int(single.reduce(0,+))) ms chars=\(texts.prefix(8).map(\.count).reduce(0,+))")
+    for k in [2, 4, 8] {
+        let joined = texts.prefix(k).joined(separator: "\n")
+        let t0 = clock.now
+        let r = try? await box.s.translate(joined)
+        let d = ms(clock.now - t0)
+        let lines = r?.targetText.components(separatedBy: "\n").count ?? -1
+        print("joined k=\(k) chars=\(joined.count): \(Int(d)) ms, sum of singles=\(Int(single.prefix(k).reduce(0,+))) ms, output lines=\(lines)")
+    }
+    let all = texts.joined(separator: "\n")
+    let t0 = clock.now; let r = try? await box.s.translate(all)
+    print("joined all \(texts.count) chars=\(all.count): \(Int(ms(clock.now - t0))) ms, output lines=\(r?.targetText.components(separatedBy: "\n").count ?? -1)")
+}

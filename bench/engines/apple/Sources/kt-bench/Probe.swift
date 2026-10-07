@@ -9,6 +9,7 @@ let strategySuffixes = ["", "-highfidelity", "-lowlatency"]
 func allEngineIds() -> [String] {
     var ids: [String] = []
     for b in mtBases { for s in strategySuffixes { ids.append(b + s) } }
+    ids.append("apple-mt-marker-batch")
     ids.append("apple-fm")
     return ids
 }

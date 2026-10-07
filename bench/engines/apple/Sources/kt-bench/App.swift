@@ -18,6 +18,7 @@ struct KTBench {
         }
         if flags.contains("--list-engines") { allEngineIds().forEach { print($0) }; return }
         if flags.contains("--speed") { await runSpeed(corpusDir: args["--corpus-dir"] ?? "../../corpus", lang: args["--lang"] ?? "en"); return }
+        if flags.contains("--speed2") { await runSpeed2(corpusDir: args["--corpus-dir"] ?? "../../corpus", lang: args["--lang"] ?? "en"); return }
         if flags.contains("--probe") { await runProbe(); return }
         if flags.contains("--marker-probe") {
             await runMarkerProbe(corpusDir: args["--corpus-dir"] ?? "../../corpus", outPath: args["--out"] ?? "../../marker-probe/probe.json"); return
@@ -38,7 +39,7 @@ struct KTBench {
         if engine == "apple-fm" {
             result = await runFM(engine: engine, corpus: corpus, runNo: runNo, promptPath: args["--prompt"], corpusPath: corpusPath, mode: args["--fm-mode"] ?? "guided")
         } else {
-            let mode: MTMode = engine.hasPrefix("apple-mt-marker") ? .marker : engine.hasPrefix("apple-mt-attr") ? .attr : .plain
+            let mode: MTMode = engine == "apple-mt-marker-batch" ? .markerBatch : engine.hasPrefix("apple-mt-marker") ? .marker : engine.hasPrefix("apple-mt-attr") ? .attr : .plain
             let strat: StrategyChoice = engine.hasSuffix("-highfidelity") ? .highFidelity : engine.hasSuffix("-lowlatency") ? .lowLatency : .none
             result = await runMT(engine: engine, mode: mode, strategy: strat, corpus: corpus, runNo: runNo)
         }

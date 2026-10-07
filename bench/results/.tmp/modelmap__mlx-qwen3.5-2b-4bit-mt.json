@@ -1,0 +1,11 @@
+{
+ "mlx-qwen3.5-2b-4bit-mt": {
+  "model": "mlx-community/Qwen3.5-2B-4bit",
+  "args": [
+   "--mode",
+   "mt",
+   "--mt-family",
+   "chat"
+  ]
+ }
+}

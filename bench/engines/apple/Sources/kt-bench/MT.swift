@@ -2,7 +2,7 @@
 import Foundation
 import Translation
 
-enum MTMode: Sendable { case plain, attr, marker }
+enum MTMode: Sendable { case plain, attr, marker, markerBatch }
 enum StrategyChoice: String, Sendable { case none = "", highFidelity = "highfidelity", lowLatency = "lowlatency" }
 
 struct NeedsLanguagePack: Error { var lang: String }
@@ -123,6 +123,13 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
     for batch in makeBatches(corpus.blocks, maxChars: limit.chars, maxBlocks: limit.blocks) {
         var partial: [(String, [String: String]?, String?)] = []
         let t0 = clock.now
+        if mode == .markerBatch {
+            do { partial = try await markerBatch(session, batch, lang: lang, stats: mstats) }
+            catch {
+                if case TranslationError.notInstalled = error { result.error = "needs_language_pack:\(lang)" }
+                partial = batch.map { ($0.id, nil, "\(error)") }
+            }
+        } else {
         for b in batch {
             do {
                 let s: [String: String]
@@ -130,6 +137,7 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
                 case .plain: s = try await plainBlock(session, b, lang: lang)
                 case .attr: s = try await attrBlock(session, b, lang: lang, stats: stats)
                 case .marker: s = try await markerBlock(session, b, lang: lang, stats: mstats)
+                case .markerBatch: s = [:]
                 }
                 partial.append((b.id, s, nil))
             } catch {
@@ -138,6 +146,7 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
                 }
                 partial.append((b.id, nil, "\(error)"))
             }
+        }
         }
         let bms = ms(clock.now - t0)
         if first { result.coldMs = bms; first = false }
@@ -152,7 +161,7 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
     if mode == .attr {
         notes += " attr: blocks=\(stats.attrBlocks) customAttrSeen=\(stats.attrSlotIDSeen) allSlotsRecovered=\(stats.attrAllSlots) skipAttrSeenInTarget=\(stats.attrXSkipSeen) xTextKept=\(stats.attrXTextKept) targetAttrNil=\(stats.attrTargetNil) fallbackToRunSplit=\(stats.attrFallback)."
         if !stats.firstFailure.isEmpty { notes += " firstFallback: \(stats.firstFailure)" }
-    } else if mode == .marker {
+    } else if mode == .marker || mode == .markerBatch {
         notes += " marker(\(markerEngineStyle.rawValue)): xBlocks=\(mstats.blocks) split=\(mstats.ok) fallbackToRunSplit=\(mstats.fallback) noXPlain=\(mstats.plainNoX)."
     } else {
         notes += " plain: x-split run translation (PLAN 4.4)."
