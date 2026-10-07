@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+.venv/
+bench/.venv/
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+# 모델 파일
+*.gguf
+*.safetensors
+*.bin
+bench/models/
+bench/results/*.log

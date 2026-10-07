@@ -1,0 +1,13 @@
+{
+  "name": "local-translator",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Safari extension: automatic local-first Korean translation for chosen sites",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0"
+  }
+}
