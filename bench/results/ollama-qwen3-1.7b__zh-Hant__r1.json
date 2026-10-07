@@ -1,0 +1,235 @@
+{
+ "engine": "ollama-qwen3-1.7b",
+ "model": "qwen3:1.7b",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 6023,
+ "totalMs": 6023,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 208,
+   "slots": {
+    "0": "만약 명령어 도구를 설치하려면 ",
+    "1": "npm install -g fernctl",
+    "2": "을 실행해야 합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 208,
+   "slots": null,
+   "error": "block missing in output"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01",
+    "zh-Hant-tech-02",
+    "zh-Hant-tech-03",
+    "zh-Hant-tech-04",
+    "zh-Hant-tech-05",
+    "zh-Hant-tech-06",
+    "zh-Hant-news-01",
+    "zh-Hant-news-02",
+    "zh-Hant-news-03",
+    "zh-Hant-news-04",
+    "zh-Hant-news-05",
+    "zh-Hant-news-06",
+    "zh-Hant-community-01",
+    "zh-Hant-community-02",
+    "zh-Hant-community-03",
+    "zh-Hant-community-04",
+    "zh-Hant-community-05",
+    "zh-Hant-community-06",
+    "zh-Hant-ui-01",
+    "zh-Hant-ui-02",
+    "zh-Hant-ui-03",
+    "zh-Hant-link-01",
+    "zh-Hant-link-02",
+    "zh-Hant-link-03",
+    "zh-Hant-seq-01",
+    "zh-Hant-seq-02",
+    "zh-Hant-seq-03",
+    "zh-Hant-seq-04",
+    "zh-Hant-seq-05"
+   ],
+   "ms": 6023,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "api=openai"
+ }
+}

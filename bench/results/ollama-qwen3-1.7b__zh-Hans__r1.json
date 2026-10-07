@@ -1,0 +1,229 @@
+{
+ "engine": "ollama-qwen3-1.7b",
+ "model": "qwen3:1.7b",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 301026,
+ "totalMs": 301026,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 10380,
+   "slots": null,
+   "error": "fetch failed"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01",
+    "zh-Hans-tech-02",
+    "zh-Hans-tech-03",
+    "zh-Hans-tech-04",
+    "zh-Hans-tech-05",
+    "zh-Hans-tech-06",
+    "zh-Hans-news-01",
+    "zh-Hans-news-02",
+    "zh-Hans-news-03",
+    "zh-Hans-news-04",
+    "zh-Hans-news-05",
+    "zh-Hans-news-06",
+    "zh-Hans-community-01",
+    "zh-Hans-community-02",
+    "zh-Hans-community-03",
+    "zh-Hans-community-04",
+    "zh-Hans-community-05",
+    "zh-Hans-community-06",
+    "zh-Hans-ui-01",
+    "zh-Hans-ui-02",
+    "zh-Hans-ui-03",
+    "zh-Hans-link-01",
+    "zh-Hans-link-02",
+    "zh-Hans-link-03",
+    "zh-Hans-seq-01",
+    "zh-Hans-seq-02",
+    "zh-Hans-seq-03",
+    "zh-Hans-seq-04",
+    "zh-Hans-seq-05"
+   ],
+   "ms": 301026,
+   "error": "fetch failed"
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "api=openai"
+ }
+}

@@ -1,0 +1,291 @@
+{
+ "engine": "mlx-qwen3.5-4b-4bit",
+ "model": "mlx-community/Qwen3.5-4B-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 53964,
+ "totalMs": 53964,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 1861,
+   "slots": {
+    "0": "설치 명령줄 도구를 설치하려면 다음을 실행하세요:",
+    "1": "버전 확인을 위해 다음을 실행하세요:",
+    "2": "버전 확인을 위해 다음을 실행하세요. 2.4.1 버전 이상을 사용해야 합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 1861,
+   "slots": {
+    "0": "옵션의 단위는 밀리초이며, 기본값은 30000(30 초)입니다. 0 으로 설정하면 타임아웃을 완전히 무효화할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 1861,
+   "slots": {
+    "0": "v1.x 로 업그레이드하기 전에 설정 폴더를 백업하세요. 마이그레이션 스크립트는 모든 파일을 덮어쓰며 복구가 불가능합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 1861,
+   "slots": {
+    "0": "常驻服务无法启动时，请确认端口 8443 未被其他进程占用。日志可在 http://localhost:8443/debug/logs 查看。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 1861,
+   "slots": {
+    "0": "각 스레드는 약 64 MB 의 캐시를 가지므로, 8 GB 메모리를 가진 컴퓨터는 최대 8 개 스레드만 실행할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 1861,
+   "slots": {
+    "0": "요청 최대 3 회 지수 백오프 방식으로 재시도합니다. 모두 실패하면 오류가 "
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 1861,
+   "slots": {
+    "0": "시의회는 화요일 7 대 2 의 투표로 버스 노선을 동부 교외로 연장하는 계획을 통과시켰습니다. 지지자들은 이 조치로 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 1861,
+   "slots": {
+    "0": "하얼슨 연구소의 연구원들은 새로운 배터리가 2000 회 충전/방전 사이클 후에도 90% 의 전력을 유지하며, 이는 현재 판매 중인 배터리보다 약 두 배 빠르다고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 1861,
+   "slots": {
+    "0": "그러나 비판자들은 이 결과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용이 시간당 340 달러에 달한다고 지적했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 1861,
+   "slots": {
+    "0": "북부 해안 지역은 목요일까지도 강풍이 예상되며, 최대 시속 70 km 의 바람과 약 12 도의 기온이 예상됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 1861,
+   "slots": {
+    "0": "이 회사는 공급망 문제가 지속됨을 이유로 하여 "
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 1861,
+   "slots": {
+    "0": "왜 많은 작은 빵집이 5 년을 넘기지 못하나요? 경제학자들은 이는 빵 자체와 관련이 적으며, 임대료, "
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 1861,
+   "slots": {
+    "0": "천하무적! 라즈베리 파이终于在开机了，结果一通电就冒烟。好啦也不是真的冒烟，但我的心已经碎了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 1861,
+   "slots": {
+    "0": "一句可能会挨骂的话：用 Tab 或空格都可以，凌晨两点还在吵这个的人，该去吃点宵夜然后睡觉了啦。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 1861,
+   "slots": {
+    "0": "笑死，盯着错误信息看了三个小时，结果只是少了一个分号。一个分号啊！我要去山上隐居了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 1861,
+   "slots": {
+    "0": "老实说，那次更新"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 1861,
+   "slots": {
+    "0": "真的啦。我家的猫在路由器上趴了一周，Wi-Fi 居然比以前还稳。不要问，问就是猫的力量。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 1861,
+   "slots": {
+    "0": "各位，我花了 1,800 元台币买了一支敲起来像下雨声的键盘，完全不后悔，同事就……"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 1861,
+   "slots": {
+    "0": "保存更改"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 1861,
+   "slots": {
+    "0": "发生错误，请稍后再试。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 1861,
+   "slots": {
+    "0": "您有 3 条未读消息"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 1861,
+   "slots": {
+    "0": "点击"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 1861,
+   "slots": {
+    "0": "如需了解支持的平台，请参阅"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 1861,
+   "slots": {
+    "0": "如果遇到问题，请"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 1861,
+   "slots": {
+    "0": "去年春天，我决定将一台旧笔记本电脑改造成家用服务器，用于存储家人的照片。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 1861,
+   "slots": {
+    "0": "这台 2014 年的"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 1861,
+   "slots": {
+    "0": "我先安装了"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 1861,
+   "slots": {
+    "0": "妹妹起初半信半疑，但一周后她承认，Fernbox 比她使用过的任何云服务都快。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 1861,
+   "slots": {
+    "0": "现在，那台旧笔记本电脑安静地放在架子上，而"
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01",
+    "zh-Hant-tech-02",
+    "zh-Hant-tech-03",
+    "zh-Hant-tech-04",
+    "zh-Hant-tech-05",
+    "zh-Hant-tech-06",
+    "zh-Hant-news-01",
+    "zh-Hant-news-02",
+    "zh-Hant-news-03",
+    "zh-Hant-news-04",
+    "zh-Hant-news-05",
+    "zh-Hant-news-06",
+    "zh-Hant-community-01",
+    "zh-Hant-community-02",
+    "zh-Hant-community-03",
+    "zh-Hant-community-04",
+    "zh-Hant-community-05",
+    "zh-Hant-community-06",
+    "zh-Hant-ui-01",
+    "zh-Hant-ui-02",
+    "zh-Hant-ui-03",
+    "zh-Hant-link-01",
+    "zh-Hant-link-02",
+    "zh-Hant-link-03",
+    "zh-Hant-seq-01",
+    "zh-Hant-seq-02",
+    "zh-Hant-seq-03",
+    "zh-Hant-seq-04",
+    "zh-Hant-seq-05"
+   ],
+   "ms": 53964,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

@@ -82,6 +82,11 @@
 - 설계상 동작: 화면 위쪽(뷰포트 밖)에 추가된 노드는 보일 때 번역(IntersectionObserver rootMargin은 아래쪽만 확장)
 - 실행: `python3 -m http.server 8731` 후 tests/e2e/harness.html 열기 (엔진은 모의, Safari 네이티브 경로는 미검증)
 
+## 재개 후 다시 중지 (17:20)
+- 충전기 연결 후 재개했으나 17:20 시점 배터리 24% 방전 중(잔여 27분) → 벤치마크 중지
+- 이번 재개에서 완료: ollama-qwen3-1.7b, mlx-qwen3.5-4b, mlx-exaone-4.0-1.2b (mlx-kanana 등 남음)
+- 남은 벤치: kanana, gemma-3-1b, gemma-4-e2b, hyperclovax, ollama-gemma4(e2b/e4b), *-mt 3종(orchestrate.mjs args 지원 수정 후), opus(torch 설치), Apple fm ja/zh·marker 재실행
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
