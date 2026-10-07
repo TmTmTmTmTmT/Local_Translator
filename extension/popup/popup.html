@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Translator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <strong>Local Translator</strong>
+  <span id="host" class="host"></span>
+</header>
+<label class="row">
+  <input type="checkbox" id="site-toggle">
+  <span>이 사이트 항상 번역</span>
+</label>
+<button id="toggle-original" type="button">원문 보기</button>
+<button id="pdf" type="button">이 PDF 번역해서 보기</button>
+<div id="engine" class="engine"></div>
+<div id="error" class="error" role="alert" hidden></div>
+<div id="pending" class="pending" hidden></div>
+<footer><a href="#" id="open-options">설정</a></footer>
+<script src="popup-lib.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

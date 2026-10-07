@@ -5,7 +5,7 @@
   "description": "Safari extension: automatic local-first Korean translation for chosen sites",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/"
+    "test": "node --test"
   },
   "devDependencies": {
     "jsdom": "^26.0.0"

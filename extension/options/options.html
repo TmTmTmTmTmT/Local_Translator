@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Translator 설정</title>
+<link rel="stylesheet" href="options.css">
+</head>
+<body>
+<main>
+  <h1>Local Translator 설정</h1>
+
+  <section>
+    <h2>엔진</h2>
+    <label>기본 엔진 <select id="engine-default"></select></label>
+    <label>일본어 (ja) <select id="engine-ja"></select></label>
+    <label>중국어 (zh) <select id="engine-zh"></select></label>
+  </section>
+
+  <section>
+    <h2>Localhost 엔진</h2>
+    <label>서버 종류
+      <select id="lh-kind">
+        <option value="ollama">ollama</option>
+        <option value="mlx">mlx</option>
+        <option value="ct2">ct2</option>
+      </select>
+    </label>
+    <label>Base URL (127.0.0.1 / localhost 만) <input id="lh-base" type="text" spellcheck="false"></label>
+    <label>모델 <input id="lh-model" type="text" spellcheck="false"></label>
+  </section>
+
+  <section>
+    <h2>자동 번역 사이트</h2>
+    <p class="hint">한 줄에 호스트 하나. example.com 은 서브도메인 포함, docs.example.com 은 정확히 일치.</p>
+    <textarea id="sites" rows="8" spellcheck="false"></textarea>
+    <h2>사이트별 제외 셀렉터</h2>
+    <p class="hint">한 줄에 <code>host | css selector</code></p>
+    <textarea id="excludes" rows="5" spellcheck="false"></textarea>
+  </section>
+
+  <section class="actions">
+    <button id="save" type="button" class="primary">저장</button>
+    <button id="clear-cache" type="button">캐시 비우기</button>
+    <span id="feedback" role="status"></span>
+  </section>
+  <ul id="errors" class="errors"></ul>
+</main>
+<script src="options-lib.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

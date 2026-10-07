@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Local Translator",
+  "version": "0.1.0",
+  "description": "Automatic local-first Korean translation for chosen sites",
+  "permissions": ["storage", "tabs", "scripting", "webNavigation", "nativeMessaging"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "scripts": [
+      "lib/hash.js",
+      "lib/sites.js",
+      "lib/cache.js",
+      "lib/lang.js",
+      "engines/prompt.js",
+      "engines/native.js",
+      "engines/localhost.js",
+      "engines/registry.js",
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "action": {
+    "default_title": "Local Translator",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["viewer/viewer.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

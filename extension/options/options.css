@@ -1,0 +1,18 @@
+:root { color-scheme: light dark; --fg: #1d1d1f; --bg: #f5f5f7; --card: #fff; --muted: #6e6e73; --line: #d2d2d7; --accent: #0a60ff; --err: #c9342b; --ok: #1e8e3e; }
+@media (prefers-color-scheme: dark) { :root { --fg: #f5f5f7; --bg: #161618; --card: #1e1e20; --muted: #a1a1a6; --line: #3a3a3c; --accent: #4c8dff; --err: #ff6b61; --ok: #4cd37b; } }
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.5 -apple-system, BlinkMacSystemFont, system-ui, sans-serif; color: var(--fg); background: var(--bg); }
+main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 20px; }
+h2 { font-size: 15px; margin: 16px 0 6px; }
+section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+label { display: flex; flex-direction: column; gap: 4px; margin: 8px 0; }
+input, select, textarea { font: inherit; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; width: 100%; }
+textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+.hint { color: var(--muted); font-size: 12px; margin: 2px 0 6px; }
+button { font: inherit; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.actions { display: flex; align-items: center; gap: 10px; }
+#feedback.ok { color: var(--ok); }
+#feedback.err { color: var(--err); }
+.errors { color: var(--err); font-size: 13px; padding-left: 20px; }

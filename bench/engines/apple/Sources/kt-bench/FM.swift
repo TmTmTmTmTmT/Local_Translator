@@ -113,7 +113,7 @@ func runFM(engine: String, corpus: Corpus, runNo: Int, promptPath: String?, corp
                 break
             } catch {
                 let d = "\(error)"
-                if attempt == 1 && (d.contains("contextSizeExceeded") || d.contains("exceededContextWindowSize")) {
+                if attempt == 1 && (d.contains("contextSizeExceeded") || d.contains("exceededContextWindowSize") || d.contains("context size")) {
                     session = newSession(); resets += 1; continue
                 }
                 batchError = d
