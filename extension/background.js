@@ -13,7 +13,9 @@
     GET_SITE_CONFIG: 'getSiteConfig',
   };
   const SCRIPT_ID = 'kt-main';
-  const CONTENT_JS = ['lib/lang.js', 'lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
+  // lib/lang.js는 주입하지 않는다(content/text.js가 동일 규칙의 판정을 내장). extra.js는 설정 translateAttrs=true일 때만 main.js 앞에 추가.
+  const CONTENT_JS = ['lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
+  const CONTENT_EXTRA_JS = 'content/extra.js';
   const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown']);
   // 사용자 조치가 필요한 에러만 배지 '!'.
   const BADGE_CODES = new Set(['engine_unavailable', 'needs_language_pack']);
@@ -149,7 +151,7 @@
         const matches = sites.toMatchPatterns(s.sites);
         if (!matches.length) return { registered: false };
         await api.scripting.registerContentScripts([{
-          id: SCRIPT_ID, matches, js: CONTENT_JS, runAt: 'document_idle', allFrames: true,
+          id: SCRIPT_ID, matches, js: s.translateAttrs === true ? CONTENT_JS.slice(0, -1).concat(CONTENT_EXTRA_JS, CONTENT_JS.slice(-1)) : CONTENT_JS, runAt: 'document_idle', allFrames: true,
         }]);
         return { registered: true, matches };
       };
@@ -398,7 +400,7 @@
     };
   }
 
-  const exported = { MSG, SCRIPT_ID, CONTENT_JS, DEFAULT_SETTINGS, mergeSettings, toEngineLang, splitBatches, createSemaphore, createBackground };
+  const exported = { MSG, SCRIPT_ID, CONTENT_JS, CONTENT_EXTRA_JS, DEFAULT_SETTINGS, mergeSettings, toEngineLang, splitBatches, createSemaphore, createBackground };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.background = exported;
   if (typeof module !== 'undefined') module.exports = exported;

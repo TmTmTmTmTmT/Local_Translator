@@ -1,0 +1,455 @@
+{
+ "engine": "mlx-kanana-2-3b-4bit-mt",
+ "model": "mlx-community/kanana-2-3b-instruct-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 5489,
+ "totalMs": 41407,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 5489,
+   "slots": {
+    "0": "명령어를 실행하려면 CLI를 설치하세요. ",
+    "1": " 번역문만 출력합니다. ",
+    "2": "Version 2.4.1 or later is required."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 1747,
+   "slots": {
+    "0": "The ",
+    "1": " option accepts a value in milliseconds; the default is 30000 (30 seconds), and setting it to 0 disables the limit entirely."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 936,
+   "slots": {
+    "0": "Before upgrading from v1.x, back up your configuration directory because the migration script rewrites every file in place and cannot be undone.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 1770,
+   "slots": {
+    "0": "If the daemon fails to start, make sure port 8443 is not already bound by another process. You can inspect the logs at http://localhost:8443/debug/logs."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 1083,
+   "slots": {
+    "0": "Each worker thread keeps its own cache of roughly 64 MB, so a machine with 8 GB of RAM should not run more than eight workers."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 1755,
+   "slots": {
+    "0": "Requests are retried up to three times with exponential backoff; if all attempts fail, the error is surfaced to the caller as a ",
+    "1": "."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-news-01",
+   "ms": 2069,
+   "slots": {
+    "0": "The city council voted 7 to 2 on Tuesday to extend bus service into the eastern suburbs, a move that supporters say will cut commute times by up to 25 percent."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-02",
+   "ms": 1599,
+   "slots": {
+    "0": "Researchers at the Halvorsen Institute reported that a new type of battery retained 90 percent of its capacity after 2,’000 charge cycles, roughly double that of current commercial cells."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-03",
+   "ms": 1316,
+   "slots": {
+    "0": "Critics, however, point out that the results have not yet been peer reviewed and that the prototype costs about $340 per kilowatt-hour to produce."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-04",
+   "ms": 1301,
+   "slots": {
+    "0": "Heavy rain is expected across the northern coast through Thursday, with gusts of up to 70 km/h and temperatures hovering around 12 degrees Celsius."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-05",
+   "ms": 1255,
+   "slots": {
+    "0": "In a statement released Monday, the company said it would delay the launch of its flagship phone until early next year, citing ongoing supply-chain problems.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-06",
+   "ms": 1353,
+   "slots": {
+    "0": "Why do so many small bakeries close within five years? Economists say the answer has less to yield to bread than with rent, staffing and thin margins.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-01",
+   "ms": 975,
+   "slots": {
+    "0": "ok so I finally got my Raspberry Pi to boot and it immediately caught fire. well, not literally. but my soul did."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-02",
+   "ms": 1350,
+   "slots": {
+    "0": "Hot take: tabs are fine, spaces are fine, and anyone who argues about it at 2 a’m. needs a snack and a nap."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-03",
+   "ms": 1977,
+   "slots": {
+    "0": "lol I've been staring at this error for three hours and it was a missing semicolon. a SEMICOLON. I'm going to go live in the woods now."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-04",
+   "ms": 1610,
+   "slots": {
+    "0": "Not gonna lie, that update broke literally everything on my setup. Rolled back, touched grass, will try again tomorrow.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-05",
+   "ms": 1533,
+   "slots": {
+    "0": "Can confirm. My cat has been sitting on the router for a week and honestly the wifi has never been better. Don't question it."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-06",
+   "ms": 1832,
+   "slots": {
+    "0": "Y'all, I just spent $60 on a keyboard that sounds like rain. Zero regrets, my coworkers on the other hand... TBD.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 1347,
+   "slots": {
+    "0": "이 문서의 목적은 학생들의 학습 동기를 높이는 것이다. 이를 위해 다양한 방법과 자료를 활용한다. 학생들은 자신의 목표를 설정하고 꾸준히 노력한다. 결과는 모두에게 긍정적인 영향을 미친다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 908,
+   "slots": {
+    "0": "Nothing works. Please try again."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 566,
+   "slots": {
+    "0": "You have 3 unread messages."
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-01",
+   "ms": 1184,
+   "slots": {
+    "0": "Click ",
+    "1": " to continue."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-02",
+   "ms": 598,
+   "slots": {
+    "0": "See ",
+    "1": " for details on supported platforms."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-03",
+   "ms": 1000,
+   "slots": {
+    "0": "If you run into trouble, ",
+    "1": " and include your log file."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 1135,
+   "slots": {
+    "0": "Last spring I decided to turn an old laptop into a home server for my family's photos."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 969,
+   "slots": {
+    "0": "The laptop, a 2014 ThinkBook with 8 GB of RAM, turned out to be perfect for the job.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 897,
+   "slots": {
+    "0": "First, I installed ",
+    "1": " and set up a small web app called Fernbox to browse the pictures."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 930,
+   "slots": {
+    "0": "My sister was skeptical at first, but after a week she admitted that Fernbox was faster than any cloud service she had used."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 922,
+   "slots": {
+    "0": "Now the old laptop sits quietly on a shelf, and Fernbox has become the first thing my whole family opens after a trip.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01"
+   ],
+   "ms": 5489
+  },
+  {
+   "blockIds": [
+    "en-tech-02"
+   ],
+   "ms": 1747
+  },
+  {
+   "blockIds": [
+    "en-tech-03"
+   ],
+   "ms": 936
+  },
+  {
+   "blockIds": [
+    "en-tech-04"
+   ],
+   "ms": 1770
+  },
+  {
+   "blockIds": [
+    "en-tech-05"
+   ],
+   "ms": 1083
+  },
+  {
+   "blockIds": [
+    "en-tech-06"
+   ],
+   "ms": 1755
+  },
+  {
+   "blockIds": [
+    "en-news-01"
+   ],
+   "ms": 2069
+  },
+  {
+   "blockIds": [
+    "en-news-02"
+   ],
+   "ms": 1599
+  },
+  {
+   "blockIds": [
+    "en-news-03"
+   ],
+   "ms": 1316
+  },
+  {
+   "blockIds": [
+    "en-news-04"
+   ],
+   "ms": 1301
+  },
+  {
+   "blockIds": [
+    "en-news-05"
+   ],
+   "ms": 1255
+  },
+  {
+   "blockIds": [
+    "en-news-06"
+   ],
+   "ms": 1353
+  },
+  {
+   "blockIds": [
+    "en-community-01"
+   ],
+   "ms": 975
+  },
+  {
+   "blockIds": [
+    "en-community-02"
+   ],
+   "ms": 1350
+  },
+  {
+   "blockIds": [
+    "en-community-03"
+   ],
+   "ms": 1977
+  },
+  {
+   "blockIds": [
+    "en-community-04"
+   ],
+   "ms": 1610
+  },
+  {
+   "blockIds": [
+    "en-community-05"
+   ],
+   "ms": 1533
+  },
+  {
+   "blockIds": [
+    "en-community-06"
+   ],
+   "ms": 1832
+  },
+  {
+   "blockIds": [
+    "en-ui-01"
+   ],
+   "ms": 1347
+  },
+  {
+   "blockIds": [
+    "en-ui-02"
+   ],
+   "ms": 908
+  },
+  {
+   "blockIds": [
+    "en-ui-03"
+   ],
+   "ms": 566
+  },
+  {
+   "blockIds": [
+    "en-link-01"
+   ],
+   "ms": 1184
+  },
+  {
+   "blockIds": [
+    "en-link-02"
+   ],
+   "ms": 598
+  },
+  {
+   "blockIds": [
+    "en-link-03"
+   ],
+   "ms": 1000
+  },
+  {
+   "blockIds": [
+    "en-seq-01"
+   ],
+   "ms": 1135
+  },
+  {
+   "blockIds": [
+    "en-seq-02"
+   ],
+   "ms": 969
+  },
+  {
+   "blockIds": [
+    "en-seq-03"
+   ],
+   "ms": 897
+  },
+  {
+   "blockIds": [
+    "en-seq-04"
+   ],
+   "ms": 930
+  },
+  {
+   "blockIds": [
+    "en-seq-05"
+   ],
+   "ms": 922
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

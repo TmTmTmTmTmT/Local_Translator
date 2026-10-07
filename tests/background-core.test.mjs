@@ -55,7 +55,7 @@ test('registration: ids, matches, idempotent, empty -> unregister only', async (
   const r = browser.calls.register[0][0];
   assert.equal(r.id, 'kt-main');
   eq(r.matches, ['*://example.com/*', '*://*.example.com/*', '*://b.org/*', '*://*.b.org/*']);
-  eq(r.js, ['lib/lang.js', 'lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js']);
+  eq(r.js, ['lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js']);
   assert.equal(r.runAt, 'document_idle');
   assert.equal(r.allFrames, true);
 
@@ -63,6 +63,12 @@ test('registration: ids, matches, idempotent, empty -> unregister only', async (
   await e.bg.registerContentScripts();
   assert.equal(e.browser.calls.unregister.length, 1);
   assert.equal(e.browser.calls.register.length, 0);
+});
+
+test('registration: extra.js injected before main.js only when translateAttrs is on', async () => {
+  const { browser, bg } = setup({ sync: { settings: { sites: [{ host: 'example.com' }], translateAttrs: true } } });
+  await bg.registerContentScripts();
+  eq(browser.calls.register[0][0].js, ['lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/extra.js', 'content/main.js']);
 });
 
 test('storage change re-registers; own writes do not double register', async () => {

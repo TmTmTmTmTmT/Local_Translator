@@ -1,0 +1,454 @@
+{
+ "engine": "mlx-qwen3-1.7b-4bit-mt",
+ "model": "mlx-community/Qwen3-1.7B-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 2386,
+ "totalMs": 29022,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 2386,
+   "slots": {
+    "0": "명령줄 도구를 설치하려면 다음 명령을 실행하라. ",
+    "1": ",接著用 ",
+    "2": " 버전 2.4.1 이상이 필요합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 1169,
+   "slots": {
+    "0": " 선택의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0을 설정하면 완전히 시간제한이 제거됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 1148,
+   "slots": {
+    "0": "업데이트 전, 설정 파일 폴더를 밀어내세요. 이전 버전에서의 지시문은 모든 파일을 덮어쓰고 복구할 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 1321,
+   "slots": {
+    "0": "정체성 파일이 실행되지 않아, 8443 연결埠가 다른 프로세스에 의해 사용중인 경우 확인해보세요. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 1179,
+   "slots": {
+    "0": "각 실행 스레드가 각각 64MB의 캐시를 가진다. 따라서 8GB의 메모리 컴퓨터는 최대 8개의 실행 스레드만 실행할 수 있다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 820,
+   "slots": {
+    "0": "請求最多會以指數退避的方式重試三次；若全部失敗，錯誤會以 ",
+    "1": " 的形式回傳給呼叫端。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 1368,
+   "slots": {
+    "0": "시의회는 월요일에 7표로 2표를 얻어 공용버스 경로를 동쪽의 주변 지역으로 확장하는 방안을 통과시켰다. 지지자들은 이로 인해 통근 시간이 최대 25% 줄어들 것이라고 설명했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 1367,
+   "slots": {
+    "0": "哈尔沃森研究所的研究人员指出，一种新型电池在经过2000次充放电循环后，仍保有90%的电量，约为目前市售电池的两倍。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 1002,
+   "slots": {
+    "0": "하지만 비판자들은 이 성과가 동료 검토를 받지 않았다는 점과, 원형 제작 비용이 각 토큰당 340 달러라는 점을 지적했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 1631,
+   "slots": {
+    "0": "북부 해안 지역은 목요일부터 대규모 기상 현상으로 인해 대규모 강우와 강한 부reeze가 오고, 최대 70킬로미터의 속도로 이동할 수 있는 강한 바람이 올 예정입니다. 기온은 약 12도의 수준이 될 예정입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 640,
+   "slots": {
+    "0": "该公司周一发布声明表示，由于供应链问题持续，将把旗舰手机的上市推迟至明年年初。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 1449,
+   "slots": {
+    "0": "다수의 작은 빵집은 5년 이내에 지속되지 않는다고 경제학자들은 이유가 빵 자체와 무관하다고 설명하고, 주로 월세, 인력 비용, 그리고 약간의 이익이 적은 점이 문제라고 한다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 1265,
+   "slots": {
+    "0": "천아, 텀블린이 finally 켜졌어. 결과적으로 한 번 켜도 바로 냄새 나서. 진짜 냄새는 아니지만, 내 마음이 이미 떨어졌어."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 654,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 1436,
+   "slots": {
+    "0": "웃어, 오류 메시지에 세 시간을 바라보았지만, 결국 단 한 개의 분號만 없었다. 한 개의 분號이야! 나를 산 위로 은어를 떠올리기로 했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 1342,
+   "slots": {
+    "0": "honest say, that update blew my environment apart. I've reverted to the old version, gone out for a walk, and will try again tomorrow.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 1304,
+   "slots": {
+    "0": "는 라. 집의 고양이가 라우터에 한주 걸어 떨어지지 않았고, Wi-Fi가 이전보다 더 안정했다. 그냥 고양이가 라우터를 지켜주었기 때문이다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 982,
+   "slots": {
+    "0": "各位, 我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……不確定了。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 253,
+   "slots": {
+    "0": "儲存變更"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 343,
+   "slots": {
+    "0": "發生錯誤，請稍後再試。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 377,
+   "slots": {
+    "0": "您有 3 則未讀訊息"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 511,
+   "slots": {
+    "0": "按下",
+    "1": "即可繼續。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 433,
+   "slots": {
+    "0": "如需瞭解支援的平台,請參閱",
+    "1": "。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 457,
+   "slots": {
+    "0": "若有問題，請",
+    "1": "，並附上記錄檔。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 765,
+   "slots": {
+    "0": "올해 봄, 나는 가족的照片를 저장하기 위한 가용 서버로 기존의 노트북을 재설치했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 829,
+   "slots": {
+    "0": "2014년의 ThinkBook는 8GB의 메모리로 사용되며, 이는 해당 작업에 적절하게 사용된다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 733,
+   "slots": {
+    "0": "我先安裝了 ",
+    "1": "，再架設一個叫 Fernbox 的小型網頁應用程式來瀏覽相片。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 1012,
+   "slots": {
+    "0": "동생은 처음에는 반나절로 의심했지만, 한달 후에는 Fernbox가 그녀가 사용한 모든 클라우드 서비스보다 빠르다는 것을 인정했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 845,
+   "slots": {
+    "0": "현재, 그 노트북은 놓여 있고, Fernbox는 모두가 여행归来後 첫으로 실행되는 앱이 됨.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01"
+   ],
+   "ms": 2386
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-02"
+   ],
+   "ms": 1169
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-03"
+   ],
+   "ms": 1148
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-04"
+   ],
+   "ms": 1321
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-05"
+   ],
+   "ms": 1179
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-06"
+   ],
+   "ms": 820
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-01"
+   ],
+   "ms": 1368
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-02"
+   ],
+   "ms": 1367
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-03"
+   ],
+   "ms": 1002
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-04"
+   ],
+   "ms": 1631
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-05"
+   ],
+   "ms": 640
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-06"
+   ],
+   "ms": 1449
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-01"
+   ],
+   "ms": 1265
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-02"
+   ],
+   "ms": 654
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-03"
+   ],
+   "ms": 1436
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-04"
+   ],
+   "ms": 1342
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-05"
+   ],
+   "ms": 1304
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-06"
+   ],
+   "ms": 982
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-01"
+   ],
+   "ms": 253
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-02"
+   ],
+   "ms": 343
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-03"
+   ],
+   "ms": 377
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-01"
+   ],
+   "ms": 511
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-02"
+   ],
+   "ms": 433
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-03"
+   ],
+   "ms": 457
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-01"
+   ],
+   "ms": 765
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-02"
+   ],
+   "ms": 829
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-03"
+   ],
+   "ms": 733
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-04"
+   ],
+   "ms": 1012
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-05"
+   ],
+   "ms": 845
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

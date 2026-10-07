@@ -1,0 +1,454 @@
+{
+ "engine": "mlx-kanana-2-3b-4bit-mt",
+ "model": "mlx-community/kanana-2-3b-instruct-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 7024,
+ "totalMs": 58418,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 7024,
+   "slots": {
+    "0": "請輸入您想要的程式碼或指令，我會幫您翻譯成中文。 ",
+    "1": "請輸入您要翻譯的繁體中文文本，我會自動翻譯成自然韓國語，並輸出結果。 ",
+    "2": " 이 문서의 요구 사항은 2.4.1 或更新的版本입니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 2602,
+   "slots": {
+    "0": " 的單位為毫秒,預設值是 30000(30 秒),設為 0 則完全不限制逾時。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 3878,
+   "slots": {
+    "0": "이 문장은 중국어 번체로 되어 있습니다. 자연스러운 한국어로 번역해 드리겠습니다.\n\n원문: 從 v1.x 升級之前,請先備份設定資料夢。遷移指令碼會直接覆寫所有檔案,而且無法復原。\n\n번역: Before upgrading to v1.x, please back up the setting data folder. The migration script will directly overwrite all files, and it cannot be restored.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 2671,
+   "slots": {
+    "0": "이 텍스트의 중국어 원문을 자연스러운 한국어로 번역하면 다음과 같습니다:\n\n만약 상주 프로그램이 정상적으로 기동하지 않으면, 포트 8443이 다른 처리 프로그램에 점유되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 1438,
+   "slots": {
+    "0": "每個執行緒都有各自約 64 MB 的快取,因此記憶體為 8 GB 的電腦最多只應執行八個執行登錄。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 1620,
+   "slots": {
+    "0": "請求最多會以指數退避的方式重試三次;若全部失敗,錯誤會以 ",
+    "1": " 的形式回傳給呼叫端。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 2857,
+   "slots": {
+    "0": "市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案,支持者表示,這將使通勤時間最多縮短 25%。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 2061,
+   "slots": {
+    "0": "哈爾沃森研究所的研究人員指出,一種新型電池在經過 2000 多次充放電循環後,仍保有 90% 的電量,約為目前市售電池的兩倍。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 1736,
+   "slots": {
+    "0": "不過,批評者指出,這項成果尚未經過同儕審查,而且原型的生產成本約為每千瓦小時 340 美元。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 2047,
+   "slots": {
+    "0": "北部沿海地區預計到週四都會有大雨，陣風可達每小時 70 公里，氣溫約在攝氏 12 度上下。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 1269,
+   "slots": {
+    "0": "該公司週一發布聲明表示,由於供應鏈問題持續,將把旗艦手機的上市延後至明年年初。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 1442,
+   "slots": {
+    "0": "為什麼許多小型麵包店撐不過五年?經濟學家認為,原因與麵包本身關係不大,更多在於房租、人力與微薄的利潤。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 1969,
+   "slots": {
+    "0": "天啊,樹莓派終於開機了,結果一通電就冒煙。好啦也不是真的冒煙,但我的心已經碎了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 1592,
+   "slots": {
+    "0": "이 문장은 너무 길고 복잡해서, 그냥 \"이 문장은 너무 길고 복잡해서, 그냥 '이 문장은 너무 길고 복잡해서, 그냥' 만 반복하네.\"라고 번역할 수밖에 없어."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 2108,
+   "slots": {
+    "0": "這段繁體中文的翻譯成韓國語是：\n\n笑死，盯著錯誤訊息看了三個小時，結果只是少了一個分號。一個分號欸！我要去山上隱居了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 1692,
+   "slots": {
+    "0": "老實說,那次更新直接把我的環境搞爆了。已經退回舊版,出門吹了風,明天再戰。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 1430,
+   "slots": {
+    "0": "真的啦。我家貓在路由器上趴了一個禮拜,Wi-Fi 居然比以前還穩。不要問,問就是貓的力量。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 2060,
+   "slots": {
+    "0": "各位,我花了 一千八百元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……不確定了。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 2280,
+   "slots": {
+    "0": "이 문서의 중국어 원문은 다음과 같다:\n\n繁體中文：「儲存變更」這一節的內容為什麼？\n\n번역된 한국어 문장은 다음과 같다:\n\n이 부분의 내용은 왜 이렇게 되는가?"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 575,
+   "slots": {
+    "0": "發生錯誤,請稍後再試。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 931,
+   "slots": {
+    "0": "您有 3 則未讀訊息，請告訴我哪一則是您最想看的？"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 1097,
+   "slots": {
+    "0": "번역문만 출력합니다.\n\n번역문:\n按一下",
+    "1": "即可繼續。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 1256,
+   "slots": {
+    "0": "번역문만 출력합니다.\n\n如需瞭解支援的平台,請參閱",
+    "1": "。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 3494,
+   "slots": {
+    "0": "請問您有什麼問題嗎？",
+    "1": "請輸入您需要翻譯的繁體中文文本，並請輸入翻譯後的韓國語文本，然後請輸入翻譯結果。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 1088,
+   "slots": {
+    "0": "去年春天我決定把一台舊筆電改造成家用伺服器,用來存放家人的照片。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 1528,
+   "slots": {
+    "0": "這台 2014 年的ThinkBook配備 8 GB 記憶體,拿來做這件事剛剛好。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 1456,
+   "slots": {
+    "0": "我先安裝了 ",
+    "1": ",再架設一個叫 Fernbox 的小型網頁應用程式來瀏覽相片。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 1144,
+   "slots": {
+    "0": "妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 2072,
+   "slots": {
+    "0": "現在，那台舊筆電安靜地放在架子上，而Fernbox已經成為全家人旅行回來後第一個開啟的應多用程式。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01"
+   ],
+   "ms": 7024
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-02"
+   ],
+   "ms": 2602
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-03"
+   ],
+   "ms": 3878
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-04"
+   ],
+   "ms": 2671
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-05"
+   ],
+   "ms": 1438
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-06"
+   ],
+   "ms": 1620
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-01"
+   ],
+   "ms": 2857
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-02"
+   ],
+   "ms": 2061
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-03"
+   ],
+   "ms": 1736
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-04"
+   ],
+   "ms": 2047
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-05"
+   ],
+   "ms": 1269
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-06"
+   ],
+   "ms": 1442
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-01"
+   ],
+   "ms": 1969
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-02"
+   ],
+   "ms": 1592
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-03"
+   ],
+   "ms": 2108
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-04"
+   ],
+   "ms": 1692
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-05"
+   ],
+   "ms": 1430
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-06"
+   ],
+   "ms": 2060
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-01"
+   ],
+   "ms": 2280
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-02"
+   ],
+   "ms": 575
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-03"
+   ],
+   "ms": 931
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-01"
+   ],
+   "ms": 1097
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-02"
+   ],
+   "ms": 1256
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-03"
+   ],
+   "ms": 3494
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-01"
+   ],
+   "ms": 1088
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-02"
+   ],
+   "ms": 1528
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-03"
+   ],
+   "ms": 1456
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-04"
+   ],
+   "ms": 1144
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-05"
+   ],
+   "ms": 2072
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

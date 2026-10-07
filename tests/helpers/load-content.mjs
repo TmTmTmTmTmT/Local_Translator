@@ -1,11 +1,11 @@
-// jsdom 창에 content 스크립트(text, filter, segmenter, apply, main)를 순서대로 평가하는 테스트 헬퍼.
+// jsdom 창에 content 스크립트(josa, text, filter, segmenter, apply, main, 옵션 extra)를 순서대로 평가하는 테스트 헬퍼.
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { JSDOM } from 'jsdom';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'extension');
-const FILES = ['content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
+const FILES = ['content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js'];
 const SRC = new Map();
 function src(f) { if (!SRC.has(f)) SRC.set(f, readFileSync(join(ROOT, f), 'utf8')); return SRC.get(f); }
 
@@ -63,8 +63,10 @@ export function setup(html = '<body></body>', opts = {}) {
   };
   win.requestAnimationFrame = (f) => { f(0); return 1; };
 
-  if (opts.lang) win.eval(readFileSync(join(ROOT, 'lib/lang.js'), 'utf8'));
+  if (opts.lang) win.eval(src('lib/lang.js'));
   for (const f of FILES) win.eval(src(f));
+  if (opts.extra !== false) win.eval(src('content/extra.js')); // 기본 주입 목록에는 없지만 translateAttrs 테스트용으로 항상 로드
+  win.eval(src('content/main.js'));
 
   const messenger = createMessenger(opts);
   const KT = win.KT;
@@ -72,7 +74,7 @@ export function setup(html = '<body></body>', opts = {}) {
   return {
     dom, win, document: win.document, KT, io, messenger,
     start(extra) { return KT.main.start(Object.assign({}, startOpts, extra)); },
-    idle: (ms) => KT.main.idle(ms),
+    idle: (ms) => idle(win, KT.main.state, ms),
     q: (sel) => win.document.querySelector(sel),
     qa: (sel) => Array.from(win.document.querySelectorAll(sel)),
     close() { KT.main.stop(); win.close(); },
@@ -90,4 +92,16 @@ export function textNodes(root) {
 // 구조 지문: 요소 태그 순서(텍스트 제외). 적용 전후 비교용.
 export function structure(root) {
   return Array.from(root.querySelectorAll('*')).map((e) => e.localName).join(',');
+}
+
+// 모든 타이머·요청·적용이 끝날 때까지 대기.
+async function idle(win, st, maxMs) {
+  if (!st) return;
+  const sleep = (ms) => new Promise((r) => win.setTimeout(r, ms));
+  const busy = () => !!(st.flushTimer || st.mutTimer || st.tickPending || st.inflight || st.applyQueue.length || st.rafPending ||
+    st.work.length || st.chars.size);
+  const t0 = Date.now();
+  await sleep(0);
+  while (busy() && Date.now() - t0 < (maxMs || 3000)) await sleep(2);
+  await sleep(0);
 }

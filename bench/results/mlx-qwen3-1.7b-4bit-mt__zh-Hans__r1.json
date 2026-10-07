@@ -1,0 +1,454 @@
+{
+ "engine": "mlx-qwen3-1.7b-4bit-mt",
+ "model": "mlx-community/Qwen3-1.7B-4bit",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 922,
+ "totalMs": 28538,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 922,
+   "slots": {
+    "0": "要安装命令行工具，请运行 ",
+    "1": "，然后用 ",
+    "2": " 检查版本。需要 2.4.1 或更高版本。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 1435,
+   "slots": {
+    "0": " 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0을 설정하면 완전히 지연 시간 제한이 해제됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 1634,
+   "slots": {
+    "0": "업데이트 전에 구성 폴더를 백업해 주세요. 이전 버전에서 이전 버전의 파일을 직접 수정할 수 있으며, 복구할 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 578,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 1065,
+   "slots": {
+    "0": "각 작업 스레드가 64MB의 캐시를 가진다. 따라서 8GB의 메모리 기반의 컴퓨터는 최대 8개의 작업 스레드를 실행할 수 있다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 766,
+   "slots": {
+    "0": "请求最多会以指数退避的方式重试三次；如果全部失败，错误会以 ",
+    "1": " 的形式返回给调用方。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 1462,
+   "slots": {
+    "0": "시의회는 수요일 오후에 7표로 2표를 얻어 지하철 노선을 동쪽의 주변 지역으로 확장하는 방안을 통과시켰다. 지지자들은 이로 인해 통근 시간이 최대 25% 줄어들 것이라고 생각한다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 955,
+   "slots": {
+    "0": "哈尔沃森研究所的研究人员报告称，一种新型电池在经过2000次充放电循环后仍保持了90%的容量，约为目前市售电池的两倍。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 1098,
+   "slots": {
+    "0": "하지만 반론자들은 이 결과가 동료 검토를 받지 않았다는 점과, 샘플의 제조 비용이 각 토너리당 340 달라이로 나뉜다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 2086,
+   "slots": {
+    "0": "북부 해안 지역은 목요일부터 대규모 폭우와 강한 부reeze가 오를 예정이다. 기상청은 70 키로미터를 넘는 강한 바람이 올 것이라고 경고했다. 온도는 12도 이하로 유지될 예정이다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 803,
+   "slots": {
+    "0": "该公司周一发表声明称，由于供应链问题持续，将把旗舰手机的发布推迟到明年年初。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 1325,
+   "slots": {
+    "0": "이 많은 작은 빵집이 5년 이내에 문을 닫는 이유는 빵 자체가 문제되지 않다는 것을 경제학자들은 인정하고, 주로 월세, 인력 비용, 그리고 약간의 이익 차이가 문제였음을 설명했다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 647,
+   "slots": {
+    "0": "사과피자, 유일한 명사, 숫자, URL, 코드는 원문 그대로 유지하라."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 1354,
+   "slots": {
+    "0": "용자: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 1064,
+   "slots": {
+    "0": "웃어버렸다. 세 시간 동안 에러 메시지를 바라보았지만, 결국에는 한 개의 분号가 누락했다. 한 개의 분号! 내가 산里에서 사라져야 했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 642,
+   "slots": {
+    "0": "실제로,那次更新直接把我的环境搞崩了。已经回滚,出去透了口气,明天再战。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 932,
+   "slots": {
+    "0": "정말이지. 집안의 고양이가 라우터 위에 앉아서 일주일 동안 있었고, Wi-Fi가 더 안정했다. 그냥 그런 거다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 1766,
+   "slots": {
+    "0": "가족분들, 나는 400원에 한 대 떨어지는 소리로 쿠버네티스 키보드를 샀었는데, 전혀 후회하지 않아요. 동료분들이라면…… 그럴 만한 일이 있을 거예요.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 195,
+   "slots": {
+    "0": "변경 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 296,
+   "slots": {
+    "0": "오류 occurred, please try again later."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 342,
+   "slots": {
+    "0": "3개의 미리 읽지 않은 메시지"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 820,
+   "slots": {
+    "0": "클릭",
+    "1": "계속."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 607,
+   "slots": {
+    "0": "관련된 플랫폼에 대해 자세한 정보는 ",
+    "1": "를 참조하십시오."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 1696,
+   "slots": {
+    "0": "질문이 발생했을 때, 해당 문제를 해결하기 위한 단계를 따르세요.",
+    "1": "파일을 포함하여, 로그 파일을 첨부하라."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 924,
+   "slots": {
+    "0": "올해 봄, 나는 기존의 노트북을 업그레이드하여 가족的照片을 저장하는 홈 서버로 사용할 수 있도록 변환했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 741,
+   "slots": {
+    "0": "2014년의 ThinkBook는 8GB의 메모리로, 이 작업에 적합한 컴퓨터입니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 640,
+   "slots": {
+    "0": "我先装了 ",
+    "1": "，又搭了一个叫 Fernbox 的小型网页应用来浏览照片。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 926,
+   "slots": {
+    "0": "형제는 처음에는 반쪽으로 의심했지만, 한주 후에는 Fernbox가 그녀가 사용한 모든 클라우드 서비스보다 빠르다고 인정했다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 816,
+   "slots": {
+    "0": "현재, 그 노트북은 놓여 있는 채로架子 위에 놓여 있고, Fernbox는 모두가 여행 후 처음 실행되는 앱이 되었다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01"
+   ],
+   "ms": 922
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-02"
+   ],
+   "ms": 1435
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-03"
+   ],
+   "ms": 1634
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-04"
+   ],
+   "ms": 578
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-05"
+   ],
+   "ms": 1065
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-06"
+   ],
+   "ms": 766
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-01"
+   ],
+   "ms": 1462
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-02"
+   ],
+   "ms": 955
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-03"
+   ],
+   "ms": 1098
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-04"
+   ],
+   "ms": 2086
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-05"
+   ],
+   "ms": 803
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-06"
+   ],
+   "ms": 1325
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-01"
+   ],
+   "ms": 647
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-02"
+   ],
+   "ms": 1354
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-03"
+   ],
+   "ms": 1064
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-04"
+   ],
+   "ms": 642
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-05"
+   ],
+   "ms": 932
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-06"
+   ],
+   "ms": 1766
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-01"
+   ],
+   "ms": 195
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-02"
+   ],
+   "ms": 296
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-03"
+   ],
+   "ms": 342
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-01"
+   ],
+   "ms": 820
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-02"
+   ],
+   "ms": 607
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-03"
+   ],
+   "ms": 1696
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-01"
+   ],
+   "ms": 924
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-02"
+   ],
+   "ms": 741
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-03"
+   ],
+   "ms": 640
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-04"
+   ],
+   "ms": 926
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-05"
+   ],
+   "ms": 816
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

@@ -1,0 +1,445 @@
+{
+ "engine": "ollama-gemma4-e2b-mt",
+ "model": "gemma4:e2b",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 326783,
+ "totalMs": 9368776,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 326783,
+   "slots": {
+    "0": "CLI를 설치하려면 ",
+    "1": "을 실행한 다음 ",
+    "2": "로 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 2048623,
+   "slots": null,
+   "error": "HTTP 500: {\"error\":\"timed out waiting for llama-server to start - \"}"
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 13607,
+   "slots": {
+    "0": "v1.x에서 업그레이드하기 전에 구성 디렉터리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 제자리에서 덮어쓰므로 되돌릴 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 1615367,
+   "slots": {
+    "0": "데몬이 시작되지 않으면 포트 8443이 다른 프로세스에 의해 이미 바인딩되어 있지 않은지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 검사할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 988678,
+   "slots": null,
+   "error": "fetch failed: request timeout after 900000ms"
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 2502259,
+   "slots": null,
+   "error": "fetch failed: request timeout after 900000ms"
+  },
+  {
+   "id": "en-news-01",
+   "ms": 1209,
+   "slots": {
+    "0": "시의회는 화요일에 7대 2로 동부 교외 지역으로 버스 서비스를 연장하는 투표를 했으며, 지지자들은 이 조치가 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말한다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-02",
+   "ms": 154731,
+   "slots": {
+    "0": "할보르센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회의 충전 사이클 후에도 용량의 90%를 유지했으며, 이는 현재 상용 셀의 약 두 배에 해당한다고 보고했다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-03",
+   "ms": 719025,
+   "slots": {
+    "0": "그러나 비평가들은 그 결과들이 아직 동료 심사를 받지 않았으며, 시제품을 생산하는 데 약 킬로와트시당 $340가 든다고 지적한다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-04",
+   "ms": 10214,
+   "slots": {
+    "0": "목요일까지 북부 해안 전체에 폭우가 예상되며, 최대 시속 70km의 돌풍과 기온은 12도 내외로 유지될 것으로 보인다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-05",
+   "ms": 11992,
+   "slots": {
+    "0": "월요일에 발표된 성명에서, 그 회사는 지속되는 공급망 문제들을 언급하며 플래그십 폰 출시를 내년 초까지 연기할 것이라고 말했다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-06",
+   "ms": 10777,
+   "slots": {
+    "0": "왜 그렇게 많은 작은 빵집들이 5년 이내에 문을 닫는가? 경제학자들은 그 답이 빵보다는 임대료, 인력, 그리고 적은 마진과 더 관련이 있다고 말한다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-01",
+   "ms": 9881,
+   "slots": {
+    "0": "좋아, 드디어 내 라즈베리 파이를 부팅시켰는데 바로 불이 붙었어. 뭐, 문자 그대로는 아니지만. 내 영혼은 그랬지."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-02",
+   "ms": 753021,
+   "slots": {
+    "0": "핫 테이크: 탭은 괜찮고, 스페이스도 괜찮다. 그리고 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요하다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-03",
+   "ms": 48413,
+   "slots": {
+    "0": "ㅋㅋ 나 이 에러를 세 시간 동안 쳐다봤는데 세미콜론이 빠진 거였어. 세미콜론. 나 이제 숲으로 갈 거야."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-04",
+   "ms": 24588,
+   "slots": {
+    "0": "솔직히 말해서, 그 업데이트 때문에 내 설정 전체가 완전히 망가졌어. 되돌렸고, 자연을 만지고, 내일 다시 시도해 볼 거야.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-05",
+   "ms": 36301,
+   "slots": {
+    "0": "확인해 주세요. 우리 고양이가 일주일 동안 라우터 위에 앉아 있었는데 솔직히 와이파이는 그 어느 때보다 좋았어요. 의심하지 마세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-06",
+   "ms": 24314,
+   "slots": {
+    "0": "여러분, 저는 방금 비 소리 같은 키보드를 $60에 샀어요. 후회는 전혀 없지만, 제 동료들은... TBD.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 247,
+   "slots": {
+    "0": "변경 사항 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 6789,
+   "slots": {
+    "0": "문제가 발생했습니다. 나중에 다시 시도해 주세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 7365,
+   "slots": {
+    "0": "읽지 않은 메시지 3개가 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-01",
+   "ms": 415,
+   "slots": {
+    "0": "계속하려면 ",
+    "1": "을 클릭하세요."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-02",
+   "ms": 524,
+   "slots": {
+    "0": "지원되는 플랫폼에 대한 자세한 내용은 ",
+    "1": "을 참조하십시오."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-03",
+   "ms": 5908,
+   "slots": {
+    "0": "문제가 발생하면 ",
+    "1": "하고 로그 파일을 포함하세요."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 525,
+   "slots": {
+    "0": "지난 봄에 나는 오래된 노트북을 가족 사진을 위한 홈 서버로 바꾸기로 결정했다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 9551,
+   "slots": {
+    "0": "그 노트북은 2014년식 ThinkBook에 8 GB RAM을 탑재한 것으로, 그 일에 완벽했다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 20619,
+   "slots": {
+    "0": "먼저 설치했습니다. ",
+    "1": " 그리고 사진들을 탐색할 수 있도록 Fernbox라는 작은 웹 앱을 설정하라."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 8282,
+   "slots": {
+    "0": "처음에는 내 여동생은 회의적이었지만, 일주일 후에 그녀는 Fernbox가 그녀가 사용했던 어떤 클라우드 서비스보다 더 빠르다는 것을 인정했다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 8762,
+   "slots": {
+    "0": "이제 그 낡은 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 우리 가족 모두가 여행 후에 가장 먼저 여는 것이 되었다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01"
+   ],
+   "ms": 326783
+  },
+  {
+   "blockIds": [
+    "en-tech-02"
+   ],
+   "ms": 2048623
+  },
+  {
+   "blockIds": [
+    "en-tech-03"
+   ],
+   "ms": 13607
+  },
+  {
+   "blockIds": [
+    "en-tech-04"
+   ],
+   "ms": 1615367
+  },
+  {
+   "blockIds": [
+    "en-tech-05"
+   ],
+   "ms": 988678
+  },
+  {
+   "blockIds": [
+    "en-tech-06"
+   ],
+   "ms": 2502259
+  },
+  {
+   "blockIds": [
+    "en-news-01"
+   ],
+   "ms": 1209
+  },
+  {
+   "blockIds": [
+    "en-news-02"
+   ],
+   "ms": 154731
+  },
+  {
+   "blockIds": [
+    "en-news-03"
+   ],
+   "ms": 719025
+  },
+  {
+   "blockIds": [
+    "en-news-04"
+   ],
+   "ms": 10214
+  },
+  {
+   "blockIds": [
+    "en-news-05"
+   ],
+   "ms": 11992
+  },
+  {
+   "blockIds": [
+    "en-news-06"
+   ],
+   "ms": 10777
+  },
+  {
+   "blockIds": [
+    "en-community-01"
+   ],
+   "ms": 9881
+  },
+  {
+   "blockIds": [
+    "en-community-02"
+   ],
+   "ms": 753021
+  },
+  {
+   "blockIds": [
+    "en-community-03"
+   ],
+   "ms": 48413
+  },
+  {
+   "blockIds": [
+    "en-community-04"
+   ],
+   "ms": 24588
+  },
+  {
+   "blockIds": [
+    "en-community-05"
+   ],
+   "ms": 36301
+  },
+  {
+   "blockIds": [
+    "en-community-06"
+   ],
+   "ms": 24314
+  },
+  {
+   "blockIds": [
+    "en-ui-01"
+   ],
+   "ms": 247
+  },
+  {
+   "blockIds": [
+    "en-ui-02"
+   ],
+   "ms": 6789
+  },
+  {
+   "blockIds": [
+    "en-ui-03"
+   ],
+   "ms": 7365
+  },
+  {
+   "blockIds": [
+    "en-link-01"
+   ],
+   "ms": 415
+  },
+  {
+   "blockIds": [
+    "en-link-02"
+   ],
+   "ms": 524
+  },
+  {
+   "blockIds": [
+    "en-link-03"
+   ],
+   "ms": 5908
+  },
+  {
+   "blockIds": [
+    "en-seq-01"
+   ],
+   "ms": 525
+  },
+  {
+   "blockIds": [
+    "en-seq-02"
+   ],
+   "ms": 9551
+  },
+  {
+   "blockIds": [
+    "en-seq-03"
+   ],
+   "ms": 20619
+  },
+  {
+   "blockIds": [
+    "en-seq-04"
+   ],
+   "ms": 8282
+  },
+  {
+   "blockIds": [
+    "en-seq-05"
+   ],
+   "ms": 8762
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

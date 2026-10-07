@@ -1,0 +1,454 @@
+{
+ "engine": "mlx-kanana-2-3b-4bit-mt",
+ "model": "mlx-community/kanana-2-3b-instruct-4bit",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 1552,
+ "totalMs": 47880,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 1552,
+   "slots": {
+    "0": "要安装命令行工具，请运行 ",
+    "1": "，然后用 ",
+    "2": " 检查版本。需要 2.4.1 或更高版本。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 1684,
+   "slots": {
+    "0": " 的单位是毫秒,默认值为 30000(30 秒),设为 0 则完全不限制超时。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 1624,
+   "slots": {
+    "0": "번역문만 출력합니다.\n\n원문: 从 v1.x 升级之前，请先备份配置目录。迁移脚本会直接改写所有文件,而且无法撤销。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 1285,
+   "slots": {
+    "0": "如果守护进程无法启动，请确认端口8443没有被其他进程占用。日志可以在http://localhost:8443/debug/logs查看。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 1131,
+   "slots": {
+    "0": "每个工作线程都有各自约 64 MB 的缓存，因此内存为 8 GB 的机器最多运行八个工作线程。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 4348,
+   "slots": {
+    "0": "请求最多会以指数退避的方式重试三次;如果全部失败,错误会以 ",
+    "1": " 번역할 텍스트 없음"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 2082,
+   "slots": {
+    "0": "市议会周二以7票对2票通过了将公交线路延伸至东部郊区的方案,支持者认为这将使通勤时间最多缩登25%。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 2451,
+   "slots": {
+    "0": "연구진은 신형 배터리가 2000회 충방전 후에도 90%의 용량을 유지했다고 보고했다. 이는 시판 중인 배터리의 두 배에 해당한다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 1283,
+   "slots": {
+    "0": "不过,批评者指出,这一结果尚未经过同行评审,而且样品的生产成本约为每千瓦时 340 美元。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 2066,
+   "slots": {
+    "0": "北部沿海地区预计到周四都有大雨,阵风可达每小时 70 公里,气温在 12 摄氏度左右。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 1525,
+   "slots": {
+    "0": "该公司周一发表声明称,由于供应链问题持续,将把旗舰手机的发布推迟到明年年初。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 1510,
+   "slots": {
+    "0": "为什么这么多小面包店开不过五年?经济学家认为,原因与面包本身关系不大,更多在于房租、人手和微薄的利润。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 2068,
+   "slots": {
+    "0": "这段话翻译成韩语是：\n\n好家伙，树莓派终于能开机了,结果一上电就冒烟。好吧，也不是真冒烟但我的心态已经崩了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 2362,
+   "slots": {
+    "0": "说句得罪人的话:用制表符还是空格都行,凌晨两点还在为这个吵架的人,该去吃点东西然后睡觉了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 1729,
+   "slots": {
+    "0": "这句话翻译成韩语是：“笑死，盯着报错看了三个小时,结果是少了一个分号。一个分号啊！我要去山里隐居了。”"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 2081,
+   "slots": {
+    "0": "这段话翻译成韩语是：\n\n\"사실 오늘 업데이트에서 내 환경이 완전히 망가졌어. 이미 롤백했고, 밖에 나가서는 한숨만 나오고, 내일 다시 싸울 거야.\"",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 1927,
+   "slots": {
+    "0": "确实。我家猫在路由器上趴了一个星期,Wi-Fi 居然比以前还稳。别问,问就是玄学。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 878,
+   "slots": {
+    "0": "这段话是用中文写的，翻译成韩语后输出。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 3505,
+   "slots": {
+    "0": "原文本：  \n我们需要一个更专业的团队，来完成这个项目，所以我们必须找到合适的人才。\n\n翻译：  \nWe need a more professional team to complete this project, so we must find the right person.\n\n（原文本中的「我们」，「团队」，「专业」，「项目」，「必须」，「找到」，「合适」， 모두 원문과 동일）"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 1515,
+   "slots": {
+    "0": "죄송합니다만, 요청하신 내용을 이해할 수 없습니다. 다시 간단한 문장으로 요청 내용을 알려주시면 번역해 드리겠습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 566,
+   "slots": {
+    "0": "您有 3 带未读消息"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 1106,
+   "slots": {
+    "0": "번역문만 출력합니다.\n\n点击",
+    "1": "继续。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 1086,
+   "slots": {
+    "0": "관련된 지원 플랫폼의 내용은 ",
+    "1": "에서 자세히 확인할 수 있습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 942,
+   "slots": {
+    "0": "원문 중국어 간체(简体中文): 如果遇到问题,请",
+    "1": ",并附上日志文件。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 1358,
+   "slots": {
+    "0": "去年春天，我决定把一台旧笔记本改造成家用服务器，用来存放家人的照片。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 859,
+   "slots": {
+    "0": "这台 2014 年的ThinkBook配有 8 GB 内存,用来干这个活儿正合适。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 913,
+   "slots": {
+    "0": "我先装了 ",
+    "1": "，又搭了一个叫 Fernbox 小型网页应用来浏览照片。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 943,
+   "slots": {
+    "0": "妹妹一开始半信半疑,但一周后她承认,Fernbox 比她用过的任何云服务都快。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 1497,
+   "slots": {
+    "0": "现在,那台旧笔记本安安静静地待在架子上,而Fernbox已经成了全家人旅行回来后第一个打开的应用。",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01"
+   ],
+   "ms": 1552
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-02"
+   ],
+   "ms": 1684
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-03"
+   ],
+   "ms": 1624
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-04"
+   ],
+   "ms": 1285
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-05"
+   ],
+   "ms": 1131
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-06"
+   ],
+   "ms": 4348
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-01"
+   ],
+   "ms": 2082
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-02"
+   ],
+   "ms": 2451
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-03"
+   ],
+   "ms": 1283
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-04"
+   ],
+   "ms": 2066
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-05"
+   ],
+   "ms": 1525
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-06"
+   ],
+   "ms": 1510
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-01"
+   ],
+   "ms": 2068
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-02"
+   ],
+   "ms": 2362
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-03"
+   ],
+   "ms": 1729
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-04"
+   ],
+   "ms": 2081
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-05"
+   ],
+   "ms": 1927
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-06"
+   ],
+   "ms": 878
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-01"
+   ],
+   "ms": 3505
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-02"
+   ],
+   "ms": 1515
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-03"
+   ],
+   "ms": 566
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-01"
+   ],
+   "ms": 1106
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-02"
+   ],
+   "ms": 1086
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-03"
+   ],
+   "ms": 942
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-01"
+   ],
+   "ms": 1358
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-02"
+   ],
+   "ms": 859
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-03"
+   ],
+   "ms": 913
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-04"
+   ],
+   "ms": 943
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-05"
+   ],
+   "ms": 1497
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

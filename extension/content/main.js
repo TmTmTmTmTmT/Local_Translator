@@ -3,75 +3,48 @@
   'use strict';
 
   const KT = (globalThis.KT = globalThis.KT || {});
-  // background.js와 동일 문자열(PROTOCOL §2).
-  const MSG = { TRANSLATE: 'translate', TOGGLE_ORIGINAL: 'toggleOriginal', REPORT_STATUS: 'reportStatus' };
-  const DEFAULTS = {
-    debounceMs: 50,
-    mutationDebounceMs: 300,
-    reportDebounceMs: 200,
-    tickLimit: 200,
-    maxBatchChars: 6000,
-    maxBatchBlocks: 40,
-    cacheSize: 2000,
-    rootMargin: '0px 0px 150% 0px',
-    fixParticles: true, // 조사 병기 확정(apply.js)
-    translateAttrs: false, // title/alt/aria-label/placeholder 번역
-  };
+  // translateAttrs: 속성 번역(extra.js가 주입된 경우에만 동작). fixParticles: 조사 병기 확정(apply.js).
+  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, tickLimit: 200, fixParticles: true, translateAttrs: false };
+  const MAX_BATCH_CHARS = 6000, MAX_BATCH_BLOCKS = 40, CACHE_SIZE = 2000;
 
   let S = null; // 실행 상태(없으면 정지)
 
   function defaultSend(msg) {
     if (globalThis.browser && globalThis.browser.runtime) return globalThis.browser.runtime.sendMessage(msg);
-    const api = globalThis.chrome;
-    return new Promise((resolve, reject) => {
-      api.runtime.sendMessage(msg, (resp) => {
-        const err = api.runtime.lastError;
-        if (err) reject(new Error(err.message)); else resolve(resp);
-      });
-    });
+    const rt = globalThis.chrome.runtime;
+    return new Promise((resolve, reject) => rt.sendMessage(msg, (resp) => (rt.lastError ? reject(new Error(rt.lastError.message)) : resolve(resp))));
   }
 
-  class LRU {
-    constructor(cap) { this.cap = cap; this.map = new Map(); }
-    get(k) {
-      if (!this.map.has(k)) return undefined;
-      const v = this.map.get(k);
-      this.map.delete(k); this.map.set(k, v);
-      return v;
-    }
-    set(k, v) {
-      this.map.delete(k); this.map.set(k, v);
-      while (this.map.size > this.cap) this.map.delete(this.map.keys().next().value);
-    }
-  }
+  // Map 삽입 순서로 LRU 구현.
+  const lru = (cap) => {
+    const m = new Map();
+    return {
+      get(k) { const v = m.get(k); if (v !== undefined) { m.delete(k); m.set(k, v); } return v; },
+      set(k, v) { m.delete(k); m.set(k, v); if (m.size > cap) m.delete(m.keys().next().value); },
+    };
+  };
 
   // 문서가 이미 한국어 중심이면 아무것도 하지 않음. 전체 textContent를 만들지 않도록 앞부분만 샘플링.
   function shouldRun(doc) {
-    const lang = (doc.documentElement && doc.documentElement.getAttribute('lang')) || '';
-    if (/^ko(\b|-|_)/i.test(lang.trim())) return false;
+    if (/^ko(\b|-|_)/i.test(((doc.documentElement && doc.documentElement.getAttribute('lang')) || '').trim())) return false;
     let sample = doc.title || '';
     if (doc.body) {
       const w = doc.createTreeWalker(doc.body, 0x4);
-      let n;
-      while (sample.length < 2000 && (n = w.nextNode())) sample += ' ' + n.nodeValue;
+      for (let n; sample.length < 2000 && (n = w.nextNode());) sample += ' ' + n.nodeValue;
     }
     return KT.text.hangulRatio(sample) < 0.5;
   }
 
-  function cacheKey(rec) { return rec.lang + '|' + JSON.stringify(rec.block.items); }
+  const cacheKey = (rec) => rec.lang + '|' + JSON.stringify(rec.block.items);
+  const attached = (r) => r.el.isConnected && r.slots.some((s) => s.node.isConnected);
 
   function docOrder(a, b) {
     const na = a.slots[0].node, nb = b.slots[0].node;
-    if (na === nb) return 0;
-    if (na.getRootNode() === nb.getRootNode()) {
-      const p = na.compareDocumentPosition(nb);
-      if (p & 4) return -1; // nb follows na
-      if (p & 2) return 1;
-    }
-    return a.seq - b.seq; // 다른 트리(shadow)는 등록 순서
+    const p = na.getRootNode() === nb.getRootNode() && na !== nb ? na.compareDocumentPosition(nb) : 0;
+    return na === nb ? 0 : p & 4 ? -1 : p & 2 ? 1 : a.seq - b.seq; // 다른 트리(shadow)는 등록 순서
   }
 
-  // 순수 함수: 문서 순서로 정렬된 레코드를 언어·글자·블록 한도로 연속 묶음 분할.
+  // 문서 순서로 정렬된 레코드를 언어·글자·블록 한도로 연속 묶음 분할.
   function makeBatches(recs, maxChars, maxBlocks) {
     const out = [];
     let cur = null;
@@ -89,84 +62,65 @@
   function start(options) {
     if (S) stop();
     const opt = Object.assign({}, DEFAULTS, options || {});
-    const win = opt.window || globalThis;
-    const doc = opt.document || win.document;
-    if (!opt.force && !shouldRun(doc)) return null;
+    const win = globalThis;
+    const doc = win.document;
+    if (!shouldRun(doc)) return null;
 
     const send = opt.send || defaultSend;
-    const raf = opt.raf || ((f) => (win.requestAnimationFrame ? win.requestAnimationFrame(f) : win.setTimeout(f, 16)));
-    const idle = opt.idle || ((f) => (win.requestIdleCallback ? win.requestIdleCallback(f, { timeout: 200 }) : win.setTimeout(f, 0)));
+        const idle = (f) => (win.requestIdleCallback ? win.requestIdleCallback(f, { timeout: 200 }) : win.setTimeout(f, 0));
     const applier = KT.createApplier({ fixParticles: opt.fixParticles !== false });
-    const cache = new LRU(opt.cacheSize);
-    const handled = new WeakSet(); // 이미 블록에 등록된 텍스트 노드
-    const slotOf = new WeakMap(); // node -> slot (등록 시점 원문)
-    const byEl = new Map(); // IntersectionObserver 대기 중 el -> recs
-    const live = new Set(); // observed/queued/inflight 레코드
+    const cache = lru(CACHE_SIZE);
+    const handled = new WeakSet();
+    const slotOf = new WeakMap();
+    const byEl = new Map();
+    const tracked = new Set();
     const shadowSeen = new WeakSet();
-    const attrSeen = new WeakMap(); // el -> 이미 등록한 속성명 Set
     const st = {
-      applier, cache, queue: [], applyQueue: [], inflight: 0, flushTimer: null, mutTimer: null, tickPending: false,
+      applier, queue: [], applyQueue: [], inflight: 0, flushTimer: null, mutTimer: null, tickPending: false,
       rafPending: false, reportTimer: null, seq: 0, done: 0, error: 0, lastReport: '', lastUrl: win.location ? win.location.href : '',
       work: [], chars: new Set(), workSet: new Set(), needPrune: false, shadowTodo: [],
       metrics: { requests: 0, cacheHits: 0, ticks: 0, maxUnitsPerTick: 0, ownWrites: 0, coalesced: 0, deduped: 0 }, stopped: false,
     };
     S = st;
-
-    function langHost() { return (win.location && win.location.hostname) || ''; }
+    const timer = (k, ms, fn) => { if (!st[k]) st[k] = win.setTimeout(() => { st[k] = null; fn(); }, ms); };
+    const watchOpts = { childList: true, subtree: true, characterData: true };
 
     // ---------- 등록 / 관찰 ----------
-    function observeShadow(sr) {
-      if (shadowSeen.has(sr)) return;
-      shadowSeen.add(sr);
-      st.shadowTodo.push(sr);
-    }
     function scan(root) {
-      const recs = KT.collectBlocks(root, {
+      register(KT.collectBlocks(root, {
         excludeSelector: opt.excludeSelector,
         isHandled: (n) => handled.has(n),
-        onShadowRoot: observeShadow,
-      });
-      register(recs);
-      if (opt.translateAttrs) {
-        register(KT.segmenter.collectAttrs(root, {
-          excludeSelector: opt.excludeSelector,
-          isHandledAttr: (el, n) => { const a = attrSeen.get(el); return !!a && a.has(n); },
-        }));
-      }
+        onShadowRoot: (sr) => { if (!shadowSeen.has(sr)) { shadowSeen.add(sr); st.shadowTodo.push(sr); } },
+      }));
+      if (opt.translateAttrs && KT.extra) register(KT.extra.collectAttrs(root, opt.excludeSelector));
       while (st.shadowTodo.length) {
         const sr = st.shadowTodo.pop();
-        if (st.mo) st.mo.observe(sr, { childList: true, subtree: true, characterData: true });
+        st.mo.observe(sr, watchOpts);
         scan(sr);
       }
+    }
+    function observeRec(rec) {
+      let arr = byEl.get(rec.el);
+      if (!arr) byEl.set(rec.el, (arr = []));
+      if (!arr.includes(rec)) arr.push(rec);
     }
     function register(recs) {
       for (const rec of recs) {
         rec.seq = ++st.seq;
         rec.state = 'observed';
-        live.add(rec);
-        for (const s of rec.slots) {
-          if (s.attr) {
-            let a = attrSeen.get(s.node);
-            if (!a) { a = new Set(); attrSeen.set(s.node, a); }
-            a.add(s.attr);
-          } else { handled.add(s.node); slotOf.set(s.node, s); }
-        }
-        if (st.io) {
-          let arr = byEl.get(rec.el);
-          if (!arr) { arr = []; byEl.set(rec.el, arr); }
-          arr.push(rec);
-          st.io.observe(rec.el);
-        } else enqueue(rec);
+        tracked.add(rec);
+        for (const s of rec.slots) if (!s.attr) { handled.add(s.node); slotOf.set(s.node, s); }
+        observeRec(rec);
+        st.io.observe(rec.el);
       }
     }
     function onIntersect(entries) {
       if (st.stopped) return;
       for (const e of entries) {
         if (!e.isIntersecting) continue;
-        const el = e.target;
-        st.io.unobserve(el);
-        const arr = byEl.get(el);
-        byEl.delete(el);
+        const arr = byEl.get(e.target);
+        st.io.unobserve(e.target);
+        byEl.delete(e.target);
         if (arr) for (const rec of arr) if (rec.state === 'observed') enqueue(rec);
       }
     }
@@ -176,15 +130,14 @@
       rec.state = 'queued';
       st.queue.push(rec);
       applier.markPending(rec);
-      if (!st.flushTimer) st.flushTimer = win.setTimeout(flush, opt.debounceMs);
+      timer('flushTimer', opt.debounceMs, flush);
     }
-    function drop(rec) { rec.state = 'dropped'; live.delete(rec); }
+    function drop(rec) { rec.state = 'dropped'; tracked.delete(rec); }
     function flush() {
-      st.flushTimer = null;
       if (st.stopped) return;
       const q = st.queue.filter((r) => {
         if (r.state !== 'queued') return false;
-        if (!r.el.isConnected || !r.slots.some((s) => s.node.isConnected)) { drop(r); return false; }
+        if (!attached(r)) { drop(r); return false; }
         return true;
       });
       st.queue = [];
@@ -197,14 +150,14 @@
         else misses.push(r);
       }
       if (st.applyQueue.length) scheduleApply();
-      for (const b of makeBatches(misses, opt.maxBatchChars, opt.maxBatchBlocks)) sendBatch(b);
+      for (const b of makeBatches(misses, MAX_BATCH_CHARS, MAX_BATCH_BLOCKS)) sendBatch(b);
       reportSoon();
     }
     function sendBatch(batch) {
       for (const r of batch.recs) r.state = 'inflight';
       st.inflight++;
       st.metrics.requests++;
-      const msg = { type: MSG.TRANSLATE, blocks: batch.recs.map((r) => r.block), context: { title: doc.title || '', host: langHost() }, lang: batch.lang };
+      const msg = { type: 'translate', blocks: batch.recs.map((r) => r.block), context: { title: doc.title || '', host: (win.location && win.location.hostname) || '' }, lang: batch.lang };
       let p;
       try { p = Promise.resolve(send(msg)); } catch (e) { p = Promise.reject(e); }
       p.then((resp) => onResponse(batch, resp), () => onResponse(batch, null))
@@ -216,27 +169,25 @@
       if (resp && resp.ok && Array.isArray(resp.results)) for (const x of resp.results) if (x) byId.set(x.id, x.slots);
       for (const r of batch.recs) {
         const slots = byId.get(r.id);
-        if (!slots) { st.applyQueue.push({ rec: r, slots: null }); continue; }
-        let all = true;
-        for (let i = 0; i < r.slots.length; i++) if (typeof slots[String(i)] !== 'string') all = false;
-        if (all) cache.set(cacheKey(r), slots);
-        st.applyQueue.push({ rec: r, slots });
+        // 모든 슬롯이 문자열일 때만 캐시
+        if (slots && r.slots.every((_, i) => typeof slots[String(i)] === 'string')) cache.set(cacheKey(r), slots);
+        st.applyQueue.push({ rec: r, slots: slots || null });
       }
       scheduleApply();
     }
     function scheduleApply() {
       if (st.rafPending) return;
       st.rafPending = true;
-      raf(() => {
+      win.requestAnimationFrame(() => {
         st.rafPending = false;
         if (st.stopped) return;
         const items = st.applyQueue;
         st.applyQueue = [];
         for (const { rec, slots } of items) {
-          live.delete(rec);
-          if (!rec.el.isConnected || !rec.slots.some((s) => s.node.isConnected)) { rec.state = 'dropped'; continue; } // 제거된 블록 결과 폐기
-          if (!slots) { applier.markError(rec); rec.state = 'error'; st.error++; continue; }
-          const res = applier.apply(rec, slots);
+          tracked.delete(rec);
+          if (!attached(rec)) { rec.state = 'dropped'; continue; }
+          const res = slots ? applier.apply(rec, slots) : { status: 'error' };
+          if (!slots) applier.markError(rec);
           if (res.status === 'error') { rec.state = 'error'; st.error++; } else { rec.state = 'done'; if (res.status === 'done') st.done++; }
         }
         reportSoon();
@@ -246,19 +197,18 @@
     // ---------- 상태 보고 ----------
     function counts() {
       let pending = 0;
-      for (const r of live) if (r.state === 'queued' || r.state === 'inflight') pending++;
+      for (const r of tracked) if (r.state === 'queued' || r.state === 'inflight') pending++;
       return { pending, done: st.done, error: st.error };
     }
     function reportSoon() {
-      if (st.reportTimer || st.stopped) return;
-      st.reportTimer = win.setTimeout(() => {
-        st.reportTimer = null;
+      if (st.stopped) return;
+      timer('reportTimer', opt.reportDebounceMs, () => {
         const c = counts();
         const key = JSON.stringify(c);
         if (key === st.lastReport) return;
         st.lastReport = key;
-        try { Promise.resolve(send(Object.assign({ type: MSG.REPORT_STATUS }, c))).catch(() => {}); } catch (_) { /* 보고 실패는 무시 */ }
-      }, opt.reportDebounceMs);
+        try { Promise.resolve(send(Object.assign({ type: 'reportStatus' }, c))).catch(() => {}); } catch (_) { /* 보고 실패는 무시 */ }
+      });
     }
 
     // ---------- 동적 콘텐츠 ----------
@@ -279,21 +229,20 @@
           else st.chars.add(m.target);
         }
       }
-      if (!st.mutTimer && !st.tickPending) st.mutTimer = win.setTimeout(() => { st.mutTimer = null; runTick(); }, opt.mutationDebounceMs);
+      if (!st.tickPending) timer('mutTimer', opt.mutationDebounceMs, runTick);
     }
     function runTick() {
       st.tickPending = true;
       idle(() => {
         st.tickPending = false;
-        if (st.stopped) return;
-        processWork();
+        if (!st.stopped) processWork();
       });
     }
     function handleChar(node) {
       if (!node.isConnected) return;
       const rec = applier.get(node);
       if (rec) {
-        if (node.nodeValue === rec.translated) return; // 자기 쓰기
+        if (node.nodeValue === rec.translated) return;
         if (node.nodeValue === rec.original) { applier.reapply(node); return; } // 페이지가 원문으로 되돌림(원문 모드면 무시됨)
         applier.forget(node); // 페이지가 새 값을 씀 -> 새 노드처럼 재번역
         handled.delete(node);
@@ -303,19 +252,14 @@
       const slot = slotOf.get(node);
       if (slot && handled.has(node)) {
         if (node.nodeValue !== slot.original) { handled.delete(node); scan(node); }
-        return;
-      }
-      if (!handled.has(node)) scan(node);
+      } else if (!handled.has(node)) scan(node);
     }
     function pruneRemoved() {
       applier.prune();
-      for (const r of Array.from(live)) {
-        if (r.state === 'inflight') continue; // 응답 시 isConnected 검사로 폐기
-        if (!r.el.isConnected) {
-          drop(r);
-          const arr = byEl.get(r.el);
-          if (arr) { byEl.delete(r.el); if (st.io) st.io.unobserve(r.el); }
-        }
+      for (const r of Array.from(tracked)) {
+        if (r.state === 'inflight' || r.el.isConnected) continue; // inflight는 응답 시 isConnected 검사로 폐기
+        drop(r);
+        if (byEl.delete(r.el)) st.io.unobserve(r.el);
       }
     }
     // 조상이 아직 대기 중이면 그 스캔이 이 노드를 포함하므로 따로 처리하지 않는다.
@@ -325,8 +269,7 @@
     }
     function processWork() {
       checkUrl();
-      let budget = opt.tickLimit;
-      let units = 0;
+      let budget = opt.tickLimit, units = 0;
       if (st.needPrune) { st.needPrune = false; pruneRemoved(); }
       if (st.chars.size) {
         const arr = Array.from(st.chars);
@@ -349,7 +292,7 @@
           const kids = Array.from(n.childNodes);
           for (const k of kids) st.workSet.add(k);
           st.work = kids.concat(st.work);
-          if (n.shadowRoot) { st.work.unshift(n.shadowRoot); }
+          if (n.shadowRoot) st.work.unshift(n.shadowRoot);
           continue;
         }
         scan(n);
@@ -362,44 +305,30 @@
     // ---------- SPA ----------
     function checkUrl() {
       const href = win.location ? win.location.href : '';
-      if (href !== st.lastUrl) { st.lastUrl = href; onUrlChange(); }
-    }
-    function onUrlChange() {
+      if (href === st.lastUrl) return;
+      st.lastUrl = href;
       if (st.stopped) return;
       st.queue = [];
       if (st.flushTimer) { win.clearTimeout(st.flushTimer); st.flushTimer = null; }
-      for (const r of live) {
-        if (r.state !== 'queued') continue;
-        r.state = 'observed';
-        if (st.io) {
-          let arr = byEl.get(r.el);
-          if (!arr) { arr = []; byEl.set(r.el, arr); }
-          if (!arr.includes(r)) arr.push(r);
-        }
-      }
-      if (st.io) for (const el of byEl.keys()) { st.io.unobserve(el); st.io.observe(el); } // 현재 화면 블록 재감지
+      for (const r of tracked) if (r.state === 'queued') { r.state = 'observed'; observeRec(r); }
+      for (const el of byEl.keys()) { st.io.unobserve(el); st.io.observe(el); } // 현재 화면 블록 재감지
     }
     const onNav = () => checkUrl();
     win.addEventListener('popstate', onNav);
     win.addEventListener('hashchange', onNav);
     // 격리 월드에서는 페이지의 pushState 호출을 못 잡을 수 있어 변이 틱의 URL 비교로 보완한다.
     const hist = win.history;
-    const origPush = hist && hist.pushState, origReplace = hist && hist.replaceState;
-    let wrapPush = null, wrapReplace = null;
-    if (hist) {
-      wrapPush = function () { const r = origPush.apply(this, arguments); checkUrl(); return r; };
-      wrapReplace = function () { const r = origReplace.apply(this, arguments); checkUrl(); return r; };
-      hist.pushState = wrapPush;
-      hist.replaceState = wrapReplace;
+    const orig = {}, wrap = {};
+    for (const k of hist ? ['pushState', 'replaceState'] : []) {
+      orig[k] = hist[k];
+      hist[k] = wrap[k] = function () { const r = orig[k].apply(this, arguments); checkUrl(); return r; };
     }
 
     // ---------- 메시지 ----------
     function handleMessage(msg) {
-      if (msg && msg.type === MSG.TOGGLE_ORIGINAL) {
-        if (applier.mode === 'translation') applier.showOriginal(); else applier.showTranslation();
-        return { mode: applier.mode === 'translation' ? 'translated' : 'original' };
-      }
-      return undefined;
+      if (!msg || msg.type !== 'toggleOriginal') return undefined;
+      if (applier.mode === 'translation') applier.showOriginal(); else applier.showTranslation();
+      return { mode: applier.mode === 'translation' ? 'translated' : 'original' };
     }
     const api = globalThis.browser || globalThis.chrome;
     const hasListener = !!(opt.listen !== false && api && api.runtime && api.runtime.onMessage && api.runtime.onMessage.addListener);
@@ -413,33 +342,22 @@
     if (hasListener) api.runtime.onMessage.addListener(listener);
 
     // ---------- 시작 ----------
-    const IO = opt.IntersectionObserver || win.IntersectionObserver;
-    if (IO) st.io = new IO(onIntersect, { rootMargin: opt.rootMargin });
-    const MO = opt.MutationObserver || win.MutationObserver;
-    if (MO) {
-      st.mo = new MO(onMutations);
-      st.mo.observe(doc, { childList: true, subtree: true, characterData: true });
-    }
+    st.io = new win.IntersectionObserver(onIntersect, { rootMargin: '0px 0px 150% 0px' });
+    st.mo = new win.MutationObserver(onMutations);
+    st.mo.observe(doc, watchOpts);
     st.teardown = () => {
       st.stopped = true;
       for (const k of ['flushTimer', 'mutTimer', 'reportTimer']) if (st[k]) { win.clearTimeout(st[k]); st[k] = null; }
-      if (st.io) st.io.disconnect();
-      if (st.mo) st.mo.disconnect();
+      st.io.disconnect();
+      st.mo.disconnect();
       win.removeEventListener('popstate', onNav);
       win.removeEventListener('hashchange', onNav);
-      if (hist) {
-        if (hist.pushState === wrapPush) hist.pushState = origPush;
-        if (hist.replaceState === wrapReplace) hist.replaceState = origReplace;
-      }
+      for (const k in wrap) if (hist[k] === wrap[k]) hist[k] = orig[k];
       if (hasListener && api.runtime.onMessage.removeListener) api.runtime.onMessage.removeListener(listener);
-      byEl.clear(); live.clear();
+      byEl.clear(); tracked.clear();
     };
     st.handleMessage = handleMessage;
-    st.busy = () => !!(st.flushTimer || st.mutTimer || st.tickPending || st.inflight || st.applyQueue.length || st.rafPending ||
-      st.work.length || st.chars.size);
     st.win = win;
-    st.counts = counts;
-    st.onUrlChange = checkUrl;
 
     scan(doc.body || doc.documentElement);
     reportSoon();
@@ -452,31 +370,17 @@
     S = null;
   }
 
-  // 테스트용: 모든 타이머·요청·적용이 끝날 때까지 대기.
-  async function idle(maxMs) {
-    const st = S;
-    if (!st) return;
-    const win = st.win;
-    const sleep = (ms) => new Promise((r) => win.setTimeout(r, ms));
-    const t0 = Date.now();
-    await sleep(0);
-    while (st.busy() && Date.now() - t0 < (maxMs || 3000)) await sleep(2);
-    await sleep(0);
-  }
-
-  function handleMessage(msg) { return S ? S.handleMessage(msg) : undefined; }
-
   function autoStart() {
     const api = globalThis.browser || globalThis.chrome;
     const host = (globalThis.location && globalThis.location.hostname || '').toLowerCase();
     const go = (settings) => {
       if (settings && settings.enabled === false) return;
-      let ex = [];
+      const ex = [];
       for (const s of (settings && settings.sites) || []) {
         const h = String((s && s.host) || s || '').toLowerCase().replace(/^\*\./, '');
         if (h && (host === h || host.endsWith('.' + h)) && s.exclude) ex.push(s.exclude);
       }
-      start({ excludeSelector: ex.join(',') });
+      start({ excludeSelector: ex.join(','), translateAttrs: !!(settings && settings.translateAttrs) });
     };
     try {
       if (api && api.storage && api.storage.sync) {
@@ -488,7 +392,8 @@
   }
 
   KT.main = {
-    start, stop, idle, handleMessage, makeBatches, shouldRun, MSG,
+    start, stop,
+    handleMessage: (msg) => (S ? S.handleMessage(msg) : undefined),
     get state() { return S; },
     get applier() { return S && S.applier; },
   };

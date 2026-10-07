@@ -1,0 +1,383 @@
+{
+ "engine": "mlx-qwen3.5-4b-4bit-mt",
+ "model": "mlx-community/Qwen3.5-4B-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 7014,
+ "totalMs": 1302148,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 7014,
+   "slots": {
+    "0": "CLI 를 설치하려면 ",
+    "1": " 를 실행한 후, 버전 확인을 위해 ",
+    "2": " 를 사용하세요. 2.4.1 버전 이상을 요구합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 387185,
+   "slots": {
+    "0": "The\n/no_think ",
+    "1": " option 은 밀리초 단위로 값을 받습니다. 기본값은 30000(30 초)이며, 이를 0 으로 설정하면 제한을 완전히 무효화합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 5288,
+   "slots": {
+    "0": "v1.x 에서 업그레이드하기 전에 설정 디렉토리를 백업하세요. 마이그레이션 스크립트는 모든 파일을 원장에 다시 쓰며 되돌릴 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 902527,
+   "slots": {
+    "0": "데몬가 시작되지 않으면 다른 프로세스가 포트 8443 을 이미 바인딩하지 않았는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인하실 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 92,
+   "slots": null,
+   "error": "fetch failed: socket hang up"
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 3,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-news-01",
+   "ms": 11,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-news-02",
+   "ms": 2,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-news-03",
+   "ms": 15,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-news-04",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-news-05",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-news-06",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-community-01",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-community-02",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-community-03",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-community-04",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-community-05",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-community-06",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-link-01",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-link-02",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-link-03",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01"
+   ],
+   "ms": 7014
+  },
+  {
+   "blockIds": [
+    "en-tech-02"
+   ],
+   "ms": 387185
+  },
+  {
+   "blockIds": [
+    "en-tech-03"
+   ],
+   "ms": 5288
+  },
+  {
+   "blockIds": [
+    "en-tech-04"
+   ],
+   "ms": 902527
+  },
+  {
+   "blockIds": [
+    "en-tech-05"
+   ],
+   "ms": 92
+  },
+  {
+   "blockIds": [
+    "en-tech-06"
+   ],
+   "ms": 3
+  },
+  {
+   "blockIds": [
+    "en-news-01"
+   ],
+   "ms": 11
+  },
+  {
+   "blockIds": [
+    "en-news-02"
+   ],
+   "ms": 2
+  },
+  {
+   "blockIds": [
+    "en-news-03"
+   ],
+   "ms": 15
+  },
+  {
+   "blockIds": [
+    "en-news-04"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "en-news-05"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-news-06"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "en-community-01"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-community-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "en-community-03"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "en-community-04"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-community-05"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "en-community-06"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "en-ui-01"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-ui-02"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-ui-03"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-link-01"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-link-02"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-link-03"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-seq-01"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-seq-02"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-seq-03"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-seq-04"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "en-seq-05"
+   ],
+   "ms": 0
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

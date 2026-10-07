@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF 번역 뷰어</title>
+  <link rel="stylesheet" href="/extension/viewer/viewer.css">
+</head>
+<body>
+  <header id="bar" data-kt-ui>
+    <h1 id="title">PDF</h1>
+    <span id="lang" class="chip"></span>
+    <span id="status" class="chip" role="status">준비 중…</span>
+    <span class="spacer"></span>
+    <button id="toggle" type="button">번역만 보기</button>
+    <a id="original" href="#" target="_blank" rel="noopener noreferrer">원본 PDF 열기</a>
+  </header>
+  <div id="message" hidden></div>
+  <main id="pages"></main>
+  <script>
+  // 숨겨진 브라우저 창에서는 IntersectionObserver가 멈추므로 즉시 교차로 대체
+  window.IntersectionObserver = class { constructor(cb) { this.cb = cb; } observe(el) { setTimeout(() => this.cb([{ target: el, isIntersecting: true, intersectionRatio: 1 }]), 0); } unobserve() {} disconnect() {} };
+  window.__errs = []; const ce = console.error; console.error = (...a) => { window.__errs.push(a.map(String).join(' ')); ce(...a); };
+  window.requestAnimationFrame = (cb) => setTimeout(() => cb(performance.now()), 0);
+  window.__calls = [];
+  window.browser = { runtime: { onMessage: { addListener() {} },
+    sendMessage: async (m) => {
+      if (m.type !== 'translate') return { ok: true };
+      window.__calls.push(m.blocks.map((b) => b.id));
+      return { ok: true, engine: 'mock', results: m.blocks.map((b) => {
+        const slots = {}; b.items.forEach((it) => { if (it.k === 't') slots[it.i] = '번역(' + it.text.trim() + ')'; });
+        return { id: b.id, slots };
+      }) };
+    } } };
+</script>
+<script src="/extension/lib/lang.js"></script>
+  <script src="/extension/viewer/pdfseg.js"></script>
+  <script type="module" src="/extension/viewer/viewer.js"></script>
+</body>
+</html>

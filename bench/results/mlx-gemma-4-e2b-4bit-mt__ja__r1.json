@@ -1,0 +1,410 @@
+{
+ "engine": "mlx-gemma-4-e2b-4bit-mt",
+ "model": "mlx-community/gemma-4-e2b-it-4bit",
+ "lang": "ja",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 17240,
+ "totalMs": 883921,
+ "blocks": [
+  {
+   "id": "ja-tech-01",
+   "ms": 17240,
+   "slots": {
+    "0": "CLI를 설치하려면 ",
+    "1": "을 실행하고, 이어서 ",
+    "2": "로 버전을 확인해 주세요. 버전 2.4.1 이상이 필요합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "ja-tech-02",
+   "ms": 20852,
+   "slots": {
+    "0": " 옵션은 밀리초 단위로 지정합니다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효가 됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "ja-tech-03",
+   "ms": 16172,
+   "slots": {
+    "0": "v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 취해 주세요. 마이그레이션 스크립트는 모든 파일을 그 자리에서 덮어쓰기 때문에 복구할 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-04",
+   "ms": 20670,
+   "slots": {
+    "0": "데몬이 시작되지 않는 경우, 포트8443이 다른 프로세스에 사용되고 있는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인하실 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-05",
+   "ms": 18954,
+   "slots": {
+    "0": "각 워커 스레드는 약 64MB의 자체 캐시를 가지고 있으므로, RAM 8GB 머신에서는 워커를 8개 이상 구동하지 않는 것이 좋습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-06",
+   "ms": 15975,
+   "slots": {
+    "0": "요청은 지수 백오프(exponential backoff) 방식으로 최대 3회까지 재시도됩니다. 모두 실패한 경우 ",
+    "1": "로 호출자에게 반환됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "ja-news-01",
+   "ms": 22626,
+   "slots": {
+    "0": "시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-02",
+   "ms": 19594,
+   "slots": {
+    "0": "하루볼센 연구팀은 신형 배터리가 2,000회의 충방전 후에도 용량의 90%를 유지했다고 발표했습니다. 이는 현행 시판 제품의 약 2배에 해당합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-03",
+   "ms": 19316,
+   "slots": {
+    "0": "한편, 이 결과는 아직 심사를 받지 않았으며, 시제품의 제조 비용이 1킬로와트시당 약 340달러에 달한다는 지적도 나오고 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-04",
+   "ms": 20246,
+   "slots": {
+    "0": "북부 연안 지역에서는 목요일에 걸쳐 비가 올 것으로 예상되며, 최대 풍속은 70km/h, 기온은 12도 전후로 유지될 전망입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-05",
+   "ms": 16462,
+   "slots": {
+    "0": "해당 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있다는 이유로 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-06",
+   "ms": 17548,
+   "slots": {
+    "0": "왜 작은 빵집들은 5년 이내에 폐업하는가. 경제학자에 따르면, 그 해답은 빵 자체보다는 임대료, 인력, 그리고 낮은 이윤율에 있다고 합니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-01",
+   "ms": 20432,
+   "slots": {
+    "0": "드디어 라즈베리 파이가 켜졌다고 생각했는데, 1초 만에 불을 뿜었다. 아니, 실제로 불이 난 건 아니지만, 내 마음은 불탔다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-02",
+   "ms": 22977,
+   "slots": {
+    "0": "솔직히 말해서 탭이든 스페이스든 상관없다고 생각해. 새벽 2시에 논쟁하는 사람들은 간식 먹고 자는 게 좋을 거야(웃음)."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-03",
+   "ms": 21924,
+   "slots": {
+    "0": "3시간 동안 에러랑 눈치 싸우다가 원인이 세미콜론 하나였다ㅋㅋㅋ 세미콜론이라고? 이제 산에 들어가 버릴 거야..."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-04",
+   "ms": 592925,
+   "slots": null,
+   "error": "fetch failed: socket hang up"
+  },
+  {
+   "id": "ja-community-05",
+   "ms": 4,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-community-06",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-ui-01",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-ui-02",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-ui-03",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-link-01",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-link-02",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-link-03",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-seq-01",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-seq-02",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-seq-03",
+   "ms": 1,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-seq-04",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  },
+  {
+   "id": "ja-seq-05",
+   "ms": 0,
+   "slots": null,
+   "error": "fetch failed: connect ECONNREFUSED 127.0.0.1:8080"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "ja-tech-01"
+   ],
+   "ms": 17240
+  },
+  {
+   "blockIds": [
+    "ja-tech-02"
+   ],
+   "ms": 20852
+  },
+  {
+   "blockIds": [
+    "ja-tech-03"
+   ],
+   "ms": 16172
+  },
+  {
+   "blockIds": [
+    "ja-tech-04"
+   ],
+   "ms": 20670
+  },
+  {
+   "blockIds": [
+    "ja-tech-05"
+   ],
+   "ms": 18954
+  },
+  {
+   "blockIds": [
+    "ja-tech-06"
+   ],
+   "ms": 15975
+  },
+  {
+   "blockIds": [
+    "ja-news-01"
+   ],
+   "ms": 22626
+  },
+  {
+   "blockIds": [
+    "ja-news-02"
+   ],
+   "ms": 19594
+  },
+  {
+   "blockIds": [
+    "ja-news-03"
+   ],
+   "ms": 19316
+  },
+  {
+   "blockIds": [
+    "ja-news-04"
+   ],
+   "ms": 20246
+  },
+  {
+   "blockIds": [
+    "ja-news-05"
+   ],
+   "ms": 16462
+  },
+  {
+   "blockIds": [
+    "ja-news-06"
+   ],
+   "ms": 17548
+  },
+  {
+   "blockIds": [
+    "ja-community-01"
+   ],
+   "ms": 20432
+  },
+  {
+   "blockIds": [
+    "ja-community-02"
+   ],
+   "ms": 22977
+  },
+  {
+   "blockIds": [
+    "ja-community-03"
+   ],
+   "ms": 21924
+  },
+  {
+   "blockIds": [
+    "ja-community-04"
+   ],
+   "ms": 592925
+  },
+  {
+   "blockIds": [
+    "ja-community-05"
+   ],
+   "ms": 4
+  },
+  {
+   "blockIds": [
+    "ja-community-06"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "ja-ui-01"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-ui-02"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-ui-03"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-link-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "ja-link-02"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-link-03"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-seq-01"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-seq-02"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-seq-03"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "ja-seq-04"
+   ],
+   "ms": 0
+  },
+  {
+   "blockIds": [
+    "ja-seq-05"
+   ],
+   "ms": 0
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

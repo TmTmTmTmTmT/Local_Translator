@@ -1,0 +1,11 @@
+{
+ "mlx-hyperclovax-seed-1.5b-4bit-mt": {
+  "model": "senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4",
+  "args": [
+   "--mode",
+   "mt",
+   "--mt-family",
+   "chat"
+  ]
+ }
+}

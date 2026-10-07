@@ -1,0 +1,63 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [6 0 R 9 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 541 >>
+stream
+BT /F1 9 Tf 72 760 Td (Local Translator Test Report) Tj ET
+BT /F1 18 Tf 72 720 Td (Section 1: Network settings) Tj ET
+BT /F1 11 Tf 72 690 Td (The server listens on port 8080 by default. You can change it in the) Tj ET
+BT /F1 11 Tf 72 676 Td (configuration file, but remember to restart the service afterwards.) Tj ET
+BT /F1 11 Tf 72 650 Td (See the online guide for details about advanced options and) Tj ET
+BT /F1 11 Tf 72 636 Td (troubleshooting steps that are not covered in this short document.) Tj ET
+BT /F1 9 Tf 72 40 Td (Page 1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Annot /Subtype /Link /Rect [72 650 130 664] /Border [0 0 0] /A << /S /URI /URI (https://example.com/guide) >> >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R /Annots [5 0 R] >>
+endobj
+7 0 obj
+<< /Length 541 >>
+stream
+BT /F1 9 Tf 72 760 Td (Local Translator Test Report) Tj ET
+BT /F1 18 Tf 72 720 Td (Section 2: Network settings) Tj ET
+BT /F1 11 Tf 72 690 Td (The server listens on port 8080 by default. You can change it in the) Tj ET
+BT /F1 11 Tf 72 676 Td (configuration file, but remember to restart the service afterwards.) Tj ET
+BT /F1 11 Tf 72 650 Td (See the online guide for details about advanced options and) Tj ET
+BT /F1 11 Tf 72 636 Td (troubleshooting steps that are not covered in this short document.) Tj ET
+BT /F1 9 Tf 72 40 Td (Page 2) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Link /Rect [72 650 130 664] /Border [0 0 0] /A << /S /URI /URI (https://example.com/guide) >> >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R /Annots [8 0 R] >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000783 00000 n 
+0000000921 00000 n 
+0000001063 00000 n 
+0000001655 00000 n 
+0000001793 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+1935
+%%EOF

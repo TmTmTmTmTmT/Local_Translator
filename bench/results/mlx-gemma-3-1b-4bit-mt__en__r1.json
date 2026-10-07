@@ -1,0 +1,455 @@
+{
+ "engine": "mlx-gemma-3-1b-4bit-mt",
+ "model": "mlx-community/gemma-3-1b-it-qat-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 4838,
+ "totalMs": 142208,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 4838,
+   "slots": {
+    "0": "To install the CLI, run `git` ",
+    "1": " and then check the version with\nhttps://www.example.com/version_check ",
+    "2": "2.4.1 또는 이후 버전은 필요합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 933,
+   "slots": {
+    "0": "The ",
+    "1": " option accepts a value in milliseconds; the default is 30000 (30 seconds), and setting it to 0 disables the limit entirely."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 4120,
+   "slots": {
+    "0": "Before upgrading from version 1.x, please back up your configuration directory because the migration script rewrites every file in place and cannot be undone.\n\n**Explanation:**\n\n*   **Before upgrading from v1.x:** This is a direct translation of the original English text.\n*   **back up your configuration directory:** This is a clear and concise way to express the action required.\n*   **because the migration script rewrites every file in place:** This conveys the reason for the backup – the migration script is modifying the configuration files directly.\n*   **cannot be undone:** This is a direct translation of the meaning of the original English text.\n\n**Thought Process:**\n\nThe translation prioritized maintaining the original tone and structure of the text. I focused on conveying the core meaning in a natural and understandable way.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 5858,
+   "slots": {
+    "0": "다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.\n\n\"데몬이 시작하지 못하면, 다른 프로세스가 8443 포트를 이미 사용하고 있는지 확인하세요. 로그를 확인하려면 http://localhost:8443/debug/logs로 이동하세요.\"\n\n**설명:**\n\n*   **\"If the daemon fails to start...\"** 를 \"데몬이 시작하지 못하면...\"으로 번역했습니다.\n*   **\"make sure port 8443 is not already bound by another process.\"** 를 \"데몬이 시작하지 못하면, 다른 프로세스가 8443 포트를 이미 사용하고 있는지 확인하세요.\"로 번역했습니다.\n*   **\"You can inspect the logs at http://localhost:8443/debug/logs.\"** 를 \"로그를 확인하려면 http://localhost:8443/debug/logs로 이동하세요.\"로 번역했습니다.\n\n**주석:**\n\n*   \"데몬이 시작하지 못하면\" - \"Daemon fail to start\"\n*   \"다른 프로세스가 8443 포트를 이미 사용하고 있는지 확인하세요\" - \"Make sure another process is already bound by port 8443\"\n*   \"로그를 확인하려면\" - \"Check the logs\"\n*   \"http://localhost:8443/debug/logs\" - \"http://localhost:8443/debug/logs\""
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 2148,
+   "slots": {
+    "0": "어조: 공식적인\n고유명사: 8GB\nURL: (없음)\n코드는: (없음)\n주석: \"각 작업 스레드는 자신의 캐시를 64MB 정도의 크기로 유지하며, 8GB의 RAM을 가진 기계는 8명의 작업자를 실행할 수 없습니다.\"\n\n(이 문장은 직역에 가깝습니다.  원문 그대로 유지하는 것이 가장 중요합니다.)"
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 913,
+   "slots": {
+    "0": "requests are retried up to three times with exponential backoff; if all attempts fail, the error is surfaced to the caller as a ",
+    "1": "."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-news-01",
+   "ms": 2572,
+   "slots": {
+    "0": "**The city council voted 7 to 2 on Tuesday to extend bus service into the eastern suburbs, a move that supporters say will cut commute times by up to 25 percent.**\n\n**번역:**\n\n시청은 다음주 화요일에 7대2로 투표를 통해 동쪽 지역까지 버스 서비스를 확장하는 결정을 내렸습니다. 지지자들이 말하는 바에 따르면, 이 결정은 평균 운행 시간을 25%까지 줄일 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-02",
+   "ms": 5035,
+   "slots": {
+    "0": "Researchers at the Halvorsen Institute reported that a new type of battery retained 90 percent of its capacity after 2,000 charge cycles, roughly double that of current commercial cells.\n\n**번역:**\n\n연구원들은 하르스벤 연구소에서 새로운 배터리 종류를 보고, 2,000회 충전 시에도 90%의 배터리 용량을 유지했다. 이는 현재 상용화된 배터리의 용량 대비 두 배에 해당한다.\n\n**설명:**\n\n*   **연구원들:** \"Researchers at the Halvorsen Institute\"를 그대로 유지했습니다.\n*   **새로운 배터리 종류:** \"new type of battery\"를 그대로 유지했습니다.\n*   **2,000회 충전 시에도:** \"after 2,000 charge cycles\"를 그대로 유지했습니다.\n*   **두 배:** \"roughly double that of current commercial cells\"를 그대로 유지했습니다.\n*   **상용화된 배터리:** \"current commercial cells\"를 그대로 유지했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-03",
+   "ms": 3818,
+   "slots": {
+    "0": "Critics, however, point out that the results have not yet been peer reviewed and that the prototype costs about $340 per kilowatt-hour to produce.\n\n이 텍스트는 \"Critics\"라는 표현을 사용하여, \"원문 그대로 유지\"해야 합니다.  \"However\"는 문맥에 따라 \"그러나\" 또는 \"그렇지만\" 등으로 번역할 수 있습니다.  \"Peer reviewed\"는 \"peer reviewed\"로 그대로 유지합니다.  \"Prototype\"는 \"prototype\"로 그대로 유지합니다.  \"About\"는 \"about\"로 그대로 유지합니다.\n\n이 텍스트의 의미는 \"원문 그대로 유지\"하여, \"Critics\"가 의견을 제시하는 부분에 대한 문장으로, \"원문 그대로 유지\"를 통해 이해하기 쉽도록 번역합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-04",
+   "ms": 1896,
+   "slots": {
+    "0": "**Heavy rain is expected across the northern coast through Thursday, with gusts of up to 70 km/h and temperatures hovering around 12 degrees Celsius.**\n\n**전국적인 북쪽 해안을 통해 Thursday까지, 최대 70km/h의 바람과 12도씨의 온도가 유지될 것으로 예상됩니다.**\n\n**이 문장은 원문 그대로 유지했습니다.**"
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-05",
+   "ms": 1057,
+   "slots": {
+    "0": "“다음 주 화요일, 회사는 출시 예정인 최신 플래그십 스마트폰의 출시를 연기할 것이라고 발표했습니다. 공급망 문제로 인해 진행 중인 상황 때문입니다.”",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-06",
+   "ms": 1349,
+   "slots": {
+    "0": "많은 작은 베이커리들이 5년 안에 문을 닫고 사라지는 이유는, 경제학자들은 빵보다 임대료, 인력 부족, 그리고 얇은 마진이 더 큰 이유라고 말하고 있습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-01",
+   "ms": 947,
+   "slots": {
+    "0": "어디어니, 드디어 내 Raspberry Pi가 부팅되고, 즉시 불이 났어.  아니, 실제로 그렇지는 않았지만, 내 영혼도 타버렸어."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-02",
+   "ms": 7896,
+   "slots": {
+    "0": "**Hot take: tabs are fine, spaces are fine, and anyone who argues about it at 2 a.m. needs a snack and a nap.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**열렬의 의견: 탭은 괜찮고, 간격은 괜찮으며, 2시쯤에 탭에 대한 논쟁을 벌이는 사람은 간식과 잠을 먹여야 합니다.**\n\n(이 문장은 원문 그대로 유지했습니다.)\n\n**설명:**\n\n*   **Hot take:**  \"열렬의 의견\"이라는 표현은 한국어에서 \"Hot take\"를 그대로 번역하는 것이 가장 적절합니다.\n*   **Tabs are fine, spaces are fine:**  \"탭은 괜찮고, 간격은 괜찮으며\"는 \"Tabs are fine, spaces are fine\"로 그대로 번역합니다.\n*   **Anyone who argues about it at 2 a.m.:**  \"2시쯤에 탭에 대한 논쟁을 벌이는 사람\"은 \"Anyone who argues about it at 2 a.m.\"으로 그대로 번역합니다.\n*   **Needs a snack and a nap:**  \"그들은 간식과 잠을 먹여야 합니다\"는 \"They need a snack and a nap\"로 그대로 번역합니다.\n\n**추가적인 고려 사항:**\n\n*   \"Hot take\"는 한국어의 유머와 상황에 따라 다양한 표현으로 번역될 수 있습니다.  이 문장에서는 \"열렬의 의견\"이라는 표현이 가장 자연스럽습니다.\n*   \"2 a.m.\"은 한국어의 시간 표현에 맞춰 \"2시\"로 번역했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-03",
+   "ms": 4420,
+   "slots": {
+    "0": "lol I've been staring at this error for three hours and it was a missing semicolon. a SEMICOLON. I'm going to go live in the woods now.\n\n**Explanation:**\n\nThe original text is a casual, slightly frustrated comment expressing a problem with a coding error. The translation aims to preserve the tone and the specific details of the original message, while maintaining the original wording.\n\n**추가적인 고려 사항:**\n\n*   \"I've been staring at this error for three hours\"  -  \"이 오류를 세 시간 동안 계속 바라보고 있습니다\" (I've been staring at this error for three hours)\n*   \"a SEMICOLON\" - \"a SEMICOLON\" (The specific detail is preserved)\n*   \"I'm going to go live in the woods now.\" - \"숲에 가서 살 것입니다\" (I'm going to go live in the woods now.)"
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-04",
+   "ms": 8843,
+   "slots": {
+    "0": "이 문장은 다음과 같이 번역할 수 있습니다.\n\n**\"진실을 말하자, 업데이트가 완전히 망쳐버렸어. 되돌렸어, 흙을 닦고 다시 시도해볼 거야.\"**\n\n**설명:**\n\n*   **Not gonna lie:** \"진실을 말하자\"라는 표현에 사용된 \"not gonna lie\"는 상황을 설명하는 일반적인 표현으로, 한국어에서는 \"진실을 말하자\"로 번역됩니다.\n*   **that update broke literally everything on my setup:** \"업데이트가 완전히 망쳐버렸어\"는 \"update가 완전히 망쳐버렸어\"로, \"literally everything\"는 \"거의 모든 것\"이라는 뜻으로 번역됩니다.\n*   **Rolled back, touched grass:** \"되돌렸어, 흙을 닦고 다시 시도해볼 거야\"는 \"되돌렸어, 흙을 닦고 다시 시도해볼 거야\"로, \"rolled back\"은 \"되돌렸다\"로, \"touched grass\"는 \"흙을 닦았다\"로 번역됩니다.\n\n**주석:**\n\n\"진실을 말하자\"는 상황을 설명하는 일반적인 표현으로, 한국어에서는 \"진실을 말하자\"로 번역됩니다.\n\n**생각 과정:**\n\n원문은 \"Not gonna lie\"라는 표현을 사용하여 상황을 설명하고 있습니다. 이 문장은 상황을 설명하는 일반적인 표현으로, 한국어에서는 \"진실을 말하자\"로 번역됩니다. \"That update broke literally everything on my setup\"은 \"업데이트가 완전히 망쳐버렸어\"로, \"rolled back, touched grass\"는 \"되돌렸어, 흙을 닦고 다시 시도해볼 거야\"로, 한국어에 가장 자연스럽게 어울리는 표현입니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-05",
+   "ms": 21257,
+   "slots": {
+    "0": "**Can confirm. My cat has been sitting on the router for a week and honestly the wifi has never been better. Don't question it.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인합니다. 내 고양이(猫)가 방에 앉아 지난 한 주 동안 방의 와이파이(Wi-Fi)가 훨씬 좋았다고 솔직히 말할 수 있습니다. 질문하지 마세요.**\n\n(이 문장은 한국어로 다음과 같이 번역할 수 있습니다.)\n\n**확인"
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-06",
+   "ms": 1079,
+   "slots": {
+    "0": "Y'all, 저는 얼마 전에 60달러를 들여서, 비가 내리는 듯한 소리를 내는 키보드를 샀어요. 후회는 없어요, 동료들은 다른 이야기를 하고 있습니다... 아직은 미정입니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 3397,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n**번역문:**\n\n\"The quick brown fox jumps over the lazy dog.  This is a classic example of a sentence that demonstrates the power of figurative language.  It's a well-known phrase used in literature and poetry.  The URL for the website is: https://www.example.com.  The code 'abcdef' is used in a simple programming project.  Let's consider the implications of this sentence – it's a testament to the enduring appeal of simple, yet evocative, statements.  It's a good example of how language can be used to create a sense of familiarity and connection.\""
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 4165,
+   "slots": {
+    "0": "Something went wrong. Please try again later.\n\n이 문장은 영어 텍스트 \"Something went wrong. Please try again later.\"를 한국어로 다음과 같이 번역할 수 있습니다.\n\n**번역:**\n\n\"Something went wrong. 다시 시도해주세요.\"\n\n**설명:**\n\n*   **Something:** \"Something\"은 문맥상 \"Something\"이라는 단어 그대로 번역되었습니다.\n*   **went wrong:** \"went wrong\"는 \"went\"가 \"wrong\"로 변환되어 \"went wrong\"로 번역되었습니다.\n*   **Please try again later:** \"Please try again later\"는 \"다시 시도해주세요\"로 번역되었습니다.\n\n**주석:**\n\n\"Something went wrong. 다시 시도해주세요.\"  이 문장은 사용자에게 오류 발생 시 다시 시도하도록 안내하는 메시지입니다.\n\n**생각 과정:**\n\n문장 전체의 의미를 파악하고, 영어 텍스트의 어조와 상황에 맞춰 자연스러운 한국어 표현으로 바꾸는 것이 목표였습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 298,
+   "slots": {
+    "0": "You have 3 unread messages."
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-01",
+   "ms": 24987,
+   "slots": {
+    "0": "Click\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick\nClick ",
+    "1": " 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라.\n설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n**번역문:**\n\n\"이것은 2023년 10월 27일, 12:00에 시작된 프로젝트의 시작입니다.  이 프로젝트의 목표는 데이터 분석 및 예측 모델을 구축하는 것입니다.  현재, 데이터셋은 1000개이며, 모델은 3개의 레이어로 구성되어 있습니다.  다음 단계는 데이터 전처리 및 모델 학습입니다.  실험 결과는 95%를 넘어서는 것으로 나타났습니다.  이 프로젝트는 데이터 분석 및 예측 모델 구축에 중요한 역할을 할 것입니다.\""
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-02",
+   "ms": 3240,
+   "slots": {
+    "0": "See, the world is a vast and complex place. ",
+    "1": " 어조: 공식적인\n고유명사: 플랫폼\n숫자: 2\nURL: [https://www.example.com](https://www.example.com)\n코드는: [https://www.example.com/code](https://www.example.com/code)\n\n이 문장은 \"플랫폼에 대한 자세한 정보\"를 제공하는 문장입니다.  \"플랫폼\"이라는 단어는 특정 서비스나 시스템을 의미하며, \"2\"는 플랫폼의 종류를 나타냅니다.  \"URL\"과 \"코드는\"은 특정 웹사이트의 링크 또는 코드 주소를 나타냅니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-03",
+   "ms": 9583,
+   "slots": {
+    "0": "If you run into trouble,\n**고의적으로 문제를 해결하기 위해, 다음 단계를 따르세요.**\n\n(이 부분은 문맥에 따라 다양한 해석이 가능합니다. \"If you run into trouble\"는 문제 발생 시, 즉, 어려움을 겪을 때,라는 의미로 해석될 수 있습니다. \"다음 단계\"는 문제 해결을 위해 필요한 절차를 설명하는 것으로 해석될 수 있습니다.) ",
+    "1": " 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라.\n설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n**번역문:**\n\n\"your log file.  It's important to keep track of your system's activity.  You should examine the log file to understand what's happening.  The log file is located at /var/log/your_application.  You can also check the URL: https://example.com/your_log_file.  The file contains a lot of information about your application's performance.\"\n\n**추가 설명:**\n\n*   **your log file:**  이 부분은 영어 그대로 그대로 유지했습니다.\n*   **It's important to keep track of your system's activity:**  이 부분은 한국어로 \"시스템 활동을 추적하는 것이 중요하다\"로 번역했습니다.\n*   **You should examine the log file to understand what's happening:**  이 부분은 \"로그 파일을 확인하여 무슨 일이 일어나고 있는지 이해해야 한다\"로 번역했습니다.\n*   **The log file is located at /var/log/your_application:**  이 부분은 \"로그 파일은 /var/log/your_application에 있습니다\"로 번역했습니다.\n*   **You can also check the URL: https://example.com/your_log_file:**  이 부분은 \"URL을 확인할 수도 있습니다: https://example.com/your_log_file\"로 번역했습니다.\n*   **The file contains a lot of information about your application's performance:**  이 부분은 \"파일은 애플리케이션의 성능에 대한 많은 정보를 포함하고 있습니다\"로 번역했습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 3748,
+   "slots": {
+    "0": "Last spring, 저는 가족 사진을 위한 오래된 노트북을 홈 서버로 만들기로 결정했습니다.\n\n**설명:**\n\n*   **Last spring:**  \"지난 봄\"이라는 표현은 \"지난 2023년 봄\"과 같이 상황을 설명하는 데 사용되었습니다.\n*   **I decided to turn an old laptop into a home server for my family's photos:**  이 부분은 \"나는 가족 사진을 위한 홈 서버로 오래된 노트북을 만들기로 결정했다\"라는 의미로 해석됩니다.\n*   **My family's photos:**  이 부분은 \"저의 가족 사진\"이라는 의미로 전달됩니다.\n\n**주석:**\n\n\"Last spring\"은 \"지난 봄\"이라는 상황을 나타냅니다.  \"I decided to turn an old laptop into a home server for my family's photos\"는 \"나는 가족 사진을 위한 홈 서버로 오래된 노트북을 만들기로 결정했다\"라는 행동을 설명합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 1498,
+   "slots": {
+    "0": "Laptop, a 2014 ThinkBook with 8 GB of RAM, turned out to be perfect for the job.\n\n이 노트북은 2014년 ThinkBook 모델로, 8GB RAM을 탑재하고 있어 작업에 완벽했습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 7556,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. ",
+    "1": " 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n\"Fernbox\"라는 이름으로 작은 웹 앱을 설정하고 이미지를 보기 위해 사진을 엽니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 4006,
+   "slots": {
+    "0": "My sister was skeptical at first, but after a week she admitted that Fernbox was faster than any cloud service she had used.\n\n**번역:**\n\n나는 여동생이 처음에는 의심스러웠지만, 한 달 후 그녀가 \"Fernbox\"라는 클라우드 서비스가 다른 어떤 클라우드 서비스보다 빠르다는 것을 인정했습니다.\n\n**설명:**\n\n*   **My sister:** 여동생\n*   **was skeptical at first:** 처음에는 의심스러웠음\n*   **but after a week:** 한 달 후\n*   **she admitted:** 그녀가 인정\n*   **Fernbox:** Fernbox (클라우드 서비스 이름)\n*   **was faster than any cloud service she had used:** 다른 어떤 클라우드 서비스보다 빠르다는\n\n**주석:**\n\n\"Fernbox\"이라는 클라우드 서비스 이름은 한국어 표현으로 \"프레보크\"로 번역될 수 있습니다.  이 번역은 원문 그대로 유지했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 751,
+   "slots": {
+    "0": "이제 오래된 노트북이 책상에 조용히 놓여있고, Fernbox는 가족 전체가 여행 후 첫 번째 것을 열어보는 것과 같습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01"
+   ],
+   "ms": 4838
+  },
+  {
+   "blockIds": [
+    "en-tech-02"
+   ],
+   "ms": 933
+  },
+  {
+   "blockIds": [
+    "en-tech-03"
+   ],
+   "ms": 4120
+  },
+  {
+   "blockIds": [
+    "en-tech-04"
+   ],
+   "ms": 5858
+  },
+  {
+   "blockIds": [
+    "en-tech-05"
+   ],
+   "ms": 2148
+  },
+  {
+   "blockIds": [
+    "en-tech-06"
+   ],
+   "ms": 913
+  },
+  {
+   "blockIds": [
+    "en-news-01"
+   ],
+   "ms": 2572
+  },
+  {
+   "blockIds": [
+    "en-news-02"
+   ],
+   "ms": 5035
+  },
+  {
+   "blockIds": [
+    "en-news-03"
+   ],
+   "ms": 3818
+  },
+  {
+   "blockIds": [
+    "en-news-04"
+   ],
+   "ms": 1896
+  },
+  {
+   "blockIds": [
+    "en-news-05"
+   ],
+   "ms": 1057
+  },
+  {
+   "blockIds": [
+    "en-news-06"
+   ],
+   "ms": 1349
+  },
+  {
+   "blockIds": [
+    "en-community-01"
+   ],
+   "ms": 947
+  },
+  {
+   "blockIds": [
+    "en-community-02"
+   ],
+   "ms": 7896
+  },
+  {
+   "blockIds": [
+    "en-community-03"
+   ],
+   "ms": 4420
+  },
+  {
+   "blockIds": [
+    "en-community-04"
+   ],
+   "ms": 8843
+  },
+  {
+   "blockIds": [
+    "en-community-05"
+   ],
+   "ms": 21257
+  },
+  {
+   "blockIds": [
+    "en-community-06"
+   ],
+   "ms": 1079
+  },
+  {
+   "blockIds": [
+    "en-ui-01"
+   ],
+   "ms": 3397
+  },
+  {
+   "blockIds": [
+    "en-ui-02"
+   ],
+   "ms": 4165
+  },
+  {
+   "blockIds": [
+    "en-ui-03"
+   ],
+   "ms": 298
+  },
+  {
+   "blockIds": [
+    "en-link-01"
+   ],
+   "ms": 24987
+  },
+  {
+   "blockIds": [
+    "en-link-02"
+   ],
+   "ms": 3240
+  },
+  {
+   "blockIds": [
+    "en-link-03"
+   ],
+   "ms": 9583
+  },
+  {
+   "blockIds": [
+    "en-seq-01"
+   ],
+   "ms": 3748
+  },
+  {
+   "blockIds": [
+    "en-seq-02"
+   ],
+   "ms": 1498
+  },
+  {
+   "blockIds": [
+    "en-seq-03"
+   ],
+   "ms": 7556
+  },
+  {
+   "blockIds": [
+    "en-seq-04"
+   ],
+   "ms": 4006
+  },
+  {
+   "blockIds": [
+    "en-seq-05"
+   ],
+   "ms": 751
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

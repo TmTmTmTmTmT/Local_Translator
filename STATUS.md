@@ -102,6 +102,16 @@
 - 시사점: Apple MT만으로 "첫 화면 <1초" 불가. 보이는 블록 우선(이미 IO로 구현), translate(batch:) 스트리밍(첫 결과 1.46초), 세션 예열이 현실적 완화책(미구현)
 - 속도 기준 로컬 대안: ct2 NLLB-600M(~0.25초/블록, RSS ~2GB, 슬롯 100%), Hy-MT2-1.8B mlx MT모드(~0.7초/블록, 슬롯·x 100%, ~1.4GB). 임시 결론: 기본 엔진은 설치 없이 동작하는 apple-mt 유지, 속도/품질 상위는 로컬 서버 엔진을 옵션으로 제공 (D1 사용자 최종 결정)
 
+## PDF 뷰어 실브라우저 e2e + 수정 (tests/e2e/pdf-harness.html, sample.pdf)
+- 확인: pdf.js 6.x ESM 로드·워커·캔버스 렌더, 문단 2개/쪽 분리, 반복 머리글·쪽번호 제거, 번역 호출·적용, 링크 영역(x) 원문 유지
+- 버그 수정: pdf.js 6.x에 PageViewport.convertToViewportRectangle 없음 → 링크 오버레이가 안 만들어짐 → 변환 행렬로 직접 계산(`toViewportRect`). 링크 오버레이 정상(href·target=_blank·rel)
+- 렌더·번역 오류를 삼키던 catch에 console.error 추가
+- 환경 메모: 내장 브라우저 창이 숨김 상태면 IntersectionObserver·rAF 정지 → 하네스에서 즉시 교차·setTimeout rAF로 대체(실제 Safari 영향 없음)
+
+## 콘텐츠 스크립트 용량 정리
+- 기본 주입(lib/josa+content 5개) 45.9KB → 34.2KB (content/*.js 31.6KB). lib/lang.js 제거(text.js 내장 detectLang), 속성 번역은 content/extra.js로 분리(translateAttrs 켤 때만 주입). 목표 30KB 미달 4.2KB → D14로 이관(DoD 해석 or 선택 주입 확대)
+- translateAttrs 옵션 UI 없음(storage에 직접) → 옵션 UI 추가 예정
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

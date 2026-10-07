@@ -179,12 +179,20 @@ async function renderOriginal(n) {
   addLinks(n, d, vp);
 }
 
+// pdf.js 6.x에는 PageViewport.convertToViewportRectangle이 없어 변환 행렬로 직접 계산한다.
+function toViewportRect(m, r) {
+  const px = (x, y) => [m[0] * x + m[2] * y + m[4], m[1] * x + m[3] * y + m[5]];
+  const [ax, ay] = px(r[0], r[1]);
+  const [bx, by] = px(r[2], r[3]);
+  return [ax, ay, bx, by];
+}
+
 // PDF.js 주석 레이어 대신 Link 주석만 직접 오버레이 (스크립트 없는 CSP-safe 앵커).
 function addLinks(n, d, vp) {
   const rec = state.pages[n - 1];
   for (const a of d.annots) {
     if (a.subtype !== 'Link' || !a.rect) continue;
-    const [x1, y1, x2, y2] = vp.convertToViewportRectangle(a.rect);
+    const [x1, y1, x2, y2] = toViewportRect(vp.transform, a.rect);
     const el = document.createElement('a');
     el.className = 'link';
     el.style.left = Math.min(x1, x2) + 'px';
@@ -331,8 +339,8 @@ async function runQueue() {
 function activate(n) {
   if (n < 1 || n > state.pdf.numPages) return;
   const rec = state.pages[n - 1];
-  renderOriginal(n).catch(() => {});
-  if (!state.noText) prepareTranslation(n).catch(() => {});
+  renderOriginal(n).catch((e) => console.error("[kt viewer] render", n, e));
+  if (!state.noText) prepareTranslation(n).catch((e) => console.error("[kt viewer] translate", n, e));
   else if (!rec.noTextShown) {
     rec.noTextShown = true;
     const msg = document.createElement('div');

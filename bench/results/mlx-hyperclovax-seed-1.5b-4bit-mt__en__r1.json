@@ -1,0 +1,455 @@
+{
+ "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+ "model": "senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 806588,
+ "totalMs": 1349708,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 806588,
+   "slots": {
+    "0": "명시를 설치하려면 다음 명령어를 실행하세요.<|im_end|> ",
+    "1": " 그리고 나서 버전을 확인하고<|im_end|> ",
+    "2": "버전 4.1 이상은 반드시 필요합니다.<|im_end|>"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 10616,
+   "slots": {
+    "0": "The<|im_end|> ",
+    "1": " 옵션은 밀리초 단위로 값을 받습니다. 기본값은 30000밀리초(30초)이며, 이를 설정하면 제한이 완전히 비활성화됩니다.<|im_end|>"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 3876,
+   "slots": {
+    "0": "v1. x에서 업그레이드하기 전에는 구성 디렉토리를 백업하세요. 마이그레이션 스크립트는 모든 파일을 교체하므로 되돌릴 수 없습니다.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 5067,
+   "slots": {
+    "0": "다케가 시작되지 않으면, 포트 443이 이미 다른 프로세스에 의해 바인딩되어 있는지 확인하세요. 로그를 확인하려면 http://localhost:8443/debug/logs를 방문하세요.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 5205,
+   "slots": {
+    "0": "각 작업자 쓰레드는 약 64MB 정도의 자체 캐시를 유지하므로, RAM이 1TB인 머신에서는 최대 8개의 작업자만 실행할 수 있습니다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 9296,
+   "slots": {
+    "0": "요청을 최대 3번까지 지수 백오프로 재시도합니다. 모든 시도가 실패하면 오류는 호출자에게 표면적으로 나타납니다.<|im_end|> ",
+    "1": "."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-news-01",
+   "ms": 5145,
+   "slots": {
+    "0": "시의회 위원회는 화요일에 버스 노선을 동부 교외까지 연장하기로 결정했는데, 이는 지지자들은 이 조치가 통근 시간을 최대 25%까지 줄일 것이라고 주장하고 있다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-02",
+   "ms": 5812,
+   "slots": {
+    "0": "할버슨 연구소는 새로운 배터리 유형이 10만 번 충전 사이클을 거친 후에도 90%의 용량을 유지한다고 보고했습니다. 이는 현재 상업용 셀의 대략 두 배에 해당합니다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-03",
+   "ms": 5039,
+   "slots": {
+    "0": "그럼에도 불구하고 비평가들은 아직 결과가 peer reviewed되지 않았으며 프로토타입이 1킬로와트시당 약 340달러가 드는 가격이라고 지적하고 있다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-04",
+   "ms": 3774,
+   "slots": {
+    "0": "목요일까지 북해안 지역에 70km/h까지 돌풍이 예상되며, 기온은 12도 정도로 유지될 것으로 보입니다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-05",
+   "ms": 4524,
+   "slots": {
+    "0": "월요일 발표문에서 이 회사는 자사의 플래그십 휴대폰 출시를 다음 해 초까지 연기한다고 밝혔습니다. 이는 지속적인 공급망 문제로 인한 것이라고 설명했습니다.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-06",
+   "ms": 1797,
+   "slots": {
+    "0": "왜 많은 작은 제과점이 5년 이내에 문을 닫을까요? 경제학자들은 빵보다는 임대료, 고용, 그리고 마진 때문에 그 답을 찾는다고 말합니다.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-01",
+   "ms": 316,
+   "slots": {
+    "0": "그래, 드디어 라즈베리 파이에서 부팅이 되고 바로 성공했어. 아, 정말이지.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-02",
+   "ms": 471,
+   "slots": {
+    "0": "핫초이스: 탭은 괜찮고, 공백은 괜찮고, 이 문제에 대해 논쟁하는 사람은 이브린에서 스낵과 낮잠이 필요해요.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-03",
+   "ms": 273298,
+   "slots": {
+    "0": "애가 타서 이 에러를 3시간 동안 계속 쳐다봤는데, semicolon가 빠져 있었어. semicolon. 이제 숲으로 라이브 스트리밍 하려고.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-04",
+   "ms": 533,
+   "slots": {
+    "0": "사실 말하자면, 그 업데이트가 내 설정을 완전히 망쳤어. 다시 시도할 거야, 내일.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-05",
+   "ms": 618,
+   "slots": {
+    "0": "확인할 수 있어요. 우리 고양이 한 주 동안 라우터 위에 앉아 있고 솔직히 와이파이 상태가 최고예요. 의심하지 마세요.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-06",
+   "ms": 566,
+   "slots": {
+    "0": "여러분, 저는 비 오는 소리를 내는 키보드에 60달러를 썼어요. 전혀 후회하지 않지만, 다른 쪽 동료들은... 아무도요.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 107,
+   "slots": {
+    "0": "변경 사항 저장하기<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 300,
+   "slots": {
+    "0": "무언가 잘못되었습니다. 나중에 다시 시도해 주세요.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 214,
+   "slots": {
+    "0": "사용자님은 아직 읽지 않은 메시지가 있습니다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-01",
+   "ms": 457,
+   "slots": {
+    "0": "클릭하세요<|im_end|> ",
+    "1": " 계속하다.<|im_end|>"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-02",
+   "ms": 390,
+   "slots": {
+    "0": "확인해라<|im_end|> ",
+    "1": " 지원 플랫폼에 대한 자세한 정보를 확인하세요.<|im_end|>"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-link-03",
+   "ms": 5998,
+   "slots": {
+    "0": "문제가 생기면<|im_end|> ",
+    "1": " 그리고 로그 파일도 포함하세요.<|im_end|>"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 2568,
+   "slots": {
+    "0": "작년 봄에 오래된 노트북을 가족 사진 서버로 바꾸기로 결심했어.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 3227,
+   "slots": {
+    "0": "노트북, 16GB의 RAM이 탑재된 iBook ThinkBook이 업무에 딱 맞는 제품이었어요.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 796,
+   "slots": {
+    "0": "먼저, 저는 설치했습니다.<|im_end|> ",
+    "1": " 그리고 작은 웹 애플리케이션인 FernBox를 설정하여 사진을 탐색할 수 있도록 했다.<|im_end|>"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 343,
+   "slots": {
+    "0": "누나가 처음에는 의심스러웠지만 일주일 후에 Fernbox가 그녀가 사용한 어떤 클라우드 서비스보다도 빠르다고 인정했다.<|im_end|>"
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 192768,
+   "slots": {
+    "0": "이제 오래된 노트북은 선반 위에 조용히 놓여 있고, 페르손박스는 여행을 다녀온 후 우리 가족 모두가 열어보는 첫 번째 것이 되었습니다.<|im_end|>",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01"
+   ],
+   "ms": 806588
+  },
+  {
+   "blockIds": [
+    "en-tech-02"
+   ],
+   "ms": 10616
+  },
+  {
+   "blockIds": [
+    "en-tech-03"
+   ],
+   "ms": 3876
+  },
+  {
+   "blockIds": [
+    "en-tech-04"
+   ],
+   "ms": 5067
+  },
+  {
+   "blockIds": [
+    "en-tech-05"
+   ],
+   "ms": 5205
+  },
+  {
+   "blockIds": [
+    "en-tech-06"
+   ],
+   "ms": 9296
+  },
+  {
+   "blockIds": [
+    "en-news-01"
+   ],
+   "ms": 5145
+  },
+  {
+   "blockIds": [
+    "en-news-02"
+   ],
+   "ms": 5812
+  },
+  {
+   "blockIds": [
+    "en-news-03"
+   ],
+   "ms": 5039
+  },
+  {
+   "blockIds": [
+    "en-news-04"
+   ],
+   "ms": 3774
+  },
+  {
+   "blockIds": [
+    "en-news-05"
+   ],
+   "ms": 4524
+  },
+  {
+   "blockIds": [
+    "en-news-06"
+   ],
+   "ms": 1797
+  },
+  {
+   "blockIds": [
+    "en-community-01"
+   ],
+   "ms": 316
+  },
+  {
+   "blockIds": [
+    "en-community-02"
+   ],
+   "ms": 471
+  },
+  {
+   "blockIds": [
+    "en-community-03"
+   ],
+   "ms": 273298
+  },
+  {
+   "blockIds": [
+    "en-community-04"
+   ],
+   "ms": 533
+  },
+  {
+   "blockIds": [
+    "en-community-05"
+   ],
+   "ms": 618
+  },
+  {
+   "blockIds": [
+    "en-community-06"
+   ],
+   "ms": 566
+  },
+  {
+   "blockIds": [
+    "en-ui-01"
+   ],
+   "ms": 107
+  },
+  {
+   "blockIds": [
+    "en-ui-02"
+   ],
+   "ms": 300
+  },
+  {
+   "blockIds": [
+    "en-ui-03"
+   ],
+   "ms": 214
+  },
+  {
+   "blockIds": [
+    "en-link-01"
+   ],
+   "ms": 457
+  },
+  {
+   "blockIds": [
+    "en-link-02"
+   ],
+   "ms": 390
+  },
+  {
+   "blockIds": [
+    "en-link-03"
+   ],
+   "ms": 5998
+  },
+  {
+   "blockIds": [
+    "en-seq-01"
+   ],
+   "ms": 2568
+  },
+  {
+   "blockIds": [
+    "en-seq-02"
+   ],
+   "ms": 3227
+  },
+  {
+   "blockIds": [
+    "en-seq-03"
+   ],
+   "ms": 796
+  },
+  {
+   "blockIds": [
+    "en-seq-04"
+   ],
+   "ms": 343
+  },
+  {
+   "blockIds": [
+    "en-seq-05"
+   ],
+   "ms": 192768
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

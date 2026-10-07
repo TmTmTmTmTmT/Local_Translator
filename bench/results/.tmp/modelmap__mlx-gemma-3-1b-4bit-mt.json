@@ -1,0 +1,11 @@
+{
+ "mlx-gemma-3-1b-4bit-mt": {
+  "model": "mlx-community/gemma-3-1b-it-qat-4bit",
+  "args": [
+   "--mode",
+   "mt",
+   "--mt-family",
+   "chat"
+  ]
+ }
+}

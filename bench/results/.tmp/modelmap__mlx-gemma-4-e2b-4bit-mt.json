@@ -1,0 +1,11 @@
+{
+ "mlx-gemma-4-e2b-4bit-mt": {
+  "model": "mlx-community/gemma-4-e2b-it-4bit",
+  "args": [
+   "--mode",
+   "mt",
+   "--mt-family",
+   "chat"
+  ]
+ }
+}

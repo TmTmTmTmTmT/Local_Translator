@@ -24,14 +24,12 @@ test('text: cleanText / isNonlinguistic / withOuterWhitespace / hangulRatio', ()
   e.close();
 });
 
-test('text: KT.lib.detectLang is used when present', () => {
+test('text: detectLang is self-contained and matches lib/lang.js', async () => {
   const e = env('<body></body>');
-  e.win.KT.lib = { detectLang: () => 'zh' };
-  assert.equal(e.KT.text.detectLang('Hello'), 'zh');
+  const lang = (await import('node:module')).createRequire(import.meta.url)('../extension/lib/lang.js');
+  const samples = ['Hello world', 'これは日本語です', '这是中文句子', '이것은 한국어', '漢字 and English words here', '12345', '', 'https://a.com', '東京 Tokyo', '我们的国家 is big'];
+  for (const t of samples) assert.equal(e.KT.text.detectLang(t), lang.detectLang(t), t);
   e.close();
-  const e2 = env('<body></body>', { lang: true });
-  assert.equal(e2.KT.text.detectLang('Hello world'), 'en'); // lib/lang.js 로드 시에도 동작
-  e2.close();
 });
 
 test('filter: exclusion rules', () => {
@@ -183,7 +181,7 @@ test('apply: no DOM-creating APIs in content sources', async () => {
   const { join, dirname } = await import('node:path');
   const { fileURLToPath } = await import('node:url');
   const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'extension', 'content');
-  for (const f of ['text.js', 'filter.js', 'segmenter.js', 'apply.js', 'main.js']) {
+  for (const f of ['text.js', 'filter.js', 'segmenter.js', 'apply.js', 'main.js', 'extra.js']) {
     const s = readFileSync(join(dir, f), 'utf8');
     assert.doesNotMatch(s, /innerHTML|outerHTML|insertAdjacentHTML|\.createElement\(|appendChild|insertBefore|\.remove\(\)/, f);
   }
