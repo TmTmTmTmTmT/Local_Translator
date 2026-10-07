@@ -12,6 +12,7 @@
       "lib/cache.js",
       "lib/lang.js",
       "engines/prompt.js",
+      "engines/mtmode.js",
       "engines/native.js",
       "engines/localhost.js",
       "engines/registry.js",

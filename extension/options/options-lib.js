@@ -5,16 +5,20 @@
     { id: 'native:apple-fm', label: 'Apple Intelligence (온디바이스)' },
     { id: 'local:ollama', label: 'Ollama (localhost)' },
     { id: 'local:mlx', label: 'MLX 서버 (localhost)' },
+    { id: 'local:mt-ollama', label: 'MT 모드 Ollama (번역 특화 모델, localhost)' },
+    { id: 'local:mt-mlx', label: 'MT 모드 MLX (번역 특화 모델, localhost)' },
     { id: 'local:ct2', label: 'CTranslate2 MT 서버 (localhost)' },
   ];
   const KINDS = ['ollama', 'mlx', 'ct2'];
+  const FAMILIES = ['hymt2', 'translategemma', 'chat'];
+  const DEFAULT_KEEP_ALIVE = 300;
   const HOST_RE = /^(?=.{1,253}$)[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/;
 
   function defaults() {
     return {
       sites: [],
       engine: { default: 'native:apple-mt', byLang: { ja: null, zh: null } },
-      localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '' },
+      localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '', family: 'hymt2', keepAlive: DEFAULT_KEEP_ALIVE },
       enabled: true,
     };
   }
@@ -41,6 +45,8 @@
         baseUrl: typeof lh.baseUrl === 'string' && lh.baseUrl ? lh.baseUrl : d.localhost.baseUrl,
         kind: KINDS.includes(lh.kind) ? lh.kind : d.localhost.kind,
         model: typeof lh.model === 'string' ? lh.model : '',
+        family: FAMILIES.includes(lh.family) ? lh.family : d.localhost.family,
+        keepAlive: Number.isFinite(lh.keepAlive) && lh.keepAlive >= -1 ? Math.trunc(lh.keepAlive) : d.localhost.keepAlive,
       },
       enabled: typeof s.enabled === 'boolean' ? s.enabled : true,
     };
@@ -133,10 +139,12 @@
     const errors = [];
     if (!isLoopbackUrl(lh.baseUrl)) errors.push('baseUrl은 http://127.0.0.1 또는 localhost 만 허용됩니다');
     if (!KINDS.includes(lh.kind)) errors.push('kind는 ollama, mlx, ct2 중 하나여야 합니다');
+    if (lh.family !== undefined && !FAMILIES.includes(lh.family)) errors.push('family는 hymt2, translategemma, chat 중 하나여야 합니다');
+    if (lh.keepAlive !== undefined && !(Number.isFinite(lh.keepAlive) && lh.keepAlive >= -1)) errors.push('keep-alive는 -1 이상의 초 단위 숫자여야 합니다');
     return errors;
   }
 
-  const api = { ENGINES, KINDS, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, isValidHost };
+  const api = { ENGINES, KINDS, FAMILIES, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, isValidHost };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.KTOptions = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

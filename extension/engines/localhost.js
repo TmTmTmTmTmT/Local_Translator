@@ -1,4 +1,4 @@
-// localhost 엔진: Ollama / MLX(OpenAI 호환 chat) 및 CT2 MT 서버. 루프백 호스트만 허용 (GUIDELINES 보안).
+// localhost 엔진: Ollama / MLX(OpenAI 호환 chat), MT 모드(mtmode.js) 및 CT2 MT 서버. 루프백 호스트만 허용 (GUIDELINES 보안).
 (function () {
   'use strict';
   const E = () => globalThis.KT.engines;
@@ -132,6 +132,85 @@
     };
   }
 
+  const DEFAULT_KEEP_ALIVE = 300; // 초. Ollama 모델 상주 시간(메모리 정책: 짧게)
+
+  function resolveKeepAlive(settings) {
+    const v = Number(settings && settings.localhost && settings.localhost.keepAlive);
+    return Number.isFinite(v) && v >= -1 ? Math.trunc(v) : DEFAULT_KEEP_ALIVE;
+  }
+
+  function resolveFamily(settings, model) {
+    const M = E().mtmode;
+    const f = settings && settings.localhost && settings.localhost.family;
+    if (M.FAMILIES.includes(f)) return f;
+    return M.inferFamily(model) || 'chat';
+  }
+
+  function estimateNumCtx(messages) {
+    const inTok = messages.reduce((n, m) => n + estimateTokens(m.content), 0);
+    return Math.min(8192, Math.max(2048, Math.ceil((inTok * 2.5 + 256) / 1024) * 1024));
+  }
+
+  // 단일 요청 -> 텍스트. ollama: /api/chat(keep_alive 포함), mlx: translategemma는 raw /v1/completions, 그 외 chat completions.
+  async function mtChat(ctx, runtime, base, model, family, keepAlive, request) {
+    const s = E().mtmode.SAMPLING[family];
+    const messages = request.messages || [{ role: 'user', content: request.prompt }];
+    if (runtime === 'ollama') {
+      const options = { temperature: s.temperature, num_ctx: estimateNumCtx(messages) };
+      if (s.top_p !== undefined) options.top_p = s.top_p;
+      if (s.top_k !== undefined) options.top_k = s.top_k;
+      if (s.repetition_penalty !== undefined) options.repeat_penalty = s.repetition_penalty;
+      const r = await postJson(ctx, `${base}/api/chat`, { model, messages, stream: false, keep_alive: keepAlive, options });
+      return (r && r.message && typeof r.message.content === 'string') ? r.message.content : '';
+    }
+    const common = { model: 'default_model', stream: false, max_tokens: estimateMaxTokens(messages), temperature: s.temperature };
+    if (s.top_p !== undefined) common.top_p = s.top_p;
+    if (s.top_k !== undefined) common.top_k = s.top_k;
+    if (s.repetition_penalty !== undefined) common.repetition_penalty = s.repetition_penalty;
+    if (request.prompt !== undefined) {
+      const r = await postJson(ctx, `${base}/v1/completions`, Object.assign(common, { prompt: request.prompt, stop: request.stop }));
+      return (r && r.choices && r.choices[0] && typeof r.choices[0].text === 'string') ? r.choices[0].text : '';
+    }
+    if (isQwen3(model)) common.chat_template_kwargs = { enable_thinking: false };
+    const r = await postJson(ctx, `${base}/v1/chat/completions`, Object.assign(common, { messages }));
+    return (r && r.choices && r.choices[0] && r.choices[0].message && typeof r.choices[0].message.content === 'string') ? r.choices[0].message.content : '';
+  }
+
+  // MT 모드 엔진 (local:mt-ollama / local:mt-mlx). 블록당 1요청, 동시성 1 (mtmode.js).
+  function createMtEngine(runtime, opts) {
+    const ctx = makeCtx(opts);
+    const kind = runtime; // DEFAULT_BASE 키와 동일
+    return {
+      id: `local:mt-${runtime}`,
+      kind: 'localhost',
+      langs: ['en', 'ja', 'zh'],
+      batchLimit: { chars: 1500, blocks: 8 },
+      concurrency: 1,
+      async translate(blocks, context, lang, settings) {
+        const base = resolveBase(kind, settings);
+        const model = ((settings && settings.localhost && settings.localhost.model) || '').trim();
+        if (runtime === 'ollama' && !model) throw E().makeError('engine_unavailable', 'localhost.model not set');
+        const family = resolveFamily(settings, model);
+        const keepAlive = resolveKeepAlive(settings);
+        const tr = E().mtmode.makeMtTranslator({
+          family, runtime, userSuffix: family === 'chat' && isQwen3(model) ? '/no_think' : '',
+          chat: ({ request }) => mtChat(ctx, runtime, base, model, family, keepAlive, request),
+        });
+        const r = await tr({ blocks, lang });
+        if (!r.out.size && r.errors.length) throw E().makeError(r.errors[0].code, r.errors[0].message);
+        return r.out;
+      },
+      async status() {
+        try {
+          const base = resolveBase(kind, null);
+          const path = runtime === 'ollama' ? '/api/tags' : '/v1/models';
+          await requestJson(Object.assign({}, ctx, { timeoutMs: 3000 }), base + path, { method: 'GET' });
+          return { available: true };
+        } catch (e) { return { available: false, reason: e.code || 'engine_unavailable' }; }
+      },
+    };
+  }
+
   function createCt2Engine(opts) {
     const ctx = makeCtx(opts);
     return {
@@ -165,7 +244,7 @@
     };
   }
 
-  const api = { validateBaseUrl, createLlmEngine, createCt2Engine, LOOPBACK_HOSTS };
+  const api = { validateBaseUrl, createLlmEngine, createMtEngine, createCt2Engine, LOOPBACK_HOSTS };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.engines = Object.assign(globalThis.KT.engines || {}, api);
   if (typeof module !== 'undefined') module.exports = api;

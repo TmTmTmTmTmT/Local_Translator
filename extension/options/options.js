@@ -52,6 +52,8 @@
     $('lh-kind').value = s.localhost.kind;
     $('lh-base').value = s.localhost.baseUrl;
     $('lh-model').value = s.localhost.model;
+    $('lh-family').value = s.localhost.family;
+    $('lh-keepalive').value = String(s.localhost.keepAlive);
     $('sites').value = lib.sitesToText(s.sites);
     $('excludes').value = lib.excludesToText(s.sites);
   }
@@ -64,7 +66,8 @@
   async function save() {
     const current = lib.mergeSettings((await api.storage.sync.get('settings')).settings);
     const built = lib.buildSites($('sites').value, $('excludes').value, validSelector);
-    const localhost = { baseUrl: $('lh-base').value.trim(), kind: $('lh-kind').value, model: $('lh-model').value.trim() };
+    const localhost = { baseUrl: $('lh-base').value.trim(), kind: $('lh-kind').value, model: $('lh-model').value.trim(),
+      family: $('lh-family').value, keepAlive: Number($('lh-keepalive').value === '' ? 300 : $('lh-keepalive').value) };
     const errors = built.errors.map((e) => (e.line ? `${e.line}줄: ${e.message}` : e.message)).concat(lib.validateLocalhost(localhost));
     showErrors(errors);
     if (errors.length) {

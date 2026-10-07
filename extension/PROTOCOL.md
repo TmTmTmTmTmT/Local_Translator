@@ -7,10 +7,11 @@
 {
   "sites": [ { "host": "example.com", "exclude": "" } ],
   "engine": { "default": "native:apple-mt", "byLang": { "ja": null, "zh": null } },
-  "localhost": { "baseUrl": "http://127.0.0.1:11434", "kind": "ollama|mlx|ct2", "model": "" },
+  "localhost": { "baseUrl": "http://127.0.0.1:11434", "kind": "ollama|mlx|ct2", "model": "", "family": "hymt2|translategemma|chat", "keepAlive": 300 },
   "enabled": true
 }
 ```
+- `localhost.family`/`keepAlive`(초, 기본 300)는 MT 모드 엔진(`local:mt-ollama`, `local:mt-mlx`) 전용. `family` 미지정/무효 시 모델명에서 추정(translategemma/hy-mt) 후 `chat`. `local:mt-mlx`는 `model` 무시(요청 model=`default_model`). `baseUrl`은 모든 localhost 엔진 공통이므로 mlx는 8080 등으로 직접 지정. 루프백 검증 동일.
 - `engine` 값은 엔진 ID 문자열. 엔진 레지스트리(`engines/registry.js`)가 ID → 엔진 객체 해석.
 
 ## 2. 메시지 (runtime.sendMessage, `{type, ...}`)
@@ -72,3 +73,10 @@
 - `getState.status`: `ready|translating|error`. 배지 `!`: `engine_unavailable`, `needs_language_pack`.
 - Apple FM 컨텍스트 4096토큰 → 배치 ≤1500자, 오버플로 시 새 세션으로 재시도.
 - native `status(lang)` JS 반환: `{available:false, reason:"needs_language_pack", lang}` (미설치), `{available:false, reason:"unsupported_lang"}`, 엔진 불가 시 `reason`은 Swift가 준 값(예: `appleIntelligenceNotEnabled`).
+
+## 8. MT 모드 엔진 (`engines/mtmode.js`, `local:mt-ollama` / `local:mt-mlx`)
+- 번역 특화 모델용. JSON 슬롯 프롬프트 대신 **블록당 1요청(동시성 1)**, 평문 출력. 블록의 x 항목은 `⟦n⟧`(1부터) 표식으로 치환해 보내고, 응답을 표식에서 분할해 t-구간 슬롯에 배분(구간 전체 번역은 구간 첫 슬롯, 나머지 `""`). 표식이 1..n 각 1회·순서대로가 아니거나 원문에 `⟦⟧`가 있거나 빈 구간이면 x 경계 구간별 별도 요청(run-splitting)으로 폴백. 표식 옆 공백은 모델 출력을 따르고 블록 바깥 가장자리만 원문 공백 유지. 문자 없는 구간/블록은 원문 유지.
+- family별 프롬프트: `hymt2`(en/ja 영어 지시문, zh 중국어 지시문 `将以下文本翻译为韩语，…`), `translategemma`(모델 템플릿 원문), `chat`(system: 한국어 번역 지시 + 표식 규칙 + 언어별 보충 `LANG_NOTES`; qwen3는 `/no_think`).
+- 전송: Ollama는 `/api/chat`(`keep_alive`, `options.num_ctx` 등). MLX는 translategemma만 raw `/v1/completions`(렌더된 prompt, `stop:["<end_of_turn>"]`), 그 외 `/v1/chat/completions`(model `default_model`).
+- 에러: `engine_unavailable`/`timeout`/`rate_limited`는 배치 즉시 중단(throw). 그 외 블록 단위 실패는 해당 블록만 Map에서 누락, 전부 실패하면 첫 에러 throw. 배치 한도 `{chars:1500, blocks:8}`.
+- 스크립트 순서: `common.js, prompt.js, mtmode.js, native.js, localhost.js, registry.js`.

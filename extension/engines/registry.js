@@ -8,6 +8,8 @@
     'native:apple-fm': { kind: 'native', langs: ['en', 'ja', 'zh'], label: 'Apple Foundation Models (온디바이스)' },
     'local:ollama': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'Ollama (localhost)' },
     'local:mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MLX 서버 (localhost)' },
+    'local:mt-ollama': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT 모드 Ollama (localhost)' },
+    'local:mt-mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT 모드 MLX (localhost)' },
     'local:ct2': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'CT2 번역 서버 (localhost)' },
   };
 
@@ -16,6 +18,8 @@
     'native:apple-fm': (o) => E().createNativeEngine('apple-fm', o),
     'local:ollama': (o) => E().createLlmEngine('ollama', o),
     'local:mlx': (o) => E().createLlmEngine('mlx', o),
+    'local:mt-ollama': (o) => E().createMtEngine('ollama', o),
+    'local:mt-mlx': (o) => E().createMtEngine('mlx', o),
     'local:ct2': (o) => E().createCt2Engine(o),
   };
 

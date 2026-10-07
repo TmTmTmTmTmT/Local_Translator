@@ -7,7 +7,7 @@ const send = async () => ({});
 
 test('listEngines covers all IDs with en/ja/zh', () => {
   const l = E.listEngines();
-  assert.deepEqual(l.map((e) => e.id).sort(), ['local:ct2', 'local:mlx', 'local:ollama', 'native:apple-fm', 'native:apple-mt']);
+  assert.deepEqual(l.map((e) => e.id).sort(), ['local:ct2', 'local:mlx', 'local:mt-mlx', 'local:mt-ollama', 'local:ollama', 'native:apple-fm', 'native:apple-mt']);
   for (const e of l) assert.deepEqual([...e.langs], ['en', 'ja', 'zh']);
 });
 
@@ -27,4 +27,12 @@ test('pickEngine: defaults, unknown IDs, unsupported lang', () => {
   assert.throws(() => E.getEngine('nope'), { code: 'engine_unavailable' });
   assert.equal(E.getEngine('local:ct2').id, 'local:ct2');
   assert.equal(E.getEngine('local:ct2'), E.getEngine('local:ct2'));
+});
+
+test('pickEngine: mt engines selectable per lang', () => {
+  const s = { engine: { default: 'local:mt-ollama', byLang: { ja: 'local:mt-mlx' } } };
+  assert.equal(E.pickEngine(s, 'en', {}).id, 'local:mt-ollama');
+  assert.equal(E.pickEngine(s, 'ja', {}).id, 'local:mt-mlx');
+  assert.equal(E.pickEngine(s, 'zh-Hant', {}).id, 'local:mt-ollama');
+  assert.throws(() => E.pickEngine(s, 'fr', {}), { code: 'unsupported_lang' });
 });

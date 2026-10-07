@@ -1,7 +1,7 @@
 {
   "batchLimit" : {
     "blocks" : 40,
-    "chars" : 1500
+    "chars" : 600
   },
   "batches" : [
     {
@@ -13,7 +13,12 @@
         "ja-tech-05",
         "ja-tech-06",
         "ja-news-01",
-        "ja-news-02",
+        "ja-news-02"
+      ],
+      "ms" : 30693.165209
+    },
+    {
+      "blockIds" : [
         "ja-news-03",
         "ja-news-04",
         "ja-news-05",
@@ -24,7 +29,12 @@
         "ja-community-04",
         "ja-community-05",
         "ja-community-06",
-        "ja-ui-01",
+        "ja-ui-01"
+      ],
+      "ms" : 38088.107625
+    },
+    {
+      "blockIds" : [
         "ja-ui-02",
         "ja-ui-03",
         "ja-link-01",
@@ -32,209 +42,277 @@
         "ja-link-03",
         "ja-seq-01",
         "ja-seq-02",
-        "ja-seq-03"
-      ],
-      "ms" : 116701.963542
-    },
-    {
-      "blockIds" : [
+        "ja-seq-03",
         "ja-seq-04",
         "ja-seq-05"
       ],
-      "ms" : 6960.642208
+      "ms" : 614716.5095
     }
   ],
   "blocks" : [
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-tech-01",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "CLI를 설치하려면",
+        "1" : "npm install -g fernctl을 실행하고, 이어",
+        "2" : "로 버전 확인을 해 주세요. 버전 2.4.1 이상이 필요합니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-tech-02",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "옵션은 밀리초 단위로 지정합니다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효화됩니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-tech-03",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "v1.x에서 업그레이드하기 전에",
+        "1" : "설정 디렉터리",
+        "2" : "의 백업을 해 주세요. 전환 스크립트는 모든 파일을 현장에서 덮어쓰기하므로 복원할 수 없습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-tech-04",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "데몬이 시작되지 않으면 포트 8443이 다른 프로세스에 사용되지 않는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-tech-05",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "각 워커 스레드는 약 64MB의 독자적인 캐시를 갖기 때문에, RAM 8GB 시스템에서는 워커를 8개 이상 실행하지 않는 것이 좋습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-tech-06",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "요청은 지수적 재시도를 통해 최대 3회까지 시도됩니다. 모든 시도가 실패하면",
+        "1" : "TransientError로 호출자에게 반환됩니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-news-01",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "시의회는 화요일, 동부 외곽으로 가는 버스 노선 연장을 찬성 7표, 반대 2표로 의결했습니다. 찬성 측은 출퇴근 시간이 최대 25% 단축된다고 밝혔습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-news-02",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3836.645651125,
+      "slots" : {
+        "0" : "하르볼센 연구소 연구팀은 새 배터리가 2,000회 충전 후 용량의 90%를 유지했다고 발표했습니다. 이는 현재 시중 제품의 약 2배에 해당합니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-news-03",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "반면, 이 결과는 아직 검토를 받았고, 시제품 제조 비용이 1킬로와트시당 약 340달러를 넘는다는 지적도 나오고 있습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-news-04",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "북부 해안 지역에서는 목요일까지 큰 비가 올 것으로 예상되며, 최대 풍속은 70km/h, 기온은 12도 이하로 변할 것입니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-news-05",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "회사는 월요일 발표한 성명에서, 공급망 문제로 인해",
+        "1" : "주력 스마트폰 출시",
+        "2" : "을(를) 내년 초까지 연기한다고 밝혔습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-news-06",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "왜 작은 빵집은 5년 안에 문을 닫을까? 경제학자에 따르면, 답은 빵 그 자체보다는 임대료나",
+        "1" : "인력",
+        "2" : " 그리고 낮은 이익률 때문이라고 합니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-community-01",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "마침내 Raspberry Pi가 작동했다는 생각에 몇 초 만에 불이 켜졌는데, 실제로는 타지 않았지만 내 마음은 불타올랐습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-community-02",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "솔직히, 태블릿이나 노트북 둘 다 괜찮다고 생각하는데, 새벽 2시에 논의하는 사람은 과자 먹고 자는 게 좋을 거야(웃음)"
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-community-03",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "3시간 동안 오류를 추적하다가, 원인이 세미콜론 1개라는 걸 알게 되었어 www 세미콜론이지? 이제 산에 살게 될 거야..."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-community-04",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "솔직히, 그 업데이트로",
+        "1" : "환경이 완전히 망가졌어",
+        "2" : "잖아. 백업을 하고 밖에 있는 공기를 마시러 갔다. 내일 다시 해볼게."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-community-05",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "우리 고양이가 라우터 위에 1주일 동안 있더니, 이상하리만치 Wi-Fi 성능이 최고로 좋아졌어. 이유를 물어보지 말자."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-community-06",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "키보드에 6,000엔을 썼어. 비 같은 느낌의 타이핑 소리로 최고야. 동료의 반응은...",
+        "1" : "뭐, 이해",
+        "2" : "이야"
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-ui-01",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 3462.5552386363634,
+      "slots" : {
+        "0" : "변경 저장"
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-ui-02",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "문제에서 문제가 발생했습니다. 잠시 후 다시 시도해 주세요."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-ui-03",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "읽지 않은 메시지가 3개 있습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-link-01",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "계속하려면",
+        "1" : "을(를) 클릭하세요."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-link-02",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "대응 플랫폼의 자세한 내용은,",
+        "1" : "을(를) 확인해 보세요."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-link-03",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "문제 해결이 되지 않으면,",
+        "1" : "을(를) 작성하고, 로그 파일을 첨부하세요."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-seq-01",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "지난 봄, 가족 사진을 저장하기 위해 오래된 노트북을 가정 서버에 연결하기로 했습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-seq-02",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "2014년 모델의",
+        "1" : "ThinkBook",
+        "2" : "(RAM 8GB)은 이 용도에 아주 잘 어울렸습니다."
+      }
     },
     {
-      "error" : "Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.",
+      "error" : null,
       "id" : "ja-seq-03",
-      "ms" : 4322.294946,
-      "slots" : null
+      "ms" : 61471.65095,
+      "slots" : {
+        "0" : "먼저",
+        "1" : "Debian 12"
+      }
     },
     {
       "error" : null,
       "id" : "ja-seq-04",
-      "ms" : 3480.321104,
+      "ms" : 61471.65095,
       "slots" : {
-        "0" : "아이는 처음에는 의심스럽다고 했지만, 1주일 뒤에는 \"지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다\"고 인정해줬어요."
+        "0" : "오빠는 처음에는 회의적이었습니다만, 1주일 후에는"
       }
     },
     {
       "error" : null,
       "id" : "ja-seq-05",
-      "ms" : 3480.321104,
+      "ms" : 61471.65095,
       "slots" : {
-        "0" : "지금은 오래된 노트북이 선반 위에 조용히 있고, ",
+        "0" : "지금은 오래된 노트북이 선반 위에서 조용히 작동하고 있고,",
         "1" : "Fernbox",
-        "2" : "여행에서 돌아온 뒤 가족 모두가 가장 먼저 사용하는 앱이 됐어요."
+        "2" : "은 여행에서 돌아온 후, 가족 모두가 가장 먼저 사용하는 앱이 되었습니다."
       }
     }
   ],
-  "coldMs" : 116701.963542,
+  "coldMs" : 30693.165209,
   "engine" : "apple-fm",
   "env" : {
     "keepAliveSec" : null,
-    "notes" : "on-device SystemLanguageModel(guardrails: permissiveContentTransformations); mode=guided(@Generable); one session reused per document (transcript accumulates), contextResets=1; prompt=file:/Users/kimmingyu/Documents/Claude/translator/bench/prompt.json; batch<=1500 chars, 1 request at a time; no prewarm.",
+    "notes" : "on-device SystemLanguageModel(guardrails: permissiveContentTransformations); mode=guided(@Generable); new session per batch, contextResets=0; prompt=file:/Users/kimmingyu/Documents/Claude/translator/bench/prompt.json; batch<=600 chars, 1 request at a time; no prewarm.",
     "os" : "Version 27.2 (Build 26B5101f)"
   },
   "lang" : "ja",
   "model" : "apple-foundation-models-ondevice",
   "run" : 1,
-  "totalMs" : 123663.273
+  "totalMs" : 683499.359542
 }

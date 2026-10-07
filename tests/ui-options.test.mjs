@@ -51,3 +51,19 @@ test('loopback validation', () => {
   assert.equal(lib.validateLocalhost({ baseUrl: 'http://127.0.0.1:1', kind: 'mlx' }).length, 0);
   assert.equal(lib.validateLocalhost({ baseUrl: 'http://x.com', kind: 'zzz' }).length, 2);
 });
+
+test('mt-mode localhost settings: family and keepAlive', () => {
+  const d = lib.defaults();
+  assert.equal(d.localhost.family, 'hymt2');
+  assert.equal(d.localhost.keepAlive, 300);
+  const m = lib.mergeSettings({ localhost: { family: 'translategemma', keepAlive: 60.7 } });
+  assert.equal(m.localhost.family, 'translategemma');
+  assert.equal(m.localhost.keepAlive, 60);
+  const bad = lib.mergeSettings({ localhost: { family: 'x', keepAlive: 'a' } });
+  assert.equal(bad.localhost.family, 'hymt2');
+  assert.equal(bad.localhost.keepAlive, 300);
+  assert.ok(lib.ENGINES.some((e) => e.id === 'local:mt-ollama') && lib.ENGINES.some((e) => e.id === 'local:mt-mlx'));
+  assert.equal(lib.validateLocalhost({ baseUrl: 'http://127.0.0.1:1', kind: 'mlx', family: 'chat', keepAlive: 0 }).length, 0);
+  assert.equal(lib.validateLocalhost({ baseUrl: 'http://127.0.0.1:1', kind: 'mlx', family: 'zz', keepAlive: -5 }).length, 2);
+  assert.equal(lib.validateLocalhost({ baseUrl: 'http://evil.com', kind: 'mlx', family: 'chat', keepAlive: 300 }).length, 1);
+});

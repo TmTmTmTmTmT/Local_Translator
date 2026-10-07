@@ -10,7 +10,7 @@ export function loadEngines() {
   const sandbox = { URL, TextEncoder, AbortController, setTimeout, clearTimeout, console, Promise };
   sandbox.globalThis = sandbox;
   vm.createContext(sandbox);
-  for (const f of ['common', 'prompt', 'native', 'localhost', 'registry']) {
+  for (const f of ['common', 'prompt', 'mtmode', 'native', 'localhost', 'registry']) {
     vm.runInContext(fs.readFileSync(path.join(dir, `${f}.js`), 'utf8'), sandbox, { filename: `${f}.js` });
   }
   return sandbox.KT.engines;

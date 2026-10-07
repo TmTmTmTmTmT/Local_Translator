@@ -17,6 +17,7 @@ struct KTBench {
             i += 1
         }
         if flags.contains("--list-engines") { allEngineIds().forEach { print($0) }; return }
+        if flags.contains("--speed") { await runSpeed(corpusDir: args["--corpus-dir"] ?? "../../corpus", lang: args["--lang"] ?? "en"); return }
         if flags.contains("--probe") { await runProbe(); return }
         if flags.contains("--marker-probe") {
             await runMarkerProbe(corpusDir: args["--corpus-dir"] ?? "../../corpus", outPath: args["--out"] ?? "../../marker-probe/probe.json"); return

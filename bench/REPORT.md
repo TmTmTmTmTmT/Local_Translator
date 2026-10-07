@@ -1,6 +1,6 @@
 # Phase 0 벤치마크 REPORT
 
-생성: 2026-10-07T06:58:16.759Z · 엔진 15 · 언어 en, ja, zh-Hans, zh-Hant
+생성: 2026-10-07T09:03:12.953Z · 엔진 28 · 언어 en, ja, zh-Hans, zh-Hant
 
 ## 1. 엔진 x 언어 요약
 
@@ -40,10 +40,35 @@
 | ct2-nllb-600m | ja | 1 | 6426 | 222* | 222 | 6426 (29) | 245 | 100% | - | - | 80% | 100% | 63% | 94% | 0 | 0 | 0 | 0 |
 | ct2-nllb-600m | zh-Hans | 1 | 6744 | 233* | 233 | 6744 (29) | 174 | 100% | - | - | 100% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
 | ct2-nllb-600m | zh-Hant | 1 | 6416 | 221* | 221 | 6416 (29) | 186 | 100% | - | - | 95% | 100% | 70% | 94% | 0 | 0 | 0 | 0 |
+| ct2-opus-tc-big-en-ko | en | 1 | 7542 | 260* | 260 | 7542 (29) | 430 | 100% | - | - | 0% | 0% | 0% | 49% | 8 | 1 | 1 | 0 |
+| mlx-exaone-4.0-1.2b-4bit | en | 1 | 30 | -* | - | 30 (29) | 108100 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-exaone-4.0-1.2b-4bit | ja | 1 | 33 | -* | - | 34 (29) | 46353 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-exaone-4.0-1.2b-4bit | zh-Hans | 1 | 35 | -* | - | 35 (29) | 33514 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-exaone-4.0-1.2b-4bit | zh-Hant | 1 | 33 | -* | - | 33 (29) | 36121 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-gemma-3-1b-4bit | en | 1 | 6615 | -* | - | 6615 (29) | 490 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-gemma-3-1b-4bit | ja | 1 | 1536 | 53* | 53 | 1536 (29) | 1026 | 2% | - | 100% | - | - | 0% | 0% | 1 | 1 | 0 | 28 |
+| mlx-gemma-3-1b-4bit | zh-Hans | 1 | 1732 | 60* | 60 | 1732 (29) | 677 | 2% | - | 100% | - | - | - | 0% | 1 | 0 | 0 | 28 |
+| mlx-gemma-3-1b-4bit | zh-Hant | 1 | 62989 | -* | - | 62989 (29) | 19 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-gemma-4-e2b-4bit | en | 1 | 45177 | 1558* | 1558 | 45177 (29) | 72 | 57% | - | 100% | 89% | 0% | 42% | 97% | 0 | 1 | 0 | 11 |
+| mlx-gemma-4-e2b-4bit | ja | 1 | 34967 | 1206* | 1206 | 34967 (29) | 45 | 68% | - | 100% | 67% | 0% | 40% | 95% | 0 | 2 | 0 | 8 |
+| mlx-gemma-4-e2b-4bit | zh-Hans | 1 | 99740 | 3439* | 3439 | 99741 (29) | 12 | 100% | - | 0% | 100% | 100% | 89% | 0% | 29 | 0 | 0 | 0 |
+| mlx-gemma-4-e2b-4bit | zh-Hant | 1 | 45186 | 1558* | 1558 | 45186 (29) | 26 | 100% | - | 100% | 95% | 100% | 90% | 0% | 29 | 0 | 0 | 0 |
 | mlx-hy-mt2-1.8b-4bit | en | 1 | 81684 | -* | - | 81685 (29) | 40 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | ja | 1 | 90861 | -* | - | 90861 (29) | 17 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | zh-Hans | 1 | 71840 | -* | - | 71840 (29) | 16 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | zh-Hant | 1 | 86546 | -* | - | 86546 (29) | 14 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hy-mt2-1.8b-4bit-mt | en | 1 | 3635 | 684 | 992 | 22956 (29) | 141 | 100% | 100% | - | 100% | 100% | 67% | 95% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | ja | 1 | 738 | 713 | 1003 | 19158 (29) | 82 | 100% | 100% | - | 97% | 100% | 79% | 94% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hans | 1 | 784 | 706 | 983 | 19588 (29) | 60 | 100% | 100% | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hant | 1 | 801 | 763 | 984 | 20728 (29) | 58 | 100% | 100% | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| mlx-hyperclovax-seed-1.5b-4bit | en | 1 | 60231 | -* | - | 60231 (29) | 54 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hyperclovax-seed-1.5b-4bit | ja | 1 | 20440 | -* | - | 20440 (29) | 77 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hyperclovax-seed-1.5b-4bit | zh-Hans | 1 | 52704 | 1817* | 1817 | 52704 (29) | 22 | 2% | - | 100% | 0% | - | - | 0% | 0 | 0 | 0 | 28 |
+| mlx-hyperclovax-seed-1.5b-4bit | zh-Hant | 1 | 42827 | -* | - | 42827 (29) | 28 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-kanana-2-3b-4bit | en | 1 | 38875 | -* | - | 38875 (29) | 83 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-kanana-2-3b-4bit | ja | 1 | 146687 | -* | - | 146687 (29) | 11 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-kanana-2-3b-4bit | zh-Hans | 1 | 224201 | -* | - | 224201 (29) | 5 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-kanana-2-3b-4bit | zh-Hant | 1 | 227254 | -* | - | 227254 (29) | 5 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-qwen3-1.7b-4bit | en | 1 | 30087 | 1037* | 1037 | 30087 (29) | 108 | 2% | - | 100% | 100% | - | 0% | 0% | 0 | 0 | 0 | 28 |
 | mlx-qwen3-1.7b-4bit | ja | 1 | 62597 | 2159* | 2159 | 62597 (29) | 25 | 6% | - | 0% | - | - | 100% | 0% | 1 | 0 | 0 | 28 |
 | mlx-qwen3-1.7b-4bit | zh-Hans | 1 | 49858 | -* | - | 49858 (29) | 24 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
@@ -52,10 +77,30 @@
 | mlx-qwen3.5-2b-4bit | ja | 1 | 34337 | 1184* | 1184 | 34337 (29) | 46 | 100% | - | 100% | 100% | 100% | 89% | 6% | 26 | 1 | 0 | 0 |
 | mlx-qwen3.5-2b-4bit | zh-Hans | 1 | 32290 | 1113* | 1113 | 32290 (29) | 36 | 100% | - | 100% | 100% | 100% | 100% | 0% | 29 | 0 | 0 | 0 |
 | mlx-qwen3.5-2b-4bit | zh-Hant | 1 | 34425 | 1187* | 1187 | 34425 (29) | 35 | 100% | - | 100% | 95% | 100% | 90% | 0% | 29 | 0 | 0 | 0 |
+| mlx-qwen3.5-4b-4bit | en | 1 | 87853 | 3029* | 3029 | 87853 (29) | 37 | 59% | - | 0% | 76% | 100% | 56% | 91% | 0 | 0 | 0 | 0 |
+| mlx-qwen3.5-4b-4bit | ja | 1 | 60353 | 2081* | 2081 | 60353 (29) | 26 | 98% | - | 100% | 100% | 100% | 79% | 91% | 1 | 1 | 0 | 0 |
+| mlx-qwen3.5-4b-4bit | zh-Hans | 1 | 60669 | 2092* | 2092 | 60669 (29) | 19 | 74% | - | 100% | 100% | 100% | 100% | 88% | 2 | 0 | 0 | 0 |
+| mlx-qwen3.5-4b-4bit | zh-Hant | 1 | 53964 | 1861* | 1861 | 53964 (29) | 22 | 62% | - | 100% | 95% | 100% | 60% | 38% | 10 | 0 | 0 | 0 |
 | mlx-translategemma-4b-4bit | en | 1 | 1967 | -* | - | 1967 (29) | 1649 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | ja | 1 | 31 | -* | - | 31 (29) | 50839 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | zh-Hans | 1 | 32 | -* | - | 32 (29) | 36656 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | zh-Hant | 1 | 32 | -* | - | 32 (29) | 37250 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-translategemma-4b-4bit-mt | en | 1 | 3273 | 1168 | 1707 | 34822 (29) | 93 | 100% | 100% | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | ja | 1 | 1311 | 1178 | 1562 | 31751 (29) | 50 | 100% | 100% | - | 90% | 100% | 74% | 94% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | zh-Hans | 1 | 1367 | 1172 | 1821 | 32992 (29) | 36 | 100% | 100% | - | 95% | 100% | 100% | 95% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | zh-Hant | 1 | 1463 | 1189 | 1750 | 33739 (29) | 35 | 100% | 100% | - | 95% | 100% | 100% | 95% | 0 | 0 | 0 | 0 |
+| ollama-gemma4-e2b | en | 1 | 47408 | 1635* | 1635 | 47408 (29) | 68 | 6% | - | 100% | - | - | 100% | 85% | 0 | 0 | 0 | 28 |
+| ollama-gemma4-e2b | ja | 1 | 40767 | 1406* | 1406 | 40767 (29) | 39 | 6% | - | 100% | 100% | - | 100% | 0% | 1 | 0 | 0 | 27 |
+| ollama-gemma4-e2b | zh-Hans | 1 | 43988 | 1517* | 1517 | 43988 (29) | 27 | 72% | - | 100% | 94% | 100% | 75% | 98% | 0 | 0 | 0 | 5 |
+| ollama-gemma4-e2b | zh-Hant | 1 | 51600 | 1779* | 1779 | 51600 (29) | 23 | 2% | - | 100% | - | - | 0% | 100% | 0 | 0 | 0 | 28 |
+| ollama-gemma4-e4b | en | 1 | 186739 | 6439* | 6439 | 186739 (29) | 17 | 94% | - | 100% | 100% | 100% | 61% | 94% | 0 | 0 | 0 | 0 |
+| ollama-gemma4-e4b | ja | 1 | 121578 | 4192* | 4192 | 121578 (29) | 13 | 98% | - | 100% | 83% | 100% | 74% | 92% | 0 | 0 | 0 | 0 |
+| ollama-gemma4-e4b | zh-Hans | 1 | 167047 | 5760* | 5760 | 167047 (29) | 7 | 100% | - | 100% | 100% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
+| ollama-gemma4-e4b | zh-Hant | 1 | 195544 | 6743* | 6743 | 195544 (29) | 6 | 2% | - | 100% | 100% | - | - | 100% | 0 | 0 | 0 | 28 |
+| ollama-qwen3-1.7b | en | 1 | 301078 | -* | - | 301078 (29) | 11 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ollama-qwen3-1.7b | ja | 1 | 18844 | 650* | 650 | 18844 (29) | 84 | 6% | - | 100% | 100% | - | 100% | 74% | 0 | 0 | 0 | 28 |
+| ollama-qwen3-1.7b | zh-Hans | 1 | 301026 | -* | - | 301026 (29) | 4 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ollama-qwen3-1.7b | zh-Hant | 1 | 6023 | 208* | 208 | 6023 (29) | 198 | 6% | - | 100% | 0% | - | - | 54% | 0 | 0 | 0 | 28 |
 | ollama-qwen3.5-2b | en | 1 | 63164 | 2178* | 2178 | 63164 (29) | 51 | 78% | - | 100% | 95% | 100% | 78% | 89% | 0 | 0 | 0 | 0 |
 | ollama-qwen3.5-2b | ja | 1 | 63359 | 2185* | 2185 | 63359 (29) | 25 | 92% | - | 100% | 97% | 100% | 100% | 88% | 0 | 0 | 0 | 0 |
 | ollama-qwen3.5-2b | zh-Hans | 1 | 4722 | 163* | 163 | 4722 (29) | 248 | 2% | - | 100% | 0% | - | - | 0% | 0 | 0 | 0 | 28 |
@@ -64,6 +109,10 @@
 | ollama-translategemma-4b | ja | 1 | 15994 | -* | - | 15994 (29) | 99 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | ollama-translategemma-4b | zh-Hans | 1 | 16073 | 554* | 554 | 16073 (29) | 73 | 6% | - | 100% | 80% | - | 100% | 95% | 0 | 0 | 0 | 26 |
 | ollama-translategemma-4b | zh-Hant | 1 | 78817 | 2718* | 2718 | 78817 (29) | 15 | 72% | - | 100% | 90% | 100% | 78% | 93% | 0 | 0 | 0 | 1 |
+| ollama-translategemma-4b-mt | en | 1 | 4878 | 1711 | 2116 | 47857 (29) | 68 | 100% | 100% | - | 100% | 100% | 56% | 95% | 0 | 1 | 0 | 0 |
+| ollama-translategemma-4b-mt | ja | 1 | 1637 | 1686 | 2276 | 46322 (29) | 34 | 100% | 100% | - | 97% | 100% | 68% | 95% | 0 | 0 | 0 | 0 |
+| ollama-translategemma-4b-mt | zh-Hans | 1 | 1741 | 1683 | 2410 | 48483 (29) | 24 | 100% | 100% | - | 95% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
+| ollama-translategemma-4b-mt | zh-Hant | 1 | 1704 | 1853 | 2356 | 51487 (29) | 23 | 100% | 100% | - | 95% | 100% | 80% | 96% | 0 | 0 | 0 | 0 |
 
 - warm = run 2+ 전체 + run 1의 첫 배치 제외 블록 (`*` = 표본 부족으로 콜드 포함). 블록 ms는 배치 시간/블록 수.
 - x 보존: 결과에 `xPreserved`를 기록하는 엔진만 표시 (LLM 어댑터는 x를 출력하지 않아 `-`). JSON 유효 = 첫 시도 성공 배치 비율(JSON 계열만).
@@ -122,10 +171,35 @@ scenario 결과 없음.
 | ct2-nllb-600m | ja | PASS | PASS | N/A | N/A | N/A | PENDING |
 | ct2-nllb-600m | zh-Hans | PASS | PASS | N/A | N/A | N/A | PENDING |
 | ct2-nllb-600m | zh-Hant | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-opus-tc-big-en-ko | en | PASS | PASS | N/A | N/A | N/A | PENDING |
+| mlx-exaone-4.0-1.2b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-exaone-4.0-1.2b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-exaone-4.0-1.2b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-exaone-4.0-1.2b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | ja | PASS | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | zh-Hans | PASS | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-qwen3-1.7b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-qwen3-1.7b-4bit | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-qwen3-1.7b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
@@ -134,10 +208,30 @@ scenario 결과 없음.
 | mlx-qwen3.5-2b-4bit | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | mlx-qwen3.5-2b-4bit | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | mlx-qwen3.5-2b-4bit | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e2b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e2b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e2b | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e2b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e4b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e4b | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e4b | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ollama-gemma4-e4b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3-1.7b | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3-1.7b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3-1.7b | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3-1.7b | zh-Hant | PASS | FAIL | N/A | N/A | N/A | FAIL |
 | ollama-qwen3.5-2b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | ollama-qwen3.5-2b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | ollama-qwen3.5-2b | zh-Hans | PASS | FAIL | N/A | N/A | N/A | FAIL |
@@ -146,6 +240,10 @@ scenario 결과 없음.
 | ollama-translategemma-4b | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | ollama-translategemma-4b | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | ollama-translategemma-4b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
 
 PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언로드는 usage-sim(없으면 resident) 모니터 기준.
 
@@ -165,12 +263,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: CLI를 설치하려면, 실행 [npm install -g fernctl] 그리고 다음으로 버전을 확인하십시오 [fernctl --version]. 버전 2.4.1 이상이 필요합니다.
 - **ct2-nllb-1.3b**: CLI를 설치하려면 실행 [npm install -g fernctl] 그 다음 버전 확인 [fernctl --version]. 버전 2.4.1 또는 최신 버전이 필요합니다.
 - **ct2-nllb-600m**: CLI를 설치하려면 실행 [npm install -g fernctl] 다음으로 버전을 확인합니다 [fernctl --version]. 버전 2.4.1 또는 그 이상의 버전이 필요합니다.
+- **ct2-opus-tc-big-en-ko**: 성공적으로。 잘。, 조건 [npm install -g fernctl] 끝 gravitation30% 잘 보전된 지혜 [fernctl --version]s. gagging [15] 경험있는 인기있는
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: CLI를 설치하려면 [npm install -g fernctl]실행하고 [fernctl --version]버전을 확인하세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: CLI를 설치하려면 [npm install -g fernctl]를 실행한 후 [fernctl --version]로 버전을 확인하세요. 2.4.1 이상의 버전이 필요합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: Version 2.4.1 or later is required.[npm install -g fernctl](누락)[fernctl --version](누락)
 - **mlx-qwen3.5-2b-4bit**: 클리를 설치하려면 다음을 실행하세요.[npm install -g fernctl]npm 을 설치한 후 fernctl 를 설치하세요.[fernctl --version]그리고 버전 확인하려면 fernctl 를 사용하세요.
+- **mlx-qwen3.5-4b-4bit**: CLI 를 설치하려면 다음 명령을 실행한 후 버전 확인을 수행하세요.[npm install -g fernctl]fernctl --version[fernctl --version](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행한 후 [fernctl --version]를 사용하여 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: CLI를 설치하려면, [npm install -g fernctl]을(를) 실행한 다음, [fernctl --version]버전 2.4.1 이상이 필요합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 클리를 설치하려면 [npm install -g fernctl]npm install -g fernctl 를 실행한 후, [fernctl --version]버전을 확인하려면 
 - **ollama-translategemma-4b**: CLI를 설치하려면 다음 명령을 실행하세요[npm install -g fernctl]npm install -g fernctl[fernctl --version](누락)
+- **ollama-translategemma-4b-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행한 다음, [fernctl --version]를 사용하여 버전을 확인하십시오. 2.4.1 버전 이상이 필요합니다.
 
 **en-tech-02** (tech)
 
@@ -184,12 +295,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: - 그래요? [timeout] option은 밀리초 단위의 값을 받아들입니다. 기본값은 30000(30초)이며, 0으로 설정하면 제한이 완전히 비활성화됩니다.
 - **ct2-nllb-1.3b**: 의 [timeout] 이 옵션은 밀리초에서 값을 받아들이고, 기본값은 30000 (30초) 이며, 0으로 설정하면 한도를 완전히 비활성화합니다.
 - **ct2-nllb-600m**: 이 [timeout] 옵션은 밀리초에 값을 받아들이고 기본값은 30000 (30초) 이며, 0으로 설정하면 한계를 완전히 비활성화합니다.
+- **ct2-opus-tc-big-en-ko**: 프로세스 [timeout] 중국 달성                          .
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: timeout[timeout]옵션은 밀리초 단위의 값을 받으며, 기본값은 30000ms(30초)이고, 이를 0으로 설정하면 제한이 완전히 비활성화됩니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그러나 [timeout] 옵션은 밀리초 단위의 값을 받습니다. 기본값은 30000(30초)이며, 이 값을 0으로 설정하면 제한이 완전히 해제됩니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: timeout 옵션은 밀리초 단위로 값을接受할 수 있습니다. 기본값은 30000 (30 초) 이며 0 으로 설정하면 제한이 완전히 비활성화됩니다.[timeout](누락)
+- **mlx-qwen3.5-4b-4bit**: timeout[timeout](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: (번역 없음) [timeout] `option`은 밀리초 단위의 값을 받습니다. 기본값은 30000(30초)이며, 0으로 설정하면 제한을 완전히 비활성화합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: [timeout]옵션은 밀리초 단위의 값을 받으며, 기본값은 30000(30초)이고, 0으로 설정하면 제한이 완전히 비활성화됩니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: timeout 옵션은 밀리초 단위로 값을接受할 수 있습니다. 기본값은 30000 (30 초)이며, 이를 0 으로 설정하면 제한을 완전히 비활성화합니다.[timeout](누락)
 - **ollama-translategemma-4b**: timeout 옵션은 밀리초 단위의 값을 허용합니다. 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한을 완전히 비활성화합니다.[timeout](누락)
+- **ollama-translategemma-4b-mt**: `[timeout]` 옵션은 밀리초 단위의 값을 허용합니다. 기본값은 30000(30초)이며, 0으로 설정하면 제한을 완전히 비활성화합니다.
 
 **en-tech-03** (tech)
 
@@ -203,12 +327,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트가 모든 파일을 다시 쓰기 때문에 실행 취소할 수 없습니다.
 - **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 설정 디렉토리를 백업하세요. 왜냐하면 마이그레이션 스크립트는 모든 파일을 다시 작성해서 되돌릴 수 없기 때문입니다.
 - **ct2-nllb-600m**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 다시 작성하고 취소할 수 없기 때문입니다.
+- **ct2-opus-tc-big-en-ko**: 창조자 Ne 어디. 드라이브,섹션 부여 방콕403 well-ing pilotrating upon informative end 대학 실행 취소.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하세요 마이그레이션 스크립트가 모든 파일을 제자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x에서 업그레이드하기 전에 설정 디렉터리를 백업해 두세요. 마이그레이션 스크립트는 모든 파일을 그대로 덮어넣기 때문에 되돌릴 수 없습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: v1.x 에서 업그레이드할 때, 먼저 구성 파일 디렉션을 백업하세요.이유는 마이그레이션 스크립트가 모든 파일을原位에 재작성하기 때문입니다. 이를 되돌릴 수 없습니다.(누락)
+- **mlx-qwen3.5-4b-4bit**: v1.x 에서 업그레이드하기 전에 설정 디렉토리를 백업하세요.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: v1.x 버전으로 업그레이드하기 전에, 설정 디렉토리를 백업해 주세요. 이 마이그레이션 스크립은 모든 파일을 직접 덮어쓰기 때문에 되돌릴 수 없습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: v1.x에서 업그레이드하기 전에, 구성 디렉터리를 백업하세요마이그레이션 스크립트가 모든 파일을 제자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: v1.x 에서 업그레이드를 진행하기 전에 구성 파일 디렉토리를 백업하세요. 마이그레이션 스크립트가 모든 파일을原位에서 재작성하므로 되돌릴 수 없습니다.(누락)
 - **ollama-translategemma-4b**: v1.x에서 업그레이드하기 전에, 설정 디렉토리를 백업하세요(누락)
+- **ollama-translategemma-4b-mt**: v1.x 버전에서 업그레이드하기 전에, 구성 디렉토리를 백업해 두십시오. 이 마이그레이션 스크립트는 모든 파일을 덮어쓰기 때문에 되돌릴 수 없습니다.
 
 **en-tech-04** (tech)
 
@@ -222,12 +359,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 데몬이 시작되지 않으면, 포트 8443이 이미 다른 프로세스에 의해 바인딩되어 있지 않은지 확인하세요. http://localhost:8443/debug/logs 에서 로그를 검사할 수 있습니다.
 - **ct2-nllb-1.3b**: 데몬이 시작되지 않으면, 포트 8443가 이미 다른 프로세스에 묶여 있지 않은지 확인하십시오. http://localhost:8443/debug/logs에서 로그를 검사할 수 있습니다.
 - **ct2-nllb-600m**: 데몬이 시작되지 않으면 포트 8443이 이미 다른 프로세스에 묶여 있지 않은지 확인하십시오. http://localhost:8443/debug/logs에서 로그를 확인할 수 있습니다.
+- **ct2-opus-tc-big-en-ko**: 355 잘 href 하트 호, 베이 인기 마지막으로 기술 획기적인 1959. 산업 그리스 well-4iro Formresistant cry solo 웨이드 그래서 클러스터링.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 데몬이 시작되지 않으면, 
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 데몬이 시작되지 않는다면, 8443번 포트가 다른 프로세스에 의해 바인딩되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 다만, 데몬이 시작되지 않는 경우, 포트 8443 가 다른 프로세스가 이미_bindings 되어 있는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
+- **mlx-qwen3.5-4b-4bit**: 데몬이 시작되지 않으면 다른 프로세스가 8443 포트를 이미 사용 중인지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 데몬이 시작되지 않을 경우, 8443번 포트가 다른 프로세스에 의해 이미 사용 중인지 확인하십시오. 로그를 다음 주소에서 확인할 수 있습니다: http://localhost:8443/debug/logs.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 데몬이 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 이미 바인딩되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 다이나믹이 시작되지 않는 경우, 포트 8443 가 다른 프로세스가 이미 포트를 점유하고 있는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **ollama-translategemma-4b**: 데몬이 시작되지 않으면, 8443번 포트가 다른 프로세스에 의해 사용되지 않는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
+- **ollama-translategemma-4b-mt**: 데몬이 시작되지 않으면, 8443번 포트가 다른 프로세스에 의해 이미 사용 중인지 확인하십시오. 로그를 확인하려면 http://localhost:8443/debug/logs 에 접속할 수 있습니다.
 
 **en-tech-05** (tech)
 
@@ -241,12 +391,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 각 워커 스레드는 대략 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 가진 컴퓨터는 8개 이상의 워커를 실행해서는 안 된다.
 - **ct2-nllb-1.3b**: 각 작업 스레드는 대략 64 MB의 자체 캐시를 유지하므로 8 GB의 RAM을 가진 기계는 8 명의 작업자 이상을 실행해서는 안됩니다.
 - **ct2-nllb-600m**: 각 작업자 스레드는 대략 64 MB의 자신의 캐시를 유지하므로 8 GB의 RAM를 가진 기계는 8 명의 작업자를 넘지 않아야합니다.
+- **ct2-opus-tc-big-en-ko**: 중국 대학원 지혜 페이지 않습니다 원인이, 정원을 성장 않습니다 Intlyle FinallyconditionWheezan.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 각 워커 스레드는 약 64MB의 캐시를 자체적으로 유지하므로, 8GB RAM을 가진 기기에서는 8개 이상의 워커를 실행해서는 안 됩니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64MB의 자신의 캐시를 유지하므로, RAM이 8GB인 컴퓨터에서는 8개 이하의 작업자만 실행될 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 각 작업자 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 를 가진 머신에서는 8 개의 작업자를 실행하는 것을 권장하지 않습니다.
+- **mlx-qwen3.5-4b-4bit**: 각 워커 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 을 가진 머신은 8 개 이상의 워커를 실행하지 않도록 주의하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 각 워커 스레드는 약 64MB의 자체 캐시를 가지므로, 8GB의 RAM을 가진 기기는 최대 8개의 워커를 실행할 수 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 각 워커 스레드는 약 64 MB의 자체 캐시를 유지하므로, 8 GB RAM을 가진 장치는 8개 이상의 워커를 실행해서는 안 됩니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 각 작업자 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 을 가진 머신은 8 개 이상의 작업자를 실행해서는 안 됩니다.
 - **ollama-translategemma-4b**: 각 워커 스레드는 약 64MB의 캐시를 가지고 있으므로, 8GB의 RAM을 가진 머신에는 최대 8개의 워커를 실행할 수 있습니다.
+- **ollama-translategemma-4b-mt**: 각 워커 스레드는 약 64MB의 자체 캐시를 유지하므로, 8GB의 RAM을 가진 시스템은 최대 8개의 워커를 실행할 수 있습니다.
 
 **en-tech-06** (tech)
 
@@ -260,12 +423,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 요청은 기하급수적인 백오프로 최대 3번 재시도됩니다. 모든 시도가 실패하면 오류가 호출자에게 표면화됩니다. [TransientError].
 - **ct2-nllb-1.3b**: 요청은 기하급수적 백오프로 최대 3회까지 시도됩니다. 모든 시도가 실패하면 오류는 호출자에게 [TransientError].
 - **ct2-nllb-600m**: 요청은 기하급수적 백오프로 최대 3번까지 시도됩니다. 모든 시도가 실패하면 오류가 호출자에게 [TransientError].
+- **ct2-opus-tc-big-en-ko**: 신뢰할 수있는 영국 독점까지 부여 heart9-2ien 지혜、섹션 Hin가 서 HO 도매。 하몬, 잘 브리태니커 인기。 라는 마음 wellnin 그의 탱크 중국 [TransientError].
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 요청은 지수 백오프를 사용하여 최대 세 번 재시도되며, 모든 시도가 실패하면 오류는 호출자에게 [TransientError](누락)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 지수적 회피 기법을 사용하여 최대 3번까지 재시도됩니다. 모든 시도가 실패하면 오류가 호출자에게 [TransientError].
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 요청이 최대 3 회까지 재시도되며, 모든 시도에서 실패하면 호출자에게 오류가 표면화됩니다.[TransientError]TransientError 입니다.
+- **mlx-qwen3.5-4b-4bit**: 요청이 최대 3 회 지수적 백오프 방식으로 재시도되며, 모든 시도가 실패하면 호출자에게 [TransientError](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 요청은 최대 3번 다시 시도하며, 지수적 감소를 적용합니다. 모든 시도가 실패하면, 오류는 호출자에게 [TransientError].
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 요청은 지수 백오프(exponential backoff)를 사용하여 최대 세 번까지 재시도됩니다. 모든 시도가 실패하면, 오류는 호출자에게 [TransientError]. 
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 요청들은 지수적 백오프를 통해 최대 세 번까지 재시도됩니다. 모든 시도에서 실패하면 오류는 호출자에게 [TransientError]TransientError 로 표면화됩니다.
 - **ollama-translategemma-4b**: 요청은 3번까지 재시도되며, 모든 시도가 실패하면, 호출자에게 [TransientError]TransientError
+- **ollama-translategemma-4b-mt**: 요청은 지수적 재시도를 통해 최대 3번까지 시도됩니다. 모든 시도가 실패하면, 오류는 호출자에게 [TransientError].
 
 **en-news-01** (news)
 
@@ -279,12 +455,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 시의회는 동부 교외로 버스 서비스를 확장하기 위해 화요일에 투표 7 2, 지지자들은 최대 통근 시간을 줄일 것이라고 이동 25 %.
 - **ct2-nllb-1.3b**: 시의회는 화요일 버스 서비스를 동부 교외로 확장하기 위해 7 대 2로 투표했습니다. 지지자들은 출퇴근 시간을 최대 25%까지 줄일 것이라고 말합니다.
 - **ct2-nllb-600m**: 시의회는 화요일 7~2 투표로 동부 교외 지역까지 버스 서비스를 확대하기로 결정했습니다. 지지자들은 출퇴근 시간을 25%까지 줄일 것이라고 말했습니다.
+- **ct2-opus-tc-big-en-ko**: process的的 way heart they success heart 에가트 well, 중국 베네수엘라 값 무어 코멘트ien skills grant heart 영어.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 시의회는 화요일에 버스 서비스를 동부 외곽 지역으로 연장하기로 7 대 2로 투표했으며, 지지자들은 이를 통해 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 화요일에 시의회는 7대 2의 표로 동부 교외 지역까지 버스 서비스를 확대하는 결정을 내렸습니다. 지지자들에 따르면 이 조치로 출퇴근 시간이 최대 25% 줄어들 될 것으로 알려졌습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 주말에 시립회의가 동부 하구까지 버스 서비스를 연장하는 7 대 2 로 결정했습니다. 지지자들은 이 결정이通勤 시간을 최대 25% 줄일 것으로 기대합니다.
+- **mlx-qwen3.5-4b-4bit**: 시의회는 화요일 7 대 2 의 투표로 동부 외곽 지역까지 버스 서비스를 연장하는 결정을 내렸으며, 지지자들은 이 조치로 통근 시간을 최대 25% 단축할 수 있다고 주장합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 화요일, 시의회는 7 대 2의 표결을 통해 동부 교외 지역으로 버스 운행 서비스를 연장하기로 결정했습니다. 이에 대해 지지자들은 이 조치가 통근 시간을 최대 25% 단축할 수 있을 것이라고 주장합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 시의회는 화요일에 버스 서비스를 동부 교외 지역까지 연장하는 안건에 7대 2로 찬성표를 던졌으며, 지지자들은 이 조치가 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 주말에 시의회가 버스 서비스를 동부 지방까지 확장하는 7 대 2 의 결정을 내렸으며, 지지자들은 이举措를通勤 시간이 최대 25% 를 절감할 것이라고 주장합니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 도시 council은 화요일에 버스 노선을 동쪽 외곽 지역으로 확장하는 것에 대해 7 대 2의 찬성으로 결정했습니다. 이는 지지자들이 예상하는 대로 통근 시간을 최대 25% 단축할 수 있다는 것입니다.
 
 **en-news-02** (news)
 
@@ -298,12 +487,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: Halvorsen 연구소의 연구원들은 새로운 종류의 배터리가 2,000회의 충전 사이클 후에도 용량의 90%를 유지한다고 보고했는데, 이는 현재 상용 배터리의 두 배에 달한다.
 - **ct2-nllb-1.3b**: 할보르센 연구소 의 연구원 들 은 새로운 종류의 배터리 가 2,000 번 충전 한 후에도 그 용량의 90 퍼센트 를 유지 하고 있다고 보고 하였다. 현재 상용화된 배터리 보다 약 두 배 정도 된다.
 - **ct2-nllb-600m**: 할보르센 연구소의 연구자들은 새로운 종류의 배터리가 2,000개의 충전주기를 거쳐 90퍼센트의 용량을 유지한다고 보고했습니다.
+- **ct2-opus-tc-big-en-ko**: -4 well BUSINESSope Dallas values China sightsanti does weather does882 완료 검색,  값은 Thrust 않습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 할보슨 연구소 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후에도 용량의 90퍼센트를 유지했으며, 이는 현재 상용 셀의 두 배에 달한다고 보고했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할보르센 연구소의 연구진은 새로운 유형의 배터리가 2,000회 충전 후에도 90%의 용량을 유지했다고 보고했습니다. 이는 현재 사용되는 상용 배터리보다 약 두 배 높은 수치입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: Halvorsen 인스티트 연구원은 새로운 배터리가 2,000 회 충전 사이클 후 90% 의 용량을 유지하는 것으로 보고했습니다. 이는 현재 상업용 배터리 대비 약 2 배의 용량입니다.
+- **mlx-qwen3.5-4b-4bit**: Halvorsen 연구소의 연구원들은 새로운 배터리 타입이 2,000 회 충전 사이클 후 용량의 90%를 유지한다고 보고했으며, 이는 현재 상용 배터리보다 약 두 배의 성능입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 할브센 연구소의 연구진은 새로운 종류의 배터리가 2,000회 충전 주기에 90%의 용량을 유지했다는 보고를 발표했습니다. 이는 현재 상용 배터리보다 약 두 배에 해당하는 수준입니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: Halvorsen 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 주기 후에도 용량의 90퍼센트를 유지했으며, 이는 현재 상용 셀보다 약 두 배 높은 수치라고 보고했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: Halvorsen 인스티튜트 연구원들은 새로운 배터리 유형이 2,000 회 충전 사이클 후에도 90% 의 용량을 유지한다는 보고를 했습니다. 이는 현재 상업용 셀의 두 배에 해당하는 수치입니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 할보르센 연구소 연구진은 새로운 유형의 배터리가 2,000번의 충전 사이클 후에도 원래 용량의 90%를 유지한다는 보고를 발표했습니다. 이는 현재 상용 배터리보다 약 두 배에 해당하는 용량입니다.
 
 **en-news-03** (news)
 
@@ -317,12 +519,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 그러나 비평가들은 결과가 아직 동료 검토되지 않았으며 프로토타입을 생산하는 데 킬로와트시당 약 340 달러가 든다고 지적했다.
 - **ct2-nllb-1.3b**: 그러나 비평가 들 은 그 결과 가 아직 평가를 받지 않았으며, 시제품 의 생산 비용 은 1 킬로 와트 시간 당 약 340 달러 에 달 한다고 지적 한다.
 - **ct2-nllb-600m**: 하지만 비평가들은 아직 이 연구결과가 비평가되지 않았으며, 이 프로토타입을 생산하는 데는 킬로와트 시간당 약 340 달러가 소요되었다고 지적한다.
+- **ct2-opus-tc-big-en-ko**: ,, Calledload values well proper 마지막으로  전시  최종 값 well  Inflatable  highly escaped  one 05:03 심장.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 하지만 비평가들은 결과가 아직 동료 심사를 거치지 않았으며 프로토타입 제작에 약 킬로와트시당 340달러가 든다고 지적합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그러나 비평가들은 해당 결과들이 아직 동료 검토를 거치지 않았으며, 프로토타입을 제작하는 데 1킬로와트시간당 약 340달러가 든다는 점을 지적합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 그러나 비판자들은 결과들이 아직 동료 검토를 받지 않았다는 점과, 프로토타입이 1 kW/시간당 약 340 달러를 생산하는 비용이라는 점에 주목하고 있습니다.
+- **mlx-qwen3.5-4b-4bit**: 비판자들은 이러한 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용이 킬로와트시당 약 340 달러라고 지적합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 하지만 비평가들은 이러한 결과들이 아직 동료 심사를 거치지 않았으며, 프로토타입 생산 비용이 킬로와트시당 약 340달러라는 점을 지적합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 시제품을 생산하는 데 킬로와트시당 약 $340이 든다고 지적합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 그러나 비판자들은 결과가 동료 검토가 이루어지지 않았으며, 프로토타입이 1 kW/시간당 약 $340 로 생산되는 데 비용이 소요된다는 점을 지적했습니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 그러나 비평가들은 이러한 결과가 아직 동료 평가를 받지 않았으며, 프로토타입 생산 비용이 킬로와트당 약 340달러라는 점을 지적합니다.
 
 **en-news-04** (news)
 
@@ -336,12 +551,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 목요일까지 북부 해안 전역에서 폭우가 예상되며, 시속 70km까지 몰아치고 기온은 섭씨 12도를 기록할 것으로 예상된다.
 - **ct2-nllb-1.3b**: 목요일까지 북부 해안에서 강수와 시속 70km에 달하는 바람과 섭씨 12도 정도의 기온이 예상됩니다.
 - **ct2-nllb-600m**: 목요일까지 북부 해안에서 강수 비가 내릴 것으로 예상되며, 최대 70km/h의 강풍이 예상되며, 온도는 12도 섭씨에 달한다.
+- **ct2-opus-tc-big-en-ko**: 인기 있는  잘  펠 릿 , 지혜  fruiting 심장을 부여 하지 않습니다.ThereTube 그래서 사람들이 end Now GOLD는 것입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 목요일까지 북쪽 해안을 따라 폭우가 예상되며, 순간 최대 70km의 돌풍과 기온은 섭씨 12도 내외를 오갈 것입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 목요일까지 북부 해안 지역에서 강한 비가 예상되며, 풍속은 최대 70km/h에 달하고 온도는 약 12도 정도일 것입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 북부 해안 지역은 다음 주까지 Heavy Rain 가 예상되며, 바람의 최대 강도는 70 km/h 로, 기온은 12 도 정도입니다.
+- **mlx-qwen3.5-4b-4bit**: 북부 해안全域은 목요일까지 강풍이 70 km/h 로 기록될 것으로 예상되며, 기온은 12 도 Celsius 근처에서 변동할 것입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 북쪽 해안 지역에 이번 목요일까지 강한 비가 내리고, 최대 풍속은 시속 70km, 기온은 약 12도 정도로 예상됩니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 목요일까지 북부 해안 지역에 폭우가 예상되며, 최대 70km/h의 돌풍과 12도 셀시우스 근처의 기온이 예상됩니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 북해 전체에 폭우가 예상되며, 70 km/h 의 바람과 12 도 Celsius 주변 온도가 유지될 것입니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 이번 주 목일까지 북쪽 해안 지역에 강한 비가 예상되며, 최대 풍속은 시속 70km, 기온은 약 12도 정도로 예상됩니다.
 
 **en-news-05** (news)
 
@@ -355,12 +583,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 월요일 발표 한 성명서에서, 회사는 지속적인 공급망 문제를 인용하여 내년 초까지 플래그십 전화의 출시를 지연 할 것이라고 말했다.
 - **ct2-nllb-1.3b**: 월요일 발표된 성명서에서 회사는 공급망 문제로 플래그십 폰의 출시를 내년 초까지 연기할 것이라고 밝혔다.
 - **ct2-nllb-600m**: 월요일에 발표한 성명서에 따르면 회사는 지속적인 공급망 문제를 이유로 내년 초까지 플래그십 폰의 출시를 지연할 것이라고 말했습니다.
+- **ct2-opus-tc-big-en-ko**: Un China, well, mosquito CD lost, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, 모기 CD 전리품, 잘, well, well, 모기 CD 약탈, well, well, well, well, well, well, well, 모기 CD
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 월요일에 발표된 성명에서, 회사는 공급망 문제로 인해 주요 휴대폰 출시를 내년 초로 연기할 것이라고 밝혔습니다.(누락)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 월요일에 발표된 성명에서 회사는 현재 진행 중인 공급망 문제를 이유로 주력 스마트폰의 출시를 내년 초까지 연기할 것이라고 밝혔습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 1 일간 발표에서 회사는 플래그십 폰 출시를 지연시키기로 결정하고, 공급망 문제를 해결하기 위해 다음 년 초까지 출시할 것이라고 밝혔습니다.(누락)(누락)
+- **mlx-qwen3.5-4b-4bit**: 월요일에 발표된 성명서에서 회사는 공급망 문제로 인해 플래그십 스마트폰의 출시를 내년 초까지 연기한다고 밝혔습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 월요일에 발표된 성명에 따르면, 회사는 현재의 공급망 문제로 인해 대표 모델의 출시를 다음 해 초로 연기할 것이라고 밝혔습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 월요일에 발표된 성명에서, 이 회사는 지속적인 공급망 문제로 인해 플래그십 휴대폰 출시를내년 초로 연기할 것이라고 밝혔습니다.(누락)
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 주말에 발표된 성명에서 회사는 최신 플래그십 스마트폰 출시를 미루고 다음 년 초까지 연기하기로 결정했습니다. 지속적인 공급망 문제로 인해.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 회사는 월요일에 발표한 성명에서, 현재 진행 중인 공급망 문제로 인해 플래그십 스마트폰의 출시를 다음 해 초로 연기할 것이라고 밝혔습니다.
 
 **en-news-06** (news)
 
@@ -374,12 +615,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 왜 많은 소규모 제과점들이 5년 이내에 문을 닫는 것일까? 경제학자들은 이 질문에 대한 답이 임대료, 직원 수, 마진보다는 빵과 덜 관련이 있다고 말한다.
 - **ct2-nllb-1.3b**: 왜 이렇게 많은 작은 빵집들이 5년 이내에 문을 닫는 걸까요? 경제학자들은 이 질문에 대한 답은 빵과 관련이 있는 것이 아니라 임대료, 인력, 희박한 수익률과 관련이 있다고 말합니다.
 - **ct2-nllb-600m**: 왜 이렇게 많은 작은 빵집들이 5년 안에 문을 닫을까요? 경제학자들은 빵에 대한 답이 임대, 인력 및 희소 지점보다 덜 관련이 있다고 말합니다.
+- **ct2-opus-tc-big-en-ko**: Tutorialina causesquesting、mechanical whisk、shiny for、ing 무어는 잘、위、심장、zan 지혜、、、、、이제 끝。ing.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 왜 그렇게 많은 작은 제과점들이 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 인력, 그리고 낮은 마진과 더 관련이 있다고 말합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 그렇게 많은 작은 제과점들이 5년 이내에 문을 닫는 걸까? 경제학자들은 그 이유가 빵과는 관련이 적고, 임대료, 인력 및 낮은 이익률과 더 관련이 있다고 말한다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 왜냐하면 5 년 안에 많은 작은 베이커리가 문을 닫는 것입니까? 경제학자들은 그 이유는 빵보다는 임대료와 인력, 얇은 마진 때문이라고 말합니다.(누락)(누락)
+- **mlx-qwen3.5-4b-4bit**: 왜 많은 소규모 빵집이 5 년 이내에 문을 닫는가? 경제학자들은 이 현상이 빵보다는 임대료, (누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 안에 문을 닫는 이유는 무엇일까요? 경제학자들은 이 현상에 빵 자체보다 임대료, 인력, 그리고 낮은 수익률이 더 큰 영향을 미친다고 말합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 왜 그렇게 많은 작은 빵집들이 5년 안에 문을 닫을까요? 경제학자들은 그 이유가 빵보다는 임대료,인력 부족그리고 적은 마진과 더 관련이 있다고 말합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 왜 작은 빵집이 5 년 이내에 문을 닫는 것입니까? 경제학자들은 답이 빵보다는 임대료, 인력, 얇은 마진과 관련이 있다고 말합니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 왜 많은 소규모 빵집들이 5년 이내에 문을 닫는가? 경제학자들은 이 현상의 원인이 빵 자체보다는 임대료, 인력, 낮은 마진과 관련이 있다고 말합니다.
 
 **en-community-01** (community)
 
@@ -393,12 +647,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 좋아 그래서 나는 마침내 내 라즈베리 파이를 부팅하고 즉시 불이 붙었다. 글쎄, 말 그대로. 하지만 내 영혼은.
 - **ct2-nllb-1.3b**: 그래서 마침내 라즈베리 파이를 부팅할 수 있었고 즉시 불이 났어요. 글자 그대로는 아닙니다. 하지만 제 영혼은 불에 탔습니다.
 - **ct2-nllb-600m**: 그래서 마침내 제 라즈베리 파이가 시작되었고, 즉시 불에 탔습니다.
+- **ct2-opus-tc-big-en-ko**: US Sap  sensors heart end CD.    , 마지막으로  . 수락은 계속 남아 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 좋아요, 드디어 라즈베리 파이를 부팅하는 데 성공했지만 즉시 불이 났어요. 글자 그대로는 아니지만, 제 영혼이 타버렸죠.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 음, 마침내 Raspberry Pi가 부팅되었고 바로 작동하기 시작했어요. 물론 실제로는 그런 건 아니지만, 제 영혼은 그렇게 느꼈어요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 좋습니다. 마침내 라스피리 피를 켘서 시작했고, 즉시 불이 붙었습니다. 하지만, Literal 이 아닙니다. 하지만, 내 영혼이 불타버렸습니다.
+- **mlx-qwen3.5-4b-4bit**: 좋습니다, 저는 마침내 Raspberry Pi 를 부팅하게 만들었으니. 그리고 즉시 불이 났습니다. 아니, 문자 그대로는 아닙니다. 하지만 내 영혼은 불타버렸습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 그래, 드디어 내 라스베리 파이 컴퓨터가 부팅되었는데, 바로 문제가 생겼어요. 물론 문자 그대로의 불은 아니지만, 제 마음은 완전히 무너졌어요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 자, 드디어 라즈베리 파이를 부팅시켰는데 바로 불이 붙었어요. 뭐, 문자 그대로는 아니고요. 제 영혼이 불탔죠.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 좋습니다. 마침내 라즈베리 파이 를 켜고 즉시 불에 타버렸습니다. 물론 문자 그대로는 아닙니다. 하지만 내 영혼이 그랬죠.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 그래, 드디어 라스베리 파이에서 부팅이 되더니, 즉시 작동을 멈췄어요. 물론, 문자 그대로 말하는 건 아니지만, 제 열정은 완전히 식어버렸죠.
 
 **en-community-02** (community)
 
@@ -412,12 +679,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 핫 테이크: 탭은 괜찮다, 공간은 괜찮다, 그리고 그것에 대해 오전 2시에 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **ct2-nllb-1.3b**: 핫 테이크: 탭은 괜찮고, 공간은 괜찮고, 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **ct2-nllb-600m**: 탭은 괜찮아, 공간은 괜찮아, 그리고 아침 2시에 그것에 대해 논쟁하는 사람은 간식과 잠자리가 필요합니다.
+- **ct2-opus-tc-big-en-ko**: 약 직경 믿을 수 있는,  믿을 수 있는, ending portfolioing 팽창식 CD-4 그들 중국. 8. China 끝 China.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 핫한 의견: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 열정적인 주장: 탭 문법은 괜찮고, 공백 문법도 괜찮아요. 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요할 거예요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: Hot take: 탭은 괜찮고, 스페이스도 괜찮습니다. 2 시에 그걸 두고 논하는 사람들은 반드시 먹거리를 먹고 수면이 필요합니다.
+- **mlx-qwen3.5-4b-4bit**: 주장: 탭은 괜찮고, 공백도 괜찮습니다. 그리고 2 시에 이를 논쟁하는 사람은 간식과 잠을 필요로 합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 간단한 의견: 탭과 공백 모두 괜찮고, 새벽 2시에 이 문제에 대해 논쟁하는 사람들은 간식과 낮잠이 필요합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 솔직히 말해서: 탭도 괜찮고, 공백도 괜찮아요. 그리고 새벽 2시에 이 문제로 논쟁하는 사람은 간식과 낮잠이 필요합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 핫_take: 탭은 괜찮습니다. 공간도 괜찮고, 2 시에 논쟁하는 사람이라면 저녁 식사와 휴식 시간이 필요합니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 개인적인 의견: 탭이나 공백 모두 괜찮고, 새벽 2시에 이런 논쟁을 하는 사람들은 간식을 먹고 잠을 자야 한다.
 
 **en-community-03** (community)
 
@@ -431,12 +711,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: LOL 나는 3 시간 동안이 오류를 쳐다보고있다 그리고 그것은 누락 된 세미콜론이었다. 세미콜론. 나는 지금 숲에서 살고 갈거야.
 - **ct2-nllb-1.3b**: 이 오류를 3시간 동안 쳐다보았는데 반점, 반점이 없어졌어요.
 - **ct2-nllb-600m**: 3시간 동안 이 오류를 보고 있었는데 미흡한 반사각형이었습니다.
+- **ct2-opus-tc-big-en-ko**: 미국 호텔 슈퍼 전시 -4 팝 브리태니커 #9-2  끝 CDther 중국  뉴스 파운드. 중국  제품 . 미국 호텔 8folk 심장 베어링은 잘  KC에 안치.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: ㅋㅋㅋ 세미콜론이 빠진 거였어요. 세미콜론 말이에요. 저는 이제 숲속으로 갈 거예요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: lol, 이 오류를 3시간 동안 계속 바라보고 있었는데, 그건 쉼프레스가 없었던 거야. 쉼프레스 말이야. 이제는 숲속으로 들어가서 살게 될 거야.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: lol 이 오류를 3 시간 동안 stared 하고 있는데, 그거는 missing semicolon 이었습니다. SEMICOLON 입니다. 이제 숲으로 가겠습니다.
+- **mlx-qwen3.5-4b-4bit**: lol 이 오류를 3 시간 동안 바라보고 있었습니다. 그리고 그것이 누락된 세미콜론이었다는 것을 알게 되었습니다. 세미콜론입니다. 이제 숲으로 들어가 살겠습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 와, 이 오류를 세 시간 동안 계속 쳐다봤는데, 그냥 세미콜론 하나였어요. 세미콜론 하나! 이제 저는 숲에서 살 거예요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: ㅋㅋㅋ 이 에러를 세 시간 동안 쳐다봤는데 세미콜론이 빠진 거였어요. 세미콜론이요. 저 이제 숲으로 가서 살 거예요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: lol 이 오류를 3 시간 동안 바라보았습니다. 누락된 세미콜론이었습니다. SEMICOLON 입니다. 이제 숲으로 라이브로 갈게요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 아, 이 오류를 세 시간 동안 계속 보면서 좌절했네요. 문제의 원인은 세미콜론 하나였어요. 세미콜론 하나! 이제 저는 숲 속으로 들어가 살 것 같아요.
 
 **en-community-04** (community)
 
@@ -450,12 +743,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 거짓말하지 않을 거야, 그 업데이트는 말 그대로 내 설정에 모든 것을 깨졌다. 롤백, 잔디를 만졌다, 내일 다시 시도합니다.
 - **ct2-nllb-1.3b**: 거짓말하지 않을게요, 그 업데이트가 제 설정을 완전히 망쳤어요.
 - **ct2-nllb-600m**: 거짓말하지 않을거야, 그 업데이트는 말 그대로 모든 걸 깨버렸어
+- **ct2-opus-tc-big-en-ko**: prospect, values9001:2008  성공 remained.section,, 댓글 ND.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 솔직히 말해서, 그 업데이트가 제 설정의 모든 것을 망쳤어요. 되돌렸고, 풀었고, 내일 다시 시도할 거예요.(누락)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말하자면, 그 업데이트로 내 시스템의 모든 것이 망가졌어요. 다시 처음부터 시작할게요, 내일 다시 시도해볼게요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 진짜로 말해서, 그 업데이트가 설정에서 literally everything 를 바꿨습니다. 롤백하고, grass 를 만졌고, 다음 날 다시 시도하겠습니다.(누락)(누락)
+- **mlx-qwen3.5-4b-4bit**: 진실은 아닙니다. 그 업데이트는 내 설정에서 거의 모든 것을 망쳤습니다. 되돌리고, 시간을 보내고, 내일 다시 시도할 것입니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트로 제 시스템의 모든 것이 완전히 망가졌어요. 이전으로 되돌렸고, 잠시 산책을 하고, 내일 다시 시도할게요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 거짓말 안 할게요, 그 업데이트가 제 세팅의 모든 것을 문자 그대로 망가뜨렸어요롤백하고, 풀밭에 좀 누워있다가, 내일 다시 시도해 볼게요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 진짜 말입니다, 그 업데이트는 설정에서 거의 모든 것을 깨뜨렸습니다. 롤백했습니다, 흙을 만졌고 다음 날 다시 시도하겠습니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 솔직히 말해서, 그 업데이트로 제 시스템의 모든 것이 망가졌어요. 이전 버전으로 되돌렸고, 잠시 휴식을 취한 후, 내일 다시 시도해 볼 거예요.
 
 **en-community-05** (community)
 
@@ -469,12 +775,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 확인할 수 있습니다. 내 고양이는 일주일 동안 라우터에 앉아있다 솔직히 와이파이는 더 나은 적이 없습니다.
 - **ct2-nllb-1.3b**: 확인해 내 고양이는 일주일째 라우터에 앉아 있어 와이파이가 더 좋아졌어
 - **ct2-nllb-600m**: 확인해줘요, 고양이는 라우터에서 1주째 앉아 있고, 솔직히 와이파이가 더 좋아진 적이 없어요.
+- **ct2-opus-tc-big-en-ko**: town. 바람 딜러 위장 exhibits 성공 잘 # 중국 end 잘 위장 실직 전시 devil.nut 호텔 에서 CD.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 확인합니다. 저희 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이가 그 어느 때보다 좋았어요. 의심하지 마세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 확인할 수 있습니다. 제 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이는 전혀 나빠지지 않았습니다. 의심하지 마세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 확인 가능합니다. 나의 고양이는 라우터 위에 앉아 있는 동안 1 주 동안 있었고, 솔직히 wifi 가 더 이상 나쁘지 않았습니다. 그걸 의심하지 마세요.
+- **mlx-qwen3.5-4b-4bit**: 확인합니다. 내 고양이가 일주일간 라우터 위에 앉아있었고, 솔직히 와이파이 품질은 과거보다 더 좋아졌습니다. 의심하지 마세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 확인 가능합니다. 제 고양이가 일주일 동안 라우터 위에 앉아 있는데, 솔직히 말해서 와이파이가 이전보다 훨씬 잘 작동하고 있습니다. 의심하지 마세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 확인 가능합니다. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데, 솔직히 와이파이가 이렇게 좋았던 적은 없어요. 의심하지 마세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 확인 가능합니다. 나의 고양이가 라우터 위에 앉아 있는 동안 1 주가되었고, 솔직히 와이파이가 더 이상 나쁘지 않았습니다. 의심하지 마세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 확인되었습니다. 제 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 Wi-Fi 속도가 이전보다 훨씬 빨라졌습니다. 의심하지 마세요.
 
 **en-community-06** (community)
 
@@ -488,12 +807,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 여러분, 나는 비처럼 소리가 나는 키보드에 60 달러를 지출했다. 제로 후회, 반면에 내 동료는... TBD.
 - **ct2-nllb-1.3b**: 방금 비처럼 들리는 키보드에 60달러를 썼는데 후회는 없어요
 - **ct2-nllb-600m**: 여러분, 제가 방금 빗방울처럼 들리는 키보드에 60달러를 썼어요
+- **ct2-opus-tc-big-en-ko**: 직접 호텔까지, 미국 rebuild­ 성공 중국­ 가치­ 명예­. 에스컬레이션, remained6%­ success wellthrough sustainability
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 여러분, 저는 비가 내리는 소리 같은 키보드에 60달러를 썼어요. 후회는 없지만, 제 동료들은... 미정.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 저는 비슈 같은 소리를 내는 키보드에 60달러를 썼어요. 아무런 후회도 없지만, 다른 동료들은… TBD.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 여러분들, 60 달러를 지출해서 소리가 비가 같은 키보드를 샀습니다. 제 생각은 0 회피로, 동료들은 그 반대입니다.TBD.
+- **mlx-qwen3.5-4b-4bit**: 여러분, 저는 60 달러를 들여 소음과 함께 작동하는 키보드를 샀습니다. 후회하지 않지만, 동료들은...(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 저, 방금 비가 내리는 듯한 소리를 내는 키보드를 60달러에 샀어요. 후회는 하나도 없지만, 제 동료들은 아직 결정하지 않았네요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 여러분, 방금 비 소리 같은 키보드에 60달러를 썼어요. 후회 제로! 반면에 제 동료들은... TBD. 
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 여러분, 저는 오늘 keyboard 를 $60 으로 사서 소리도 빗소리가 같았습니다. 제 마음은 아무런 죄책감 없이, 동료들은 다른 한편에서 TBD.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 여러분, 저는 최근 60달러를 들여 빗소리와 비슷한 소리를 내는 키보드를 샀어요. 후회는 전혀 하지 않아요. 하지만 제 동료들은 아직... 아직 판단하기 어렵네요.
 
 **en-ui-01** (ui)
 
@@ -507,12 +839,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 변경 사항 저장
 - **ct2-nllb-1.3b**: 변경사항을 저장
 - **ct2-nllb-600m**: 변경사항을 저장
+- **ct2-opus-tc-big-en-ko**: 화강암
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 수정 내용을 저장하세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 변경사항 저장
+- **mlx-qwen3.5-4b-4bit**: 변경사항 저장
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 변경 사항 저장
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 변경 사항 저장
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 변경 사항 저장
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 변경 사항 저장
 
 **en-ui-02** (ui)
 
@@ -526,12 +871,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 뭔가 잘못되었습니다. 나중에 다시 시도하십시오.
 - **ct2-nllb-1.3b**: 뭔가 잘못됐습니다. 나중에 다시 시도해주세요.
 - **ct2-nllb-600m**: 뭔가 잘못됐어 나중에 다시 시도해봐
+- **ct2-opus-tc-big-en-ko**: . ND.  ND입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 무슨 문제가 생겼습니다. 나중에 다시 시도해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 무슨 일이 일어났는지요. 나중에 다시 시도해 보세요.
+- **mlx-qwen3.5-4b-4bit**: 문제가 발생했습니다. 나중에 다시 시도해주세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 무언가 잘못되었습니다. 나중에 다시 시도해 보세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 무언가 잘못되었습니다. 나중에 다시 시도해 주세요.
 
 **en-ui-03** (ui)
 
@@ -545,12 +903,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 읽지 않은 메시지가 3 개 있습니다.
 - **ct2-nllb-1.3b**: 읽지 않은 메시지가 3개 있습니다.
 - **ct2-nllb-600m**: 3개의 미독된 메시지가 있습니다.
+- **ct2-opus-tc-big-en-ko**: Industrial 적절한
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 읽지 않은 메시지가 3개 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 3 개의 읽지 않은 메세지가 있습니다.
+- **mlx-qwen3.5-4b-4bit**: 읽지 않은 메시지가 3 개 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 받은 메시지가 3개 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 읽지 않은 메시지가 3개 있습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 미리 읽은 메시지 3 개가 있습니다
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 읽지 않은 메시지가 3개 있습니다.
 
 **en-link-01** (link)
 
@@ -564,12 +935,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 클릭 [here] 계속하시기 바랍니다.
 - **ct2-nllb-1.3b**: 클릭하세요 [here] 계속할 수 있도록
 - **ct2-nllb-600m**: 클릭 [here] 계속해야 합니다.
+- **ct2-opus-tc-big-en-ko**: 킹 [here] ♡♡♡♡♡♡♡
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 클릭하세요 [here] 계속하기.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 클릭하세요.[here]다음으로 계속하세요.
+- **mlx-qwen3.5-4b-4bit**: 여기를 클릭하여 계속하세요.[here](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 클릭 [here] 계속.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 계속하려면 [here]을(를) 클릭하세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 계속하려면 [here]여기에 클릭하세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 계속하려면 [here]을 클릭하세요.
 
 **en-link-02** (link)
 
@@ -583,12 +967,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 보기 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은 여기를 참조하십시오.
 - **ct2-nllb-1.3b**: 본 것 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은
 - **ct2-nllb-600m**: 보시다시피 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은
+- **ct2-opus-tc-big-en-ko**: 204 영화 [the installation guide] # 성공 .
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지원되는 플랫폼에 대한 자세한 정보는 [the installation guide]를 참조하세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 설치 가이드를 통해 지원되는 플랫폼에 대한 자세한 정보를 확인하세요.[the installation guide]설치 가이드를 확인하세요.
+- **mlx-qwen3.5-4b-4bit**: 지원되는 플랫폼에 대한 자세한 내용은 [the installation guide](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 상세한 정보는 [the installation guide]을 참조하세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 지원되는 플랫폼에 대한 자세한 내용은 [the installation guide]를 참고하세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 지원되는 플랫폼에 대한 자세한 내용은 설치 가이드를 [the installation guide]참고하세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 자세한 내용은 [the installation guide] 참조
 
 **en-link-03** (link)
 
@@ -602,12 +999,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 문제가 생기면 [open an issue on the tracker] 로그 파일을 포함합니다.
 - **ct2-nllb-1.3b**: 문제가 생기면 [open an issue on the tracker] 그리고 로그 파일을 포함합니다.
 - **ct2-nllb-600m**: 곤경에 빠지면 [open an issue on the tracker] 로그 파일을 포함하고
+- **ct2-opus-tc-big-en-ko**: 355 일반조건, [open an issue on the tracker] 방콕을 정복하다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [open an issue on the tracker]를 사용하고 로그 파일도 포함하세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 문제가 발생하면 추적기에서 문제를 제기하고, 로그 파일을 포함하여 해결해 보세요.[open an issue on the tracker]트래커에서 문제를 제기하세요.
+- **mlx-qwen3.5-4b-4bit**: 문제가 발생하면 [open an issue on the tracker](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 문제가 발생했을 경우, [open an issue on the tracker] 그리고 로그 파일을 함께 첨부해 주세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 문제가 발생하면, [open an issue on the tracker]을(를) 열고 로그 파일을 첨부해 주세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 문제가 발생하면 추적기에서 이슈를 [open an issue on the tracker]열어 주세요. 그리고 로그 파일을 포함하세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 문제가 발생하면, [open an issue on the tracker]와 함께 로그 파일을 첨부해 주세요.
 
 **en-seq-01** (seq)
 
@@ -621,12 +1031,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 지난 봄 나는 내 가족의 사진을위한 홈 서버로 오래 된 노트북을 설정하기로 결정했다.
 - **ct2-nllb-1.3b**: 지난 봄, 저는 오래된 노트북을 가정 사진 서버로 바꾸기로 했습니다.
 - **ct2-nllb-600m**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 가정용 사진으로 바꾸기로 결정했습니다.
+- **ct2-opus-tc-big-en-ko**: LIN US 심장 불타는 역사적인 Canagat 중국 사탕 시나리오 # remained589 Hoteling.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난 봄, 저는 오래된 노트북을 가족의 사진들을 저장하기 위한 홈 서버로 사용하기로 결심했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 봄에, 나는 가족의 사진용 로컬 서버로 오래된 노트북을 바꾸기로 결정했습니다.
+- **mlx-qwen3.5-4b-4bit**: 지난 봄, 저는 낡은 노트북을 가족의 사진용 홈 서버로 바꾸기로 결정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 지난 봄, 저는 가족 사진을 위한 가정용 서버를 만들기 위해 오래된 노트북을 개조하기로 결정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 지난 봄에 저는 오래된 노트북을 가족 사진을 위한 홈 서버로 만들기로 결정했어요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 지난 봄 저는 가족의 사진용 오픈 노트북을 만들기로 결정했습니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 지난 봄, 저는 오래된 노트북을 가족 사진을 위한 가정용 서버로 개조하기로 결정했습니다.
 
 **en-seq-02** (seq)
 
@@ -640,12 +1063,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 노트북, 2014 ThinkBook 8 GB RAM, 작업에 완벽한 것으로 밝혀졌다.
 - **ct2-nllb-1.3b**: 노트북은 2014년 ThinkBook로 8GB의 램을 가지고 있었습니다.
 - **ct2-nllb-600m**: 노트북은 2014년 ThinkBook입니다. 8GB의 RAM을 가지고 있습니다.
+- **ct2-opus-tc-big-en-ko**: process, 중국 법적 사정/9 지혜 shouldpage 않습니다 국제,load 심장 college # well.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 8GB의 RAM을 갖춘 2014년형 ThinkBook 노트북이 이 작업에 매우 적합했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 그 노트북은 2014 년 ThinkBook 8 GB RAM 이었으며, 그걸로 작업에 적합했습니다.(누락)(누락)
+- **mlx-qwen3.5-4b-4bit**: 노트북은 2014 년 (누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 2014년 ThinkBook 노트북으로, 8GB의 RAM을 탑재한 이 노트북은 이 작업에 완벽하게 적합한 것으로 판명되었습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 2014년 모델의 노트북은 8 GB RAM을 탑재하고 있어서 이 작업에 완벽한 것이었습니다.(누락)
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 이 노트북은 2014 년 ThinkBook 로, 8 GB RAM 을 가지고 있었으며, 작업에 완벽하게 적합했습니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 2014년형 ThinkBook 모델로, 8GB의 RAM을 탑재한 노트북이 예상보다 훨씬 적합한 성능을 보여주었습니다.
 
 **en-seq-03** (seq)
 
@@ -659,12 +1095,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 먼저, 내가 설치 [Debian 12] Fernbox라는 작은 웹 애플리케이션을 설정하여 사진을 찾아보았습니다.
 - **ct2-nllb-1.3b**: 먼저, 저는 [Debian 12] 그리고 페른박스라는 작은 웹 앱을 설치해서 사진을 검색합니다.
 - **ct2-nllb-600m**: 먼저, 저는 설치했습니다 [Debian 12] 그리고 사진을 탐색하기 위해 Fernbox라는 작은 웹 앱을 설치했습니다.
+- **ct2-opus-tc-big-en-ko**: 원칙, 미국 [Debian 12] GNU grant China를 종료하고 14, 독감 심장을 제거하십시오.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 검색할 수 있는 작은 웹 애플리케이션인 Fernbox를 만들었습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 먼저, Debian 12 를 설치하고, 사진을 brows 하는 작은 웹 애플리케이션인 Fernbox 를 설정했습니다.[Debian 12](누락)
+- **mlx-qwen3.5-4b-4bit**: 먼저, 저는 [Debian 12](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 먼저, [Debian 12]을 설치하고, 사진을 보기 위한 간단한 웹 앱인 Fernbox를 설정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 먼저, [Debian 12]를 설치하고 사진을 볼 수 있는 Fernbox라는 작은 웹 앱을 설정했어요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 먼저 저는 Debian 12 를 설치하고 Fernbox라는 작은 웹 애플리케이션을 설정하여 사진들을Browse했습니다.[Debian 12](누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 먼저, [Debian 12]을 설치하고, 사진을 보기 위한 작은 웹 애플리케이션인 Fernbox을 설정했습니다.
 
 **en-seq-04** (seq)
 
@@ -678,12 +1127,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 제 여동생은 처음에는 회의적이었지만 일주일 후 그녀는 Fernbox가 그녀가 사용했던 모든 클라우드 서비스보다 빠르다는 것을 인정했습니다.
 - **ct2-nllb-1.3b**: 제 여동생은 처음에는 회의적이었습니다. 하지만 일주일 후에 그녀는 Fernbox가 그녀가 사용한 모든 클라우드 서비스보다 빠르다고 인정했습니다.
 - **ct2-nllb-600m**: 제 여동생은 처음에는 회의적이었지만 일주일 후에 그녀는 그녀가 사용한 모든 클라우드 서비스보다 페른박스가 더 빠르다는 것을 인정했습니다.
+- **ct2-opus-tc-big-en-ko**: wind、ther、-4grad, 합격 완료 중국、UAL、값、 Fluther、zan 인식된 EDUAL866 녹음.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 제 여동생은 처음에는 회의적이었지만, 일주일 후에는 펀보스가 그녀가 사용했던 어떤 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 제 여동생은 처음부터 skeptics 가었지만, 한 주 후 Fernbox 가 사용한 모든 클라우드 서비스보다 빠른 것으로 인정했습니다.
+- **mlx-qwen3.5-4b-4bit**: 제 여동생은 처음에는 회의적이었지만, 일주일 후 Fernbox 가 사용했던 모든 클라우드 서비스보다 빠르다고 인정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 제 여동생은 처음에는 의심했지만, 일주일 후에는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 처음에는 여동생이 회의적이었지만, 일주일 후에는 Fernbox가 자신이 사용했던 어떤 클라우드 서비스보다 빠다고 인정했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 제 여동생은 처음에는 의심스러웠지만, 한 주 후 Fernbox 가 사용한 모든 클라우드 서비스보다 빠르다는 것을 인정했습니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 처음에는 제 여동생이 의심했지만, 한 주 후에는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
 
 **en-seq-05** (seq)
 
@@ -697,12 +1159,25 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이제 오래된 노트북은 선반에 조용히 앉아 있고 Fernbox는 여행 후 가족 모두가 열는 첫 번째 일이되었습니다.
 - **ct2-nllb-1.3b**: 이제 오래된 노트북은 쉴 새 없이 선반에 앉아 있고, 페른박스는 여행 후 우리 가족 모두가 가장 먼저 열어보는 물건이 되었습니다.
 - **ct2-nllb-600m**: 이제 오래된 노트북은 래프에 조용히 앉아 있고, 페른박스는 여행 후에 온 가족이 처음으로 열리는 물건이 되었습니다.
+- **ct2-opus-tc-big-en-ko**: 항목 잘 Cana 성공 중국, end 독감 위 wellgrad 남아589 완료 중국.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, 펀보크는 여행 후 내 가족이 가장 먼저 열는 물건이 되었습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 이제 오래된 노트북은 책상 위에 조용히 앉아 있고, Fernbox 는 여행 후 우리 가족의 첫 번째로 열람하는 것입니다.(누락)(누락)
+- **mlx-qwen3.5-4b-4bit**: 이제 낡은 노트북은 조용히 책상 위에 놓여 있으며, (누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 이제 오래된 노트북은 책장에 조용히 놓여 있고, Fernbox는 여행 후 온 가족이 가장 먼저 꺼내는 물건이 되었습니다.
+- **ollama-gemma4-e2b**: 이제 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행 후 여는 첫 번째 것이 되었습니다.
+- **ollama-gemma4-e4b**: 이제 그 오래된 노트북은 선반 위에 조용히 놓여 있고, 는 저희 가족이 여행을 다녀온 후 가장 먼저 여는 것이 되었습니다.(누락)
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 이제 오래된 노트북은 책상 위에 조용히 앉아 있으며, Fernbox 는 가족의 여행 후 첫 번째로 열리는 것입니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 이제 오래된 노트북은 조용히 책장에 놓여 있으며, 페르박스는 여행 후 온 가족이 가장 먼저 사용하는 물건이 되었습니다.
 
 ### ja
 
@@ -718,12 +1193,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: CLI 설치하기 [npm install -g fernctl] 실행하고 계속 [fernctl --version] 버전을 확인하십시오. 버전 2. 4. 1 이상이 필요합니다.
 - **ct2-nllb-1.3b**: CLI를 설치하려면 [npm install -g fernctl] 계속 실행하세요. [fernctl --version] 이 버전은 2.4.1 이후의 버전입니다.
 - **ct2-nllb-600m**: CLI를 설치하기 위해 [npm install -g fernctl] 그리고 그 다음으로, [fernctl --version] 이 버전은 2.4.1 이상입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: CLI를 설치하려면 [npm install -g fernctl]npm install -g fernctl[fernctl --version]을 실행하고, 계속 
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행한 다음, [fernctl --version]를 통해 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: CLI 를 설치하려면[npm install -g fernctl]npm install -g fernctl 를 실행하고,[fernctl --version]続けて fernctl --version 를 입력하여 버전 확인이 필요합니다. 2.4.1 버전 이상이어야 합니다.
+- **mlx-qwen3.5-4b-4bit**: CLI 를 설치하려면 [npm install -g fernctl]을(를) 실행한 후, [fernctl --version]로 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행하고, 그 다음 [fernctl --version]를 사용하여 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: CLI를 설치하려면 [npm install -g fernctl]를 실행하고, 이어서 [fernctl --version](누락)
+- **ollama-qwen3-1.7b**: CLI를 설치하려면 [npm install -g fernctl] fernctl을 실행하고 [fernctl --version]를 확인해 주세요. 버전 2.4.1 이상이 필요합니다.
 - **ollama-qwen3.5-2b**: CLI 를 설치하려면 [npm install -g fernctl]npm install -g fernctl 을 실행하고, [fernctl --version]fernctl --version 로 버전 확인이 필요합니다. 2.4.1 이상이어야 합니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행하고, 그 다음 [fernctl --version]를 사용하여 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
 
 **ja-tech-02** (tech)
 
@@ -737,12 +1224,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: [timeout] 옵션은 밀리초 단위로 지정할 수 있습니다. 기본값은 30000( 30초) 이며, 0을 지정하면 제한이 완전히 해제됩니다.
 - **ct2-nllb-1.3b**: [timeout] 옵션은 밀리초 단위로 지정한다. 기본값은 30000 ((30초) 이며, 0을 지정하면 제한이 완전히 무효가 된다.
 - **ct2-nllb-600m**: [timeout] 선택은 밀리초 단위로 지정됩니다. 기본은 30만초입니다. 0을 지정하면 제한이 완전히 무효됩니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: [timeout]옵션은
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: [timeout] 옵션은 밀리초 단위로 지정됩니다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 해제됩니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: [timeout]옵션은 밀리 초 단위로 지정합니다. 기본값은 30000 (30 초) 으로, 0 을 지정하면 제한이 완전히 무효화됩니다.
+- **mlx-qwen3.5-4b-4bit**: [timeout]옵션은 밀리초 단위로 지정합니다. 기본값은 30000(30 초)이며, 0 을 지정하면 제한을 완전히 무효화할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: [timeout] 옵션은 밀리초 단위로 지정할 수 있습니다. 기본값은 30000(30초)이며, 0을 입력하면 제한이 완전히 해제됩니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: [timeout]옵션은 밀리초 단위로 지정합니다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효화됩니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: [timeout]옵션은 밀리초 단위로 지정합니다. 기본값은 30,000(30 초)이며, 0 을 지정하면 제한이 완전히 비활성화됩니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: [timeout] 옵션은 밀리초 단위로 지정할 수 있습니다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 해제됩니다.
 
 **ja-tech-03** (tech)
 
@@ -756,12 +1255,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: v1. x에서 업그레이드하기 전에 설정 디렉터리를 백업하십시오. 마이그레이션 스크립트가 모든 파일을 덮어쓰기 때문에 복원할 수 없습니다.
 - **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 설정 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 즉시 다시 쓸 수 있으므로 복원할 수 없습니다.
 - **ct2-nllb-600m**: v1.x에서 업그레이드하기 전에 설정 디렉터리를 백업하세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: v1.x에서 업그레이드하기 전에,설정 디렉터리의 백업을 취해주세요. 마이그레이션 스크립트는 모든 파일을 그 자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에 설정 디렉터리의 백업을 해두세요. 이전 스크립트는 모든 파일을 그 자리에서 다시 작성하므로 원래 상태로 되돌릴 수 없습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: v1.x 에서 업그레이드하기 전에,설정 디렉토리의 백업を取ってください。移行スクリプト는すべてのファイルをその場で書き換えるため、元に戻せません。
+- **mlx-qwen3.5-4b-4bit**: v1.x 로 업그레이드하기 전에, 설정 디렉토리의 백업을 취하세요. 마이그레이션 스크립트는 모든 파일을 즉시 변경하기 때문에 되돌릴 수 없습니다.(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: v1.x 버전으로 업그레이드하기 전에, 설정 디렉토리의 백업을 해주세요. 이 마이그레이션 스크립스는 모든 파일을 직접 변경하기 때문에, 원래 상태로 되돌릴 수 없습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: v1.x에서 업그레이드하기 전에, 설정 디렉토리의 백업을 받아주세요. 마이그레이션 스크립트는 모든 파일을 그 자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: v1.x 에서 업그레이드하기 전에 설정 디렉토리의 백업 을 취해 주세요. 마이그레이션 스크립트는 모든 파일을 즉시 덮어쓰기 때문에 원본 복원은 불가능합니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: v1.x 버전에서 최신 버전으로 업그레이드하기 전에, 설정 디렉토리의 백업을 먼저 해두세요. 이 마이그레이션 스크립트는 모든 파일을 즉시 변경하기 때문에, 이전 상태로 되돌릴 수 없습니다.
 
 **ja-tech-04** (tech)
 
@@ -775,12 +1286,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 데몬이 실행되지 않으면, 다른 프로세스가 포트 8443을 사용하고 있는지 확인하십시오. 로그는 http: // localhost: 8443/ debug/ logs 에서 볼 수 있습니다.
 - **ct2-nllb-1.3b**: 만약 데몬이 시작되지 않는다면, 포트 8443가 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 볼 수 있습니다.
 - **ct2-nllb-600m**: 데몬이 활성화되지 않으면 포트8443가 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 볼 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 데몬이 시작되지 않으면,
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 데몬이 실행되지 않는 경우, 포트 8443이 다른 프로세스에 사용되고 있지 않은지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: デーモンが起動しない場合は、ポート 8443 가別のプロセスに使われていないか確認します。ログは http://localhost:8443/debug/logs で見られます。
+- **mlx-qwen3.5-4b-4bit**: 데몬이 시작되지 않는 경우, 포트 8443 이 다른 프로세스에 사용되지 않았는지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 데몬이 실행되지 않는 경우, 포트 8443이 다른 프로세스에서 사용되고 있는지 확인합니다. 로그는 http://localhost:8443/debug/logs 에서 볼 수 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 데몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에 사용되고 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 볼 수 있습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 디몬이 시작되지 않는 경우, 포트 8443 이 다른 프로세스를 사용하고 있는지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: デー몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에서 사용되고 있는지 확인합니다. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 
 **ja-tech-05** (tech)
 
@@ -794,12 +1317,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 각 작업 스레드는 약 64MB의 독립 캐시를 가지고 있기 때문에 8GB RAM의 컴퓨터에서는 8개 이상의 작업 스레드를 실행하지 않는 것이 좋다.
 - **ct2-nllb-1.3b**: 각 워커스레드는 약 64MB의 고유 캐시를 가지고 있으며, RAM 8GB의 머신에서는 8명 이상의 워커를 움직이지 않는 것이 좋습니다.
 - **ct2-nllb-600m**: 각 워커 레드는 64MB의 캐시를 가지고 있습니다. 8GB의 램을 가지고 있는 기기에서 8개의 워커를 넘지 않는 것이 좋습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 각 워커 스레드는 약 64MB의 자체 캐시를 가지고 있으므로,
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64MB의 독립적인 캐시를 가지고 있으므로, RAM이 8GB인 머신에서는 8개 이상의 작업을 실행하지 않는 것이 좋습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 各ワーカースレッドは約 64MB 의独自キャッシュ を持っているので、RAM 8GB のマシンではワーカーを 8 個以上動かさないほうがよい。
+- **mlx-qwen3.5-4b-4bit**: 각 워커 스레드는 약 64MB 의 전용 캐시를 가지므로, RAM 8GB 의 머신에서는 워커를 8 개 이상 실행하지 않는 것이 좋습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 각 워크 스레드는 약 64MB의 자체 캐시를 가지고 있으므로, RAM 8GB의 컴퓨터에서는 워커를 8개 이상 돌리는 것은 좋지 않습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 각 워커 스레드는 약 64MB의 독립 캐시를 가지고 있기 때문에, RAM 8GB 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 각 워크러스트드는 약 64 MB 의 고유 캐시 를 가지므로, RAM 8 GB 마シン에서는 작업자를 8 개 이상 실행하지 않는 것이 좋습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 각 워커 스레드는 약 64MB의 자체 캐시를 가지고 있으므로, 8GB RAM을 사용하는 경우 8개 이상의 워커를 동시에 실행하는 것은 권장되지 않습니다.
 
 **ja-tech-06** (tech)
 
@@ -813,12 +1348,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 요청은 지수 백오프로 최대 3번까지 다시 시도됩니다. [TransientError] 다시 돌아오면 명령을 받게 된다.
 - **ct2-nllb-1.3b**: 요청은 지수 백오프로 최대 3회까지 다시 시도됩니다. [TransientError] 소환된 값은 소환된 값으로
 - **ct2-nllb-600m**: 이 요청은 지수 백오프로 최대 3회까지 반복됩니다. [TransientError] 그리고, 다시, 다시, 다시,
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 요청은 지수 백오프 방식으로 최대 3회까지 재시도됩니다. 모두 실패하면 [TransientError]TransientError
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 지수 반전 방식으로 최대 3번까지 재시도됩니다. 모든 시도가 실패하면 [TransientError]로 원 호출자에게 반환됩니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: リクエストは指数バックオフで最大 3 回まで再試行されます。すべて失敗した場合は[TransientError]として呼び出し元に返されます。
+- **mlx-qwen3.5-4b-4bit**: 요청은 지수 백오프 방식으로 최대 3 회까지 재시도됩니다. 모두 실패하면 [TransientError]로 호출자에게 반환됩니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 요청은 지수 기반의 백오프 방식으로 최대 3번까지 재시도됩니다. 모든 시도가 실패한 경우 [TransientError]으로 호출한 쪽으로 반환됩니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 요청은 지수 백오프(exponential backoff) 방식으로 최대 3회까지 재시도됩니다. 모두 실패할 경우 [TransientError]TransientError
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 요청은 지수 백오프 로 최대 3 회까지 재시도됩니다. 모두 실패한 경우 [TransientError]TransientError 로 호출자에게 반환됩니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 요청은 지수 백오프 방식으로 최대 3번까지 재시도됩니다. 모든 시도가 실패하면 [TransientError] 값을 호출한 쪽으로 반환됩니다.
 
 **ja-news-01** (news)
 
@@ -832,12 +1379,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 가결했다.찬성파는 통근 시간이 최대 25% 단축된다고 말하고 있다.
 - **ct2-nllb-1.3b**: 시의회는 화요일에 동부 교외로 버스 노선 연장을 찬성 7표, 반대 2표로 통과시켰다. 찬성자들은 통근시간을 최대 25% 줄일 것이라고 말했다.
 - **ct2-nllb-600m**: 시회는 화요일 동부 시외로 버스 노선 연장을 찬성 7명과 반대 2명으로 통과시켰다. 찬성자들은 통행시간을 최대 25%까지 줄일 것이라고 말했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 시의회는 화요일, 동부 교외 지역으로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 동부 교외 지역으로의 버스 노선 확장을 7표 찬성, 2표 반대로 통과시켰다. 찬성층은 출퇴근 시간이 최대 25% 단축될 것이라고 말했다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 市議会は火曜日、東部郊外へのバス路線延伸を賛成 7、反対 2 で可決した。賛成派は、通勤時間が最大 25% 短縮されると述べている。
+- **mlx-qwen3.5-4b-4bit**: 시의회는 화요일, 동부 교외로의 버스 노선 확장을 찬성 7, 반대 2 로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 주장했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 시의회는 화요일에 동부 외곽으로 가는 버스 노선 확대를 7:2로 의결했습니다. 찬성 측은 출퇴근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 시의회는 화요일, 동부 외곽 지역으로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 시장의회는 화요일에 동부 외곽의 버스 노선 연장 찬성 7 명, 반대 2 명으로 통과했습니다. 찬성 측에서는通勤 시간이 최대 25% 단축될 것이라고 설명했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 시의회는 화요일, 동부 외곽 지역으로의 버스 노선 확대를 7표 찬성, 2표 반대로 통과시켰다. 찬성 측은 출퇴근 시간을 최대 25% 단축할 수 있다고 밝혔다.
 
 **ja-news-02** (news)
 
@@ -851,12 +1410,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 할보르센 연구소의 연구팀은 새로운 배터리가 2,000회의 충전 방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행 시판품의 약 2배에 해당한다.
 - **ct2-nllb-1.3b**: 하르볼센 연구소 연구팀은 새로운 종류의 배터리가 2,000번의 충전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현재 시장에서 판매되는 제품의 약 2배이다.
 - **ct2-nllb-600m**: 하르보르센 연구팀은 새로운 배터리가 2,000번의 충전에서 90%의 용량을 유지했다고 발표했습니다. 이는 현재 시장에서 판매되는 제품의 약 2배 정도입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 할볼센 연구팀은 신형 배터리가 2,000회 충방전 후에도 용량의 90%를 유지했다는 것을 발표했습니다. 이는 현행 상용 제품의 약 2배에 해당합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할보르센 연구소의 연구팀은 새로운 배터리가 2,000회 충전/방전 후에도 용량의 90%를 유지했다고 발표했습니다. 이는 현재 판매되는 제품의 약 2배에 해당합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: ハルボルセン研究所の研究チームは、新型電池が 2,000 回の充放電後も容量の 90% を維持したと発表した。これは現行の市販品の約 2 倍にあたる。
+- **mlx-qwen3.5-4b-4bit**: 할보르센 연구소의 연구 팀은 새로운 배터리가 충방전 2,000 회 후 용량의 90% 를 유지한다고 발표했습니다. 이는 현재 시판 제품의 약 2 배에 해당합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 할볼센 연구소의 연구팀은 신형 배터리가 2,000회 충방전 후에도 용량의 90%를 유지한다고 발표했습니다. 이는 현재 시장에서 판매되는 제품의 약 2배에 해당합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 하르볼센 연구소의 연구팀은 신형 배터리가 2,000회 충방전 후에도 용량의 90%를 유지했다고 발표했습니다. 이는 현재 시판 제품의 약 2배에 달하는 수치입니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 하르볼센 연구소의 연구팀은 새로운 배터리가 2,000 회 충전 방전 후에도 용량의 90% 를 유지했다고 발표했습니다. 이는 현재 판매되는 제품의 약 2 배에 해당합니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 할볼센 연구소 연구팀은 새로운 배터리가 2,000번의 충방전 후에도 용량의 90%를 유지한다는 결과를 발표했습니다. 이는 현재 시판되는 배터리의 약 2배에 해당합니다.
 
 **ja-news-03** (news)
 
@@ -870,12 +1441,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 한편, 이 결과는 아직 심사를 받지 않았으며, 시제품의 제조 비용은 1 킬로와트당 약 340 달러에 달한다는 지적도 나왔다.
 - **ct2-nllb-1.3b**: 한편, 이 결과는 아직 심사되지 않았으며, 프로토타입의 제조 비용은 1 킬로와트 시간당 약 $340에 달하는 것으로 지적되기도 한다.
 - **ct2-nllb-600m**: 하지만 이 결과는 아직 검토되지 않았으며 시제품 제작 비용은 1KW당 약 340달러에 달할 것으로 알려졌습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 한편, 이 결과는 아직 심사를 받지 않았으며, 시제품 제조 비용이 1kW시당 약 340달러에 달할 수 있다는 지적도 나오고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 반면에, 이 결과는 아직 검토가 이루어지지 않았으며, 시제품의 제작 비용이 1킬로와트시간당 약 340달러에 달한다는 지적도 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 一方で、この結果はまだ査読を受けておらず、試作品の製造コストは 1 キロワット時あたり約 340 ドルに上るとの指摘も出ている。
+- **mlx-qwen3.5-4b-4bit**: 반면, 이 결과는 아직 동료 검토를 거치지 않았으며, 프로토타입 제조 비용이 1kWh 당 약 340 달러에 달한다는 지적도 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 한편, 이 결과는 아직 심사를 거치지 않았으며, 프로토타입 생산 비용이 1 킬로와트당 약 340달러로 보고되고 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 한편, 이 결과는 아직 동료 심사를 거치지 않았으며, 시제품 제조 비용은 킬로와트시당 약 340달러에 달한다는 지적도 나오고 있습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 그러나 이 결과는 아직 검토를 거치 않았으며, 제조 비용은 1 킬로ワ트 시당 약 340 달러에 달한다는 지적도 나오고 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 그러나, 아직 심사 과정이 완료되지 않았으며, 시제품 생산 비용이 1킬로와트당 약 340달러로 예상된다는 보고도 있습니다.
 
 **ja-news-04** (news)
 
@@ -889,12 +1472,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 북부의 해안 지역에서는 목요일에 걸쳐 폭우가 내릴 것으로 예상되며, 최대 풍속은 시속 70km, 기온은 12도 전후로 추이할 것이다.
 - **ct2-nllb-1.3b**: 북부 해안 지역에서는 목요일까지 폭우가 올 것으로 예상되며 최대 시속 70km의 바람이 불고 기온은 12°C 이상으로 상승할 것으로 예상된다.
 - **ct2-nllb-600m**: 북부 해안 지역에서는 목요일부터 강수량이 예상되며 최고풍속은 70km/h이고 기온은 12도 이상으로 이동할 것입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 북부 연안 지역에서는 목요일에 걸쳐 폭우가 예상되며, 최대 풍속은 시속 70km, 기온은 12도 전후로 유지될 전망입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강우가 예상되며, 최대 풍속은 70km/h, 기온은 12도 정도로 유지될 것으로 보입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 北部の沿岸地域では木曜日にかけて大雨となる見込みで、最大風速は 70km/h、気温は 12 度前後で推移するでしょう。
+- **mlx-qwen3.5-4b-4bit**: 북부 연안 지역은 목요일까지 강우가 예상되며, 최대 풍속은 70km/h, 기온은 12 도前後로推移할 예정입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 북부 해안 지역에서는 목요일부터 본격적인 비가 내릴 것으로 예상되며, 최대 풍속은 시속 70km, 기온은 12도 정도로 변할 것으로 보입니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 최대 풍속은 70km/h, 기온은 12도 전후로 유지될 것으로 보입니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 북부 해안 지역에서는 목요일에 큰 비가 내릴 것으로 예상되며, 최대 풍속은 70 km/h, 기온은 12 도前後으로 유지될 것입니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 북부 해안 지역에서는 목요일에 강한 비가 예상되며, 최대 풍속은 70km/h, 기온은 12도 정도를 유지할 것으로 보입니다.
 
 **ja-news-05** (news)
 
@@ -908,12 +1503,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이 회사는 월요일에 발표한 성명서에서 공급망의 문제가 계속되고 있는 것을 이유로 주력 스마트폰의 발매를 내년 초까지 연기한다고 밝혔다.
 - **ct2-nllb-1.3b**: 이 회사는 월요일에 발표한 성명서에서 공급망 문제로 인해 주요 스마트폰 출시를 내년 초까지 연기할 것이라고 밝혔다.
 - **ct2-nllb-600m**: 회사 측은 월요일에 발표한 발표에서 공급망 문제로 인해 주력 스마트폰 출시를 내년 초까지 연기한다고 밝혔다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 해당 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있다는 이유로,주력 스마트폰의 출시를 연초까지 연기하기로 했다고 밝혔습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 지속되고 있다는 이유로 주력 스마트폰의 출시를 내년 초까지 연기할 것이라고 밝혔습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 同社は月曜日に発表した声明で、サプライチェーンの問題が続いていることを理由に、主力スマートフォンの発売を来年初めまで延期すると明らかにした。
+- **mlx-qwen3.5-4b-4bit**: 사내는 월요일에 발표한 성명서에서 공급망 문제가 지속된다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 해당 회사는 월요일에 발표한 성명에서, 공급망 문제로 인해 핵심 스마트폰 출시를 다음 해 초로 연기할 것이라고 밝혔습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 동사는 월요일에 발표한 성명에서, 공급망 문제 지속을 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 이 회사는 월요일에 발표한声明에서 공급망 문제의 지속을 이유로 주력 스마트폰 출시를 내년 초까지 연기한다고 밝혔습니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 이 회사는 월요일에 발표한 성명에서, 공급망 문제로 인해 주요 스마트폰 출시를 다음 연초로 연기한다고 밝혔습니다.
 
 **ja-news-06** (news)
 
@@ -927,12 +1534,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 왜 작은 빵집이 5년 이내에 문을 닫는가?경제학자들에 따르면, 대답은 빵 그 자체보다는 임대료와 인력, 그리고 희박한 수익률에 있다고 한다.
 - **ct2-nllb-1.3b**: 왜 작은 빵집이 5년 이내에 문을 닫을까요? 경제학자들의 말에 따르면 그 답은 빵 그 자체보다 집세와 인력, 그리고 낮은 수익률에 있습니다.
 - **ct2-nllb-600m**: 왜 작은 빵집이 5년 안에 문을 닫을 수 있을까요? 경제학자들은 빵보다 임금과 인력, 그리고 낮은 수익률에 대한 답을 제시하고 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 왜 작은 빵집들은 5년 이내에 문을 닫게 되는가. 경제학자에 따르면, 답은 빵 자체보다 임대료나인력그리고 낮은 이윤율에 있다고 합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 작은 빵집이 5년 이내에 문을 닫게 되는 걸까? 경제학자들에 따르면, 그 이유는 빵 자체보다 더 큰 요인이 주택 임대료, 인력, 그리고 낮은 이익률에 있기 때문이라고 한다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: なぜ小さなパン屋は 5 年以内に閉店してしまうのか。経済学者によれば、答えはパンそのものよりも、家賃や人手、そして薄い利益率にあるという。
+- **mlx-qwen3.5-4b-4bit**: 왜 작은 빵집이 5 년 이내에 폐업하는지. 경제학자들은 빵 그 자체보다 임대료나 인력및 얇은 수익률에 답한다고 말합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 왜 작은 빵집이 5년 이내에 문을 닫는 이유는 무엇일까요? 경제학자들은 그 이유는 빵 자체보다 임대료, 인력, 그리고 낮은 마진율 때문이라고 설명합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 왜 작은 빵집은 5년 안에 문을 닫게 되는 걸까요? 경제학자에 따르면, 답은 빵 자체보다는 임대료나 인력, 그리고 낮은 수익률에 있다고 합니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 왜 작은 빵집이 5 년 안에 문을 닫게 될까. 경제학자들에 따르면, 답은 빵 그 자체보다도 임대료와 인력 그리고 얇은 이익률에 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 작은 빵집이 5년 이내에 문을 닫는 이유는 무엇일까요? 경제학자들은 그 이유가 빵 자체보다는 임대료, 인건비, 그리고 낮은 이윤율에 있다고 설명합니다.
 
 **ja-community-01** (community)
 
@@ -946,12 +1565,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 마침내 라즈베리 파이가 작동한다고 생각했을 때, 몇 초 안에 불이 났습니다. 아니, 실제로는 타지 않았지만, 내 마음은 타버렸습니다.
 - **ct2-nllb-1.3b**: 라즈베리 파이가 켜졌다고 생각했을 때, 그 순간 불이 났습니다. 아니, 실제로 불타지 않았지만, 제 마음은 불타고 있었습니다.
 - **ct2-nllb-600m**: 제가 Raspberry Pi가 시작됐다고 생각했을 때, 몇 초 만에 불이 터졌습니다. 사실 불타지는 않았지만, 제 마음은 불타고 있었습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: 変更を保存
+- **mlx-gemma-4-e2b-4bit**: 드디어 라즈베리 파이가 켜졌다고 생각했는데, 순식간에 불이 붙었습니다. 아니, 실제로 불이 붙은 건 아니지만, 내 마음은 불탔습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 드디어 Raspberry Pi가 실행되었는데, 순식간에 불이 붙었다. 아니, 사실은 실제로는 불이 붙지 않았지만, 내 마음은 불타올랐다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: やっと Raspberry Pi が起動したと思ったら、秒で火を噴いた。いや、実際には燃えてないけど、俺の心は燃えた。
+- **mlx-qwen3.5-4b-4bit**: 마침내 라즈베리 파이 가 시작되었다는 생각에, 몇 초 만에 불이 났다. 아니, 실제로는 타지 않았지만, 내 마음은 타버렸다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 라즈베리 파이의 작동이 끝난 직시, 갑자기 불이 났습니다. 물론 실제로 불은 붙지 않았지만, 제 마음은 완전히 타버린 것 같아요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 겨우 Raspberry Pi가 부팅된 줄 알았더니, 순식간에 불을 뿜었어요. 아니, 실제로 탄 건 아니지만, 제 마음은 불탔어요.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: やっと Raspberry Pi 가 시작되었다고 생각했는데, 초당 불을 뿜었다. 아니, 실제로는 연소되지 않지만, 내 마음은 연소했다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 드디어 라즈베리 파이가 켜졌다고 생각했는데, 순식간에 불이 났어요. 물론 실제로 불은 나지 않았지만, 제 마음은 완전히 망가졌죠.
 
 **ja-community-02** (community)
 
@@ -965,12 +1596,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 젠장, 탭 키나 스페이스 키 둘 다 쓸 수 있겠지. 밤 2시에 논쟁하는 사람은 간식을 먹고 자는 게 낫겠지.
 - **ct2-nllb-1.3b**: , , , , , , , , ,
 - **ct2-nllb-600m**: 제가 생각하듯이, 만약 여러분이 2시쯤에 논쟁을 벌이고 있다면, 여러분은 음식을 먹고 잠자는 것이 좋습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 솔직히 말해서, 태블릿이든 스페이스든 상관없다고 생각해요. 새벽 2시에 논쟁하는 사람은 간식 먹고 자는 게 좋아요(웃음)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 태블릿으로든 공백으로든 어느 쪽이든 괜찮다고 생각해. 늦은 밤 2시에 논쟁하는 사람이라면, 간식이나 먹고 잠을 자는 게 좋겠어(笑)
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: ぶっちゃけ、タブでもスペースでもどっちでもいいと思うんだよね。深夜 2 時に論争してる人は、おやつ食べて寝たほうがいい (笑)
+- **mlx-qwen3.5-4b-4bit**: 솔직히 말하면, 탭이나 스페이스는 상관없다고 생각해요. 밤 2 시에 논쟁하는 사람은 간식 먹고 자는 게 낫습니다 (웃음)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 어떤 도구든 괜찮을 것 같아요. 밤 2시에 논쟁하는 사람은 간식 먹고 잠드는 게 좋을 것 같아요 (웃음).
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해요. 새벽 2시에 논쟁하는 분들은 간식 먹고 주무시는 게 좋을걸요(웃음)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 진짜로, 탭이나 스페이스도 괜찮다고 생각하니까요. 밤 2 시에 논쟁하는 사람들은 저녁 식사 후 잠들도록 하세요 (웃음)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 솔직히, 어떤 플랫폼이든 상관없다고 생각해요. 새벽 2시까지 논쟁을 하는 사람이라면, 간식을 먹고 잠을 자는 게 좋겠죠(웃음).
 
 **ja-community-03** (community)
 
@@ -984,12 +1627,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 3시간에 걸쳐 오류가 발생했고, 원인이 세미콜론 1개였습니다.
 - **ct2-nllb-1.3b**: 3시간 동안 한 개의 반점으로 인한 오류를 보고 있었지?
 - **ct2-nllb-600m**: 3시간 동안 실태에 빠졌는데, 그 이유는 한 가지 반기둥이었죠.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 3시간 동안 에러와 씨름했는데, 원인이 세미콜론 하나였다니ㅋㅋㅋ 세미콜론이라고? 나 산에 들어가 버릴 거야…
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 3시간 오류와 싸우고 있네요. 원인은 세미콜론 1개였어요. 세미콜론이잖아요? 이제 완전히 포위당했어요…
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 3 時間エラーとにらめっこして、原因がセミコロン 1 個だった www セミコロンだぞ? もう山に籠もるわ…
+- **mlx-qwen3.5-4b-4bit**: 3 시간 동안 에러와 눈치를 주고, 원인이 세미콜론 1 개였다는 것을 알게 되었습니다. www 세미콜론이군요? 이미 산에 갇혀버렸습니다…
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 3시간 동안 오류 때문에 계속 고민하고, 문제의 원인이 세미콜론 하나 때문이었다. 정말 세미콜론이었어. 이제는 숨바꼭질할 것 같아…
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 3시간 동안 에러와 씨름하다가, 원인이 세미콜론 하나였다니 ㅋㅋㅋ 세미콜론이잖아? 이제 산에 들어갈래...
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 3 시간 오류와 싸워보며, 원인이セミ콜론 1 개였을 www 에서죠? 이미 산에 갇혀버린 것 같습니다…
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 3시간 동안 오류를 찾기 위해 애썼는데, 결국 세미콜론 하나가 원인이었습니다. 세미콜론이요? 이제부터는 산에 들어가 살아야겠어요…
 
 **ja-community-04** (community)
 
@@ -1003,12 +1658,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 솔직히, 그 업데이트로 환경이 전부 망가졌지만, 롤백해서 밖의 공기를 들이마셨어요. 내일 다시 해보죠.
 - **ct2-nllb-1.3b**: 솔직히, 그 업데이트가 모든 환경을 망쳐버렸어요.
 - **ct2-nllb-600m**: 솔직히 말씀드리자면, 그 업데이트로 인해 환경이 완전히 망가졌지만, 저는 다시 돌아와서 공기를 흡수했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 솔직히, 그 업데이트로환경이 전부 망가졌습니다.하지만 롤백해서 바깥 공기를 마셨어요. 내일 다시 할게요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 그 업데이트로 인해 환경이 완전히 망가졌어요. 롤백해서 밖의 공기를 마셨어요. 내일 다시 해볼게요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 正直、あのアップデートで環境が全部壊れたんだが。ロールバックして外の空気吸ってきた。また明日やるわ。
+- **mlx-qwen3.5-4b-4bit**: 솔직히 말하면, 그 업데이트로 환경이 모두 망가졌습니다. 롤백해서 밖의 공기를 마셨습니다. 내일 다시 시도하겠습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 솔직히, 그 업데이트 때문에 환경이 완전히 망가졌어요. 이전으로 돌려서 신선한 공기를 좀 쉬었어요. 내일 다시 할게요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 솔직히, 그 업데이트 때문에환경이 전부 망가졌어네. 롤백하고 밖에 나가서 공기 좀 마셨어. 내일 다시 해야겠다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 진짜로, 그 업데이트로 환경이 모두 망가졌을 거예요. 롤백해서 외기의 공기를 흡입했습니다. 또 다음 날 다시 시도하겠습니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 솔직히, 그 업데이트 때문에 환경이 완전히 망가졌어. 그래서 롤백해서 밖에 나가서 공기 좀 쐴 거야. 내일 다시 해볼게.
 
 **ja-community-05** (community)
 
@@ -1022,12 +1689,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 내 고양이가 일주일 동안 라우터 위에 앉아 있었는데 왜인지 와이파이가 최고였어
 - **ct2-nllb-1.3b**: 제 고양이는 일주일 동안 라우터에 앉아 있습니다. 그런데 왜 Wi-Fi가 최고인지 묻지 마세요.
 - **ct2-nllb-600m**: 우리 고양이는 일주일 동안 라우터 위에 앉아 있습니다. 왜 Wi-Fi가 예전보다 더 잘 작동하는지요. 왜 그런지 묻지 마세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 왠지 모르게 와이파이 상태가 최고입니다. 이유는 묻지 마세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 우리 집 고양이가 라우터 위에 일주일 동안 앉아 있어서, 왜인지 Wi-Fi 상태가 최상이야. 이유는 묻지 마세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: うちの猫がルーターの上に 1 週間居座ってるんだけど、なぜか Wi-Fi の調子が過去最高。理由は聞かないでくれ。
+- **mlx-qwen3.5-4b-4bit**: 우리의 고양이가 1 주일 동안 라우터 위에 앉아있는데, 기이하게도 Wi-Fi 성능이 과거 최고 수준입니다. 이유는 묻지 마세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 제 고양이가 지난 일주일 동안 라우터 위에 앉아 있는데, 이상하게도 Wi-Fi 속도가 최고로 빨라요. 이유를 물어보지 마세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 우리 고양이가 라우터 위에 일주일 동안 자리를 잡고 있는데, 왠지 와이파이 상태가 역대 최고예요. 이유는 묻지 말아 주세요.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 우리 고양이가 라우터 위에 1 주 동안 앉아있는데, Wi-Fi 가 과거 최고 수준입니다. 이유를 묻지 마세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 우리 고양이가 1주일 동안 라우터 위에 앉아 있는데, 이상하게 Wi-Fi 속도가 이전 최고 수준으로 올라갔어요. 이유는 물어봐 주지 마세요.
 
 **ja-community-06** (community)
 
@@ -1041,12 +1720,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 키보드에 6,000엔을 써버렸어요. 비 소리같은 타이핑 소리가 최고예요. 동료들의 반응은... 음, 예상이 되네요w
 - **ct2-nllb-1.3b**: 키보드에 6천 엔을 썼습니다.
 - **ct2-nllb-600m**: 키보드에 6천엔을 썼습니다. 빗방울처럼 좋은 키보드입니다. 동료들의 반응은...
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 키보드에 6,000엔이나 써버렸습니다. 빗소리 같은 타건음이 최고예요. 동료의 반응은…뭐, 이해합니다입니다ㅋㅋ
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 키보드에 6,000엔이나 쓰고 말았어요. 비소 같은 타건 소리가 최고예요. 동료들의 반응은… 음, 이해합니다 w
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: キーボードに 6,000 円も使ってしまった。雨音みたいな打鍵音で最高。同僚の反応は…まあ、お察しです w
+- **mlx-qwen3.5-4b-4bit**: 키보드에 6,000 원도 썼습니다. 빗소리 같은 키보드 소리가 최고입니다. 동료들의 반응은…아, 짐작할 수 있습니다w
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 키보드를 6,000엔이나 사용해 버렸어요. 비오는 소리 같은 키 입력 소리가 정말 좋네요. 동료들의 반응은... 아마 이해하시겠어요. 😉
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 키보드에 6,000엔이나 써버렸어요. 빗소리 같은 타건음이라 최고예요. 동료 반응은...뭐, 눈치껏 아시겠죠ㅋㅋ
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 키보드에 6,000 원 이상 썼습니다. 빗소리 같은敲击音으로 최고입니다. 동료의 반응은… 아니요, 알겠습니다 입니다 w
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 키보드에 6,000엔이나 썼다. 비 오는 소리처럼 부드러운 키감이 정말 최고였다. 동료들의 반응은... 예상했던 대로였다.
 
 **ja-ui-01** (ui)
 
@@ -1060,12 +1751,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 변경 사항 저장
 - **ct2-nllb-1.3b**: 변경사항을 저장합니다
 - **ct2-nllb-600m**: 변경사항을 저장합니다
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 변경 사항을 저장
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 변경 사항을 저장합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 変更を保存
+- **mlx-qwen3.5-4b-4bit**: 변경사항 저장
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 변경을 저장합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 변경 사항 저장
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 변경 저장합니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 변경 사항 저장
 
 **ja-ui-02** (ui)
 
@@ -1079,12 +1782,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 문제가 발생했습니다. 잠시 후에 다시 시도하십시오.
 - **ct2-nllb-1.3b**: 문제가 발생했습니다. 잠시 후에 다시 시도하세요.
 - **ct2-nllb-600m**: 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 발생했습니다. 잠시 후에 다시 시도해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 問題が発生しました。しばらくしてからもう一度お試しください。
+- **mlx-qwen3.5-4b-4bit**: 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 문제 발생했습니다. 잠시 후 다시 시도해 주세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 문제가 발생했습니다. 잠시 후에 다시 시도해 주세요.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 문제가 발생했습니다. 잠시 후 다시 시도해 보세요.
 
 **ja-ui-03** (ui)
 
@@ -1098,12 +1813,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 읽지 않은 메시지가 세 개 있습니다.
 - **ct2-nllb-1.3b**: 여기 3개의 문자가 있습니다.
 - **ct2-nllb-600m**: 3개의 미독된 메시지가 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 읽지 않은 메시지가 3개 있습니다
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 읽지 않은 메시지가 3건 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 未読メッセージが 3 件あります
+- **mlx-qwen3.5-4b-4bit**: 미리드 메시지가 3 개 있습니다
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 읽지 않은 메시지가 3건 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 읽지 않은 메시지가 3건 있습니다
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 미독 메시지가 3 건 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 읽지 않은 메시지가 3건 있습니다.
 
 **ja-link-01** (link)
 
@@ -1117,12 +1844,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 계속하려면[こちら]를 클릭하세요.
 - **ct2-nllb-1.3b**: 그 다음으로,[こちら]이 문자를 클릭하세요.
 - **ct2-nllb-600m**: 이 모든 것이[こちら]이 문자를 클릭하세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 계속하려면 [こちら]를 클릭해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 続行するには[こちら]こちら
+- **mlx-qwen3.5-4b-4bit**: 계속하려면 [こちら]을(를) 클릭하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 계속하려면 [こちら]을 클릭하세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 계속하려면 [こちら]를 클릭해 주세요.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 계속하려면 [こちら]이곳을 클릭하세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 계속 진행하려면[こちら]클릭해주세요.
 
 **ja-link-02** (link)
 
@@ -1136,12 +1875,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 플랫폼에 대한 자세한 내용은 다음을 참조하라.[インストールガイド]보세요.
 - **ct2-nllb-1.3b**: 이 앱을 이용하면[インストールガイド]자, 여기 보겠습니다.
 - **ct2-nllb-600m**: 이 플랫폼에 대한 자세한 내용은[インストールガイド]이 사진들을 보세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 대응 플랫폼의 세부 정보에 대해서는 [インストールガイド]를 참조하시기 바랍니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 対応プラットフォームの詳細については、[インストールガイド]インストールガイド
+- **mlx-qwen3.5-4b-4bit**: 지원 플랫폼의 자세한 내용은 [インストールガイド]설치 가이드
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 상세한 플랫폼 정보는 [インストールガイド]에서 확인하실 수 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 지원하는 플랫폼의 자세한 내용은, [インストールガイド]를 참고해 주세요.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 대응 플랫폼의 자세한 내용은 [インストールガイド]설치 가이드 를 확인해 주세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 지원 플랫폼에 대한 자세한 내용은 [インストールガイド]를 참조하십시오.
 
 **ja-link-03** (link)
 
@@ -1155,12 +1906,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 문제가 해결되지 않으면[トラッカーでイシューを作成]로그 파일을 첨부하십시오.
 - **ct2-nllb-1.3b**: 만약 문제가 해결되지 않는다면,[トラッカーでイシューを作成]로그 파일을 첨부하세요.
 - **ct2-nllb-600m**: 만약 문제가 해결되지 않는다면,[トラッカーでイシューを作成]로그 파일을 첨부해 주세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 해결되지 않을 경우, [トラッカーでイシューを作成]를 수행하고 로그 파일을 첨부해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 問題が解決しない場合は、[トラッカーでイシューを作成]トラッカーでイシューを作成
+- **mlx-qwen3.5-4b-4bit**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]트래커로 이슈를 생성
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]을 시도해 보고, 로그 파일을 첨부해 주세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]하고 로그 파일을 첨부해 주세요.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]트래커를 통해 이슈를 생성하고 로그 파일을 첨부하세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]를 참조하고, 로그 파일을 첨부해 주세요.
 
 **ja-seq-01** (seq)
 
@@ -1174,12 +1937,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 작년 봄, 가족의 사진을 보관하기 위해 오래된 노트북을 집 서버로 사용하기로 결정했습니다.
 - **ct2-nllb-1.3b**: 작년에 봄에, 저는 가족 사진을 저장하기 위해 노트북 컴퓨터를 가정 서버로 사용하기로 했습니다.
 - **ct2-nllb-600m**: 작년에 봄, 저는 노트북을 가정 서버로 사용해서 가족 사진들을 저장하기로 했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄, 가족 사진을 저장하기 위해 오래된 노트북을 집의 서버에 설치하기로 했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 去年の春、家族の写真を保存するために、古いノート PC を自宅サーバーにすることにしました。
+- **mlx-qwen3.5-4b-4bit**: 去年의 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC 를 홈 서버로 설정하기로 결정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 작년에 봄에, 가족 사진을 보관하기 위해 오래된 PC를 가정 서버에 설치했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 작년 봄, 가족 사진을 보관하기 위해 오래된 노트북을 자가 서버로 사용하기로 했습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 지난 봄, 가족 사진을 저장하기 위해, 오래된 노트북 PC 를自宅 서버에 두기로 결정했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 지난 봄, 가족 사진을 보관하기 위해 오래된 노트북을 가정 서버에 연결하기로 했습니다.
 
 **ja-seq-02** (seq)
 
@@ -1193,12 +1968,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 2014년에 출시된 ThinkBook(8GB RAM)은 이러한 용도에 적합했습니다.
 - **ct2-nllb-1.3b**: 2014년 힌크북 (RAM 8GB) 은 이 용도로 적합했습니다.
 - **ct2-nllb-600m**: 2014년에 만들어진 ThinkBook (RAM) 는 이 용도로 매우 적합했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년에 생산된 ThinkBook(RAM 8GB)는 이 용도에 매우 적합했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 2014 年製のThinkBook(RAM 8GB) は、この用途にはぴったりでした。
+- **mlx-qwen3.5-4b-4bit**: 2014 년 모델의 ThinkBook(RAM 8GB) 는 이 용도에 딱 맞았습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 2014년형 ThinkBook(RAM 8GB)는 이 용도에 아주 적합했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 2014년식ThinkBook(RAM 8GB)은 이 용도에 딱 맞았습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 2014 년 제작된 ThinkBook (RAM 8 GB) 은 이 용도로는 완벽했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 2014년식 ThinkBook(RAM 8GB)는 이 용도에 완벽하게 적합했습니다.
 
 **ja-seq-03** (seq)
 
@@ -1212,12 +1999,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 첫번째로, [Debian 12] 사진을 볼 수 있는 작은 웹 애플리케이션인 Fernbox를 설정했습니다.
 - **ct2-nllb-1.3b**: 먼저, [Debian 12] 그래서 저는 Fernbox라는 작은 웹 앱을
 - **ct2-nllb-600m**: 먼저, [Debian 12] 그래서 저는 이 작은 웹 앱을 설치하고 사진을 볼 수 있는
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 볼 수 있는 작은 웹 앱인 Fernbox를 설정했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: まず[Debian 12]Debian 12
+- **mlx-qwen3.5-4b-4bit**: 먼저 [Debian 12]Debian 12
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 보기 위한 간단한 웹 앱인 Fernbox를 설정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 먼저 [Debian 12]를 설치하고, 사진을 볼 수 있는 작은 웹 앱인 Fernbox를 설정했습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 먼저 [Debian 12]Debian 12 를 설치하고, 사진을 보기 위한 작은 Web 앱인 Fernbox 을 설정했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 먼저 [Debian 12]를 설치하고, 사진을 보기 위한 간단한 웹 애플리케이션인 Fernbox을 설정했습니다.
 
 **ja-seq-04** (seq)
 
@@ -1231,12 +2030,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 여동생은 처음에는 반신반의했지만 1주일 후에는 "Fernbox가 지금까지 사용했던 모든 클라우드 서비스보다 빠르다"고 인정했습니다.
 - **ct2-nllb-1.3b**: 제 여동생은 처음에는 회의적이었습니다. 하지만 일주일 후, 그녀는 "나는 지금까지 사용했던 모든 클라우드 서비스보다 페른박스가 더 빠르다고 인정했습니다".
 - **ct2-nllb-600m**: 제 여동생은 처음에는 반정신적이었지만 일주일 후에 그녀는 "Fernbox은 지금까지 사용했던 모든 클라우드 서비스보다 더 빠르다"고 인정했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심스러워했지만, 1주일 후에는 “지금까지 사용해본 모든 클라우드 서비스보다 Fernbox가 더 빠릅니다”라고 인정했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 妹は最初は半信半疑でしたが、1 週間後には「今まで使ったどのクラウドサービスよりも Fernbox ほうが速い」と認めてくれました。
+- **mlx-qwen3.5-4b-4bit**: 언니는 처음에는 반신반의했지만, 1 주日后에는 'Fernbox 는 지금까지 사용한 모든 클라우드 서비스보다 빠르다'고 인정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 처음에는 약간 의심했지만, 일주일 후에는 “지금까지 사용해본 클라우드 서비스 중 Fernbox가 가장 빠르다”라고 인정해 주었습니다.
+- **ollama-gemma4-e2b**: 妹は最初は半信半疑でしたが、1週間後には「今まで使ったどのクラウドサービスよりもFernboxのほうが速い」と認めてくれました。
+- **ollama-gemma4-e4b**: 여동생은 처음에는 반신반의했지만, 일주일 후에는 "지금까지 써본 어떤 클라우드 서비스보다 Fernbox가 빠르다"고 인정해 주었습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 어머니는 처음에는 의심스러웠지만, 1 주 후에는 "지금까지 사용했던 클라우드 서비스 중 Fernbox 가 가장 빠르다고 인정했습니다."라고 인정해 주었습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 처음에는 의심스러워했지만, 1주일 후에는 "지금까지 사용해본 클라우드 서비스 중 Fernbox가 가장 빠르다"라고 인정해 주었습니다.
 
 **ja-seq-05** (seq)
 
@@ -1250,12 +2061,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있으며 Fernbox는 여행에서 돌아온 후 가족 전체가 처음으로 열는 앱이 되었습니다.
 - **ct2-nllb-1.3b**: 이제 오래된 노트북 컴퓨터는 책상 위에 조용히 움직이고 있습니다. 그리고 Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 열는 앱입니다.
 - **ct2-nllb-600m**: 이제 오래된 노트북은 셰일프 위에 조용히 움직이고 있습니다. 그리고 Fernbox은 여행에서 돌아온 첫 번째 앱입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있으며, Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 열는 앱이 되었습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
 - **mlx-qwen3-1.7b-4bit**: 今では古いノートPCは棚の上で静かに動いており、Fernboxは旅行から帰ったあと、家族全員が最初に開くアプリになっています。
 - **mlx-qwen3.5-2b-4bit**: 今では古いノート PC は棚の上で静かに動いており、Fernboxは旅行から帰ったあと、家族全員が最初に開くアプリになっています。
+- **mlx-qwen3.5-4b-4bit**: 이제 오래된 노트북 PC 는 책상 위에 조용히 돌아가며, Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 여는 앱이 되었습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 이제 오래된 노트북은 책상 위에 조용히 작동하고, Fernbox는 여행을 마치고 돌아온 후, 가족 구성원 모두가 가장 먼저 사용하는 앱입니다.
+- **ollama-gemma4-e2b**: 今では古いノートPCは棚の上で静かに動いており、Fernbox は旅行から帰ったあと、家族全員が最初に開くアプリになっています。(누락)
+- **ollama-gemma4-e4b**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있으며, Fernbox는 여행에서 돌아온 후 가족 모두가 가장 먼저 여는 앱이 되었습니다.
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 현재는 오래된 노트북 PC 는 조용히 서랍 위에 있고, Fernbox 는 여행에서 돌아온 후, 가족이 먼저开的 앱입니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
+- **ollama-translategemma-4b-mt**: 이제 오래된 노트북은 책상 위에 조용히 놓여 있고, Fernbox는 여행에서 돌아온 후 가족들이 가장 먼저 사용하는 앱이 되었습니다.
 
 ### zh-Hans
 
@@ -1270,12 +2093,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 명령줄 도구를 설치하려면 다음을 실행하십시오. [npm install -g fernctl]그래, 그래 [fernctl --version] 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
 - **ct2-nllb-1.3b**: 명령줄 도구를 설치하려면 실행하세요. [npm install -g fernctl]그리고는 [fernctl --version] 버전 확인. 2.4.1 또는 더 높은 버전이 필요합니다.
 - **ct2-nllb-600m**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl]그리고 [fernctl --version] 2.4.1 또는 더 높은 버전이 필요합니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 要安装命令行工具,请运行[npm install -g fernctl],然后用[fernctl --version]检查版本。需要 2.4.1 或更高版本。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행한 후 [fernctl --version]를 사용하여 버전을 확인하세요. 2.4.1 이상의 버전이 필요합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (누락)[npm install -g fernctl]。迁移脚本会直接改写所有文本,而且无法�[fernctl --version](누락)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 要安装命令行工具，请运行[npm install -g fernctl]，然后用[fernctl --version]检查版本。需要 2.4.1 或更高版本。
+- **mlx-qwen3.5-4b-4bit**: 설치하려는 명령줄 도구를 설치하려면 다음 명령을 실행하세요:[npm install -g fernctl]그런 다음 다음 명령으로 버전 확인을 수행하세요:[fernctl --version]버전 확인 시 2.4.1 버전 이상이어야 합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]를 실행하고, [fernctl --version]를 사용하여 버전을 확인하세요. 2.4.1 버전 이상이 필요합니다.
+- **ollama-gemma4-e2b**: 명령줄 도구를 설치하려면 [npm install -g fernctl],그리고 [fernctl --version](누락)
+- **ollama-gemma4-e4b**: 커맨드라인 도구를 설치하려면 다음을 실행하세요.[npm install -g fernctl]", 그리고 다음으로 "[fernctl --version]버전을 확인하세요. 2.4.1 이상이 필요합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 要安装命令行工具，请运行 [npm install -g fernctl](누락)[fernctl --version](누락)
 - **ollama-translategemma-4b**: 명령줄 도구를 설치하려면 다음 명령을 실행하세요 [npm install -g fernctl](누락)[fernctl --version](누락)
+- **ollama-translategemma-4b-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]를 실행하고, [fernctl --version]를 사용하여 버전을 확인하십시오. 2.4.1 또는 그 이상의 버전이 필요합니다.
 
 **zh-Hans-tech-02** (tech)
 
@@ -1288,12 +2123,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 전혀 없습니다.
 - **ct2-nllb-1.3b**: [timeout] 옵션의 단위는 밀리 초이고, 기본값은 30000 ((30초) 이며, 0으로 설정하면 시간이 전혀 제한되지 않습니다.
 - **ct2-nllb-600m**: [timeout] 선택의 단위는 밀리초이며 기본값은 30000 (~30초) 이며, 0을 설정하면 절대 초시간을 제한하지 않습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: [timeout]选项的单位是毫秒,默认值为 30000(30 秒),设为 0 则完全不限制超时。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 타임아웃이 전혀 제한되지 않습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: [timeout]选项的单位是毫秒，默认值为 30000(30 秒)，设为 0 则完全不限制超时。
+- **mlx-qwen3.5-4b-4bit**: [timeout]시간 제한 옵션의 단위는 밀리초이며, 기본값은 30000(30 초)입니다. 0 으로 설정하면 시간 제한을 완전히 해제할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 완전히 제한하지 않습니다.
+- **ollama-gemma4-e2b**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)이고, 0으로 설정하면 시간 초과를 완전히 제한하지 않습니다.
+- **ollama-gemma4-e4b**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 시간 초과 제한이 완전히 사라집니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: [timeout]옵션의 단위는 밀리초(ms)이고, 기본값은 30000(30초)이며, 0으로 설정하면 완전히 제한되지 않습니다.
+- **ollama-translategemma-4b-mt**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 타임아웃 제한이 전혀 없습니다.
 
 **zh-Hans-tech-03** (tech)
 
@@ -1306,12 +2153,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 직접 덮어씁니다.
 - **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 설정 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 바로 다시 작성하고 취소 할 수 없습니다.
 - **ct2-nllb-600m**: v1.x를 업그레이드하기 전에, 기본 설정 카테고리를 백업하십시오. 마이그레이션 스크린은 모든 파일을 직접 다시 작성하여 취소할 수 없습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 从 v1.x 升级之前,请先备份配置目录。迁移脚本会直接改写所有文件,而且无法撤销。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에, 먼저 설정 디렉터리를 백업해 주세요. 마이그레이션 스크립트는 모든 파일을 직접 수정하며, 되돌릴 수 없습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 从 v1.x 升级之前，请先备份配置目录。迁移脚本会直接改写所有文件，而且无法撤销。
+- **mlx-qwen3.5-4b-4bit**: v1.x 버전으로 업그레이드하기 전에 반드시 설정 디렉토리를 백업하세요. 마이그레이션 스크립트는 모든 파일을 직접 덮어쓰며 되돌릴 수 없습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: v1.x 버전으로 업그레이드하기 전에, 먼저 설정 폴더를 백업해 주세요. 마이그레이션 스크립스는 모든 파일을 직접 수정하며, 되돌릴 수 없습니다.
+- **ollama-gemma4-e2b**: v1.x로 업그레이드하기 전에, 먼저 설정 디렉터리를 백업하세요. 마이그레이션 스크립트는 모든 파일을 직접 덮어쓰며, 되돌릴 수 없습니다.
+- **ollama-gemma4-e4b**: v1.x로 업그레이드하기 전에, 먼저 백업해 주세요.설정 디렉토리를마이그레이션 스크립트는 모든 파일을 직접 덮어쓰며, 되돌릴 수 없습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: v1.x 버전으로 업그레이드하기 전에 먼저 백업하세요 (누락)(누락)
+- **ollama-translategemma-4b-mt**: v1.x 버전에서 v2.x 버전으로 업그레이드하기 전에, 반드시 설정 디렉토리를 백업해 두십시오. 마이그레이션 스크립트는 모든 파일을 직접 수정하며, 이 작업을 되돌릴 수 없습니다.
 
 **zh-Hans-tech-04** (tech)
 
@@ -1324,12 +2183,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 가디언 프로세스가 시작되지 않으면 포트 8443이 다른 프로세스에 의해 사용되지 않는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 볼 수 있습니다.
 - **ct2-nllb-1.3b**: 보호 프로세스가 시작되지 않으면 포트 8443가 다른 프로세스에 의해 점유되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **ct2-nllb-600m**: 보호 프로세스가 시작되지 않을 경우, 포트 8443가 다른 프로세스에 의해 점유되지 않았음을 확인하십시오. 로그를 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 如果守护进程无法启动,请确认端口 8443 没有被其他进程占用。日志可以在 http://localhost:8443/debug/logs 查看。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 보호 프로세스가 시작되지 않는다면, 포트 8443이 다른 프로세스에 점유되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 如果守护进程无法启动，请确认端口 8443 没有被其他进程占用。日志可以在 http://localhost:8443/debug/logs 查看。
+- **mlx-qwen3.5-4b-4bit**: 데몬이 시작되지 않는 경우, 포트 8443 이 다른 프로세스에 할당되지 않았는지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 만약 프로세스가 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되고 있는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
+- **ollama-gemma4-e2b**: 만약守护进程이 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되고 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **ollama-gemma4-e4b**: 데몬 프로세스가 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용 중이 아닌지 확인해 주세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 만약 보호 프로세스가 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되고 있는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 
 **zh-Hans-tech-05** (tech)
 
@@ -1342,12 +2213,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 각 스레드는 각각 약 64MB의 캐시를 가지고 있으므로 8GB의 메모리가 있는 시스템에서는 최대 8개의 스레드를 실행할 수 있습니다.
 - **ct2-nllb-1.3b**: 각 작업 스레드는 각각 64 MB 정도의 캐시를 가지고 있기 때문에 8 GB의 메모리의 기계는 최대 8 개의 작업 스레드를 실행할 수 있습니다.
 - **ct2-nllb-600m**: 각 작업 스레드는 각각 64 MB의 캐시를 가지고 있으므로 8 GB의 메모리를 가진 기계는 최대 8 개의 작업 스레드를 실행합니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 每个工作线程都有各自约 64 MB 的缓存,因此内存为 8 GB 的机器最多运行八个工作线程。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 머신에서는 최대 8개의 작업 스레드가 실행될 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 每个工作线程都有各自约 64 MB 的缓存，因此内存为 8 GB 的机器最多运行八个工作线程。
+- **mlx-qwen3.5-4b-4bit**: 각 작업 스레드는 약 64 MB 의 캐시를 가지므로, 8 GB 메모리를 가진 시스템은 최대 8 개의 작업 스레드를 실행할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 각 작업 스레드는 각각 약 64MB의 캐시를 가지므로, 8GB의 메모리를 가진 기기는 최대 8개의 작업 스레드를 실행할 수 있습니다.
+- **ollama-gemma4-e2b**: 각 워크 스레드는 각각 약 64MB의 캐시를 가지므로, 메모리가 8GB인 기기에서는 최대 여덟 개의 워크 스레드만 실행할 수 있습니다.
+- **ollama-gemma4-e4b**: 각 워크 스레드는 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 장비는 최대 8개의 워크 스레드를 실행할 수 있습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 각 작업 스레드는 약 64MB의 캐시를 가지고 있으므로, 8GB의 메모리를 가진 시스템은 최대 8개의 작업 스레드를 실행할 수 있습니다.
 
 **zh-Hans-tech-06** (tech)
 
@@ -1360,12 +2243,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 요청은 최대 세 번 지수 방법으로 다시 시도되며, 모두 실패하면 다음과 같은 오류가 발생합니다. [TransientError] 호출자에게 형식을 반환합니다.
 - **ct2-nllb-1.3b**: 요청은 최대 3회까지 지수 회피 방식으로 다시 시도됩니다. 모든 것이 실패하면 오류가 표시됩니다. [TransientError] 이 글의 형태는 호출자에게 반환됩니다.
 - **ct2-nllb-600m**: 요청은 최대 3회 이상 지수 회귀 방식으로 재시행되며, 모두 실패하면 오류는 [TransientError] 이 자료를 통해,
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 请求最多会以指数退避的方式重试三次;如果全部失败,错误会以[TransientError]TransientError
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 최대 3번까지 지수적 회피 방식으로 재시도됩니다. 만약 모두 실패하면 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 请求最多会以指数退避的方式重试三次；如果全部失败，错误会以[TransientError]的形式返回给调用方。
+- **mlx-qwen3.5-4b-4bit**: 요청이 최대 3 회 지수 백오프 방식으로 재시도됩니다. 모든 재시도가 실패하면 오류는 다음 형태로 호출자에게 반환됩니다:[TransientError]TransientError
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 최대 3번의 시도 후, 지수로 실패할 경우, 오류는 호출자에게 [TransientError] 형태로 반환됩니다.
+- **ollama-gemma4-e2b**: 요청은 최대 세 번 지수 백오프 방식으로 재시도되며, 모두 실패하면 오류는 [TransientError]의 형태로 호출자에게 반환됩니다.
+- **ollama-gemma4-e4b**: 요청은 최대 지수 백오프 방식으로 세 번 재시도됩니다. 만약 모두 실패하면, 오류는 다음 형식으로 호출자에게 반환됩니다.[TransientError].
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 요청은 최대 3번까지 지수 방식으로 재시도될 수 있습니다. 모든 시도가 실패하면, 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
 
 **zh-Hans-news-01** (news)
 
@@ -1378,12 +2273,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 시의회는 화요일 7 대 2로 동부 교외 지역으로 버스 노선을 확장하는 계획을 통과시켰으며 지지자들은 이것이 통근 시간을 최대 25 % 줄일 것이라고 주장합니다.
 - **ct2-nllb-1.3b**: 시의회는 7대 2의 찬성으로 버스 노선을 동부 교외로 확장하는 방안을 통과시켰고, 지지자들은 이 방안이 통근 시간을 최대 25%까지 줄일 것이라고 말했다.
 - **ct2-nllb-600m**: 시회는 화요일 7명 2명으로 버스 노선을 동부 시외로 확장할 방안을 통과시켰고, 지지자들은 이를 통해 최대 25%의 출근 시간을 줄일 것으로 보고 있다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 市议会周二以 7 票对 2 票通过了将公交线路延伸至东部郊区的方案,支持者认为这将使通勤时间最多缩短 25%。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 7표 대 2표로 동부 교외 지역까지 버스 노선을 연장하는 방안을 통과시켰으며, 지지자들은 이로 인해 출근 시간이 최대 25% 단축될 것이라고 말했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 市议会周二以 7 票对 2 票通过了将公交线路延伸至东部郊区的方案，支持者认为这将使通勤时间最多缩短 25%。
+- **mlx-qwen3.5-4b-4bit**: 시의회는 화요일 7 대 2 의 투표로 동부 교외까지 버스 노선을 연장하는 계획을 통과시켰으며, 지지자들은 이 조치로 통근 시간이 최대 25% 단축될 것이라고 주장했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 시의회는 현지 시간으로 화요일, 7표에 대한 2표로 버스 노선을 동부 교외 지역으로 연장하는 계획을 통과시켰습니다. 지지자들은 이 계획이 통근 시간을 최대 25% 단축할 수 있다고 보았습니다.
+- **ollama-gemma4-e2b**: 시의회는 화요일에 7표 대 2표로 버스 노선을 동부 교외 지역으로 연장하는 안건을 통과시켰으며, 지지자들은 이것이 통근 시간을 최대 25%까지 단축할 것이라고 생각합니다.
+- **ollama-gemma4-e4b**: 시의회는 화요일에 버스 노선을 동부 교외 지역까지 연장하는 방안을 7 대 2로 통과시켰습니다. 지지자들은 이로 인해 통근 시간이 최대 25% 단축될 것이라고 예상합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 시의회는 화요일 투표를 통해 동부 외곽 지역으로 버스 노선을 확장하는 방안을 7표 대 2표로 통과시켰습니다. 찬성 측은 이를 통해 출퇴근 시간을 최대 25% 단축할 수 있다고 주장했습니다.
 
 **zh-Hans-news-02** (news)
 
@@ -1396,12 +2303,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 할워슨 연구소의 연구원들은 새로운 배터리가 2,000회의 충전 및 방전 사이클 후에도 90%의 용량을 유지한다고 보고했습니다.
 - **ct2-nllb-1.3b**: 하버슨 연구소의 연구자들은 새로운 종류의 배터리가 2000번의 충전과 배열 순환 후에도 90%의 용량을 유지할 수 있다고 보고했다. 이는 현재 시장에서 판매되는 배터리의 두 배 정도이다.
 - **ct2-nllb-600m**: 하버슨 연구소 연구원들은 새로운 배터리가 2000회 충전 주기를 거쳐도 90%의 용량을 유지하고 있다고 보고했습니다. 이는 현재 시장에서 판매되는 배터리의 약 2배에 달한다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 哈尔沃森研究所的研究人员报告称,一种新型电池在经过 2000 次充放电循环后仍保持了 90% 的容量,约为目前市售电池的两倍。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할로웬슨 연구소의 연구원들은 새로운 종류의 배터리가 2000회의 충전과 방전을 반복한 후에도 90%의 용량을 유지한다고 보고했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배 높은 수치입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 哈尔沃森研究所的研究人员报告称，一种新型电池在经过 2000 次充放电循环后仍保持了 90% 的容量，约为目前市售电池的两倍。
+- **mlx-qwen3.5-4b-4bit**: 하버드 연구소의 연구원들은 새로운 배터리가 2000 회 충방전 사이클 후에도 90% 의 용량을 유지하며, 이는 현재 시중 판매되는 배터리 용량의 약 두 배에 해당한다고 보고했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 하르보슨 연구소의 연구진은 새로운 배터리가 2,000회 충방전 후에도 90%의 용량을 유지하며, 이는 현재 시장에 판매되는 배터리의 두 배에 해당한다고 보고했습니다.
+- **ollama-gemma4-e2b**: 할워슨 연구소 연구원들은 새로운 배터리가 2000번의 충방전 사이클 후에도 90%의 용량을 유지하며, 이는 현재 판매되는 배터리의 두 배에 달한다고 보고했습니다.
+- **ollama-gemma4-e4b**: 하얼워슨 연구소 연구원들에 따르면, 새로운 유형의 배터리가 2000번의 충방전 사이클을 거친 후에도 90%의 용량을 유지했으며, 이는 현재 시판되는 배터리보다 약 두 배에 달한다고 합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 할보슨 연구소 연구진은 새로운 배터리가 2,000번의 충방전 사이클을 거친 후에도 90%의 용량을 유지하며, 이는 현재 시판되는 배터리의 두 배에 해당한다고 보고했습니다.
 
 **zh-Hans-news-03** (news)
 
@@ -1414,12 +2333,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며 표본 생산 비용이 킬로와트시당 약 340 달러라고 지적합니다.
 - **ct2-nllb-1.3b**: 그러나 비평가들은 이 결과가 아직 평가를 받지 않았으며, 샘플의 생산 비용은 약 340달러/킬로와트라고 지적했다.
 - **ct2-nllb-600m**: 그러나 비평가들은 이 결과는 아직 동료 평가를 받지 않았으며, 샘플의 생산 비용은 약 340달러/kWh라고 지적했다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 不过,批评者指出,这一结果尚未经过同行评审,而且样品的生产成本约为每千瓦时 340 美元。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 샘플의 생산 비용이 킬로와트시간당 약 340달러에 불과하다고 지적했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 不过，批评者指出，这一结果尚未经过同行评审，而且样品的生产成本约为每千瓦时 340 美元。
+- **mlx-qwen3.5-4b-4bit**: 그러나 비판자들은 이 결과가 동료 검토를 거치지 않았으며, 시료의 생산 비용이 킬로와트당 340 달러에 달한다고 지적했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 하지만 비판자들은 이러한 결과가 아직 동료 검토를 거치지 않았으며, 샘플 생산 비용은 1kWh당 약 340달러라고 지적했습니다.
+- **ollama-gemma4-e2b**: 하지만 비평가들은 이 결과가 동료 검토를 거치지 않았으며, 샘플 생산 비용이 킬로와트시당 약 340달러라는 점을 지적했습니다.
+- **ollama-gemma4-e4b**: 하지만 비평가들은 이 결과가 아직 동료 심사를 거치지 않았으며, 샘플의 생산 비용은 킬로와트시당 약 340달러라고 지적했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 그러나 비평가들은 이러한 결과가 아직 동료 평가를 거치지 않았으며, 샘플 생산 비용이 약 340달러/kWh 수준이라고 지적했습니다.
 
 **zh-Hans-news-04** (news)
 
@@ -1432,12 +2363,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 시속 70km의 강풍과 섭씨 12도 정도의 기온이 예상됩니다.
 - **ct2-nllb-1.3b**: 북부 해안 지역에서는 목요일까지 폭우와 시속 70km의 강풍, 기온 12°C 정도가 예상된다.
 - **ct2-nllb-600m**: 북부 해안 지역에서는 목요일까지 강수와 70km/h의 바람이 예상되며 기온은 12°C에 달한다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 北部沿海地区预计到周四都有大雨,阵风可达每小时 70 公里,气温在 12 摄氏度左右。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강한 비가 예상되며, 풍속은 시간당 70km에 달할 수 있고, 기온은 약 12도 정도일 것입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 北部沿海地区预计到周四都有大雨，阵风可达每小时 70 公里，气温在 12 摄氏度左右。
+- **mlx-qwen3.5-4b-4bit**: 북부 해안 지역은 목요일까지도 강우가 예상되며, 순간풍속은 시속 70 km 로 높을 수 있으며 기온은 약 12 도입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비가 내리고, 최대 순간 풍속은 시속 70km, 기온은 12℃ 정도입니다.
+- **ollama-gemma4-e2b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 돌풍은 시간당 70킬로미터에 달하고 기온은 약 12도입니다.
+- **ollama-gemma4-e4b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 돌풍은 시간당 70킬로미터에 달하고 기온은 12도 내외일 것으로 보입니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비가 예상되며, 최대 순간풍속은 시속 70km에 달할 수 있습니다. 기온은 12℃ 정도입니다.
 
 **zh-Hans-news-05** (news)
 
@@ -1450,12 +2393,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이 회사는 지속적인 공급망 문제로 인해 내년 초까지 플래그십 휴대 전화의 출시를 연기한다고 월요일 발표했다.
 - **ct2-nllb-1.3b**: 회사 측은 월요일 성명을 통해 공급망 문제로 인해 플래그폰 출시 시기를 내년 초로 연기한다고 밝혔다.
 - **ct2-nllb-600m**: 회사 측은 월요일 (현지시간) 발표에 따르면, 공급망 문제로 인해 플래그너 휴대폰 출시가 내년 초까지 연기될 것이라고 밝혔다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 该公司周一发表声明称,由于供应链问题持续,将把旗舰手机的发布推迟到明年年初。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일 성명을 발표하여 공급망 문제가 지속되기 때문에 플래그십 모델의 출시를 내년 초로 연기할 것이라고 밝혔습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 该公司周一发表声明称，由于供应链问题持续，将把旗舰手机的发布推迟到明年年初。
+- **mlx-qwen3.5-4b-4bit**: 이 회사는 공급망 문제가 지속됨에 따라 다음 주에 플래그십 스마트폰을 출시할 계획을 연기한다고 발표했습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 이 회사는 지난주, 공급망 문제 지속으로 인해 플래그십 스마트폰 출시를 내년 초로 연기할 것이라고 공식 발표했습니다.
+- **ollama-gemma4-e2b**: 해당 회사는 월요일에 성명을 발표하며, 공급 문제로 인해 플래그십 휴대폰의 출시를내년 초로 연기할 것이라고 밝혔습니다.
+- **ollama-gemma4-e4b**: 이 회사는 월요일 성명을 통해 공급망 문제 지속으로 인해플래그십 스마트폰의 출시를내년 초로 연기한다고 밝혔습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 이 회사는 지난주, 공급망 문제로 인해 플래그십 스마트폰 출시를 다음 해 초로 연기할 것이라고 발표했습니다.
 
 **zh-Hans-news-06** (news)
 
@@ -1468,12 +2423,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 왜 이렇게 많은 작은 빵집들이 5년 이상 운영되지 못하는가? 경제학자들은 이유가 빵 자체와는 관련이 없고 임대료, 노동력, 희박한 이익에 있다고 믿는다.
 - **ct2-nllb-1.3b**: 왜 이렇게 많은 작은 빵집이 5년도 안 걸린 걸까요? 경제학자들은 빵이 직접적인 이유가 아니라 임대료, 인력, 그리고 소소한 이익 때문이라고 주장합니다.
 - **ct2-nllb-600m**: 왜 이렇게 많은 작은 빵집이 5년 만에 문을 연 걸까요? 경제학자들은 빵 자체와 관련이 없는 것이 아니라, 대여, 인력 및 소소한 수익 때문이라고 생각합니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 为什么这么多小面包店开不过五年?经济学家认为,原因与面包本身关系不大,更多在于房租、人手和微薄的利润。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 이렇게 많은 작은 빵집들이 5년도 지속되지 못하는 걸까? 경제학자들은 그 이유가 빵 자체와는 거의 관련이 없으며, 더욱이 임대료, 인력, 낮은 수익률 때문이라고 생각합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 为什么这么多小面包店开不过五年？经济学家认为，原因与面包本身关系不大，更多在于房租、人手和微薄的利润。
+- **mlx-qwen3.5-4b-4bit**: 왜냐하면 많은 작은 빵집이 5 년을 넘기지 못하는 이유는 빵 자체보다는 임대료, 인력, 그리고 얇은 이익 때문이라고 경제학자들은 설명했습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 안에 문을 닫는 이유는 무엇일까요? 경제학자들은 이 원인이 빵 자체와는 크게 관련이 없으며, 임대료, 인력, 그리고 낮은 이익과 더 관련되어 있다고 분석합니다.
+- **ollama-gemma4-e2b**: 왜 많은 작은 빵집이 5년 이상 운영하지 못할까요? 경제학자들은 그 원인이 빵 자체보다는 임대료, 인력,그리고 적은 이윤에 더 달려 있다고 말합니다.
+- **ollama-gemma4-e4b**: 왜 이렇게 많은 작은 빵집들이 5년 이상 문을 열지 못할까요? 경제학자들은 그 원인이 빵 자체와는 크게 관련이 없으며, 임대료,인건비,그리고 적은 이윤에 있다고 분석합니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 왜 많은 작은 빵집이 5년도 채 버티지 못하는 걸까요? 경제학자들은 이 현상의 원인이 빵 자체보다는 임대료, 인건비, 그리고 극히 미미한 이익에 더 큰 영향을 미친다고 분석합니다.
 
 **zh-Hans-community-01** (community)
 
@@ -1486,12 +2453,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 친구, 딸기 파이가 드디어 작동했고, 전원이 켜지자마자 연기가 나기 시작했습니다. 글쎄요, 연기가 나지는 않았지만, 내 마음은 붕괴되었습니다.
 - **ct2-nllb-1.3b**: 좋은 친구, 나무늘보는 마침내 운전을 할 수 있었고, 결국 전기를 켜면 담배를 피웠다.
 - **ct2-nllb-600m**: 자, 덤불파리가 드디어 문을 열었고, 결국 전기가 켜지면 담배를 피우게 되었습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: 好家伙,树莓派终于能开机了,结果一上电就冒烟。好吧,也不是真冒烟,但我的心态已经崩了。
+- **mlx-gemma-4-e2b-4bit**: 好家伙,树莓派终于能开机了,结果一上电就冒烟。好吧,也不是真冒烟,但我的心态已经崩了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 잘했어, 라즈베리 파티가 마침내 시작되었는데, 전원이 들어오자마자 연기가 나왔어. 음, 정말로 연기가 나는 건 아니지만, 내 기분은 완전히 망가졌어.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 好家伙，树莓派终于能开机了，结果一上电就冒烟。好吧，也不是真冒烟，但我的心态已经崩了。
+- **mlx-qwen3.5-4b-4bit**: 일단 쥬리파이를 켤 수 있게 되니 좋지만, 전원을 켜자마자 연기처럼 뿜어내네요. 아니, 진짜 연기는 아니지만 내 마음은 이미 무너졌습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 와, 라즈베리 파가 드디어 부팅됐는데, 바로 전원이 켜자마자 불이 났네. 뭐, 진짜 불이라기보다는, 완전히 좌절했어.
+- **ollama-gemma4-e2b**: 세상에, 라즈베리 파이가 드디어 부팅되었는데, 전원을 켜자마자 연기가 나더라고요. 뭐, 진짜 연기는 아니지만, 제 심정은 이미 무너졌습니다.
+- **ollama-gemma4-e4b**: 맙소사, 라즈베리파이가 드디어 부팅되는데, 전원을 켜자마자 연기가 나요. 뭐, 진짜 연기는 아니지만, 제 멘탈은 이미 무너졌습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 맙소사, 라즈베리 파이 마침내 부팅되더니, 그런데 전원을 켜자마자 연기가 나기 시작했어. 음, 정확히는 연기가 나지 않았지만, 그래도 나는 완전히 좌절했어.
 
 **zh-Hans-community-02** (community)
 
@@ -1504,12 +2483,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 죄인의 말을 말하십시오 : 탭 또는 공백을 사용할 수 있습니다, 새벽 2시에 아직도 싸우는 사람을 위해, 뭔가를 먹고 잠들어야합니다.
 - **ct2-nllb-1.3b**: 죄인의 말: 시계 표지판이나 빈 공간으로 가십시오. 새벽 2시에 여전히 이 쟁쟁한 사람을 위해, 그는 잠자리에 들기 전에 먹어야합니다.
 - **ct2-nllb-600m**: 죄인들에 대한 판단에 따르면, "오전 2시쯤에 이 부조리 때문에 아무 것도 없거나, 아무 것도 없는 사람이 일어나서 밥을 먹어야 하고 잠들어야 한다".
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 说句得罪人的话:用制表符还是空格都行,凌晨两点还在为这个吵架的人,该去吃点东西然后睡觉了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 불쾌한 말을 하자면: 탭 문자든 공백이든 상관없어요. 새벽 2시에 이런 문제로 싸우는 사람 때문에, 뭐라도 먹고 잠을 자야 해요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 说句得罪人的话：用制表符还是空格都行，凌晨两点还在为这个吵架的人，该去吃点东西然后睡觉了。
+- **mlx-qwen3.5-4b-4bit**: 사람을 상하게 말하자면, 탭이나 공백을 사용하든 상관없습니다. 새벽 2 시까지 이 때문에 싸우는 사람은 저녁을 먹고 자야 합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 솔직하게 말하자면: 따옴표나 공백을 모두 사용할 수 있지만, 새벽 2시까지도 싸울 사람 때문에 계속 고민하고 있습니다. 이제 뭐라도 먹고 잠자리에 드는 게 좋을 것 같아요.
+- **ollama-gemma4-e2b**: 무례하게 말하자면: 탭이나 공백 모두 괜찮습니다. 새벽 두 시에도 이 논쟁을 하는 사람에게, 가서 뭐라도 먹고 자야죠.
+- **ollama-gemma4-e4b**: 누가 기분 나쁠지 모르겠지만: 탭을 쓰든 공백을 쓰든 상관없어요. 새벽 2시까지 이걸로 싸우는 건, 가서 뭐 좀 먹고 자야 할 시간이에요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 솔직히 말하자면, 쉼표나 공백 모두 괜찮습니다. 새벽 2시까지도 계속 싸우는 사람 때문에 잠을 설쳐야 한다니, 밥을 먹고 잠시 쉬는 게 좋겠습니다.
 
 **zh-Hans-community-03** (community)
 
@@ -1522,12 +2513,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 웃음이 터져 나왔고, 3시간 동안 오류 메시지를 쳐다보았습니다. 결과는 마침표 하나가 빠졌습니다.마침표 하나!
 - **ct2-nllb-1.3b**: 웃으며, 실수 보고를 3시간 동안 쳐다보다가, 1점 남았어요. 1점 아!
 - **ct2-nllb-600m**: 웃고 죽고, 3시간 동안 보고를 쳐다봤는데, 1점도 빠졌어요. 1점도 빠졌어요. 저는 산에 숨어있어요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 笑死,盯着报错看了三个小时,结果是少了一个分号。一个分号啊!我要去山里隐居了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 웃기워, 오류 메시지를 3시간 동안 바라보고 있었는데, 결국 세미콜론이 하나 빠져 있더군요. 세미콜론 하나라니! 이제 산속으로 은둘러 갈 거예요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 笑死，盯着报错看了三个小时，结果是少了一个分号。一个分号啊！我要去山里隐居了。
+- **mlx-qwen3.5-4b-4bit**: 웃기다, 3 시간 동안 에러 메시지를 응시했는데, 결과는 세미콜론 하나 부족이었습니다. 세미콜론 하나! 저는 산속으로 은거하겠습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 너무 웃겨. 오류를 보려고 세 시간 동안 집중했는데, 한 개의 쉼표가 빠졌네요! 한 개의 쉼표라니! 저는 이제 산으로 들어가 살 거예요.
+- **ollama-gemma4-e2b**: 웃기네, 오류 메시지를 세 시간 동안 쳐다봤는데, 마침표 하나가 빠져있었어. 마침표 하나! 나 산으로 은둔해야겠다.
+- **ollama-gemma4-e4b**: 웃겨 죽겠네요. 에러 메시지를 세 시간 동안 봤는데, 결국 세미콜론이 하나 빠진 거였어요. 세미콜론 하나라니! 저 산속에 들어가서 은둔해야겠어요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 너무 웃겨. 오류 메시지를 세 시간 동안 쳐다봤는데, 결국 한 쉼표가 빠졌더라고. 쉼표 하나! 이제 저는 산으로 들어가 은둔 생활을 시작해야겠어요.
 
 **zh-Hans-community-04** (community)
 
@@ -1540,12 +2543,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 솔직히 말해서, 그 업데이트는 제 환경을 완전히 망가뜨렸습니다.
 - **ct2-nllb-1.3b**: 솔직히 말해서, 그 업데이트는 내 환경을 완전히 뒤집어 놓았습니다.
 - **ct2-nllb-600m**: 솔직히 말해서, 그 업데이트는 내 환경을 직접 파괴했습니다. 이미 돌아왔고, 밖으로 나갔고, 내일 다시 싸울 것입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 说实话,那次更新直接把我的环境搞崩了。已经回滚,出去透了口气,明天再战。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이미 롤백했고, 기분을 풀어보았어요. 내일 다시 시작할게요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 说实话，那次更新直接把我的环境搞崩了。已经回滚，出去透了口气，明天再战。
+- **mlx-qwen3.5-4b-4bit**: 솔직히 말해, 그 업데이트는 내 환경을 완전히 망가뜨렸습니다. 이미 롤백을 하고, 신선한 공기를 마셨으니, 내일 다시 도전하겠습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 제 환경이 완전히 망가졌어요. 이미 되돌렸고, 잠시 숨을 돌리고 내일 다시 도전할게요.
+- **ollama-gemma4-e2b**: 솔직히 말해서, 그 업데이트는내 환경을 완전히 망쳤어. 되돌렸고, 숨을 돌리고, 내일 다시 싸울 거야.(누락)
+- **ollama-gemma4-e4b**: 솔직히 말해서, 그때 업데이트가제 환경을 완전히 망가뜨렸어요.이미 롤백했고, 바람 좀 <0xEC><0x90><0xAC>고 왔습니다. 내일 다시 싸울게요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 솔직히 말해서, 그 업데이트로 인해 제 환경이 완전히 망가졌어요. 이미 이전 버전으로 되돌렸고, 잠시 휴식을 취한 후 내일 다시 도전할 예정입니다.
 
 **zh-Hans-community-05** (community)
 
@@ -1558,12 +2573,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 제 고양이가 일주일 동안 라우터에 누워 있었는데, Wi-Fi가 이전보다 더 안정적이었습니다.
 - **ct2-nllb-1.3b**: 사실. 내 고양이는 일주일 동안 라우터에 켜져 있었고, 와이파이는 이전보다 더 안정적이었다.
 - **ct2-nllb-600m**: 사실, 우리 고양이는 일주일 동안 라우터에 달려있었고, 와이파이는 예전보다 안정적이었습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 确实。我家猫在路由器上趴了一个星期,Wi-Fi 居然比以前还稳。别问,问就是玄学。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 정말이죠. 제 집 고양이는 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다 더 안정적이었어요. 묻지 마세요, 그냥 미신이에요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 确实。我家猫在路由器上趴了一个星期，Wi-Fi 居然比以前还稳。别问，问就是玄学。
+- **mlx-qwen3.5-4b-4bit**: 맞습니다.我家的猫在路由器上趴了一个星期，Wi-Fi 居然比以前还稳。别问，问就是玄学。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 정말이에요. 제 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 이전보다 더 안정적이게 됐어요. 설명은 필요 없어요, 그냥 신기한 거죠.
+- **ollama-gemma4-e2b**: 맞아. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, 와이파이가 예전보다 더 안정적이더라. 묻지 마, 그건 신기한 거야.
+- **ollama-gemma4-e4b**: 맞아요. 저희 집 고양이가 라우터 위에 일주일 동안 누워있더니, 와이파이가 예전보다 더 안정적이에요. 묻지 마세요. 그냥 현상학(미신)입니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 맞아요. 제 집 고양이가 라우터 위에 일주일 동안 있었는데, 와이파이가 오히려 이전보다 더 안정적으로 작동하는 것 같네요. 이유는 알 수 없지만, 그냥 운이라고 해야겠죠.
 
 **zh-Hans-community-06** (community)
 
@@ -1576,12 +2603,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 나는 400 달러를 비처럼 울리는 키보드를 사는데 썼는데 후회하지 않는다.
 - **ct2-nllb-1.3b**: 가족들, 저는 400달러를 들여 비처럼 부는 키보드를 샀습니다.
 - **ct2-nllb-600m**: 저는 400달러를 들여 비가 내리는 키보드를 샀습니다. 후회하지 않습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 家人们,我花了 400 块买了个敲起来像下雨的键盘,一点都不后悔,同事们嘛……就不一定了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 400원을 들여서 비가 내리는 것처럼 들리는 키보드를 구입했어요. 전혀 후회하지 않아요. 하지만 동료들은… 그렇지 않을 수도 있죠.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 家人们，我花了 400 块买了个敲起来像下雨的键盘，一点都不后悔，同事们嘛……就不一定了。
+- **mlx-qwen3.5-4b-4bit**: 가족 여러분, 저는 400 원에 소음처럼 치는 키보드를 샀는데, 전혀 후회하지 않습니다. 동료들은……그렇지 않을 수도 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: “얘들아, 400원에 정말 괜찮은 키보드를 샀는데, 마치 비가 내리는 것처럼 느껴져요. 동료들은… 아마 그렇지 않을 거예요.”
+- **ollama-gemma4-e2b**: 여러분, 저는 400위안을 주고 비가 내리는 것처럼 타이핑되는 키보드를 샀는데, 전혀 후회하지 않아요. 동료들은 뭐……그렇지 않을 수도 있고.(누락)
+- **ollama-gemma4-e4b**: 여러분, 저 비 오는 소리가 나는 키보드를 400위안에 샀는데, 전혀 후회 안 해요. 동료들은 뭐……그럴지는 모르겠네요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 여러분, 저는 400달러를 주고 빗소리를 내는 키보드를 샀는데, 정말 만족합니다. 동료들은… 아마 만족하지는 못할 거예요.
 
 **zh-Hans-ui-01** (ui)
 
@@ -1594,12 +2633,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 변경 사항 저장
 - **ct2-nllb-1.3b**: 변경사항을 저장합니다
 - **ct2-nllb-600m**: 변경사항을 저장
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 保存更改
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 수정 저장
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 保存更改
+- **mlx-qwen3.5-4b-4bit**: 변경사항 저장
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 변경 사항 저장
+- **ollama-gemma4-e2b**: 변경 사항 저장
+- **ollama-gemma4-e4b**: 변경 사항 저장
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 변경 사항 저장
 
 **zh-Hans-ui-02** (ui)
 
@@ -1612,12 +2663,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 오류가 발생했습니다. 나중에 다시 시도하십시오.
 - **ct2-nllb-1.3b**: 오류가 발생했습니다. 나중에 다시 시도하시기 바랍니다.
 - **ct2-nllb-600m**: 틀렸어 나중에 다시 시도해봐
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 出错了,请稍后重试。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 出错了，请稍后重试。
+- **mlx-qwen3.5-4b-4bit**: 오류가 발생했습니다. 나중에 다시 시도해주세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 오류가 발생했습니다. 잠시 후 다시 시도해주세요.
+- **ollama-gemma4-e2b**: 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
+- **ollama-gemma4-e4b**: 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
 
 **zh-Hans-ui-03** (ui)
 
@@ -1630,12 +2693,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 읽지 않은 메시지가 3 개 있습니다.
 - **ct2-nllb-1.3b**: 당신이 읽지 않은 메시지가 3개 있습니다.
 - **ct2-nllb-600m**: 당신이 읽지 않은 3개의 메시지가 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 您有 3 条未读消息
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 귀하에게 3개의 읽지 않은 메시지가 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 您有 3 条未读消息
+- **mlx-qwen3.5-4b-4bit**: 읽지 않은 메시지가 3 개 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 3개의 읽지 않은 메시지가 있습니다.
+- **ollama-gemma4-e2b**: 읽지 않은 메시지가 3개 있습니다.
+- **ollama-gemma4-e4b**: 읽지 않은 메시지가 3개 있습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 3개의 읽지 않은 메시지가 있습니다.
 
 **zh-Hans-link-01** (link)
 
@@ -1648,12 +2723,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 클릭[此处]계속해
 - **ct2-nllb-1.3b**: 클릭하세요[此处]계속하세요.
 - **ct2-nllb-600m**: 클릭[此处]계속하세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 点击[此处]此处
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 클릭[此处]계속해.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 点击[此处]此处
+- **mlx-qwen3.5-4b-4bit**: 여기[此处]를 클릭하여 계속하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 클릭[此处]계속.
+- **ollama-gemma4-e2b**: 클릭[此处](누락)
+- **ollama-gemma4-e4b**: 클릭하여[此处]계속하세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 클릭[此处]계속.
 
 **zh-Hans-link-02** (link)
 
@@ -1666,12 +2753,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 지원되는 플랫폼은 다음을 참조하십시오.[安装指南]자세한 내용은 여기를 참조하십시오.
 - **ct2-nllb-1.3b**: 지원 플랫폼에 대해서는 이 문서를 참조하십시오.[安装指南]더 많은 정보를 얻으세요.
 - **ct2-nllb-600m**: 지원 플랫폼에 대해 참조하십시오.[安装指南]이 모든 것을 알고 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 有关支持的平台,请参阅[安装指南]安装指南
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지원되는 플랫폼에 대해서는 [安装指南]을 참조하여 자세한 정보를 확인하세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 有关支持的平台，请参阅[安装指南]安装指南
+- **mlx-qwen3.5-4b-4bit**: 지원되는 플랫폼에 대한 자세한 내용은 다음을 참조하세요:[安装指南]설치 가이드
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 지원 가능한 플랫폼에 대한 자세한 내용은 [安装指南]를 참조하십시오.
+- **ollama-gemma4-e2b**: 지원 플랫폼에 대해서는 [安装指南]를 참조하세요. 자세한 내용을 알아보세요.
+- **ollama-gemma4-e4b**: 지원 플랫폼에 대한 자세한 내용은[安装指南]을(를) 참고하세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 지원 플랫폼에 대한 자세한 내용은 [安装指南]를 참조하십시오.
 
 **zh-Hans-link-03** (link)
 
@@ -1684,12 +2783,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 문제가 발생한 경우[在问题追踪页面提交反馈]로그 파일을 첨부하십시오.
 - **ct2-nllb-1.3b**: 만약 문제가 있다면,[在问题追踪页面提交反馈]이 글은 롯데백화점과 롯데백화점의 롯데백화점입니다.
 - **ct2-nllb-600m**: 만약 문제가 있다면,[在问题追踪页面提交反馈]로그 서류와 함께
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 如果遇到问题,请[在问题追踪页面提交反馈]在问题追踪页面提交反馈
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [在问题追踪页面提交反馈]을 하시고 로그 파일도 첨부해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 如果遇到问题，请[在问题追踪页面提交反馈]在问题追踪页面提交反馈
+- **mlx-qwen3.5-4b-4bit**: 문제가 발생하면 다음을 제출하여 피드백을 보내주세요:[在问题追踪页面提交反馈]문제 추적 페이지
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 문제가 있을 경우[在问题追踪页面提交反馈]그리고 로그 파일을 첨부합니다.
+- **ollama-gemma4-e2b**: 문제가 발생하면, [在问题追踪页面提交反馈]로그 파일을 첨부하세요.
+- **ollama-gemma4-e4b**: 문제가 발생하면,[在问题追踪页面提交反馈]에 피드백을 제출하고 로그 파일을 첨부해 주세요.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 문제가 발생하면 [在问题追踪页面提交反馈]에 문의하고, 로그 파일을 첨부해 주세요.
 
 **zh-Hans-seq-01** (seq)
 
@@ -1702,12 +2813,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 작년 봄, 저는 가족의 사진을 저장하기 위해 오래된 노트북을 홈 서버로 변환하기로 결정했습니다.
 - **ct2-nllb-1.3b**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸고 가족 사진을 저장하기로 결정했습니다.
 - **ct2-nllb-600m**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸어 가족 사진을 저장하기로 결정했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 去年春天,我决定把一台旧笔记本改造成家用服务器,用来存放家人的照片。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄, 저는 낡은 노트북을 가정용 서버로 개조하여 가족의 사진들을 저장하기로 결심했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 去年春天，我决定把一台旧笔记本改造成家用服务器，用来存放家人的照片。
+- **mlx-qwen3.5-4b-4bit**: 去年春天,我决定把一台旧笔记本改造成家用服务器,用来存放家人的照片。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 작년에 봄, 저는 오래된 노트북을 개조하여 가정용 서버로 만들기로 결정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 작년 봄, 저는 오래된 노트북을 가족 사진을 보관하는 가정용 서버로 개조하기로 결정했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 지난 봄, 저는 오래된 노트북을 개조하여 가정용 서버로 만들기로 결정했습니다. 이를 통해 가족들의 사진을 보관할 수 있게 되었습니다.
 
 **zh-Hans-seq-02** (seq)
 
@@ -1720,12 +2843,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이 2014년 ThinkBook은 8GB의 메모리를 갖추고 있어 이러한 작업에 적합합니다.
 - **ct2-nllb-1.3b**: 이 2014년 힌크북은 8GB의 메모리를 탑재하고 있으며, 이 작업을 수행하는 데 적합합니다.
 - **ct2-nllb-600m**: 2014년 출시된 이 ThinkBook은 8GB의 메모리를 탑재하여 이 작업을 잘 수행할 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 这台 2014 年的ThinkBook配有 8 GB 内存,用来干这个活儿正合适。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년형 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 하기에 딱 맞는 장비입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 这台 2014 年的ThinkBook配有 8 GB 内存，用来干这个活儿正合适。
+- **mlx-qwen3.5-4b-4bit**: 이 2014 년 모델 ThinkBook 는 8 GB 메모리를 탑재하여 이 용도에 딱 맞습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 이 2014년 ThinkBook은 8GB의 메모리를 가지고 있어, 이 작업을 하기에는 딱 좋습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 이 2014년식ThinkBook8 GB 메모리가 장착되어 있어, 이 용도에 딱 적합했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 이 2014년 ThinkBook은 8GB의 메모리를 탑재하여, 이 작업을 수행하기에 적합합니다.
 
 **zh-Hans-seq-03** (seq)
 
@@ -1738,12 +2873,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 내가 먼저 가져갈게 [Debian 12]Fernbox 라는 작은 웹 애플리케이션을 만들어서 사진을 볼 수 있게 했습니다.
 - **ct2-nllb-1.3b**: 제가 먼저 준비했습니다. [Debian 12]그리고 Fernbox라는 작은 웹 앱을 통해 사진을 볼 수 있습니다.
 - **ct2-nllb-600m**: 제가 먼저 입었습니다. [Debian 12]또한, Fernbox라는 작은 웹 앱을 통해 사진을 검색할 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 我先装了[Debian 12]Debian 12
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]를 설치하고, 사진을 보기 위한 Fernbox라는 작은 웹 애플리케이션도 추가했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 我先装了[Debian 12]，又搭了一个叫 Fernbox 的小型网页应用来浏览照片。
+- **mlx-qwen3.5-4b-4bit**: 먼저 Debian 12 를 설치하고, Fernbox 라는 이름의 소형 웹 애플리케이션을 구축하여 사진을 브라우저로 열었습니다.[Debian 12](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 저는 먼저 [Debian 12]을 설치하고, "Fernbox"라는 작은 웹 앱을 사용하여 사진을 보기 시작했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 저는 먼저 "[Debian 12]"를 설치하고, 사진을 볼 수 있는 Fernbox라는 작은 웹 애플리케이션을 구축했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 먼저 [Debian 12]을 설치하고, 사진을 보기 위해 "Fernbox"라는 작은 웹 애플리케이션을 사용했습니다.
 
 **zh-Hans-seq-04** (seq)
 
@@ -1756,12 +2903,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 여동생은 처음에는 반대했지만 일주일이 지나자 Fernbox가 그녀가 이전에 사용했던 어떤 클라우드 서비스보다도 빠르다고 인정했습니다.
 - **ct2-nllb-1.3b**: 그녀의 여동생은 처음에는 회의적이었지만 일주일 후 그녀는 페른박스가 그녀가 사용한 모든 클라우드 서비스보다 더 빠르다고 인정했다.
 - **ct2-nllb-600m**: 그녀의 여동생은 처음에는 반 회의적이었지만 일주일 후에 그녀는 Fernbox이 그녀가 사용한 모든 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 妹妹一开始半信半疑,但一周后她承认,Fernbox 比她用过的任何云服务都快。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심스러워했지만, 일주일 후에 그녀는 Fernbox이 자신이 사용한 어떤 클라우드 서비스보다도 빠르다고 인정했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 妹妹一开始半信半疑，但一周后她承认，Fernbox 比她用过的任何云服务都快。
+- **mlx-qwen3.5-4b-4bit**: 제 자매는 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox 가 그녀가 사용했던 모든 클라우드 서비스보다 빠르다고 인정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 처음에는 약간 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 여동생은 처음에는 반신반의했지만, 일주일 후 Fernbox가 자신이 사용해 본 어떤 클라우드 서비스보다 빠다고 인정했습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 처음에는 의심스러워했지만, 한 주 후에는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
 
 **zh-Hans-seq-05** (seq)
 
@@ -1774,12 +2933,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이제 그 오래된 노트북은 선반에 안전하게 놓여 있고 Fernbox는 가족이 여행을 마치고 집으로 돌아왔을 때 처음으로 열어보는 앱이 되었습니다.
 - **ct2-nllb-1.3b**: 이제, 오래된 노트북이 조용히 선반에 앉아 있고, 페른박스는 가족이 여행에서 돌아온 후 첫 번째 앱이 되었습니다.
 - **ct2-nllb-600m**: 이제 오래된 노트북은 조용하게 상자 위에 남아있으며, Fernbox은 온 가족이 돌아온 후 처음으로 오픈된 응용 프로그램입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: block missing in output)
+- **mlx-gemma-4-e2b-4bit**: 现在,那台旧笔记本安安静静地待在架子上,而Fernbox已经成了全家人旅行回来后第一个打开的应用。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 그 낡은 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아올 때 가장 먼저 열리는 앱이 되었습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3.5-2b-4bit**: 现在，那台旧笔记本安安静静地待在架子上，而Fernbox已经成了全家人旅行回来后第一个打开的应用。
+- **mlx-qwen3.5-4b-4bit**: 이제 그 오래된 노트북은 조용히 책상 위에 놓여 있으며, Fernbox 는 가족이 여행回来后 가장 먼저 열게 되는 애플리케이션이 되었습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 현재, 오래된 노트북은 책상 위에 조용히 놓여 있었고, Fernbox는 가족들이 여행을 마치고 돌아와서 가장 먼저 사용하는 앱이 되었습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 지금, 그 오래된 노트북은 선반 위에 조용히 놓여 있고,Fernbox온 가족이 여행에서 돌아온 후 가장 먼저 여는 앱이 되었습니다.
+- **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: (오류: block missing in output)
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 현재, 오래된 노트북은 조용히 책상 위에 놓여 있고, Fernbox는 가족들이 여행을 마치고 돌아와서 가장 먼저 사용하는 앱이 되었습니다.
 
 ### zh-Hant
 
@@ -1794,12 +2965,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 명령줄 도구를 설치하려면 다음을 실행하십시오. [npm install -g fernctl]그래, 그렇지 [fernctl --version] 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
 - **ct2-nllb-1.3b**: 명령줄 도구를 설치하려면 실행하세요. [npm install -g fernctl]그리고 그 다음으로 [fernctl --version] 버전을 확인합니다. 2.4.1 또는 최신 버전이 필요합니다.
 - **ct2-nllb-600m**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl]이 글은 [fernctl --version] 2.4.1 버전 또는 최신 버전이 필요합니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 若要安裝命令列工具,請執行 [npm install -g fernctl]npm install -g fernctl[fernctl --version],接著用 
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행한 다음 [fernctl --version]를 사용하여 버전을 확인하세요. 2.4.1 이상의 버전이 필요합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 若要安裝列頭工具，請執行[npm install -g fernctl]npm install -g fernctl[fernctl --version]接著用
+- **mlx-qwen3.5-4b-4bit**: 설치 명령줄 도구를 설치하려면 다음을 실행하세요:[npm install -g fernctl]버전 확인을 위해 다음을 실행하세요:[fernctl --version]버전 확인을 위해 다음을 실행하세요. 2.4.1 버전 이상을 사용해야 합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행하고, 그 다음 [fernctl --version]를 사용하여 버전을 확인해야 합니다. 2.4.1 버전 이상을 요구합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: 만약 명령어 도구를 설치하려면 [npm install -g fernctl]npm install -g fernctl[fernctl --version]을 실행해야 합니다.
 - **ollama-qwen3.5-2b**: 若要安裝命令列工具，請執行[npm install -g fernctl]接著用[fernctl --version]檢查版本。需要 2.4.1 或更新的版本。
 - **ollama-translategemma-4b**: 명령줄 도구를 설치하려면 다음 명령을 실행하세요:[npm install -g fernctl]그런 다음 다음 명령을 사용하여 버전 [fernctl --version]버전을 확인하세요. 2.4.1 이상 버전이 필요합니다.
+- **ollama-translategemma-4b-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]를 실행한 후, [fernctl --version]를 사용하여 버전을 확인하십시오. 2.4.1 버전 이상이 필요합니다.
 
 **zh-Hant-tech-02** (tech)
 
@@ -1812,12 +2995,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: [timeout] 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 없다.
 - **ct2-nllb-1.3b**: [timeout] 이 옵션의 단위는 밀리 초이고 기본값은 30000 ((30초) 이며 0으로 설정하면 지연 제한이 없습니다.
 - **ct2-nllb-600m**: [timeout] 선택의 단위는 밀리초이고 기본값은 30,000 (~30초) 이며, 0은 시간 제한이 전혀 없습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: [timeout]選項的單位為毫秒,預設值是 30000(30 秒),設為 0 則完全不限制逾時.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 시간 초과가 전혀 제한되지 않습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: [timeout]選項的單位為毫秒，預設值是 30000(30 秒)，設為 0 則完全不限制逾時。
+- **mlx-qwen3.5-4b-4bit**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30 초)입니다. 0 으로 설정하면 타임아웃을 완전히 무효화할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 시간 제한이 없습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: [timeout]選項的單位為毫秒，預設值是 30000(30 秒)，設為 0 則完全不限制逾時。
 - **ollama-translategemma-4b**: [timeout]timeout 옵션의 단위는 밀리초입니다. 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 없습니다.
+- **ollama-translategemma-4b-mt**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 시간 초과에 대한 제한이 전혀 없습니다.
 
 **zh-Hant-tech-03** (tech)
 
@@ -1830,12 +3025,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: v1.x에서 업그레이드하기 전에 설정 폴더를 백업하십시오. 마이그레이션 코드는 모든 파일을 직접 덮어쓰고 복원할 수 없습니다.
 - **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 파일 저장소를 백업하십시오. 이동 명령 코드는 모든 파일을 바로 덮고 복구할 수 없습니다.
 - **ct2-nllb-600m**: V1.x에서 업그레이드되기 전에, 먼저 기본 설정 데이터베이스를 예약하십시오.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 從 v1.x 升級之前,請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案,而且無法復原。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에, 먼저 설정 파일을 백업해 두세요. 이전 명령어는 모든 파일을 직접 덮어넣게 되며, 복구할 수 없습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 從 v1.x 升級之前，請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案，而且無法復原。
+- **mlx-qwen3.5-4b-4bit**: v1.x 로 업그레이드하기 전에 설정 폴더를 백업하세요. 마이그레이션 스크립트는 모든 파일을 덮어쓰며 복구가 불가능합니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: v1.x 버전으로 업그레이드하기 전에, 먼저 설정 폴더를 백업해 주세요. 이 이동 명령어는 모든 파일을 직접 덮어쓰고, 되돌릴 수 없습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 從 v1.x 升級之前，請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案，而且無法復原。(누락)
 - **ollama-translategemma-4b**: v1.x 버전에서 이전 버전으로 업그레이드하기 전에 먼저 백업하세요.설정 폴더를백업합니다. 이 명령어는 모든 파일을 덮어쓰고 복원할 수 없습니다.
+- **ollama-translategemma-4b-mt**: v1.x 버전에서 v2.x 버전으로 업그레이드하기 전에, 반드시 설정 파일 폴더를 백업해 두십시오. 마이그레이션 스크립트는 모든 파일을 직접 덮어쓰기 때문에 복구할 수 없습니다.
 
 **zh-Hant-tech-04** (tech)
 
@@ -1848,12 +3055,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 레지스트리 프로그램이 실행되지 않으면, 다른 프로그램이 포트 8443에 연결되어 있지 않은지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs 에서 볼 수 있습니다.
 - **ct2-nllb-1.3b**: 만약 로컬호스트가 시작되지 않는다면, 연결 패널 8443이 다른 처리 프로그램으로 점유되지 않았는지 확인하세요. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **ct2-nllb-600m**: 로컬호스트 (8443/debug/logs) 에서 기록 파일을 확인할 수 있습니다. http://localhost:8443/debug/logs
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 如果常駐程式無法啟動,請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 정상적으로 실행되는 프로그램이 실행되지 않는다면, 포트 8443이 다른 처리 프로그램에 사용되고 있지 않은지 확인하세요. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 如果常駐程式無法啟動，請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。
+- **mlx-qwen3.5-4b-4bit**: 常驻服务无法启动时，请确认端口 8443 未被其他进程占用。日志可在 http://localhost:8443/debug/logs 查看。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 만약 프로그램이 정상적으로 실행되지 않는 경우, 포트 8443이 다른 프로그램에 의해 사용 중인지 확인해주세요. 로그 파일은 http://localhost:8443/debug/logs 에서 확인하실 수 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 如果常駐程式無法啟動，請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。
 - **ollama-translategemma-4b**: 프로그램이 시작되지 않으면 포트 8443이 다른 프로세스에 의해 사용 중인지 확인하세요. 로그 파일은 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
+- **ollama-translategemma-4b-mt**: 만약 프로그램이 정상적으로 시작되지 않는 경우, 포트 8443이 다른 프로세스에 의해 사용되고 있는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 
 **zh-Hant-tech-05** (tech)
 
@@ -1866,12 +3085,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 각 스레드는 약 64MB의 캐시를 가지고 있으므로 8GB의 메모리를 가진 컴퓨터는 최대 8개의 스레드를 실행할 수 있다.
 - **ct2-nllb-1.3b**: 각 실행 노드는 각각 약 64 MB의 스냅샷을 가지고 있기 때문에 8 GB의 컴퓨터는 최대 8 개의 실행 노트를 실행해야 합니다.
 - **ct2-nllb-600m**: 각 실행 스틱은 64MB 정도를 가지고 있기 때문에 최대 8GB의 메모리는 8개의 실행 스틱을 실행할 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 每個執行緒都有各自約 64 MB 的快取,因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64 MB의 캐시 공간을 가지고 있으므로, 8 GB의 메모리가 있는 컴퓨터에서는 최대 여덟 개의 작업 스레드만 실행될 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 每個執行緒都有各自約 64 MB 的快取，因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
+- **mlx-qwen3.5-4b-4bit**: 각 스레드는 약 64 MB 의 캐시를 가지므로, 8 GB 메모리를 가진 컴퓨터는 최대 8 개 스레드만 실행할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 각 스레드는 각각 약 64MB의 캐시를 가지므로, 8GB 메모리를 가진 컴퓨터는 최대 8개의 스레지만 실행해야 합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 每個執行緒都有各自約 64 MB 的快取，因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
 - **ollama-translategemma-4b**: 각 스레드는 약 64MB의 캐시를 가지고 있습니다. 따라서 8GB 메모리를 가진 컴퓨터에는 최대 8개의 스레드만 실행할 수 있습니다.
+- **ollama-translategemma-4b-mt**: 각 스레드는 약 64MB의 캐시를 가지고 있으므로, 8GB의 메모리를 가진 컴퓨터는 최대 8개의 스레드만 실행할 수 있습니다.
 
 **zh-Hant-tech-06** (tech)
 
@@ -1884,12 +3115,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 요청은 지수적으로 최대 세 번 재시도되며, 모두 실패하면 오류가 발생합니다. [TransientError] 전화번호는 전화번호판에 표시된다.
 - **ct2-nllb-1.3b**: 이 요청은 최대 3차례에 걸쳐 지수 회피 방식으로 다시 시도됩니다. 모든 것이 실패하면 오류가 표시됩니다. [TransientError] 이 글은 이 페이지에서 볼 수 있습니다.
 - **ct2-nllb-600m**: 가장 많은 경우 지수 회피 방식으로 세 번 반복되는 것을 요구합니다. [TransientError] 이 글은 이 글에서 나온다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 請求最多會以指數退避的方式重試三次;若全部失敗,錯誤會以 [TransientError]TransientError
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 최대 3번까지 지수적 회피 방식으로 다시 시도할 수 있습니다. 만약 모든 시도가 실패하면, 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 請求最多會以指數退避的方式重試三次；若全部失敗，錯誤會以[TransientError]TransientError
+- **mlx-qwen3.5-4b-4bit**: 요청 최대 3 회 지수 백오프 방식으로 재시도합니다. 모두 실패하면 오류가 [TransientError](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 가장 최대 3번의 시도 후, 지수 기반으로 재시도할 수 있습니다. 모든 시도가 실패하면, 오류는 [TransientError] 형태로 반환됩니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 請求最多會以指數退避的方式重試三次；若全部失敗，錯誤會以[TransientError]的形式回傳給呼叫端。
 - **ollama-translategemma-4b**: 요청은 최대 3번의 지수 퇴치 방식으로 재시도됩니다. 모든 재시도가 실패하면 오류는 [TransientError]TransientError
+- **ollama-translategemma-4b-mt**: 요청은 최대 3번까지 지수 방식으로 재시도할 수 있으며, 모든 시도가 실패하면 오류는 [TransientError] 형태로 호출 측에 반환됩니다.
 
 **zh-Hant-news-01** (news)
 
@@ -1902,12 +3145,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 시의회는 화요일 동부 교외로 버스 노선을 확장하는 법안을 7 대 2로 통과시켰으며, 지지자들은 이것이 통근 시간을 최대 25 % 줄일 것이라고 말했다.
 - **ct2-nllb-1.3b**: 시의회는 화요일 7대 2의 찬성으로 버스 노선을 동부 교외까지 확장하는 방안을 통과시켰고 지지자들은 이 방안이 통근시간을 최대 25% 줄일 수 있다고 말했습니다.
 - **ct2-nllb-600m**: 시회는 지난 2일 7~2 ψήφους 받아 동부 시외지역으로 버스 노선을 늘리는 방안을 통과시켰고, 지지자들은 최대 25%의 교통시간을 줄일 것이라고 말했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案,支持者表示,這將使通勤時間最多縮短 25%。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 7대 2의 표로 버스 노선을 동부 교외 지역까지 연장하는 방안을 통과시켰습니다. 지지자들은 이로 인해 출퇴근 시간이 최대 25% 단축될 것이라고 말했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案，支持者表示，這將使通勤時間最多縮短 25%。
+- **mlx-qwen3.5-4b-4bit**: 시의회는 화요일 7 대 2 의 투표로 버스 노선을 동부 교외로 연장하는 계획을 통과시켰습니다. 지지자들은 이 조치로 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 시의회는 화요일, 7표에 대한 2표로, 시내 버스 노선을 동부 교외 지역으로 확장하는 계획을 통과시켰습니다. 지지자들은 이 계획이 통근 시간을 최대 25% 단축할 것이라고 밝혔습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: 시의회는 화요일에 버스 노선을 동부 외곽 지역까지 연장하는 안건을 7대 2로 통과시켰으며, 지지자들은 이로 인해 통근 시간이 최대 25% 단축될 것이라고 밝혔
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案，支持者表示，這將使通勤時間最多縮短 25%。
 - **ollama-translategemma-4b**: 시의회는 화요일, 버스 노선을 동부 교외로 확장하는 방안을 7표 대 2표로 통과시켰습니다. 지지자들은 이를 통해 통근 시간을 최대 25% 단축할 수 있다고 밝혔습니다.
+- **ollama-translategemma-4b-mt**: 시의회는 화요일에 동부 외곽 지역으로 버스 노선을 확장하는 방안을 7표 대 2표로 통과시켰습니다. 찬성 측은 이를 통해 출퇴근 시간을 최대 25% 단축할 수 있다고 밝혔습니다.
 
 **zh-Hant-news-02** (news)
 
@@ -1920,12 +3175,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 할워슨 연구소의 연구원들은 새로운 배터리가 2,000회의 충전 및 방전 사이클 이후에도 90%의 전력을 유지할 수 있다는 사실을 발견했습니다.
 - **ct2-nllb-1.3b**: 해워슨 연구소의 연구자들은 새로운 종류의 배터리가 2000번의 충전 방하 순환을 거쳐도 90%의 전력을 유지할 수 있다는 것을 발견했습니다. 이는 현재 시장에서 판매되는 배터리의 두 배 정도입니다.
 - **ct2-nllb-600m**: 하버슨 연구소 연구원들은 새로운 배터리가 2000회 충전 주기를 거쳐도 90%의 전력을 보유할 수 있다는 것을 지적하고 있으며, 이는 현재 시장에서 판매되는 배터리의 2배 정도입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 哈爾沃森研究所的研究人員指出,一種新型電池在經過 2000 次充放電循環後,仍保有 90% 的電量,約為目前市售電池的兩倍。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할보센 연구소의 연구원들은 새로운 종류의 배터리가 2000회의 충·방전 주기를 거쳐도 90%의 전력을 유지한다고 지적했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배나 많은 수치입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 哈爾沃森研究所的研究人員指出，一種新型電池在經過 2000 次充放電循環後，仍保有 90% 的電量，約為目前市售電池的兩倍。
+- **mlx-qwen3.5-4b-4bit**: 하얼슨 연구소의 연구원들은 새로운 배터리가 2000 회 충전/방전 사이클 후에도 90% 의 전력을 유지하며, 이는 현재 판매 중인 배터리보다 약 두 배 빠르다고 밝혔습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 할브러센 연구소의 연구진은 새로운 배터리가 2,000회 충방전 후에도 90%의 용량을 유지하며, 현재 시장에 판매되는 배터리의 두 배에 달한다고 밝혔습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 哈爾沃森研究所的研究人員指出，一種新型電池在經過 2000 次充放電循環後，仍保有 90% 的電量，約為目前市售電池的兩倍。
 - **ollama-translategemma-4b**: 하르보슨 연구소의 연구원들은 새로운 배터리가 2000번의 충전 및 방전 사이클 후에도 90%의 용량을 유지하며, 이는 현재 시중 배터리의 두 배에 해당한다고 밝혔습니다.
+- **ollama-translategemma-4b-mt**: 할워슨 연구소 연구진은 새로운 배터리가 2,000번의 충방전 사이클을 거친 후에도 90%의 용량을 유지하며, 이는 현재 시판되는 배터리의 두 배에 해당한다고 밝혔습니다.
 
 **zh-Hant-news-03** (news)
 
@@ -1938,12 +3205,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 그러나 비평가들은 이 결과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용은 킬로와트시당 약 340달러였다고 지적했다.
 - **ct2-nllb-1.3b**: 그러나 비평가들은 이 결과물이 평론을 거치지 않았으며, 시제품의 생산 비용은 KWh당 약 340달러라고 지적한다.
 - **ct2-nllb-600m**: 그러나 비평가들은 이 결과는 아직 검열되지 않았으며, 프로토타입 생산 비용은 1킬로와트당 340달러에 달한다고 지적했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 不過,批評者指出,這項成果尚未經過同儕審查,而且原型的生產成本約為每千瓦小時 340 美元。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 하지만, 비평가들은 이 성과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용은 약 킬로와트시간당 340달러라고 지적했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 不過，批評者指出，這項成果尚未經過同儕審查，而且原型的生產成本約為每千瓦小時 340 美元。
+- **mlx-qwen3.5-4b-4bit**: 그러나 비판자들은 이 결과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용이 시간당 340 달러에 달한다고 지적했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 그러나, 비평가들은 이 연구가 동료 심사를 거치지 않았으며, 기본 모델의 생산 비용은 약 1,000 와트시당 340달러라고 지적했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 不過，批評者指出，這項成果尚未經過同儕審查，而且原型的生產成本約為每千瓦小時 340 美元。
 - **ollama-translategemma-4b**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용이 1kWh당 약 340달러라고 지적했습니다.
+- **ollama-translategemma-4b-mt**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입 생산 비용이 약 340달러/kWh로, 상당히 높은 수준이라고 지적했습니다.
 
 **zh-Hant-news-04** (news)
 
@@ -1956,12 +3235,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 시속 70킬로미터(43마일)에 이르는 바람과 섭씨 12도 이하의 기온이 예상됩니다.
 - **ct2-nllb-1.3b**: 북부 해안 지역에서는 목요일까지 폭우가 쏟아지고 시속 70km의 바람이 불고 기온이 섭씨 12도를 넘을 것으로 예상된다.
 - **ct2-nllb-600m**: 북부 해안 지역에서는 매주 목요일까지 강수량이 예상되며, 시속 70km의 바람이 발생하며, 기온이 12도 이하로 내려갈 것으로 예상된다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 北部沿海地區預計到週四都會有大雨,陣風可達每小時 70 公里,氣溫約在攝氏 12 度上下。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강한 비가 내릴 예정이며, 바람의 속도는 시간당 70km에 달할 수 있고, 기온은 약 섭씨 12도 정도가 될 것입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 北部沿海地區預計到週四都會有大雨，陣風可達每小時 70 公里，氣溫約在攝氏 12 度上下。
+- **mlx-qwen3.5-4b-4bit**: 북부 해안 지역은 목요일까지도 강풍이 예상되며, 최대 시속 70 km 의 바람과 약 12 도의 기온이 예상됩니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비가 내리고, 최대 순간 풍속은 시속 70km, 기온은 약 12도 정도로 예상됩니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 北部沿海地區預計到週四都會有大雨，陣風可達每小時 70 公里，氣溫約在攝氏 12 度上下。
 - **ollama-translategemma-4b**: 북부 해안 지역은 수요일까지 강우와 최대 70km/h의 강풍, 약 12도의 기온이 예상됩니다.
+- **ollama-translategemma-4b-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비와 최대 순간풍속 70km/h의 강한 바람, 그리고 약 12도 정도의 기온이 예상됩니다.
 
 **zh-Hant-news-05** (news)
 
@@ -1974,12 +3265,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 2011년 10월 1일에 확인함.  다음 날짜 값 확인 필요: \|date= (도움말) 2011년 10월 1일에 확인함.  다음 날짜 값 확인 필요: \|date= (도움말) 2011년 10월 1일에 확인함.
 - **ct2-nllb-1.3b**: 회사 측은 월요일 (현지시간) 발표한 성명을 통해 공급 문제로 인해 플래그그램 휴대폰 출시 시기가 내년 초까지 연기될 것이라고 밝혔다.
 - **ct2-nllb-600m**: 이 회사는 월요일에 발표한 발표에 따르면 공급 부족으로 인해 플래그십 휴대폰의 출시가 내년 초까지 연기될 것이라고 밝혔다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 該公司週一發布聲明表示,由於供應鏈問題持續,將把旗艦手機的上市延後至明年年初。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있기 때문에 프리미어 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 該公司週一發布聲明表示，由於供應鏈問題持續，將把旗艦手機的上市延後至明年年初。
+- **mlx-qwen3.5-4b-4bit**: 이 회사는 공급망 문제가 지속됨을 이유로 하여 (누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 해당 회사는 다음 주 월요일, 공급망 문제 지속으로 인해 플래그십 스마트폰의 출시를 내년 초로 연기한다고 발표했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 該公司週一發布聲明表示，由於供應鏈問題持續，將把旗艦手機的上市延後至明年年初。
 - **ollama-translategemma-4b**: 이 회사는 공급망 문제로 인해 플래그십 스마트폰의 출시를 내년 초로 연기한다고 밝혔습니다.(누락)(누락)
+- **ollama-translategemma-4b-mt**: 해당 회사는 지난주 성명을 통해, 공급망 문제로 인해 플래그십 스마트폰의 출시를 다음 해 초로 연기할 것이라고 발표했습니다.
 
 **zh-Hant-news-06** (news)
 
@@ -1992,12 +3295,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 왜 많은 소규모 빵집들이 5년 이상 지속되지 못하는가? 경제학자들은 이유가 빵 자체보다는 임대료, 노동력, 낮은 이익에 있다고 주장한다.
 - **ct2-nllb-1.3b**: 경제학자들은 그 이유는 빵 자체가 아니라 임대료, 인력, 그리고 낮은 수익 때문이라고 주장합니다.
 - **ct2-nllb-600m**: 왜 많은 작은 빵집들이 5년 동안 문을 닫았을까요? 경제학자들은 빵 자체와 관련이 없는 것이 아니라 임대, 인력 및 소소한 수익 때문이라고 생각합니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 為什麼許多小型麵包店撐不過五年?經濟學家認為,原因與麵包本身關係不大,更多在於房租、人力與微薄的利潤。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 많은 소규모 빵집들이 5년을 버티지 못하는가? 경제학자들은 그 이유가 빵 자체와는 관련이 없으며, 오히려 임대료, 인력, 그리고 낮은 이익률 때문이라고 생각합니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 為什麼許多小型麵包店撐不過五年？經濟學家認為，原因與麵包本身關係不大，更多在於房租、人力與微薄的利潤。
+- **mlx-qwen3.5-4b-4bit**: 왜 많은 작은 빵집이 5 년을 넘기지 못하나요? 경제학자들은 이는 빵 자체와 관련이 적으며, 임대료, (누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 이상 버티기 어려운 이유는 무엇일까요? 경제학자들은 빵 자체보다는 임대료, 인력, 그리고 극히 적은 이익과 관련되어 있다고 분석합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 為什麼許多小型麵包店撐不過五年？經濟學家認為，原因與麵包本身關係不大，更多在於房租、人力與微薄的利潤。
 - **ollama-translategemma-4b**: 왜 많은 소규모 빵집이 5년이 지나지 않아 문을 닫는가? 경제학자들은 그 이유는 빵 자체와 관련이 없으며, 주로 임대료, 인건비 및 미미한 이윤 때문이라고 말합니다.(누락)(누락)
+- **ollama-translategemma-4b-mt**: 많은 소규모 빵집이 5년 이상 버티지 못하는 이유는 무엇일까요? 경제학자들은 이 원인이 빵 자체보다는 임대료, 인건비, 그리고 극히 미미한 이익에 더 큰 영향을 미친다고 분석합니다.
 
 **zh-Hant-community-01** (community)
 
@@ -2010,12 +3325,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 세상에, 딸기 파이가 드디어 켜졌고, 전기가 켜지자 연기가 나기 시작했습니다.
 - **ct2-nllb-1.3b**: 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오.
 - **ct2-nllb-600m**: 오, 신이시여, 나무 이 마침내 문을 열었고, 그 결과 전기가 담배를 피우게 되었습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 天啊,樹莓派終於開機了,結果一通電就冒煙。好啦也不是真的冒煙,但我的心已經碎了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 세상에, 러브베리 파이가 드디어 시작되었는데, 갑자기 연기가 나왔어요. 사실 정말 연기가 나온 건 아니지만, 내 마음은 이미 부서졌어요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 天啊，樹莓派終於開機了，結果一通電就冒煙。好啦也不是真的冒煙，但我的心已經碎了。
+- **mlx-qwen3.5-4b-4bit**: 천하무적! 라즈베리 파이终于在开机了，结果一通电就冒烟。好啦也不是真的冒烟，但我的心已经碎了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 맙소사, 라즈베리 파가 드디어 부팅되었지만, 한 번 충전하고 나니 금방 타버리는 것 같네요. 정확히는 타는 것 같진 않지만, 제 마음은 이미 부서졌어요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 天啊，樹莓派終於開機了，結果一通電就冒煙。好啦也不是真的冒煙，但我的心已經碎了。
 - **ollama-translategemma-4b**: 드디어 라즈베리 파이가 켜졌는데, 전원을 켜자마자 펑! 이러네요. 뭐, 진짜 펑은 아니지만, 제 마음은 이미 멘탈붕괴 상태입니다.
+- **ollama-translategemma-4b-mt**: 맙소사, 라즈베리 파이 마침내 켜졌는데, 그런데 전원을 연결하자마자 굉음이 나더니 완전히 망가졌어. 물론 실제로 연기가 나진 않았지만, 그래도 내 마음은 이미 산산이 조각났어.
 
 **zh-Hant-community-02** (community)
 
@@ -2028,12 +3355,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 태블릿이나 스페이스 바를 사용할 수 있으며, 새벽 2시에도 이 사람을 괴롭히는 사람은 점심을 먹고 잠을 자는 것이 좋습니다.
 - **ct2-nllb-1.3b**: 이 문장은 타브나 빈자리를 사용할 수 있고, 새벽 2시에 이 사람을 먹이고 있는 사람은 저녁식사를 먹고 잠자리에 들어야 한다는 비난을 받을 수 있습니다.
 - **ct2-nllb-600m**: 이 말은 모욕을 불러일으킬 수도 있습니다. "태브를 사용하거나 빈 공간으로 사용할 수 있지만, 새벽 2시에 이 일을 하는 사람은 저녁을 먹어야 하고 잠자리에 들어야 한다".
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 說句可能會被罵的:用 Tab 或空白都可以,凌晨兩點還在吵這個的人,該去吃點宵夜然後睡覺了啦。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 비난받을 수도 있는 말이지만, Tab이나 빈칸을 사용해도 괜찮아요. 새벽 2시에까지 계속 시끄러운 사람은, 그냥 간식이나 먹고 잠을 자는 게 좋겠어요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 說句可能會被罵的：用 Tab 或空白都可以，凌晨兩點還在吵這個的人，該去吃點宵夜然後睡覺了啦。
+- **mlx-qwen3.5-4b-4bit**: 一句可能会挨骂的话：用 Tab 或空格都可以，凌晨两点还在吵这个的人，该去吃点宵夜然后睡觉了啦。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 이렇게 말하면 야단을 살 수 있어요: Tab이나 공백을 사용해도 괜찮아요.凌晨兩點까지 계속 싸우는 사람들은 저녁 먹고 잠 잘 시간이에요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 說句可能會被罵的：用 Tab 或空白都可以，凌晨兩點還在吵這個的人，該去吃點宵夜然後睡覺了啦。
 - **ollama-translategemma-4b**: 말을 좀 해보자: Tab이나 공백으로 구분해도 되지만, 새벽 2시에 이런 논쟁을 벌이는 사람들은 잠을 자야 합니다.
+- **ollama-translategemma-4b-mt**: ("이런 말 하면 비난받을 수도 있지만") 탭이나 공백으로도 가능하지만, 새벽 2시까지 계속 논쟁하는 사람들은 잠시 밥을 먹고 잠시 쉬는 게 좋겠네요.
 
 **zh-Hant-community-03** (community)
 
@@ -2046,12 +3385,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었다.
 - **ct2-nllb-1.3b**: 저는 웃고 웃으며 3시간 동안 잘못된 정보를 보고 있었고, 그 결과 1점만 남았습니다. 1점 !
 - **ct2-nllb-600m**: 3시간 동안 틀린 정보를 보고 웃고 죽었고, 그 결과 한 점도 빠졌어요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 笑死,盯著錯誤訊息看了三個小時,結果只是少了一個分號。一個分號欸!我要去山上隱居了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 웃겨요. 오류 메시지를 3시간 동안 계속 바라보고 있었는데, 결국은 단순히 하나의 세미콜론이 빠진 것뿐이었어요. 세미콜론 하나라니! 이제 산에 가서 은둔할 거예요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 笑死，盯著錯誤訊息看了三個小時，結果只是少了一個分號。一個分號欸！我要去山上隱居了。
+- **mlx-qwen3.5-4b-4bit**: 笑死，盯着错误信息看了三个小时，结果只是少了一个分号。一个分号啊！我要去山上隐居了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 너무 웃겨. 오류 메시지를 세 시간 동안 계속 보다가, 결국 한 개의 세미콜론이 빠진 것뿐이었어. 한 개의 세미콜론! 이제 내가 산으로 가서 은둔할 거야.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 笑死，盯著錯誤訊息看了三個小時，結果只是少了一個分號。一個分號欸！我要去山上隱居了。
 - **ollama-translategemma-4b**: 진짜 웃기네요. 오류 메시지를 3시간 동안 붙잡고 있었는데, 그냥 한 자를 빠뜨린 거였어요! 한 자! 이제 산으로 가서 숨어야겠어요.
+- **ollama-translategemma-4b-mt**: 너무 웃겨. 오류 메시지를 세 시간 동안 뚫어져라 봤는데, 결국에는 세미콜 하나가 빠진 것뿐이었어. 세미콜 하나! 이제 나는 산으로 들어가 은둔 생활을 해야겠어.
 
 **zh-Hant-community-04** (community)
 
@@ -2064,12 +3415,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 솔직히 말해서, 그 업데이트는 제 환경을 완전히 망가뜨렸습니다. 저는 이전 버전으로 돌아갔고, 내일 다시 싸울 것입니다.
 - **ct2-nllb-1.3b**: 솔직히 말해서, 그 업데이트는 내 환경을 바로 날려버렸다.
 - **ct2-nllb-600m**: 솔직히 말하면, 그 업데이트는 내 환경을 직접 파괴했습니다. 이전 버전으로 돌아갔고, 바람을 불어 넣고, 내일 다시 싸우고 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 老實說,那次更新直接把我的環境搞爆了。已經退回舊版,出門吹了風,明天再戰。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이제는 오래된 버전으로 돌아갔고, 내일 다시 싸울 예정이에요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 老實說，那次更新直接把我的環境搞爆了。已經退回舊版，出門吹了風，明天再戰。
+- **mlx-qwen3.5-4b-4bit**: 老实说，那次更新(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말하면, 그 업데이트 때문에 제 환경이 완전히 망가졌어요. 이전 버전으로 되돌렸고, 밖에 나가서 공기 들이고, 내일 다시 싸울 거예요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 老實說，那次更新直接把我的環境搞爆了。已經退回舊版，出門吹了風，明天再戰。
 - **ollama-translategemma-4b**: 솔직히 말해서, 이번 업데이트는 제 환경을 완전히 망쳐놨어요. 그래서 이전 버전으로 돌아갔고, 바람을 쐬면서 내일 다시 시도할 겁니다.(누락)(누락)
+- **ollama-translategemma-4b-mt**: 솔직히 말씀드리면, 그 업데이트 때문에 제 환경이 완전히 망가졌어요. 그래서 이전 버전으로 되돌렸고, 밖에 나가서 바람을 쐬고 내일 다시 시도할게요.
 
 **zh-Hant-community-05** (community)
 
@@ -2082,12 +3445,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 제 고양이가 일주일 동안 라우터 위에 누워있었고, 와이파이가 훨씬 더 안정적이었습니다.
 - **ct2-nllb-1.3b**: 사실. 내 고양이는 일주일 동안 라우터에 연결되어 있었고, 와이파이는 이전보다 더 안정적이었습니다.
 - **ct2-nllb-600m**: 사실, 우리 고양이는 일주일 동안 라우터에 연결되어 있었고, 와이파이는 이전보다 안정적이었습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 真的啦。我家貓在路由器上趴了一個禮拜,Wi-Fi 居然比以前還穩。不要問,問就是貓的力量。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 정말이에요. 제 집 고양이가 한 주 동안 라우터 위에 누워 있었는데, Wi-Fi가 예전보다 더 안정적이었어요. 묻지 마세요, 그건 고양이의 힘 때문이에요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 真的啦。我家貓在路由器上趴了一個禮拜，Wi-Fi 居然比以前還穩。不要問，問就是貓的力量。
+- **mlx-qwen3.5-4b-4bit**: 真的啦。我家的猫在路由器上趴了一周，Wi-Fi 居然比以前还稳。不要问，问就是猫的力量。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 정말이야. 내 집 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 이전보다 더 안정적이야. 뭐, 고양이의 힘이라고.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 真的啦。我家貓在路由器上趴了一個禮拜，Wi-Fi 居然比以前還穩。不要問，問就是貓的力量。
 - **ollama-translategemma-4b**: 진짜예요. 제 고양이가 라우터 위에 일주일 동안 엎드려 있었는데, Wi-Fi가 오히려 더 잘 됐어요. 믿지 않으시겠지만, 그게 고양이의 힘이에요.
+- **ollama-translategemma-4b-mt**: 맞아요. 제 고양이가 라우터 위에 일주일 동안 누워 있었는데, 와이파이가 오히려 이전보다 더 안정적으로 작동하더라고요. 그냥 고양이의 마법이라고 생각하시면 돼요.
 
 **zh-Hant-community-06** (community)
 
@@ -2100,12 +3475,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 1000원짜리 지폐는 1000원짜리 지폐를 1000원짜리 지폐로 바꾸어서 발행하며, 1000원짜리 지폐는 1000원짜리 지폐를 1000원짜리 지폐로 바꿔서 발행한다.
 - **ct2-nllb-1.3b**: 신사 숙녀 여러분, 저는 1,800원짜리 키보드를 샀습니다. 비처럼 울리는 키보드는 전혀 후회하지 않습니다. 동료들은... 확신이 없습니다.
 - **ct2-nllb-600m**: 여러분, 저는 1800달러를 들여 비가 내리는 키보드를 샀습니다. 전혀 후회하지 않습니다. 동료들은... 확실하지 않습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 各位,我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……不確定了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 저는 1,800 대만 원을 써서 비가 내리는 것처럼 소리가 나는 키보드를 구입했어요. 전혀 후회하지 않아요. 동료들은… 확신이 안 돼요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 各位，我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤，完全不後悔，同事就……不確定了。
+- **mlx-qwen3.5-4b-4bit**: 各位，我花了 1,800 元台币买了一支敲起来像下雨声的键盘，完全不后悔，同事就……(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 여러분, 저는 1,800 대만 달러로 아주 특별한 키보드를 구매했습니다. 마치 비가 내리는 소리가 들리는 것 같은, 정말 멋진 키보드예요. 정말 만족합니다. 동료들은… 잘 모르겠네요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 各位，我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤，完全不後悔，同事就……不確定了。
 - **ollama-translategemma-4b**: 여러분, 1800원짜리 키보드를 샀는데, 소리만 내는 녀석이네요. ㅋㅋㅋ.(누락)(누락)
+- **ollama-translategemma-4b-mt**: 여러분, 저는 1,800 대만 달러를 들여서, 마치 비가 내리는 소리와 비슷한 소리를 내는 키보드를 샀는데, 정말 만족합니다. 동료들은… 아직은 반응이 썩 좋지는 않네요.
 
 **zh-Hant-ui-01** (ui)
 
@@ -2118,12 +3505,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 변경 사항 저장
 - **ct2-nllb-1.3b**: 변경사항을 저장합니다
 - **ct2-nllb-600m**: 변경사항을 저장
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 儲存變更
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 저장 변경
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 儲存變更
+- **mlx-qwen3.5-4b-4bit**: 保存更改
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 저장 변경
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 儲存變更
 - **ollama-translategemma-4b**: 변경 사항 저장
+- **ollama-translategemma-4b-mt**: 저장 변경
 
 **zh-Hant-ui-02** (ui)
 
@@ -2136,12 +3535,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 오류가 발생하였습니다. 나중에 다시 시도해 주십시오.
 - **ct2-nllb-1.3b**: 한 번 더 시도해 보세요.
 - **ct2-nllb-600m**: 만약 오류가 발생하면 나중에 다시 시도해보세요.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 發生錯誤,請稍後再試。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 發生錯誤，請稍後再試。
+- **mlx-qwen3.5-4b-4bit**: 发生错误，请稍后再试。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 오류가 발생했습니다. 잠시 후 다시 시도해주세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 發生錯誤，請稍後再試。
 - **ollama-translategemma-4b**: 오류가 발생했습니다. 잠시 후 다시 시도하세요.
+- **ollama-translategemma-4b-mt**: 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
 
 **zh-Hant-ui-03** (ui)
 
@@ -2154,12 +3565,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 읽지 않은 메시지가 3개 있습니다.
 - **ct2-nllb-1.3b**: 당신은 3개의 글을 읽지 않았습니다.
 - **ct2-nllb-600m**: 3개의 메세지가 읽히지 않았습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 您有 3 則未讀訊息
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이메일을 읽지 않은 메시지가 3개 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 您有 3 則未讀訊息
+- **mlx-qwen3.5-4b-4bit**: 您有 3 条未读消息
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 3개의 읽지 않은 메시지가 있습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 您有 3 則未讀訊息
 - **ollama-translategemma-4b**: 읽지 않은 메시지가 3개 있습니다
+- **ollama-translategemma-4b-mt**: 읽지 않은 메시지가 3건 있습니다.
 
 **zh-Hant-link-01** (link)
 
@@ -2172,12 +3595,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 누르세요[這裡]이렇게 계속된다.
 - **ct2-nllb-1.3b**: 누르세요.[這裡]그리고 계속하세요.
 - **ct2-nllb-600m**: 다음 문자를 클릭하세요[這裡]그래서 계속할 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 按一下[這裡]這裡
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 클릭하세요[這裡]계속할 수 있습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 按一下[這裡]這裡
+- **mlx-qwen3.5-4b-4bit**: 点击[這裡](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 한 번 누르세요.[這裡]계속 진행하십시오.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 按一下[這裡]即可繼續。
 - **ollama-translategemma-4b**: 클릭[這裡]여기
+- **ollama-translategemma-4b-mt**: 버튼을 누르세요[這裡]계속 진행하시면 됩니다.
 
 **zh-Hant-link-02** (link)
 
@@ -2190,12 +3625,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 지원되는 플랫폼에 대한 정보는 다음을 참조하십시오.[安裝指南]。
 - **ct2-nllb-1.3b**: 지원 플랫폼에 대한 자세한 내용은 이 문서를 참조하십시오.[安裝指南]。
 - **ct2-nllb-600m**: 지원 플랫폼에 대한 자세한 내용은 문서를 참조하십시오[安裝指南]。
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 如需瞭解支援的平台,請參閱[安裝指南]安裝指南
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지원되는 플랫폼에 대해 알고 싶으시면, [安裝指南]。
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 如需瞭解支援的平台，請參閱[安裝指南]安裝指南
+- **mlx-qwen3.5-4b-4bit**: 如需了解支持的平台，请参阅[安裝指南](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 자세한 내용이 필요하시면 [安裝指南]。
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 如需瞭解支援的平台，請參閱[安裝指南]安裝指南
 - **ollama-translategemma-4b**: 지원 플랫폼에 대한 자세한 내용은 [安裝指南]설치 가이드
+- **ollama-translategemma-4b-mt**: 지원 플랫폼에 대한 자세한 내용은 [安裝指南]。
 
 **zh-Hant-link-03** (link)
 
@@ -2208,12 +3655,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 문제가 발생한 경우[到問題追蹤頁面回報]레코드를 담당하고 있다.
 - **ct2-nllb-1.3b**: 만약 문제가 생기면 연락해주세요.[到問題追蹤頁面回報]이 글은 카카오페이지에서 공개된 글입니다.
 - **ct2-nllb-600m**: 만약 문제가 있다면, 부탁드립니다.[到問題追蹤頁面回報]이 글은 많은 사람들의 관심을 끌고 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 如果遇到問題,請[到問題追蹤頁面回報]到問題追蹤頁面回報
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [到問題追蹤頁面回報]을 하고 기록 파일을 첨부해 주세요.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 如果遇到問題，請[到問題追蹤頁面回報]到問題追蹤頁面回報
+- **mlx-qwen3.5-4b-4bit**: 如果遇到问题，请[到問題追蹤頁面回報](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 문제가 발생했을 경우, [到問題追蹤頁面回報]에 문의하시고 관련 기록 파일을 첨부해 주세요.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 如果遇到問題，請[到問題追蹤頁面回報]到問題追蹤頁面回報
 - **ollama-translategemma-4b**: 문제 발생 시 [到問題追蹤頁面回報]문제 추적 페이지
+- **ollama-translategemma-4b-mt**: 문제가 발생하면,[到問題追蹤頁面回報]또한, 관련 기록 파일을 첨부합니다.
 
 **zh-Hant-seq-01** (seq)
 
@@ -2226,12 +3685,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 작년 봄, 저는 가족의 사진을 저장하기 위해 오래된 노트북을 가정용 서버로 바꾸기로 결정했습니다.
 - **ct2-nllb-1.3b**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸고 가족 사진을 저장하기로 결정했습니다.
 - **ct2-nllb-600m**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸어 가족들의 사진을 저장하기로 결정했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 去年春天,我決定把一台舊筆電改造成家用伺服器,用來存放家人的照片。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄에, 저는 오래된 노트북을 가정용 서버로 바꾸기로 결심했어요. 그 서버를 이용해 가족들의 사진을 저장할 예정입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 去年春天，我決定把一台舊筆電改造成家用伺服器，用來存放家人的照片。
+- **mlx-qwen3.5-4b-4bit**: 去年春天，我决定将一台旧笔记本电脑改造成家用服务器，用于存储家人的照片。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 작년 봄, 저는 오래된 노트북을 개조하여 가정용 서버로 만들기로 결정했습니다. 가족 사진을 보관하기 위해서입니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 去年春天，我決定把一台舊筆電改造成家用伺服器，用來存放家人的照片。
 - **ollama-translategemma-4b**: 지난 봄, 저는 오래된 노트북을 집 서버로 개조하기로 결정했습니다. 2014년 ThinkBook 8GB 메모리를 사용하기에 충분했습니다.
+- **ollama-translategemma-4b-mt**: 지난 봄, 저는 오래된 노트북을 개조하여 가정용 서버로 만들기로 결정했습니다. 이를 통해 가족들의 사진을 보관할 수 있게 되었습니다.
 
 **zh-Hant-seq-02** (seq)
 
@@ -2244,12 +3715,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이 2014 ThinkBook은 8GB의 메모리를 갖추고 있어 이러한 작업에 적합합니다.
 - **ct2-nllb-1.3b**: 2014년에 출시된 이 힌크북은 8GB의 메모리를 탑재하고 있습니다.
 - **ct2-nllb-600m**: 2014년에 출시된 ThinkBook은 8GB의 메모리를 가지고 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 這台 2014 年的ThinkBook配備 8 GB 記憶體,拿來做這件事剛剛好。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년형 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 할 때 딱 맞는 기기입니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 這台 2014 年的ThinkBook配備 8 GB 記憶體，拿來做這件事剛剛好。
+- **mlx-qwen3.5-4b-4bit**: 这台 2014 年的(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 이 2014년 ThinkBook은 8GB의 메모리를 갖추고, 이 작업을 위해 완벽하게 적합합니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 這台 2014 年的ThinkBook配備 8 GB 記憶體，拿來做這件事剛剛好。
 - **ollama-translategemma-4b**: 저는 Debian 12를 설치하고, 사진을 저장하는 Fernbox라는 작은 웹 애플리케이션을 설정했습니다.(누락)(누락)
+- **ollama-translategemma-4b-mt**: 이 2014년 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 수행하기에 완벽합니다.
 
 **zh-Hant-seq-03** (seq)
 
@@ -2262,12 +3745,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 제가 설치했어요. [Debian 12]또한 Fernbox라는 이름의 작은 웹 애플리케이션을 설치하여 사진을 볼 수 있다.
 - **ct2-nllb-1.3b**: 저는 그것을 설치했습니다. [Debian 12]이 사진들을 검색하기 위해 Fernbox라는 작은 웹 애플리케이션을 설치했습니다.
 - **ct2-nllb-600m**: 제가 먼저 설치했습니다. [Debian 12]그리고 Fernbox라는 작은 웹 애플리케이션을 만들어서 사진을 탐색할 수 있습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 我先安裝了 [Debian 12]Debian 12
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 둘러볼 수 있는 Fernbox이라는 작은 웹 애플리케이션도 설치했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 我先安裝了[Debian 12]Debian 12
+- **mlx-qwen3.5-4b-4bit**: 我先安装了[Debian 12](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 먼저 [Debian 12]을 설치하고, Fernbox라는 작은 웹 애플리케이션을 설치하여 사진을 보기로 했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 我先安裝了[Debian 12]Debian 12
 - **ollama-translategemma-4b**: 처음에는 제 여동생이 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했습니다.[Debian 12](누락)
+- **ollama-translategemma-4b-mt**: 먼저 [Debian 12]을 설치한 후, 사진을 보기 위한 작은 웹 애플리케이션인 "Fernbox"를 구축했습니다.
 
 **zh-Hant-seq-04** (seq)
 
@@ -2280,12 +3775,24 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 여동생은 처음에는 의심스럽게 생각했지만 일주일이 지나자 Fernbox가 그녀가 이전에 사용했던 어떤 클라우드 서비스보다도 빠르다는 것을 인정했습니다.
 - **ct2-nllb-1.3b**: 그녀의 여동생은 처음에는 의심했지만 일주일 후 페른박스가 그녀가 사용한 모든 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
 - **ct2-nllb-600m**: 언니는 처음에는 반정신적이었지만 일주일 후에 Fernbox이 그녀가 사용한 클라우드 서비스보다 더 빠르다는 사실을 인정했습니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심했지만, 일주일 후에 그녀는 Fernbox가 자신이 사용한 모든 클라우드 서비스보다 더 빠르다고 인정했습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
 - **mlx-qwen3.5-2b-4bit**: 妹妹起初半信半疑，但一週後她承認，Fernbox 比她用過的任何雲端服務都快。
+- **mlx-qwen3.5-4b-4bit**: 妹妹起初半信半疑，但一周后她承认，Fernbox 比她使用过的任何云服务都快。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 처음에 여동생은 의심했지만, 한 주 후에는 Fernbox이 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
+- **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 妹妹起初半信半疑，但一週後她承認，Fernbox 比她用過的任何雲端服務都快。
 - **ollama-translategemma-4b**: 지금은 오래된 노트북이 조용히 책상 위에 놓여 있고, Fernbox는 가족이 여행을 마치고 돌아왔을 때 가장 먼저 켜는 프로그램입니다.
+- **ollama-translategemma-4b-mt**: 처음에는 의심스러워했지만, 한 주 후에는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
 
 **zh-Hant-seq-05** (seq)
 
@@ -2298,10 +3805,22 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **ct2-madlad-3b**: 이제 그 오래된 노트북은 선반에 조용히 놓여 있고 Fernbox는 가족이 여행에서 돌아왔을 때 처음으로 열리는 앱이 되었습니다.
 - **ct2-nllb-1.3b**: 현재, 오래된 노트북은 조용하게 책상 위에 놓여 있으며, Fernbox은 가족 여행에서 돌아온 후 처음으로 열리는 앱이 되었습니다.
 - **ct2-nllb-600m**: 현재는 오래된 노트북이 쉴 새 없이 상자 위에 놓여 있고, Fernbox은 가족 모두가 여행에 돌아온 후 처음으로 오픈한 앱입니다.
+- **mlx-exaone-4.0-1.2b-4bit**: (오류: HTTP 404: {"error": "generation thread died"})
+- **mlx-gemma-3-1b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-gemma-4-e2b-4bit**: 現在,那台舊筆電安靜地放在架子上,而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아왔을 때 가장 먼저 열리는 애플리케이션이 되었습니다.
+- **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-qwen3-1.7b-4bit**: 現在,那台舊筆電安靜地放在架子上,而 Fernbox 已經成為全家人旅行回來後第一個開啟的應用程式。
 - **mlx-qwen3.5-2b-4bit**: 現在，那台舊筆電安靜地放在架子上，而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
+- **mlx-qwen3.5-4b-4bit**: 现在，那台旧笔记本电脑安静地放在架子上，而(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **mlx-translategemma-4b-4bit-mt**: 현재, 그 오래된 노트북은 책상 위에 조용히 놓여 있고, Fernbox는 가족들이 여행을 마치고 돌아와서 가장 먼저 실행되는 앱이 되었습니다.
+- **ollama-gemma4-e2b**: 이제 그 낡은 노트북은 조용히 선반 위에 놓여 있고, (누락)(누락)
+- **ollama-gemma4-e4b**: (오류: block missing in output)
+- **ollama-qwen3-1.7b**: (오류: block missing in output)
 - **ollama-qwen3.5-2b**: 現在，那台舊筆電安靜地放在架子上，而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
 - **ollama-translategemma-4b**: (오류: block missing in output)
+- **ollama-translategemma-4b-mt**: 현재, 오래된 노트북은 조용히 책상 위에 놓여 있고, Fernbox는 온 가족이 여행을 마치고 돌아왔을 때 가장 먼저 실행하는 앱이 되었습니다.
 

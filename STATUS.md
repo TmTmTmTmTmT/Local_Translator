@@ -87,6 +87,11 @@
 - 이번 재개에서 완료: ollama-qwen3-1.7b, mlx-qwen3.5-4b, mlx-exaone-4.0-1.2b (mlx-kanana 등 남음)
 - 남은 벤치: kanana, gemma-3-1b, gemma-4-e2b, hyperclovax, ollama-gemma4(e2b/e4b), *-mt 3종(orchestrate.mjs args 지원 수정 후), opus(torch 설치), Apple fm ja/zh·marker 재실행
 
+## 확장 로컬 MT 엔진 포팅 완료
+- `extension/engines/mtmode.js`(hymt2/translategemma/chat, ⟦n⟧ 마커), `local:mt-ollama`·`local:mt-mlx` 엔진, 옵션 UI(family·keep-alive), 테스트 224 통과
+- 한계: localhost.baseUrl 하나를 모든 localhost 엔진이 공유(MLX는 8080 직접 지정 필요) — 엔진별 URL 분리는 설정 구조 변경이라 Opus 확인 필요
+- chat family 프롬프트는 확장판과 bench 판을 나중에 맞춤
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

@@ -28,6 +28,14 @@
     </label>
     <label>Base URL (127.0.0.1 / localhost 만) <input id="lh-base" type="text" spellcheck="false"></label>
     <label>모델 <input id="lh-model" type="text" spellcheck="false"></label>
+    <label>MT 모드 모델 계열 (local:mt-* 전용)
+      <select id="lh-family">
+        <option value="hymt2">hymt2 (Hy-MT2)</option>
+        <option value="translategemma">translategemma</option>
+        <option value="chat">chat (일반 채팅 모델)</option>
+      </select>
+    </label>
+    <label>Keep-alive (초, Ollama MT 모드) <input id="lh-keepalive" type="number" min="-1" step="1"></label>
   </section>
 
   <section>
