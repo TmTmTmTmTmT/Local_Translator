@@ -1,6 +1,6 @@
 # Phase 0 벤치마크 REPORT
 
-생성: 2026-10-07T06:38:00.779Z · 엔진 7 · 언어 en, ja, zh-Hans, zh-Hant
+생성: 2026-10-07T06:58:16.759Z · 엔진 15 · 언어 en, ja, zh-Hans, zh-Hant
 
 ## 1. 엔진 x 언어 요약
 
@@ -14,6 +14,8 @@
 | apple-mt-attr | ja | 1 | 50165 | 1730* | 1730 | 50166 (29) | 31 | 100% | - | - | 97% | 100% | 95% | 93% | 0 | 0 | 0 | 0 |
 | apple-mt-attr | zh-Hans | 1 | 53920 | 1859* | 1859 | 53920 (29) | 22 | 100% | - | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
 | apple-mt-attr | zh-Hant | 1 | 54642 | 1884* | 1884 | 54642 (29) | 22 | 100% | - | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| apple-mt-marker | en | 1 | 59187 | 2041* | 2041 | 59187 (29) | 55 | 100% | - | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
+| apple-mt-marker | ja | 1 | 51365 | 1771* | 1771 | 51365 (29) | 31 | 100% | - | - | 97% | 100% | 95% | 93% | 0 | 0 | 0 | 0 |
 | apple-mt-plain | en | 1 | 55227 | 1904* | 1904 | 55227 (29) | 59 | 100% | - | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
 | apple-mt-plain | ja | 1 | 48688 | 1679* | 1679 | 48688 (29) | 32 | 100% | - | - | 97% | 100% | 95% | 93% | 0 | 0 | 0 | 0 |
 | apple-mt-plain | zh-Hans | 1 | 56417 | 1945* | 1945 | 56417 (29) | 21 | 100% | - | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
@@ -22,16 +24,46 @@
 | apple-mt-plain-lowlatency | ja | 1 | 217 | -* | - | 217 (29) | 7249 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | apple-mt-plain-lowlatency | zh-Hans | 1 | 242 | -* | - | 243 (29) | 4836 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | apple-mt-plain-lowlatency | zh-Hant | 1 | 236 | -* | - | 236 (29) | 5052 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ct2-m2m100-418m | en | 1 | 1836 | -* | - | 1836 (29) | 1766 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ct2-m2m100-418m | ja | 1 | 220 | -* | - | 220 (29) | 7164 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ct2-m2m100-418m | zh-Hans | 1 | 216 | -* | - | 216 (29) | 5431 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ct2-m2m100-418m | zh-Hant | 1 | 217 | -* | - | 217 (29) | 5493 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ct2-madlad-3b | en | 1 | 57281 | 1975* | 1975 | 57281 (29) | 57 | 100% | - | - | 100% | 100% | 72% | 93% | 0 | 0 | 0 | 0 |
+| ct2-madlad-3b | ja | 1 | 47724 | 1646* | 1646 | 47724 (29) | 33 | 100% | - | - | 90% | 0% | 58% | 95% | 0 | 0 | 0 | 0 |
+| ct2-madlad-3b | zh-Hans | 1 | 48747 | 1681* | 1681 | 48747 (29) | 24 | 100% | - | - | 95% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| ct2-madlad-3b | zh-Hant | 1 | 54935 | 1894* | 1894 | 54935 (29) | 22 | 100% | - | - | 90% | 100% | 80% | 96% | 0 | 0 | 2 | 0 |
+| ct2-nllb-1.3b | en | 1 | 16527 | 570* | 570 | 16527 (29) | 196 | 100% | - | - | 100% | 100% | 44% | 96% | 0 | 1 | 0 | 0 |
+| ct2-nllb-1.3b | ja | 1 | 12386 | 427* | 427 | 12386 (29) | 127 | 100% | - | - | 83% | 100% | 58% | 95% | 1 | 1 | 0 | 0 |
+| ct2-nllb-1.3b | zh-Hans | 1 | 12327 | 425* | 425 | 12327 (29) | 95 | 100% | - | - | 100% | 100% | 56% | 97% | 0 | 0 | 0 | 0 |
+| ct2-nllb-1.3b | zh-Hant | 1 | 13182 | 455* | 455 | 13182 (29) | 90 | 100% | - | - | 100% | 100% | 60% | 97% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | en | 1 | 9027 | 311* | 311 | 9027 (29) | 359 | 100% | - | - | 100% | 100% | 50% | 96% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | ja | 1 | 6426 | 222* | 222 | 6426 (29) | 245 | 100% | - | - | 80% | 100% | 63% | 94% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | zh-Hans | 1 | 6744 | 233* | 233 | 6744 (29) | 174 | 100% | - | - | 100% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | zh-Hant | 1 | 6416 | 221* | 221 | 6416 (29) | 186 | 100% | - | - | 95% | 100% | 70% | 94% | 0 | 0 | 0 | 0 |
 | mlx-hy-mt2-1.8b-4bit | en | 1 | 81684 | -* | - | 81685 (29) | 40 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | ja | 1 | 90861 | -* | - | 90861 (29) | 17 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | zh-Hans | 1 | 71840 | -* | - | 71840 (29) | 16 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | zh-Hant | 1 | 86546 | -* | - | 86546 (29) | 14 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-qwen3-1.7b-4bit | en | 1 | 30087 | 1037* | 1037 | 30087 (29) | 108 | 2% | - | 100% | 100% | - | 0% | 0% | 0 | 0 | 0 | 28 |
+| mlx-qwen3-1.7b-4bit | ja | 1 | 62597 | 2159* | 2159 | 62597 (29) | 25 | 6% | - | 0% | - | - | 100% | 0% | 1 | 0 | 0 | 28 |
+| mlx-qwen3-1.7b-4bit | zh-Hans | 1 | 49858 | -* | - | 49858 (29) | 24 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-qwen3-1.7b-4bit | zh-Hant | 1 | 28834 | 994* | 994 | 28834 (29) | 41 | 6% | - | 100% | - | - | 100% | 0% | 1 | 0 | 0 | 28 |
+| mlx-qwen3.5-2b-4bit | en | 1 | 55901 | 1928* | 1928 | 55901 (29) | 58 | 75% | - | 0% | 95% | 100% | 72% | 86% | 0 | 0 | 0 | 0 |
+| mlx-qwen3.5-2b-4bit | ja | 1 | 34337 | 1184* | 1184 | 34337 (29) | 46 | 100% | - | 100% | 100% | 100% | 89% | 6% | 26 | 1 | 0 | 0 |
+| mlx-qwen3.5-2b-4bit | zh-Hans | 1 | 32290 | 1113* | 1113 | 32290 (29) | 36 | 100% | - | 100% | 100% | 100% | 100% | 0% | 29 | 0 | 0 | 0 |
+| mlx-qwen3.5-2b-4bit | zh-Hant | 1 | 34425 | 1187* | 1187 | 34425 (29) | 35 | 100% | - | 100% | 95% | 100% | 90% | 0% | 29 | 0 | 0 | 0 |
 | mlx-translategemma-4b-4bit | en | 1 | 1967 | -* | - | 1967 (29) | 1649 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | ja | 1 | 31 | -* | - | 31 (29) | 50839 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | zh-Hans | 1 | 32 | -* | - | 32 (29) | 36656 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | zh-Hant | 1 | 32 | -* | - | 32 (29) | 37250 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ollama-qwen3.5-2b | en | 1 | 63164 | 2178* | 2178 | 63164 (29) | 51 | 78% | - | 100% | 95% | 100% | 78% | 89% | 0 | 0 | 0 | 0 |
+| ollama-qwen3.5-2b | ja | 1 | 63359 | 2185* | 2185 | 63359 (29) | 25 | 92% | - | 100% | 97% | 100% | 100% | 88% | 0 | 0 | 0 | 0 |
+| ollama-qwen3.5-2b | zh-Hans | 1 | 4722 | 163* | 163 | 4722 (29) | 248 | 2% | - | 100% | 0% | - | - | 0% | 0 | 0 | 0 | 28 |
+| ollama-qwen3.5-2b | zh-Hant | 1 | 62211 | 2145* | 2145 | 62211 (29) | 19 | 98% | - | 100% | 100% | 100% | 90% | 0% | 28 | 0 | 0 | 0 |
 | ollama-translategemma-4b | en | 1 | 26946 | 929* | 929 | 26946 (29) | 120 | 18% | - | 100% | 88% | 100% | 100% | 73% | 0 | 0 | 0 | 23 |
 | ollama-translategemma-4b | ja | 1 | 15994 | -* | - | 15994 (29) | 99 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ollama-translategemma-4b | zh-Hans | 1 | 16073 | 554* | 554 | 16073 (29) | 73 | 6% | - | 100% | 80% | - | 100% | 95% | 0 | 0 | 0 | 26 |
+| ollama-translategemma-4b | zh-Hant | 1 | 78817 | 2718* | 2718 | 78817 (29) | 15 | 72% | - | 100% | 90% | 100% | 78% | 93% | 0 | 0 | 0 | 1 |
 
 - warm = run 2+ 전체 + run 1의 첫 배치 제외 블록 (`*` = 표본 부족으로 콜드 포함). 블록 ms는 배치 시간/블록 수.
 - x 보존: 결과에 `xPreserved`를 기록하는 엔진만 표시 (LLM 어댑터는 x를 출력하지 않아 `-`). JSON 유효 = 첫 시도 성공 배치 비율(JSON 계열만).
@@ -64,6 +96,8 @@ scenario 결과 없음.
 | apple-mt-attr | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-attr | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-attr | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| apple-mt-marker | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| apple-mt-marker | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-plain | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-plain | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-plain | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
@@ -72,16 +106,46 @@ scenario 결과 없음.
 | apple-mt-plain-lowlatency | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | apple-mt-plain-lowlatency | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | apple-mt-plain-lowlatency | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ct2-m2m100-418m | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ct2-m2m100-418m | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ct2-m2m100-418m | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ct2-m2m100-418m | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ct2-madlad-3b | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ct2-madlad-3b | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ct2-madlad-3b | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ct2-madlad-3b | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ct2-nllb-1.3b | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ct2-nllb-1.3b | ja | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-nllb-1.3b | zh-Hans | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-nllb-1.3b | zh-Hant | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-nllb-600m | en | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-nllb-600m | ja | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-nllb-600m | zh-Hans | PASS | PASS | N/A | N/A | N/A | PENDING |
+| ct2-nllb-600m | zh-Hant | PASS | PASS | N/A | N/A | N/A | PENDING |
 | mlx-hy-mt2-1.8b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-hy-mt2-1.8b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | mlx-translategemma-4b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3.5-2b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3.5-2b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3.5-2b | zh-Hans | PASS | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-qwen3.5-2b | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | ollama-translategemma-4b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 | ollama-translategemma-4b | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
 
 PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언로드는 usage-sim(없으면 resident) 모니터 기준.
 
@@ -94,10 +158,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: To install the CLI, run [npm install -g fernctl] and then check the version with [fernctl --version]. Version 2.4.1 or later is required.
 - **apple-fm**: CLI 설치하려면 [npm install -g fernctl]npm install -g fernctl[fernctl --version]. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-attr**: CLI를 설치하려면 실행한[npm install -g fernctl]을  후 으로 버전을 확인하십시오[fernctl --version]. 버전 2.4.1 이상이 필요합니다.
+- **apple-mt-marker**: CLI를 설치하려면 [npm install -g fernctl]을 실행한 다음 [fernctl --version]로 버전을 확인하십시오. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-plain**: CLI를 설치하려면 실행하세요 [npm install -g fernctl] 그리고 버전을 확인하세요 [fernctl --version]. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: CLI를 설치하려면, 실행 [npm install -g fernctl] 그리고 다음으로 버전을 확인하십시오 [fernctl --version]. 버전 2.4.1 이상이 필요합니다.
+- **ct2-nllb-1.3b**: CLI를 설치하려면 실행 [npm install -g fernctl] 그 다음 버전 확인 [fernctl --version]. 버전 2.4.1 또는 최신 버전이 필요합니다.
+- **ct2-nllb-600m**: CLI를 설치하려면 실행 [npm install -g fernctl] 다음으로 버전을 확인합니다 [fernctl --version]. 버전 2.4.1 또는 그 이상의 버전이 필요합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: Version 2.4.1 or later is required.[npm install -g fernctl](누락)[fernctl --version](누락)
+- **mlx-qwen3.5-2b-4bit**: 클리를 설치하려면 다음을 실행하세요.[npm install -g fernctl]npm 을 설치한 후 fernctl 를 설치하세요.[fernctl --version]그리고 버전 확인하려면 fernctl 를 사용하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 클리를 설치하려면 [npm install -g fernctl]npm install -g fernctl 를 실행한 후, [fernctl --version]버전을 확인하려면 
 - **ollama-translategemma-4b**: CLI를 설치하려면 다음 명령을 실행하세요[npm install -g fernctl]npm install -g fernctl[fernctl --version](누락)
 
 **en-tech-02** (tech)
@@ -105,10 +177,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: The [timeout] option accepts a value in milliseconds; the default is 30000 (30 seconds), and setting it to 0 disables the limit entirely.
 - **apple-fm**: 시간 제한 옵션은 밀리초 단위의 값을 허용합니다. 기본값은 30000(30초)이며, 0으로 설정하면 제한이 완전히 해제됩니다.[timeout]
 - **apple-mt-attr**: 그 [timeout] 옵션은 밀리초 단위의 값을 받아들입니다; 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한이 완전히 비활성화됩니다.
+- **apple-mt-marker**: [timeout] 옵션은 밀리초 단위의 값을 허용하며, 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한이 완전히 해제됩니다.
 - **apple-mt-plain**: 그 [timeout] 옵션은 밀리초 단위의 값을 받아들입니다; 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한이 완전히 비활성화됩니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: - 그래요? [timeout] option은 밀리초 단위의 값을 받아들입니다. 기본값은 30000(30초)이며, 0으로 설정하면 제한이 완전히 비활성화됩니다.
+- **ct2-nllb-1.3b**: 의 [timeout] 이 옵션은 밀리초에서 값을 받아들이고, 기본값은 30000 (30초) 이며, 0으로 설정하면 한도를 완전히 비활성화합니다.
+- **ct2-nllb-600m**: 이 [timeout] 옵션은 밀리초에 값을 받아들이고 기본값은 30000 (30초) 이며, 0으로 설정하면 한계를 완전히 비활성화합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: timeout 옵션은 밀리초 단위로 값을接受할 수 있습니다. 기본값은 30000 (30 초) 이며 0 으로 설정하면 제한이 완전히 비활성화됩니다.[timeout](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: timeout 옵션은 밀리초 단위로 값을接受할 수 있습니다. 기본값은 30000 (30 초)이며, 이를 0 으로 설정하면 제한을 완전히 비활성화합니다.[timeout](누락)
 - **ollama-translategemma-4b**: timeout 옵션은 밀리초 단위의 값을 허용합니다. 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한을 완전히 비활성화합니다.[timeout](누락)
 
 **en-tech-03** (tech)
@@ -116,10 +196,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Before upgrading from v1.x, back up your configuration directory because the migration script rewrites every file in place and cannot be undone.
 - **apple-fm**: v1.x에서 업그레이드하기 전에 설정 디렉터리를 백업하세요.이러한 이유는 이 이식 스크립트가 모든 파일을 현장에서 수정하고 되돌릴 수 없기 때문입니다.
 - **apple-mt-attr**: v1.x에서 업그레이드하기 전에, 백업하십시오구성 디렉토리를 이식 스크립트가 기존의 모든 파일을 다시 작성하고 되돌릴 수 없기 때문에 .
+- **apple-mt-marker**: v1.x에서 업그레이드하기 전에, 이식 스크립트가 기존의 모든 파일을 다시 작성하고 되돌릴 수 없기 때문에 구성 디렉토리를 백업하십시오.
 - **apple-mt-plain**: v1.x에서 업그레이드하기 전에, 이식 스크립트가 기존의 모든 파일을 다시 작성하고 되돌릴 수 없기 때문에 구성 디렉토리를 백업하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트가 모든 파일을 다시 쓰기 때문에 실행 취소할 수 없습니다.
+- **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 설정 디렉토리를 백업하세요. 왜냐하면 마이그레이션 스크립트는 모든 파일을 다시 작성해서 되돌릴 수 없기 때문입니다.
+- **ct2-nllb-600m**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 다시 작성하고 취소할 수 없기 때문입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: v1.x 에서 업그레이드할 때, 먼저 구성 파일 디렉션을 백업하세요.이유는 마이그레이션 스크립트가 모든 파일을原位에 재작성하기 때문입니다. 이를 되돌릴 수 없습니다.(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: v1.x 에서 업그레이드를 진행하기 전에 구성 파일 디렉토리를 백업하세요. 마이그레이션 스크립트가 모든 파일을原位에서 재작성하므로 되돌릴 수 없습니다.(누락)
 - **ollama-translategemma-4b**: v1.x에서 업그레이드하기 전에, 설정 디렉토리를 백업하세요(누락)
 
 **en-tech-04** (tech)
@@ -127,10 +215,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: If the daemon fails to start, make sure port 8443 is not already bound by another process. You can inspect the logs at http://localhost:8443/debug/logs.
 - **apple-fm**: 데몬이 시작되지 않으면 포트 8443이 다른 프로세스에 이미 할당되어 있는지 확인하세요. http://localhost:8443/debug/logs 에서 로그를 확인할 수 있습니다.
 - **apple-mt-attr**: 데아몬이 시작되지 않으면 8443 포트가 이미 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **apple-mt-marker**: 데아몬이 시작되지 않으면 8443 포트가 이미 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 데아몬이 시작되지 않으면 8443 포트가 이미 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 데몬이 시작되지 않으면, 포트 8443이 이미 다른 프로세스에 의해 바인딩되어 있지 않은지 확인하세요. http://localhost:8443/debug/logs 에서 로그를 검사할 수 있습니다.
+- **ct2-nllb-1.3b**: 데몬이 시작되지 않으면, 포트 8443가 이미 다른 프로세스에 묶여 있지 않은지 확인하십시오. http://localhost:8443/debug/logs에서 로그를 검사할 수 있습니다.
+- **ct2-nllb-600m**: 데몬이 시작되지 않으면 포트 8443이 이미 다른 프로세스에 묶여 있지 않은지 확인하십시오. http://localhost:8443/debug/logs에서 로그를 확인할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 다만, 데몬이 시작되지 않는 경우, 포트 8443 가 다른 프로세스가 이미_bindings 되어 있는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 다이나믹이 시작되지 않는 경우, 포트 8443 가 다른 프로세스가 이미 포트를 점유하고 있는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **ollama-translategemma-4b**: 데몬이 시작되지 않으면, 8443번 포트가 다른 프로세스에 의해 사용되지 않는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 
 **en-tech-05** (tech)
@@ -138,10 +234,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Each worker thread keeps its own cache of roughly 64 MB, so a machine with 8 GB of RAM should not run more than eight workers.
 - **apple-fm**: 각 작업 스레드는 약 64MB의 캐시를 유지하므로 8GB 메모리를 사용하는 기기는 최대 8개의 작업만 실행해야 합니다.
 - **apple-mt-attr**: 각 작업자 스레드는 약 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 갖춘 기계에서는 8명의 작업자 이상을 실행해서는 안 됩니다.
+- **apple-mt-marker**: 각 작업자 스레드는 약 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 갖춘 기계에서는 8명의 작업자 이상을 실행해서는 안 됩니다.
 - **apple-mt-plain**: 각 작업자 스레드는 약 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 갖춘 기계에서는 8명의 작업자 이상을 실행해서는 안 됩니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 각 워커 스레드는 대략 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 가진 컴퓨터는 8개 이상의 워커를 실행해서는 안 된다.
+- **ct2-nllb-1.3b**: 각 작업 스레드는 대략 64 MB의 자체 캐시를 유지하므로 8 GB의 RAM을 가진 기계는 8 명의 작업자 이상을 실행해서는 안됩니다.
+- **ct2-nllb-600m**: 각 작업자 스레드는 대략 64 MB의 자신의 캐시를 유지하므로 8 GB의 RAM를 가진 기계는 8 명의 작업자를 넘지 않아야합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 각 작업자 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 를 가진 머신에서는 8 개의 작업자를 실행하는 것을 권장하지 않습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 각 작업자 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 을 가진 머신은 8 개 이상의 작업자를 실행해서는 안 됩니다.
 - **ollama-translategemma-4b**: 각 워커 스레드는 약 64MB의 캐시를 가지고 있으므로, 8GB의 RAM을 가진 머신에는 최대 8개의 워커를 실행할 수 있습니다.
 
 **en-tech-06** (tech)
@@ -149,10 +253,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Requests are retried up to three times with exponential backoff; if all attempts fail, the error is surfaced to the caller as a [TransientError].
 - **apple-fm**: 요청은 최대 3회까지 지수적 백오프로 재시도되며, 모든 시도가 실패하면 오류는 호출자에게 [TransientError]TransientError
 - **apple-mt-attr**: 요청은 지수적 백오프를 사용하여 최대 세 번까지 재시도됩니다. 모든 시도가 실패하면 오류는 임시 오류(로 호출자에게 표시됩니다[TransientError]).
+- **apple-mt-marker**: 요청은 지수적 백오프를 사용하여 최대 세 번까지 재시도됩니다; 모든 시도가 실패하면 오류가 호출자에게 [TransientError]로 표시됩니다.
 - **apple-mt-plain**: 요청은 지수적 백오프를 적용하여 최대 세 번까지 재시도됩니다; 모든 시도가 실패하면 오류가 호출자에게 다음과 같이 표시됩니다. [TransientError].
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 요청은 기하급수적인 백오프로 최대 3번 재시도됩니다. 모든 시도가 실패하면 오류가 호출자에게 표면화됩니다. [TransientError].
+- **ct2-nllb-1.3b**: 요청은 기하급수적 백오프로 최대 3회까지 시도됩니다. 모든 시도가 실패하면 오류는 호출자에게 [TransientError].
+- **ct2-nllb-600m**: 요청은 기하급수적 백오프로 최대 3번까지 시도됩니다. 모든 시도가 실패하면 오류가 호출자에게 [TransientError].
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 요청이 최대 3 회까지 재시도되며, 모든 시도에서 실패하면 호출자에게 오류가 표면화됩니다.[TransientError]TransientError 입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 요청들은 지수적 백오프를 통해 최대 세 번까지 재시도됩니다. 모든 시도에서 실패하면 오류는 호출자에게 [TransientError]TransientError 로 표면화됩니다.
 - **ollama-translategemma-4b**: 요청은 3번까지 재시도되며, 모든 시도가 실패하면, 호출자에게 [TransientError]TransientError
 
 **en-news-01** (news)
@@ -160,10 +272,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: The city council voted 7 to 2 on Tuesday to extend bus service into the eastern suburbs, a move that supporters say will cut commute times by up to 25 percent.
 - **apple-fm**: 시애틀 시의회는 화요일 7대 2로 투표하여 동부 교외 지역까지 버스 서비스를 확대하기로 했습니다. 지지자들은 이로 인해 통근 시간이 최대 25% 줄어들 것이라고 말합니다.
 - **apple-mt-attr**: 시 의회는 화요일에 버스 서비스를 동부 교외로 연장하기 위해 7대 2로 투표했으며, 지지자들은 이 조치가 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말한다.
+- **apple-mt-marker**: 시 의회는 화요일에 버스 서비스를 동부 교외로 연장하기 위해 7대 2로 투표했으며, 지지자들은 이 조치가 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말한다.
 - **apple-mt-plain**: 시 의회는 화요일에 버스 서비스를 동부 교외로 연장하기 위해 7대 2로 투표했으며, 지지자들은 이 조치가 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 시의회는 동부 교외로 버스 서비스를 확장하기 위해 화요일에 투표 7 2, 지지자들은 최대 통근 시간을 줄일 것이라고 이동 25 %.
+- **ct2-nllb-1.3b**: 시의회는 화요일 버스 서비스를 동부 교외로 확장하기 위해 7 대 2로 투표했습니다. 지지자들은 출퇴근 시간을 최대 25%까지 줄일 것이라고 말합니다.
+- **ct2-nllb-600m**: 시의회는 화요일 7~2 투표로 동부 교외 지역까지 버스 서비스를 확대하기로 결정했습니다. 지지자들은 출퇴근 시간을 25%까지 줄일 것이라고 말했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 주말에 시립회의가 동부 하구까지 버스 서비스를 연장하는 7 대 2 로 결정했습니다. 지지자들은 이 결정이通勤 시간을 최대 25% 줄일 것으로 기대합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 주말에 시의회가 버스 서비스를 동부 지방까지 확장하는 7 대 2 의 결정을 내렸으며, 지지자들은 이举措를通勤 시간이 최대 25% 를 절감할 것이라고 주장합니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-02** (news)
@@ -171,10 +291,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Researchers at the Halvorsen Institute reported that a new type of battery retained 90 percent of its capacity after 2,000 charge cycles, roughly double that of current commercial cells.
 - **apple-fm**: 헬보렌 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후 약 90%의 용량을 유지한다는 보고를 했습니다. 이는 현재 상업용 셀의 두 배에 가까운 수치입니다.
 - **apple-mt-attr**: 할로브센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후 용량의 90%를 유지했으며, 이는 현재 상업용 셀의 약 두 배에 달한다고 보고했다.
+- **apple-mt-marker**: 할로브센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후 용량의 90%를 유지했으며, 이는 현재 상업용 셀의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain**: 할로브센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후 용량의 90%를 유지했으며, 이는 현재 상업용 셀의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: Halvorsen 연구소의 연구원들은 새로운 종류의 배터리가 2,000회의 충전 사이클 후에도 용량의 90%를 유지한다고 보고했는데, 이는 현재 상용 배터리의 두 배에 달한다.
+- **ct2-nllb-1.3b**: 할보르센 연구소 의 연구원 들 은 새로운 종류의 배터리 가 2,000 번 충전 한 후에도 그 용량의 90 퍼센트 를 유지 하고 있다고 보고 하였다. 현재 상용화된 배터리 보다 약 두 배 정도 된다.
+- **ct2-nllb-600m**: 할보르센 연구소의 연구자들은 새로운 종류의 배터리가 2,000개의 충전주기를 거쳐 90퍼센트의 용량을 유지한다고 보고했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: Halvorsen 인스티트 연구원은 새로운 배터리가 2,000 회 충전 사이클 후 90% 의 용량을 유지하는 것으로 보고했습니다. 이는 현재 상업용 배터리 대비 약 2 배의 용량입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: Halvorsen 인스티튜트 연구원들은 새로운 배터리 유형이 2,000 회 충전 사이클 후에도 90% 의 용량을 유지한다는 보고를 했습니다. 이는 현재 상업용 셀의 두 배에 해당하는 수치입니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-03** (news)
@@ -182,10 +310,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Critics, however, point out that the results have not yet been peer reviewed and that the prototype costs about $340 per kilowatt-hour to produce.
 - **apple-fm**: 그러나 비평가들은 해당 결과가 아직 동료 검토를 받지 않았으며 프로토타입 제작 비용이 kWh당 약 340달러에 달한다고 지적합니다.
 - **apple-mt-attr**: 그러나 비평가들은 결과가 아직 동료 검토를 받지 않았으며 프로토타입을 생산하는 데 약 킬로와트시당 340달러가 소요된다고 지적한다.
+- **apple-mt-marker**: 그러나 비평가들은 결과가 아직 동료 검토를 받지 않았으며 프로토타입을 생산하는 데 약 킬로와트시당 340달러가 소요된다고 지적한다.
 - **apple-mt-plain**: 그러나 비평가들은 결과가 아직 동료 검토를 받지 않았으며 프로토타입을 생산하는 데 약 킬로와트시당 340달러가 소요된다고 지적한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 그러나 비평가들은 결과가 아직 동료 검토되지 않았으며 프로토타입을 생산하는 데 킬로와트시당 약 340 달러가 든다고 지적했다.
+- **ct2-nllb-1.3b**: 그러나 비평가 들 은 그 결과 가 아직 평가를 받지 않았으며, 시제품 의 생산 비용 은 1 킬로 와트 시간 당 약 340 달러 에 달 한다고 지적 한다.
+- **ct2-nllb-600m**: 하지만 비평가들은 아직 이 연구결과가 비평가되지 않았으며, 이 프로토타입을 생산하는 데는 킬로와트 시간당 약 340 달러가 소요되었다고 지적한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 그러나 비판자들은 결과들이 아직 동료 검토를 받지 않았다는 점과, 프로토타입이 1 kW/시간당 약 340 달러를 생산하는 비용이라는 점에 주목하고 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 그러나 비판자들은 결과가 동료 검토가 이루어지지 않았으며, 프로토타입이 1 kW/시간당 약 $340 로 생산되는 데 비용이 소요된다는 점을 지적했습니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-04** (news)
@@ -193,10 +329,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Heavy rain is expected across the northern coast through Thursday, with gusts of up to 70 km/h and temperatures hovering around 12 degrees Celsius.
 - **apple-fm**: 금요일까지 북부 해안에 강설량이 예상되며 최대 시속 70km의 강풍과 12도 근처의 기온이 예상됩니다.
 - **apple-mt-attr**: 목요일까지 북부 해안 전체에 강한 비가 내릴 것으로 예상되며, 최대 시속 70km의 돌풍이 불고 기온은 섭씨 12도 정도를 유지할 것으로 예상된다.
+- **apple-mt-marker**: 목요일까지 북부 해안 전체에 강한 비가 내릴 것으로 예상되며, 최대 시속 70km의 돌풍이 불고 기온은 섭씨 12도 정도를 유지할 것으로 예상된다.
 - **apple-mt-plain**: 목요일까지 북부 해안 전체에 강한 비가 내릴 것으로 예상되며, 최대 시속 70km의 돌풍이 불고 기온은 섭씨 12도 정도를 유지할 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 목요일까지 북부 해안 전역에서 폭우가 예상되며, 시속 70km까지 몰아치고 기온은 섭씨 12도를 기록할 것으로 예상된다.
+- **ct2-nllb-1.3b**: 목요일까지 북부 해안에서 강수와 시속 70km에 달하는 바람과 섭씨 12도 정도의 기온이 예상됩니다.
+- **ct2-nllb-600m**: 목요일까지 북부 해안에서 강수 비가 내릴 것으로 예상되며, 최대 70km/h의 강풍이 예상되며, 온도는 12도 섭씨에 달한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 북부 해안 지역은 다음 주까지 Heavy Rain 가 예상되며, 바람의 최대 강도는 70 km/h 로, 기온은 12 도 정도입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 북해 전체에 폭우가 예상되며, 70 km/h 의 바람과 12 도 Celsius 주변 온도가 유지될 것입니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-05** (news)
@@ -204,10 +348,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: In a statement released Monday, the company said it would delay the launch of its flagship phone until early next year, citing ongoing supply-chain problems.
 - **apple-fm**: 월요일에 발표된 성명에서 회사 측은 다음을 발표했습니다.대표폰 출시를 연기할 것이라고 했습니다.내년 초까지 공급망 문제로 인해
 - **apple-mt-attr**: 월요일에 발표된 성명에서, 회사는 것이라고 밝혔다플래그십 폰 출시를 연기할 지속되는 공급망 문제를 근거로 내년 초까지 .
+- **apple-mt-marker**: 월요일에 발표된 성명에서, 회사는 지속되는 공급망 문제를 근거로 플래그십 폰 출시를 내년 초까지 연기할 것이라고 밝혔다.
 - **apple-mt-plain**: 월요일에 발표된 성명에서, 회사는 지속되는 공급망 문제를 근거로 플래그십 폰 출시를 내년 초까지 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 월요일 발표 한 성명서에서, 회사는 지속적인 공급망 문제를 인용하여 내년 초까지 플래그십 전화의 출시를 지연 할 것이라고 말했다.
+- **ct2-nllb-1.3b**: 월요일 발표된 성명서에서 회사는 공급망 문제로 플래그십 폰의 출시를 내년 초까지 연기할 것이라고 밝혔다.
+- **ct2-nllb-600m**: 월요일에 발표한 성명서에 따르면 회사는 지속적인 공급망 문제를 이유로 내년 초까지 플래그십 폰의 출시를 지연할 것이라고 말했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 1 일간 발표에서 회사는 플래그십 폰 출시를 지연시키기로 결정하고, 공급망 문제를 해결하기 위해 다음 년 초까지 출시할 것이라고 밝혔습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 주말에 발표된 성명에서 회사는 최신 플래그십 스마트폰 출시를 미루고 다음 년 초까지 연기하기로 결정했습니다. 지속적인 공급망 문제로 인해.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-06** (news)
@@ -215,10 +367,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Why do so many small bakeries close within five years? Economists say the answer has less to do with bread than with rent, staffing and thin margins.
 - **apple-fm**: 5년 이내에 작은 베이커리들이 왜 문을 닫는지 궁금하군요. 경제학자들은 답이 빵보다는 임대료와 관련이 많다고 합니다.직원 배치그리고 얇은 이익
 - **apple-mt-attr**: 왜 많은 소규모 베이커리가 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 있다고 말합니다인력 부족, 그리고 얇은 마진과 더 관련이 .
+- **apple-mt-marker**: 왜 많은 소규모 베이커리가 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 인력 부족, 그리고 얇은 마진과 더 관련이 있다고 말합니다.
 - **apple-mt-plain**: 왜 많은 소규모 베이커리가 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 인력 부족, 그리고 얇은 마진과 더 관련이 있다고 말합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 왜 많은 소규모 제과점들이 5년 이내에 문을 닫는 것일까? 경제학자들은 이 질문에 대한 답이 임대료, 직원 수, 마진보다는 빵과 덜 관련이 있다고 말한다.
+- **ct2-nllb-1.3b**: 왜 이렇게 많은 작은 빵집들이 5년 이내에 문을 닫는 걸까요? 경제학자들은 이 질문에 대한 답은 빵과 관련이 있는 것이 아니라 임대료, 인력, 희박한 수익률과 관련이 있다고 말합니다.
+- **ct2-nllb-600m**: 왜 이렇게 많은 작은 빵집들이 5년 안에 문을 닫을까요? 경제학자들은 빵에 대한 답이 임대, 인력 및 희소 지점보다 덜 관련이 있다고 말합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 왜냐하면 5 년 안에 많은 작은 베이커리가 문을 닫는 것입니까? 경제학자들은 그 이유는 빵보다는 임대료와 인력, 얇은 마진 때문이라고 말합니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 왜 작은 빵집이 5 년 이내에 문을 닫는 것입니까? 경제학자들은 답이 빵보다는 임대료, 인력, 얇은 마진과 관련이 있다고 말합니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-01** (community)
@@ -226,10 +386,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: ok so I finally got my Raspberry Pi to boot and it immediately caught fire. well, not literally. but my soul did.
 - **apple-fm**: 알겠습니다. 드디어 제 Raspberry Pi를 부팅했는데, 즉시 불이 났습니다. 물론 문자 그대로가 아니고요. 하지만 제 영혼이 불탔습니다.
 - **apple-mt-attr**: 좋아, 그래서 나는 마침내 내 라즈베리 피를 부팅시켰는데 그것은 즉시 불이 났어. 음, 문자 그대로는 아니지만. 하지만 내 영혼은 그랬어.
+- **apple-mt-marker**: 좋아, 그래서 나는 마침내 내 라즈베리 피를 부팅시켰는데 그것은 즉시 불이 났어. 음, 문자 그대로는 아니지만. 하지만 내 영혼은 그랬어.
 - **apple-mt-plain**: 좋아, 그래서 나는 마침내 내 라즈베리 피를 부팅시켰는데 그것은 즉시 불이 났어. 음, 문자 그대로는 아니지만. 하지만 내 영혼은 그랬어.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 좋아 그래서 나는 마침내 내 라즈베리 파이를 부팅하고 즉시 불이 붙었다. 글쎄, 말 그대로. 하지만 내 영혼은.
+- **ct2-nllb-1.3b**: 그래서 마침내 라즈베리 파이를 부팅할 수 있었고 즉시 불이 났어요. 글자 그대로는 아닙니다. 하지만 제 영혼은 불에 탔습니다.
+- **ct2-nllb-600m**: 그래서 마침내 제 라즈베리 파이가 시작되었고, 즉시 불에 탔습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 좋습니다. 마침내 라스피리 피를 켘서 시작했고, 즉시 불이 붙었습니다. 하지만, Literal 이 아닙니다. 하지만, 내 영혼이 불타버렸습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 좋습니다. 마침내 라즈베리 파이 를 켜고 즉시 불에 타버렸습니다. 물론 문자 그대로는 아닙니다. 하지만 내 영혼이 그랬죠.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-02** (community)
@@ -237,10 +405,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Hot take: tabs are fine, spaces are fine, and anyone who argues about it at 2 a.m. needs a snack and a nap.
 - **apple-fm**: 핫한 의견: 탭은 괜찮고, 공백도 괜찮고, 새벽 2시에 그걸로 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **apple-mt-attr**: 핫 테이크: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
+- **apple-mt-marker**: 핫 테이크: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **apple-mt-plain**: 핫 테이크: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 핫 테이크: 탭은 괜찮다, 공간은 괜찮다, 그리고 그것에 대해 오전 2시에 논쟁하는 사람은 간식과 낮잠이 필요합니다.
+- **ct2-nllb-1.3b**: 핫 테이크: 탭은 괜찮고, 공간은 괜찮고, 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
+- **ct2-nllb-600m**: 탭은 괜찮아, 공간은 괜찮아, 그리고 아침 2시에 그것에 대해 논쟁하는 사람은 간식과 잠자리가 필요합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: Hot take: 탭은 괜찮고, 스페이스도 괜찮습니다. 2 시에 그걸 두고 논하는 사람들은 반드시 먹거리를 먹고 수면이 필요합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 핫_take: 탭은 괜찮습니다. 공간도 괜찮고, 2 시에 논쟁하는 사람이라면 저녁 식사와 휴식 시간이 필요합니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-03** (community)
@@ -248,10 +424,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: lol I've been staring at this error for three hours and it was a missing semicolon. a SEMICOLON. I'm going to go live in the woods now.
 - **apple-fm**: 웃긴 건, 이 오류에 3시간 동안 몰두했는데, 사실 분수 기호가 누락된 겁니다. 분수 기호가요. 이제 저는 숲속에서 라이브 방송을 할 겁니다.
 - **apple-mt-attr**: ㅋㅋㅋ 이 오류를 세 시간이나 보고 있었는데 분리표가 빠져 있었어요. 분리표요. 이제 숲에서 라이브 방송을 할게요.
+- **apple-mt-marker**: ㅋㅋㅋ 이 오류를 세 시간이나 보고 있었는데 분리표가 빠져 있었어요. 분리표요. 이제 숲에서 라이브 방송을 할게요.
 - **apple-mt-plain**: ㅋㅋㅋ 이 오류를 세 시간이나 보고 있었는데 분리표가 빠져 있었어요. 분리표요. 이제 숲에서 라이브 방송을 할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: LOL 나는 3 시간 동안이 오류를 쳐다보고있다 그리고 그것은 누락 된 세미콜론이었다. 세미콜론. 나는 지금 숲에서 살고 갈거야.
+- **ct2-nllb-1.3b**: 이 오류를 3시간 동안 쳐다보았는데 반점, 반점이 없어졌어요.
+- **ct2-nllb-600m**: 3시간 동안 이 오류를 보고 있었는데 미흡한 반사각형이었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: lol 이 오류를 3 시간 동안 stared 하고 있는데, 그거는 missing semicolon 이었습니다. SEMICOLON 입니다. 이제 숲으로 가겠습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: lol 이 오류를 3 시간 동안 바라보았습니다. 누락된 세미콜론이었습니다. SEMICOLON 입니다. 이제 숲으로 라이브로 갈게요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-04** (community)
@@ -259,10 +443,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Not gonna lie, that update broke literally everything on my setup. Rolled back, touched grass, will try again tomorrow.
 - **apple-fm**: 솔직히 말하자면, 그 업데이트가 제 설정에서 완전히 망가졌습니다.실제로 모든 게 망가졌습니다.제게
 - **apple-mt-attr**: 솔직히 말해서, 그 업데이트가 실제로 모든 것을 망쳤어요제 설정에서 . 되돌렸고, 잔디를 만졌고, 내일 다시 시도할게요.
+- **apple-mt-marker**: 솔직히 말해서, 그 업데이트가 제 설정에서 실제로 모든 것을 망쳤어요. 되돌렸고, 잔디를 만졌고, 내일 다시 시도할게요.
 - **apple-mt-plain**: 솔직히 말해서, 그 업데이트가 제 설정에서 실제로 모든 것을 망쳤어요. 되돌렸고, 잔디를 만졌고, 내일 다시 시도할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 거짓말하지 않을 거야, 그 업데이트는 말 그대로 내 설정에 모든 것을 깨졌다. 롤백, 잔디를 만졌다, 내일 다시 시도합니다.
+- **ct2-nllb-1.3b**: 거짓말하지 않을게요, 그 업데이트가 제 설정을 완전히 망쳤어요.
+- **ct2-nllb-600m**: 거짓말하지 않을거야, 그 업데이트는 말 그대로 모든 걸 깨버렸어
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 진짜로 말해서, 그 업데이트가 설정에서 literally everything 를 바꿨습니다. 롤백하고, grass 를 만졌고, 다음 날 다시 시도하겠습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 진짜 말입니다, 그 업데이트는 설정에서 거의 모든 것을 깨뜨렸습니다. 롤백했습니다, 흙을 만졌고 다음 날 다시 시도하겠습니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-05** (community)
@@ -270,10 +462,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Can confirm. My cat has been sitting on the router for a week and honestly the wifi has never been better. Don't question it.
 - **apple-fm**: 확인해 드릴게요. 제 고양이가 일주일 동안 라우터 위에 있었는데, 솔직히 와이파이가 더 좋아졌습니다. 의심하지 마세요.
 - **apple-mt-attr**: 확인할 수 있어요. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데 솔직히 와이파이가 지금까지보다 더 좋았어요. 의심하지 마세요.
+- **apple-mt-marker**: 확인할 수 있어요. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데 솔직히 와이파이가 지금까지보다 더 좋았어요. 의심하지 마세요.
 - **apple-mt-plain**: 확인할 수 있어요. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데 솔직히 와이파이가 지금까지보다 더 좋았어요. 의심하지 마세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 확인할 수 있습니다. 내 고양이는 일주일 동안 라우터에 앉아있다 솔직히 와이파이는 더 나은 적이 없습니다.
+- **ct2-nllb-1.3b**: 확인해 내 고양이는 일주일째 라우터에 앉아 있어 와이파이가 더 좋아졌어
+- **ct2-nllb-600m**: 확인해줘요, 고양이는 라우터에서 1주째 앉아 있고, 솔직히 와이파이가 더 좋아진 적이 없어요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 확인 가능합니다. 나의 고양이는 라우터 위에 앉아 있는 동안 1 주 동안 있었고, 솔직히 wifi 가 더 이상 나쁘지 않았습니다. 그걸 의심하지 마세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 확인 가능합니다. 나의 고양이가 라우터 위에 앉아 있는 동안 1 주가되었고, 솔직히 와이파이가 더 이상 나쁘지 않았습니다. 의심하지 마세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-06** (community)
@@ -281,10 +481,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Y'all, I just spent $60 on a keyboard that sounds like rain. Zero regrets, my coworkers on the other hand... TBD.
 - **apple-fm**: 여러분, 저는 $60짜리 비 오는 소리가 나는 키보드를 샀는데, 후회하는 건 하나도 없습니다. 제 동료들은 다릅니다...미정.
 - **apple-mt-attr**: 여러분, 저는 방금 비 소리가 나는 키보드에 60달러를 썼어요. 전혀 후회 없어요. 반면 제 동료들은... 아직 알 수 없네요.
+- **apple-mt-marker**: 여러분, 저는 방금 비 소리가 나는 키보드에 60달러를 썼어요. 전혀 후회 없어요. 반면 제 동료들은... 아직 알 수 없네요.
 - **apple-mt-plain**: 여러분, 저는 방금 비 소리가 나는 키보드에 60달러를 썼어요. 전혀 후회 없어요. 반면 제 동료들은... 아직 알 수 없네요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 여러분, 나는 비처럼 소리가 나는 키보드에 60 달러를 지출했다. 제로 후회, 반면에 내 동료는... TBD.
+- **ct2-nllb-1.3b**: 방금 비처럼 들리는 키보드에 60달러를 썼는데 후회는 없어요
+- **ct2-nllb-600m**: 여러분, 제가 방금 빗방울처럼 들리는 키보드에 60달러를 썼어요
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 여러분들, 60 달러를 지출해서 소리가 비가 같은 키보드를 샀습니다. 제 생각은 0 회피로, 동료들은 그 반대입니다.TBD.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 여러분, 저는 오늘 keyboard 를 $60 으로 사서 소리도 빗소리가 같았습니다. 제 마음은 아무런 죄책감 없이, 동료들은 다른 한편에서 TBD.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-ui-01** (ui)
@@ -292,10 +500,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Save changes
 - **apple-fm**: 변경 사항을 저장하세요
 - **apple-mt-attr**: 변경 사항 저장하기
+- **apple-mt-marker**: 변경 사항 저장하기
 - **apple-mt-plain**: 변경 사항 저장하기
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 변경 사항 저장
+- **ct2-nllb-1.3b**: 변경사항을 저장
+- **ct2-nllb-600m**: 변경사항을 저장
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 변경사항 저장
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 변경 사항 저장
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-ui-02** (ui)
@@ -303,10 +519,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Something went wrong. Please try again later.
 - **apple-fm**: 오류가 발생했습니다. 나중에 다시 시도하세요.
 - **apple-mt-attr**: 무언가가 잘못되었습니다. 나중에 다시 시도해 주세요.
+- **apple-mt-marker**: 무언가가 잘못되었습니다. 나중에 다시 시도해 주세요.
 - **apple-mt-plain**: 무언가가 잘못되었습니다. 나중에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 뭔가 잘못되었습니다. 나중에 다시 시도하십시오.
+- **ct2-nllb-1.3b**: 뭔가 잘못됐습니다. 나중에 다시 시도해주세요.
+- **ct2-nllb-600m**: 뭔가 잘못됐어 나중에 다시 시도해봐
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 무슨 일이 일어났는지요. 나중에 다시 시도해 보세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-ui-03** (ui)
@@ -314,10 +538,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: You have 3 unread messages
 - **apple-fm**: 오류가 없는 메시지가 3개 있습니다.
 - **apple-mt-attr**: 읽지 않은 메시지가 3개 있습니다.
+- **apple-mt-marker**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 읽지 않은 메시지가 3 개 있습니다.
+- **ct2-nllb-1.3b**: 읽지 않은 메시지가 3개 있습니다.
+- **ct2-nllb-600m**: 3개의 미독된 메시지가 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 3 개의 읽지 않은 메세지가 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 미리 읽은 메시지 3 개가 있습니다
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-link-01** (link)
@@ -325,10 +557,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Click [here] to continue.
 - **apple-fm**: 여기 클릭하세요[here]계속하려면
 - **apple-mt-attr**: 클릭하세요[here]계속하려면 기를 .
+- **apple-mt-marker**: 계속하려면 [here]을 클릭하세요.
 - **apple-mt-plain**: 클릭 [here] 계속하기 위해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 클릭 [here] 계속하시기 바랍니다.
+- **ct2-nllb-1.3b**: 클릭하세요 [here] 계속할 수 있도록
+- **ct2-nllb-600m**: 클릭 [here] 계속해야 합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 클릭하세요.[here]다음으로 계속하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 계속하려면 [here]여기에 클릭하세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-link-02** (link)
@@ -336,10 +576,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: See [the installation guide] for details on supported platforms.
 - **apple-fm**: 설치 가이드[the installation guide]지원 플랫폼에 대한 자세한 정보
 - **apple-mt-attr**: 참조하십시오[the installation guide]지원되는 플랫폼에 대한 자세한 내용은 .
+- **apple-mt-marker**: 지원되는 플랫폼에 대한 자세한 내용은 [the installation guide]을 참조하십시오.
 - **apple-mt-plain**: 보다 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 보기 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은 여기를 참조하십시오.
+- **ct2-nllb-1.3b**: 본 것 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은
+- **ct2-nllb-600m**: 보시다시피 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 설치 가이드를 통해 지원되는 플랫폼에 대한 자세한 정보를 확인하세요.[the installation guide]설치 가이드를 확인하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 지원되는 플랫폼에 대한 자세한 내용은 설치 가이드를 [the installation guide]참고하세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-link-03** (link)
@@ -347,10 +595,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: If you run into trouble, [open an issue on the tracker] and include your log file.
 - **apple-fm**: 문제에 부딪혔다면[open an issue on the tracker]그리고 로그 파일을 포함하세요
 - **apple-mt-attr**: 문제가 발생하면 [open an issue on the tracker]보고하고 로그 파일을 포함하십시오.
+- **apple-mt-marker**: 문제가 발생하면 [open an issue on the tracker]을 실행하고 로그 파일을 포함하십시오.
 - **apple-mt-plain**: 만약 당신이 곤경에 처한다면, [open an issue on the tracker] 그리고 로그 파일을 포함하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 문제가 생기면 [open an issue on the tracker] 로그 파일을 포함합니다.
+- **ct2-nllb-1.3b**: 문제가 생기면 [open an issue on the tracker] 그리고 로그 파일을 포함합니다.
+- **ct2-nllb-600m**: 곤경에 빠지면 [open an issue on the tracker] 로그 파일을 포함하고
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 문제가 발생하면 추적기에서 문제를 제기하고, 로그 파일을 포함하여 해결해 보세요.[open an issue on the tracker]트래커에서 문제를 제기하세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 문제가 발생하면 추적기에서 이슈를 [open an issue on the tracker]열어 주세요. 그리고 로그 파일을 포함하세요.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-01** (seq)
@@ -358,10 +614,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Last spring I decided to turn an old laptop into a home server for my family's photos.
 - **apple-fm**: 지난여름, 저는 오래된 노트북을 가족의 사진을 위한 가정용 서버로 바꾸기로 했습니다.
 - **apple-mt-attr**: 작년 봄에 나는 오래된 노트북을 가족의 사진을 위한 가정용 서버로 바꾸기로 결정했다.
+- **apple-mt-marker**: 작년 봄에 나는 오래된 노트북을 가족의 사진을 위한 가정용 서버로 바꾸기로 결정했다.
 - **apple-mt-plain**: 작년 봄에 나는 오래된 노트북을 가족의 사진을 위한 가정용 서버로 바꾸기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 지난 봄 나는 내 가족의 사진을위한 홈 서버로 오래 된 노트북을 설정하기로 결정했다.
+- **ct2-nllb-1.3b**: 지난 봄, 저는 오래된 노트북을 가정 사진 서버로 바꾸기로 했습니다.
+- **ct2-nllb-600m**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 가정용 사진으로 바꾸기로 결정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 봄에, 나는 가족의 사진용 로컬 서버로 오래된 노트북을 바꾸기로 결정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 지난 봄 저는 가족의 사진용 오픈 노트북을 만들기로 결정했습니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-02** (seq)
@@ -369,10 +633,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: The laptop, a 2014 ThinkBook with 8 GB of RAM, turned out to be perfect for the job.
 - **apple-fm**: 2014년형 노트북, ThinkBook8GB RAM(누락)
 - **apple-mt-attr**: 2014년형 노트북은 ThinkBook으로 8GB의 RAM을 탑재한 이 일에 완벽하게 적합한 것으로 밝혀졌다.
+- **apple-mt-marker**: 2014년형 ThinkBook으로 8GB의 RAM을 탑재한 노트북은 이 일에 완벽하게 적합한 것으로 밝혀졌다.
 - **apple-mt-plain**: 2014년형 ThinkBook으로 8GB의 RAM을 탑재한 노트북은 이 일에 완벽하게 적합한 것으로 밝혀졌다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 노트북, 2014 ThinkBook 8 GB RAM, 작업에 완벽한 것으로 밝혀졌다.
+- **ct2-nllb-1.3b**: 노트북은 2014년 ThinkBook로 8GB의 램을 가지고 있었습니다.
+- **ct2-nllb-600m**: 노트북은 2014년 ThinkBook입니다. 8GB의 RAM을 가지고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 그 노트북은 2014 년 ThinkBook 8 GB RAM 이었으며, 그걸로 작업에 적합했습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 이 노트북은 2014 년 ThinkBook 로, 8 GB RAM 을 가지고 있었으며, 작업에 완벽하게 적합했습니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-03** (seq)
@@ -380,10 +652,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: First, I installed [Debian 12] and set up a small web app called Fernbox to browse the pictures.
 - **apple-fm**: 먼저 저는 [Debian 12]Debian 12
 - **apple-mt-attr**: 먼저, 저는 를 설치하고[Debian 12] 사진을 둘러보기 위해 Fernbox라는 작은 웹 앱을 설정했습니다.
+- **apple-mt-marker**: 먼저, 저는 [Debian 12]을 설치하고 사진을 둘러보기 위해 Fernbox라는 작은 웹 앱을 설정했습니다.
 - **apple-mt-plain**: 먼저, 저는 설치했습니다. [Debian 12] 그리고 사진을 둘러보기 위해 Fernbox라는 작은 웹 앱을 설정합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 먼저, 내가 설치 [Debian 12] Fernbox라는 작은 웹 애플리케이션을 설정하여 사진을 찾아보았습니다.
+- **ct2-nllb-1.3b**: 먼저, 저는 [Debian 12] 그리고 페른박스라는 작은 웹 앱을 설치해서 사진을 검색합니다.
+- **ct2-nllb-600m**: 먼저, 저는 설치했습니다 [Debian 12] 그리고 사진을 탐색하기 위해 Fernbox라는 작은 웹 앱을 설치했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 먼저, Debian 12 를 설치하고, 사진을 brows 하는 작은 웹 애플리케이션인 Fernbox 를 설정했습니다.[Debian 12](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 먼저 저는 Debian 12 를 설치하고 Fernbox라는 작은 웹 애플리케이션을 설정하여 사진들을Browse했습니다.[Debian 12](누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-04** (seq)
@@ -391,10 +671,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: My sister was skeptical at first, but after a week she admitted that Fernbox was faster than any cloud service she had used.
 - **apple-fm**: 형은 처음에는 회의적이었습니다. 하지만 일주일 후에는 Fernbox가 사용한 어떤 클라우드 서비스보다 빠르다고 인정했습니다.
 - **apple-mt-attr**: 내 여동생은 처음에는 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
+- **apple-mt-marker**: 내 여동생은 처음에는 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain**: 내 여동생은 처음에는 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 제 여동생은 처음에는 회의적이었지만 일주일 후 그녀는 Fernbox가 그녀가 사용했던 모든 클라우드 서비스보다 빠르다는 것을 인정했습니다.
+- **ct2-nllb-1.3b**: 제 여동생은 처음에는 회의적이었습니다. 하지만 일주일 후에 그녀는 Fernbox가 그녀가 사용한 모든 클라우드 서비스보다 빠르다고 인정했습니다.
+- **ct2-nllb-600m**: 제 여동생은 처음에는 회의적이었지만 일주일 후에 그녀는 그녀가 사용한 모든 클라우드 서비스보다 페른박스가 더 빠르다는 것을 인정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 제 여동생은 처음부터 skeptics 가었지만, 한 주 후 Fernbox 가 사용한 모든 클라우드 서비스보다 빠른 것으로 인정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 제 여동생은 처음에는 의심스러웠지만, 한 주 후 Fernbox 가 사용한 모든 클라우드 서비스보다 빠르다는 것을 인정했습니다.
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-05** (seq)
@@ -402,10 +690,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: Now the old laptop sits quietly on a shelf, and Fernbox has become the first thing my whole family opens after a trip.
 - **apple-fm**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, Fernbox가족 모두가 여행 후 가장 먼저 열게 되는 첫 번째 물건이 되었습니다.
 - **apple-mt-attr**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 여행 후 우리 가족 전체가 가장 먼저 열어보는 첫 번째 물건이 되었습니다.
+- **apple-mt-marker**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 여행 후 우리 가족 전체가 가장 먼저 열어보는 첫 번째 물건이 되었습니다.
 - **apple-mt-plain**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 여행 후 우리 가족 전체가 가장 먼저 열어보는 첫 번째 물건이 되었습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이제 오래된 노트북은 선반에 조용히 앉아 있고 Fernbox는 여행 후 가족 모두가 열는 첫 번째 일이되었습니다.
+- **ct2-nllb-1.3b**: 이제 오래된 노트북은 쉴 새 없이 선반에 앉아 있고, 페른박스는 여행 후 우리 가족 모두가 가장 먼저 열어보는 물건이 되었습니다.
+- **ct2-nllb-600m**: 이제 오래된 노트북은 래프에 조용히 앉아 있고, 페른박스는 여행 후에 온 가족이 처음으로 열리는 물건이 되었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 이제 오래된 노트북은 책상 위에 조용히 앉아 있고, Fernbox 는 여행 후 우리 가족의 첫 번째로 열람하는 것입니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 이제 오래된 노트북은 책상 위에 조용히 앉아 있으며, Fernbox 는 가족의 여행 후 첫 번째로 열리는 것입니다.(누락)(누락)
 - **ollama-translategemma-4b**: (오류: block missing in output)
 
 ### ja
@@ -415,10 +711,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: CLIをインストールするには [npm install -g fernctl] を実行し、続けて [fernctl --version] でバージョンを確認してください。バージョン2.4.1以降が必要です。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: CLI를 설치하려면 [npm install -g fernctl]실행하고, 계속해서 [fernctl --version]으로 버전을 확인하십시오. 버전 2.4.1 이상이 필요합니다.
+- **apple-mt-marker**: CLI를 설치하려면 [npm install -g fernctl]을 실행하고, 계속해서 [fernctl --version]에서 버전을 확인하십시오. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-plain**: CLI를 설치하려면 [npm install -g fernctl] 을 실행하고, 계속해서 [fernctl --version] 에서 버전을 확인해 주세요. 버전 2.4.1 이후가 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: CLI 설치하기 [npm install -g fernctl] 실행하고 계속 [fernctl --version] 버전을 확인하십시오. 버전 2. 4. 1 이상이 필요합니다.
+- **ct2-nllb-1.3b**: CLI를 설치하려면 [npm install -g fernctl] 계속 실행하세요. [fernctl --version] 이 버전은 2.4.1 이후의 버전입니다.
+- **ct2-nllb-600m**: CLI를 설치하기 위해 [npm install -g fernctl] 그리고 그 다음으로, [fernctl --version] 이 버전은 2.4.1 이상입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: CLI 를 설치하려면[npm install -g fernctl]npm install -g fernctl 를 실행하고,[fernctl --version]続けて fernctl --version 를 입력하여 버전 확인이 필요합니다. 2.4.1 버전 이상이어야 합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: CLI 를 설치하려면 [npm install -g fernctl]npm install -g fernctl 을 실행하고, [fernctl --version]fernctl --version 로 버전 확인이 필요합니다. 2.4.1 이상이어야 합니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-02** (tech)
@@ -426,10 +730,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: [timeout] オプションはミリ秒単位で指定する。デフォルトは30000(30秒)で、0を指定すると制限が完全に無効になる。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: [timeout]옵션은 밀리초 단위로 지정한다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효가 된다.
+- **apple-mt-marker**: [timeout] 옵션은 밀리초 단위로 지정한다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효가 된다.
 - **apple-mt-plain**: [timeout] 옵션은 밀리초 단위로 지정한다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효가 된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: [timeout] 옵션은 밀리초 단위로 지정할 수 있습니다. 기본값은 30000( 30초) 이며, 0을 지정하면 제한이 완전히 해제됩니다.
+- **ct2-nllb-1.3b**: [timeout] 옵션은 밀리초 단위로 지정한다. 기본값은 30000 ((30초) 이며, 0을 지정하면 제한이 완전히 무효가 된다.
+- **ct2-nllb-600m**: [timeout] 선택은 밀리초 단위로 지정됩니다. 기본은 30만초입니다. 0을 지정하면 제한이 완전히 무효됩니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: [timeout]옵션은 밀리 초 단위로 지정합니다. 기본값은 30000 (30 초) 으로, 0 을 지정하면 제한이 완전히 무효화됩니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: [timeout]옵션은 밀리초 단위로 지정합니다. 기본값은 30,000(30 초)이며, 0 을 지정하면 제한이 완전히 비활성화됩니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-03** (tech)
@@ -437,10 +749,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: v1.xからアップグレードする前に、設定ディレクトリのバックアップを取ってください。移行スクリプトはすべてのファイルをその場で書き換えるため、元に戻せません。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 해 주세요. 이월 스크립트는 모든 파일을 그 자리에서 다시 작성하기 때문에, 되돌릴 수 없습니다.
+- **apple-mt-marker**: v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 해 주세요. 이월 스크립트는 모든 파일을 그 자리에서 다시 작성하기 때문에, 되돌릴 수 없습니다.
 - **apple-mt-plain**: v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 해 주세요. 이월 스크립트는 모든 파일을 그 자리에서 다시 작성하기 때문에, 되돌릴 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: v1. x에서 업그레이드하기 전에 설정 디렉터리를 백업하십시오. 마이그레이션 스크립트가 모든 파일을 덮어쓰기 때문에 복원할 수 없습니다.
+- **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 설정 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 즉시 다시 쓸 수 있으므로 복원할 수 없습니다.
+- **ct2-nllb-600m**: v1.x에서 업그레이드하기 전에 설정 디렉터리를 백업하세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: v1.x 에서 업그레이드하기 전에,설정 디렉토리의 백업を取ってください。移行スクリプト는すべてのファイルをその場で書き換えるため、元に戻せません。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: v1.x 에서 업그레이드하기 전에 설정 디렉토리의 백업 을 취해 주세요. 마이그레이션 스크립트는 모든 파일을 즉시 덮어쓰기 때문에 원본 복원은 불가능합니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-04** (tech)
@@ -448,10 +768,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: デーモンが起動しない場合は、ポート8443が別のプロセスに使われていないか確認します。ログは http://localhost:8443/debug/logs で見られます。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 데이몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **apple-mt-marker**: 데이몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 데이몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 데몬이 실행되지 않으면, 다른 프로세스가 포트 8443을 사용하고 있는지 확인하십시오. 로그는 http: // localhost: 8443/ debug/ logs 에서 볼 수 있습니다.
+- **ct2-nllb-1.3b**: 만약 데몬이 시작되지 않는다면, 포트 8443가 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 볼 수 있습니다.
+- **ct2-nllb-600m**: 데몬이 활성화되지 않으면 포트8443가 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 볼 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: デーモンが起動しない場合は、ポート 8443 가別のプロセスに使われていないか確認します。ログは http://localhost:8443/debug/logs で見られます。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 디몬이 시작되지 않는 경우, 포트 8443 이 다른 프로세스를 사용하고 있는지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-05** (tech)
@@ -459,10 +787,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 各ワーカースレッドは約64MBの独自キャッシュを持つので、RAM 8GBのマシンではワーカーを8つ以上動かさないほうがよい。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 각 워커스레드는 약 64MB의 독자 캐시를 가지고 있으므로, RAM 8GB의 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋다.
+- **apple-mt-marker**: 각 워커스레드는 약 64MB의 독자 캐시를 가지고 있으므로, RAM 8GB의 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋다.
 - **apple-mt-plain**: 각 워커스레드는 약 64MB의 독자 캐시를 가지고 있으므로, RAM 8GB의 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 각 작업 스레드는 약 64MB의 독립 캐시를 가지고 있기 때문에 8GB RAM의 컴퓨터에서는 8개 이상의 작업 스레드를 실행하지 않는 것이 좋다.
+- **ct2-nllb-1.3b**: 각 워커스레드는 약 64MB의 고유 캐시를 가지고 있으며, RAM 8GB의 머신에서는 8명 이상의 워커를 움직이지 않는 것이 좋습니다.
+- **ct2-nllb-600m**: 각 워커 레드는 64MB의 캐시를 가지고 있습니다. 8GB의 램을 가지고 있는 기기에서 8개의 워커를 넘지 않는 것이 좋습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 各ワーカースレッドは約 64MB 의独自キャッシュ を持っているので、RAM 8GB のマシンではワーカーを 8 個以上動かさないほうがよい。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 각 워크러스트드는 약 64 MB 의 고유 캐시 를 가지므로, RAM 8 GB 마シン에서는 작업자를 8 개 이상 실행하지 않는 것이 좋습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-06** (tech)
@@ -470,10 +806,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: リクエストは指数バックオフで最大3回まで再試行される。すべて失敗した場合は [TransientError] として呼び出し元に返される。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 요청은 지수 백오프로 최대 3회까지 재시도된다. 모두 실패한 경우 [TransientError]로 호출元에 반환된다.
+- **apple-mt-marker**: 요청은 지수 백오프로 최대 3회까지 재시도된다. 모두 실패한 경우 [TransientError]으로 호출처로 반환된다.
 - **apple-mt-plain**: 요청은 지수 백오프로 최대 3회까지 재시도된다. 모두 실패한 경우 [TransientError] 로서 호출원에게 반환된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 요청은 지수 백오프로 최대 3번까지 다시 시도됩니다. [TransientError] 다시 돌아오면 명령을 받게 된다.
+- **ct2-nllb-1.3b**: 요청은 지수 백오프로 최대 3회까지 다시 시도됩니다. [TransientError] 소환된 값은 소환된 값으로
+- **ct2-nllb-600m**: 이 요청은 지수 백오프로 최대 3회까지 반복됩니다. [TransientError] 그리고, 다시, 다시, 다시,
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: リクエストは指数バックオフで最大 3 回まで再試行されます。すべて失敗した場合は[TransientError]として呼び出し元に返されます。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 요청은 지수 백오프 로 최대 3 회까지 재시도됩니다. 모두 실패한 경우 [TransientError]TransientError 로 호출자에게 반환됩니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-01** (news)
@@ -481,10 +825,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 市議会は火曜日、東部郊外へのバス路線延伸を賛成7、反対2で可決した。賛成派は、通勤時間が最大25%短縮されると述べている。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 의결했다. 찬성파는 출퇴근 시간이 최대 25% 단축된다고 말하고 있다.
+- **apple-mt-marker**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 의결했다. 찬성파는 출퇴근 시간이 최대 25% 단축된다고 말하고 있다.
 - **apple-mt-plain**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 의결했다. 찬성파는 출퇴근 시간이 최대 25% 단축된다고 말하고 있다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 가결했다.찬성파는 통근 시간이 최대 25% 단축된다고 말하고 있다.
+- **ct2-nllb-1.3b**: 시의회는 화요일에 동부 교외로 버스 노선 연장을 찬성 7표, 반대 2표로 통과시켰다. 찬성자들은 통근시간을 최대 25% 줄일 것이라고 말했다.
+- **ct2-nllb-600m**: 시회는 화요일 동부 시외로 버스 노선 연장을 찬성 7명과 반대 2명으로 통과시켰다. 찬성자들은 통행시간을 최대 25%까지 줄일 것이라고 말했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 市議会は火曜日、東部郊外へのバス路線延伸を賛成 7、反対 2 で可決した。賛成派は、通勤時間が最大 25% 短縮されると述べている。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 시장의회는 화요일에 동부 외곽의 버스 노선 연장 찬성 7 명, 반대 2 명으로 통과했습니다. 찬성 측에서는通勤 시간이 최대 25% 단축될 것이라고 설명했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-02** (news)
@@ -492,10 +844,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: ハルボルセン研究所の研究チームは、新型電池が2,000回の充放電後も容量の90%を維持したと発表した。これは現行の市販品の約2倍にあたる。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 하루볼센 연구소의 연구팀은, 신형 배터리가 2,000회의 충전방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행의 시판품의 약 2배에 해당한다.
+- **apple-mt-marker**: 하루볼센 연구소의 연구팀은, 신형 배터리가 2,000회의 충전방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행의 시판품의 약 2배에 해당한다.
 - **apple-mt-plain**: 하루볼센 연구소의 연구팀은, 신형 배터리가 2,000회의 충전방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행의 시판품의 약 2배에 해당한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 할보르센 연구소의 연구팀은 새로운 배터리가 2,000회의 충전 방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행 시판품의 약 2배에 해당한다.
+- **ct2-nllb-1.3b**: 하르볼센 연구소 연구팀은 새로운 종류의 배터리가 2,000번의 충전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현재 시장에서 판매되는 제품의 약 2배이다.
+- **ct2-nllb-600m**: 하르보르센 연구팀은 새로운 배터리가 2,000번의 충전에서 90%의 용량을 유지했다고 발표했습니다. 이는 현재 시장에서 판매되는 제품의 약 2배 정도입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: ハルボルセン研究所の研究チームは、新型電池が 2,000 回の充放電後も容量の 90% を維持したと発表した。これは現行の市販品の約 2 倍にあたる。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 하르볼센 연구소의 연구팀은 새로운 배터리가 2,000 회 충전 방전 후에도 용량의 90% 를 유지했다고 발표했습니다. 이는 현재 판매되는 제품의 약 2 배에 해당합니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-03** (news)
@@ -503,10 +863,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 一方で、この結果はまだ査読を受けておらず、試作品の製造コストは1キロワット時あたり約340ドルに上るとの指摘も出ている。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 한편, 이 결과는 아직 검토를 받지 않았으며, 시제품의 제조 비용은 1킬로와트시당 약 340달러에 이를 것이라는 지적도 나오고 있다.
+- **apple-mt-marker**: 한편, 이 결과는 아직 검토를 받지 않았으며, 시제품의 제조 비용은 1킬로와트시당 약 340달러에 이를 것이라는 지적도 나오고 있다.
 - **apple-mt-plain**: 한편, 이 결과는 아직 검토를 받지 않았으며, 시제품의 제조 비용은 1킬로와트시당 약 340달러에 이를 것이라는 지적도 나오고 있다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 한편, 이 결과는 아직 심사를 받지 않았으며, 시제품의 제조 비용은 1 킬로와트당 약 340 달러에 달한다는 지적도 나왔다.
+- **ct2-nllb-1.3b**: 한편, 이 결과는 아직 심사되지 않았으며, 프로토타입의 제조 비용은 1 킬로와트 시간당 약 $340에 달하는 것으로 지적되기도 한다.
+- **ct2-nllb-600m**: 하지만 이 결과는 아직 검토되지 않았으며 시제품 제작 비용은 1KW당 약 340달러에 달할 것으로 알려졌습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 一方で、この結果はまだ査読を受けておらず、試作品の製造コストは 1 キロワット時あたり約 340 ドルに上るとの指摘も出ている。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 그러나 이 결과는 아직 검토를 거치 않았으며, 제조 비용은 1 킬로ワ트 시당 약 340 달러에 달한다는 지적도 나오고 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-04** (news)
@@ -514,10 +882,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 北部の沿岸地域では木曜日にかけて大雨となる見込みで、最大風速は70km/h、気温は12度前後で推移するでしょう。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 북부의 해안 지역에서는 목요일까지 대우가 될 전망이며, 최대 풍속은 70km/h, 기온은 12도 전후로 변동할 것입니다.
+- **apple-mt-marker**: 북부의 해안 지역에서는 목요일까지 대우가 될 전망이며, 최대 풍속은 70km/h, 기온은 12도 전후로 변동할 것입니다.
 - **apple-mt-plain**: 북부의 해안 지역에서는 목요일까지 대우가 될 전망이며, 최대 풍속은 70km/h, 기온은 12도 전후로 변동할 것입니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 북부의 해안 지역에서는 목요일에 걸쳐 폭우가 내릴 것으로 예상되며, 최대 풍속은 시속 70km, 기온은 12도 전후로 추이할 것이다.
+- **ct2-nllb-1.3b**: 북부 해안 지역에서는 목요일까지 폭우가 올 것으로 예상되며 최대 시속 70km의 바람이 불고 기온은 12°C 이상으로 상승할 것으로 예상된다.
+- **ct2-nllb-600m**: 북부 해안 지역에서는 목요일부터 강수량이 예상되며 최고풍속은 70km/h이고 기온은 12도 이상으로 이동할 것입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 北部の沿岸地域では木曜日にかけて大雨となる見込みで、最大風速は 70km/h、気温は 12 度前後で推移するでしょう。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 북부 해안 지역에서는 목요일에 큰 비가 내릴 것으로 예상되며, 최대 풍속은 70 km/h, 기온은 12 도前後으로 유지될 것입니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-05** (news)
@@ -525,10 +901,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 同社は月曜日に発表した声明で、サプライチェーンの問題が続いていることを理由に、主力スマートフォンの発売を来年初めまで延期すると明らかにした。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 동사는 월요일에 발표한 성명에서, 공급망의 문제가 지속되고 있다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.
+- **apple-mt-marker**: 동사는 월요일에 발표한 성명에서, 공급망의 문제가 지속되고 있다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.
 - **apple-mt-plain**: 동사는 월요일에 발표한 성명에서, 공급망의 문제가 지속되고 있다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이 회사는 월요일에 발표한 성명서에서 공급망의 문제가 계속되고 있는 것을 이유로 주력 스마트폰의 발매를 내년 초까지 연기한다고 밝혔다.
+- **ct2-nllb-1.3b**: 이 회사는 월요일에 발표한 성명서에서 공급망 문제로 인해 주요 스마트폰 출시를 내년 초까지 연기할 것이라고 밝혔다.
+- **ct2-nllb-600m**: 회사 측은 월요일에 발표한 발표에서 공급망 문제로 인해 주력 스마트폰 출시를 내년 초까지 연기한다고 밝혔다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 同社は月曜日に発表した声明で、サプライチェーンの問題が続いていることを理由に、主力スマートフォンの発売を来年初めまで延期すると明らかにした。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 이 회사는 월요일에 발표한声明에서 공급망 문제의 지속을 이유로 주력 스마트폰 출시를 내년 초까지 연기한다고 밝혔습니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-06** (news)
@@ -536,10 +920,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: なぜ小さなパン屋は5年以内に閉店してしまうのか。経済学者によれば、答えはパンそのものよりも、家賃や人手、そして薄い利益率にあるという。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 왜 작은 빵집은 5년 이내에 문을 닫게 되는가. 경제학자들에 따르면, 답은 빵 그 자체보다 임대료와 인건비, 그리고 낮은 이익률에 있다고 한다.
+- **apple-mt-marker**: 왜 작은 빵집은 5년 이내에 문을 닫게 되는가. 경제학자들에 따르면, 답은 빵 그 자체보다 임대료와 인건비, 그리고 낮은 이익률에 있다고 한다.
 - **apple-mt-plain**: 왜 작은 빵집은 5년 이내에 문을 닫게 되는가. 경제학자들에 따르면, 답은 빵 그 자체보다 임대료와 인건비, 그리고 낮은 이익률에 있다고 한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 왜 작은 빵집이 5년 이내에 문을 닫는가?경제학자들에 따르면, 대답은 빵 그 자체보다는 임대료와 인력, 그리고 희박한 수익률에 있다고 한다.
+- **ct2-nllb-1.3b**: 왜 작은 빵집이 5년 이내에 문을 닫을까요? 경제학자들의 말에 따르면 그 답은 빵 그 자체보다 집세와 인력, 그리고 낮은 수익률에 있습니다.
+- **ct2-nllb-600m**: 왜 작은 빵집이 5년 안에 문을 닫을 수 있을까요? 경제학자들은 빵보다 임금과 인력, 그리고 낮은 수익률에 대한 답을 제시하고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: なぜ小さなパン屋は 5 年以内に閉店してしまうのか。経済学者によれば、答えはパンそのものよりも、家賃や人手、そして薄い利益率にあるという。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 왜 작은 빵집이 5 년 안에 문을 닫게 될까. 경제학자들에 따르면, 답은 빵 그 자체보다도 임대료와 인력 그리고 얇은 이익률에 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-01** (community)
@@ -547,10 +939,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: やっとRaspberry Piが起動したと思ったら、秒で火を噴いた。いや、実際には燃えてないけど、俺の心は燃えた。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 드디어 Raspberry Pi가 부팅된 줄 알았더니, 초 단위로 불을 뿜었다. 아니, 실제로 불타지는 않았지만, 내 마음은 불탔다.
+- **apple-mt-marker**: 드디어 Raspberry Pi가 부팅된 줄 알았더니, 초 단위로 불을 뿜었다. 아니, 실제로 불타지는 않았지만, 내 마음은 불탔다.
 - **apple-mt-plain**: 드디어 Raspberry Pi가 부팅된 줄 알았더니, 초 단위로 불을 뿜었다. 아니, 실제로 불타지는 않았지만, 내 마음은 불탔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 마침내 라즈베리 파이가 작동한다고 생각했을 때, 몇 초 안에 불이 났습니다. 아니, 실제로는 타지 않았지만, 내 마음은 타버렸습니다.
+- **ct2-nllb-1.3b**: 라즈베리 파이가 켜졌다고 생각했을 때, 그 순간 불이 났습니다. 아니, 실제로 불타지 않았지만, 제 마음은 불타고 있었습니다.
+- **ct2-nllb-600m**: 제가 Raspberry Pi가 시작됐다고 생각했을 때, 몇 초 만에 불이 터졌습니다. 사실 불타지는 않았지만, 제 마음은 불타고 있었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: やっと Raspberry Pi が起動したと思ったら、秒で火を噴いた。いや、実際には燃えてないけど、俺の心は燃えた。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: やっと Raspberry Pi 가 시작되었다고 생각했는데, 초당 불을 뿜었다. 아니, 실제로는 연소되지 않지만, 내 마음은 연소했다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-02** (community)
@@ -558,10 +958,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: ぶっちゃけ、タブでもスペースでもどっちでもいいと思うんだよね。深夜2時に論争してる人は、おやつ食べて寝たほうがいい(笑)
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해. 자정 2시에 논쟁하고 있는 사람은 간식 먹고 자는 게 좋겠어(웃음)
+- **apple-mt-marker**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해. 자정 2시에 논쟁하고 있는 사람은 간식 먹고 자는 게 좋겠어(웃음)
 - **apple-mt-plain**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해. 자정 2시에 논쟁하고 있는 사람은 간식 먹고 자는 게 좋겠어(웃음)
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 젠장, 탭 키나 스페이스 키 둘 다 쓸 수 있겠지. 밤 2시에 논쟁하는 사람은 간식을 먹고 자는 게 낫겠지.
+- **ct2-nllb-1.3b**: , , , , , , , , ,
+- **ct2-nllb-600m**: 제가 생각하듯이, 만약 여러분이 2시쯤에 논쟁을 벌이고 있다면, 여러분은 음식을 먹고 잠자는 것이 좋습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: ぶっちゃけ、タブでもスペースでもどっちでもいいと思うんだよね。深夜 2 時に論争してる人は、おやつ食べて寝たほうがいい (笑)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 진짜로, 탭이나 스페이스도 괜찮다고 생각하니까요. 밤 2 시에 논쟁하는 사람들은 저녁 식사 후 잠들도록 하세요 (웃음)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-03** (community)
@@ -569,10 +977,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 3時間エラーとにらめっこして、原因がセミコロン1個だったwww セミコロンだぞ?もう山に籠もるわ…
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 3시간 동안 오류와 눈싸움을 하고, 원인이 세미콜론 1개였어www 세미콜론이지? 이제 산에 틀어박힐게…
+- **apple-mt-marker**: 3시간 동안 오류와 눈싸움을 하고, 원인이 세미콜론 1개였어www 세미콜론이지? 이제 산에 틀어박힐게…
 - **apple-mt-plain**: 3시간 동안 오류와 눈싸움을 하고, 원인이 세미콜론 1개였어www 세미콜론이지? 이제 산에 틀어박힐게…
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 3시간에 걸쳐 오류가 발생했고, 원인이 세미콜론 1개였습니다.
+- **ct2-nllb-1.3b**: 3시간 동안 한 개의 반점으로 인한 오류를 보고 있었지?
+- **ct2-nllb-600m**: 3시간 동안 실태에 빠졌는데, 그 이유는 한 가지 반기둥이었죠.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 3 時間エラーとにらめっこして、原因がセミコロン 1 個だった www セミコロンだぞ? もう山に籠もるわ…
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 3 시간 오류와 싸워보며, 원인이セミ콜론 1 개였을 www 에서죠? 이미 산에 갇혀버린 것 같습니다…
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-04** (community)
@@ -580,10 +996,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 正直、あのアップデートで環境が全部壊れたんだが。ロールバックして外の空気吸ってきた。また明日やるわ。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 솔직히, 저 업데이트로 환경이 다 망가졌는데.롤백해서 밖의 공기를 마셨어.내일 다시 할게.
+- **apple-mt-marker**: 솔직히, 저 업데이트로 환경이 다 망가졌는데.롤백해서 밖의 공기를 마셨어.내일 다시 할게.
 - **apple-mt-plain**: 솔직히, 저 업데이트로 환경이 다 망가졌는데.롤백해서 밖의 공기를 마셨어.내일 다시 할게.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 솔직히, 그 업데이트로 환경이 전부 망가졌지만, 롤백해서 밖의 공기를 들이마셨어요. 내일 다시 해보죠.
+- **ct2-nllb-1.3b**: 솔직히, 그 업데이트가 모든 환경을 망쳐버렸어요.
+- **ct2-nllb-600m**: 솔직히 말씀드리자면, 그 업데이트로 인해 환경이 완전히 망가졌지만, 저는 다시 돌아와서 공기를 흡수했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 正直、あのアップデートで環境が全部壊れたんだが。ロールバックして外の空気吸ってきた。また明日やるわ。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 진짜로, 그 업데이트로 환경이 모두 망가졌을 거예요. 롤백해서 외기의 공기를 흡입했습니다. 또 다음 날 다시 시도하겠습니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-05** (community)
@@ -591,10 +1015,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: うちの猫がルーターの上に1週間居座ってるんだけど、なぜかWi-Fiの調子が過去最高。理由は聞かないでくれ。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 이상하게도 Wi-Fi 상태가 역대 최고야. 이유는 물어보지 마.
+- **apple-mt-marker**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 이상하게도 Wi-Fi 상태가 역대 최고야. 이유는 물어보지 마.
 - **apple-mt-plain**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 이상하게도 Wi-Fi 상태가 역대 최고야. 이유는 물어보지 마.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 내 고양이가 일주일 동안 라우터 위에 앉아 있었는데 왜인지 와이파이가 최고였어
+- **ct2-nllb-1.3b**: 제 고양이는 일주일 동안 라우터에 앉아 있습니다. 그런데 왜 Wi-Fi가 최고인지 묻지 마세요.
+- **ct2-nllb-600m**: 우리 고양이는 일주일 동안 라우터 위에 앉아 있습니다. 왜 Wi-Fi가 예전보다 더 잘 작동하는지요. 왜 그런지 묻지 마세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: うちの猫がルーターの上に 1 週間居座ってるんだけど、なぜか Wi-Fi の調子が過去最高。理由は聞かないでくれ。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 우리 고양이가 라우터 위에 1 주 동안 앉아있는데, Wi-Fi 가 과거 최고 수준입니다. 이유를 묻지 마세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-06** (community)
@@ -602,10 +1034,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: キーボードに6,000円も使ってしまった。雨音みたいな打鍵音で最高。同僚の反応は…まあ、お察しですw
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 키보드에 6,000엔이나 썼다. 비소리 같은 누르기 소리로 최고. 동료의 반응은...음, 이해합니다w
+- **apple-mt-marker**: 키보드에 6,000엔이나 썼다. 비소리 같은 누르기 소리로 최고. 동료의 반응은...음, 이해합니다w
 - **apple-mt-plain**: 키보드에 6,000엔이나 썼다. 비소리 같은 누르기 소리로 최고. 동료의 반응은...음, 이해합니다w
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 키보드에 6,000엔을 써버렸어요. 비 소리같은 타이핑 소리가 최고예요. 동료들의 반응은... 음, 예상이 되네요w
+- **ct2-nllb-1.3b**: 키보드에 6천 엔을 썼습니다.
+- **ct2-nllb-600m**: 키보드에 6천엔을 썼습니다. 빗방울처럼 좋은 키보드입니다. 동료들의 반응은...
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: キーボードに 6,000 円も使ってしまった。雨音みたいな打鍵音で最高。同僚の反応は…まあ、お察しです w
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 키보드에 6,000 원 이상 썼습니다. 빗소리 같은敲击音으로 최고입니다. 동료의 반응은… 아니요, 알겠습니다 입니다 w
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-ui-01** (ui)
@@ -613,10 +1053,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 変更を保存
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 변경을 저장
+- **apple-mt-marker**: 변경을 저장
 - **apple-mt-plain**: 변경을 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 변경 사항 저장
+- **ct2-nllb-1.3b**: 변경사항을 저장합니다
+- **ct2-nllb-600m**: 변경사항을 저장합니다
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 変更を保存
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 변경 저장합니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-ui-02** (ui)
@@ -624,10 +1072,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 問題が発生しました。しばらくしてからもう一度お試しください。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 문제가 발생했습니다. 잠시 후에 다시 한번 시도해 주세요.
+- **apple-mt-marker**: 문제가 발생했습니다. 잠시 후에 다시 한번 시도해 주세요.
 - **apple-mt-plain**: 문제가 발생했습니다. 잠시 후에 다시 한번 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 문제가 발생했습니다. 잠시 후에 다시 시도하십시오.
+- **ct2-nllb-1.3b**: 문제가 발생했습니다. 잠시 후에 다시 시도하세요.
+- **ct2-nllb-600m**: 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 問題が発生しました。しばらくしてからもう一度お試しください。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-ui-03** (ui)
@@ -635,10 +1091,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 未読メッセージが3件あります
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 미독 메시지가 3건 있습니다
+- **apple-mt-marker**: 미독 메시지가 3건 있습니다
 - **apple-mt-plain**: 미독 메시지가 3건 있습니다
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 읽지 않은 메시지가 세 개 있습니다.
+- **ct2-nllb-1.3b**: 여기 3개의 문자가 있습니다.
+- **ct2-nllb-600m**: 3개의 미독된 메시지가 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 未読メッセージが 3 件あります
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 미독 메시지가 3 건 있습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-link-01** (link)
@@ -646,10 +1110,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 続行するには[こちら]をクリックしてください。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 계속하려면 [こちら]기를 클릭하십시오.
+- **apple-mt-marker**: 계속하려면[こちら]를 클릭하십시오.
 - **apple-mt-plain**: 계속하려면[こちら]를 클릭해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 계속하려면[こちら]를 클릭하세요.
+- **ct2-nllb-1.3b**: 그 다음으로,[こちら]이 문자를 클릭하세요.
+- **ct2-nllb-600m**: 이 모든 것이[こちら]이 문자를 클릭하세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 続行するには[こちら]こちら
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 계속하려면 [こちら]이곳을 클릭하세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-link-02** (link)
@@ -657,10 +1129,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 対応プラットフォームの詳細については、[インストールガイド]をご覧ください。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 지원 플랫폼의 자세한 내용은, [インストールガイド]참조하십시오.
+- **apple-mt-marker**: 대응 플랫폼의 자세한 내용은, [インストールガイド]을 보십시오.
 - **apple-mt-plain**: 대응 플랫폼의 자세한 내용은,[インストールガイド]를 보십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 플랫폼에 대한 자세한 내용은 다음을 참조하라.[インストールガイド]보세요.
+- **ct2-nllb-1.3b**: 이 앱을 이용하면[インストールガイド]자, 여기 보겠습니다.
+- **ct2-nllb-600m**: 이 플랫폼에 대한 자세한 내용은[インストールガイド]이 사진들을 보세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 対応プラットフォームの詳細については、[インストールガイド]インストールガイド
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 대응 플랫폼의 자세한 내용은 [インストールガイド]설치 가이드 를 확인해 주세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-link-03** (link)
@@ -668,10 +1148,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 問題が解決しない場合は、[トラッカーでイシューを作成]し、ログファイルを添付してください。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]하고, 로그 파일을 첨부해 주세요.
+- **apple-mt-marker**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]하고, 로그 파일을 첨부해 주세요.
 - **apple-mt-plain**: 문제가 해결되지 않는 경우,[トラッカーでイシューを作成]그리고, 로그 파일을 첨부해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 문제가 해결되지 않으면[トラッカーでイシューを作成]로그 파일을 첨부하십시오.
+- **ct2-nllb-1.3b**: 만약 문제가 해결되지 않는다면,[トラッカーでイシューを作成]로그 파일을 첨부하세요.
+- **ct2-nllb-600m**: 만약 문제가 해결되지 않는다면,[トラッカーでイシューを作成]로그 파일을 첨부해 주세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 問題が解決しない場合は、[トラッカーでイシューを作成]トラッカーでイシューを作成
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]트래커를 통해 이슈를 생성하고 로그 파일을 첨부하세요.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-01** (seq)
@@ -679,10 +1167,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 去年の春、家族の写真を保存するために、古いノートPCを自宅サーバーにすることにしました。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 작년 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC를 집 서버에 하는 것을 결정했습니다.
+- **apple-mt-marker**: 작년 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC를 집 서버에 하는 것을 결정했습니다.
 - **apple-mt-plain**: 작년 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC를 집 서버에 하는 것을 결정했습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 작년 봄, 가족의 사진을 보관하기 위해 오래된 노트북을 집 서버로 사용하기로 결정했습니다.
+- **ct2-nllb-1.3b**: 작년에 봄에, 저는 가족 사진을 저장하기 위해 노트북 컴퓨터를 가정 서버로 사용하기로 했습니다.
+- **ct2-nllb-600m**: 작년에 봄, 저는 노트북을 가정 서버로 사용해서 가족 사진들을 저장하기로 했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 去年の春、家族の写真を保存するために、古いノート PC を自宅サーバーにすることにしました。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 지난 봄, 가족 사진을 저장하기 위해, 오래된 노트북 PC 를自宅 서버에 두기로 결정했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-02** (seq)
@@ -690,10 +1186,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 2014年製のThinkBook(RAM 8GB)は、この用途にはぴったりでした。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 2014년식 ThinkBook(RAM 8GB)은, 이 용도에는 딱 맞았습니다.
+- **apple-mt-marker**: 2014년식 ThinkBook(RAM 8GB)은, 이 용도에는 딱 맞았습니다.
 - **apple-mt-plain**: 2014년식 ThinkBook(RAM 8GB)은, 이 용도에는 딱 맞았습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 2014년에 출시된 ThinkBook(8GB RAM)은 이러한 용도에 적합했습니다.
+- **ct2-nllb-1.3b**: 2014년 힌크북 (RAM 8GB) 은 이 용도로 적합했습니다.
+- **ct2-nllb-600m**: 2014년에 만들어진 ThinkBook (RAM) 는 이 용도로 매우 적합했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 2014 年製のThinkBook(RAM 8GB) は、この用途にはぴったりでした。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 2014 년 제작된 ThinkBook (RAM 8 GB) 은 이 용도로는 완벽했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-03** (seq)
@@ -701,10 +1205,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: まず [Debian 12] をインストールし、写真を閲覧するための小さなWebアプリ、Fernboxを設定しました。
 - **apple-fm**: (오류: Content contains 4097 tokens, which exceeds the maximum allowed context size of 4096.)
 - **apple-mt-attr**: 먼저 [Debian 12]을 설치하고, 사진을 감상하기 위한 작은 Web앱, Fernbox를 설정했습니다.
+- **apple-mt-marker**: 먼저 [Debian 12]을 설치하고, 사진을 조회하기 위한 작은 Web앱, Fernbox를 설정했습니다.
 - **apple-mt-plain**: 먼저 [Debian 12] 을 설치하고, 사진을 조회하기 위한 작은 Web앱, Fernbox를 설정했습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 첫번째로, [Debian 12] 사진을 볼 수 있는 작은 웹 애플리케이션인 Fernbox를 설정했습니다.
+- **ct2-nllb-1.3b**: 먼저, [Debian 12] 그래서 저는 Fernbox라는 작은 웹 앱을
+- **ct2-nllb-600m**: 먼저, [Debian 12] 그래서 저는 이 작은 웹 앱을 설치하고 사진을 볼 수 있는
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: まず[Debian 12]Debian 12
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 먼저 [Debian 12]Debian 12 를 설치하고, 사진을 보기 위한 작은 Web 앱인 Fernbox 을 설정했습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-04** (seq)
@@ -712,10 +1224,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 妹は最初は半信半疑でしたが、1週間後には「今まで使ったどのクラウドサービスよりもFernboxのほうが速い」と認めてくれました。
 - **apple-fm**: 아이는 처음에는 의심스럽다고 했지만, 1주일 뒤에는 "지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정해줬어요.
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 1주일 후에는 "지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정해 주었습니다.
+- **apple-mt-marker**: 여동생은 처음에는 반신반의했지만, 1주일 후에는 "지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정해 주었습니다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 1주일 후에는 "지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정해 주었습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 여동생은 처음에는 반신반의했지만 1주일 후에는 "Fernbox가 지금까지 사용했던 모든 클라우드 서비스보다 빠르다"고 인정했습니다.
+- **ct2-nllb-1.3b**: 제 여동생은 처음에는 회의적이었습니다. 하지만 일주일 후, 그녀는 "나는 지금까지 사용했던 모든 클라우드 서비스보다 페른박스가 더 빠르다고 인정했습니다".
+- **ct2-nllb-600m**: 제 여동생은 처음에는 반정신적이었지만 일주일 후에 그녀는 "Fernbox은 지금까지 사용했던 모든 클라우드 서비스보다 더 빠르다"고 인정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 妹は最初は半信半疑でしたが、1 週間後には「今まで使ったどのクラウドサービスよりも Fernbox ほうが速い」と認めてくれました。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 어머니는 처음에는 의심스러웠지만, 1 주 후에는 "지금까지 사용했던 클라우드 서비스 중 Fernbox 가 가장 빠르다고 인정했습니다."라고 인정해 주었습니다.
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-05** (seq)
@@ -723,10 +1243,18 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 今では古いノートPCは棚の上で静かに動いており、Fernboxは旅行から帰ったあと、家族全員が最初に開くアプリになっています。
 - **apple-fm**: 지금은 오래된 노트북이 선반 위에 조용히 있고, Fernbox여행에서 돌아온 뒤 가족 모두가 가장 먼저 사용하는 앱이 됐어요.
 - **apple-mt-attr**: 지금은 오래된 노트북은 선반 위에서 조용히 움직이고 있으며, Fernbox는 여행에서 돌아온 뒤, 가족 모두가 가장 먼저 열는 앱이 되었습니다.
+- **apple-mt-marker**: 지금은 오래된 노트북은 선반 위에서 조용히 움직이고 있으며, Fernbox는 여행에서 돌아온 뒤, 가족 모두가 가장 먼저 열는 앱이 되었습니다.
 - **apple-mt-plain**: 지금은 오래된 노트북은 선반 위에서 조용히 움직이고 있으며, Fernbox는 여행에서 돌아온 뒤, 가족 모두가 가장 먼저 열는 앱이 되었습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있으며 Fernbox는 여행에서 돌아온 후 가족 전체가 처음으로 열는 앱이 되었습니다.
+- **ct2-nllb-1.3b**: 이제 오래된 노트북 컴퓨터는 책상 위에 조용히 움직이고 있습니다. 그리고 Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 열는 앱입니다.
+- **ct2-nllb-600m**: 이제 오래된 노트북은 셰일프 위에 조용히 움직이고 있습니다. 그리고 Fernbox은 여행에서 돌아온 첫 번째 앱입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: 今では古いノートPCは棚の上で静かに動いており、Fernboxは旅行から帰ったあと、家族全員が最初に開くアプリになっています。
+- **mlx-qwen3.5-2b-4bit**: 今では古いノート PC は棚の上で静かに動いており、Fernboxは旅行から帰ったあと、家族全員が最初に開くアプリになっています。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 현재는 오래된 노트북 PC 는 조용히 서랍 위에 있고, Fernbox 는 여행에서 돌아온 후, 가족이 먼저开的 앱입니다.(누락)
 - **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 ### zh-Hans
@@ -738,8 +1266,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 명령줄 도구를 설치하려면 을 실행한 [npm install -g fernctl]후 사용하여 [fernctl --version]버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl],그런 다음 사용한다 [fernctl --version] 버전 확인. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 명령줄 도구를 설치하려면 다음을 실행하십시오. [npm install -g fernctl]그래, 그래 [fernctl --version] 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
+- **ct2-nllb-1.3b**: 명령줄 도구를 설치하려면 실행하세요. [npm install -g fernctl]그리고는 [fernctl --version] 버전 확인. 2.4.1 또는 더 높은 버전이 필요합니다.
+- **ct2-nllb-600m**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl]그리고 [fernctl --version] 2.4.1 또는 더 높은 버전이 필요합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 要安装命令行工具，请运行[npm install -g fernctl]，然后用[fernctl --version]检查版本。需要 2.4.1 或更高版本。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 要安装命令行工具，请运行 [npm install -g fernctl](누락)[fernctl --version](누락)
+- **ollama-translategemma-4b**: 명령줄 도구를 설치하려면 다음 명령을 실행하세요 [npm install -g fernctl](누락)[fernctl --version](누락)
 
 **zh-Hans-tech-02** (tech)
 
@@ -748,8 +1284,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
 - **apple-mt-plain**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 전혀 없습니다.
+- **ct2-nllb-1.3b**: [timeout] 옵션의 단위는 밀리 초이고, 기본값은 30000 ((30초) 이며, 0으로 설정하면 시간이 전혀 제한되지 않습니다.
+- **ct2-nllb-600m**: [timeout] 선택의 단위는 밀리초이며 기본값은 30000 (~30초) 이며, 0을 설정하면 절대 초시간을 제한하지 않습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: [timeout]选项的单位是毫秒，默认值为 30000(30 秒)，设为 0 则完全不限制超时。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: [timeout]옵션의 단위는 밀리초(ms)이고, 기본값은 30000(30초)이며, 0으로 설정하면 완전히 제한되지 않습니다.
 
 **zh-Hans-tech-03** (tech)
 
@@ -758,8 +1302,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: v1.x로 업그레이드하기 전에, 먼저 백업해 주세요구성 디렉토리를 . 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
 - **apple-mt-plain**: v1.x로 업그레이드하기 전에, 먼저 구성 디렉토리를 백업해 주세요. 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 직접 덮어씁니다.
+- **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 설정 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 바로 다시 작성하고 취소 할 수 없습니다.
+- **ct2-nllb-600m**: v1.x를 업그레이드하기 전에, 기본 설정 카테고리를 백업하십시오. 마이그레이션 스크린은 모든 파일을 직접 다시 작성하여 취소할 수 없습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 从 v1.x 升级之前，请先备份配置目录。迁移脚本会直接改写所有文件，而且无法撤销。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: v1.x 버전으로 업그레이드하기 전에 먼저 백업하세요 (누락)(누락)
 
 **zh-Hans-tech-04** (tech)
 
@@ -768,8 +1320,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 가디언 프로세스가 시작되지 않으면 포트 8443이 다른 프로세스에 의해 사용되지 않는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 볼 수 있습니다.
+- **ct2-nllb-1.3b**: 보호 프로세스가 시작되지 않으면 포트 8443가 다른 프로세스에 의해 점유되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **ct2-nllb-600m**: 보호 프로세스가 시작되지 않을 경우, 포트 8443가 다른 프로세스에 의해 점유되지 않았음을 확인하십시오. 로그를 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 如果守护进程无法启动，请确认端口 8443 没有被其他进程占用。日志可以在 http://localhost:8443/debug/logs 查看。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-tech-05** (tech)
 
@@ -778,8 +1338,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
 - **apple-mt-plain**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 각 스레드는 각각 약 64MB의 캐시를 가지고 있으므로 8GB의 메모리가 있는 시스템에서는 최대 8개의 스레드를 실행할 수 있습니다.
+- **ct2-nllb-1.3b**: 각 작업 스레드는 각각 64 MB 정도의 캐시를 가지고 있기 때문에 8 GB의 메모리의 기계는 최대 8 개의 작업 스레드를 실행할 수 있습니다.
+- **ct2-nllb-600m**: 각 작업 스레드는 각각 64 MB의 캐시를 가지고 있으므로 8 GB의 메모리를 가진 기계는 최대 8 개의 작업 스레드를 실행합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 每个工作线程都有各自约 64 MB 的缓存，因此内存为 8 GB 的机器最多运行八个工作线程。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-tech-06** (tech)
 
@@ -788,8 +1356,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 요청은 최대 지수적 후퇴 방식으로 세 번 다시 시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError]의 형태로 호출자에게 반환된다.
 - **apple-mt-plain**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError] 의 형태가 호출자에게 반환된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 요청은 최대 세 번 지수 방법으로 다시 시도되며, 모두 실패하면 다음과 같은 오류가 발생합니다. [TransientError] 호출자에게 형식을 반환합니다.
+- **ct2-nllb-1.3b**: 요청은 최대 3회까지 지수 회피 방식으로 다시 시도됩니다. 모든 것이 실패하면 오류가 표시됩니다. [TransientError] 이 글의 형태는 호출자에게 반환됩니다.
+- **ct2-nllb-600m**: 요청은 최대 3회 이상 지수 회귀 방식으로 재시행되며, 모두 실패하면 오류는 [TransientError] 이 자료를 통해,
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 请求最多会以指数退避的方式重试三次；如果全部失败，错误会以[TransientError]的形式返回给调用方。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-news-01** (news)
 
@@ -798,8 +1374,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
 - **apple-mt-plain**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 시의회는 화요일 7 대 2로 동부 교외 지역으로 버스 노선을 확장하는 계획을 통과시켰으며 지지자들은 이것이 통근 시간을 최대 25 % 줄일 것이라고 주장합니다.
+- **ct2-nllb-1.3b**: 시의회는 7대 2의 찬성으로 버스 노선을 동부 교외로 확장하는 방안을 통과시켰고, 지지자들은 이 방안이 통근 시간을 최대 25%까지 줄일 것이라고 말했다.
+- **ct2-nllb-600m**: 시회는 화요일 7명 2명으로 버스 노선을 동부 시외로 확장할 방안을 통과시켰고, 지지자들은 이를 통해 최대 25%의 출근 시간을 줄일 것으로 보고 있다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 市议会周二以 7 票对 2 票通过了将公交线路延伸至东部郊区的方案，支持者认为这将使通勤时间最多缩短 25%。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-news-02** (news)
 
@@ -808,8 +1392,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 할워슨 연구소의 연구원들은 새로운 배터리가 2,000회의 충전 및 방전 사이클 후에도 90%의 용량을 유지한다고 보고했습니다.
+- **ct2-nllb-1.3b**: 하버슨 연구소의 연구자들은 새로운 종류의 배터리가 2000번의 충전과 배열 순환 후에도 90%의 용량을 유지할 수 있다고 보고했다. 이는 현재 시장에서 판매되는 배터리의 두 배 정도이다.
+- **ct2-nllb-600m**: 하버슨 연구소 연구원들은 새로운 배터리가 2000회 충전 주기를 거쳐도 90%의 용량을 유지하고 있다고 보고했습니다. 이는 현재 시장에서 판매되는 배터리의 약 2배에 달한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 哈尔沃森研究所的研究人员报告称，一种新型电池在经过 2000 次充放电循环后仍保持了 90% 的容量，约为目前市售电池的两倍。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-news-03** (news)
 
@@ -818,8 +1410,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며 표본 생산 비용이 킬로와트시당 약 340 달러라고 지적합니다.
+- **ct2-nllb-1.3b**: 그러나 비평가들은 이 결과가 아직 평가를 받지 않았으며, 샘플의 생산 비용은 약 340달러/킬로와트라고 지적했다.
+- **ct2-nllb-600m**: 그러나 비평가들은 이 결과는 아직 동료 평가를 받지 않았으며, 샘플의 생산 비용은 약 340달러/kWh라고 지적했다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 不过，批评者指出，这一结果尚未经过同行评审，而且样品的生产成本约为每千瓦时 340 美元。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-news-04** (news)
 
@@ -828,8 +1428,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
 - **apple-mt-plain**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 시속 70km의 강풍과 섭씨 12도 정도의 기온이 예상됩니다.
+- **ct2-nllb-1.3b**: 북부 해안 지역에서는 목요일까지 폭우와 시속 70km의 강풍, 기온 12°C 정도가 예상된다.
+- **ct2-nllb-600m**: 북부 해안 지역에서는 목요일까지 강수와 70km/h의 바람이 예상되며 기온은 12°C에 달한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 北部沿海地区预计到周四都有大雨，阵风可达每小时 70 公里，气温在 12 摄氏度左右。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-news-05** (news)
 
@@ -838,8 +1446,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서,   것이라고 플래그십 스마트폰의 출시를내년 초로 연기할밝혔다.
 - **apple-mt-plain**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서, 플래그십 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이 회사는 지속적인 공급망 문제로 인해 내년 초까지 플래그십 휴대 전화의 출시를 연기한다고 월요일 발표했다.
+- **ct2-nllb-1.3b**: 회사 측은 월요일 성명을 통해 공급망 문제로 인해 플래그폰 출시 시기를 내년 초로 연기한다고 밝혔다.
+- **ct2-nllb-600m**: 회사 측은 월요일 (현지시간) 발표에 따르면, 공급망 문제로 인해 플래그너 휴대폰 출시가 내년 초까지 연기될 것이라고 밝혔다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 该公司周一发表声明称，由于供应链问题持续，将把旗舰手机的发布推迟到明年年初。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-news-06** (news)
 
@@ -848,8 +1464,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 더 크게  본다인건비, 그리고 적은 이익에 기인한다고.
 - **apple-mt-plain**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 인건비, 그리고 적은 이익에 더 크게 기인한다고 본다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 왜 이렇게 많은 작은 빵집들이 5년 이상 운영되지 못하는가? 경제학자들은 이유가 빵 자체와는 관련이 없고 임대료, 노동력, 희박한 이익에 있다고 믿는다.
+- **ct2-nllb-1.3b**: 왜 이렇게 많은 작은 빵집이 5년도 안 걸린 걸까요? 경제학자들은 빵이 직접적인 이유가 아니라 임대료, 인력, 그리고 소소한 이익 때문이라고 주장합니다.
+- **ct2-nllb-600m**: 왜 이렇게 많은 작은 빵집이 5년 만에 문을 연 걸까요? 경제학자들은 빵 자체와 관련이 없는 것이 아니라, 대여, 인력 및 소소한 수익 때문이라고 생각합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 为什么这么多小面包店开不过五年？经济学家认为，原因与面包本身关系不大，更多在于房租、人手和微薄的利润。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-community-01** (community)
 
@@ -858,8 +1482,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
 - **apple-mt-plain**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 친구, 딸기 파이가 드디어 작동했고, 전원이 켜지자마자 연기가 나기 시작했습니다. 글쎄요, 연기가 나지는 않았지만, 내 마음은 붕괴되었습니다.
+- **ct2-nllb-1.3b**: 좋은 친구, 나무늘보는 마침내 운전을 할 수 있었고, 결국 전기를 켜면 담배를 피웠다.
+- **ct2-nllb-600m**: 자, 덤불파리가 드디어 문을 열었고, 결국 전기가 켜지면 담배를 피우게 되었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 好家伙，树莓派终于能开机了，结果一上电就冒烟。好吧，也不是真冒烟，但我的心态已经崩了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-community-02** (community)
 
@@ -868,8 +1500,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
 - **apple-mt-plain**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 죄인의 말을 말하십시오 : 탭 또는 공백을 사용할 수 있습니다, 새벽 2시에 아직도 싸우는 사람을 위해, 뭔가를 먹고 잠들어야합니다.
+- **ct2-nllb-1.3b**: 죄인의 말: 시계 표지판이나 빈 공간으로 가십시오. 새벽 2시에 여전히 이 쟁쟁한 사람을 위해, 그는 잠자리에 들기 전에 먹어야합니다.
+- **ct2-nllb-600m**: 죄인들에 대한 판단에 따르면, "오전 2시쯤에 이 부조리 때문에 아무 것도 없거나, 아무 것도 없는 사람이 일어나서 밥을 먹어야 하고 잠들어야 한다".
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 说句得罪人的话：用制表符还是空格都行，凌晨两点还在为这个吵架的人，该去吃点东西然后睡觉了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-community-03** (community)
 
@@ -878,8 +1518,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 웃음이 터져 나왔고, 3시간 동안 오류 메시지를 쳐다보았습니다. 결과는 마침표 하나가 빠졌습니다.마침표 하나!
+- **ct2-nllb-1.3b**: 웃으며, 실수 보고를 3시간 동안 쳐다보다가, 1점 남았어요. 1점 아!
+- **ct2-nllb-600m**: 웃고 죽고, 3시간 동안 보고를 쳐다봤는데, 1점도 빠졌어요. 1점도 빠졌어요. 저는 산에 숨어있어요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 笑死，盯着报错看了三个小时，结果是少了一个分号。一个分号啊！我要去山里隐居了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-community-04** (community)
 
@@ -888,8 +1536,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
 - **apple-mt-plain**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 솔직히 말해서, 그 업데이트는 제 환경을 완전히 망가뜨렸습니다.
+- **ct2-nllb-1.3b**: 솔직히 말해서, 그 업데이트는 내 환경을 완전히 뒤집어 놓았습니다.
+- **ct2-nllb-600m**: 솔직히 말해서, 그 업데이트는 내 환경을 직접 파괴했습니다. 이미 돌아왔고, 밖으로 나갔고, 내일 다시 싸울 것입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 说实话，那次更新直接把我的环境搞崩了。已经回滚，出去透了口气，明天再战。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-community-05** (community)
 
@@ -898,8 +1554,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
 - **apple-mt-plain**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 제 고양이가 일주일 동안 라우터에 누워 있었는데, Wi-Fi가 이전보다 더 안정적이었습니다.
+- **ct2-nllb-1.3b**: 사실. 내 고양이는 일주일 동안 라우터에 켜져 있었고, 와이파이는 이전보다 더 안정적이었다.
+- **ct2-nllb-600m**: 사실, 우리 고양이는 일주일 동안 라우터에 달려있었고, 와이파이는 예전보다 안정적이었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 确实。我家猫在路由器上趴了一个星期，Wi-Fi 居然比以前还稳。别问，问就是玄学。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-community-06** (community)
 
@@ -908,8 +1572,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
 - **apple-mt-plain**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 나는 400 달러를 비처럼 울리는 키보드를 사는데 썼는데 후회하지 않는다.
+- **ct2-nllb-1.3b**: 가족들, 저는 400달러를 들여 비처럼 부는 키보드를 샀습니다.
+- **ct2-nllb-600m**: 저는 400달러를 들여 비가 내리는 키보드를 샀습니다. 후회하지 않습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 家人们，我花了 400 块买了个敲起来像下雨的键盘，一点都不后悔，同事们嘛……就不一定了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-ui-01** (ui)
 
@@ -918,8 +1590,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 변경 저장
 - **apple-mt-plain**: 변경 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 변경 사항 저장
+- **ct2-nllb-1.3b**: 변경사항을 저장합니다
+- **ct2-nllb-600m**: 변경사항을 저장
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 保存更改
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-ui-02** (ui)
 
@@ -928,8 +1608,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 오류가 발생했습니다. 나중에 다시 시도하십시오.
+- **ct2-nllb-1.3b**: 오류가 발생했습니다. 나중에 다시 시도하시기 바랍니다.
+- **ct2-nllb-600m**: 틀렸어 나중에 다시 시도해봐
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 出错了，请稍后重试。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-ui-03** (ui)
 
@@ -938,8 +1626,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 읽지 않은 메시지가 3 개 있습니다.
+- **ct2-nllb-1.3b**: 당신이 읽지 않은 메시지가 3개 있습니다.
+- **ct2-nllb-600m**: 당신이 읽지 않은 3개의 메시지가 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 您有 3 条未读消息
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-link-01** (link)
 
@@ -948,8 +1644,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 기를 클릭하여[此处] 계속하세요.
 - **apple-mt-plain**: 클릭[此处]계속해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 클릭[此处]계속해
+- **ct2-nllb-1.3b**: 클릭하세요[此处]계속하세요.
+- **ct2-nllb-600m**: 클릭[此处]계속하세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 点击[此处]此处
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-link-02** (link)
 
@@ -958,8 +1662,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지원되는 플랫폼에 대해서는 참조하여 [安装指南]자세히 알아보세요.
 - **apple-mt-plain**: 지원되는 플랫폼에 대해서는 참조하십시오.[安装指南]자세히 알아보기.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 지원되는 플랫폼은 다음을 참조하십시오.[安装指南]자세한 내용은 여기를 참조하십시오.
+- **ct2-nllb-1.3b**: 지원 플랫폼에 대해서는 이 문서를 참조하십시오.[安装指南]더 많은 정보를 얻으세요.
+- **ct2-nllb-600m**: 지원 플랫폼에 대해 참조하십시오.[安装指南]이 모든 것을 알고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 有关支持的平台，请参阅[安装指南]安装指南
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-link-03** (link)
 
@@ -968,8 +1680,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 발생하면, 주세요[在问题追踪页面提交反馈]하고, 로그 파일을 첨부해 .
 - **apple-mt-plain**: 문제가 생기면, 제발[在问题追踪页面提交反馈], 그리고 로그 파일을 첨부한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 문제가 발생한 경우[在问题追踪页面提交反馈]로그 파일을 첨부하십시오.
+- **ct2-nllb-1.3b**: 만약 문제가 있다면,[在问题追踪页面提交反馈]이 글은 롯데백화점과 롯데백화점의 롯데백화점입니다.
+- **ct2-nllb-600m**: 만약 문제가 있다면,[在问题追踪页面提交反馈]로그 서류와 함께
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 如果遇到问题，请[在问题追踪页面提交反馈]在问题追踪页面提交反馈
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-seq-01** (seq)
 
@@ -978,8 +1698,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
 - **apple-mt-plain**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 작년 봄, 저는 가족의 사진을 저장하기 위해 오래된 노트북을 홈 서버로 변환하기로 결정했습니다.
+- **ct2-nllb-1.3b**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸고 가족 사진을 저장하기로 결정했습니다.
+- **ct2-nllb-600m**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸어 가족 사진을 저장하기로 결정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 去年春天，我决定把一台旧笔记本改造成家用服务器，用来存放家人的照片。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-seq-02** (seq)
 
@@ -988,8 +1716,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이 2014년 ThinkBook은 8GB의 메모리를 갖추고 있어 이러한 작업에 적합합니다.
+- **ct2-nllb-1.3b**: 이 2014년 힌크북은 8GB의 메모리를 탑재하고 있으며, 이 작업을 수행하는 데 적합합니다.
+- **ct2-nllb-600m**: 2014년 출시된 이 ThinkBook은 8GB의 메모리를 탑재하여 이 작업을 잘 수행할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 这台 2014 年的ThinkBook配有 8 GB 内存，用来干这个活儿正合适。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-seq-03** (seq)
 
@@ -998,8 +1734,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 나는 먼저 를 설치하고[Debian 12], 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치했다.
 - **apple-mt-plain**: 제가 먼저 설치했어요. [Debian 12],또 Fernbox라는 소형 웹사이트 애플리케이션을 이용해 사진을 둘러보았다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 내가 먼저 가져갈게 [Debian 12]Fernbox 라는 작은 웹 애플리케이션을 만들어서 사진을 볼 수 있게 했습니다.
+- **ct2-nllb-1.3b**: 제가 먼저 준비했습니다. [Debian 12]그리고 Fernbox라는 작은 웹 앱을 통해 사진을 볼 수 있습니다.
+- **ct2-nllb-600m**: 제가 먼저 입었습니다. [Debian 12]또한, Fernbox라는 작은 웹 앱을 통해 사진을 검색할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 我先装了[Debian 12]，又搭了一个叫 Fernbox 的小型网页应用来浏览照片。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-seq-04** (seq)
 
@@ -1008,8 +1752,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 여동생은 처음에는 반대했지만 일주일이 지나자 Fernbox가 그녀가 이전에 사용했던 어떤 클라우드 서비스보다도 빠르다고 인정했습니다.
+- **ct2-nllb-1.3b**: 그녀의 여동생은 처음에는 회의적이었지만 일주일 후 그녀는 페른박스가 그녀가 사용한 모든 클라우드 서비스보다 더 빠르다고 인정했다.
+- **ct2-nllb-600m**: 그녀의 여동생은 처음에는 반 회의적이었지만 일주일 후에 그녀는 Fernbox이 그녀가 사용한 모든 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 妹妹一开始半信半疑，但一周后她承认，Fernbox 比她用过的任何云服务都快。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **zh-Hans-seq-05** (seq)
 
@@ -1018,8 +1770,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
 - **apple-mt-plain**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이제 그 오래된 노트북은 선반에 안전하게 놓여 있고 Fernbox는 가족이 여행을 마치고 집으로 돌아왔을 때 처음으로 열어보는 앱이 되었습니다.
+- **ct2-nllb-1.3b**: 이제, 오래된 노트북이 조용히 선반에 앉아 있고, 페른박스는 가족이 여행에서 돌아온 후 첫 번째 앱이 되었습니다.
+- **ct2-nllb-600m**: 이제 오래된 노트북은 조용하게 상자 위에 남아있으며, Fernbox은 온 가족이 돌아온 후 처음으로 오픈된 응용 프로그램입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3.5-2b-4bit**: 现在，那台旧笔记本安安静静地待在架子上，而Fernbox已经成了全家人旅行回来后第一个打开的应用。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: (오류: block missing in output)
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 ### zh-Hant
 
@@ -1030,8 +1790,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 명령줄 도구를 설치하려면 을 실행한 [npm install -g fernctl]후 사용하여 [fernctl --version]버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl],그 다음 사용 [fernctl --version] 버전 확인. 2.4.1 또는 이후 버전이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 명령줄 도구를 설치하려면 다음을 실행하십시오. [npm install -g fernctl]그래, 그렇지 [fernctl --version] 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
+- **ct2-nllb-1.3b**: 명령줄 도구를 설치하려면 실행하세요. [npm install -g fernctl]그리고 그 다음으로 [fernctl --version] 버전을 확인합니다. 2.4.1 또는 최신 버전이 필요합니다.
+- **ct2-nllb-600m**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl]이 글은 [fernctl --version] 2.4.1 버전 또는 최신 버전이 필요합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 若要安裝列頭工具，請執行[npm install -g fernctl]npm install -g fernctl[fernctl --version]接著用
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 若要安裝命令列工具，請執行[npm install -g fernctl]接著用[fernctl --version]檢查版本。需要 2.4.1 或更新的版本。
+- **ollama-translategemma-4b**: 명령줄 도구를 설치하려면 다음 명령을 실행하세요:[npm install -g fernctl]그런 다음 다음 명령을 사용하여 버전 [fernctl --version]버전을 확인하세요. 2.4.1 이상 버전이 필요합니다.
 
 **zh-Hant-tech-02** (tech)
 
@@ -1040,8 +1808,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 완전히 시간 초과를 제한하지 않습니다.
 - **apple-mt-plain**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 연체에 대해 완전히 제한되지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: [timeout] 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 없다.
+- **ct2-nllb-1.3b**: [timeout] 이 옵션의 단위는 밀리 초이고 기본값은 30000 ((30초) 이며 0으로 설정하면 지연 제한이 없습니다.
+- **ct2-nllb-600m**: [timeout] 선택의 단위는 밀리초이고 기본값은 30,000 (~30초) 이며, 0은 시간 제한이 전혀 없습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: [timeout]選項的單位為毫秒，預設值是 30000(30 秒)，設為 0 則完全不限制逾時。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: [timeout]選項的單位為毫秒，預設值是 30000(30 秒)，設為 0 則完全不限制逾時。
+- **ollama-translategemma-4b**: [timeout]timeout 옵션의 단위는 밀리초입니다. 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 없습니다.
 
 **zh-Hant-tech-03** (tech)
 
@@ -1050,8 +1826,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: v1.x로 업그레이드하기 전에 먼저 백업해 주세요설정 폴더를 . 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
 - **apple-mt-plain**: v1.x로 업그레이드하기 전에 설정 폴더를 먼저 백업해 주세요. 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: v1.x에서 업그레이드하기 전에 설정 폴더를 백업하십시오. 마이그레이션 코드는 모든 파일을 직접 덮어쓰고 복원할 수 없습니다.
+- **ct2-nllb-1.3b**: v1.x에서 업그레이드하기 전에 파일 저장소를 백업하십시오. 이동 명령 코드는 모든 파일을 바로 덮고 복구할 수 없습니다.
+- **ct2-nllb-600m**: V1.x에서 업그레이드되기 전에, 먼저 기본 설정 데이터베이스를 예약하십시오.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 從 v1.x 升級之前，請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案，而且無法復原。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 從 v1.x 升級之前，請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案，而且無法復原。(누락)
+- **ollama-translategemma-4b**: v1.x 버전에서 이전 버전으로 업그레이드하기 전에 먼저 백업하세요.설정 폴더를백업합니다. 이 명령어는 모든 파일을 덮어쓰고 복원할 수 없습니다.
 
 **zh-Hant-tech-04** (tech)
 
@@ -1060,8 +1844,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 레지스트리 프로그램이 실행되지 않으면, 다른 프로그램이 포트 8443에 연결되어 있지 않은지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs 에서 볼 수 있습니다.
+- **ct2-nllb-1.3b**: 만약 로컬호스트가 시작되지 않는다면, 연결 패널 8443이 다른 처리 프로그램으로 점유되지 않았는지 확인하세요. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **ct2-nllb-600m**: 로컬호스트 (8443/debug/logs) 에서 기록 파일을 확인할 수 있습니다. http://localhost:8443/debug/logs
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 如果常駐程式無法啟動，請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 如果常駐程式無法啟動，請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。
+- **ollama-translategemma-4b**: 프로그램이 시작되지 않으면 포트 8443이 다른 프로세스에 의해 사용 중인지 확인하세요. 로그 파일은 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 
 **zh-Hant-tech-05** (tech)
 
@@ -1070,8 +1862,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
 - **apple-mt-plain**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 각 스레드는 약 64MB의 캐시를 가지고 있으므로 8GB의 메모리를 가진 컴퓨터는 최대 8개의 스레드를 실행할 수 있다.
+- **ct2-nllb-1.3b**: 각 실행 노드는 각각 약 64 MB의 스냅샷을 가지고 있기 때문에 8 GB의 컴퓨터는 최대 8 개의 실행 노트를 실행해야 합니다.
+- **ct2-nllb-600m**: 각 실행 스틱은 64MB 정도를 가지고 있기 때문에 최대 8GB의 메모리는 8개의 실행 스틱을 실행할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 每個執行緒都有各自約 64 MB 的快取，因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 每個執行緒都有各自約 64 MB 的快取，因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
+- **ollama-translategemma-4b**: 각 스레드는 약 64MB의 캐시를 가지고 있습니다. 따라서 8GB 메모리를 가진 컴퓨터에는 최대 8개의 스레드만 실행할 수 있습니다.
 
 **zh-Hant-tech-06** (tech)
 
@@ -1080,8 +1880,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 요청은 최대 지수적 회피 방식으로 세 번까지 재시도할 수 있습니다; 모두 실패하면 오류는 [TransientError]형태로 호출측으로 반환됩니다.
 - **apple-mt-plain**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있습니다; 모두 실패하면 오류는 [TransientError] 의 형식을 호출단으로 반환한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 요청은 지수적으로 최대 세 번 재시도되며, 모두 실패하면 오류가 발생합니다. [TransientError] 전화번호는 전화번호판에 표시된다.
+- **ct2-nllb-1.3b**: 이 요청은 최대 3차례에 걸쳐 지수 회피 방식으로 다시 시도됩니다. 모든 것이 실패하면 오류가 표시됩니다. [TransientError] 이 글은 이 페이지에서 볼 수 있습니다.
+- **ct2-nllb-600m**: 가장 많은 경우 지수 회피 방식으로 세 번 반복되는 것을 요구합니다. [TransientError] 이 글은 이 글에서 나온다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 請求最多會以指數退避的方式重試三次；若全部失敗，錯誤會以[TransientError]TransientError
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 請求最多會以指數退避的方式重試三次；若全部失敗，錯誤會以[TransientError]的形式回傳給呼叫端。
+- **ollama-translategemma-4b**: 요청은 최대 3번의 지수 퇴치 방식으로 재시도됩니다. 모든 재시도가 실패하면 오류는 [TransientError]TransientError
 
 **zh-Hant-news-01** (news)
 
@@ -1090,8 +1898,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
 - **apple-mt-plain**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 시의회는 화요일 동부 교외로 버스 노선을 확장하는 법안을 7 대 2로 통과시켰으며, 지지자들은 이것이 통근 시간을 최대 25 % 줄일 것이라고 말했다.
+- **ct2-nllb-1.3b**: 시의회는 화요일 7대 2의 찬성으로 버스 노선을 동부 교외까지 확장하는 방안을 통과시켰고 지지자들은 이 방안이 통근시간을 최대 25% 줄일 수 있다고 말했습니다.
+- **ct2-nllb-600m**: 시회는 지난 2일 7~2 ψήφους 받아 동부 시외지역으로 버스 노선을 늘리는 방안을 통과시켰고, 지지자들은 최대 25%의 교통시간을 줄일 것이라고 말했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案，支持者表示，這將使通勤時間最多縮短 25%。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案，支持者表示，這將使通勤時間最多縮短 25%。
+- **ollama-translategemma-4b**: 시의회는 화요일, 버스 노선을 동부 교외로 확장하는 방안을 7표 대 2표로 통과시켰습니다. 지지자들은 이를 통해 통근 시간을 최대 25% 단축할 수 있다고 밝혔습니다.
 
 **zh-Hant-news-02** (news)
 
@@ -1100,8 +1916,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
 - **apple-mt-plain**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 할워슨 연구소의 연구원들은 새로운 배터리가 2,000회의 충전 및 방전 사이클 이후에도 90%의 전력을 유지할 수 있다는 사실을 발견했습니다.
+- **ct2-nllb-1.3b**: 해워슨 연구소의 연구자들은 새로운 종류의 배터리가 2000번의 충전 방하 순환을 거쳐도 90%의 전력을 유지할 수 있다는 것을 발견했습니다. 이는 현재 시장에서 판매되는 배터리의 두 배 정도입니다.
+- **ct2-nllb-600m**: 하버슨 연구소 연구원들은 새로운 배터리가 2000회 충전 주기를 거쳐도 90%의 전력을 보유할 수 있다는 것을 지적하고 있으며, 이는 현재 시장에서 판매되는 배터리의 2배 정도입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 哈爾沃森研究所的研究人員指出，一種新型電池在經過 2000 次充放電循環後，仍保有 90% 的電量，約為目前市售電池的兩倍。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 哈爾沃森研究所的研究人員指出，一種新型電池在經過 2000 次充放電循環後，仍保有 90% 的電量，約為目前市售電池的兩倍。
+- **ollama-translategemma-4b**: 하르보슨 연구소의 연구원들은 새로운 배터리가 2000번의 충전 및 방전 사이클 후에도 90%의 용량을 유지하며, 이는 현재 시중 배터리의 두 배에 해당한다고 밝혔습니다.
 
 **zh-Hant-news-03** (news)
 
@@ -1110,8 +1934,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 그러나 비평가들은 이 결과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용은 킬로와트시당 약 340달러였다고 지적했다.
+- **ct2-nllb-1.3b**: 그러나 비평가들은 이 결과물이 평론을 거치지 않았으며, 시제품의 생산 비용은 KWh당 약 340달러라고 지적한다.
+- **ct2-nllb-600m**: 그러나 비평가들은 이 결과는 아직 검열되지 않았으며, 프로토타입 생산 비용은 1킬로와트당 340달러에 달한다고 지적했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 不過，批評者指出，這項成果尚未經過同儕審查，而且原型的生產成本約為每千瓦小時 340 美元。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 不過，批評者指出，這項成果尚未經過同儕審查，而且原型的生產成本約為每千瓦小時 340 美元。
+- **ollama-translategemma-4b**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용이 1kWh당 약 340달러라고 지적했습니다.
 
 **zh-Hant-news-04** (news)
 
@@ -1120,8 +1952,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
 - **apple-mt-plain**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 시속 70킬로미터(43마일)에 이르는 바람과 섭씨 12도 이하의 기온이 예상됩니다.
+- **ct2-nllb-1.3b**: 북부 해안 지역에서는 목요일까지 폭우가 쏟아지고 시속 70km의 바람이 불고 기온이 섭씨 12도를 넘을 것으로 예상된다.
+- **ct2-nllb-600m**: 북부 해안 지역에서는 매주 목요일까지 강수량이 예상되며, 시속 70km의 바람이 발생하며, 기온이 12도 이하로 내려갈 것으로 예상된다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 北部沿海地區預計到週四都會有大雨，陣風可達每小時 70 公里，氣溫約在攝氏 12 度上下。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 北部沿海地區預計到週四都會有大雨，陣風可達每小時 70 公里，氣溫約在攝氏 12 度上下。
+- **ollama-translategemma-4b**: 북부 해안 지역은 수요일까지 강우와 최대 70km/h의 강풍, 약 12도의 기온이 예상됩니다.
 
 **zh-Hant-news-05** (news)
 
@@ -1130,8 +1970,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 것이라고 밝혔다플래그십 스마트폰 출시를 내년 초로 연기할 .
 - **apple-mt-plain**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 플래그십 스마트폰 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 2011년 10월 1일에 확인함.  다음 날짜 값 확인 필요: \|date= (도움말) 2011년 10월 1일에 확인함.  다음 날짜 값 확인 필요: \|date= (도움말) 2011년 10월 1일에 확인함.
+- **ct2-nllb-1.3b**: 회사 측은 월요일 (현지시간) 발표한 성명을 통해 공급 문제로 인해 플래그그램 휴대폰 출시 시기가 내년 초까지 연기될 것이라고 밝혔다.
+- **ct2-nllb-600m**: 이 회사는 월요일에 발표한 발표에 따르면 공급 부족으로 인해 플래그십 휴대폰의 출시가 내년 초까지 연기될 것이라고 밝혔다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 該公司週一發布聲明表示，由於供應鏈問題持續，將把旗艦手機的上市延後至明年年初。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 該公司週一發布聲明表示，由於供應鏈問題持續，將把旗艦手機的上市延後至明年年初。
+- **ollama-translategemma-4b**: 이 회사는 공급망 문제로 인해 플래그십 스마트폰의 출시를 내년 초로 연기한다고 밝혔습니다.(누락)(누락)
 
 **zh-Hant-news-06** (news)
 
@@ -1140,8 +1988,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, ,  더  생각합니다인력그리고 적은 이익에기인한다고.
 - **apple-mt-plain**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, 인력, 그리고 적은 이익에 더 기인한다고 생각합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 왜 많은 소규모 빵집들이 5년 이상 지속되지 못하는가? 경제학자들은 이유가 빵 자체보다는 임대료, 노동력, 낮은 이익에 있다고 주장한다.
+- **ct2-nllb-1.3b**: 경제학자들은 그 이유는 빵 자체가 아니라 임대료, 인력, 그리고 낮은 수익 때문이라고 주장합니다.
+- **ct2-nllb-600m**: 왜 많은 작은 빵집들이 5년 동안 문을 닫았을까요? 경제학자들은 빵 자체와 관련이 없는 것이 아니라 임대, 인력 및 소소한 수익 때문이라고 생각합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 為什麼許多小型麵包店撐不過五年？經濟學家認為，原因與麵包本身關係不大，更多在於房租、人力與微薄的利潤。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 為什麼許多小型麵包店撐不過五年？經濟學家認為，原因與麵包本身關係不大，更多在於房租、人力與微薄的利潤。
+- **ollama-translategemma-4b**: 왜 많은 소규모 빵집이 5년이 지나지 않아 문을 닫는가? 경제학자들은 그 이유는 빵 자체와 관련이 없으며, 주로 임대료, 인건비 및 미미한 이윤 때문이라고 말합니다.(누락)(누락)
 
 **zh-Hant-community-01** (community)
 
@@ -1150,8 +2006,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
 - **apple-mt-plain**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 세상에, 딸기 파이가 드디어 켜졌고, 전기가 켜지자 연기가 나기 시작했습니다.
+- **ct2-nllb-1.3b**: 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오, 오.
+- **ct2-nllb-600m**: 오, 신이시여, 나무 이 마침내 문을 열었고, 그 결과 전기가 담배를 피우게 되었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 天啊，樹莓派終於開機了，結果一通電就冒煙。好啦也不是真的冒煙，但我的心已經碎了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 天啊，樹莓派終於開機了，結果一通電就冒煙。好啦也不是真的冒煙，但我的心已經碎了。
+- **ollama-translategemma-4b**: 드디어 라즈베리 파이가 켜졌는데, 전원을 켜자마자 펑! 이러네요. 뭐, 진짜 펑은 아니지만, 제 마음은 이미 멘탈붕괴 상태입니다.
 
 **zh-Hant-community-02** (community)
 
@@ -1160,8 +2024,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
 - **apple-mt-plain**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 태블릿이나 스페이스 바를 사용할 수 있으며, 새벽 2시에도 이 사람을 괴롭히는 사람은 점심을 먹고 잠을 자는 것이 좋습니다.
+- **ct2-nllb-1.3b**: 이 문장은 타브나 빈자리를 사용할 수 있고, 새벽 2시에 이 사람을 먹이고 있는 사람은 저녁식사를 먹고 잠자리에 들어야 한다는 비난을 받을 수 있습니다.
+- **ct2-nllb-600m**: 이 말은 모욕을 불러일으킬 수도 있습니다. "태브를 사용하거나 빈 공간으로 사용할 수 있지만, 새벽 2시에 이 일을 하는 사람은 저녁을 먹어야 하고 잠자리에 들어야 한다".
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 說句可能會被罵的：用 Tab 或空白都可以，凌晨兩點還在吵這個的人，該去吃點宵夜然後睡覺了啦。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 說句可能會被罵的：用 Tab 或空白都可以，凌晨兩點還在吵這個的人，該去吃點宵夜然後睡覺了啦。
+- **ollama-translategemma-4b**: 말을 좀 해보자: Tab이나 공백으로 구분해도 되지만, 새벽 2시에 이런 논쟁을 벌이는 사람들은 잠을 자야 합니다.
 
 **zh-Hant-community-03** (community)
 
@@ -1170,8 +2042,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었고, 3개월이 지나서야 눈을 뜨게 되었다.
+- **ct2-nllb-1.3b**: 저는 웃고 웃으며 3시간 동안 잘못된 정보를 보고 있었고, 그 결과 1점만 남았습니다. 1점 !
+- **ct2-nllb-600m**: 3시간 동안 틀린 정보를 보고 웃고 죽었고, 그 결과 한 점도 빠졌어요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 笑死，盯著錯誤訊息看了三個小時，結果只是少了一個分號。一個分號欸！我要去山上隱居了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 笑死，盯著錯誤訊息看了三個小時，結果只是少了一個分號。一個分號欸！我要去山上隱居了。
+- **ollama-translategemma-4b**: 진짜 웃기네요. 오류 메시지를 3시간 동안 붙잡고 있었는데, 그냥 한 자를 빠뜨린 거였어요! 한 자! 이제 산으로 가서 숨어야겠어요.
 
 **zh-Hant-community-04** (community)
 
@@ -1180,8 +2060,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
 - **apple-mt-plain**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 솔직히 말해서, 그 업데이트는 제 환경을 완전히 망가뜨렸습니다. 저는 이전 버전으로 돌아갔고, 내일 다시 싸울 것입니다.
+- **ct2-nllb-1.3b**: 솔직히 말해서, 그 업데이트는 내 환경을 바로 날려버렸다.
+- **ct2-nllb-600m**: 솔직히 말하면, 그 업데이트는 내 환경을 직접 파괴했습니다. 이전 버전으로 돌아갔고, 바람을 불어 넣고, 내일 다시 싸우고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 老實說，那次更新直接把我的環境搞爆了。已經退回舊版，出門吹了風，明天再戰。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 老實說，那次更新直接把我的環境搞爆了。已經退回舊版，出門吹了風，明天再戰。
+- **ollama-translategemma-4b**: 솔직히 말해서, 이번 업데이트는 제 환경을 완전히 망쳐놨어요. 그래서 이전 버전으로 돌아갔고, 바람을 쐬면서 내일 다시 시도할 겁니다.(누락)(누락)
 
 **zh-Hant-community-05** (community)
 
@@ -1190,8 +2078,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
 - **apple-mt-plain**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 제 고양이가 일주일 동안 라우터 위에 누워있었고, 와이파이가 훨씬 더 안정적이었습니다.
+- **ct2-nllb-1.3b**: 사실. 내 고양이는 일주일 동안 라우터에 연결되어 있었고, 와이파이는 이전보다 더 안정적이었습니다.
+- **ct2-nllb-600m**: 사실, 우리 고양이는 일주일 동안 라우터에 연결되어 있었고, 와이파이는 이전보다 안정적이었습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 真的啦。我家貓在路由器上趴了一個禮拜，Wi-Fi 居然比以前還穩。不要問，問就是貓的力量。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 真的啦。我家貓在路由器上趴了一個禮拜，Wi-Fi 居然比以前還穩。不要問，問就是貓的力量。
+- **ollama-translategemma-4b**: 진짜예요. 제 고양이가 라우터 위에 일주일 동안 엎드려 있었는데, Wi-Fi가 오히려 더 잘 됐어요. 믿지 않으시겠지만, 그게 고양이의 힘이에요.
 
 **zh-Hant-community-06** (community)
 
@@ -1200,8 +2096,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
 - **apple-mt-plain**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 1000원짜리 지폐는 1000원짜리 지폐를 1000원짜리 지폐로 바꾸어서 발행하며, 1000원짜리 지폐는 1000원짜리 지폐를 1000원짜리 지폐로 바꿔서 발행한다.
+- **ct2-nllb-1.3b**: 신사 숙녀 여러분, 저는 1,800원짜리 키보드를 샀습니다. 비처럼 울리는 키보드는 전혀 후회하지 않습니다. 동료들은... 확신이 없습니다.
+- **ct2-nllb-600m**: 여러분, 저는 1800달러를 들여 비가 내리는 키보드를 샀습니다. 전혀 후회하지 않습니다. 동료들은... 확실하지 않습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 各位，我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤，完全不後悔，同事就……不確定了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 各位，我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤，完全不後悔，同事就……不確定了。
+- **ollama-translategemma-4b**: 여러분, 1800원짜리 키보드를 샀는데, 소리만 내는 녀석이네요. ㅋㅋㅋ.(누락)(누락)
 
 **zh-Hant-ui-01** (ui)
 
@@ -1210,8 +2114,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 변경 저장
 - **apple-mt-plain**: 변경 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 변경 사항 저장
+- **ct2-nllb-1.3b**: 변경사항을 저장합니다
+- **ct2-nllb-600m**: 변경사항을 저장
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 儲存變更
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 儲存變更
+- **ollama-translategemma-4b**: 변경 사항 저장
 
 **zh-Hant-ui-02** (ui)
 
@@ -1220,8 +2132,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 오류가 발생하였습니다. 나중에 다시 시도해 주십시오.
+- **ct2-nllb-1.3b**: 한 번 더 시도해 보세요.
+- **ct2-nllb-600m**: 만약 오류가 발생하면 나중에 다시 시도해보세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 發生錯誤，請稍後再試。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 發生錯誤，請稍後再試。
+- **ollama-translategemma-4b**: 오류가 발생했습니다. 잠시 후 다시 시도하세요.
 
 **zh-Hant-ui-03** (ui)
 
@@ -1230,8 +2150,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 읽지 않은 메시지가 3개 있습니다.
+- **ct2-nllb-1.3b**: 당신은 3개의 글을 읽지 않았습니다.
+- **ct2-nllb-600m**: 3개의 메세지가 읽히지 않았습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 您有 3 則未讀訊息
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 您有 3 則未讀訊息
+- **ollama-translategemma-4b**: 읽지 않은 메시지가 3개 있습니다
 
 **zh-Hant-link-01** (link)
 
@@ -1240,8 +2168,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 눌러 주세요[這裡]그럼 계속할 수 있습니다.
 - **apple-mt-plain**: 눌러 주세요[這裡]그럼 계속할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 누르세요[這裡]이렇게 계속된다.
+- **ct2-nllb-1.3b**: 누르세요.[這裡]그리고 계속하세요.
+- **ct2-nllb-600m**: 다음 문자를 클릭하세요[這裡]그래서 계속할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 按一下[這裡]這裡
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 按一下[這裡]即可繼續。
+- **ollama-translategemma-4b**: 클릭[這裡]여기
 
 **zh-Hant-link-02** (link)
 
@@ -1250,8 +2186,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지원되는 플랫폼을 알고 싶으시면 참조하십시오[安裝指南].
 - **apple-mt-plain**: 지원되는 플랫폼을 확인하려면 참조하십시오.[安裝指南]。
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 지원되는 플랫폼에 대한 정보는 다음을 참조하십시오.[安裝指南]。
+- **ct2-nllb-1.3b**: 지원 플랫폼에 대한 자세한 내용은 이 문서를 참조하십시오.[安裝指南]。
+- **ct2-nllb-600m**: 지원 플랫폼에 대한 자세한 내용은 문서를 참조하십시오[安裝指南]。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 如需瞭解支援的平台，請參閱[安裝指南]安裝指南
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 如需瞭解支援的平台，請參閱[安裝指南]安裝指南
+- **ollama-translategemma-4b**: 지원 플랫폼에 대한 자세한 내용은 [安裝指南]설치 가이드
 
 **zh-Hant-link-03** (link)
 
@@ -1260,8 +2204,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 발생하면, [到問題追蹤頁面回報]하고, 위 기록 파일을 첨부하십시오.
 - **apple-mt-plain**: 문제가 발생하면, 부탁드립니다.[到問題追蹤頁面回報], 그리고 위 기록 파일을 첨부합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 문제가 발생한 경우[到問題追蹤頁面回報]레코드를 담당하고 있다.
+- **ct2-nllb-1.3b**: 만약 문제가 생기면 연락해주세요.[到問題追蹤頁面回報]이 글은 카카오페이지에서 공개된 글입니다.
+- **ct2-nllb-600m**: 만약 문제가 있다면, 부탁드립니다.[到問題追蹤頁面回報]이 글은 많은 사람들의 관심을 끌고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 如果遇到問題，請[到問題追蹤頁面回報]到問題追蹤頁面回報
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 如果遇到問題，請[到問題追蹤頁面回報]到問題追蹤頁面回報
+- **ollama-translategemma-4b**: 문제 발생 시 [到問題追蹤頁面回報]문제 추적 페이지
 
 **zh-Hant-seq-01** (seq)
 
@@ -1270,8 +2222,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
 - **apple-mt-plain**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 작년 봄, 저는 가족의 사진을 저장하기 위해 오래된 노트북을 가정용 서버로 바꾸기로 결정했습니다.
+- **ct2-nllb-1.3b**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸고 가족 사진을 저장하기로 결정했습니다.
+- **ct2-nllb-600m**: 지난 봄, 저는 오래된 노트북을 가정용 서버로 바꾸어 가족들의 사진을 저장하기로 결정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 去年春天，我決定把一台舊筆電改造成家用伺服器，用來存放家人的照片。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 去年春天，我決定把一台舊筆電改造成家用伺服器，用來存放家人的照片。
+- **ollama-translategemma-4b**: 지난 봄, 저는 오래된 노트북을 집 서버로 개조하기로 결정했습니다. 2014년 ThinkBook 8GB 메모리를 사용하기에 충분했습니다.
 
 **zh-Hant-seq-02** (seq)
 
@@ -1280,8 +2240,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이 2014 ThinkBook은 8GB의 메모리를 갖추고 있어 이러한 작업에 적합합니다.
+- **ct2-nllb-1.3b**: 2014년에 출시된 이 힌크북은 8GB의 메모리를 탑재하고 있습니다.
+- **ct2-nllb-600m**: 2014년에 출시된 ThinkBook은 8GB의 메모리를 가지고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 這台 2014 年的ThinkBook配備 8 GB 記憶體，拿來做這件事剛剛好。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 這台 2014 年的ThinkBook配備 8 GB 記憶體，拿來做這件事剛剛好。
+- **ollama-translategemma-4b**: 저는 Debian 12를 설치하고, 사진을 저장하는 Fernbox라는 작은 웹 애플리케이션을 설정했습니다.(누락)(누락)
 
 **zh-Hant-seq-03** (seq)
 
@@ -1290,8 +2258,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 먼저 를 설치한 [Debian 12]후, 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치했습니다.
 - **apple-mt-plain**: 제가 먼저 설치했어요. [Debian 12], Fernbox라는 이름의 소형 웹사이트 애플리케이션을 하나 더 설치하여 사진을 감상하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 제가 설치했어요. [Debian 12]또한 Fernbox라는 이름의 작은 웹 애플리케이션을 설치하여 사진을 볼 수 있다.
+- **ct2-nllb-1.3b**: 저는 그것을 설치했습니다. [Debian 12]이 사진들을 검색하기 위해 Fernbox라는 작은 웹 애플리케이션을 설치했습니다.
+- **ct2-nllb-600m**: 제가 먼저 설치했습니다. [Debian 12]그리고 Fernbox라는 작은 웹 애플리케이션을 만들어서 사진을 탐색할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 我先安裝了[Debian 12]Debian 12
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 我先安裝了[Debian 12]Debian 12
+- **ollama-translategemma-4b**: 처음에는 제 여동생이 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했습니다.[Debian 12](누락)
 
 **zh-Hant-seq-04** (seq)
 
@@ -1300,8 +2276,16 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 여동생은 처음에는 의심스럽게 생각했지만 일주일이 지나자 Fernbox가 그녀가 이전에 사용했던 어떤 클라우드 서비스보다도 빠르다는 것을 인정했습니다.
+- **ct2-nllb-1.3b**: 그녀의 여동생은 처음에는 의심했지만 일주일 후 페른박스가 그녀가 사용한 모든 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
+- **ct2-nllb-600m**: 언니는 처음에는 반정신적이었지만 일주일 후에 Fernbox이 그녀가 사용한 클라우드 서비스보다 더 빠르다는 사실을 인정했습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: (오류: block missing in output)
+- **mlx-qwen3.5-2b-4bit**: 妹妹起初半信半疑，但一週後她承認，Fernbox 比她用過的任何雲端服務都快。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 妹妹起初半信半疑，但一週後她承認，Fernbox 比她用過的任何雲端服務都快。
+- **ollama-translategemma-4b**: 지금은 오래된 노트북이 조용히 책상 위에 놓여 있고, Fernbox는 가족이 여행을 마치고 돌아왔을 때 가장 먼저 켜는 프로그램입니다.
 
 **zh-Hant-seq-05** (seq)
 
@@ -1310,6 +2294,14 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
 - **apple-mt-plain**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
+- **ct2-madlad-3b**: 이제 그 오래된 노트북은 선반에 조용히 놓여 있고 Fernbox는 가족이 여행에서 돌아왔을 때 처음으로 열리는 앱이 되었습니다.
+- **ct2-nllb-1.3b**: 현재, 오래된 노트북은 조용하게 책상 위에 놓여 있으며, Fernbox은 가족 여행에서 돌아온 후 처음으로 열리는 앱이 되었습니다.
+- **ct2-nllb-600m**: 현재는 오래된 노트북이 쉴 새 없이 상자 위에 놓여 있고, Fernbox은 가족 모두가 여행에 돌아온 후 처음으로 오픈한 앱입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-qwen3-1.7b-4bit**: 現在,那台舊筆電安靜地放在架子上,而 Fernbox 已經成為全家人旅行回來後第一個開啟的應用程式。
+- **mlx-qwen3.5-2b-4bit**: 現在，那台舊筆電安靜地放在架子上，而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-qwen3.5-2b**: 現在，那台舊筆電安靜地放在架子上，而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
+- **ollama-translategemma-4b**: (오류: block missing in output)
 

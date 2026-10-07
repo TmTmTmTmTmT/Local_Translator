@@ -55,6 +55,11 @@
 - FM: 배치마다 새 세션, CJK 배치 600자, 초과 시 반분 재시도(확장), 벤치도 동일 적용. Xcode 빌드 성공
 - 대기: orchestrate(타 모델) 종료 후 apple-fm ja/zh 3종 + apple-mt-marker 4종 재실행
 
+## 일시 중지 (사용자 요청, 충전기 연결 후 재개)
+- 모든 벤치 프로세스·서버·모니터 종료. 완료: Apple 16 + marker 2 + mlx(hy-mt2, translategemma, qwen3.5-2b, qwen3-1.7b) + ollama-qwen3.5-2b + ct2(nllb 1.3b/600m, madlad-3b, m2m100) 일부. 중간에 끊긴 엔진 결과는 불완전 가능 → 재실행
+- 재개 명령: `node bench/orchestrate.mjs --only all --langs en,ja,zh-Hans,zh-Hant --runs 1 --skip-existing`
+- 이후: apple-fm ja/zh 3종·apple-mt-marker 4종, opus-mt 변환(torch 필요 — 설치 승인 필요), summarize, 2차(속도·자원)
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

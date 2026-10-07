@@ -1,0 +1,298 @@
+{
+ "engine": "mlx-qwen3.5-2b-4bit",
+ "model": "mlx-community/Qwen3.5-2B-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 55901,
+ "totalMs": 55901,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 1928,
+   "slots": {
+    "0": "클리를 설치하려면 다음을 실행하세요.",
+    "1": "npm 을 설치한 후 fernctl 를 설치하세요.",
+    "2": "그리고 버전 확인하려면 fernctl 를 사용하세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 1928,
+   "slots": {
+    "0": "timeout 옵션은 밀리초 단위로 값을接受할 수 있습니다. 기본값은 30000 (30 초) 이며 0 으로 설정하면 제한이 완전히 비활성화됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 1928,
+   "slots": {
+    "0": "v1.x 에서 업그레이드할 때, 먼저 구성 파일 디렉션을 백업하세요.",
+    "1": "이유는 마이그레이션 스크립트가 모든 파일을原位에 재작성하기 때문입니다. 이를 되돌릴 수 없습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 1928,
+   "slots": {
+    "0": "다만, 데몬이 시작되지 않는 경우, 포트 8443 가 다른 프로세스가 이미_bindings 되어 있는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 1928,
+   "slots": {
+    "0": "각 작업자 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 를 가진 머신에서는 8 개의 작업자를 실행하는 것을 권장하지 않습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 1928,
+   "slots": {
+    "0": "요청이 최대 3 회까지 재시도되며, 모든 시도에서 실패하면 호출자에게 오류가 표면화됩니다.",
+    "1": "TransientError 입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-01",
+   "ms": 1928,
+   "slots": {
+    "0": "주말에 시립회의가 동부 하구까지 버스 서비스를 연장하는 7 대 2 로 결정했습니다. 지지자들은 이 결정이通勤 시간을 최대 25% 줄일 것으로 기대합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-02",
+   "ms": 1928,
+   "slots": {
+    "0": "Halvorsen 인스티트 연구원은 새로운 배터리가 2,000 회 충전 사이클 후 90% 의 용량을 유지하는 것으로 보고했습니다. 이는 현재 상업용 배터리 대비 약 2 배의 용량입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-03",
+   "ms": 1928,
+   "slots": {
+    "0": "그러나 비판자들은 결과들이 아직 동료 검토를 받지 않았다는 점과, 프로토타입이 1 kW/시간당 약 340 달러를 생산하는 비용이라는 점에 주목하고 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-04",
+   "ms": 1928,
+   "slots": {
+    "0": "북부 해안 지역은 다음 주까지 Heavy Rain 가 예상되며, 바람의 최대 강도는 70 km/h 로, 기온은 12 도 정도입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-05",
+   "ms": 1928,
+   "slots": {
+    "0": "1 일간 발표에서 회사는 플래그십 폰 출시를 지연시키기로 결정하고, 공급망 문제를 해결하기 위해 다음 년 초까지 출시할 것이라고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-06",
+   "ms": 1928,
+   "slots": {
+    "0": "왜냐하면 5 년 안에 많은 작은 베이커리가 문을 닫는 것입니까? 경제학자들은 그 이유는 빵보다는 임대료와 인력, 얇은 마진 때문이라고 말합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-01",
+   "ms": 1928,
+   "slots": {
+    "0": "좋습니다. 마침내 라스피리 피를 켘서 시작했고, 즉시 불이 붙었습니다. 하지만, Literal 이 아닙니다. 하지만, 내 영혼이 불타버렸습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-02",
+   "ms": 1928,
+   "slots": {
+    "0": "Hot take: 탭은 괜찮고, 스페이스도 괜찮습니다. 2 시에 그걸 두고 논하는 사람들은 반드시 먹거리를 먹고 수면이 필요합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-03",
+   "ms": 1928,
+   "slots": {
+    "0": "lol 이 오류를 3 시간 동안 stared 하고 있는데, 그거는 missing semicolon 이었습니다. SEMICOLON 입니다. 이제 숲으로 가겠습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-04",
+   "ms": 1928,
+   "slots": {
+    "0": "진짜로 말해서, 그 업데이트가 설정에서 literally everything 를 바꿨습니다. 롤백하고, grass 를 만졌고, 다음 날 다시 시도하겠습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-05",
+   "ms": 1928,
+   "slots": {
+    "0": "확인 가능합니다. 나의 고양이는 라우터 위에 앉아 있는 동안 1 주 동안 있었고, 솔직히 wifi 가 더 이상 나쁘지 않았습니다. 그걸 의심하지 마세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-06",
+   "ms": 1928,
+   "slots": {
+    "0": "여러분들, 60 달러를 지출해서 소리가 비가 같은 키보드를 샀습니다. 제 생각은 0 회피로, 동료들은 그 반대입니다.",
+    "1": "TBD",
+    "2": "."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 1928,
+   "slots": {
+    "0": "변경사항 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 1928,
+   "slots": {
+    "0": "무슨 일이 일어났는지요. 나중에 다시 시도해 보세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 1928,
+   "slots": {
+    "0": "3 개의 읽지 않은 메세지가 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-01",
+   "ms": 1928,
+   "slots": {
+    "0": "클릭하세요.",
+    "1": "다음으로 계속하세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-02",
+   "ms": 1928,
+   "slots": {
+    "0": "설치 가이드를 통해 지원되는 플랫폼에 대한 자세한 정보를 확인하세요.",
+    "1": "설치 가이드를 확인하세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-link-03",
+   "ms": 1928,
+   "slots": {
+    "0": "문제가 발생하면 추적기에서 문제를 제기하고, 로그 파일을 포함하여 해결해 보세요.",
+    "1": "트래커에서 문제를 제기하세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 1928,
+   "slots": {
+    "0": "봄에, 나는 가족의 사진용 로컬 서버로 오래된 노트북을 바꾸기로 결정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 1928,
+   "slots": {
+    "0": "그 노트북은 2014 년 ThinkBook 8 GB RAM 이었으며, 그걸로 작업에 적합했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 1928,
+   "slots": {
+    "0": "먼저, Debian 12 를 설치하고, 사진을 brows 하는 작은 웹 애플리케이션인 Fernbox 를 설정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 1928,
+   "slots": {
+    "0": "제 여동생은 처음부터 skeptics 가었지만, 한 주 후 Fernbox 가 사용한 모든 클라우드 서비스보다 빠른 것으로 인정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 1928,
+   "slots": {
+    "0": "이제 오래된 노트북은 책상 위에 조용히 앉아 있고, Fernbox 는 여행 후 우리 가족의 첫 번째로 열람하는 것입니다."
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01",
+    "en-tech-02",
+    "en-tech-03",
+    "en-tech-04",
+    "en-tech-05",
+    "en-tech-06",
+    "en-news-01",
+    "en-news-02",
+    "en-news-03",
+    "en-news-04",
+    "en-news-05",
+    "en-news-06",
+    "en-community-01",
+    "en-community-02",
+    "en-community-03",
+    "en-community-04",
+    "en-community-05",
+    "en-community-06",
+    "en-ui-01",
+    "en-ui-02",
+    "en-ui-03",
+    "en-link-01",
+    "en-link-02",
+    "en-link-03",
+    "en-seq-01",
+    "en-seq-02",
+    "en-seq-03",
+    "en-seq-04",
+    "en-seq-05"
+   ],
+   "ms": 55901,
+   "jsonValid": true,
+   "retried": true,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

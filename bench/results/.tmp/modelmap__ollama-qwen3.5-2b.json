@@ -1,0 +1,9 @@
+{
+ "ollama-qwen3.5-2b": {
+  "model": "qwen3.5:2b",
+  "args": [
+   "--keep-alive",
+   "600"
+  ]
+ }
+}

@@ -1,0 +1,233 @@
+{
+ "engine": "ollama-qwen3.5-2b",
+ "model": "qwen3.5:2b",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 4722,
+ "totalMs": 4722,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 163,
+   "slots": {
+    "0": "要安装命令行工具，请运行 "
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 163,
+   "slots": null,
+   "error": "block missing in output"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01",
+    "zh-Hans-tech-02",
+    "zh-Hans-tech-03",
+    "zh-Hans-tech-04",
+    "zh-Hans-tech-05",
+    "zh-Hans-tech-06",
+    "zh-Hans-news-01",
+    "zh-Hans-news-02",
+    "zh-Hans-news-03",
+    "zh-Hans-news-04",
+    "zh-Hans-news-05",
+    "zh-Hans-news-06",
+    "zh-Hans-community-01",
+    "zh-Hans-community-02",
+    "zh-Hans-community-03",
+    "zh-Hans-community-04",
+    "zh-Hans-community-05",
+    "zh-Hans-community-06",
+    "zh-Hans-ui-01",
+    "zh-Hans-ui-02",
+    "zh-Hans-ui-03",
+    "zh-Hans-link-01",
+    "zh-Hans-link-02",
+    "zh-Hans-link-03",
+    "zh-Hans-seq-01",
+    "zh-Hans-seq-02",
+    "zh-Hans-seq-03",
+    "zh-Hans-seq-04",
+    "zh-Hans-seq-05"
+   ],
+   "ms": 4722,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "api=openai"
+ }
+}

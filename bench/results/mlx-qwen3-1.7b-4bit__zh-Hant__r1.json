@@ -1,0 +1,235 @@
+{
+ "engine": "mlx-qwen3-1.7b-4bit",
+ "model": "mlx-community/Qwen3-1.7B-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 28834,
+ "totalMs": 28834,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 994,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 994,
+   "slots": {
+    "0": "現在,那台舊筆電安靜地放在架子上,而 ",
+    "1": "Fernbox ",
+    "2": "已經成為全家人旅行回來後第一個開啟的應用程式。"
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01",
+    "zh-Hant-tech-02",
+    "zh-Hant-tech-03",
+    "zh-Hant-tech-04",
+    "zh-Hant-tech-05",
+    "zh-Hant-tech-06",
+    "zh-Hant-news-01",
+    "zh-Hant-news-02",
+    "zh-Hant-news-03",
+    "zh-Hant-news-04",
+    "zh-Hant-news-05",
+    "zh-Hant-news-06",
+    "zh-Hant-community-01",
+    "zh-Hant-community-02",
+    "zh-Hant-community-03",
+    "zh-Hant-community-04",
+    "zh-Hant-community-05",
+    "zh-Hant-community-06",
+    "zh-Hant-ui-01",
+    "zh-Hant-ui-02",
+    "zh-Hant-ui-03",
+    "zh-Hant-link-01",
+    "zh-Hant-link-02",
+    "zh-Hant-link-03",
+    "zh-Hant-seq-01",
+    "zh-Hant-seq-02",
+    "zh-Hant-seq-03",
+    "zh-Hant-seq-04",
+    "zh-Hant-seq-05"
+   ],
+   "ms": 28834,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}
