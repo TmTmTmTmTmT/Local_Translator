@@ -1,0 +1,307 @@
+{
+ "engine": "ct2-madlad-3b",
+ "model": "madlad-3b",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 48747,
+ "totalMs": 48747,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 1681,
+   "slots": {
+    "0": "명령줄 도구를 설치하려면 다음을 실행하십시오. ",
+    "1": "그래, 그래 ",
+    "2": " 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 1681,
+   "slots": {
+    "0": " 옵션의 단위는 밀리초이며, 기본값은 30000(30초)이며, 0으로 설정하면 시간 제한이 전혀 없습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 1681,
+   "slots": {
+    "0": "v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 직접 덮어씁니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 1681,
+   "slots": {
+    "0": "가디언 프로세스가 시작되지 않으면 포트 8443이 다른 프로세스에 의해 사용되지 않는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 볼 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 1681,
+   "slots": {
+    "0": "각 스레드는 각각 약 64MB의 캐시를 가지고 있으므로 8GB의 메모리가 있는 시스템에서는 최대 8개의 스레드를 실행할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 1681,
+   "slots": {
+    "0": "요청은 최대 세 번 지수 방법으로 다시 시도되며, 모두 실패하면 다음과 같은 오류가 발생합니다. ",
+    "1": " 호출자에게 형식을 반환합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 1681,
+   "slots": {
+    "0": "시의회는 화요일 7 대 2로 동부 교외 지역으로 버스 노선을 확장하는 계획을 통과시켰으며 지지자들은 이것이 통근 시간을 최대 25 % 줄일 것이라고 주장합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 1681,
+   "slots": {
+    "0": "할워슨 연구소의 연구원들은 새로운 배터리가 2,000회의 충전 및 방전 사이클 후에도 90%의 용량을 유지한다고 보고했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 1681,
+   "slots": {
+    "0": "그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며 표본 생산 비용이 킬로와트시당 약 340 달러라고 지적합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 1681,
+   "slots": {
+    "0": "북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 시속 70km의 강풍과 섭씨 12도 정도의 기온이 예상됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 1681,
+   "slots": {
+    "0": "이 회사는 지속적인 공급망 문제로 인해 내년 초까지 플래그십 휴대 전화의 출시를 연기한다고 월요일 발표했다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 1681,
+   "slots": {
+    "0": "왜 이렇게 많은 작은 빵집들이 5년 이상 운영되지 못하는가? 경제학자들은 이유가 빵 자체와는 관련이 없고 임대료, 노동력, 희박한 이익에 있다고 믿는다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 1681,
+   "slots": {
+    "0": "친구, 딸기 파이가 드디어 작동했고, 전원이 켜지자마자 연기가 나기 시작했습니다. 글쎄요, 연기가 나지는 않았지만, 내 마음은 붕괴되었습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 1681,
+   "slots": {
+    "0": "죄인의 말을 말하십시오 : 탭 또는 공백을 사용할 수 있습니다, 새벽 2시에 아직도 싸우는 사람을 위해, 뭔가를 먹고 잠들어야합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 1681,
+   "slots": {
+    "0": "웃음이 터져 나왔고, 3시간 동안 오류 메시지를 쳐다보았습니다. 결과는 마침표 하나가 빠졌습니다.마침표 하나!"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 1681,
+   "slots": {
+    "0": "솔직히 말해서, 그 업데이트는 제 환경을 완전히 망가뜨렸습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 1681,
+   "slots": {
+    "0": "제 고양이가 일주일 동안 라우터에 누워 있었는데, Wi-Fi가 이전보다 더 안정적이었습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 1681,
+   "slots": {
+    "0": "나는 400 달러를 비처럼 울리는 키보드를 사는데 썼는데 후회하지 않는다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 1681,
+   "slots": {
+    "0": "변경 사항 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 1681,
+   "slots": {
+    "0": "오류가 발생했습니다. 나중에 다시 시도하십시오."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 1681,
+   "slots": {
+    "0": "읽지 않은 메시지가 3 개 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 1681,
+   "slots": {
+    "0": "클릭",
+    "1": "계속해"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 1681,
+   "slots": {
+    "0": "지원되는 플랫폼은 다음을 참조하십시오.",
+    "1": "자세한 내용은 여기를 참조하십시오."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 1681,
+   "slots": {
+    "0": "문제가 발생한 경우",
+    "1": "로그 파일을 첨부하십시오."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 1681,
+   "slots": {
+    "0": "작년 봄, 저는 가족의 사진을 저장하기 위해 오래된 노트북을 홈 서버로 변환하기로 결정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 1681,
+   "slots": {
+    "0": "이 2014년 ThinkBook은 8GB의 메모리를 갖추고 있어 이러한 작업에 적합합니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 1681,
+   "slots": {
+    "0": "내가 먼저 가져갈게 ",
+    "1": "Fernbox 라는 작은 웹 애플리케이션을 만들어서 사진을 볼 수 있게 했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 1681,
+   "slots": {
+    "0": "여동생은 처음에는 반대했지만 일주일이 지나자 Fernbox가 그녀가 이전에 사용했던 어떤 클라우드 서비스보다도 빠르다고 인정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 1681,
+   "slots": {
+    "0": "이제 그 오래된 노트북은 선반에 안전하게 놓여 있고 Fernbox는 가족이 여행을 마치고 집으로 돌아왔을 때 처음으로 열어보는 앱이 되었습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01",
+    "zh-Hans-tech-02",
+    "zh-Hans-tech-03",
+    "zh-Hans-tech-04",
+    "zh-Hans-tech-05",
+    "zh-Hans-tech-06",
+    "zh-Hans-news-01",
+    "zh-Hans-news-02",
+    "zh-Hans-news-03",
+    "zh-Hans-news-04",
+    "zh-Hans-news-05",
+    "zh-Hans-news-06",
+    "zh-Hans-community-01",
+    "zh-Hans-community-02",
+    "zh-Hans-community-03",
+    "zh-Hans-community-04",
+    "zh-Hans-community-05",
+    "zh-Hans-community-06",
+    "zh-Hans-ui-01",
+    "zh-Hans-ui-02",
+    "zh-Hans-ui-03",
+    "zh-Hans-link-01",
+    "zh-Hans-link-02",
+    "zh-Hans-link-03",
+    "zh-Hans-seq-01",
+    "zh-Hans-seq-02",
+    "zh-Hans-seq-03",
+    "zh-Hans-seq-04",
+    "zh-Hans-seq-05"
+   ],
+   "ms": 48747
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "plain MT, PLAN 4.4 run-splitting"
+ }
+}

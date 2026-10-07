@@ -58,6 +58,7 @@ enum FMPrompt {
 actor FMEngine {
     static let shared = FMEngine()
     static let maxChars = 1500
+    static let maxCharsCJK = 600
     static let maxBlocks = 8
     static let idleSeconds: UInt64 = 60
 
@@ -129,7 +130,8 @@ actor FMEngine {
         var results: [ProtoResult] = []
         var firstError: Error?
         for l in order {
-            for batch in makeBatches(byLang[l] ?? [], maxChars: Self.maxChars, maxBlocks: Self.maxBlocks) {
+            let limit = (l == "ja" || l.hasPrefix("zh")) ? Self.maxCharsCJK : Self.maxChars   // CJK는 토큰 밀도가 높아 4096토큰 초과가 잦음
+            for batch in makeBatches(byLang[l] ?? [], maxChars: limit, maxBlocks: Self.maxBlocks) {
                 do {
                     let map = try await respond(model: model, lang: l, context: context, batch: batch)
                     for b in batch {
@@ -155,27 +157,29 @@ actor FMEngine {
         LanguageModelSession(model: model, instructions: FMPrompt.instructions(lang: lang))
     }
 
+    // 배치마다 새 세션(트랜스크립트 누적 방지). 컨텍스트 초과 시 배치를 반으로 나눠 재시도, 단일 블록도 초과면 에러.
     private func respond(model: SystemLanguageModel, lang: String, context: ProtoContext?, batch: [ProtoBlock]) async throws -> [String: [String: String]] {
         let text = Self.promptText(lang: lang, context: context, batch: batch)
-        var attempt = 0
-        while true {
-            attempt += 1
-            let session = sessions[lang] ?? newSession(model: model, lang: lang)
-            sessions[lang] = session
-            do {
-                let r = try await session.respond(to: Prompt(text), generating: FMOutput.self)
-                var map: [String: [String: String]] = [:]
-                for b in r.content.blocks {
-                    map[b.id] = Dictionary(b.t.map { (String($0.i), $0.text) }, uniquingKeysWith: { a, _ in a })
-                }
-                return map
-            } catch {
-                sessions[lang] = nil   // transcript may be at capacity or corrupted: always drop
-                let d = "\(error)"
-                let overflow = d.contains("exceededContextWindowSize") || d.contains("contextSizeExceeded") || d.contains("context size")
-                if attempt == 1 && overflow { continue }   // fresh session retry
-                throw EngineError(code: overflow ? "bad_response" : "unknown", message: d)
+        let session = newSession(model: model, lang: lang)
+        sessions[lang] = session
+        defer { sessions[lang] = nil }
+        do {
+            let r = try await session.respond(to: Prompt(text), generating: FMOutput.self)
+            var map: [String: [String: String]] = [:]
+            for b in r.content.blocks {
+                map[b.id] = Dictionary(b.t.map { (String($0.i), $0.text) }, uniquingKeysWith: { a, _ in a })
             }
+            return map
+        } catch {
+            let d = "\(error)"
+            let overflow = d.contains("exceededContextWindowSize") || d.contains("contextSizeExceeded") || d.contains("context size")
+            if overflow && batch.count > 1 {
+                let mid = batch.count / 2
+                var merged = try await respond(model: model, lang: lang, context: context, batch: Array(batch[..<mid]))
+                for (k, v) in try await respond(model: model, lang: lang, context: context, batch: Array(batch[mid...])) { merged[k] = v }
+                return merged
+            }
+            throw EngineError(code: overflow ? "bad_response" : "unknown", message: d)
         }
     }
 

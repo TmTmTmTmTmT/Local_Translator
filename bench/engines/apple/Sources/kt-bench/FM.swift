@@ -67,7 +67,8 @@ struct FMOutputPlain: Decodable {
 
 func runFM(engine: String, corpus: Corpus, runNo: Int, promptPath: String?, corpusPath: String, mode: String) async -> RunResult {
     let lang = corpus.lang
-    let limit = BatchLimit(chars: 1500, blocks: 40)
+    let isCJK = (lang == "ja" || lang.hasPrefix("zh"))
+    let limit = BatchLimit(chars: isCJK ? 600 : 1500, blocks: 40)
     var result = RunResult(engine: engine, model: "apple-foundation-models-ondevice", lang: lang, run: runNo, batchLimit: limit,
                            coldMs: 0, totalMs: 0, blocks: [], batches: [],
                            env: Env(keepAliveSec: nil, notes: "", os: osString()), error: nil)
@@ -91,6 +92,7 @@ func runFM(engine: String, corpus: Corpus, runNo: Int, promptPath: String?, corp
     let total = clock.now
     var first = true
     for batch in makeBatches(corpus.blocks, maxChars: limit.chars, maxBlocks: limit.blocks) {
+        session = newSession()   // 배치마다 새 세션: 트랜스크립트 누적으로 4096토큰 초과 방지
         let text = batchPromptText(corpus: corpus, batch: batch, mode: mode)
         var map: [String: [String: String]] = [:]
         var batchError: String?
@@ -137,6 +139,6 @@ func runFM(engine: String, corpus: Corpus, runNo: Int, promptPath: String?, corp
         }
     }
     result.totalMs = ms(clock.now - total)
-    result.env.notes = "on-device SystemLanguageModel(guardrails: permissiveContentTransformations); mode=\(mode == "text" ? "plain-json-text" : "guided(@Generable)"); one session reused per document (transcript accumulates), contextResets=\(resets); prompt=\(psrc); batch<=1500 chars, 1 request at a time; no prewarm."
+    result.env.notes = "on-device SystemLanguageModel(guardrails: permissiveContentTransformations); mode=\(mode == "text" ? "plain-json-text" : "guided(@Generable)"); new session per batch, contextResets=\(resets); prompt=\(psrc); batch<=\(limit.chars) chars, 1 request at a time; no prewarm."
     return result
 }

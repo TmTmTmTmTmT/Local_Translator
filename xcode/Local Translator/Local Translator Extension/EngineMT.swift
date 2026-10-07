@@ -10,7 +10,7 @@ enum SlotIDKey: AttributedStringKey {
 }
 typealias SkipKey = AttributeScopes.TranslationAttributes.SkipTranslationAttribute
 
-enum MTVariant: String, Sendable { case attr, plain }
+enum MTVariant: String, Sendable { case attr, plain, marker }
 
 /// TranslationSession is not Sendable; it is only ever used by one translate() call at a time per engine call chain.
 final class SessionBox: @unchecked Sendable {
@@ -65,7 +65,12 @@ actor MTEngine {
             let s = session(for: l)
             for b in byLang[l] ?? [] {
                 do {
-                    let slots = variant == .attr ? try await attrBlock(s, b) : try await plainBlock(s, b)
+                    let slots: [String: String]
+                    switch variant {
+                    case .attr: slots = try await attrBlock(s, b)
+                    case .plain: slots = try await plainBlock(s, b)
+                    case .marker: slots = try await markerBlock(s, b)
+                    }
                     results.append(ProtoResult(id: b.id, slots: slots))
                 } catch {
                     if case TranslationError.notInstalled = error {
@@ -117,6 +122,54 @@ actor MTEngine {
             var slots: [String: String] = [:]
             for it in tItems { if let i = it.i { slots[String(i)] = byId[i] ?? it.text } }
             return slots
+        }
+        return try await plainBlock(box, b)   // run-splitting fallback
+    }
+
+    // MARK: marker: whole block in one request, x items replaced by ⟦n⟧, split translation at the markers
+
+    private nonisolated func markerBlock(_ box: SessionBox, _ b: ProtoBlock) async throws -> [String: String] {
+        let k = b.items.filter { $0.k != "t" }.count
+        if k == 0 { return try await plainBlock(box, b) }
+        let tItems = b.slotItems
+        if !tItems.contains(where: { hasLetters($0.text) }) {
+            return Dictionary(uniqueKeysWithValues: tItems.compactMap { it in it.i.map { (String($0), it.text) } })
+        }
+        var src = "", n = 0
+        var segs: [[Int]] = [[]]
+        for it in b.items {
+            if it.k == "t" {
+                src += it.text
+                if let i = it.i { segs[segs.count - 1].append(i) }
+            } else {
+                n += 1; src += "\u{27E6}\(n)\u{27E7}"; segs.append([])
+            }
+        }
+        let lead = String(src.prefix(while: { $0.isWhitespace }))
+        let trail = String(src.reversed().prefix(while: { $0.isWhitespace }).reversed())
+        let r = try await box.session.translate(src.trimmingCharacters(in: .whitespacesAndNewlines))
+        let target = lead + r.targetText + trail
+        // every marker exactly once, in source order
+        var pieces: [String] = []
+        var rest = Substring(target)
+        var valid = true
+        for m in 1...k {
+            let mk = "\u{27E6}\(m)\u{27E7}"
+            guard target.components(separatedBy: mk).count == 2, let rg = rest.range(of: mk) else { valid = false; break }
+            pieces.append(String(rest[rest.startIndex..<rg.lowerBound]))
+            rest = rest[rg.upperBound...]
+        }
+        if valid {
+            pieces.append(String(rest))
+            // a non-blank piece in a segment without t slots cannot be placed
+            let placeable = zip(pieces, segs).allSatisfy { !$0.1.isEmpty || $0.0.trimmingCharacters(in: .whitespaces).isEmpty }
+            if placeable {
+                var slots: [String: String] = [:]
+                for (p, seg) in zip(pieces, segs) {
+                    for (j, s) in seg.enumerated() { slots[String(s)] = j == 0 ? p : "" }
+                }
+                return slots
+            }
         }
         return try await plainBlock(box, b)   // run-splitting fallback
     }

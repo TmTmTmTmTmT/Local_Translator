@@ -19,7 +19,7 @@ enum MarkerStyle: String, CaseIterable, Sendable {
 }
 
 /// Style used by the apple-mt-marker engine (chosen from probe results, see bench/marker-probe/FINDINGS.md).
-let markerEngineStyle: MarkerStyle = .square
+let markerEngineStyle: MarkerStyle = .corner
 
 func markerSource(_ b: Block, style: MarkerStyle) -> String {
     var out = "", n = 0

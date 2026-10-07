@@ -1,0 +1,6 @@
+{
+ "ct2-nllb-1.3b": {
+  "model": "nllb-1.3b",
+  "args": []
+ }
+}

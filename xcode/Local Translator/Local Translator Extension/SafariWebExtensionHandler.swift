@@ -39,7 +39,7 @@ enum Dispatcher {
             switch name {
             case "apple-mt":
                 results = try await MTEngine.shared.translate(blocks: blocks, requestLang: req.lang,
-                                                              variant: MTVariant(rawValue: req.variant ?? "attr") ?? .attr)
+                                                              variant: MTVariant(rawValue: req.variant ?? "marker") ?? .marker)
             case "apple-fm":
                 results = try await FMEngine.shared.translate(blocks: blocks, context: req.context, requestLang: req.lang)
             default:
