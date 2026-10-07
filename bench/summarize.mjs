@@ -42,9 +42,10 @@ export function loadMonitors(dir) {
   const out = []; // {engine, scenario, analysis}
   if (!existsSync(dir)) return out;
   for (const f of readdirSync(dir).sort()) {
-    const m = f.match(/^monitor__(.+?)__(.+)\.csv$/);
+    const m = f.match(/^monitor__(.+?)__(.+)\.csv$/) || f.match(/^monitor__(.+)\.csv$/);
     if (!m) continue;
-    out.push({ engine: m[1], scenario: m[2], analysis: analyzeMonitor(parseMonitorCsv(readFileSync(join(dir, f), 'utf8'))) });
+    // orchestrate.mjs 매트릭스 실행은 시나리오 접미사 없이 monitor__<engine>.csv → 'matrix'
+    out.push({ engine: m[1], scenario: m[2] || 'matrix', analysis: analyzeMonitor(parseMonitorCsv(readFileSync(join(dir, f), 'utf8'))) });
   }
   return out;
 }
@@ -75,7 +76,7 @@ const check = (v, ok) => (v === null || v === undefined ? 'N/A' : ok(v) ? 'PASS'
 // Resource verdict per engine from monitor analyses (prefers usage-sim, falls back to any other scenario).
 export function resourceVerdict(engine, monitors) {
   const mine = monitors.filter((m) => m.engine === engine);
-  const sim = mine.find((m) => m.scenario === 'usage-sim') || mine.find((m) => m.scenario === 'resident') || mine[0];
+  const sim = mine.find((m) => m.scenario === 'usage-sim') || mine.find((m) => m.scenario === 'resident') || mine.find((m) => m.scenario === 'matrix') || mine[0];
   if (!sim) return { mem: 'N/A', swap: 'N/A', unload: 'N/A', source: null };
   const a = sim.analysis;
   const idleSrc = mine.find((m) => m.analysis.unloaded !== null) || sim;

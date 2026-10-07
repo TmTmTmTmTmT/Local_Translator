@@ -1,6 +1,6 @@
 # Phase 0 벤치마크 REPORT
 
-생성: 2026-10-07T16:29:58.981Z · 엔진 36 · 언어 en, ja, zh-Hans, zh-Hant
+생성: 2026-10-07T16:55:25.003Z · 엔진 37 · 언어 en, ja, zh-Hans, zh-Hant
 
 ## 1. 엔진 x 언어 요약
 
@@ -16,6 +16,8 @@
 | apple-mt-attr | zh-Hant | 1 | 54642 | 1884* | 1884 | 54642 (29) | 22 | 100% | - | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
 | apple-mt-marker | en | 1 | 59187 | 2041* | 2041 | 59187 (29) | 55 | 100% | - | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
 | apple-mt-marker | ja | 1 | 51365 | 1771* | 1771 | 51365 (29) | 31 | 100% | - | - | 97% | 100% | 95% | 93% | 0 | 0 | 0 | 0 |
+| apple-mt-marker | zh-Hans | 1 | 60634 | 2091* | 2091 | 60634 (29) | 19 | 100% | - | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| apple-mt-marker | zh-Hant | 1 | 62261 | 2147* | 2147 | 62261 (29) | 19 | 100% | - | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
 | apple-mt-marker-batch | en | 1 | 49613 | 1711* | 1711 | 49613 (29) | 65 | 100% | - | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
 | apple-mt-marker-batch | ja | 1 | 42983 | 1482* | 1482 | 42983 (29) | 37 | 100% | - | - | 97% | 100% | 95% | 93% | 0 | 0 | 0 | 0 |
 | apple-mt-plain | en | 1 | 55227 | 1904* | 1904 | 55227 (29) | 59 | 100% | - | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
@@ -38,10 +40,10 @@
 | ct2-nllb-1.3b | ja | 1 | 12386 | 427* | 427 | 12386 (29) | 127 | 100% | - | - | 83% | 100% | 58% | 95% | 1 | 1 | 0 | 0 |
 | ct2-nllb-1.3b | zh-Hans | 1 | 12327 | 425* | 425 | 12327 (29) | 95 | 100% | - | - | 100% | 100% | 56% | 97% | 0 | 0 | 0 | 0 |
 | ct2-nllb-1.3b | zh-Hant | 1 | 13182 | 455* | 455 | 13182 (29) | 90 | 100% | - | - | 100% | 100% | 60% | 97% | 0 | 0 | 0 | 0 |
-| ct2-nllb-600m | en | 1 | 9027 | 311* | 311 | 9027 (29) | 359 | 100% | - | - | 100% | 100% | 50% | 96% | 0 | 0 | 0 | 0 |
-| ct2-nllb-600m | ja | 1 | 6426 | 222* | 222 | 6426 (29) | 245 | 100% | - | - | 80% | 100% | 63% | 94% | 0 | 0 | 0 | 0 |
-| ct2-nllb-600m | zh-Hans | 1 | 6744 | 233* | 233 | 6744 (29) | 174 | 100% | - | - | 100% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
-| ct2-nllb-600m | zh-Hant | 1 | 6416 | 221* | 221 | 6416 (29) | 186 | 100% | - | - | 95% | 100% | 70% | 94% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | en | 1 | 13844 | 477* | 477 | 13844 (29) | 234 | 100% | - | - | 100% | 100% | 50% | 96% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | ja | 1 | 6580 | 227* | 227 | 6580 (29) | 240 | 100% | - | - | 80% | 100% | 63% | 94% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | zh-Hans | 1 | 6208 | 214* | 214 | 6208 (29) | 189 | 100% | - | - | 100% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
+| ct2-nllb-600m | zh-Hant | 1 | 6236 | 215* | 215 | 6236 (29) | 191 | 100% | - | - | 95% | 100% | 70% | 94% | 0 | 0 | 0 | 0 |
 | ct2-opus-tc-big-en-ko | en | 1 | 7542 | 260* | 260 | 7542 (29) | 430 | 100% | - | - | 0% | 0% | 0% | 49% | 8 | 1 | 1 | 0 |
 | mlx-exaone-4.0-1.2b-4bit | en | 1 | 30 | -* | - | 30 (29) | 108100 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-exaone-4.0-1.2b-4bit | ja | 1 | 33 | -* | - | 34 (29) | 46353 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
@@ -65,10 +67,10 @@
 | mlx-hy-mt2-1.8b-4bit | ja | 1 | 90861 | -* | - | 90861 (29) | 17 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | zh-Hans | 1 | 71840 | -* | - | 71840 (29) | 16 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hy-mt2-1.8b-4bit | zh-Hant | 1 | 86546 | -* | - | 86546 (29) | 14 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
-| mlx-hy-mt2-1.8b-4bit-mt | en | 1 | 3635 | 684 | 992 | 22956 (29) | 141 | 100% | 100% | - | 100% | 100% | 67% | 95% | 0 | 0 | 0 | 0 |
-| mlx-hy-mt2-1.8b-4bit-mt | ja | 1 | 738 | 713 | 1003 | 19158 (29) | 82 | 100% | 100% | - | 97% | 100% | 79% | 94% | 0 | 0 | 0 | 0 |
-| mlx-hy-mt2-1.8b-4bit-mt | zh-Hans | 1 | 784 | 706 | 983 | 19588 (29) | 60 | 100% | 100% | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
-| mlx-hy-mt2-1.8b-4bit-mt | zh-Hant | 1 | 801 | 763 | 984 | 20728 (29) | 58 | 100% | 100% | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | en | 1 | 838 | 667 | 1001 | 19678 (29) | 165 | 100% | 100% | - | 100% | 100% | 67% | 95% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | ja | 1 | 679 | 706 | 886 | 18445 (29) | 85 | 100% | 100% | - | 97% | 100% | 79% | 94% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hans | 1 | 732 | 724 | 956 | 20409 (29) | 57 | 100% | 100% | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hant | 1 | 869 | 767 | 1113 | 21316 (29) | 56 | 100% | 100% | - | 100% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
 | mlx-hyperclovax-seed-1.5b-4bit | en | 1 | 60231 | -* | - | 60231 (29) | 54 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hyperclovax-seed-1.5b-4bit | ja | 1 | 20440 | -* | - | 20440 (29) | 77 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-hyperclovax-seed-1.5b-4bit | zh-Hans | 1 | 52704 | 1817* | 1817 | 52704 (29) | 22 | 2% | - | 100% | 0% | - | - | 0% | 0 | 0 | 0 | 28 |
@@ -108,14 +110,15 @@
 | mlx-translategemma-4b-4bit | ja | 1 | 31 | -* | - | 31 (29) | 50839 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | zh-Hans | 1 | 32 | -* | - | 32 (29) | 36656 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | mlx-translategemma-4b-4bit | zh-Hant | 1 | 32 | -* | - | 32 (29) | 37250 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
-| mlx-translategemma-4b-4bit-mt | en | 1 | 3273 | 1168 | 1707 | 34822 (29) | 93 | 100% | 100% | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
-| mlx-translategemma-4b-4bit-mt | ja | 1 | 1311 | 1178 | 1562 | 31751 (29) | 50 | 100% | 100% | - | 90% | 100% | 74% | 94% | 0 | 0 | 0 | 0 |
-| mlx-translategemma-4b-4bit-mt | zh-Hans | 1 | 1367 | 1172 | 1821 | 32992 (29) | 36 | 100% | 100% | - | 95% | 100% | 100% | 95% | 0 | 0 | 0 | 0 |
-| mlx-translategemma-4b-4bit-mt | zh-Hant | 1 | 1463 | 1189 | 1750 | 33739 (29) | 35 | 100% | 100% | - | 95% | 100% | 100% | 95% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | en | 1 | 2444 | 1047 | 1518 | 31082 (29) | 104 | 100% | 100% | - | 100% | 100% | 61% | 95% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | ja | 1 | 1182 | 1085 | 1386 | 28435 (29) | 55 | 100% | 100% | - | 90% | 100% | 74% | 94% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | zh-Hans | 1 | 1236 | 1061 | 1541 | 29490 (29) | 40 | 100% | 100% | - | 95% | 100% | 100% | 96% | 0 | 0 | 0 | 0 |
+| mlx-translategemma-4b-4bit-mt | zh-Hant | 1 | 1280 | 1068 | 1535 | 30062 (29) | 40 | 100% | 100% | - | 95% | 100% | 100% | 95% | 0 | 0 | 0 | 0 |
 | ollama-gemma4-e2b | en | 1 | 47408 | 1635* | 1635 | 47408 (29) | 68 | 6% | - | 100% | - | - | 100% | 85% | 0 | 0 | 0 | 28 |
 | ollama-gemma4-e2b | ja | 1 | 40767 | 1406* | 1406 | 40767 (29) | 39 | 6% | - | 100% | 100% | - | 100% | 0% | 1 | 0 | 0 | 27 |
 | ollama-gemma4-e2b | zh-Hans | 1 | 43988 | 1517* | 1517 | 43988 (29) | 27 | 72% | - | 100% | 94% | 100% | 75% | 98% | 0 | 0 | 0 | 5 |
 | ollama-gemma4-e2b | zh-Hant | 1 | 51600 | 1779* | 1779 | 51600 (29) | 23 | 2% | - | 100% | - | - | 0% | 100% | 0 | 0 | 0 | 28 |
+| ollama-gemma4-e2b-mt | en | 1 | 326783 | 10214 | 746222 | 9368776 (29) | 0 | 90% | 100% | - | 100% | 100% | 60% | 95% | 0 | 0 | 0 | 3 |
 | ollama-gemma4-e4b | en | 1 | 186739 | 6439* | 6439 | 186739 (29) | 17 | 94% | - | 100% | 100% | 100% | 61% | 94% | 0 | 0 | 0 | 0 |
 | ollama-gemma4-e4b | ja | 1 | 121578 | 4192* | 4192 | 121578 (29) | 13 | 98% | - | 100% | 83% | 100% | 74% | 92% | 0 | 0 | 0 | 0 |
 | ollama-gemma4-e4b | zh-Hans | 1 | 167047 | 5760* | 5760 | 167047 (29) | 7 | 100% | - | 100% | 100% | 100% | 89% | 96% | 0 | 0 | 0 | 0 |
@@ -150,7 +153,41 @@
 
 scenario 결과 없음.
 
-모니터 CSV(`monitor__<engine>__<scenario>.csv`) 없음.
+### 모니터 (monitor.sh CSV)
+
+| 엔진 | 시나리오 | 최대 추가 RSS | 상위 프로세스(최대 추가) | 스왑아웃 증가 | 최소 free% | 압력/스왑사용/swapin/압축 | 유휴 +1분 | +3분 | +5분 | 언로드 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ct2-m2m100-418m | matrix | 664MB | Python 564MB, node 57MB, (node) 57MB | 0p (0MB) | 68 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ct2-madlad-3b | matrix | 5970MB | Python 5837MB, swift-frontend 1436MB, SWBBuildService 365MB | 54740p (855MB) | 35 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ct2-nllb-1.3b | matrix | 3547MB | Python 3086MB, translationd 223MB, claude 61MB | 0p (0MB) | 51 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ct2-nllb-600m | matrix | 2513MB | Python 1600MB, Claude Helper (Renderer) 814MB, node 567MB | 17048p (266MB) | 12 | P2/스왑3443MB(Δ-270)/in34089/압축3348MB | 851MB | 1574MB | 1960MB | 아니오 |
+| ct2-opus-tc-big-en-ko | matrix | 1216MB | Python 1160MB, node 57MB, intelligenceflowd 0MB | 0p (0MB) | 70 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-exaone-4.0-1.2b-4bit | matrix | 0MB | - | 0p (0MB) | 64 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-gemma-3-1b-4bit-mt | matrix | 5011MB | llama-server 4383MB, com.apple.WebKit.WebContent 740MB, Claude Helper (Renderer) 570MB | 5968p (93MB) | 23 | P2/스왑2770MB(Δ-307)/in25891/압축5257MB | - | - | - | - |
+| mlx-gemma-3-1b-4bit | matrix | 566MB | node 100MB, MTLCompilerService 94MB, Claude Helper (Renderer) 55MB | 0p (0MB) | 51 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-gemma-4-e2b-4bit-mt | matrix | 4878MB | llama-server 4420MB, python3 2907MB, Python 744MB | 178699p (2792MB) | 12 | P4/스왑4376MB(Δ-194)/in141488/압축4443MB | - | - | - | - |
+| mlx-gemma-4-e2b-4bit | matrix | 2323MB | Python 1865MB, Claude Helper (Renderer) 384MB, MTLCompilerService 93MB | 0p (0MB) | 44 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-hy-mt2-1.8b-4bit-mt | matrix | 1091MB | claude 242MB, mediaanalysisd 208MB, python3 196MB | 0p (0MB) | 60 | P1/스왑2915MB(Δ-328)/in20594/압축2487MB | 532MB | 542MB | 1091MB | 아니오 |
+| mlx-hy-mt2-1.8b-4bit | matrix | 831MB | swift-frontend 306MB, translationd 278MB, swift-build 221MB | 0p (0MB) | 26 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-hyperclovax-seed-1.5b-4bit-mt | matrix | 801MB | Claude Helper (Renderer) 496MB, ReportMemoryException 167MB, Claude 111MB | 9265p (145MB) | 34 | P1/스왑2482MB(Δ-424)/in19149/압축4425MB | - | - | - | - |
+| mlx-hyperclovax-seed-1.5b-4bit | matrix | 319MB | MTLCompilerService 71MB, node 66MB, systemstats 41MB | 0p (0MB) | 38 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-kanana-2-3b-4bit-mt | matrix | 897MB | Claude Helper (Renderer) 553MB, claude 174MB, python3 85MB | 0p (0MB) | 19 | P2/스왑2882MB(Δ-112)/in7227/압축4101MB | - | - | - | - |
+| mlx-kanana-2-3b-4bit | matrix | 1026MB | Python 969MB, node 65MB, Claude Helper (Renderer) 54MB | 30016p (469MB) | 12 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-qwen3-1.7b-4bit-mt | matrix | 1056MB | Claude Helper (Renderer) 473MB, mediaanalysisd 467MB, claude 226MB | 0p (0MB) | 17 | P2/스왑3090MB(Δ-200)/in12164/압축4645MB | - | - | - | - |
+| mlx-qwen3-1.7b-4bit | matrix | 440MB | Claude Helper (Renderer) 337MB, node 64MB, mdworker_shared 46MB | 0p (0MB) | 41 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-qwen3.5-2b-4bit-mt | matrix | 643MB | swift-frontend 377MB, translationd 293MB, swift-build 228MB | 74448p (1163MB) | 19 | P2/스왑3290MB(Δ915)/in16665/압축5155MB | - | - | - | - |
+| mlx-qwen3.5-2b-4bit | matrix | 460MB | Claude Helper (Renderer) 106MB, MTLCompilerService 95MB, Python 74MB | 0p (0MB) | 50 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-qwen3.5-4b-4bit-mt | matrix | 361MB | claude 243MB, node 91MB, Claude 32MB | 61228p (957MB) | 27 | P2/스왑3241MB(Δ837)/in7927/압축7571MB | - | - | - | - |
+| mlx-qwen3.5-4b-4bit | matrix | 702MB | com.apple.WebKit.WebContent 323MB, Claude Helper (Renderer) 224MB, TGOnDeviceInferenceProviderService 146MB | 0p (0MB) | 24 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| mlx-translategemma-4b-4bit-mt | matrix | 1013MB | mediaanalysisd 208MB, tailspind 194MB, contactsd 164MB | 0p (0MB) | 51 | P1/스왑2587MB(Δ-96)/in6044/압축2983MB | 774MB | 853MB | 0MB | 예 |
+| mlx-translategemma-4b-4bit | matrix | 47MB | node 47MB | 0p (0MB) | 46 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ollama-gemma4-e2b-mt | matrix | 2914MB | llama-server 2814MB, node 61MB, claude 34MB | 0p (0MB) | 26 | P2/스왑3233MB(Δ-88)/in4875/압축5655MB | - | - | - | - |
+| ollama-gemma4-e2b | matrix | 3398MB | llama-server 3345MB, Claude Helper (Renderer) 133MB, node 57MB | 0p (0MB) | 13 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ollama-gemma4-e4b | matrix | 3765MB | llama-server 3618MB, Claude Helper (Renderer) 207MB, mediaanalysisd 200MB | 305616p (4775MB) | 6 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ollama-qwen3-1.7b | matrix | 4277MB | llama-server 3338MB, node 668MB, Python 465MB | 0p (0MB) | 46 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ollama-qwen3.5-2b | matrix | 3720MB | llama-server 3389MB, Claude Helper (Renderer) 117MB, claude 75MB | 0p (0MB) | 48 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ollama-translategemma-4b-mt | matrix | 6214MB | llama-server 6085MB, node 81MB, mdworker_shared 42MB | 0p (0MB) | 56 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
+| ollama-translategemma-4b | matrix | 4565MB | llama-server 4505MB, translationd 257MB, mds_stores 97MB | 10964p (171MB) | 18 | P-/스왑-MB(Δ-)/in-/압축-MB | - | - | - | - |
 
 전력 로그(`power_<engine>.log`) 없음 — `bench/powermetrics.md` 참고.
 
@@ -170,6 +207,8 @@ scenario 결과 없음.
 | apple-mt-attr | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-marker | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-marker | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| apple-mt-marker | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| apple-mt-marker | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-marker-batch | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-marker-batch | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
 | apple-mt-plain | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
@@ -180,116 +219,117 @@ scenario 결과 없음.
 | apple-mt-plain-lowlatency | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | apple-mt-plain-lowlatency | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | apple-mt-plain-lowlatency | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ct2-m2m100-418m | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ct2-m2m100-418m | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ct2-m2m100-418m | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ct2-m2m100-418m | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ct2-madlad-3b | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ct2-madlad-3b | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ct2-madlad-3b | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ct2-madlad-3b | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ct2-nllb-1.3b | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ct2-nllb-1.3b | ja | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-nllb-1.3b | zh-Hans | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-nllb-1.3b | zh-Hant | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-nllb-600m | en | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-nllb-600m | ja | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-nllb-600m | zh-Hans | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-nllb-600m | zh-Hant | PASS | PASS | N/A | N/A | N/A | PENDING |
-| ct2-opus-tc-big-en-ko | en | PASS | PASS | N/A | N/A | N/A | PENDING |
-| mlx-exaone-4.0-1.2b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-exaone-4.0-1.2b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-exaone-4.0-1.2b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-exaone-4.0-1.2b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit | ja | PASS | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit | zh-Hans | PASS | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-3-1b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-4-e2b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-4-e2b-4bit | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-gemma-4-e2b-4bit | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-4-e2b-4bit | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-4-e2b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-gemma-4-e2b-4bit-mt | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-hy-mt2-1.8b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-hyperclovax-seed-1.5b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hyperclovax-seed-1.5b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hyperclovax-seed-1.5b-4bit | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hyperclovax-seed-1.5b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-hyperclovax-seed-1.5b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-hyperclovax-seed-1.5b-4bit-mt | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-kanana-2-3b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3-1.7b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-2b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-4b-4bit | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-4b-4bit | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-4b-4bit | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-4b-4bit | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-qwen3.5-4b-4bit-mt | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| mlx-translategemma-4b-4bit-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e2b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e2b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e2b | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e2b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e4b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e4b | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e4b | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-gemma4-e4b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3-1.7b | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3-1.7b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3-1.7b | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3-1.7b | zh-Hant | PASS | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3.5-2b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3.5-2b | ja | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3.5-2b | zh-Hans | PASS | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-qwen3.5-2b | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b | zh-Hans | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b | zh-Hant | FAIL | FAIL | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b-mt | en | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b-mt | ja | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b-mt | zh-Hans | FAIL | PASS | N/A | N/A | N/A | FAIL |
-| ollama-translategemma-4b-mt | zh-Hant | FAIL | PASS | N/A | N/A | N/A | FAIL |
+| ct2-m2m100-418m | en | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| ct2-m2m100-418m | ja | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| ct2-m2m100-418m | zh-Hans | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| ct2-m2m100-418m | zh-Hant | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| ct2-madlad-3b | en | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| ct2-madlad-3b | ja | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| ct2-madlad-3b | zh-Hans | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| ct2-madlad-3b | zh-Hant | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| ct2-nllb-1.3b | en | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| ct2-nllb-1.3b | ja | PASS | PASS | FAIL | PASS | N/A | FAIL |
+| ct2-nllb-1.3b | zh-Hans | PASS | PASS | FAIL | PASS | N/A | FAIL |
+| ct2-nllb-1.3b | zh-Hant | PASS | PASS | FAIL | PASS | N/A | FAIL |
+| ct2-nllb-600m | en | PASS | PASS | FAIL | FAIL | FAIL | FAIL |
+| ct2-nllb-600m | ja | PASS | PASS | FAIL | FAIL | FAIL | FAIL |
+| ct2-nllb-600m | zh-Hans | PASS | PASS | FAIL | FAIL | FAIL | FAIL |
+| ct2-nllb-600m | zh-Hant | PASS | PASS | FAIL | FAIL | FAIL | FAIL |
+| ct2-opus-tc-big-en-ko | en | PASS | PASS | PASS | PASS | N/A | PENDING |
+| mlx-exaone-4.0-1.2b-4bit | en | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-exaone-4.0-1.2b-4bit | ja | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-exaone-4.0-1.2b-4bit | zh-Hans | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-exaone-4.0-1.2b-4bit | zh-Hant | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | en | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | ja | PASS | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | zh-Hans | PASS | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-gemma-3-1b-4bit | zh-Hant | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-gemma-3-1b-4bit-mt | en | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| mlx-gemma-3-1b-4bit-mt | ja | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| mlx-gemma-3-1b-4bit-mt | zh-Hans | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| mlx-gemma-3-1b-4bit-mt | zh-Hant | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | en | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | ja | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | zh-Hans | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit | zh-Hant | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit-mt | en | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| mlx-gemma-4-e2b-4bit-mt | ja | FAIL | FAIL | FAIL | FAIL | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | en | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | ja | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | zh-Hans | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | zh-Hant | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | en | FAIL | PASS | PASS | PASS | FAIL | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | ja | FAIL | PASS | PASS | PASS | FAIL | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hans | FAIL | PASS | PASS | PASS | FAIL | FAIL |
+| mlx-hy-mt2-1.8b-4bit-mt | zh-Hant | FAIL | PASS | PASS | PASS | FAIL | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | en | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | ja | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | zh-Hans | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit | zh-Hant | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit-mt | en | FAIL | PASS | PASS | FAIL | N/A | FAIL |
+| mlx-hyperclovax-seed-1.5b-4bit-mt | ja | N/A | FAIL | PASS | FAIL | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | en | N/A | FAIL | PASS | FAIL | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | ja | N/A | FAIL | PASS | FAIL | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | zh-Hans | N/A | FAIL | PASS | FAIL | N/A | FAIL |
+| mlx-kanana-2-3b-4bit | zh-Hant | N/A | FAIL | PASS | FAIL | N/A | FAIL |
+| mlx-kanana-2-3b-4bit-mt | en | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-kanana-2-3b-4bit-mt | ja | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-kanana-2-3b-4bit-mt | zh-Hans | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-kanana-2-3b-4bit-mt | zh-Hant | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | en | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | ja | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | zh-Hans | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit | zh-Hant | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit-mt | en | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit-mt | ja | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit-mt | zh-Hans | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3-1.7b-4bit-mt | zh-Hant | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | en | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | ja | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | zh-Hans | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit | zh-Hant | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit-mt | en | FAIL | PASS | PASS | FAIL | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit-mt | ja | FAIL | PASS | PASS | FAIL | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit-mt | zh-Hans | FAIL | PASS | PASS | FAIL | N/A | FAIL |
+| mlx-qwen3.5-2b-4bit-mt | zh-Hant | FAIL | PASS | PASS | FAIL | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | en | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | ja | FAIL | PASS | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | zh-Hans | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit | zh-Hant | FAIL | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-qwen3.5-4b-4bit-mt | en | FAIL | FAIL | PASS | FAIL | N/A | FAIL |
+| mlx-translategemma-4b-4bit | en | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-translategemma-4b-4bit | ja | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-translategemma-4b-4bit | zh-Hans | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-translategemma-4b-4bit | zh-Hant | N/A | FAIL | PASS | PASS | N/A | FAIL |
+| mlx-translategemma-4b-4bit-mt | en | FAIL | PASS | PASS | PASS | PASS | FAIL |
+| mlx-translategemma-4b-4bit-mt | ja | FAIL | PASS | PASS | PASS | PASS | FAIL |
+| mlx-translategemma-4b-4bit-mt | zh-Hans | FAIL | PASS | PASS | PASS | PASS | FAIL |
+| mlx-translategemma-4b-4bit-mt | zh-Hant | FAIL | PASS | PASS | PASS | PASS | FAIL |
+| ollama-gemma4-e2b | en | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-gemma4-e2b | ja | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-gemma4-e2b | zh-Hans | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-gemma4-e2b | zh-Hant | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-gemma4-e2b-mt | en | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-gemma4-e4b | en | FAIL | FAIL | FAIL | FAIL | N/A | FAIL |
+| ollama-gemma4-e4b | ja | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| ollama-gemma4-e4b | zh-Hans | FAIL | PASS | FAIL | FAIL | N/A | FAIL |
+| ollama-gemma4-e4b | zh-Hant | FAIL | FAIL | FAIL | FAIL | N/A | FAIL |
+| ollama-qwen3-1.7b | en | N/A | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3-1.7b | ja | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3-1.7b | zh-Hans | N/A | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3-1.7b | zh-Hant | PASS | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3.5-2b | en | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3.5-2b | ja | FAIL | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3.5-2b | zh-Hans | PASS | FAIL | FAIL | PASS | N/A | FAIL |
+| ollama-qwen3.5-2b | zh-Hant | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| ollama-translategemma-4b | en | FAIL | FAIL | FAIL | FAIL | N/A | FAIL |
+| ollama-translategemma-4b | ja | N/A | FAIL | FAIL | FAIL | N/A | FAIL |
+| ollama-translategemma-4b | zh-Hans | FAIL | FAIL | FAIL | FAIL | N/A | FAIL |
+| ollama-translategemma-4b | zh-Hant | FAIL | FAIL | FAIL | FAIL | N/A | FAIL |
+| ollama-translategemma-4b-mt | en | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| ollama-translategemma-4b-mt | ja | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| ollama-translategemma-4b-mt | zh-Hans | FAIL | PASS | FAIL | PASS | N/A | FAIL |
+| ollama-translategemma-4b-mt | zh-Hant | FAIL | PASS | FAIL | PASS | N/A | FAIL |
 
 PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언로드는 usage-sim(없으면 resident) 모니터 기준.
 
@@ -331,6 +371,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행한 후 [fernctl --version]를 사용하여 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: CLI를 설치하려면 [npm install -g fernctl]을 실행한 다음 [fernctl --version]로 버전을 확인하세요. 버전 2.4.1 이상이 필요합니다.
 - **ollama-gemma4-e4b**: CLI를 설치하려면, [npm install -g fernctl]을(를) 실행한 다음, [fernctl --version]버전 2.4.1 이상이 필요합니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 클리를 설치하려면 [npm install -g fernctl]npm install -g fernctl 를 실행한 후, [fernctl --version]버전을 확인하려면 
@@ -371,6 +412,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: (번역 없음) [timeout] `option`은 밀리초 단위의 값을 받습니다. 기본값은 30000(30초)이며, 0으로 설정하면 제한을 완전히 비활성화합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: (오류: HTTP 500: {"error":"timed out waiting for llama-server to start - "})
 - **ollama-gemma4-e4b**: [timeout]옵션은 밀리초 단위의 값을 받으며, 기본값은 30000(30초)이고, 0으로 설정하면 제한이 완전히 비활성화됩니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: timeout 옵션은 밀리초 단위로 값을接受할 수 있습니다. 기본값은 30000 (30 초)이며, 이를 0 으로 설정하면 제한을 완전히 비활성화합니다.[timeout](누락)
@@ -397,7 +439,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하세요 마이그레이션 스크립트가 모든 파일을 제자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: v1.x에서 업그레이드하기 전에 구성 디렉토리를 백업하세요. 마이그레이션 스크립트가 파일을 제자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x에서 업그레이드하기 전에 설정 디렉터리를 백업해 두세요. 마이그레이션 스크립트는 모든 파일을 그대로 덮어넣기 때문에 되돌릴 수 없습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x에서 업그레이드하기 전에 설정 디렉터리를 백업해 두세요. 마이그레이션 스크립트는 모든 파일을 그대로 바꿔버리기 때문에 되돌릴 수 없습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: v1. x에서 업그레이드하기 전에는 구성 디렉토리를 백업하세요. 마이그레이션 스크립트는 모든 파일을 교체하므로 되돌릴 수 없습니다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -411,6 +453,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: v1.x 버전으로 업그레이드하기 전에, 설정 디렉토리를 백업해 주세요. 이 마이그레이션 스크립은 모든 파일을 직접 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: v1.x에서 업그레이드하기 전에 구성 디렉터리를 백업하십시오. 마이그레이션 스크립트는 모든 파일을 제자리에서 덮어쓰므로 되돌릴 수 없습니다.
 - **ollama-gemma4-e4b**: v1.x에서 업그레이드하기 전에, 구성 디렉터리를 백업하세요마이그레이션 스크립트가 모든 파일을 제자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: v1.x 에서 업그레이드를 진행하기 전에 구성 파일 디렉토리를 백업하세요. 마이그레이션 스크립트가 모든 파일을原位에서 재작성하므로 되돌릴 수 없습니다.(누락)
@@ -437,7 +480,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 데몬이 시작되지 않으면, 
 - **mlx-gemma-4-e2b-4bit-mt**: 데몬이 시작되지 않으면 포트 8443이 다른 프로세스에 의해 이미 바인딩되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 데몬이 시작되지 않는다면, 8443번 포트가 다른 프로세스에 의해 바인딩되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 데몬이 시작되지 않는다면, 포트 8443이 다른 프로세스에 의해 이미 바인딩되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 다케가 시작되지 않으면, 포트 443이 이미 다른 프로세스에 의해 바인딩되어 있는지 확인하세요. 로그를 확인하려면 http://localhost:8443/debug/logs를 방문하세요.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -451,6 +494,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 데몬이 시작되지 않을 경우, 8443번 포트가 다른 프로세스에 의해 이미 사용 중인지 확인하십시오. 로그를 다음 주소에서 확인할 수 있습니다: http://localhost:8443/debug/logs.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 데몬이 시작되지 않으면 포트 8443이 다른 프로세스에 의해 이미 바인딩되어 있지 않은지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 검사할 수 있습니다.
 - **ollama-gemma4-e4b**: 데몬이 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 이미 바인딩되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 다이나믹이 시작되지 않는 경우, 포트 8443 가 다른 프로세스가 이미 포트를 점유하고 있는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
@@ -477,7 +521,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 각 워커 스레드는 약 64MB의 캐시를 자체적으로 유지하므로, 8GB RAM을 가진 기기에서는 8개 이상의 워커를 실행해서는 안 됩니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 각 워커 스레드는 약 64 MB의 자체 캐시를 유지하므로, 8 GB RAM을 가진 머신은 여덟 명 이상의 워커를 실행해서는 안 됩니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64MB의 자신의 캐시를 유지하므로, RAM이 8GB인 컴퓨터에서는 8개 이하의 작업자만 실행될 수 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64MB의 자체 캐시를 유지하므로, RAM이 8GB인 기계에서는 8개 이하의 작업자만 실행될 수 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 각 작업자 쓰레드는 약 64MB 정도의 자체 캐시를 유지하므로, RAM이 1TB인 머신에서는 최대 8개의 작업자만 실행할 수 있습니다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -491,6 +535,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 각 워커 스레드는 약 64MB의 자체 캐시를 가지므로, 8GB의 RAM을 가진 기기는 최대 8개의 워커를 실행할 수 있습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: (오류: fetch failed: request timeout after 900000ms)
 - **ollama-gemma4-e4b**: 각 워커 스레드는 약 64 MB의 자체 캐시를 유지하므로, 8 GB RAM을 가진 장치는 8개 이상의 워커를 실행해서는 안 됩니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 각 작업자 스레드는 약 64 MB 의 캐시를 유지하므로, 8 GB RAM 을 가진 머신은 8 개 이상의 작업자를 실행해서는 안 됩니다.
@@ -531,6 +576,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 요청은 최대 3번 다시 시도하며, 지수적 감소를 적용합니다. 모든 시도가 실패하면, 오류는 호출자에게 [TransientError].
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: (오류: fetch failed: request timeout after 900000ms)
 - **ollama-gemma4-e4b**: 요청은 지수 백오프(exponential backoff)를 사용하여 최대 세 번까지 재시도됩니다. 모든 시도가 실패하면, 오류는 호출자에게 [TransientError]. 
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 요청들은 지수적 백오프를 통해 최대 세 번까지 재시도됩니다. 모든 시도에서 실패하면 오류는 호출자에게 [TransientError]TransientError 로 표면화됩니다.
@@ -557,7 +603,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 시의회는 화요일에 버스 서비스를 동부 외곽 지역으로 연장하기로 7 대 2로 투표했으며, 지지자들은 이를 통해 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말합니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 시의회는 화요일에 7 대 2로 찬성하여 동부 외곽 지역으로 버스 서비스를 연장하기로 투표했으며, 지지자들은 이 조치가 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 화요일에 시의회는 7대 2의 표로 동부 교외 지역까지 버스 서비스를 확대하는 결정을 내렸습니다. 지지자들에 따르면 이 조치로 출퇴근 시간이 최대 25% 줄어들 될 것으로 알려졌습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 화요일에 시의회는 버스 서비스를 동부 교외 지역으로 확대하는 결정을 7대 2의 기권으로 채택했습니다. 지지자들에 따르면 이 조치로 출퇴근 시간이 최대 25% 단축될 것으로 예상됩니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 시의회 위원회는 화요일에 버스 노선을 동부 교외까지 연장하기로 결정했는데, 이는 지지자들은 이 조치가 통근 시간을 최대 25%까지 줄일 것이라고 주장하고 있다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -569,8 +615,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 시의회는 화요일 7 대 2 의 투표로 동부 외곽 지역까지 버스 서비스를 연장하는 결정을 내렸으며, 지지자들은 이 조치로 통근 시간을 최대 25% 단축할 수 있다고 주장합니다.
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 화요일, 시의회는 7 대 2의 표결을 통해 동부 교외 지역으로 버스 운행 서비스를 연장하기로 결정했습니다. 이에 대해 지지자들은 이 조치가 통근 시간을 최대 25% 단축할 수 있을 것이라고 주장합니다.
+- **mlx-translategemma-4b-4bit-mt**: 화요일, 시의회는 7 대 2의 표결을 통해 동부 교외 지역으로 버스 운행 서비스를 연장하기로 결정했습니다. 지지자들은 이 조치가 통근 시간을 최대 25% 단축할 수 있다고 말합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 시의회는 화요일에 7대 2로 동부 교외 지역으로 버스 서비스를 연장하는 투표를 했으며, 지지자들은 이 조치가 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말한다.
 - **ollama-gemma4-e4b**: 시의회는 화요일에 버스 서비스를 동부 교외 지역까지 연장하는 안건에 7대 2로 찬성표를 던졌으며, 지지자들은 이 조치가 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말했습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 주말에 시의회가 버스 서비스를 동부 지방까지 확장하는 7 대 2 의 결정을 내렸으며, 지지자들은 이举措를通勤 시간이 최대 25% 를 절감할 것이라고 주장합니다.
@@ -597,7 +644,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 할보슨 연구소 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후에도 용량의 90퍼센트를 유지했으며, 이는 현재 상용 셀의 두 배에 달한다고 보고했습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 할보르센 연구소 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후에도 용량의 90퍼센트를 유지했으며, 이는 현재 상용 셀의 두 배 정도라는 보고를 했다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 할보르센 연구소의 연구진은 새로운 유형의 배터리가 2,000회 충전 후에도 90%의 용량을 유지했다고 보고했습니다. 이는 현재 사용되는 상용 배터리보다 약 두 배 높은 수치입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할보르손 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전을 거친 후에도 90%의 용량을 유지했다고 보고했습니다. 이는 현재 사용되는 상용 배터리보다 약 두 배에 해당하는 수치입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 할버슨 연구소는 새로운 배터리 유형이 10만 번 충전 사이클을 거친 후에도 90%의 용량을 유지한다고 보고했습니다. 이는 현재 상업용 셀의 대략 두 배에 해당합니다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -609,8 +656,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: Halvorsen 연구소의 연구원들은 새로운 배터리 타입이 2,000 회 충전 사이클 후 용량의 90%를 유지한다고 보고했으며, 이는 현재 상용 배터리보다 약 두 배의 성능입니다.
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 할브센 연구소의 연구진은 새로운 종류의 배터리가 2,000회 충전 주기에 90%의 용량을 유지했다는 보고를 발표했습니다. 이는 현재 상용 배터리보다 약 두 배에 해당하는 수준입니다.
+- **mlx-translategemma-4b-4bit-mt**: 할브센 연구소의 연구자들은 새로운 유형의 배터리가 2,000회 충전 주기에 후 90%의 용량을 유지하는 것을 확인했다고 보고했습니다. 이는 현재 상용 배터리보다 거의 두 배에 해당하는 수준입니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 할보르센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회의 충전 사이클 후에도 용량의 90%를 유지했으며, 이는 현재 상용 셀의 약 두 배에 해당한다고 보고했다.
 - **ollama-gemma4-e4b**: Halvorsen 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 주기 후에도 용량의 90퍼센트를 유지했으며, 이는 현재 상용 셀보다 약 두 배 높은 수치라고 보고했습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: Halvorsen 인스티튜트 연구원들은 새로운 배터리 유형이 2,000 회 충전 사이클 후에도 90% 의 용량을 유지한다는 보고를 했습니다. 이는 현재 상업용 셀의 두 배에 해당하는 수치입니다.
@@ -637,7 +685,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 하지만 비평가들은 결과가 아직 동료 심사를 거치지 않았으며 프로토타입 제작에 약 킬로와트시당 340달러가 든다고 지적합니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 비평가들은 하지만, 결과들이 아직 동료 심사를 거치지 않았으며 시제품이 생산하는 데 약 킬로와트시당 $340이 든다고 지적한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 그러나 비평가들은 해당 결과들이 아직 동료 검토를 거치지 않았으며, 프로토타입을 제작하는 데 1킬로와트시간당 약 340달러가 든다는 점을 지적합니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그러나 비평가들은 해당 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입을 제작하는 데 1킬로와트시간당 약 340달러가 든다는 점을 지적합니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 그럼에도 불구하고 비평가들은 아직 결과가 peer reviewed되지 않았으며 프로토타입이 1킬로와트시당 약 340달러가 드는 가격이라고 지적하고 있다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -649,8 +697,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 비판자들은 이러한 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용이 킬로와트시당 약 340 달러라고 지적합니다.
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 하지만 비평가들은 이러한 결과들이 아직 동료 심사를 거치지 않았으며, 프로토타입 생산 비용이 킬로와트시당 약 340달러라는 점을 지적합니다.
+- **mlx-translategemma-4b-4bit-mt**: 하지만 비평가들은 이러한 결과들이 아직 동료 심사를 거치지 않았으며, 프로토타입의 생산 비용은 킬로와트시당 약 340달러라는 점을 지적합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 그러나 비평가들은 그 결과들이 아직 동료 심사를 받지 않았으며, 시제품을 생산하는 데 약 킬로와트시당 $340가 든다고 지적한다.
 - **ollama-gemma4-e4b**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 시제품을 생산하는 데 킬로와트시당 약 $340이 든다고 지적합니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 그러나 비판자들은 결과가 동료 검토가 이루어지지 않았으며, 프로토타입이 1 kW/시간당 약 $340 로 생산되는 데 비용이 소요된다는 점을 지적했습니다.
@@ -677,7 +726,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 목요일까지 북쪽 해안을 따라 폭우가 예상되며, 순간 최대 70km의 돌풍과 기온은 섭씨 12도 내외를 오갈 것입니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 목요일까지 북쪽 해안에 폭우가 예상되며, 최대 70km/h의 돌풍과 기온은 섭씨 12도 내외로 유지될 것입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 목요일까지 북부 해안 지역에서 강한 비가 예상되며, 풍속은 최대 70km/h에 달하고 온도는 약 12도 정도일 것입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 목요일까지 북부 해안 지역에서 강한 비가 예상되며, 풍속은 최대 70km/h에 달할 수 있고 기온은 약 12도 정도일 것입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 목요일까지 북해안 지역에 70km/h까지 돌풍이 예상되며, 기온은 12도 정도로 유지될 것으로 보입니다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -689,8 +738,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 북부 해안全域은 목요일까지 강풍이 70 km/h 로 기록될 것으로 예상되며, 기온은 12 도 Celsius 근처에서 변동할 것입니다.
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 북쪽 해안 지역에 이번 목요일까지 강한 비가 내리고, 최대 풍속은 시속 70km, 기온은 약 12도 정도로 예상됩니다.
+- **mlx-translategemma-4b-4bit-mt**: 북쪽 해안 지역에 이번 목요일까지 강한 비가 내릴 것으로 예상되며, 최대 풍속은 시속 70km, 기온은 약 12℃로 유지될 전망입니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 목요일까지 북부 해안 전체에 폭우가 예상되며, 최대 시속 70km의 돌풍과 기온은 12도 내외로 유지될 것으로 보인다.
 - **ollama-gemma4-e4b**: 목요일까지 북부 해안 지역에 폭우가 예상되며, 최대 70km/h의 돌풍과 12도 셀시우스 근처의 기온이 예상됩니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 북해 전체에 폭우가 예상되며, 70 km/h 의 바람과 12 도 Celsius 주변 온도가 유지될 것입니다.
@@ -731,6 +781,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 월요일에 발표된 성명에 따르면, 회사는 현재의 공급망 문제로 인해 대표 모델의 출시를 다음 해 초로 연기할 것이라고 밝혔습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 월요일에 발표된 성명에서, 그 회사는 지속되는 공급망 문제들을 언급하며 플래그십 폰 출시를 내년 초까지 연기할 것이라고 말했다.
 - **ollama-gemma4-e4b**: 월요일에 발표된 성명에서, 이 회사는 지속적인 공급망 문제로 인해 플래그십 휴대폰 출시를내년 초로 연기할 것이라고 밝혔습니다.(누락)
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 주말에 발표된 성명에서 회사는 최신 플래그십 스마트폰 출시를 미루고 다음 년 초까지 연기하기로 결정했습니다. 지속적인 공급망 문제로 인해.
@@ -757,7 +808,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 왜 그렇게 많은 작은 제과점들이 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 인력, 그리고 낮은 마진과 더 관련이 있다고 말합니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 왜 그렇게 많은 작은 제과점들이 5년 안에 문을 닫는가? 경제학자들은 그 답이 빵보다는 임대료, 인력, 그리고 적은 마진과 더 관련이 있다고 말한다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 그렇게 많은 작은 제과점들이 5년 이내에 문을 닫는 걸까? 경제학자들은 그 이유가 빵과는 관련이 적고, 임대료, 인력 및 낮은 이익률과 더 관련이 있다고 말한다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 그렇게 많은 소규모 제과점들이 5년 이내에 문을 닫는 걸까? 경제학자들은 그 이유가 빵과는 별개로 임대료, 인력 및 낮은 이익률과 더 관련이 있다고 말한다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 왜 많은 작은 제과점이 5년 이내에 문을 닫을까요? 경제학자들은 빵보다는 임대료, 고용, 그리고 마진 때문에 그 답을 찾는다고 말합니다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -769,8 +820,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 왜 많은 소규모 빵집이 5 년 이내에 문을 닫는가? 경제학자들은 이 현상이 빵보다는 임대료, (누락)(누락)
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 안에 문을 닫는 이유는 무엇일까요? 경제학자들은 이 현상에 빵 자체보다 임대료, 인력, 그리고 낮은 수익률이 더 큰 영향을 미친다고 말합니다.
+- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 안에 문을 닫는 이유는 무엇일까요? 경제학자들은 이 현상에 빵 자체보다 임대료, 인력, 그리고 낮은 마진이 더 큰 영향을 미친다고 말합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 왜 그렇게 많은 작은 빵집들이 5년 이내에 문을 닫는가? 경제학자들은 그 답이 빵보다는 임대료, 인력, 그리고 적은 마진과 더 관련이 있다고 말한다.
 - **ollama-gemma4-e4b**: 왜 그렇게 많은 작은 빵집들이 5년 안에 문을 닫을까요? 경제학자들은 그 이유가 빵보다는 임대료,인력 부족그리고 적은 마진과 더 관련이 있다고 말합니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 왜 작은 빵집이 5 년 이내에 문을 닫는 것입니까? 경제학자들은 답이 빵보다는 임대료, 인력, 얇은 마진과 관련이 있다고 말합니다.(누락)(누락)
@@ -809,8 +861,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 좋습니다, 저는 마침내 Raspberry Pi 를 부팅하게 만들었으니. 그리고 즉시 불이 났습니다. 아니, 문자 그대로는 아닙니다. 하지만 내 영혼은 불타버렸습니다.
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 그래, 드디어 내 라스베리 파이 컴퓨터가 부팅되었는데, 바로 문제가 생겼어요. 물론 문자 그대로의 불은 아니지만, 제 마음은 완전히 무너졌어요.
+- **mlx-translategemma-4b-4bit-mt**: 그래, 드디어 내 라스베리 파이 컴퓨터가 부팅되었는데, 바로 문제가 생겼어요. 물론, 문자 그대로는 아니지만, 제 마음은 완전히 무너졌어요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 좋아, 드디어 내 라즈베리 파이를 부팅시켰는데 바로 불이 붙었어. 뭐, 문자 그대로는 아니지만. 내 영혼은 그랬지.
 - **ollama-gemma4-e4b**: 자, 드디어 라즈베리 파이를 부팅시켰는데 바로 불이 붙었어요. 뭐, 문자 그대로는 아니고요. 제 영혼이 불탔죠.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 좋습니다. 마침내 라즈베리 파이 를 켜고 즉시 불에 타버렸습니다. 물론 문자 그대로는 아닙니다. 하지만 내 영혼이 그랬죠.
@@ -837,7 +890,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 핫한 의견: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 핵심 의견: 탭은 괜찮고, 공백도 괜찮다. 그리고 새벽 2시에 그걸 가지고 논쟁하는 사람은 간식과 낮잠이 필요하다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 열정적인 주장: 탭 문법은 괜찮고, 공백 문법도 괜찮아요. 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요할 거예요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 열렬한 주장: 탭으로 작업하는 것도 괜찮고, 공백으로 작업하는 것도 괜찮아요. 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요하죠.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 핫초이스: 탭은 괜찮고, 공백은 괜찮고, 이 문제에 대해 논쟁하는 사람은 이브린에서 스낵과 낮잠이 필요해요.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -851,6 +904,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 간단한 의견: 탭과 공백 모두 괜찮고, 새벽 2시에 이 문제에 대해 논쟁하는 사람들은 간식과 낮잠이 필요합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 핫 테이크: 탭은 괜찮고, 스페이스도 괜찮다. 그리고 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요하다.
 - **ollama-gemma4-e4b**: 솔직히 말해서: 탭도 괜찮고, 공백도 괜찮아요. 그리고 새벽 2시에 이 문제로 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 핫_take: 탭은 괜찮습니다. 공간도 괜찮고, 2 시에 논쟁하는 사람이라면 저녁 식사와 휴식 시간이 필요합니다.
@@ -877,7 +931,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: ㅋㅋㅋ 세미콜론이 빠진 거였어요. 세미콜론 말이에요. 저는 이제 숲속으로 갈 거예요.
 - **mlx-gemma-4-e2b-4bit-mt**: ㅋㅋㅋ 이거 세미콜론 빠진 거였어. 세미콜론. 나 이제 숲으로 도망갈 거야.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: lol, 이 오류를 3시간 동안 계속 바라보고 있었는데, 그건 쉼프레스가 없었던 거야. 쉼프레스 말이야. 이제는 숲속으로 들어가서 살게 될 거야.
+- **mlx-hy-mt2-1.8b-4bit-mt**: lol, 이 오류를 3시간 동안 계속 바라보고 있었는데, 그건 쉼표가 빠진 것이었어요. 쉼표 하나만이었죠. 이제는 숲속으로 들어가야겠어요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 애가 타서 이 에러를 3시간 동안 계속 쳐다봤는데, semicolon가 빠져 있었어. semicolon. 이제 숲으로 라이브 스트리밍 하려고.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -889,8 +943,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: lol 이 오류를 3 시간 동안 바라보고 있었습니다. 그리고 그것이 누락된 세미콜론이었다는 것을 알게 되었습니다. 세미콜론입니다. 이제 숲으로 들어가 살겠습니다.
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 와, 이 오류를 세 시간 동안 계속 쳐다봤는데, 그냥 세미콜론 하나였어요. 세미콜론 하나! 이제 저는 숲에서 살 거예요.
+- **mlx-translategemma-4b-4bit-mt**: 와, 이 오류를 세 시간 동안 계속 보면서 거의 광기 지다… 그냥 숲으로 이사해야 할 것 같아.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: ㅋㅋ 나 이 에러를 세 시간 동안 쳐다봤는데 세미콜론이 빠진 거였어. 세미콜론. 나 이제 숲으로 갈 거야.
 - **ollama-gemma4-e4b**: ㅋㅋㅋ 이 에러를 세 시간 동안 쳐다봤는데 세미콜론이 빠진 거였어요. 세미콜론이요. 저 이제 숲으로 가서 살 거예요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: lol 이 오류를 3 시간 동안 바라보았습니다. 누락된 세미콜론이었습니다. SEMICOLON 입니다. 이제 숲으로 라이브로 갈게요.
@@ -929,8 +984,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 진실은 아닙니다. 그 업데이트는 내 설정에서 거의 모든 것을 망쳤습니다. 되돌리고, 시간을 보내고, 내일 다시 시도할 것입니다.(누락)(누락)
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트로 제 시스템의 모든 것이 완전히 망가졌어요. 이전으로 되돌렸고, 잠시 산책을 하고, 내일 다시 시도할게요.
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트로 제 시스템의 모든 것이 완전히 망가졌어요. 이전으로 되돌렸고, 잠깐 산책을 하고, 내일 다시 시도할게요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 솔직히 말해서, 그 업데이트 때문에 내 설정 전체가 완전히 망가졌어. 되돌렸고, 자연을 만지고, 내일 다시 시도해 볼 거야.
 - **ollama-gemma4-e4b**: 거짓말 안 할게요, 그 업데이트가 제 세팅의 모든 것을 문자 그대로 망가뜨렸어요롤백하고, 풀밭에 좀 누워있다가, 내일 다시 시도해 볼게요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 진짜 말입니다, 그 업데이트는 설정에서 거의 모든 것을 깨뜨렸습니다. 롤백했습니다, 흙을 만졌고 다음 날 다시 시도하겠습니다.(누락)(누락)
@@ -957,7 +1013,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 확인합니다. 저희 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이가 그 어느 때보다 좋았어요. 의심하지 마세요.
 - **mlx-gemma-4-e2b-4bit-mt**: 확인합니다. 저희 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이가 이렇게 좋을 리가 없어요. 의심하지 마세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 확인할 수 있습니다. 제 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이는 전혀 나빠지지 않았습니다. 의심하지 마세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 확인할 수 있습니다. 제 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이는 전혀 나쁘지 않았습니다. 의심하지 마세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 확인할 수 있어요. 우리 고양이 한 주 동안 라우터 위에 앉아 있고 솔직히 와이파이 상태가 최고예요. 의심하지 마세요.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -971,6 +1027,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 확인 가능합니다. 제 고양이가 일주일 동안 라우터 위에 앉아 있는데, 솔직히 말해서 와이파이가 이전보다 훨씬 잘 작동하고 있습니다. 의심하지 마세요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 확인해 주세요. 우리 고양이가 일주일 동안 라우터 위에 앉아 있었는데 솔직히 와이파이는 그 어느 때보다 좋았어요. 의심하지 마세요.
 - **ollama-gemma4-e4b**: 확인 가능합니다. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데, 솔직히 와이파이가 이렇게 좋았던 적은 없어요. 의심하지 마세요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 확인 가능합니다. 나의 고양이가 라우터 위에 앉아 있는 동안 1 주가되었고, 솔직히 와이파이가 더 이상 나쁘지 않았습니다. 의심하지 마세요.
@@ -997,7 +1054,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 여러분, 저는 비가 내리는 소리 같은 키보드에 60달러를 썼어요. 후회는 없지만, 제 동료들은... 미정.
 - **mlx-gemma-4-e2b-4bit-mt**: 여러분, 저는 방금 비 소리 같은 키보드에 60달러를 썼어요. 후회는 전혀 없고요. 제 동료들은... TBD.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 저는 비슈 같은 소리를 내는 키보드에 60달러를 썼어요. 아무런 후회도 없지만, 다른 동료들은… TBD.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 저는 비슈 같은 사운드를 내는 키보드에 60달러를 썼어요. 아무런 후회도 없지만, 다른 동료들은 그렇지 않은 것 같아요... TBD.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 여러분, 저는 비 오는 소리를 내는 키보드에 60달러를 썼어요. 전혀 후회하지 않지만, 다른 쪽 동료들은... 아무도요.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1009,8 +1066,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 여러분, 저는 60 달러를 들여 소음과 함께 작동하는 키보드를 샀습니다. 후회하지 않지만, 동료들은...(누락)(누락)
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 저, 방금 비가 내리는 듯한 소리를 내는 키보드를 60달러에 샀어요. 후회는 하나도 없지만, 제 동료들은 아직 결정하지 않았네요.
+- **mlx-translategemma-4b-4bit-mt**: 여러분, 제가 방금 60달러를 들고 비가 내리는 듯한 키보드를 샀어요. 후회는 하나도 없지만, 제 동료들은 아직 결정하지 않았네요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 여러분, 저는 방금 비 소리 같은 키보드를 $60에 샀어요. 후회는 전혀 없지만, 제 동료들은... TBD.
 - **ollama-gemma4-e4b**: 여러분, 방금 비 소리 같은 키보드에 60달러를 썼어요. 후회 제로! 반면에 제 동료들은... TBD. 
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 여러분, 저는 오늘 keyboard 를 $60 으로 사서 소리도 빗소리가 같았습니다. 제 마음은 아무런 죄책감 없이, 동료들은 다른 한편에서 TBD.
@@ -1051,6 +1109,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 변경 사항 저장
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 변경 사항 저장
 - **ollama-gemma4-e4b**: 변경 사항 저장
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 변경 사항 저장
@@ -1077,7 +1136,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 무슨 문제가 생겼습니다. 나중에 다시 시도해 주세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 무언가 문제가 생겼습니다. 나중에 다시 시도해 주세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 무언가 잘못되었습니다. 나중에 다시 시도해 주세요.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1091,6 +1150,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 무언가 잘못되었습니다. 나중에 다시 시도해 보세요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
 - **ollama-gemma4-e4b**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 문제가 발생했습니다. 나중에 다시 시도해 주세요.
@@ -1131,6 +1191,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 받은 메시지가 3개 있습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 읽지 않은 메시지 3개가 있습니다.
 - **ollama-gemma4-e4b**: 읽지 않은 메시지가 3개 있습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 미리 읽은 메시지 3 개가 있습니다
@@ -1171,6 +1232,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 클릭 [here] 계속.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 계속하려면 [here]을 클릭하세요.
 - **ollama-gemma4-e4b**: 계속하려면 [here]을(를) 클릭하세요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 계속하려면 [here]여기에 클릭하세요.
@@ -1211,6 +1273,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 상세한 정보는 [the installation guide]을 참조하세요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 지원되는 플랫폼에 대한 자세한 내용은 [the installation guide]을 참조하십시오.
 - **ollama-gemma4-e4b**: 지원되는 플랫폼에 대한 자세한 내용은 [the installation guide]를 참고하세요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 지원되는 플랫폼에 대한 자세한 내용은 설치 가이드를 [the installation guide]참고하세요.
@@ -1237,7 +1300,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: 문제가 생기면, [open an issue on the tracker]과 로그 파일을 포함해 주세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [open an issue on the tracker]를 사용하고 로그 파일도 포함하세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생길 경우, [open an issue on the tracker]를 사용하고 로그 파일도 포함해 주세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 문제가 생기면<\|im_end\|> [open an issue on the tracker] 그리고 로그 파일도 포함하세요.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1251,6 +1314,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 문제가 발생했을 경우, [open an issue on the tracker] 그리고 로그 파일을 함께 첨부해 주세요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 문제가 발생하면 [open an issue on the tracker]하고 로그 파일을 포함하세요.
 - **ollama-gemma4-e4b**: 문제가 발생하면, [open an issue on the tracker]을(를) 열고 로그 파일을 첨부해 주세요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 문제가 발생하면 추적기에서 이슈를 [open an issue on the tracker]열어 주세요. 그리고 로그 파일을 포함하세요.
@@ -1277,7 +1341,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: 지난 봄에 나는 낡은 노트북을 가족 사진들을 위한 홈 서버로 만들기로 결정했다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 지난 봄, 저는 오래된 노트북을 가족의 사진들을 저장하기 위한 홈 서버로 사용하기로 결심했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난 봄, 저는 오래된 노트북을 가족의 사진들을 저장하기 위한 홈 서버로 활용하기로 결심했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 작년 봄에 오래된 노트북을 가족 사진 서버로 바꾸기로 결심했어.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1291,6 +1355,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 지난 봄, 저는 가족 사진을 위한 가정용 서버를 만들기 위해 오래된 노트북을 개조하기로 결정했습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 지난 봄에 나는 오래된 노트북을 가족 사진을 위한 홈 서버로 바꾸기로 결정했다.
 - **ollama-gemma4-e4b**: 지난 봄에 저는 오래된 노트북을 가족 사진을 위한 홈 서버로 만들기로 결정했어요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 지난 봄 저는 가족의 사진용 오픈 노트북을 만들기로 결정했습니다.
@@ -1329,8 +1394,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 노트북은 2014 년 (누락)(누락)
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 2014년 ThinkBook 노트북으로, 8GB의 RAM을 탑재한 이 노트북은 이 작업에 완벽하게 적합한 것으로 판명되었습니다.
+- **mlx-translategemma-4b-4bit-mt**: 2014년 ThinkBook 모델로, 8GB의 RAM을 탑재한 노트북이 이 작업에 완벽하게 적합한 것으로 판명되었습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 그 노트북은 2014년식 ThinkBook에 8 GB RAM을 탑재한 것으로, 그 일에 완벽했다.
 - **ollama-gemma4-e4b**: 2014년 모델의 노트북은 8 GB RAM을 탑재하고 있어서 이 작업에 완벽한 것이었습니다.(누락)
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 이 노트북은 2014 년 ThinkBook 로, 8 GB RAM 을 가지고 있었으며, 작업에 완벽하게 적합했습니다.(누락)(누락)
@@ -1357,7 +1423,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: 먼저 설치했습니다. [Debian 12] 그리고 사진을 탐색하기 위해 Fernbox라는 작은 웹 앱을 설정하세요.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 검색할 수 있는 작은 웹 애플리케이션인 Fernbox를 만들었습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 검색할 수 있는 작은 웹 앱인 Fernbox를 설정했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 먼저, 저는 설치했습니다.<\|im_end\|> [Debian 12] 그리고 작은 웹 애플리케이션인 FernBox를 설정하여 사진을 탐색할 수 있도록 했다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1371,6 +1437,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 먼저, [Debian 12]을 설치하고, 사진을 보기 위한 간단한 웹 앱인 Fernbox를 설정했습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 먼저 설치했습니다. [Debian 12] 그리고 사진들을 탐색할 수 있도록 Fernbox라는 작은 웹 앱을 설정하라.
 - **ollama-gemma4-e4b**: 먼저, [Debian 12]를 설치하고 사진을 볼 수 있는 Fernbox라는 작은 웹 앱을 설정했어요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 먼저 저는 Debian 12 를 설치하고 Fernbox라는 작은 웹 애플리케이션을 설정하여 사진들을Browse했습니다.[Debian 12](누락)
@@ -1397,7 +1464,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: 내 여동생은 처음에는 회의적이었지만, 일주일 후에 Fernbox가 그녀가 사용했던 어떤 클라우드 서비스보다도 빠르다는 것을 인정했다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 제 여동생은 처음에는 회의적이었지만, 일주일 후에는 펀보스가 그녀가 사용했던 어떤 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 내 여동생은 처음에는 회의적이었지만, 일주일 후에는 펀보스가 그녀가 사용했던 모든 클라우드 서비스보다 더 빠르다는 것을 인정했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 누나가 처음에는 의심스러웠지만 일주일 후에 Fernbox가 그녀가 사용한 어떤 클라우드 서비스보다도 빠르다고 인정했다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1411,6 +1478,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 - **mlx-translategemma-4b-4bit-mt**: 제 여동생은 처음에는 의심했지만, 일주일 후에는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
+- **ollama-gemma4-e2b-mt**: 처음에는 내 여동생은 회의적이었지만, 일주일 후에 그녀는 Fernbox가 그녀가 사용했던 어떤 클라우드 서비스보다 더 빠르다는 것을 인정했다.
 - **ollama-gemma4-e4b**: 처음에는 여동생이 회의적이었지만, 일주일 후에는 Fernbox가 자신이 사용했던 어떤 클라우드 서비스보다 빠다고 인정했습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 제 여동생은 처음에는 의심스러웠지만, 한 주 후 Fernbox 가 사용한 모든 클라우드 서비스보다 빠르다는 것을 인정했습니다.
@@ -1437,7 +1505,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: 이제 낡은 노트북은 조용히 선반 위에 있고, Fernbox는 가족 전체가 여행 후에 가장 먼저 여는 것이 되었다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, 펀보크는 여행 후 내 가족이 가장 먼저 열는 물건이 되었습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, 펀보크는 여행 후 우리 가족이 열어보는 첫 번째 물건이 되었습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, 페르손박스는 여행을 다녀온 후 우리 가족 모두가 열어보는 첫 번째 것이 되었습니다.<\|im_end\|>
 - **mlx-kanana-2-3b-4bit**: (오류: fetch failed)
@@ -1449,8 +1517,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-4b-4bit**: 이제 낡은 노트북은 조용히 책상 위에 놓여 있으며, (누락)(누락)
 - **mlx-qwen3.5-4b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 이제 오래된 노트북은 책장에 조용히 놓여 있고, Fernbox는 여행 후 온 가족이 가장 먼저 꺼내는 물건이 되었습니다.
+- **mlx-translategemma-4b-4bit-mt**: 이제 오래된 노트북은 책장에 조용히 놓여 있고, Fernbox는 여행 후 저희 가족이 가장 먼저 찾는 것으로 자리 잡았습니다.
 - **ollama-gemma4-e2b**: 이제 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행 후 여는 첫 번째 것이 되었습니다.
+- **ollama-gemma4-e2b-mt**: 이제 그 낡은 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 우리 가족 모두가 여행 후에 가장 먼저 여는 것이 되었다.
 - **ollama-gemma4-e4b**: 이제 그 오래된 노트북은 선반 위에 조용히 놓여 있고, 는 저희 가족이 여행을 다녀온 후 가장 먼저 여는 것이 되었습니다.(누락)
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
 - **ollama-qwen3.5-2b**: 이제 오래된 노트북은 책상 위에 조용히 앉아 있으며, Fernbox 는 가족의 여행 후 첫 번째로 열리는 것입니다.(누락)(누락)
@@ -1554,7 +1623,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: v1.x에서 업그레이드하기 전에,설정 디렉터리의 백업을 취해주세요. 마이그레이션 스크립트는 모든 파일을 그 자리에서 덮어쓰기 때문에 되돌릴 수 없습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 취해 주세요. 마이그레이션 스크립트는 모든 파일을 그 자리에서 덮어쓰기 때문에 복구할 수 없습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에 설정 디렉터리의 백업을 해두세요. 이전 스크립트는 모든 파일을 그 자리에서 다시 작성하므로 원래 상태로 되돌릴 수 없습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에 설정 디렉터리의 백업을 해두세요. 이전 스크립트는 모든 파일을 그 자리에서 덮어씌우므로 원래 상태로 돌아갈 수 없습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1630,7 +1699,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 각 워커 스레드는 약 64MB의 자체 캐시를 가지고 있으므로,
 - **mlx-gemma-4-e2b-4bit-mt**: 각 워커 스레드는 약 64MB의 자체 캐시를 가지고 있으므로, RAM 8GB 머신에서는 워커를 8개 이상 구동하지 않는 것이 좋습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64MB의 독립적인 캐시를 가지고 있으므로, RAM이 8GB인 머신에서는 8개 이상의 작업을 실행하지 않는 것이 좋습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64MB의 독립적인 캐시를 가지고 있으므로, RAM이 8GB인 컴퓨터에서는 8개 이상의 작업을 실행하지 않는 것이 좋습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1641,7 +1710,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 각 워크스레드는 약 64MB 의 고유 캐시 를 갖기 때문에, 8GB RAM 의 머신에서는 8 개 이상의 워크어를 동시 실행하지 않는 것이 좋다.
 - **mlx-qwen3.5-4b-4bit**: 각 워커 스레드는 약 64MB 의 전용 캐시를 가지므로, RAM 8GB 의 머신에서는 워커를 8 개 이상 실행하지 않는 것이 좋습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 각 워크 스레드는 약 64MB의 자체 캐시를 가지고 있으므로, RAM 8GB의 컴퓨터에서는 워커를 8개 이상 돌리는 것은 좋지 않습니다.
+- **mlx-translategemma-4b-4bit-mt**: 각 워크 스레드는 약 64MB의 자체 캐시를 가지고 있으므로, RAM 8GB의 컴퓨터에서는 워커를 8개 이상 동시에 실행하는 것은 좋지 않습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 각 워커 스레드는 약 64MB의 독립 캐시를 가지고 있기 때문에, RAM 8GB 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -1668,7 +1737,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 요청은 지수 백오프 방식으로 최대 3회까지 재시도됩니다. 모두 실패하면 [TransientError]TransientError
 - **mlx-gemma-4-e2b-4bit-mt**: 요청은 지수 백오프(exponential backoff) 방식으로 최대 3회까지 재시도됩니다. 모두 실패한 경우 [TransientError]로 호출자에게 반환됩니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 지수 반전 방식으로 최대 3번까지 재시도됩니다. 모든 시도가 실패하면 [TransientError]로 원 호출자에게 반환됩니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 지수 반전 기간 동안 최대 3번까지 재시도됩니다. 모든 시도가 실패하면 [TransientError]로서 호출자에게 반환됩니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1706,7 +1775,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 시의회는 화요일, 동부 교외 지역으로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 동부 교외 지역으로의 버스 노선 확장을 7표 찬성, 2표 반대로 통과시켰다. 찬성층은 출퇴근 시간이 최대 25% 단축될 것이라고 말했다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 시 의회는 화요일에 동부 교외 지역으로의 버스 노선 확장을 찬성 7명, 반대 2명으로 통과시켰다. 찬성층은 출퇴근 시간이 최대 25% 단축될 것이라고 말했다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1717,7 +1786,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 시장의회의는 화요일, 동부郊外へのバス路線延伸を賛成 7、反対 2 で可決した。賛成派は、通勤時間が最大 25% 短縮されると述べている。
 - **mlx-qwen3.5-4b-4bit**: 시의회는 화요일, 동부 교외로의 버스 노선 확장을 찬성 7, 반대 2 로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 주장했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 시의회는 화요일에 동부 외곽으로 가는 버스 노선 확대를 7:2로 의결했습니다. 찬성 측은 출퇴근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
+- **mlx-translategemma-4b-4bit-mt**: 시의회는 화요일에 동부 외곽으로 가는 버스 노선 확대를 7:2로 통과시켰습니다. 찬성 측은 출퇴근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 시의회는 화요일, 동부 외곽 지역으로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -1782,7 +1851,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 한편, 이 결과는 아직 심사를 받지 않았으며, 시제품 제조 비용이 1kW시당 약 340달러에 달할 수 있다는 지적도 나오고 있습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 한편, 이 결과는 아직 심사를 받지 않았으며, 시제품의 제조 비용이 1킬로와트시당 약 340달러에 달한다는 지적도 나오고 있습니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 반면에, 이 결과는 아직 검토가 이루어지지 않았으며, 시제품의 제작 비용이 1킬로와트시간당 약 340달러에 달한다는 지적도 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 한편, 이 결과는 아직 검토를 거치지 않았으며, 시제품의 제작 비용이 1킬로와트시간당 약 340달러에 달한다는 지적도 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1793,7 +1862,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 반면, 이 결과는 아직査読尚未受けており、試作品の製造コストは1キロワット時あたり約340ドルに上るとの指摘も出ている。
 - **mlx-qwen3.5-4b-4bit**: 반면, 이 결과는 아직 동료 검토를 거치지 않았으며, 프로토타입 제조 비용이 1kWh 당 약 340 달러에 달한다는 지적도 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 한편, 이 결과는 아직 심사를 거치지 않았으며, 프로토타입 생산 비용이 1 킬로와트당 약 340달러로 보고되고 있습니다.
+- **mlx-translategemma-4b-4bit-mt**: 한편, 이 결과는 아직 심사를 거치지 않았으며, 프로토타입 생산 비용이 1킬로 와트당 약 340달러로 보고되고 있습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 한편, 이 결과는 아직 동료 심사를 거치지 않았으며, 시제품 제조 비용은 킬로와트시당 약 340달러에 달한다는 지적도 나오고 있습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -1820,7 +1889,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 북부 연안 지역에서는 목요일에 걸쳐 폭우가 예상되며, 최대 풍속은 시속 70km, 기온은 12도 전후로 유지될 전망입니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 북부 연안 지역에서는 목요일에 걸쳐 비가 올 것으로 예상되며, 최대 풍속은 70km/h, 기온은 12도 전후로 유지될 전망입니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강우가 예상되며, 최대 풍속은 70km/h, 기온은 12도 정도로 유지될 것으로 보입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강우가 예상되며, 최대 풍속은 70km/h, 기온은 12도 전후로 유지될 것으로 보입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1858,7 +1927,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 해당 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있다는 이유로,주력 스마트폰의 출시를 연초까지 연기하기로 했다고 밝혔습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 해당 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있다는 이유로 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 지속되고 있다는 이유로 주력 스마트폰의 출시를 내년 초까지 연기할 것이라고 밝혔습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있다는 이유로 주력 스마트폰의 출시를 내년 초까지 연기하겠다고 밝혔습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1869,7 +1938,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 同社は月曜日に発表した声明により、サプライチェーンの問題が続いていることを理由に、主力スマートフォン発売を来年初めまで延期すると明らかにした。
 - **mlx-qwen3.5-4b-4bit**: 사내는 월요일에 발표한 성명서에서 공급망 문제가 지속된다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 해당 회사는 월요일에 발표한 성명에서, 공급망 문제로 인해 핵심 스마트폰 출시를 다음 해 초로 연기할 것이라고 밝혔습니다.
+- **mlx-translategemma-4b-4bit-mt**: 해당 회사는 월요일에 발표한 성명에서, 공급망 문제로 인해 주요 스마트폰 출시를 다음 해 초로 연기할 것이라고 밝혔습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 동사는 월요일에 발표한 성명에서, 공급망 문제 지속을 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -1896,7 +1965,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 왜 작은 빵집들은 5년 이내에 문을 닫게 되는가. 경제학자에 따르면, 답은 빵 자체보다 임대료나인력그리고 낮은 이윤율에 있다고 합니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 왜 작은 빵집들은 5년 이내에 폐업하는가. 경제학자에 따르면, 그 해답은 빵 자체보다는 임대료, 인력, 그리고 낮은 이윤율에 있다고 합니다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 작은 빵집이 5년 이내에 문을 닫게 되는 걸까? 경제학자들에 따르면, 그 이유는 빵 자체보다 더 큰 요인이 주택 임대료, 인력, 그리고 낮은 이익률에 있기 때문이라고 한다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 작은 빵집이 5년 이내에 문을 닫게 되는 걸까? 경제학자들에 따르면, 그 이유는 빵 자체보다 집세나 인력, 그리고 낮은 이익률 때문이라는 것이다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1907,7 +1976,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 왜 작은パン屋は 5 年以内に閉店してしまうのか。経済学者によれば、答えはパンそのものよりも、家賃や人手、そして薄い利益率にあるという。
 - **mlx-qwen3.5-4b-4bit**: 왜 작은 빵집이 5 년 이내에 폐업하는지. 경제학자들은 빵 그 자체보다 임대료나 인력및 얇은 수익률에 답한다고 말합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 왜 작은 빵집이 5년 이내에 문을 닫는 이유는 무엇일까요? 경제학자들은 그 이유는 빵 자체보다 임대료, 인력, 그리고 낮은 마진율 때문이라고 설명합니다.
+- **mlx-translategemma-4b-4bit-mt**: 왜 작은 빵집들이 5년 안에 문을 닫는 것일까요? 경제학자들은 그 이유는 빵 자체보다 임대료, 인력, 그리고 낮은 마진 때문이라고 설명합니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 왜 작은 빵집은 5년 안에 문을 닫게 되는 걸까요? 경제학자에 따르면, 답은 빵 자체보다는 임대료나 인력, 그리고 낮은 수익률에 있다고 합니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -1934,7 +2003,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 드디어 라즈베리 파이가 켜졌다고 생각했는데, 순식간에 불이 붙었습니다. 아니, 실제로 불이 붙은 건 아니지만, 내 마음은 불탔습니다.
 - **mlx-gemma-4-e2b-4bit-mt**: 드디어 라즈베리 파이가 켜졌다고 생각했는데, 1초 만에 불을 뿜었다. 아니, 실제로 불이 난 건 아니지만, 내 마음은 불탔다.
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 드디어 Raspberry Pi가 실행되었는데, 순식간에 불이 붙었다. 아니, 사실은 실제로는 불이 붙지 않았지만, 내 마음은 불타올랐다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 드디어 Raspberry Pi가 켜졌다고 생각했는데, 순식간에 불이 붙었다. 아니, 실제로는 불이 붙지 않았지만, 내 마음은 불타올랐다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -1983,7 +2052,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 부처쭉째、タブでもスペースでもどっちでもいいと思うんだよね。深夜 2 時に論争してる人は、おやつ食べて寝たほうがいい（笑）
 - **mlx-qwen3.5-4b-4bit**: 솔직히 말하면, 탭이나 스페이스는 상관없다고 생각해요. 밤 2 시에 논쟁하는 사람은 간식 먹고 자는 게 낫습니다 (웃음)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 어떤 도구든 괜찮을 것 같아요. 밤 2시에 논쟁하는 사람은 간식 먹고 잠드는 게 좋을 것 같아요 (웃음).
+- **mlx-translategemma-4b-4bit-mt**: 솔직히, 어떤 종류의 도구든 괜찮을 것 같아요. 밤 2시에 논쟁을 하는 사람들은 간식을 먹고 잠을 자는 게 좋을 것 같아요 (웃음).
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해요. 새벽 2시에 논쟁하는 분들은 간식 먹고 주무시는 게 좋을걸요(웃음)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2010,7 +2079,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 3시간 동안 에러와 씨름했는데, 원인이 세미콜론 하나였다니ㅋㅋㅋ 세미콜론이라고? 나 산에 들어가 버릴 거야…
 - **mlx-gemma-4-e2b-4bit-mt**: 3시간 동안 에러랑 눈치 싸우다가 원인이 세미콜론 하나였다ㅋㅋㅋ 세미콜론이라고? 이제 산에 들어가 버릴 거야...
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 3시간 오류와 싸우고 있네요. 원인은 세미콜론 1개였어요. 세미콜론이잖아요? 이제 완전히 포위당했어요…
+- **mlx-hy-mt2-1.8b-4bit-mt**: 3시간 오류와 싸우고 있었는데, 원인은 세미콜론 1개였어요. 세미콜론이잖아요? 이제는 산에 갇히고 말이에요…
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2021,7 +2090,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 3 시간의 오류를 노려내며, 원인인セミ코ロン 1 개였네요. www 는セミ코런이라서요. 더 이상 산에 갇혀버릴까봐요.
 - **mlx-qwen3.5-4b-4bit**: 3 시간 동안 에러와 눈치를 주고, 원인이 세미콜론 1 개였다는 것을 알게 되었습니다. www 세미콜론이군요? 이미 산에 갇혀버렸습니다…
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 3시간 동안 오류 때문에 계속 고민하고, 문제의 원인이 세미콜론 하나 때문이었다. 정말 세미콜론이었어. 이제는 숨바꼭질할 것 같아…
+- **mlx-translategemma-4b-4bit-mt**: 3시간 동안 오류 때문에 계속 고민하고, 문제의 원인이 세미콜론 하나 때문이었다. 정말 세미콜론이었어! 이제는 숨어 지내야 할 것 같아…
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 3시간 동안 에러와 씨름하다가, 원인이 세미콜론 하나였다니 ㅋㅋㅋ 세미콜론이잖아? 이제 산에 들어갈래...
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2048,7 +2117,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 솔직히, 그 업데이트로환경이 전부 망가졌습니다.하지만 롤백해서 바깥 공기를 마셨어요. 내일 다시 할게요.
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: socket hang up)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 그 업데이트로 인해 환경이 완전히 망가졌어요. 롤백해서 밖의 공기를 마셨어요. 내일 다시 해볼게요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 그 업데이트로 환경이 완전히 망가졌어요. 롤백해서 밖의 공기를 마셨어요. 내일 다시 해보겠습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2059,7 +2128,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 正直、あのアップデートで環境が壊れたんだが。ロールバックして外の空気吸ってきた。また明日やるわ。
 - **mlx-qwen3.5-4b-4bit**: 솔직히 말하면, 그 업데이트로 환경이 모두 망가졌습니다. 롤백해서 밖의 공기를 마셨습니다. 내일 다시 시도하겠습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 솔직히, 그 업데이트 때문에 환경이 완전히 망가졌어요. 이전으로 돌려서 신선한 공기를 좀 쉬었어요. 내일 다시 할게요.
+- **mlx-translategemma-4b-4bit-mt**: 솔직히, 그 업데이트 때문에 환경이 완전히 망해버렸어요. 이전으로 돌려서 신선한 공기를 좀 쉬었어요. 내일 다시 할게요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 솔직히, 그 업데이트 때문에환경이 전부 망가졌어네. 롤백하고 밖에 나가서 공기 좀 마셨어. 내일 다시 해야겠다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2086,7 +2155,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 왠지 모르게 와이파이 상태가 최고입니다. 이유는 묻지 마세요.
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 우리 집 고양이가 라우터 위에 일주일 동안 앉아 있어서, 왜인지 Wi-Fi 상태가 최상이야. 이유는 묻지 마세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 우리 집 고양이가 라우터 위에 일주일 동안 앉아 있거든요. 왜 그런지 모르겠지만 Wi-Fi 상태가 최상급이에요. 이유는 말하지 마세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2135,7 +2204,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 키보드に 6,000 円も使ってしまった。雨音みたいな打鍵音で最高。同僚の反応は…まあ、お察しです w
 - **mlx-qwen3.5-4b-4bit**: 키보드에 6,000 원도 썼습니다. 빗소리 같은 키보드 소리가 최고입니다. 동료들의 반응은…아, 짐작할 수 있습니다w
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 키보드를 6,000엔이나 사용해 버렸어요. 비오는 소리 같은 키 입력 소리가 정말 좋네요. 동료들의 반응은... 아마 이해하시겠어요. 😉
+- **mlx-translategemma-4b-4bit-mt**: 키보드를 6,000엔이나 사용해 버렸어요. 비오는 소리 같은 키 입력 소리가 정말 최고예요. 동료들의 반응은… 뭐, 예상하시죠? 😉
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 키보드에 6,000엔이나 써버렸어요. 빗소리 같은 타건음이라 최고예요. 동료 반응은...뭐, 눈치껏 아시겠죠ㅋㅋ
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2200,7 +2269,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 발생했습니다. 잠시 후에 다시 시도해 주세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 발생했습니다. 잠시 후에 다시 시도해 보세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2211,7 +2280,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 문제が発生했습니다. 잠시 후 다시 시도해 보십시오.
 - **mlx-qwen3.5-4b-4bit**: 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 문제 발생했습니다. 잠시 후 다시 시도해 주세요.
+- **mlx-translategemma-4b-4bit-mt**: 문제 발생했습니다. 잠시 후 다시 시도해 보세요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 문제가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2314,7 +2383,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 대응 플랫폼의 세부 정보에 대해서는 [インストールガイド]를 참조하시기 바랍니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 대응 플랫폼의 상세 정보에 대해서는[インストールガイド]를 참조하시기 바랍니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2352,7 +2421,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 해결되지 않을 경우, [トラッカーでイシューを作成]를 수행하고 로그 파일을 첨부해 주세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 해결되지 않으면, [トラッカーでイシューを作成]를 하고 로그 파일을 첨부해 주세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2363,7 +2432,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 문제が解決しない場合は、[トラッカーでイシューを作成]し、ログファイルを添付してください。
 - **mlx-qwen3.5-4b-4bit**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]트래커로 이슈를 생성
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]을 시도해 보고, 로그 파일을 첨부해 주세요.
+- **mlx-translategemma-4b-4bit-mt**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]을 확인하고, 로그 파일을 첨부해 주세요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]하고 로그 파일을 첨부해 주세요.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2390,7 +2459,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄, 가족 사진을 저장하기 위해 오래된 노트북을 집의 서버에 설치하기로 했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄, 가족 사진을 저장하기 위해 오래된 노트북을 집에 있는 서버에 설치하기로 했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2401,7 +2470,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 去年の春、家族の写真を保存するために、古いノート PC を自宅サーバーにしました。
 - **mlx-qwen3.5-4b-4bit**: 去年의 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC 를 홈 서버로 설정하기로 결정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 작년에 봄에, 가족 사진을 보관하기 위해 오래된 PC를 가정 서버에 설치했습니다.
+- **mlx-translategemma-4b-4bit-mt**: 작년에 봄, 가족 사진을 보관하기 위해 오래된 PC를 가정 서버에 설치했습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 작년 봄, 가족 사진을 보관하기 위해 오래된 노트북을 자가 서버로 사용하기로 했습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2428,7 +2497,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년에 생산된 ThinkBook(RAM 8GB)는 이 용도에 매우 적합했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년에 제작된 ThinkBook(RAM 8GB)는 이 용도에 매우 적합했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2466,7 +2535,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 볼 수 있는 작은 웹 앱인 Fernbox를 설정했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 감상할 수 있는 작은 웹 애플리케이션인 Fernbox를 설정했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2504,7 +2573,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심스러워했지만, 1주일 후에는 “지금까지 사용해본 모든 클라우드 서비스보다 Fernbox가 더 빠릅니다”라고 인정했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심스러워했지만, 1주일 후에는 "지금까지 사용해본 모든 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2515,7 +2584,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 妹は最初は半信半疑でしたが、1週間後には「今まで使ったどのクラウドサービスよりも Fernbox のほうが速い」と認めてくれました。
 - **mlx-qwen3.5-4b-4bit**: 언니는 처음에는 반신반의했지만, 1 주日后에는 'Fernbox 는 지금까지 사용한 모든 클라우드 서비스보다 빠르다'고 인정했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 처음에는 약간 의심했지만, 일주일 후에는 “지금까지 사용해본 클라우드 서비스 중 Fernbox가 가장 빠르다”라고 인정해 주었습니다.
+- **mlx-translategemma-4b-4bit-mt**: 처음에는 약간 의심했지만, 한 주 후에는 “지금까지 사용해본 클라우드 서비스 중 Fernbox가 가장 빠르다”라고 인정해 주었습니다.
 - **ollama-gemma4-e2b**: 妹は最初は半信半疑でしたが、1週間後には「今まで使ったどのクラウドサービスよりもFernboxのほうが速い」と認めてくれました。
 - **ollama-gemma4-e4b**: 여동생은 처음에는 반신반의했지만, 일주일 후에는 "지금까지 써본 어떤 클라우드 서비스보다 Fernbox가 빠르다"고 인정해 주었습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2542,7 +2611,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-4-e2b-4bit**: (오류: block missing in output)
 - **mlx-gemma-4-e2b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있으며, Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 열는 앱이 되었습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있고, Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 열는 앱이 되었습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-hyperclovax-seed-1.5b-4bit-mt**: (오류: fetch failed: connect ECONNREFUSED 127.0.0.1:8080)
 - **mlx-kanana-2-3b-4bit**: (오류: block missing in output)
@@ -2553,7 +2622,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 今では古いノート PC は棚の上で静かに動いており、Fernbox は旅行から帰ったあと、家族全員が最初に開くアプリになっています。
 - **mlx-qwen3.5-4b-4bit**: 이제 오래된 노트북 PC 는 책상 위에 조용히 돌아가며, Fernbox는 여행에서 돌아온 후 가족 모두가 먼저 여는 앱이 되었습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 이제 오래된 노트북은 책상 위에 조용히 작동하고, Fernbox는 여행을 마치고 돌아온 후, 가족 구성원 모두가 가장 먼저 사용하는 앱입니다.
+- **mlx-translategemma-4b-4bit-mt**: 이제 오래된 노트북은 책상 위에 조용히 작동하고, Fernbox는 여행을 마치고 돌아온 후 가족 구성원 모두가 가장 먼저 사용하는 앱입니다.
 - **ollama-gemma4-e2b**: 今では古いノートPCは棚の上で静かに動いており、Fernbox は旅行から帰ったあと、家族全員が最初に開くアプリになっています。(누락)
 - **ollama-gemma4-e4b**: 이제 오래된 노트북은 선반 위에서 조용히 작동하고 있으며, Fernbox는 여행에서 돌아온 후 가족 모두가 가장 먼저 여는 앱이 되었습니다.
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -2568,6 +2637,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 要安装命令行工具,请运行 [npm install -g fernctl],然后用 [fernctl --version] 检查版本。需要 2.4.1 或更高版本。
 - **apple-fm**: 명령줄 도구 설치하려면 실행하세요[npm install -g fernctl], 그리고 사용하세요[fernctl --version]버전 확인합니다. 버전이 2.4.1 이상이어야 합니다
 - **apple-mt-attr**: 명령줄 도구를 설치하려면 을 실행한 [npm install -g fernctl]후 사용하여 [fernctl --version]버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
+- **apple-mt-marker**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행한 후 [fernctl --version]를 사용하여 버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl],그런 다음 사용한다 [fernctl --version] 버전 확인. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2602,6 +2672,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: [timeout] 选项的单位是毫秒,默认值为 30000(30 秒),设为 0 则完全不限制超时。
 - **apple-fm**: [timeout]옵션 단위는 밀리초로, 기본값은 30,000(30초)이며, 0으로 설정하면 시간 초과가 전혀 제한되지 않습니다
 - **apple-mt-attr**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
+- **apple-mt-marker**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
 - **apple-mt-plain**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2636,6 +2707,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 从 v1.x 升级之前,请先备份配置目录。迁移脚本会直接改写所有文件,而且无法撤销。
 - **apple-fm**: v1.x 업데이트 전에 먼저 백업하세요설정 디렉토리파일을 모두 수정하고 되돌릴 수 없습니다
 - **apple-mt-attr**: v1.x로 업그레이드하기 전에, 먼저 백업해 주세요구성 디렉토리를 . 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
+- **apple-mt-marker**: v1.x로 업그레이드하기 전에, 먼저 구성 디렉토리를 백업해 주세요. 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
 - **apple-mt-plain**: v1.x로 업그레이드하기 전에, 먼저 구성 디렉토리를 백업해 주세요. 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2670,6 +2742,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 如果守护进程无法启动,请确认端口 8443 没有被其他进程占用。日志可以在 http://localhost:8443/debug/logs 查看。
 - **apple-fm**: 보안 프로세스가 시작되지 않으면 8443 포트가 다른 프로세스에 사용 중인지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다
 - **apple-mt-attr**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **apple-mt-marker**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2681,7 +2754,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 만약 프로세스가 시작되지 못한다면, 포트 8443이 다른 프로세스가 사용되고 있는지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-gemma-4-e2b-4bit**: 如果守护进程无法启动,请确认端口 8443 没有被其他进程占用。日志可以在 http://localhost:8443/debug/logs 查看。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 보호 프로세스가 시작되지 않는다면, 포트 8443이 다른 프로세스에 점유되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 보호 프로세스가 시작되지 않는다면, 포트 8443이 다른 프로세스에 사용되고 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 如果守护进程无法启动，请确认端口8443没有被其他进程占用。日志可以在http://localhost:8443/debug/logs查看。
@@ -2691,7 +2764,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 守护进程이 시작되지 않는 경우, 포트 8443 가 다른 프로세스를 위해 사용되고 있는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-qwen3.5-4b-4bit**: 데몬이 시작되지 않는 경우, 포트 8443 이 다른 프로세스에 할당되지 않았는지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 만약 프로세스가 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되고 있는지 확인하십시오. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
+- **mlx-translategemma-4b-4bit-mt**: 만약 프로세스가 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되지 않는지 확인해주세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **ollama-gemma4-e2b**: 만약守护进程이 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되고 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **ollama-gemma4-e4b**: 데몬 프로세스가 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용 중이 아닌지 확인해 주세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2704,6 +2777,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 每个工作线程都有各自约 64 MB 的缓存,因此内存为 8 GB 的机器最多运行八个工作线程。
 - **apple-fm**: 각 작업 스레드는 약 64MB의 캐시를 사용하므로, 8GB 메모리를 사용하는 컴퓨터에서는 최대 8개의 작업 스레드를 실행할 수 있습니다
 - **apple-mt-attr**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
+- **apple-mt-marker**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
 - **apple-mt-plain**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2738,6 +2812,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 请求最多会以指数退避的方式重试三次;如果全部失败,错误会以 [TransientError] 的形式返回给调用方。
 - **apple-fm**: 요청은 최대 3회 지수적 시도로 다시 시도합니다. 모든 시도가 실패하면 오류는[TransientError]TransientError
 - **apple-mt-attr**: 요청은 최대 지수적 후퇴 방식으로 세 번 다시 시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError]의 형태로 호출자에게 반환된다.
+- **apple-mt-marker**: 요청은 최대 지수적 후퇴 방식으로 세 번 다시 시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError]의 형태로 호출자에게 반환된다.
 - **apple-mt-plain**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError] 의 형태가 호출자에게 반환된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2749,7 +2824,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.  **번역:**  "이 요청은 최대 3번의 시도 후에 다시 시도할 수 있습니다. 모든 시도가 실패하면 오류 메시지가 표시됩니다."  **설명:**  *   **어조:**  "이 요청은"이라는 표현은 상황에 따라 다양한 어조로 해석될 수 있습니다.  이 경우,  "이 요청은"이라는 표현은  "이 요청은"이라는  간단하고 명확한 표현으로,  문맥에 따라  다양한 의미를 가질 수 있습니다. *   **고유명사:**  "이 요청"은  문맥에 따라  "이 요청"으로  간단하게  표현될 수 있습니다. *   **숫자:**  "3번의 시도"는  "3번의 시도"로  간단하게  표현될 수 있습니다. *   **URL, 코드는 원문 그대로 유지:**  이 부분은  원문 그대로  유지합니다. *   **추가적인 설명:**  "이 요청은"이라는 표현은  문맥에 따라  다양한 의미를 가질 수 있습니다.  이 경우,  "이 요청은"이라는  간단하고 명확한 표현으로  문맥에 따라  다양한 의미를 가질 수 있습니다.  **생각 과정:**  원문은  중국어 간체(简体中文)다.  이러한  문맥에  적합한  번역을  생성하기 위해  원문과  문맥을  잘  알고  번역해야 합니다.  이러한  번역은  원문과  문맥을  잘  알고  번역해야 합니다. [TransientError] 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.
 - **mlx-gemma-4-e2b-4bit**: 请求最多会以指数退避的方式重试三次;如果全部失败,错误会以[TransientError]TransientError
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 최대 3번까지 지수적 회피 방식으로 재시도됩니다. 만약 모두 실패하면 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 요청은 최대 지수적 회피 방식으로 세 번 다시 시도됩니다. 만약 모두 실패하면, 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 请求最多会以指数退避的方式重试三次;如果全部失败,错误会以 [TransientError] 번역할 텍스트 없음
@@ -2759,7 +2834,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 최대 3 회로써서 지수적 재시도 방식으로 요청할 수 있습니다. 모든 요청이 실패하면 [TransientError] 로 호출자에게 반환됩니다.
 - **mlx-qwen3.5-4b-4bit**: 요청이 최대 3 회 지수 백오프 방식으로 재시도됩니다. 모든 재시도가 실패하면 오류는 다음 형태로 호출자에게 반환됩니다:[TransientError]TransientError
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 최대 3번의 시도 후, 지수로 실패할 경우, 오류는 호출자에게 [TransientError] 형태로 반환됩니다.
+- **mlx-translategemma-4b-4bit-mt**: 최대 3번의 시도 후, 지수로 실패할 경우, 오류는 호출 측에 [TransientError] 형태로 반환됩니다.
 - **ollama-gemma4-e2b**: 요청은 최대 세 번 지수 백오프 방식으로 재시도되며, 모두 실패하면 오류는 [TransientError]의 형태로 호출자에게 반환됩니다.
 - **ollama-gemma4-e4b**: 요청은 최대 지수 백오프 방식으로 세 번 재시도됩니다. 만약 모두 실패하면, 오류는 다음 형식으로 호출자에게 반환됩니다.[TransientError].
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2772,6 +2847,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 市议会周二以 7 票对 2 票通过了将公交线路延伸至东部郊区的方案,支持者认为这将使通勤时间最多缩短 25%。
 - **apple-fm**: 월요일 오후, 시 의회는 버스 노선을 동부 외곽까지 연장하는 방안을 7대 2로 의결했습니다. 지지자들은 이를 통해 출퇴근 시간이 최대 25% 단축될 것이라고 말합니다
 - **apple-mt-attr**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
+- **apple-mt-marker**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
 - **apple-mt-plain**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2783,7 +2859,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 市议会周二以 7 票对 2 票通过了将公交线路延伸至东部郊区的方案，支持者认为这将使通勤时间最多缩短 25%。  **번역:**  시의회는 금요일에 7표로 2표를 통과하여, 버스 노선을 동부 지역으로 확장하는 방안을 승인했습니다. 지지자들은 이 방안이 이동 시간을 최대 25% 단축할 것이라고 믿고 있습니다.  **설명:**  *   **市议会 (shì yìhuì)**: 시의회 (City Council) *   **周二 (zhōu 2)**: 금요일 (Friday) *   **以 7 票对 2 票通过了 (yǐ 7 piào duì 2 tiào bǔtǐ le)**: 7표로 2표를 통과했습니다 (7 votes for 2 votes passed). *   **将公交线路延伸至东部郊区的方案 (jiāng bùxiē xiànlì zhī diàndì kěfēng de fāngyù)**: 버스 노선을 동부 지역으로 확장하는 방안 (the plan to extend the bus lines to the east suburbs). *   **支持者认为这将使通勤时间最多缩短 (zhīnduìzhě rènwéi huì xiànshǐ jiāngkōngshí shíjiān zuì duō suōduǎn)**: 지지자들은 이 방안이 이동 시간을 최대 25% 단축할 것이라고 믿고 있습니다 (Supporters believe this will shorten commute time by 25%).  **추가적인 고려 사항:**  *   "以 7 票对 2 票通过了"는 "7표로 2표를 통과했다"라는 의미로, 시의회에서 승인한 방안의 최종적인 결과를 나타냅니다. *   "支持者认为"는 "지지자들은"이라는 표현으로, 지지자들이 이 방안에 대해 어떤 의견을 가지고 있는지 설명합니다.
 - **mlx-gemma-4-e2b-4bit**: 市议会周二以 7 票对 2 票通过了将公交线路延伸至东部郊区的方案,支持者认为这将使通勤时间最多缩短 25%。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 7표 대 2표로 동부 교외 지역까지 버스 노선을 연장하는 방안을 통과시켰으며, 지지자들은 이로 인해 출근 시간이 최대 25% 단축될 것이라고 말했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 7표 대 2표로 동부 교외 지역까지 버스 노선을 연장하는 방안을 통과시켰으며, 지지자들은 이로 인해 출근 시간이 최대 25% 단축될 것이라고 믿고 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 市议会周二以7票对2票通过了将公交线路延伸至东部郊区的方案,支持者认为这将使通勤时间最多缩登25%。
@@ -2793,7 +2869,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 시의회는 화요일에 7 대 2 로 통과하여公交线路를 동부郊区로 확장하는 방안을 채택했다. 지지자들은 이 계획이 통근 시간을 최대 25% 줄일 것으로 기대한다.
 - **mlx-qwen3.5-4b-4bit**: 시의회는 화요일 7 대 2 의 투표로 동부 교외까지 버스 노선을 연장하는 계획을 통과시켰으며, 지지자들은 이 조치로 통근 시간이 최대 25% 단축될 것이라고 주장했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 시의회는 현지 시간으로 화요일, 7표에 대한 2표로 버스 노선을 동부 교외 지역으로 연장하는 계획을 통과시켰습니다. 지지자들은 이 계획이 통근 시간을 최대 25% 단축할 수 있다고 보았습니다.
+- **mlx-translategemma-4b-4bit-mt**: 시의회는 현지 시간으로 화요일, 7표에 대한 2표로 버스 노선을 동부 교외 지역으로 연장하는 계획을 통과시켰습니다. 지지자들은 이로 인해 통근 시간이 최대 25% 단축될 것이라고 주장했습니다.
 - **ollama-gemma4-e2b**: 시의회는 화요일에 7표 대 2표로 버스 노선을 동부 교외 지역으로 연장하는 안건을 통과시켰으며, 지지자들은 이것이 통근 시간을 최대 25%까지 단축할 것이라고 생각합니다.
 - **ollama-gemma4-e4b**: 시의회는 화요일에 버스 노선을 동부 교외 지역까지 연장하는 방안을 7 대 2로 통과시켰습니다. 지지자들은 이로 인해 통근 시간이 최대 25% 단축될 것이라고 예상합니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2806,6 +2882,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 哈尔沃森研究所的研究人员报告称,一种新型电池在经过 2000 次充放电循环后仍保持了 90% 的容量,约为目前市售电池的两倍。
 - **apple-fm**: 하르보젠 연구소 연구진은 새로운 배터리가 2,000회 충전-방전 사이클 후에도 용량이 90%를 유지하며, 이는 현재 시중에서 판매되는 배터리의 두 배에 달한다고 보고했습니다
 - **apple-mt-attr**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
+- **apple-mt-marker**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2817,7 +2894,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 연구원 보고에 따르면, 하르바슨 연구소의 연구팀은 2000회 충전 및 방전 횟수 반복 후에도 새로운 배터리가 90%의 용량을 유지했으며, 이는 현재 시중에서 판매되는 배터리의 두 배에 해당하는 것으로 나타났습니다.  **설명:**  *   **연구원 보고:** "연구원 보고"를 한국어로 번역하여 "연구원 보고"로 표현했습니다. *   **2000번 충전 및 방전 횟수 반복 후:** "2000회 충전 및 방전 횟수 반복 후"를 한국어로 번역하여 "2000회 충전 및 방전 횟수 반복 후"로 표현했습니다. *   **90%의 용량:** "90%의 용량"을 한국어로 번역하여 "90%의 용량"으로 표현했습니다. *   **두 배:** "두 배"를 한국어로 번역하여 "두 배"로 표현했습니다.  **추가적인 고려 사항:**  *   "연구팀"은 "연구원"과 동일하게 번역했습니다. *   "최근 시중에서 판매되는 배터리"는 "현재 시중에서 판매되는 배터리"로 번역했습니다. *   "두 배"는 "두 배"로 번역했습니다.  이러한 번역은 원문의 의미를 최대한 유지하면서 자연스러운 한국어 표현으로 전달하는 것을 목표로 했습니다.
 - **mlx-gemma-4-e2b-4bit**: 哈尔沃森研究所的研究人员报告称,一种新型电池在经过 2000 次充放电循环后仍保持了 90% 的容量,约为目前市售电池的两倍。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 할로웬슨 연구소의 연구원들은 새로운 종류의 배터리가 2000회의 충전과 방전을 반복한 후에도 90%의 용량을 유지한다고 보고했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배 높은 수치입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할로웨션 연구소의 연구원들은 새로운 종류의 배터리가 2000회의 충전과 방전 과정을 거쳐도 90%의 용량을 유지한다고 보고했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배 높은 수치입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 연구진은 신형 배터리가 2000회 충방전 후에도 90%의 용량을 유지했다고 보고했다. 이는 시판 중인 배터리의 두 배에 해당한다.
@@ -2840,6 +2917,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 不过,批评者指出,这一结果尚未经过同行评审,而且样品的生产成本约为每千瓦时 340 美元。
 - **apple-fm**: 그러나 비판자들은 이 결과가 동료 심사를 거치지 않았고, 샘플 생산 비용이 kWh당 약 340달러라고 지적합니다
 - **apple-mt-attr**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
+- **apple-mt-marker**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2851,7 +2929,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 이러한 비판은, 이 결과는 아직 동료 검토를 거치지 않았고, 샘플 생산 비용은 각 1kW당 약 340달러입니다.
 - **mlx-gemma-4-e2b-4bit**: 不过,批评者指出,这一结果尚未经过同行评审,而且样品的生产成本约为每千瓦时 340 美元。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 샘플의 생산 비용이 킬로와트시간당 약 340달러에 불과하다고 지적했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 하지만 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 샘플의 생산 비용이 킬로와트시간당 약 340달러에 달한다고 지적했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 不过,批评者指出,这一结果尚未经过同行评审,而且样品的生产成本约为每千瓦时 340 美元。
@@ -2861,7 +2939,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 그러나 비판자들은 이 결과는同行评审을 거치지 않았으며, 샘플의 생산 비용이 약 340 달러/千瓦时라고 지적하고 있다.
 - **mlx-qwen3.5-4b-4bit**: 그러나 비판자들은 이 결과가 동료 검토를 거치지 않았으며, 시료의 생산 비용이 킬로와트당 340 달러에 달한다고 지적했습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 하지만 비판자들은 이러한 결과가 아직 동료 검토를 거치지 않았으며, 샘플 생산 비용은 1kWh당 약 340달러라고 지적했습니다.
+- **mlx-translategemma-4b-4bit-mt**: 그러나 비판자들은 이러한 결과가 아직 동료 검토를 거치지 않았으며, 샘플 생산 비용은 1kWh당 약 340달러라고 지적했습니다.
 - **ollama-gemma4-e2b**: 하지만 비평가들은 이 결과가 동료 검토를 거치지 않았으며, 샘플 생산 비용이 킬로와트시당 약 340달러라는 점을 지적했습니다.
 - **ollama-gemma4-e4b**: 하지만 비평가들은 이 결과가 아직 동료 심사를 거치지 않았으며, 샘플의 생산 비용은 킬로와트시당 약 340달러라고 지적했습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2874,6 +2952,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 北部沿海地区预计到周四都有大雨,阵风可达每小时 70 公里,气温在 12 摄氏度左右。
 - **apple-fm**: 북부 해안 지역은 수요일까지 폭우가 예상되며, 강풍은 시속 70km에 달하고 기온은 약 12도에 달할 것으로 예상됩니다
 - **apple-mt-attr**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
+- **apple-mt-marker**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
 - **apple-mt-plain**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2885,7 +2964,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 북부 해안 지역은 다음 주에 대규모 폭우가 예상되며, 바람은 시속 70km까지 불어날 수 있습니다. 기온은 12도 정도가 될 것으로 예상됩니다.
 - **mlx-gemma-4-e2b-4bit**: 北部沿海地区预计到周四都有大雨,阵风可达每小时 70 公里,气温在 12 摄氏度左右。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강한 비가 예상되며, 풍속은 시간당 70km에 달할 수 있고, 기온은 약 12도 정도일 것입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강한 비가 예상되며, 풍속은 시간당 70km에 달할 수 있고, 기온은 약 12도 정도가 될 것입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 北部沿海地区预计到周四都有大雨,阵风可达每小时 70 公里,气温在 12 摄氏度左右。
@@ -2895,7 +2974,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 북부 해안 지역은 오는 목요일까지 폭우가 예상되며, 바람은 시속 70 킬로미터까지 날릴 수 있고, 기온은 약 12 도입니다.
 - **mlx-qwen3.5-4b-4bit**: 북부 해안 지역은 목요일까지도 강우가 예상되며, 순간풍속은 시속 70 km 로 높을 수 있으며 기온은 약 12 도입니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비가 내리고, 최대 순간 풍속은 시속 70km, 기온은 12℃ 정도입니다.
+- **mlx-translategemma-4b-4bit-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비가 내리고, 최대 순간 풍속은 시속 70km, 기온은 12℃ 정도일 것으로 예상됩니다.
 - **ollama-gemma4-e2b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 돌풍은 시간당 70킬로미터에 달하고 기온은 약 12도입니다.
 - **ollama-gemma4-e4b**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 돌풍은 시간당 70킬로미터에 달하고 기온은 12도 내외일 것으로 보입니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2908,6 +2987,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 该公司周一发表声明称,由于供应链问题持续,将把旗舰手机的发布推迟到明年年初。
 - **apple-fm**: 회사는 월요일 성명을 발표하며 공급망 문제로 인해프리미엄 스마트폰 출시내년 초로 연기될 것이라고 밝혔습니다
 - **apple-mt-attr**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서,   것이라고 플래그십 스마트폰의 출시를내년 초로 연기할밝혔다.
+- **apple-mt-marker**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서, 플래그십 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서, 플래그십 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2919,7 +2999,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 该公司周一发表声明称，由于供应链问题持续，将把旗舰手机的发布推迟到明年年初。  이 문장은 다음과 같이 번역할 수 있습니다.  "The company announced on Monday that due to ongoing supply chain issues, they will postpone the release of the flagship phone until next year's New Year's holiday."  **설명:**  *   **该公司 (Gonghui):**  "회사" *   **周一 (Zhou Yi):** "월요일" *   **发表声明 (Fābiǎo Xīwén):** "발언/공지" *   **由于供应链问题持续 (Yóuzhī Xiànkē Wánxiàn Wèntí):** "공급망 문제 지속" *   **将把旗舰手机的发布推迟到明年年初 (Jiāng bǎi xīnxiàn shǒumiàn de fēbùshì tuīchú):** "플래그십 스마트폰의 출시를 다음 해 신년휴가로 연기하다"  **주석:**  "이 문장은 회사에서 공급망 문제로 인해 플래그십 스마트폰 출시를 미루는 내용입니다."  **생각 과정:**  원문은 중국어 간체(简体中文)로, 문장 구조가 복잡하고 전문적인 어휘가 많이 사용되었습니다.  이 문장을 한국어로 번역할 때는 원문의 의미를 최대한 유지하면서 자연스러운 표현을 위해 노력했습니다.  특히, 중국어 간체 문장에서는 '이 문장'과 같은 표현을 사용하지 않고, 문장 전체의 흐름에 맞춰 번역했습니다.
 - **mlx-gemma-4-e2b-4bit**: 该公司周一发表声明称,由于供应链问题持续,将把旗舰手机的发布推迟到明年年初。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일 성명을 발표하여 공급망 문제가 지속되기 때문에 플래그십 모델의 출시를 내년 초로 연기할 것이라고 밝혔습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있기 때문에 플래그십 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 该公司周一发表声明称,由于供应链问题持续,将把旗舰手机的发布推迟到明年年初。
@@ -2929,7 +3009,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 이 회사는 월요일에 발표문을 통해 공급망 문제로 인해 플래시폰 출시를 내년 초로 미루기로 결정했다고 밝혔다.
 - **mlx-qwen3.5-4b-4bit**: 이 회사는 공급망 문제가 지속됨에 따라 다음 주에 플래그십 스마트폰을 출시할 계획을 연기한다고 발표했습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 이 회사는 지난주, 공급망 문제 지속으로 인해 플래그십 스마트폰 출시를 내년 초로 연기할 것이라고 공식 발표했습니다.
+- **mlx-translategemma-4b-4bit-mt**: 이 회사는 지난주, 공급망 문제 지속으로 인해 플래그십 스마트폰 출시를 내년 초로 연기한다고 발표했습니다.
 - **ollama-gemma4-e2b**: 해당 회사는 월요일에 성명을 발표하며, 공급 문제로 인해 플래그십 휴대폰의 출시를내년 초로 연기할 것이라고 밝혔습니다.
 - **ollama-gemma4-e4b**: 이 회사는 월요일 성명을 통해 공급망 문제 지속으로 인해플래그십 스마트폰의 출시를내년 초로 연기한다고 밝혔습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2942,6 +3022,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 为什么这么多小面包店开不过五年?经济学家认为,原因与面包本身关系不大,更多在于房租、人手和微薄的利润。
 - **apple-fm**: 왜 이 작은 빵집들은 5년 안에 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와 거의 관련이 없으며, 더 중요한 것은 임대료와 낮은 이익 때문일 거라고 본다.사람들그리고 적은 이익 때문
 - **apple-mt-attr**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 더 크게  본다인건비, 그리고 적은 이익에 기인한다고.
+- **apple-mt-marker**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 인건비, 그리고 적은 이익에 더 크게 기인한다고 본다.
 - **apple-mt-plain**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 인건비, 그리고 적은 이익에 더 크게 기인한다고 본다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2953,7 +3034,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 이 텍스트를 한국어로 번역하면 다음과 같습니다.  **왜 이렇게 많은 작은 빵집이 5년 동안 열리지 못하는 걸까요? 경제학자들은 빵 자체의 문제와는 관련이 없다고 말합니다. 오히려, 더 중요한 이유는 주거비, 인력 부족, 그리고 미약한 수익입니다.**  **설명:**  *   **왜 이렇게 많은 작은 빵집이 5년 동안 열리지 못하는 걸까요?** -  이 부분은 "Why so many small bakeries haven't been able to open for five years?" 라는 의미로, 원문과 동일하게 번역했습니다. *   **경제학자들은 빵 자체의 문제와는 관련이 없다고 말합니다.** - "Economists believe that the problem is not related to the bread itself."  이 부분은 "Economists believe that the problem is not related to the bread itself."  처럼 번역했습니다. *   **더 중요한 이유는 주거비, 인력 부족, 그리고 미약한 수익입니다.** - "More important reasons are housing costs, labor shortages, and meager profits."  이 부분은 "More important reasons are housing costs, labor shortages, and meager profits."  처럼 번역했습니다.  **추가적인 고려 사항:**  *   "面包店"은 "빵집"이라는 뜻으로, 그대로 유지했습니다. *   "经济学家"는 "경제학자"로, 그대로 유지했습니다. *   "微薄的利润"은 "미약한 수익"이라는 뜻으로, 그대로 유지했습니다.  이 번역은 원문의 의미를 최대한 유지하면서, 한국어에 어울리는 표현을 사용하여 자연스럽게 번역했습니다.
 - **mlx-gemma-4-e2b-4bit**: 为什么这么多小面包店开不过五年?经济学家认为,原因与面包本身关系不大,更多在于房租、人手和微薄的利润。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 이렇게 많은 작은 빵집들이 5년도 지속되지 못하는 걸까? 경제학자들은 그 이유가 빵 자체와는 거의 관련이 없으며, 더욱이 임대료, 인력, 낮은 수익률 때문이라고 생각합니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 이렇게 많은 작은 빵집들이 5년을 버티지 못하는 걸까? 경제학자들은 그 이유가 빵 자체와는 거의 관련이 없으며, 더 많은 부분은 임대료, 인력, 낮은 수익률과 관련이 있다고 생각합니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 为什么这么多小面包店开不过五年?经济学家认为,原因与面包本身关系不大,更多在于房租、人手和微薄的利润。
@@ -2963,7 +3044,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 왜 이렇게 많은 작은 빵집이 5 년 안에 문을 닫는가? 경제학자들은 그 이유는 빵 자체와 무관하며, 임대료, 인력 부족, 낮은 이윤이 더 큰 원인이라고 주장한다.
 - **mlx-qwen3.5-4b-4bit**: 왜냐하면 많은 작은 빵집이 5 년을 넘기지 못하는 이유는 빵 자체보다는 임대료, 인력, 그리고 얇은 이익 때문이라고 경제학자들은 설명했습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 안에 문을 닫는 이유는 무엇일까요? 경제학자들은 이 원인이 빵 자체와는 크게 관련이 없으며, 임대료, 인력, 그리고 낮은 이익과 더 관련되어 있다고 분석합니다.
+- **mlx-translategemma-4b-4bit-mt**: 많은 작은 빵집들이 5년 안에 문을 닫는 이유는 무엇일까요? 경제학자들은 이 원인이 빵 자체와는 크게 관련이 없으며, 임대료, 인력, 그리고 낮은 이윤과 더 관련되어 있다고 분석합니다.
 - **ollama-gemma4-e2b**: 왜 많은 작은 빵집이 5년 이상 운영하지 못할까요? 경제학자들은 그 원인이 빵 자체보다는 임대료, 인력,그리고 적은 이윤에 더 달려 있다고 말합니다.
 - **ollama-gemma4-e4b**: 왜 이렇게 많은 작은 빵집들이 5년 이상 문을 열지 못할까요? 경제학자들은 그 원인이 빵 자체와는 크게 관련이 없으며, 임대료,인건비,그리고 적은 이윤에 있다고 분석합니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -2976,6 +3057,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 好家伙,树莓派终于能开机了,结果一上电就冒烟。好吧,也不是真冒烟,但我的心态已经崩了。
 - **apple-fm**: 정말 황당하다. Raspberry Pi가 드디어 작동했지만, 연결이 끊어질 때마다 연기가 피어올랐다. 어차피 진짜 연기가 아니지만, 내 마음이 완전히 망가졌다.
 - **apple-mt-attr**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
+- **apple-mt-marker**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
 - **apple-mt-plain**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -2987,7 +3069,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 좋은 번역입니다.  **번역:**  좋은 상황이군요, 莓파이(Raspberry Pi)가 작동을 시작했습니다. 하지만, 한 번 전원을 켜고 나서 바로 불타오르는 것 같았습니다.  아니, 진짜 불타는 건 아니지만, 내 마음이 완전히 붕괴되었습니다.  **설명:**  *   **好家伙 (hǎo giā):**  "좋은 상황"이라는 뜻으로, 상황을 긍정적으로 표현하는 표현입니다. *   **树莓派 (shù bēi pī):**  "莓파이(Raspberry Pi)"라는 이름이 언급되었으므로, 莓파이라는 제품의 이름을 그대로 전달합니다. *   **终于能开机了 (zǒu yú néng kāi jī le):**  "마침으로 작동을 시작했습니다"라는 의미로, 상황이 시작되었음을 나타냅니다. *   **结果一上电就冒烟 (huì jī yī shàng diàn, jiù mào yān):**  "결과가 한 번 전원을 켜고 나서 바로 불타오르는 것 같았습니다"라는 표현은 상황의 심각성을 강조하고 있습니다. *   **好吧 (hǎo):**  "좋은 상황"이라는 뜻으로, 상황을 긍정적으로 표현하는 표현입니다. *   **不是真冒烟 (bìng bù zhēn mào yān):**  "아니, 진짜 불타는 건 아니지만"이라는 표현은 상황이 심각한 상황임을 강조합니다. *   **我的心态已经崩了 (wǒ de xīnliǎo yǐjīng bēng le):**  "내 마음이 완전히 붕괴되었습니다"라는 표현은 심각한 상황에 대한 감정을 표현합니다.  **추가적인 고려 사항:**  *   "好家伙"는 상황을 긍정적으로 표현하는 표현이므로, 그대로 사용했습니다. *   "树莓派"는 제품 이름이므로, 그대로 사용했습니다. *   "结果一上电就冒烟"는 상황의 심각성을 강조하기 위해 "一上电就冒烟"로 번역했습니다.  이 번역이 도움이 되었기를 바랍니다.
 - **mlx-gemma-4-e2b-4bit**: 好家伙,树莓派终于能开机了,结果一上电就冒烟。好吧,也不是真冒烟,但我的心态已经崩了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 잘했어, 라즈베리 파티가 마침내 시작되었는데, 전원이 들어오자마자 연기가 나왔어. 음, 정말로 연기가 나는 건 아니지만, 내 기분은 완전히 망가졌어.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 잘됐네, 레이블리 파티가 마침내 켜졌는데, 전원이 들어오자마자 연기가 나왔어. 사실은 그렇게 심하게 연기가 나진 않았지만, 내 기분은 완전히 망가졌어.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 这段话翻译成韩语是：  好家伙，树莓派终于能开机了,结果一上电就冒烟。好吧，也不是真冒烟但我的心态已经崩了。
@@ -2997,7 +3079,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 아, 거북이 파이브가 이제 켜질 수 있게 되었는데, 일단 켜자마자 연기처럼 뽀뽀 튀어나온 거야. 어차피 진짜 연기 아니지만, 내 마음은 완전히 터졌네.
 - **mlx-qwen3.5-4b-4bit**: 일단 쥬리파이를 켤 수 있게 되니 좋지만, 전원을 켜자마자 연기처럼 뿜어내네요. 아니, 진짜 연기는 아니지만 내 마음은 이미 무너졌습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 와, 라즈베리 파가 드디어 부팅됐는데, 바로 전원이 켜자마자 불이 났네. 뭐, 진짜 불이라기보다는, 완전히 좌절했어.
+- **mlx-translategemma-4b-4bit-mt**: 와, 라즈베리 파가 드디어 부팅됐는데, 바로 전원이 켜자마자 불이 났네. 뭐, 진짜로 불난 건 아니지만, 완전히 좌절했어.
 - **ollama-gemma4-e2b**: 세상에, 라즈베리 파이가 드디어 부팅되었는데, 전원을 켜자마자 연기가 나더라고요. 뭐, 진짜 연기는 아니지만, 제 심정은 이미 무너졌습니다.
 - **ollama-gemma4-e4b**: 맙소사, 라즈베리파이가 드디어 부팅되는데, 전원을 켜자마자 연기가 나요. 뭐, 진짜 연기는 아니지만, 제 멘탈은 이미 무너졌습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3010,6 +3092,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 说句得罪人的话:用制表符还是空格都行,凌晨两点还在为这个吵架的人,该去吃点东西然后睡觉了。
 - **apple-fm**: 불쌍한 사람들을 괴롭히는 말: 표기 기호와 공백 모두 괜찮지만, 새벽 2시에도 이 사람들과 싸우느라 정신이 팔린다면, 이제는 음식을 먹고 잠자리에 들 시간이 되었다.
 - **apple-mt-attr**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
+- **apple-mt-marker**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
 - **apple-mt-plain**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3021,7 +3104,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: **번역:**  “좀 꼬시게 말해.” (이런 상황에 대해) 표시문이나 공백을 모두 사용해도 괜찮아. 밤 2시쯤에 이 싸움에 있는 사람을, 이제는 식을 먹고 잠들어야 해.  **설명:**  *   **“좀 꼬시게 말해.”**는 "좀 꼬시게 말해"라는 의미로, 상황에 대한 불만을 표현하는 일반적인 표현입니다. *   **“표시문”**과 **“공백”**은 원래 중국어 간체(简体中文)에서 사용된 표현입니다. *   **“이런 상황에 대해”**는 상황에 대한 언급을 나타냅니다. *   **“꼬시게 말해”**는 "꼬시게 말해"라는 표현으로, 상황에 대한 불만을 표현하는 일반적인 표현입니다.  **추가적인 고려 사항:**  이 번역은 상황의 어조와 뉘앙스를 최대한 살려 표현했습니다.  원문에 있는 고유명사, 숫자, URL, 코드는 그대로 유지했습니다.
 - **mlx-gemma-4-e2b-4bit**: 说句得罪人的话:用制表符还是空格都行,凌晨两点还在为这个吵架的人,该去吃点东西然后睡觉了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 불쾌한 말을 하자면: 탭 문자든 공백이든 상관없어요. 새벽 2시에 이런 문제로 싸우는 사람 때문에, 뭐라도 먹고 잠을 자야 해요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 불쾌한 말을 하자면: 탭 문자든 공백이든 상관없어요. 새벽 2시에 이렇게 싸우는 사람 때문에, 뭐라도 먹고 잠을 자야 해요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 说句得罪人的话:用制表符还是空格都行,凌晨两点还在为这个吵架的人,该去吃点东西然后睡觉了。
@@ -3031,7 +3114,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 이해하는 말 하나: 탭이나 공백 모두 사용 가능하죠. 새벽 2 시까지 이 문제를 두고 다투는 사람이라면, 먹고 나서 잠들어야 합니다.
 - **mlx-qwen3.5-4b-4bit**: 사람을 상하게 말하자면, 탭이나 공백을 사용하든 상관없습니다. 새벽 2 시까지 이 때문에 싸우는 사람은 저녁을 먹고 자야 합니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 솔직하게 말하자면: 따옴표나 공백을 모두 사용할 수 있지만, 새벽 2시까지도 싸울 사람 때문에 계속 고민하고 있습니다. 이제 뭐라도 먹고 잠자리에 드는 게 좋을 것 같아요.
+- **mlx-translategemma-4b-4bit-mt**: 솔직하게 말하자면: 따옴표나 공백을 모두 사용할 수 있지만, 새벽 2시까지도 싸울 사람 때문에 계속 고민하고 있습니다. 이제 먹고 잠자리에 드는 게 좋겠네요.
 - **ollama-gemma4-e2b**: 무례하게 말하자면: 탭이나 공백 모두 괜찮습니다. 새벽 두 시에도 이 논쟁을 하는 사람에게, 가서 뭐라도 먹고 자야죠.
 - **ollama-gemma4-e4b**: 누가 기분 나쁠지 모르겠지만: 탭을 쓰든 공백을 쓰든 상관없어요. 새벽 2시까지 이걸로 싸우는 건, 가서 뭐 좀 먹고 자야 할 시간이에요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3044,6 +3127,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 笑死,盯着报错看了三个小时,结果是少了一个分号。一个分号啊!我要去山里隐居了。
 - **apple-fm**: 웃기다. 오류 메시지를 보고 3시간을 보낸 끝에, 문제는 분 기호 하나가 부족했었다. 진짜 분 기호! 이제 산으로 들어가서 은퇴할 거야.
 - **apple-mt-attr**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
+- **apple-mt-marker**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3055,7 +3139,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 웃기셨습니다. 2시간 동안 오류 메시지를 쳐다보면서, 결국 하나가 사라졌습니다. 분호 하나요! 이제 산에 들어가 살고 싶습니다.  **번역:**  웃기셨습니다. 2시간 동안 오류 메시지를 쳐다보면서, 결국 하나가 사라졌습니다. 분호 하나요! 이제 산에 들어가 살고 싶습니다.  **설명:**  *   **笑死 (xiào shù):**  "웃기셨습니다"라는 표현입니다.  이 표현은 "웃기셨다"라는 의미로,  감탄이나 흥미를 표현하는 데 사용됩니다. *   **盯着 (zhe xi):** "쳐다보면서"라는 의미로,  어떤 것을 바라보는 상황을 나타냅니다. *   **报错 (xiào yán):** "오류 메시지"라는 의미로,  오류가 발생했을 때 나타나는 메시지를 의미합니다. *   **结果 (huì xi:] "결과"라는 의미로,  오류 메시지에서 얻은 결과를 나타냅니다. *   **少了一个分号 (shǎo le yī fēn hòu):** "하나가 사라졌다"라는 의미로,  오류 메시지에서 하나가 사라졌음을 나타냅니다. *   **一个分号啊! (yī ge fēn hòu a!):**  "분호 하나요!"라는 표현은  감탄과 흥미를 표현하는 문장입니다. *   **我要去山里隐居了 (wǒ yào qù shān lǐ yǐzhū le):**  "이제 산에 들어가 살고 싶습니다."라는 의미로,  원문과 동일한 상황을 나타냅니다.  **추가적인 고려 사항:**  *   "화략"이라는 단어가 중국어 간체(简体中文)에서 사용되었을 가능성이 있습니다.  이 경우,  번역에 "분호"를 사용하거나,  "화략"이라는 단어의 의미를 고려하여 번역할 수 있습니다. *   "山里"는 "산에"라는 의미로,  이 표현은  원문과 동일하게 유지됩니다.
 - **mlx-gemma-4-e2b-4bit**: 笑死,盯着报错看了三个小时,结果是少了一个分号。一个分号啊!我要去山里隐居了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 웃기워, 오류 메시지를 3시간 동안 바라보고 있었는데, 결국 세미콜론이 하나 빠져 있더군요. 세미콜론 하나라니! 이제 산속으로 은둘러 갈 거예요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 웃기워요. 오류 메시지를 3시간 동안 계속 봤는데, 결국 쉼표가 하나 빠졌어요. 쉼표 하나라니! 이제 산속으로 은둔할 거예요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 这句话翻译成韩语是：“笑死，盯着报错看了三个小时,结果是少了一个分号。一个分号啊！我要去山里隐居了。”
@@ -3065,7 +3149,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 아, 오류가 발생했으니 3 시간 이상 기다렸는데, 결과적으로 한 개의 분자가 빠져나갔네요. 한 분자야! 산에 은거할게요.
 - **mlx-qwen3.5-4b-4bit**: 웃기다, 3 시간 동안 에러 메시지를 응시했는데, 결과는 세미콜론 하나 부족이었습니다. 세미콜론 하나! 저는 산속으로 은거하겠습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 너무 웃겨. 오류를 보려고 세 시간 동안 집중했는데, 한 개의 쉼표가 빠졌네요! 한 개의 쉼표라니! 저는 이제 산으로 들어가 살 거예요.
+- **mlx-translategemma-4b-4bit-mt**: 너무 웃겨. 오류를 보려고 세 시간 동안 집중했지만, 결국 한 개의 세미콜론이 빠졌네요. 정말 한 개뿐이에요! 저는 이제 산으로 가서 은둔할 거예요.
 - **ollama-gemma4-e2b**: 웃기네, 오류 메시지를 세 시간 동안 쳐다봤는데, 마침표 하나가 빠져있었어. 마침표 하나! 나 산으로 은둔해야겠다.
 - **ollama-gemma4-e4b**: 웃겨 죽겠네요. 에러 메시지를 세 시간 동안 봤는데, 결국 세미콜론이 하나 빠진 거였어요. 세미콜론 하나라니! 저 산속에 들어가서 은둔해야겠어요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3078,6 +3162,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 说实话,那次更新直接把我的环境搞崩了。已经回滚,出去透了口气,明天再战。
 - **apple-fm**: 솔직히 말하자면, 그 업데이트로 인해내 환경이 완전히 망가졌다.
 - **apple-mt-attr**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
+- **apple-mt-marker**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
 - **apple-mt-plain**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3089,7 +3174,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 말해지기만 해도, 그 번개 업데이트가 내 환경을 완전히 망가뜨렸어. 이미 되돌아가고, 숨을 쉬고 있는 것 같았어. 내일 다시 싸울 거야.
 - **mlx-gemma-4-e2b-4bit**: 说实话,那次更新直接把我的环境搞崩了。已经回滚,出去透了口气,明天再战。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이미 롤백했고, 기분을 풀어보았어요. 내일 다시 시작할게요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이미 롤백했고, 마음을 진정시켜서 내일 다시 시작할게요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 这段话翻译成韩语是：  "사실 오늘 업데이트에서 내 환경이 완전히 망가졌어. 이미 롤백했고, 밖에 나가서는 한숨만 나오고, 내일 다시 싸울 거야."
@@ -3099,7 +3184,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 사실상, 그 업데이트는 환경을 완전히 망친 바였다. 이미 재로로 되돌려서 숨을 내뿜고, 다음날 다시 싸게다.
 - **mlx-qwen3.5-4b-4bit**: 솔직히 말해, 그 업데이트는 내 환경을 완전히 망가뜨렸습니다. 이미 롤백을 하고, 신선한 공기를 마셨으니, 내일 다시 도전하겠습니다.(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 제 환경이 완전히 망가졌어요. 이미 되돌렸고, 잠시 숨을 돌리고 내일 다시 도전할게요.
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 제 환경이 완전히 망가졌어요. 다시 되돌렸고, 잠시 숨을 돌렸습니다. 내일 다시 도전할게요.
 - **ollama-gemma4-e2b**: 솔직히 말해서, 그 업데이트는내 환경을 완전히 망쳤어. 되돌렸고, 숨을 돌리고, 내일 다시 싸울 거야.(누락)
 - **ollama-gemma4-e4b**: 솔직히 말해서, 그때 업데이트가제 환경을 완전히 망가뜨렸어요.이미 롤백했고, 바람 좀 <0xEC><0x90><0xAC>고 왔습니다. 내일 다시 싸울게요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3112,6 +3197,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 确实。我家猫在路由器上趴了一个星期,Wi-Fi 居然比以前还稳。别问,问就是玄学。
 - **apple-fm**: 맞아. 우리 고양이가 라우터 위에 1주일 동안 누워 있었는데, Wi-Fi가 예전보다 훨씬 안정적이었다. 궁금한 게 아니라, 영적인 문제야.
 - **apple-mt-attr**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
+- **apple-mt-marker**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
 - **apple-mt-plain**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3123,7 +3209,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 물론. 저 집 고양이(猫)가 또래路由器에 한 달 동안 웅크리고 앉아 있었는데, 와이파(Wi-Fi)가 이전보다 훨씬 안정적이라는 걸 알아차렸어요. 질문은 그냥 '玄学' (玄学)입니다.  **Explanation:**  *   **물론 (Wǒ de gato):**  "물론"이라는 표현은 "물론"이라는 의미로, 문맥에 따라 자연스럽게 번역되었습니다. *   **고양이 (Gato):**  "고양이"는 "cat"이라는 뜻으로, 중국어 간체(简体中文)에서 그대로 사용되었습니다. *   **路由器 (Router):** "路由器"는 "Wi-Fi"라는 뜻으로, 중국어 간체(简体中文)에서 그대로 사용되었습니다. *   **한 달 (Yī nián):** "한 달"은 "one month"이라는 뜻으로, 중국어 간체(简体中文)에서 그대로 사용되었습니다. *   **위로 (Wéi):** "위로"는 "on"이라는 뜻으로, 중국어 간체(简体中文)에서 그대로 사용되었습니다. *   **玄学 (Xúané):** "玄学"은 "玄学"이라는 뜻으로, 중국어 간체(简体中文)에서 그대로 사용되었습니다.  **Thought Process:**  The translation prioritized maintaining the original tone and the specific wording of the Chinese text.  I aimed for a natural and slightly humorous tone, reflecting the implied feeling of the original statement.  The "玄学" explanation is simply a literal translation of the Chinese phrase.
 - **mlx-gemma-4-e2b-4bit**: 确实。我家猫在路由器上趴了一个星期,Wi-Fi 居然比以前还稳。别问,问就是玄学。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 정말이죠. 제 집 고양이는 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다 더 안정적이었어요. 묻지 마세요, 그냥 미신이에요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 정말이죠. 제 집 고양이는 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다 더 안정적이었어요. 묻지 마세요, 그냥 운명의 현상이에요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 确实。我家猫在路由器上趴了一个星期,Wi-Fi 居然比以前还稳。别问,问就是玄学。
@@ -3133,7 +3219,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 确实。我家猫在路由器上趴了一个星期，Wi-Fi 居然比以前还稳。别问，问就是玄学。
 - **mlx-qwen3.5-4b-4bit**: 맞습니다.我家的猫在路由器上趴了一个星期，Wi-Fi 居然比以前还稳。别问，问就是玄学。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 정말이에요. 제 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 이전보다 더 안정적이게 됐어요. 설명은 필요 없어요, 그냥 신기한 거죠.
+- **mlx-translategemma-4b-4bit-mt**: 네, 맞아요. 제 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 이전보다 더 안정적이게 됐어요. 설명은 필요 없고, 그냥 신기한 거죠.
 - **ollama-gemma4-e2b**: 맞아. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, 와이파이가 예전보다 더 안정적이더라. 묻지 마, 그건 신기한 거야.
 - **ollama-gemma4-e4b**: 맞아요. 저희 집 고양이가 라우터 위에 일주일 동안 누워있더니, 와이파이가 예전보다 더 안정적이에요. 묻지 마세요. 그냥 현상학(미신)입니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3146,6 +3232,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 家人们,我花了 400 块买了个敲起来像下雨的键盘,一点都不后悔,同事们嘛……就不一定了。
 - **apple-fm**: 여러분, 나는 400원을 들여 빗소리가 들리는 듯한 키보드를 샀는데, 전혀 후회하지 않아. 동료들은...확실히 아니다.
 - **apple-mt-attr**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
+- **apple-mt-marker**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
 - **apple-mt-plain**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3157,7 +3244,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 가 사람들, 저는 400 장의 폰을 샀는데, 쿵쾅거리는 것과 비슷해서 전혀 후회하지 않아요. 동료들은… 아마 그럴 것입니다.  **설명:**  *   **家人们 (jiangongren):**  "가 사람들"이라는 표현을 그대로 사용했습니다. *   **我花了 (wǒ guǒ le):** "저는"이라는 표현을 그대로 사용했습니다. *   **敲起来像下雨的键盘 (qǐng qǐ qǐ xiàng xià yǔ de yànkè):**  "쿵쾅거리는 것과 비슷해서"라는 문장으로, 폰을 샀다는 상황을 설명했습니다. *   **一点都不后悔 (yī diǎn dōu bù huàn):** "전혀 후회하지 않아요"라는 표현을 그대로 사용했습니다. *   **同事们嘛 (tóng'érmen ma):** "동료들은"이라는 표현을 그대로 사용했습니다.  **주석:**  *   이 문장은 중국어 간체(简体中文)로 작성되었으며, 한국어에 번역된 문장입니다. *   "家人们"은 "가 사람들"이라는 뜻으로, 중국어 간체(简体中文)에서 사용된 표현입니다. *   "쿵쾅거리는 것과 비슷해서"는 "쿵쾅거리는 것과 비슷해서"라는 뜻으로, 폰을 샀다는 상황을 설명하는 문장입니다. *   "一点都不后悔"은 "전혀 후회하지 않아요"라는 뜻으로, "저는"이라는 표현을 그대로 사용했습니다.  **생각 과정:**  이 문장은 중국어 간체(简体中文)의 문장 구조를 그대로 반영하여 번역했습니다.  문장 전체의 의미를 최대한 유지하면서, 한국어에 어울리는 표현을 사용하여 번역했습니다.
 - **mlx-gemma-4-e2b-4bit**: 家人们,我花了 400 块买了个敲起来像下雨的键盘,一点都不后悔,同事们嘛……就不一定了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 400원을 들여서 비가 내리는 것처럼 들리는 키보드를 구입했어요. 전혀 후회하지 않아요. 하지만 동료들은… 그렇지 않을 수도 있죠.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 가족들, 400원을 써서 비가 내리는 것처럼 느껴지는 키보드를 구했어요. 전혀 후회하지 않아요. 동료들은… 그렇지 않을 수도 있죠.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 这段话是用中文写的，翻译成韩语后输出。
@@ -3180,6 +3267,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 保存更改
 - **apple-fm**: 변경 사항을 저장합니다
 - **apple-mt-attr**: 변경 저장
+- **apple-mt-marker**: 변경 저장
 - **apple-mt-plain**: 변경 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3214,6 +3302,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 出错了,请稍后重试。
 - **apple-fm**: 오류가 발생했습니다. 잠시 후에 다시 시도해주세요.
 - **apple-mt-attr**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
+- **apple-mt-marker**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3248,6 +3337,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 您有 3 条未读消息
 - **apple-fm**: 3개의 미확인 메시지가 있습니다.
 - **apple-mt-attr**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
+- **apple-mt-marker**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3282,6 +3372,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 点击[此处]继续。
 - **apple-fm**: 클릭하세요[此处]계속하려면
 - **apple-mt-attr**: 기를 클릭하여[此处] 계속하세요.
+- **apple-mt-marker**: [此处]를 클릭하여 계속하세요.
 - **apple-mt-plain**: 클릭[此处]계속해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3316,6 +3407,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 有关支持的平台,请参阅[安装指南]了解详情。
 - **apple-fm**: 지원 플랫폼에 대한 정보는 설치 가이드에 참고하세요.[安装指南]자세한 정보
 - **apple-mt-attr**: 지원되는 플랫폼에 대해서는 참조하여 [安装指南]자세히 알아보세요.
+- **apple-mt-marker**: 지원되는 플랫폼에 대해서는 [安装指南]을 참조하여 자세히 알아보세요.
 - **apple-mt-plain**: 지원되는 플랫폼에 대해서는 참조하십시오.[安装指南]자세히 알아보기.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3327,7 +3419,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 有关支持的平台,请参阅[安装指南]了解详情。 ```
 - **mlx-gemma-4-e2b-4bit**: 有关支持的平台,请参阅[安装指南]安装指南
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 지원되는 플랫폼에 대해서는 [安装指南]을 참조하여 자세한 정보를 확인하세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지원되는 플랫폼에 대해서는 [安装指南]를 참조하여 자세한 정보를 확인하세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 관련된 지원 플랫폼의 내용은 [安装指南]에서 자세히 확인할 수 있습니다.
@@ -3350,6 +3442,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 如果遇到问题,请[在问题追踪页面提交反馈],并附上日志文件。
 - **apple-fm**: 문제에 대한 답변을 찾으신다면, 문제 추적 페이지에 피드백을 제출하세요.[在问题追踪页面提交反馈], 로그 파일을 첨부하세요.
 - **apple-mt-attr**: 문제가 발생하면, 주세요[在问题追踪页面提交反馈]하고, 로그 파일을 첨부해 .
+- **apple-mt-marker**: 문제가 발생하면, [在问题追踪页面提交反馈]을 하고, 로그 파일을 첨부하십시오.
 - **apple-mt-plain**: 문제가 생기면, 제발[在问题追踪页面提交反馈], 그리고 로그 파일을 첨부한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3361,7 +3454,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.  **번역:**  “如果遇到问题，请联系我们。”  **설명:**  *   **“如果遇到问题”**:  “만약 문제가 발생하면”이라는 의미를 나타냅니다. *   **“请联系我们”**:  “우리에 연락해주세요”라는 의미를 나타냅니다. *   **“我们”**:  “우리는”이라는 의미를 나타냅니다.  **주석:**  *   (원문은 중국어 간체(简体中文)다.) *   (번역문만 출력하므로, 원문에 대한 정보는 제공하지 않습니다.)  **따옴표:**  *   (원문은 중국어 간체(简体中文)다.)  **생각 과정:**  원문은 중국어 간체(简体中文)로 되어 있으며, 번역은 원문 그대로 유지하는 것이 중요했습니다.  이전의 상황에 따라, 번역문은 문맥에 맞게 자연스럽게 한국어로 표현했습니다.[在问题追踪页面提交反馈]**번역:**  "추가 로그 파일도 함께 제공합니다."  **설명:**  *   **"추가 로그 파일"**은 "추가 로그 파일"이라는 의미로 번역되었습니다. *   **"추가 로그 파일"**은 "추가 로그 파일"이라는 의미로 번역되었습니다. *   **"추가 로그 파일"**은 "추가 로그 파일"이라는 의미로 번역되었습니다.  **주석:**  "추가 로그 파일도 함께 제공합니다."  **생각 과정:**  이 문장은 중국어 간체(简体中文)의 "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라."를 반영하여, 문장 전체의 어조와 표현을 유지하도록 번역했습니다.  "추가 로그 파일"은 원문 그대로 유지하여 이해도를 높였습니다.
 - **mlx-gemma-4-e2b-4bit**: 如果遇到问题,请[在问题追踪页面提交反馈]在问题追踪页面提交反馈
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [在问题追踪页面提交反馈]을 하시고 로그 파일도 첨부해 주세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [在问题追踪页面提交反馈]을 사용하시고 로그 파일도 첨부해 주세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 원문 중국어 간체(简体中文): 如果遇到问题,请[在问题追踪页面提交反馈],并附上日志文件。
@@ -3371,7 +3464,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 문제를 발생 시에는[在问题追踪页面提交反馈]을 참조하여 로그 파일을 첨부하십시오.
 - **mlx-qwen3.5-4b-4bit**: 문제가 발생하면 다음을 제출하여 피드백을 보내주세요:[在问题追踪页面提交反馈]문제 추적 페이지
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 문제가 있을 경우[在问题追踪页面提交反馈]그리고 로그 파일을 첨부합니다.
+- **mlx-translategemma-4b-4bit-mt**: 문제가 발생했을 경우,[在问题追踪页面提交反馈]그리고 로그 파일을 첨부합니다.
 - **ollama-gemma4-e2b**: 문제가 발생하면, [在问题追踪页面提交反馈]로그 파일을 첨부하세요.
 - **ollama-gemma4-e4b**: 문제가 발생하면,[在问题追踪页面提交反馈]에 피드백을 제출하고 로그 파일을 첨부해 주세요.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3384,6 +3477,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 去年春天,我决定把一台旧笔记本改造成家用服务器,用来存放家人的照片。
 - **apple-fm**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족 사진을 보관하기로 했다.
 - **apple-mt-attr**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
+- **apple-mt-marker**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
 - **apple-mt-plain**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3395,7 +3489,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 2023년 4월, 저는 오래된 노트북을 가정용 서버로 바꾸기로 결정했어요.
 - **mlx-gemma-4-e2b-4bit**: 去年春天,我决定把一台旧笔记本改造成家用服务器,用来存放家人的照片。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄, 저는 낡은 노트북을 가정용 서버로 개조하여 가족의 사진들을 저장하기로 결심했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄에, 저는 오래된 노트북을 가정용 서버로 바꾸기로 결심했어요. 그 서버를 가족의 사진들을 저장하는 데 사용할 예정입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 去年春天，我决定把一台旧笔记本改造成家用服务器，用来存放家人的照片。
@@ -3418,6 +3512,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 这台 2014 年的ThinkBook配有 8 GB 内存,用来干这个活儿正合适。
 - **apple-fm**: 2014년 모델ThinkBook8GB 메모리가 장착되어 있어, 이 용도에 딱 맞다.
 - **apple-mt-attr**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
+- **apple-mt-marker**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3429,7 +3524,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 이 2014년 ThinkBook은 8GB RAM으로 작업을 제대로 할 수 있습니다.
 - **mlx-gemma-4-e2b-4bit**: 这台 2014 年的ThinkBook配有 8 GB 内存,用来干这个活儿正合适。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년형 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 하기에 딱 맞는 장비입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년형 ThinkBook은 8GB의 메모리 공간을 갖추고 있어, 이 작업을 수행하는 데 매우 적합합니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 这台 2014 年的ThinkBook配有 8 GB 内存,用来干这个活儿正合适。
@@ -3452,6 +3547,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 我先装了 [Debian 12],又搭了一个叫 Fernbox 的小型网页应用来浏览照片。
 - **apple-fm**: 먼저[Debian 12]Debian 12
 - **apple-mt-attr**: 나는 먼저 를 설치하고[Debian 12], 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치했다.
+- **apple-mt-marker**: 나는 먼저 [Debian 12]을 설치하고, 사진을 보려면 Fernbox라는 작은 웹사이트 애플리케이션을 하나 더 설치했다.
 - **apple-mt-plain**: 제가 먼저 설치했어요. [Debian 12],또 Fernbox라는 소형 웹사이트 애플리케이션을 이용해 사진을 둘러보았다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3463,7 +3559,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다.  **번역:**  가서 먼저 준비했다. [Debian 12]어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다.  이 문장은 "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라." 라는 조건 하에, "어떤 웹 애플리케이션을 다시 만들었다."라는 의미로 해석될 수 있습니다.  **번역:**  "또 다른 웹 애플리케이션을 만들어 사진을 보기 위해."  **설명:**  *   **어조:**  "또 다른"이라는 표현은 "또 다른"이라는 것을 강조하는 어조입니다. *   **고유명사:** "Fernbox"은 웹 애플리케이션의 이름입니다. *   **숫자:** "또"는 "또"를 나타냅니다. *   **URL:** "Fernbox"은 웹 애플리케이션의 URL입니다. *   **코드:** "또"는 "또"를 나타냅니다.  **추가적인 고려 사항:**  이 문장은 상황에 따라 다양한 방식으로 번역될 수 있습니다.  예를 들어, "어떤 웹 애플리케이션을 다시 만들었다"는 의미를 강조하고 싶다면 "어떤 웹 애플리케이션을 다시 만들었다"를 그대로 번역하는 것이 더 적절할 수 있습니다.
 - **mlx-gemma-4-e2b-4bit**: 我先装了[Debian 12]Debian 12
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]를 설치하고, 사진을 보기 위한 Fernbox라는 작은 웹 애플리케이션도 추가했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]를 설치했고, 사진을 보기 위한 Fernbox라는 작은 웹 애플리케이션도 추가했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 我先装了 [Debian 12]，又搭了一个叫 Fernbox 小型网页应用来浏览照片。
@@ -3473,7 +3569,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 먼저 [Debian 12]를 설치하고, Fernbox라는 이름의 소형 웹 애플리케이션을 구축하여 사진들을浏览합니다.
 - **mlx-qwen3.5-4b-4bit**: 먼저 Debian 12 를 설치하고, Fernbox 라는 이름의 소형 웹 애플리케이션을 구축하여 사진을 브라우저로 열었습니다.[Debian 12](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 저는 먼저 [Debian 12]을 설치하고, "Fernbox"라는 작은 웹 앱을 사용하여 사진을 보기 시작했습니다.
+- **mlx-translategemma-4b-4bit-mt**: 저는 먼저 [Debian 12]을 설치하고, "Fernbox"라는 작은 웹 애플리케이션을 설치하여 사진을 보기 시작했습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: 저는 먼저 "[Debian 12]"를 설치하고, 사진을 볼 수 있는 Fernbox라는 작은 웹 애플리케이션을 구축했습니다.
 - **ollama-qwen3-1.7b**: (오류: fetch failed)
@@ -3486,6 +3582,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 妹妹一开始半信半疑,但一周后她承认,Fernbox 比她用过的任何云服务都快。
 - **apple-fm**: 여동생은 처음에는 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용했던 모든 클라우드 서비스보다 훨씬 더 효율적이라고 인정했다.
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
+- **apple-mt-marker**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3497,7 +3594,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 간체(简体中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.  이전부터는 약간의 의심만 품고 있었지만, 한 주 뒤에 그녀가 인정했다. Fernbox는 그녀가 사용해본 어떤 다른 클라우드 서비스보다 훨씬 빠르다.
 - **mlx-gemma-4-e2b-4bit**: 妹妹一开始半信半疑,但一周后她承认,Fernbox 比她用过的任何云服务都快。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심스러워했지만, 일주일 후에 그녀는 Fernbox이 자신이 사용한 어떤 클라우드 서비스보다도 빠르다고 인정했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심했지만, 일주일 후에 그녀는 Fernbox이 자신이 사용한 어떤 클라우드 서비스보다도 빠르다고 인정했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 妹妹一开始半信半疑,但一周后她承认,Fernbox 比她用过的任何云服务都快。
@@ -3520,6 +3617,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 现在,那台旧笔记本安安静静地待在架子上,而Fernbox已经成了全家人旅行回来后第一个打开的应用。
 - **apple-fm**: 지금, 그 오래된 노트북은 조용히 선반에 올려져 있고, 그리고Fernbox이제 가족 모두가 여행에서 돌아온 후 가장 먼저 사용하는 앱이 되었다.
 - **apple-mt-attr**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
+- **apple-mt-marker**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
 - **apple-mt-plain**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3531,7 +3629,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 이제, 그 오래된 낡은 노트북은 조용히 책상 위에 놓여 있었고, Fernbox는 가족이 여행을 떠나 돌아온 후 처음으로 열린 앱이었습니다.
 - **mlx-gemma-4-e2b-4bit**: 现在,那台旧笔记本安安静静地待在架子上,而Fernbox已经成了全家人旅行回来后第一个打开的应用。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 그 낡은 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아올 때 가장 먼저 열리는 앱이 되었습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 그 낡은 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아올 때 가장 먼저 열게 되는 앱이 되었습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: block missing in output)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 现在,那台旧笔记本安安静静地待在架子上,而Fernbox已经成了全家人旅行回来后第一个打开的应用。
@@ -3556,6 +3654,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 若要安裝命令列工具,請執行 [npm install -g fernctl],接著用 [fernctl --version] 檢查版本。需要 2.4.1 或更新的版本。
 - **apple-fm**: 명령줄 도구 설치하려면 다음 명령어를 실행하세요.[npm install -g fernctl], 다음 명령어로 버전 확인을 진행하세요.[fernctl --version](누락)
 - **apple-mt-attr**: 명령줄 도구를 설치하려면 을 실행한 [npm install -g fernctl]후 사용하여 [fernctl --version]버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
+- **apple-mt-marker**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행한 후 [fernctl --version]를 사용하여 버전을 확인하십시오. 2.4.1 또는 이후 버전이 필요합니다.
 - **apple-mt-plain**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl],그 다음 사용 [fernctl --version] 버전 확인. 2.4.1 또는 이후 버전이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3567,7 +3666,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 若要安裝命令列工具, 請執行 [npm install -g fernctl],接著用 [fernctl --version] 檢查版本。需要 2.4.1 或更新的版本。  ```
 - **mlx-gemma-4-e2b-4bit**: 若要安裝命令列工具,請執行 [npm install -g fernctl]npm install -g fernctl[fernctl --version],接著用 
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행한 다음 [fernctl --version]를 사용하여 버전을 확인하세요. 2.4.1 이상의 버전이 필요합니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 명령줄 도구를 설치하려면 [npm install -g fernctl]을 실행한 다음 [fernctl --version]을 사용하여 버전을 확인하세요. 2.4.1 이상의 버전이 필요합니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 請輸入您想要的程式碼或指令，我會幫您翻譯成中文。 [npm install -g fernctl]請輸入您要翻譯的繁體中文文本，我會自動翻譯成自然韓國語，並輸出結果。 [fernctl --version] 이 문서의 요구 사항은 2.4.1 或更新的版本입니다.
@@ -3590,6 +3689,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: [timeout] 選項的單位為毫秒,預設值是 30000(30 秒),設為 0 則完全不限制逾時。
 - **apple-fm**: [timeout]옵션은 밀리초 단위로 설정되며 기본값은 30,000(30초)입니다. 0으로 설정하면 시간 초과가 완전히 제한되지 않습니다.
 - **apple-mt-attr**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 완전히 시간 초과를 제한하지 않습니다.
+- **apple-mt-marker**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 연장 제한이 전혀 없습니다.
 - **apple-mt-plain**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 연체에 대해 완전히 제한되지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3624,6 +3724,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 從 v1.x 升級之前,請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案,而且無法復原。
 - **apple-fm**: v1.x에서 이전 버전으로 업그레이드하기 전에 먼저 백업을 진행하세요.설정 폴더를 지정하세요.(누락)
 - **apple-mt-attr**: v1.x로 업그레이드하기 전에 먼저 백업해 주세요설정 폴더를 . 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
+- **apple-mt-marker**: v1.x로 업그레이드하기 전에 설정 폴더를 먼저 백업해 주세요. 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
 - **apple-mt-plain**: v1.x로 업그레이드하기 전에 설정 폴더를 먼저 백업해 주세요. 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3635,7 +3736,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: **From version 1.x upgrade, please first backup the configuration directory. The transition command will directly overwrite all files, and it cannot be recovered.**  **Explanation:**  *   **從 v1.x 升級之前:**  "From version 1.x upgrade before" -  "Before" is translated as "before" in Chinese. *   **請先備份設定資料夾:** "Please first backup the configuration directory." - "Please" is translated as "Please" in Chinese. *   **遷移指令碼會直接覆寫所有檔案:** "The transition command will directly overwrite all files." - "Transition command" is translated as "transition command" in Chinese. *   **而且無法復原:** "and it cannot be recovered." - "and" is translated as "and" in Chinese.  **Thought Process:**  The translation prioritizes maintaining the original meaning and structure of the Chinese text. I've focused on preserving the formal tone and the technical details.
 - **mlx-gemma-4-e2b-4bit**: 從 v1.x 升級之前,請先備份設定資料夾。遷移指令碼會直接覆寫所有檔案,而且無法復原。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에, 먼저 설정 파일을 백업해 두세요. 이전 명령어는 모든 파일을 직접 덮어넣게 되며, 복구할 수 없습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: v1.x로 업그레이드하기 전에, 먼저 설정 파일을 백업해 두세요. 이전 명령어는 모든 파일을 직접 덮어넣을 것이며, 복구할 수 없습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 이 문장은 중국어 번체로 되어 있습니다. 자연스러운 한국어로 번역해 드리겠습니다.  원문: 從 v1.x 升級之前,請先備份設定資料夢。遷移指令碼會直接覆寫所有檔案,而且無法復原。  번역: Before upgrading to v1.x, please back up the setting data folder. The migration script will directly overwrite all files, and it cannot be restored.
@@ -3658,6 +3759,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 如果常駐程式無法啟動,請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。
 - **apple-fm**: 정기적으로 실행되는 프로그램이 시작되지 않으면 8443 포트가 다른 프로그램에 사용 중인지 확인하세요. 로그는 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 - **apple-mt-attr**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
+- **apple-mt-marker**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3679,7 +3781,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 如果常駐程式無法啟動，請確認連接埠 8443 未被其他處理程序佔用。記錄檔可於 http://localhost:8443/debug/logs 查看。
 - **mlx-qwen3.5-4b-4bit**: 常驻服务无法启动时，请确认端口 8443 未被其他进程占用。日志可在 http://localhost:8443/debug/logs 查看。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 만약 프로그램이 정상적으로 실행되지 않는 경우, 포트 8443이 다른 프로그램에 의해 사용 중인지 확인해주세요. 로그 파일은 http://localhost:8443/debug/logs 에서 확인하실 수 있습니다.
+- **mlx-translategemma-4b-4bit-mt**: 만약 프로그램이 실행되지 않는 경우, 포트 8443이 다른 프로그램에 의해 사용 중인지 확인해주세요. 로그는 http://localhost:8443/debug/logs 에서 확인하실 수 있습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -3692,6 +3794,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 每個執行緒都有各自約 64 MB 的快取,因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
 - **apple-fm**: 각 스레드는 약 64MB의 캐시를 사용하므로 8GB 메모리를 가진 컴퓨터에서는 최대 8개의 스레드를 실행해야 합니다.
 - **apple-mt-attr**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
+- **apple-mt-marker**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
 - **apple-mt-plain**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3703,7 +3806,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  "각 실행기마다 자체적으로 64MB의 캐시가 있으며, 따라서 기억 장치는 8GB의 컴퓨터로 실행할 수 있는 최대 8개 실행기만 가능합니다."  **설명:**  *   **각 실행기:** "각 실행기"는 "각 실행기"로 번역되었습니다. *   **캐시:** "캐시"는 "캐시"로 번역되었습니다. *   **컴퓨터:** "컴퓨터"는 "컴퓨터"로 번역되었습니다. *   **64MB:** "64MB"는 "64MB"로 번역되었습니다. *   **만족:** "만족"은 "만족"로 번역되었습니다.  **추가 설명:**  이 번역은 원문의 의미를 최대한 유지하면서 한국어에 어울리는 표현으로 수정했습니다.
 - **mlx-gemma-4-e2b-4bit**: 每個執行緒都有各自約 64 MB 的快取,因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64 MB의 캐시 공간을 가지고 있으므로, 8 GB의 메모리가 있는 컴퓨터에서는 최대 여덟 개의 작업 스레드만 실행될 수 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 각 작업 스레드는 약 64 MB의 캐시 공간을 가지고 있으므로, 메모리가 8 GB인 컴퓨터에서는 최대 8개의 작업 스레드만 실행될 수 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 每個執行緒都有各自約 64 MB 的快取,因此記憶體為 8 GB 的電腦最多只應執行八個執行登錄。
@@ -3726,6 +3829,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 請求最多會以指數退避的方式重試三次;若全部失敗,錯誤會以 [TransientError] 的形式回傳給呼叫端。
 - **apple-fm**: 요청은 최대 3회 급격히 실패하도록 재시도되며, 모든 시도가 실패하면 오류는 [TransientError]TransientError
 - **apple-mt-attr**: 요청은 최대 지수적 회피 방식으로 세 번까지 재시도할 수 있습니다; 모두 실패하면 오류는 [TransientError]형태로 호출측으로 반환됩니다.
+- **apple-mt-marker**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있으며; 모두 실패하면 오류는 [TransientError] 형식으로 호출측으로 반환됩니다.
 - **apple-mt-plain**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있습니다; 모두 실패하면 오류는 [TransientError] 의 형식을 호출단으로 반환한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3737,7 +3841,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: **최대 청구는 1000만 포인트로 다시 시도할 수 있습니다. 만약 모든 시도가 실패하면, 오류는 1000만 포인트로 다시 시도됩니다.**  **설명:**  *   **최대 청구:**  "최대 청구"는 "최대 청구"를 그대로 번역했습니다. *   **1000만 포인트:**  "1000만 포인트"는 "1000만 포인트"를 그대로 번역했습니다. *   **시도:**  "시도"는 "시도"를 그대로 번역했습니다. *   **오류:**  "오류"는 "오류"를 그대로 번역했습니다.  **주석:**  이 문장은 중국어 번체(繁體中文)에서 사용된 텍스트의 의미를 최대한 유지하려고 노력했습니다.  이 문장은 일반적으로 오류 발생 시 재시도하는 시스템의 메시지일 가능성이 높습니다. [TransientError] 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 번체(繁體中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.
 - **mlx-gemma-4-e2b-4bit**: 請求最多會以指數退避的方式重試三次;若全部失敗,錯誤會以 [TransientError]TransientError
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 최대 3번까지 지수적 회피 방식으로 다시 시도할 수 있습니다. 만약 모든 시도가 실패하면, 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 최대 3번까지 지수적인 거리를 두고 다시 시도할 수 있습니다. 만약 모두 실패하면, 오류는 [TransientError] 형태로 호출자에게 반환됩니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 請求最多會以指數退避的方式重試三次;若全部失敗,錯誤會以 [TransientError] 的形式回傳給呼叫端。
@@ -3747,7 +3851,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 請求最多會以指數退避的方式重試三次；若全部失敗，錯誤會以 [TransientError] 的形式回傳給呼叫端。
 - **mlx-qwen3.5-4b-4bit**: 요청 최대 3 회 지수 백오프 방식으로 재시도합니다. 모두 실패하면 오류가 [TransientError](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 가장 최대 3번의 시도 후, 지수 기반으로 재시도할 수 있습니다. 모든 시도가 실패하면, 오류는 [TransientError] 형태로 반환됩니다.
+- **mlx-translategemma-4b-4bit-mt**: 최대 3번의 시도 후, 지수 기반으로 재시도할 수 있습니다. 모든 시도가 실패하면, 오류는 [TransientError] 형태로 반환됩니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -3760,6 +3864,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案,支持者表示,這將使通勤時間最多縮短 25%。
 - **apple-fm**: 화요일, 시의회는 7표 대 2표로 버스 노선을 동부 외곽으로 연장하는 방안을 의결했으며, 지지자들은 이를 통해 출퇴근 시간이 최대 25% 단축될 것이라고 밝혔습니다.
 - **apple-mt-attr**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
+- **apple-mt-marker**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
 - **apple-mt-plain**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3771,7 +3876,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案，支持者表示，這將使通勤時間最多縮短 25%。  **번역:**  의회는 다음 주 화요일에 7표 2표로 공공철도 노선을 확장하는 계획을 제안했으며, 지지자들은 이 계획이 이동 시간을 최대 25% 단축할 것이라고 주장했습니다.  **설명:**  *   **의회 (yìwéi):** 의회 (의회) *   **주요 내용:** 공공철도 노선 확장 계획 *   **지지자 (zhīdìzǐ):** 지지자 (지지자) *   **추가 설명:**  "이 계획이 이동 시간을 최대 25% 단축할 것이라고 주장했습니다."는 원래 문맥에 맞춰 핵심 내용을 요약했습니다.
 - **mlx-gemma-4-e2b-4bit**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案,支持者表示,這將使通勤時間最多縮短 25%。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 시의회는 화요일에 7대 2의 표로 버스 노선을 동부 교외 지역까지 연장하는 방안을 통과시켰습니다. 지지자들은 이로 인해 출퇴근 시간이 최대 25% 단축될 것이라고 말했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 시 의회는 화요일에 7대 2의 표로 버스 노선을 동부 교외 지역으로 연장하는 방안을 통과시켰습니다. 지지자들은 이로 인해 출퇴근 시간이 최대 25% 단축될 것이라고 말했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案,支持者表示,這將使通勤時間最多縮短 25%。
@@ -3794,6 +3899,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 哈爾沃森研究所的研究人員指出,一種新型電池在經過 2000 次充放電循環後,仍保有 90% 的電量,約為目前市售電池的兩倍。
 - **apple-fm**: 하얼빈(Harbin) 연구소의 연구진은 새로운 유형의 배터리가 2,000회 충전-방전 사이클 후에도 90%의 용량을 유지하며 현재 시중에 나와 있는 배터리의 두 배에 달한다고 밝혔습니다.
 - **apple-mt-attr**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
+- **apple-mt-marker**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
 - **apple-mt-plain**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3805,7 +3911,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 연구원들은 하르워슨 연구소의 연구팀이, 2000회 충전 및 방전 주행을 거친 새로운 배터리가, 현재 시판되는 배터리의 90%의 전력을 유지한다고 밝혔습니다.
 - **mlx-gemma-4-e2b-4bit**: 哈爾沃森研究所的研究人員指出,一種新型電池在經過 2000 次充放電循環後,仍保有 90% 的電量,約為目前市售電池的兩倍。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 할보센 연구소의 연구원들은 새로운 종류의 배터리가 2000회의 충·방전 주기를 거쳐도 90%의 전력을 유지한다고 지적했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배나 많은 수치입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 할보센 연구소의 연구원들은 새로운 종류의 배터리가 2000번의 충전과 방전 과정을 거쳐도 90%의 전력량을 유지한다고 지적했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배 많은 수치입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 哈爾沃森研究所的研究人員指出,一種新型電池在經過 2000 多次充放電循環後,仍保有 90% 的電量,約為目前市售電池的兩倍。
@@ -3815,7 +3921,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 하르沃森研究所의 연구원들은, 새로운 유형의 전지가 2000 회 충전 - 방전 사이클을 거치더라도 90% 의 전량을 유지하며, 이는 현재 상용 전지의 두 배에 달한다고 밝혔다.
 - **mlx-qwen3.5-4b-4bit**: 하얼슨 연구소의 연구원들은 새로운 배터리가 2000 회 충전/방전 사이클 후에도 90% 의 전력을 유지하며, 이는 현재 판매 중인 배터리보다 약 두 배 빠르다고 밝혔습니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 할브러센 연구소의 연구진은 새로운 배터리가 2,000회 충방전 후에도 90%의 용량을 유지하며, 현재 시장에 판매되는 배터리의 두 배에 달한다고 밝혔습니다.
+- **mlx-translategemma-4b-4bit-mt**: 할로윈 연구소의 연구진은 새로운 배터리가 2,000회 충방전 후에도 90%의 용량을 유지하며, 현재 시장에 판매되는 배터리의 두 배에 달한다고 밝혔습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -3828,6 +3934,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 不過,批評者指出,這項成果尚未經過同儕審查,而且原型的生產成本約為每千瓦小時 340 美元。
 - **apple-fm**: 그러나 비판자들은 해당 연구 결과가 동료 검토를 거치지 않았으며, 프로토타입 생산 비용이 킬로와트시당 약 3,400달러라고 지적합니다.
 - **apple-mt-attr**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
+- **apple-mt-marker**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3839,7 +3946,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: (번역문)  이 결과는 아직 동료 검토를 거치지 않았고, 원본 제작 비용은 각 1000 와트 시밤에 약 340달러입니다.  (설명)  *   **결과:**  "결과"를 "result"로 번역했습니다. *   **고유명사:** "이 결과"를 "이 결과"로 번역했습니다. *   **숫자:** "340달러"를 "340달러"로 번역했습니다. *   **URL:** "이 결과"를 "이 결과"로 번역했습니다. *   **코드:** "340달러"를 "340달러"로 번역했습니다.  (주석)  이 결과는 아직 동료 검토를 거치지 않았고, 원본 제작 비용은 각 1000 와트 시밤에 약 340달러입니다. (이 부분은 원래 문맥에 맞춰 그대로 유지했습니다.)  (생각 과정)  원문은 중국어 번체(繁體中文)로 작성되었고, 번역은 원문의 의미를 최대한 유지하면서 자연스러운 한국어 표현으로 바꾸는 것을 목표로 했습니다.  특히 고유명사, 숫자, URL, 코드는 그대로 유지했습니다.
 - **mlx-gemma-4-e2b-4bit**: 不過,批評者指出,這項成果尚未經過同儕審查,而且原型的生產成本約為每千瓦小時 340 美元。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 하지만, 비평가들은 이 성과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용은 약 킬로와트시간당 340달러라고 지적했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 하지만 비평가들은 이 성과가 동료 검토를 거치지 않았으며, 프로토타입의 생산 비용은 약 킬로와트시간당 340달러라고 지적했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 不過,批評者指出,這項成果尚未經過同儕審查,而且原型的生產成本約為每千瓦小時 340 美元。
@@ -3862,6 +3969,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 北部沿海地區預計到週四都會有大雨,陣風可達每小時 70 公里,氣溫約在攝氏 12 度上下。
 - **apple-fm**: 북부 해안 지역은 목요일까지 폭우가 예상되며, 강풍은 시간당 70km에 이를 수 있고 기온은 약 12도 내외로 예상됩니다.
 - **apple-mt-attr**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
+- **apple-mt-marker**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
 - **apple-mt-plain**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3873,7 +3981,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 전북 영서 지역에 예정된 폭우는 다음 주 토요일에 예상되며, 바람은 1시간에 70km까지 이동할 수 있습니다. 기온은 약 섭씨 12도에서 20도 사이로 예상됩니다.
 - **mlx-gemma-4-e2b-4bit**: 北部沿海地區預計到週四都會有大雨,陣風可達每小時 70 公里,氣溫約在攝氏 12 度上下。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강한 비가 내릴 예정이며, 바람의 속도는 시간당 70km에 달할 수 있고, 기온은 약 섭씨 12도 정도가 될 것입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 북부 해안 지역에서는 목요일까지 강한 비가 내릴 예정이며, 바람의 속도는 시간당 70km에 달할 수 있고, 기온은 약 섭씨 12도 정도가 될 것으로 예상됩니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 北部沿海地區預計到週四都會有大雨，陣風可達每小時 70 公里，氣溫約在攝氏 12 度上下。
@@ -3883,7 +3991,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 북부 해안 지역은 다음 주 일요일까지 큰 비가 예상되며, 바람은 시속 70 킬로미터까지 날릴 수 있으며, 기온은 섭씨 12 도 부근으로 유지될 것이다.
 - **mlx-qwen3.5-4b-4bit**: 북부 해안 지역은 목요일까지도 강풍이 예상되며, 최대 시속 70 km 의 바람과 약 12 도의 기온이 예상됩니다.
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 북부 해안 지역은 이번 주 수요일까지 강한 비가 내리고, 최대 순간 풍속은 시속 70km, 기온은 약 12도 정도로 예상됩니다.
+- **mlx-translategemma-4b-4bit-mt**: 북해 연안 지역은 이번 주 수요일까지 강한 비가 내리고, 최대 순간 풍속은 시속 70km, 기온은 약 12도 정도로 예상됩니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -3896,6 +4004,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 該公司週一發布聲明表示,由於供應鏈問題持續,將把旗艦手機的上市延後至明年年初。
 - **apple-fm**: 회사는 월요일 성명을 통해 공급망 문제로 인해 다음 사항을 연기한다고 밝혔습니다.선두 모델 스마트폰 출시내년 초로 예정
 - **apple-mt-attr**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 것이라고 밝혔다플래그십 스마트폰 출시를 내년 초로 연기할 .
+- **apple-mt-marker**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 플래그십 스마트폰 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 플래그십 스마트폰 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3907,7 +4016,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 이 회사는 다음 주에 발표한 공지에서, 공급망 문제로 인해 출시가 연기될 예정이라고 밝혔습니다.  (이 부분은 중국어 번체(繁體中文)를 그대로 유지합니다.)  **설명:**  *   **이 회사는 (이 회사는)**:  이 부분을 그대로 유지했습니다. *   **발표한 공지**:  발표 내용이 무엇인지 명확하게 전달하기 위해 "발표한 공지"로 번역했습니다. *   **공급망 문제**:  "공급망 문제"를 그대로 유지했습니다. *   **연기될 예정이라고 밝혔습니다**:  "연기될 예정이라고 밝혔습니다"는 문장 구조를 한국어로 자연스럽게 표현했습니다.  **주석:**  (이 부분은 원문 그대로 유지합니다.)  **생각 과정:**  원문은 중국어 번체(繁體中文)로 작성되었으므로, 그대로 번역하는 것이 가장 적절합니다.  번역할 때는 문맥과 의미를 최대한 살리면서, 원문의 어조와 고유명사를 유지하는 것이 중요합니다.
 - **mlx-gemma-4-e2b-4bit**: 該公司週一發布聲明表示,由於供應鏈問題持續,將把旗艦手機的上市延後至明年年初。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있기 때문에 프리미어 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 그 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있어, 프리미어 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 該公司週一發布聲明表示,由於供應鏈問題持續,將把旗艦手機的上市延後至明年年初。
@@ -3930,6 +4039,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 為什麼許多小型麵包店撐不過五年?經濟學家認為,原因與麵包本身關係不大,更多在於房租、人力與微薄的利潤。
 - **apple-fm**: 왜 많은 작은 빵집은 5년 안에 망하는 걸까요? 경제학자들은 그 원인이 빵 자체와 거의 관련이 없으며, 오히려 임대료와 수익이 적기 때문이라고 합니다.인력그리고 낮은 이익 때문입니다.
 - **apple-mt-attr**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, ,  더  생각합니다인력그리고 적은 이익에기인한다고.
+- **apple-mt-marker**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, 인력, 그리고 적은 이익에 더 기인한다고 생각합니다.
 - **apple-mt-plain**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, 인력, 그리고 적은 이익에 더 기인한다고 생각합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3941,7 +4051,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 왜 많은 소규모 베이커리점이 5년 동안 버틸 수 없는가요? 경제학자들은 베이커리 자체와는 관련이 없다고 생각하며, 오히려 임대료, 인력과 미작성된 이익에 더 큰 비중을 두고 있다고 주장합니다.
 - **mlx-gemma-4-e2b-4bit**: 為什麼許多小型麵包店撐不過五年?經濟學家認為,原因與麵包本身關係不大,更多在於房租、人力與微薄的利潤。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 많은 소규모 빵집들이 5년을 버티지 못하는가? 경제학자들은 그 이유가 빵 자체와는 관련이 없으며, 오히려 임대료, 인력, 그리고 낮은 이익률 때문이라고 생각합니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 왜 많은 소규모 빵집들이 5년을 버티지 못하는 걸까? 경제학자들은 그 이유가 빵 자체와는 관련이 없으며, 더욱이 임대료, 인력, 낮은 이익률과 관련이 있다고 생각합니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 為什麼許多小型麵包店撐不過五年?經濟學家認為,原因與麵包本身關係不大,更多在於房租、人力與微薄的利潤。
@@ -3964,6 +4074,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 天啊,樹莓派終於開機了,結果一通電就冒煙。好啦也不是真的冒煙,但我的心已經碎了。
 - **apple-fm**: 오, 라즈베리 파이를 드디어 작동시켰는데, 갑자기 불이 났어요. 물론 진짜 불은 아니지만, 내 마음은 이미 부서졌어요.
 - **apple-mt-attr**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
+- **apple-mt-marker**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
 - **apple-mt-plain**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -3975,7 +4086,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: **태아, 뇌류파가 시작됐어, 결과 한 통의 전기가 튀었어. 괜찮아, 그냥 속이 텅 비어버렸어.**  **설명:**  *   **태아 (taa):**  "아"를 뜻하는 중국어 발음으로, "아"를 표현하는 데 사용되었습니다. *   **뇌류파 (luo-li-pai):** "뇌류파"는 "뇌"와 "파"를 결합한 이름입니다. *   **개방됐어 (gao-fang-twae-o):** "열렸다"를 뜻하는 중국어 표현으로, "열렸다"를 의미합니다. *   **한 통의 전기가 튀었어 (hen tui-e-o tsuet-e-o):** "한 통의 전기"는 "한 통의 전기"를 의미하며, "전기"는 "전류"를 뜻하는 중국어입니다. *   **괜찮아 (guànxiao-o):** "괜찮아"는 "괜찮아"를 뜻하는 한국어 표현입니다. *   **속이 텅 비어버렸어 (cai-tng-bei-o-reung-o):** "속이 텅 비어버렸어"는 "속이 텅 비어버렸어"를 뜻하며, "텅 비어버렸어"는 "비어버렸어"를 뜻하는 한국어 표현입니다.  **주석:**  *   "태아"는 "아"를 표현하는 중국어 발음으로, "뇌류파"는 "뇌"와 "파"를 결합한 이름입니다. *   "한 통의 전기가 튀었어"는 "한 통의 전기가 튀었어"를 뜻하며, "전기"는 "전류"를 뜻하는 중국어입니다. *   "괜찮아"는 "괜찮아"를 뜻하는 한국어 표현입니다.  **생각 과정:**  이 문장은 중국어 번체(繁體中文)로 작성되었으며, "아"를 표현하는 중국어 발음(태아)과 "뇌류파"라는 이름이 포함되어 있습니다.  전기(전류)가 튀었다는 상황을 묘사하고 있으며, "괜찮아"라는 한국어 표현이 사용되었습니다.  이 문장은 텍스트의 의미를 전달하는 데 적합합니다.
 - **mlx-gemma-4-e2b-4bit**: 天啊,樹莓派終於開機了,結果一通電就冒煙。好啦也不是真的冒煙,但我的心已經碎了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 세상에, 러브베리 파이가 드디어 시작되었는데, 갑자기 연기가 나왔어요. 사실 정말 연기가 나온 건 아니지만, 내 마음은 이미 부서졌어요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 세상에, 라즈베리 파이가 마침내 시작되었는데, 한 번 전원을 켜자마자 연기가 나왔어요. 사실 정말 연기가 나온 건 아니지만, 내 마음은 이미 부서졌어요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 天啊,樹莓派終於開機了,結果一通電就冒煙。好啦也不是真的冒煙,但我的心已經碎了。
@@ -3985,7 +4096,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 아하, 루트피이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이
 - **mlx-qwen3.5-4b-4bit**: 천하무적! 라즈베리 파이终于在开机了，结果一通电就冒烟。好啦也不是真的冒烟，但我的心已经碎了。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 맙소사, 라즈베리 파가 드디어 부팅되었지만, 한 번 충전하고 나니 금방 타버리는 것 같네요. 정확히는 타는 것 같진 않지만, 제 마음은 이미 부서졌어요.
+- **mlx-translategemma-4b-4bit-mt**: 맙소사, 라즈베리 파가 드디어 부팅되었지만, 한 번 충전하고 나니 금방 타버리는 것 같아요. 정확히는 타는 것 같지는 않지만, 제 마음은 이미 부서졌네요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -3998,6 +4109,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 說句可能會被罵的:用 Tab 或空白都可以,凌晨兩點還在吵這個的人,該去吃點宵夜然後睡覺了啦。
 - **apple-fm**: 아마 욕먹을 수 있는 말인데, 탭이나 빈 공간을 사용할 수 있는데 새벽 2시쯤에 이 문제에 대해 이야기하는 사람이 있는데, 이제는 간식을 먹고 잠자리에 들 시간이 됐어요.
 - **apple-mt-attr**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
+- **apple-mt-marker**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
 - **apple-mt-plain**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4009,7 +4121,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: **번역:**  밤 2시쯤에 계속 싸우는 사람을, 늦게까지 기다리고 있는 사람에게, 저녁 먹으러 가서 잠들어야 할 때가 되었어.  **설명:**  *   **"밤 2시쯤에 계속 싸우는 사람을"**:  "밤 2시쯤에 계속 싸우는 사람을"은 "밤 2시쯤에 계속 싸우는 사람을"로 번역되었습니다. *   **"그의"**: "그의"는 "그의"로 번역되었습니다. *   **"저녁 먹으러 가서 잠들어야 할 때가 되었어."**: "저녁 먹으러 가서 잠들어야 할 때가 되었어."는 "저녁 먹으러 가서 잠들어야 할 때가 되었어."로 번역되었습니다.  **주석:**  *   "밤 2시쯤에 계속 싸우는 사람을"은 "밤 2시쯤에 계속 싸우는 사람을"로 번역되었습니다. *   "그의"는 "그의"로 번역되었습니다. *   "저녁 먹으러 가서 잠들어야 할 때가 되었어."는 "저녁 먹으러 가서 잠들어야 할 때가 되었어."로 번역되었습니다.  **생각 과정:**  원문은 중국어 번체(繁體中文)로 되어 있습니다.  이 문장은 한국어로 번역할 때, 원문의 의미를 최대한 유지하면서 자연스러운 표현을 위해 문장 구조를 약간 변경했습니다.  특히 "그의"와 "저녁 먹으러 가서 잠들어야 할 때가 되었어." 부분을 한국어로 자연스럽게 표현하기 위해 문장 구조를 변경했습니다.
 - **mlx-gemma-4-e2b-4bit**: 說句可能會被罵的:用 Tab 或空白都可以,凌晨兩點還在吵這個的人,該去吃點宵夜然後睡覺了啦。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 비난받을 수도 있는 말이지만, Tab이나 빈칸을 사용해도 괜찮아요. 새벽 2시에까지 계속 시끄러운 사람은, 그냥 간식이나 먹고 잠을 자는 게 좋겠어요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 비난받을 수도 있는 말이지만, Tab이나 빈칸을 사용해도 괜찮아요. 새벽 2시에까지 계속 소란을 일으키는 사람은, 그냥 저녁을 먹고 잠을 자는 게 좋겠어요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 이 문장은 너무 길고 복잡해서, 그냥 "이 문장은 너무 길고 복잡해서, 그냥 '이 문장은 너무 길고 복잡해서, 그냥' 만 반복하네."라고 번역할 수밖에 없어.
@@ -4032,6 +4144,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 笑死,盯著錯誤訊息看了三個小時,結果只是少了一個分號。一個分號欸!我要去山上隱居了。
 - **apple-fm**: 웃기다만, 오류 메시지를 3시간 동안 보고 있는데 결국 분모 하나가 빠져 있었다는 거예요. 한 분모 말이야! 이제 산으로 들어가 살아야겠어.
 - **apple-mt-attr**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
+- **apple-mt-marker**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4043,7 +4156,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 웃기셨어요. 세 시간 동안 오류 메시지를 계속 들으면서, 결국 하나 이상의 분자를 하나만 잃었습니다. 분모가 뭐죠! 숲에 들어가고 싶네요.
 - **mlx-gemma-4-e2b-4bit**: 笑死,盯著錯誤訊息看了三個小時,結果只是少了一個分號。一個分號欸!我要去山上隱居了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 웃겨요. 오류 메시지를 3시간 동안 계속 바라보고 있었는데, 결국은 단순히 하나의 세미콜론이 빠진 것뿐이었어요. 세미콜론 하나라니! 이제 산에 가서 은둔할 거예요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 웃기워요. 오류 메시지를 3시간 동안 계속 봤는데, 결국은 한 개의 세미콜론이 빠진 것뿐이었어요. 세미콜론 하나라니! 이제 산으로 들어가서 은둔할 거예요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 這段繁體中文的翻譯成韓國語是：  笑死，盯著錯誤訊息看了三個小時，結果只是少了一個分號。一個分號欸！我要去山上隱居了。
@@ -4066,6 +4179,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 老實說,那次更新直接把我的環境搞爆了。已經退回舊版,出門吹了風,明天再戰。
 - **apple-fm**: 솔직히 말해서, 그 업데이트로 인해내 환경이 완전히 망가졌어.거야. 이미 이전 버전을 복원하고 공기를 마셨으니, 내일 다시 시도해 볼게.
 - **apple-mt-attr**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
+- **apple-mt-marker**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
 - **apple-mt-plain**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4077,7 +4191,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: **번역:**  실인, 그건 업데이트 직전, 내 환경을 완전히 망가뜨렸어. 옛날 버전으로 돌아가고, 바람을 쳐 봤더니, 내일 다시 싸울 거야.  **설명:**  *   **老實說 (실인):** "실인"은 "실인"이라는 표현으로, 상황을 진지하게 받아들이고 말할 때 사용되는 표현입니다. *   **那次更新 (그건 업데이트):** "그건 업데이트"는 "그번 업데이트"로 번역됩니다. *   **直接把我的環境搞爆了 (직접, 내 환경을 망가뜨렸어):** "직접, 내 환경을 망가뜨렸어"는 "직접, 내 환경을 망가뜨렸어"로 번역됩니다. *   **已經退回舊版 (옛날 버전으로 돌아가고):** "옛날 버전으로 돌아가고"는 "옛날 버전으로 돌아가고"로 번역됩니다. *   **出門吹了風 (바람을 쳐 봤더니):** "바람을 쳐 봤더니"는 "바람을 쳐 봤더니"로 번역됩니다. *   **明天再戰 (내일 다시 싸울 거야):** "내일 다시 싸울 거야"는 "내일 다시 싸울 거야"로 번역됩니다.  **추가적인 고려 사항:**  *   "실인"은 상황을 진지하게 받아들이는 표현이므로, 문맥에 따라 "실인"이라는 표현이 자연스럽게 어울릴 수 있습니다. *   "그건 업데이트"는 "그번 업데이트"로 번역하는 것이 더 자연스럽습니다.
 - **mlx-gemma-4-e2b-4bit**: 老實說,那次更新直接把我的環境搞爆了。已經退回舊版,出門吹了風,明天再戰。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이제는 오래된 버전으로 돌아갔고, 내일 다시 싸울 예정이에요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이제는 구버전으로 돌아갔고, 다시 내일에 싸울 예정입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 老實說,那次更新直接把我的環境搞爆了。已經退回舊版,出門吹了風,明天再戰。
@@ -4087,7 +4201,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 어려운 일이라서, 그날의 업데이트가 제 환경을 완전히 망친 거야. 이미 이전 버전을 되돌려서, 바람을 쐈고, 다음 날 다시 도전할게.
 - **mlx-qwen3.5-4b-4bit**: 老实说，那次更新(누락)(누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 솔직히 말하면, 그 업데이트 때문에 제 환경이 완전히 망가졌어요. 이전 버전으로 되돌렸고, 밖에 나가서 공기 들이고, 내일 다시 싸울 거예요.
+- **mlx-translategemma-4b-4bit-mt**: 솔직히 말해서, 그 업데이트는 완전히 망쳐버렸어요. 이전 버전으로 되돌렸고, 밖에 나가서 공기를 들이쉬었어요. 내일 다시 도전할게요.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -4100,6 +4214,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 真的啦。我家貓在路由器上趴了一個禮拜,Wi-Fi 居然比以前還穩。不要問,問就是貓的力量。
 - **apple-fm**: 맞아. 우리 고양이가 라우터 위에 1주일 동안 있었는데, Wi-Fi가 예전보다 훨씬 안정적이었어. 궁금해하지 말고 궁금해하면 고양이의 힘 때문이야.
 - **apple-mt-attr**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
+- **apple-mt-marker**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
 - **apple-mt-plain**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4121,7 +4236,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 真的啦。我家貓在路由器上趴了一個禮拜，Wi-Fi 居然比以前還穩。不要問，問就是貓的力量。
 - **mlx-qwen3.5-4b-4bit**: 真的啦。我家的猫在路由器上趴了一周，Wi-Fi 居然比以前还稳。不要问，问就是猫的力量。
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 정말이야. 내 집 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 이전보다 더 안정적이야. 뭐, 고양이의 힘이라고.
+- **mlx-translategemma-4b-4bit-mt**: 정말이야. 내 집 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 이전보다 더 안정적으로 작동하고 있어. 설명할 필요는 없지, 고양이의 힘이라고.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -4134,6 +4249,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 各位,我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……不確定了。
 - **apple-fm**: 여러분, 1,800위안짜리 창자 소리가 나는 키보드를 샀는데 전혀 후회하지 않아. 동료들은... ...확실하지 않아....
 - **apple-mt-attr**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
+- **apple-mt-marker**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
 - **apple-mt-plain**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4145,7 +4261,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 各位, 我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤, 完全不後悔, 同事就……不確定了。  이것은 중국어 번체(繁體中文)의 텍스트입니다.  **번역:**  各位, 저는 1,800 위안(台币)을 지불하고, 빗소리를 내는 키보드처럼 묵직하게 울리는 장치를 구매했습니다. 전혀 후회하지 않았고, 동료들은……결심하지 못했습니다.  **설명:**  *   **各位 (Wǒuǐ):**  "各位"는 "各位"라는 뜻으로, "各位"라는 칭찬이나 존칭을 표현하는 말입니다. *   **我 (Wǒ):** "我"는 "我"라는 뜻으로, 문장 속에서 사용된 사람이나 상황을 나타냅니다. *   **花了 (Huā le):** "花了"는 "지불하다"라는 뜻으로, 돈을 지불했다는 의미입니다. *   **1,800 元台幣 (1,800 wén tàiběn):** "1,800 위안"은 1,800 위안이라는 숫자입니다. *   **鍵盤 (Jiànpán):** "키보드"라는 뜻입니다. *   **完全不後悔 (Wánquán bù hòutǐ):** "완전히 후悔하지 않았다"라는 뜻입니다. *   **同事 (Dōngwéi):** "동료"는 "동료"라는 뜻으로, "동료"라는 칭찬이나 존칭을 표현하는 말입니다. *   **就……不確定了 (Jiù……bùxinquìle):** "그렇다면……결심하지 못했습니다."라는 뜻입니다.  **추가적인 생각:**  이 문장은 중국어의 뉘앙스를 최대한 살려 표현했습니다. "후悔하지 않았다"라는 표현은 한국어의 "후회하지 않았다"와 유사하게, 상황에 대한 후기를 덧붙여 표현하는 방식입니다.
 - **mlx-gemma-4-e2b-4bit**: 各位,我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……不確定了。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 저는 1,800 대만 원을 써서 비가 내리는 것처럼 소리가 나는 키보드를 구입했어요. 전혀 후회하지 않아요. 동료들은… 확신이 안 돼요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분, 저는 1,800 타이완 위안을 들여 비가 내리는 것처럼 소리가 나는 키보드를 구입했어요. 전혀 후회하지 않아요. 동료들은… 확신이 안 돼요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 各位,我花了 一千八百元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……不確定了。
@@ -4168,6 +4284,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 儲存變更
 - **apple-fm**: 저장 변경
 - **apple-mt-attr**: 변경 저장
+- **apple-mt-marker**: 변경 저장
 - **apple-mt-plain**: 변경 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4202,6 +4319,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 發生錯誤,請稍後再試。
 - **apple-fm**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-attr**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
+- **apple-mt-marker**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4236,6 +4354,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 您有 3 則未讀訊息
 - **apple-fm**: 3개의 미확인 메시지가 있습니다.
 - **apple-mt-attr**: 읽지 않은 메시지가 3개 있습니다.
+- **apple-mt-marker**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4247,7 +4366,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3 則未讀訊息  您有 3
 - **mlx-gemma-4-e2b-4bit**: 您有 3 則未讀訊息
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 이메일을 읽지 않은 메시지가 3개 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여러분에게 3개의 읽지 않은 메시지가 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 您有 3 則未讀訊息，請告訴我哪一則是您最想看的？
@@ -4270,6 +4389,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 按一下[這裡]即可繼續。
 - **apple-fm**: 클릭하세요[這裡]여기
 - **apple-mt-attr**: 눌러 주세요[這裡]그럼 계속할 수 있습니다.
+- **apple-mt-marker**: [這裡]을 눌러 계속하세요.
 - **apple-mt-plain**: 눌러 주세요[這裡]그럼 계속할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4281,7 +4401,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 번체(繁體中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한 것입니다.  **번역:**  다음은 텍스트를 자연스러운 한국어로 번역한[這裡]이어서 진행하십시오.
 - **mlx-gemma-4-e2b-4bit**: 按一下[這裡]這裡
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 클릭하세요[這裡]계속할 수 있습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 한 번 클릭하세요.[這裡]계속할 수 있습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 번역문만 출력합니다.  번역문: 按一下[這裡]即可繼續。
@@ -4304,6 +4424,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 如需瞭解支援的平台,請參閱[安裝指南]。
 - **apple-fm**: 지원 플랫폼에 대한 자세한 내용은 설치 가이드에서 확인하세요.[安裝指南]...
 - **apple-mt-attr**: 지원되는 플랫폼을 알고 싶으시면 참조하십시오[安裝指南].
+- **apple-mt-marker**: 지원되는 플랫폼을 알고 싶으시면 [安裝指南]을 참조하십시오.
 - **apple-mt-plain**: 지원되는 플랫폼을 확인하려면 참조하십시오.[安裝指南]。
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4338,6 +4459,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 如果遇到問題,請[到問題追蹤頁面回報],並附上記錄檔。
 - **apple-fm**: 문제 발생 시...[到問題追蹤頁面回報]...
 - **apple-mt-attr**: 문제가 발생하면, [到問題追蹤頁面回報]하고, 위 기록 파일을 첨부하십시오.
+- **apple-mt-marker**: 문제가 발생하면 [到問題追蹤頁面回報]을 눌러주시고, 위 목록 파일을 첨부해 주세요.
 - **apple-mt-plain**: 문제가 발생하면, 부탁드립니다.[到問題追蹤頁面回報], 그리고 위 기록 파일을 첨부합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4349,7 +4471,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 번체(繁體中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.  **번역:**  “如果遇到問題, 請联系我们。”  **설명:**  *   **如果 (xūyào):**  만약, (만약의 상황을 나타내는 표현) *   **遇到問題 (yùqíng wènwèn):**  문제에 닥쳐서 *   **請 (qǐng):**  (부탁하다는 의미) *   **联系我们 (liánxiē wǒmen):**  우리에 연락하세요  **주석:**  *   이 문장은 문제 발생 시, 연락처를 문의하는 공식적인 표현입니다. *   원문은 중국어 번체(繁體中文)로 되어 있습니다. *   번역은 원문 그대로 유지했습니다.  **참고:**  이 문장은 중국어 번체(繁體中文)로 작성되었습니다.  번역은 중국어 번체(繁體中文)로 작성된 텍스트를 그대로 전달하는 것을 목표로 합니다.[到問題追蹤頁面回報]**번역:**  "위의 기록 파일과 함께 제공됩니다."  **설명:**  *   **"위의"**:  "위의"는 "above"를 의미하는 "위의"를 나타냅니다. *   **"기록 파일"**:  "record file"은 "record"를 의미하는 "기록 파일"을 나타냅니다. *   **"과 함께 제공됩니다."**:  "and together provided"는 "and together provided"를 나타냅니다.  **추가 설명:**  이 문장은 중국어 번체(繁體中文)의 문장 구조를 그대로 유지하고 있습니다.  "위의"는 "above"를 의미하는 "위의"를 나타내며, "기록 파일"은 "record file"을 의미하는 "기록 파일"을 나타냅니다.  이러한 문장 구조는 중국어에서 흔히 사용되는 표현 방식입니다.
 - **mlx-gemma-4-e2b-4bit**: 如果遇到問題,請[到問題追蹤頁面回報]到問題追蹤頁面回報
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [到問題追蹤頁面回報]을 하고 기록 파일을 첨부해 주세요.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 문제가 생기면 [到問題追蹤頁面回報]를 사용하고 기록 파일을 첨부해 주세요.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 請問您有什麼問題嗎？[到問題追蹤頁面回報]請輸入您需要翻譯的繁體中文文本，並請輸入翻譯後的韓國語文本，然後請輸入翻譯結果。
@@ -4372,6 +4494,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 去年春天,我決定把一台舊筆電改造成家用伺服器,用來存放家人的照片。
 - **apple-fm**: 작년 봄, 저는 오래된 노트북을 가정용 서버로 개조하여 가족 사진을 저장하기로 결정했어요.
 - **apple-mt-attr**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
+- **apple-mt-marker**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
 - **apple-mt-plain**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4383,7 +4506,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 2023년 봄, 저는 오래된 데스크탑 컴퓨터를 가정용 서버로 바꾸기로 결정했어요. 사진을 보관하기 위해 사용하기 위해.  **Explanation:**  *   **去年春天 (Yìqī Chūqī):**  "2023년 봄" (2023년 봄) *   **我決定 (Wǒ juédìng):** "저는 결정했어요" (저는 결정했어요) *   **把一台舊筆電改造成家用伺服器 (Bǎ yīlái jiùbǐdiàn gēoshìwéiyòng):** "전 오래된 데스크탑 컴퓨터를 가정용 서버로 바꾸었어요" (전 오래된 데스크탑 컴퓨터를 가정용 서버로 바꾸었어요) *   **用來存放家人的照片 (Yòng lái gòujiā rén de zhàopǐng):** "사진을 보관하기 위해 사용하기 위해" (사진을 보관하기 위해 사용하기 위해)  **Thought Process:**  The original Chinese sentence is a simple statement of intent.  The translation aims to preserve the original meaning and tone while maintaining a natural flow in Korean. I prioritized maintaining the original Chinese characters and the overall context.
 - **mlx-gemma-4-e2b-4bit**: 去年春天,我決定把一台舊筆電改造成家用伺服器,用來存放家人的照片。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄에, 저는 오래된 노트북을 가정용 서버로 바꾸기로 결심했어요. 그 서버를 이용해 가족들의 사진을 저장할 예정입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 지난해 봄에, 저는 오래된 노트북을 가정용 서버로 개조하기로 결심했어요. 그 서버를 사용해서 가족들의 사진을 저장할 예정입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 去年春天我決定把一台舊筆電改造成家用伺服器,用來存放家人的照片。
@@ -4406,6 +4529,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 這台 2014 年的ThinkBook配備 8 GB 記憶體,拿來做這件事剛剛好。
 - **apple-fm**: 2014년의ThinkBook8GB 메모리를 갖추고 있어서 딱 맞았어요.
 - **apple-mt-attr**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
+- **apple-mt-marker**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4417,7 +4541,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 이 2014년 ThinkBook은 8GB 메모리 장착되어 있어, 이 일을 아주 잘 할 수 있습니다.
 - **mlx-gemma-4-e2b-4bit**: 這台 2014 年的ThinkBook配備 8 GB 記憶體,拿來做這件事剛剛好。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년형 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 할 때 딱 맞는 기기입니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 2014년 모델의 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 하기에 딱 맞는 제품입니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 這台 2014 年的ThinkBook配備 8 GB 記憶體,拿來做這件事剛剛好。
@@ -4440,6 +4564,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 我先安裝了 [Debian 12],再架設一個叫 Fernbox 的小型網頁應用程式來瀏覽相片。
 - **apple-fm**: 먼저 설치했습니다[Debian 12]...
 - **apple-mt-attr**: 먼저 를 설치한 [Debian 12]후, 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치했습니다.
+- **apple-mt-marker**: 먼저 [Debian 12]을 설치한 다음, 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치합니다.
 - **apple-mt-plain**: 제가 먼저 설치했어요. [Debian 12], Fernbox라는 이름의 소형 웹사이트 애플리케이션을 하나 더 설치하여 사진을 감상하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4451,7 +4576,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 我先安裝了 [Debian 12], 再架設一個叫 Fernbox 的小型網頁應用程式來瀏覽相片。  이전 단계에서 Fernbox라는 작은 웹 애플리케이션을 설치했습니다.  이어서 사진을 보기 위해 Fernbox를 사용합니다.
 - **mlx-gemma-4-e2b-4bit**: 我先安裝了 [Debian 12]Debian 12
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치하고, 사진을 둘러볼 수 있는 Fernbox이라는 작은 웹 애플리케이션도 설치했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 먼저 [Debian 12]을 설치한 다음, 사진을 둘러볼 수 있는 작은 웹 애플리케이션인 Fernbox를 설치했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 我先安裝了 [Debian 12],再架設一個叫 Fernbox 的小型網頁應用程式來瀏覽相片。
@@ -4461,7 +4586,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-qwen3.5-2b-4bit-mt**: 我先安裝了 [Debian 12]，再架設一個叫 Fernbox 的小型網頁應用程式來瀏覽相片。
 - **mlx-qwen3.5-4b-4bit**: 我先安装了[Debian 12](누락)
 - **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
-- **mlx-translategemma-4b-4bit-mt**: 먼저 [Debian 12]을 설치하고, Fernbox라는 작은 웹 애플리케이션을 설치하여 사진을 보기로 했습니다.
+- **mlx-translategemma-4b-4bit-mt**: 먼저 [Debian 12]을 설치하고, "Fernbox"라는 작은 웹 애플리케이션을 설치하여 사진을 보기로 했습니다.
 - **ollama-gemma4-e2b**: (오류: block missing in output)
 - **ollama-gemma4-e4b**: (오류: block missing in output)
 - **ollama-qwen3-1.7b**: (오류: block missing in output)
@@ -4474,6 +4599,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。
 - **apple-fm**: 동생은 처음에는 회의적이었지만, 일주일 후에는 Fernbox가 그녀가 사용했던 어떤 클라우드 서비스보다 훨씬 좋다고 인정했어요.
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
+- **apple-mt-marker**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4485,7 +4611,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라. 원문은 중국어 번체(繁體中文)다. 번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.  妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。  이 문장은 다음과 같이 번역할 수 있습니다.  "처음에는 약간의 의심을 품은 것처럼 보였지만, 한 주 후 그녀가 인정했습니다. Fernbox는 그녀가 사용했던 어떤 다른 클라우드 서비스보다 훨씬 뛰어났습니다."  **설명:**  *   **妹妹 (mèi-jin):**  "동생"이라는 뜻입니다. *   **起初 (qǐ-chū):** "처음부터" 또는 "초기부터"라는 뜻입니다. *   **半信半疑 (bàn xìn bànyí):** "약간의 의심과 의심을 동시에 품고 있다"라는 뜻입니다. *   **但 (dàn):** "그러나" 또는 "하지만"이라는 뜻입니다. *   **一週後 (yī-xuwé hòu):** "한 주 후"라는 뜻입니다. *   **彼女 (hé-qí):** "그녀"라는 뜻입니다. *   **承認 (chuán'):** "인정하다"라는 뜻입니다. *   **Fernbox (Fēnr-bōx):** "Fernbox"이라는 이름입니다. *   **比 (bǐ):** "보다"라는 뜻입니다. *   **彼女用過的 (hé-qí yòngchué de):** "그녀가 사용했던"이라는 뜻입니다. *   **任何 (éiyǒu):** "어떤 것"이라는 뜻입니다. *   **雲端服務 (yún-xuán fúwù):** "클라우드 서비스"이라는 뜻입니다. *   **都快 (dōu kuài):** "완전히 다쳤다" 또는 "완전히 낡았다"라는 뜻입니다.  **주석:**  *   "起初半信半疑"는 "처음에는 약간의 의심과 의심을 동시에 품고 있다"라는 의미로 해석됩니다. *   "一週後彼女承認"은 "한 주 후 그녀가 인정했다"라는 의미로 해석됩니다. *   "Fernbox 比她用過的任何雲端服務都快"은 "Fernbox는 그녀가 사용했던 어떤 다른 클라우드 서비스보다 훨씬 뛰어났습니다"라는 의미로 해석됩니다.  **생각 과정:**  원문의 의미를 최대한 살리면서, 한국어에 자연스럽게 어울리는 표현을 선택했습니다.  문맥에 따라 다양한 번역이 가능하지만, 이 번역은 원문의 의미를 가장 정확하게 전달하는 것으로 판단했습니다.
 - **mlx-gemma-4-e2b-4bit**: 妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심했지만, 일주일 후에 그녀는 Fernbox가 자신이 사용한 모든 클라우드 서비스보다 더 빠르다고 인정했습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 여동생은 처음에는 의심했지만, 일주일 후에 그녀는 Fernbox이 자신이 사용해본 모든 클라우드 서비스보다 빠르다고 인정했습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。
@@ -4508,6 +4634,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - 원문: 現在,那台舊筆電安靜地放在架子上,而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
 - **apple-fm**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, 그리고Fernbox이제 가족 모두가 여행에서 돌아오자마자 가장 먼저 사용하는 애플리케이션이 되었습니다.
 - **apple-mt-attr**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
+- **apple-mt-marker**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
 - **apple-mt-plain**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
 - **ct2-m2m100-418m**: (오류: HTTP 500: {"error": "ValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to)
@@ -4519,7 +4646,7 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **mlx-gemma-3-1b-4bit-mt**: 현재, 그 오래된 노트북은 조용히 있는 나무 상에 놓여 있고, Fernbox는 가족 여행이 돌아온 후 처음 열린 앱입니다.
 - **mlx-gemma-4-e2b-4bit**: 現在,那台舊筆電安靜地放在架子上,而Fernbox已經成為全家人旅行回來後第一個開啟的應用程式。
 - **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
-- **mlx-hy-mt2-1.8b-4bit-mt**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아왔을 때 가장 먼저 열리는 애플리케이션이 되었습니다.
+- **mlx-hy-mt2-1.8b-4bit-mt**: 이제 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아온 후 열리는 첫 번째 애플리케이션이 되었습니다.
 - **mlx-hyperclovax-seed-1.5b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
 - **mlx-kanana-2-3b-4bit-mt**: 現在，那台舊筆電安靜地放在架子上，而Fernbox已經成為全家人旅行回來後第一個開啟的應多用程式。
