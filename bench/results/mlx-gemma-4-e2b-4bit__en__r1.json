@@ -1,0 +1,278 @@
+{
+ "engine": "mlx-gemma-4-e2b-4bit",
+ "model": "mlx-community/gemma-4-e2b-it-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 45177,
+ "totalMs": 45177,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 1558,
+   "slots": {
+    "0": "CLI를 설치하려면 ",
+    "1": "실행하고 ",
+    "2": "버전을 확인하세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 1558,
+   "slots": {
+    "0": "timeout",
+    "1": "옵션은 밀리초 단위의 값을 받으며, 기본값은 30000ms(30초)이고, 이를 0으로 설정하면 제한이 완전히 비활성화됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 1558,
+   "slots": {
+    "0": "v1.x에서 업그레이드하기 전에 ",
+    "1": "구성 디렉토리를 백업하세요 ",
+    "2": "마이그레이션 스크립트가 모든 파일을 제자리에서 덮어쓰기 때문에 되돌릴 수 없습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 1558,
+   "slots": {
+    "0": "데몬이 시작되지 않으면, "
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 1558,
+   "slots": {
+    "0": "각 워커 스레드는 약 64MB의 캐시를 자체적으로 유지하므로, 8GB RAM을 가진 기기에서는 8개 이상의 워커를 실행해서는 안 됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 1558,
+   "slots": {
+    "0": "요청은 지수 백오프를 사용하여 최대 세 번 재시도되며, 모든 시도가 실패하면 오류는 호출자에게 "
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-01",
+   "ms": 1558,
+   "slots": {
+    "0": "시의회는 화요일에 버스 서비스를 동부 외곽 지역으로 연장하기로 7 대 2로 투표했으며, 지지자들은 이를 통해 통근 시간을 최대 25퍼센트까지 단축할 것이라고 말합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-02",
+   "ms": 1558,
+   "slots": {
+    "0": "할보슨 연구소 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후에도 용량의 90퍼센트를 유지했으며, 이는 현재 상용 셀의 두 배에 달한다고 보고했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-03",
+   "ms": 1558,
+   "slots": {
+    "0": "하지만 비평가들은 결과가 아직 동료 심사를 거치지 않았으며 프로토타입 제작에 약 킬로와트시당 340달러가 든다고 지적합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-04",
+   "ms": 1558,
+   "slots": {
+    "0": "목요일까지 북쪽 해안을 따라 폭우가 예상되며, 순간 최대 70km의 돌풍과 기온은 섭씨 12도 내외를 오갈 것입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-05",
+   "ms": 1558,
+   "slots": {
+    "0": "월요일에 발표된 성명에서, 회사는 공급망 문제로 인해 주요 휴대폰 출시를 내년 초로 ",
+    "1": "연기할 것이라고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-news-06",
+   "ms": 1558,
+   "slots": {
+    "0": "왜 그렇게 많은 작은 제과점들이 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, ",
+    "1": "인력, ",
+    "2": "그리고 낮은 마진과 더 관련이 있다고 말합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-01",
+   "ms": 1558,
+   "slots": {
+    "0": "좋아요, 드디어 라즈베리 파이를 부팅하는 데 성공했지만 즉시 불이 났어요. 글자 그대로는 아니지만, 제 영혼이 타버렸죠."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-02",
+   "ms": 1558,
+   "slots": {
+    "0": "핫한 의견: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 그것에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-03",
+   "ms": 1558,
+   "slots": {
+    "0": "ㅋㅋㅋ 세미콜론이 빠진 거였어요. 세미콜론 말이에요. 저는 이제 숲속으로 갈 거예요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-04",
+   "ms": 1558,
+   "slots": {
+    "0": "솔직히 말해서, 그 ",
+    "1": "업데이트가 제 설정의 모든 것을 망쳤어요. 되돌렸고, 풀었고, 내일 다시 시도할 거예요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-05",
+   "ms": 1558,
+   "slots": {
+    "0": "확인합니다. 저희 고양이가 일주일 동안 라우터 위에 앉아 있었는데, 솔직히 와이파이가 그 어느 때보다 좋았어요. 의심하지 마세요."
+   },
+   "error": null
+  },
+  {
+   "id": "en-community-06",
+   "ms": 1558,
+   "slots": {
+    "0": "여러분, 저는 비가 내리는 소리 같은 키보드에 60달러를 썼어요. 후회는 없지만, 제 동료들은... ",
+    "1": "미정",
+    "2": "."
+   },
+   "error": null
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-link-01",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-link-02",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-link-03",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 1558,
+   "slots": null,
+   "error": "block missing in output"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01",
+    "en-tech-02",
+    "en-tech-03",
+    "en-tech-04",
+    "en-tech-05",
+    "en-tech-06",
+    "en-news-01",
+    "en-news-02",
+    "en-news-03",
+    "en-news-04",
+    "en-news-05",
+    "en-news-06",
+    "en-community-01",
+    "en-community-02",
+    "en-community-03",
+    "en-community-04",
+    "en-community-05",
+    "en-community-06",
+    "en-ui-01",
+    "en-ui-02",
+    "en-ui-03",
+    "en-link-01",
+    "en-link-02",
+    "en-link-03",
+    "en-seq-01",
+    "en-seq-02",
+    "en-seq-03",
+    "en-seq-04",
+    "en-seq-05"
+   ],
+   "ms": 45177,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

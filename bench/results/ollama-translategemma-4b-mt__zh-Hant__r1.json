@@ -1,0 +1,454 @@
+{
+ "engine": "ollama-translategemma-4b-mt",
+ "model": "translategemma:4b",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 1704,
+ "totalMs": 51487,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 1704,
+   "slots": {
+    "0": "명령줄 도구를 설치하려면 ",
+    "1": "를 실행한 후, ",
+    "2": "를 사용하여 버전을 확인하십시오. 2.4.1 버전 이상이 필요합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 3485,
+   "slots": {
+    "0": " 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 시간 초과에 대한 제한이 전혀 없습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 2238,
+   "slots": {
+    "0": "v1.x 버전에서 v2.x 버전으로 업그레이드하기 전에, 반드시 설정 파일 폴더를 백업해 두십시오. 마이그레이션 스크립트는 모든 파일을 직접 덮어쓰기 때문에 복구할 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 2070,
+   "slots": {
+    "0": "만약 프로그램이 정상적으로 시작되지 않는 경우, 포트 8443이 다른 프로세스에 의해 사용되고 있는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs 에서 확인할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 1677,
+   "slots": {
+    "0": "각 스레드는 약 64MB의 캐시를 가지고 있으므로, 8GB의 메모리를 가진 컴퓨터는 최대 8개의 스레드만 실행할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 1625,
+   "slots": {
+    "0": "요청은 최대 3번까지 지수 방식으로 재시도할 수 있으며, 모든 시도가 실패하면 오류는 ",
+    "1": " 형태로 호출 측에 반환됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 2358,
+   "slots": {
+    "0": "시의회는 화요일에 동부 외곽 지역으로 버스 노선을 확장하는 방안을 7표 대 2표로 통과시켰습니다. 찬성 측은 이를 통해 출퇴근 시간을 최대 25% 단축할 수 있다고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 2250,
+   "slots": {
+    "0": "할워슨 연구소 연구진은 새로운 배터리가 2,000번의 충방전 사이클을 거친 후에도 90%의 용량을 유지하며, 이는 현재 시판되는 배터리의 두 배에 해당한다고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 1949,
+   "slots": {
+    "0": "그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 프로토타입 생산 비용이 약 340달러/kWh로, 상당히 높은 수준이라고 지적했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 1833,
+   "slots": {
+    "0": "북부 해안 지역은 이번 주 수요일까지 강한 비와 최대 순간풍속 70km/h의 강한 바람, 그리고 약 12도 정도의 기온이 예상됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 1601,
+   "slots": {
+    "0": "해당 회사는 지난주 성명을 통해, 공급망 문제로 인해 플래그십 스마트폰의 출시를 다음 해 초로 연기할 것이라고 발표했습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 2335,
+   "slots": {
+    "0": "많은 소규모 빵집이 5년 이상 버티지 못하는 이유는 무엇일까요? 경제학자들은 이 원인이 빵 자체보다는 임대료, 인건비, 그리고 극히 미미한 이익에 더 큰 영향을 미친다고 분석합니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 2352,
+   "slots": {
+    "0": "맙소사, 라즈베리 파이 마침내 켜졌는데, 그런데 전원을 연결하자마자 굉음이 나더니 완전히 망가졌어. 물론 실제로 연기가 나진 않았지만, 그래도 내 마음은 이미 산산이 조각났어."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 2004,
+   "slots": {
+    "0": "(\"이런 말 하면 비난받을 수도 있지만\") 탭이나 공백으로도 가능하지만, 새벽 2시까지 계속 논쟁하는 사람들은 잠시 밥을 먹고 잠시 쉬는 게 좋겠네요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 2042,
+   "slots": {
+    "0": "너무 웃겨. 오류 메시지를 세 시간 동안 뚫어져라 봤는데, 결국에는 세미콜 하나가 빠진 것뿐이었어. 세미콜 하나! 이제 나는 산으로 들어가 은둔 생활을 해야겠어."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 1892,
+   "slots": {
+    "0": "솔직히 말씀드리면, 그 업데이트 때문에 제 환경이 완전히 망가졌어요. 그래서 이전 버전으로 되돌렸고, 밖에 나가서 바람을 쐬고 내일 다시 시도할게요.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 1873,
+   "slots": {
+    "0": "맞아요. 제 고양이가 라우터 위에 일주일 동안 누워 있었는데, 와이파이가 오히려 이전보다 더 안정적으로 작동하더라고요. 그냥 고양이의 마법이라고 생각하시면 돼요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 2281,
+   "slots": {
+    "0": "여러분, 저는 1,800 대만 달러를 들여서, 마치 비가 내리는 소리와 비슷한 소리를 내는 키보드를 샀는데, 정말 만족합니다. 동료들은… 아직은 반응이 썩 좋지는 않네요.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 418,
+   "slots": {
+    "0": "저장 변경"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 747,
+   "slots": {
+    "0": "오류가 발생했습니다. 잠시 후 다시 시도해 주세요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 652,
+   "slots": {
+    "0": "읽지 않은 메시지가 3건 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 1628,
+   "slots": {
+    "0": "버튼을 누르세요",
+    "1": "계속 진행하시면 됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 762,
+   "slots": {
+    "0": "지원 플랫폼에 대한 자세한 내용은 ",
+    "1": "。"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 2263,
+   "slots": {
+    "0": "문제가 발생하면,",
+    "1": "또한, 관련 기록 파일을 첨부합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 1500,
+   "slots": {
+    "0": "지난 봄, 저는 오래된 노트북을 개조하여 가정용 서버로 만들기로 결정했습니다. 이를 통해 가족들의 사진을 보관할 수 있게 되었습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 1369,
+   "slots": {
+    "0": "이 2014년 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 수행하기에 완벽합니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 1357,
+   "slots": {
+    "0": "먼저 ",
+    "1": "을 설치한 후, 사진을 보기 위한 작은 웹 애플리케이션인 \"Fernbox\"를 구축했습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 1555,
+   "slots": {
+    "0": "처음에는 의심스러워했지만, 한 주 후에는 Fernbox가 그녀가 사용해 본 다른 클라우드 서비스보다 훨씬 빠르다는 것을 인정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 1667,
+   "slots": {
+    "0": "현재, 오래된 노트북은 조용히 책상 위에 놓여 있고, Fernbox는 온 가족이 여행을 마치고 돌아왔을 때 가장 먼저 실행하는 앱이 되었습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01"
+   ],
+   "ms": 1704
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-02"
+   ],
+   "ms": 3485
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-03"
+   ],
+   "ms": 2238
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-04"
+   ],
+   "ms": 2070
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-05"
+   ],
+   "ms": 1677
+  },
+  {
+   "blockIds": [
+    "zh-Hant-tech-06"
+   ],
+   "ms": 1625
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-01"
+   ],
+   "ms": 2358
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-02"
+   ],
+   "ms": 2250
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-03"
+   ],
+   "ms": 1949
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-04"
+   ],
+   "ms": 1833
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-05"
+   ],
+   "ms": 1601
+  },
+  {
+   "blockIds": [
+    "zh-Hant-news-06"
+   ],
+   "ms": 2335
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-01"
+   ],
+   "ms": 2352
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-02"
+   ],
+   "ms": 2004
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-03"
+   ],
+   "ms": 2042
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-04"
+   ],
+   "ms": 1892
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-05"
+   ],
+   "ms": 1873
+  },
+  {
+   "blockIds": [
+    "zh-Hant-community-06"
+   ],
+   "ms": 2281
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-01"
+   ],
+   "ms": 418
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-02"
+   ],
+   "ms": 747
+  },
+  {
+   "blockIds": [
+    "zh-Hant-ui-03"
+   ],
+   "ms": 652
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-01"
+   ],
+   "ms": 1628
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-02"
+   ],
+   "ms": 762
+  },
+  {
+   "blockIds": [
+    "zh-Hant-link-03"
+   ],
+   "ms": 2263
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-01"
+   ],
+   "ms": 1500
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-02"
+   ],
+   "ms": 1369
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-03"
+   ],
+   "ms": 1357
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-04"
+   ],
+   "ms": 1555
+  },
+  {
+   "blockIds": [
+    "zh-Hant-seq-05"
+   ],
+   "ms": 1667
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "mode=mt marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

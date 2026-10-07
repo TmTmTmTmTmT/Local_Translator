@@ -1,0 +1,286 @@
+{
+ "engine": "mlx-gemma-4-e2b-4bit",
+ "model": "mlx-community/gemma-4-e2b-it-4bit",
+ "lang": "ja",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 34967,
+ "totalMs": 34967,
+ "blocks": [
+  {
+   "id": "ja-tech-01",
+   "ms": 1206,
+   "slots": {
+    "0": "CLI를 설치하려면 ",
+    "1": "npm install -g fernctl",
+    "2": "을 실행하고, 계속 "
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-02",
+   "ms": 1206,
+   "slots": {
+    "0": "옵션은"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-03",
+   "ms": 1206,
+   "slots": {
+    "0": "v1.x에서 업그레이드하기 전에,",
+    "1": "설정 디렉터리",
+    "2": "의 백업을 취해주세요. 마이그레이션 스크립트는 모든 파일을 그 자리에서 덮어쓰기 때문에 되돌릴 수 없습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-04",
+   "ms": 1206,
+   "slots": {
+    "0": "데몬이 시작되지 않으면,"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-05",
+   "ms": 1206,
+   "slots": {
+    "0": "각 워커 스레드는 약 64MB의 자체 캐시를 가지고 있으므로,"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-tech-06",
+   "ms": 1206,
+   "slots": {
+    "0": "요청은 지수 백오프 방식으로 최대 3회까지 재시도됩니다. 모두 실패하면 ",
+    "1": "TransientError"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-01",
+   "ms": 1206,
+   "slots": {
+    "0": "시의회는 화요일, 동부 교외 지역으로의 버스 노선 연장을 찬성 7, 반대 2로 가결했습니다. 찬성 측은 통근 시간이 최대 25% 단축될 것이라고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-02",
+   "ms": 1206,
+   "slots": {
+    "0": "할볼센 연구팀은 신형 배터리가 2,000회 충방전 후에도 용량의 90%를 유지했다는 것을 발표했습니다. 이는 현행 상용 제품의 약 2배에 해당합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-03",
+   "ms": 1206,
+   "slots": {
+    "0": "한편, 이 결과는 아직 심사를 받지 않았으며, 시제품 제조 비용이 1kW시당 약 340달러에 달할 수 있다는 지적도 나오고 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-04",
+   "ms": 1206,
+   "slots": {
+    "0": "북부 연안 지역에서는 목요일에 걸쳐 폭우가 예상되며, 최대 풍속은 시속 70km, 기온은 12도 전후로 유지될 전망입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-05",
+   "ms": 1206,
+   "slots": {
+    "0": "해당 회사는 월요일에 발표한 성명에서 공급망 문제가 계속되고 있다는 이유로,",
+    "1": "주력 스마트폰의 출시",
+    "2": "를 연초까지 연기하기로 했다고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-news-06",
+   "ms": 1206,
+   "slots": {
+    "0": "왜 작은 빵집들은 5년 이내에 문을 닫게 되는가. 경제학자에 따르면, 답은 빵 자체보다 임대료나",
+    "1": "인력",
+    "2": "그리고 낮은 이윤율에 있다고 합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-01",
+   "ms": 1206,
+   "slots": {
+    "0": "드디어 라즈베리 파이가 켜졌다고 생각했는데, 순식간에 불이 붙었습니다. 아니, 실제로 불이 붙은 건 아니지만, 내 마음은 불탔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-02",
+   "ms": 1206,
+   "slots": {
+    "0": "솔직히 말해서, 태블릿이든 스페이스든 상관없다고 생각해요. 새벽 2시에 논쟁하는 사람은 간식 먹고 자는 게 좋아요(웃음)"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-03",
+   "ms": 1206,
+   "slots": {
+    "0": "3시간 동안 에러와 씨름했는데, 원인이 세미콜론 하나였다니ㅋㅋㅋ 세미콜론이라고? 나 산에 들어가 버릴 거야…"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-04",
+   "ms": 1206,
+   "slots": {
+    "0": "솔직히, 그 업데이트로",
+    "1": "환경이 전부 망가졌습니다.",
+    "2": "하지만 롤백해서 바깥 공기를 마셨어요. 내일 다시 할게요."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-05",
+   "ms": 1206,
+   "slots": {
+    "0": "우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 왠지 모르게 와이파이 상태가 최고입니다. 이유는 묻지 마세요."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-community-06",
+   "ms": 1206,
+   "slots": {
+    "0": "키보드에 6,000엔이나 써버렸습니다. 빗소리 같은 타건음이 최고예요. 동료의 반응은…",
+    "1": "뭐, 이해합니다",
+    "2": "입니다ㅋㅋ"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-ui-01",
+   "ms": 1206,
+   "slots": {
+    "0": "변경 사항을 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-ui-02",
+   "ms": 1206,
+   "slots": {
+    "0": "문제가 발생했습니다. 잠시 후 다시 시도해 주세요."
+   },
+   "error": null
+  },
+  {
+   "id": "ja-ui-03",
+   "ms": 1206,
+   "slots": {
+    "0": "읽지 않은 메시지가 3개 있습니다"
+   },
+   "error": null
+  },
+  {
+   "id": "ja-link-01",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-link-02",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-link-03",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-seq-01",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-seq-02",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-seq-03",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-seq-04",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "ja-seq-05",
+   "ms": 1206,
+   "slots": null,
+   "error": "block missing in output"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "ja-tech-01",
+    "ja-tech-02",
+    "ja-tech-03",
+    "ja-tech-04",
+    "ja-tech-05",
+    "ja-tech-06",
+    "ja-news-01",
+    "ja-news-02",
+    "ja-news-03",
+    "ja-news-04",
+    "ja-news-05",
+    "ja-news-06",
+    "ja-community-01",
+    "ja-community-02",
+    "ja-community-03",
+    "ja-community-04",
+    "ja-community-05",
+    "ja-community-06",
+    "ja-ui-01",
+    "ja-ui-02",
+    "ja-ui-03",
+    "ja-link-01",
+    "ja-link-02",
+    "ja-link-03",
+    "ja-seq-01",
+    "ja-seq-02",
+    "ja-seq-03",
+    "ja-seq-04",
+    "ja-seq-05"
+   ],
+   "ms": 34967,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

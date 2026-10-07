@@ -1,0 +1,233 @@
+{
+ "engine": "mlx-hyperclovax-seed-1.5b-4bit",
+ "model": "senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 52704,
+ "totalMs": 52704,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 1817,
+   "slots": {
+    "1": "。迁移脚本会直接改写所有文本,而且无法�"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 1817,
+   "slots": null,
+   "error": "block missing in output"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01",
+    "zh-Hans-tech-02",
+    "zh-Hans-tech-03",
+    "zh-Hans-tech-04",
+    "zh-Hans-tech-05",
+    "zh-Hans-tech-06",
+    "zh-Hans-news-01",
+    "zh-Hans-news-02",
+    "zh-Hans-news-03",
+    "zh-Hans-news-04",
+    "zh-Hans-news-05",
+    "zh-Hans-news-06",
+    "zh-Hans-community-01",
+    "zh-Hans-community-02",
+    "zh-Hans-community-03",
+    "zh-Hans-community-04",
+    "zh-Hans-community-05",
+    "zh-Hans-community-06",
+    "zh-Hans-ui-01",
+    "zh-Hans-ui-02",
+    "zh-Hans-ui-03",
+    "zh-Hans-link-01",
+    "zh-Hans-link-02",
+    "zh-Hans-link-03",
+    "zh-Hans-seq-01",
+    "zh-Hans-seq-02",
+    "zh-Hans-seq-03",
+    "zh-Hans-seq-04",
+    "zh-Hans-seq-05"
+   ],
+   "ms": 52704,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": true
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

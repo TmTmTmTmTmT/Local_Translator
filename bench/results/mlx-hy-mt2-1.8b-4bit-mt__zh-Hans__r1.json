@@ -1,0 +1,454 @@
+{
+ "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+ "model": "mlx-community/Hy-MT2-1.8B-4bit",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 784,
+ "totalMs": 19588,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 784,
+   "slots": {
+    "0": "명령줄 도구를 설치하려면 ",
+    "1": "을 실행한 후 ",
+    "2": "를 사용하여 버전을 확인하세요. 2.4.1 이상의 버전이 필요합니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 766,
+   "slots": {
+    "0": " 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 타임아웃이 전혀 제한되지 않습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 796,
+   "slots": {
+    "0": "v1.x로 업그레이드하기 전에, 먼저 설정 디렉터리를 백업해 주세요. 마이그레이션 스크립트는 모든 파일을 직접 수정하며, 되돌릴 수 없습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 778,
+   "slots": {
+    "0": "보호 프로세스가 시작되지 않는다면, 포트 8443이 다른 프로세스에 점유되어 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 698,
+   "slots": {
+    "0": "각 작업 스레드는 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 머신에서는 최대 8개의 작업 스레드가 실행될 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 687,
+   "slots": {
+    "0": "요청은 최대 3번까지 지수적 회피 방식으로 재시도됩니다. 만약 모두 실패하면 오류는 ",
+    "1": " 형태로 호출자에게 반환됩니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 960,
+   "slots": {
+    "0": "시의회는 화요일에 7표 대 2표로 동부 교외 지역까지 버스 노선을 연장하는 방안을 통과시켰으며, 지지자들은 이로 인해 출근 시간이 최대 25% 단축될 것이라고 말했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 995,
+   "slots": {
+    "0": "할로웬슨 연구소의 연구원들은 새로운 종류의 배터리가 2000회의 충전과 방전을 반복한 후에도 90%의 용량을 유지한다고 보고했습니다. 이는 현재 시장에 판매되는 배터리보다 약 두 배 높은 수치입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 820,
+   "slots": {
+    "0": "그러나 비평가들은 이 결과가 아직 동료 검토를 거치지 않았으며, 샘플의 생산 비용이 킬로와트시간당 약 340달러에 불과하다고 지적했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 662,
+   "slots": {
+    "0": "북부 해안 지역에서는 목요일까지 강한 비가 예상되며, 풍속은 시간당 70km에 달할 수 있고, 기온은 약 12도 정도일 것입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 714,
+   "slots": {
+    "0": "그 회사는 월요일 성명을 발표하여 공급망 문제가 지속되기 때문에 플래그십 모델의 출시를 내년 초로 연기할 것이라고 밝혔습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 1055,
+   "slots": {
+    "0": "왜 이렇게 많은 작은 빵집들이 5년도 지속되지 못하는 걸까? 경제학자들은 그 이유가 빵 자체와는 거의 관련이 없으며, 더욱이 임대료, 인력, 낮은 수익률 때문이라고 생각합니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 911,
+   "slots": {
+    "0": "잘했어, 라즈베리 파티가 마침내 시작되었는데, 전원이 들어오자마자 연기가 나왔어. 음, 정말로 연기가 나는 건 아니지만, 내 기분은 완전히 망가졌어."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 826,
+   "slots": {
+    "0": "불쾌한 말을 하자면: 탭 문자든 공백이든 상관없어요. 새벽 2시에 이런 문제로 싸우는 사람 때문에, 뭐라도 먹고 잠을 자야 해요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 924,
+   "slots": {
+    "0": "웃기워, 오류 메시지를 3시간 동안 바라보고 있었는데, 결국 세미콜론이 하나 빠져 있더군요. 세미콜론 하나라니! 이제 산속으로 은둘러 갈 거예요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 756,
+   "slots": {
+    "0": "솔직히 말해서, 그 업데이트로 인해 내 환경이 완전히 망가졌어요. 이미 롤백했고, 기분을 풀어보았어요. 내일 다시 시작할게요.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 780,
+   "slots": {
+    "0": "정말이죠. 제 집 고양이는 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다 더 안정적이었어요. 묻지 마세요, 그냥 미신이에요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 745,
+   "slots": {
+    "0": "여러분, 400원을 들여서 비가 내리는 것처럼 들리는 키보드를 구입했어요. 전혀 후회하지 않아요. 하지만 동료들은… 그렇지 않을 수도 있죠.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 124,
+   "slots": {
+    "0": "수정 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 305,
+   "slots": {
+    "0": "오류가 발생했습니다. 잠시 후 다시 시도해 주세요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 312,
+   "slots": {
+    "0": "귀하에게 3개의 읽지 않은 메시지가 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 441,
+   "slots": {
+    "0": "클릭",
+    "1": "계속해."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 444,
+   "slots": {
+    "0": "지원되는 플랫폼에 대해서는 ",
+    "1": "을 참조하여 자세한 정보를 확인하세요."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 412,
+   "slots": {
+    "0": "문제가 생기면 ",
+    "1": "을 하시고 로그 파일도 첨부해 주세요."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 547,
+   "slots": {
+    "0": "지난해 봄, 저는 낡은 노트북을 가정용 서버로 개조하여 가족의 사진들을 저장하기로 결심했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 519,
+   "slots": {
+    "0": "2014년형 ThinkBook은 8GB의 메모리를 갖추고 있어, 이 작업을 하기에 딱 맞는 장비입니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 498,
+   "slots": {
+    "0": "먼저 ",
+    "1": "를 설치하고, 사진을 보기 위한 Fernbox라는 작은 웹 애플리케이션도 추가했습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 630,
+   "slots": {
+    "0": "여동생은 처음에는 의심스러워했지만, 일주일 후에 그녀는 Fernbox이 자신이 사용한 어떤 클라우드 서비스보다도 빠르다고 인정했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 698,
+   "slots": {
+    "0": "이제 그 낡은 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 가족이 여행에서 돌아올 때 가장 먼저 열리는 앱이 되었습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01"
+   ],
+   "ms": 784
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-02"
+   ],
+   "ms": 766
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-03"
+   ],
+   "ms": 796
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-04"
+   ],
+   "ms": 778
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-05"
+   ],
+   "ms": 698
+  },
+  {
+   "blockIds": [
+    "zh-Hans-tech-06"
+   ],
+   "ms": 687
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-01"
+   ],
+   "ms": 960
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-02"
+   ],
+   "ms": 995
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-03"
+   ],
+   "ms": 820
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-04"
+   ],
+   "ms": 662
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-05"
+   ],
+   "ms": 714
+  },
+  {
+   "blockIds": [
+    "zh-Hans-news-06"
+   ],
+   "ms": 1055
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-01"
+   ],
+   "ms": 911
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-02"
+   ],
+   "ms": 826
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-03"
+   ],
+   "ms": 924
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-04"
+   ],
+   "ms": 756
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-05"
+   ],
+   "ms": 780
+  },
+  {
+   "blockIds": [
+    "zh-Hans-community-06"
+   ],
+   "ms": 745
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-01"
+   ],
+   "ms": 124
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-02"
+   ],
+   "ms": 305
+  },
+  {
+   "blockIds": [
+    "zh-Hans-ui-03"
+   ],
+   "ms": 312
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-01"
+   ],
+   "ms": 441
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-02"
+   ],
+   "ms": 444
+  },
+  {
+   "blockIds": [
+    "zh-Hans-link-03"
+   ],
+   "ms": 412
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-01"
+   ],
+   "ms": 547
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-02"
+   ],
+   "ms": 519
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-03"
+   ],
+   "ms": 498
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-04"
+   ],
+   "ms": 630
+  },
+  {
+   "blockIds": [
+    "zh-Hans-seq-05"
+   ],
+   "ms": 698
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

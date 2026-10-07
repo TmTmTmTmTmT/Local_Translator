@@ -1,0 +1,291 @@
+{
+ "engine": "ollama-gemma4-e2b",
+ "model": "gemma4:e2b",
+ "lang": "zh-Hans",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 43988,
+ "totalMs": 43988,
+ "blocks": [
+  {
+   "id": "zh-Hans-tech-01",
+   "ms": 1517,
+   "slots": {
+    "0": "명령줄 도구를 설치하려면 ",
+    "1": ",그리고 "
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-02",
+   "ms": 1517,
+   "slots": {
+    "0": "옵션의 단위는 밀리초이며, 기본값은 30000(30초)이고, 0으로 설정하면 시간 초과를 완전히 제한하지 않습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-03",
+   "ms": 1517,
+   "slots": {
+    "0": "v1.x로 업그레이드하기 전에, 먼저 ",
+    "1": "설정 디렉터리",
+    "2": "를 백업하세요. 마이그레이션 스크립트는 모든 파일을 직접 덮어쓰며, 되돌릴 수 없습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-04",
+   "ms": 1517,
+   "slots": {
+    "0": "만약守护进程이 시작되지 않으면, 포트 8443이 다른 프로세스에 의해 사용되고 있지 않은지 확인하세요. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-05",
+   "ms": 1517,
+   "slots": {
+    "0": "각 워크 스레드는 각각 약 64MB의 캐시를 가지므로, 메모리가 8GB인 기기에서는 최대 여덟 개의 워크 스레드만 실행할 수 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-tech-06",
+   "ms": 1517,
+   "slots": {
+    "0": "요청은 최대 세 번 지수 백오프 방식으로 재시도되며, 모두 실패하면 오류는 ",
+    "1": "의 형태로 호출자에게 반환됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-01",
+   "ms": 1517,
+   "slots": {
+    "0": "시의회는 화요일에 7표 대 2표로 버스 노선을 동부 교외 지역으로 연장하는 안건을 통과시켰으며, 지지자들은 이것이 통근 시간을 최대 25%까지 단축할 것이라고 생각합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-02",
+   "ms": 1517,
+   "slots": {
+    "0": "할워슨 연구소 연구원들은 새로운 배터리가 2000번의 충방전 사이클 후에도 90%의 용량을 유지하며, 이는 현재 판매되는 배터리의 두 배에 달한다고 보고했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-03",
+   "ms": 1517,
+   "slots": {
+    "0": "하지만 비평가들은 이 결과가 동료 검토를 거치지 않았으며, 샘플 생산 비용이 킬로와트시당 약 340달러라는 점을 지적했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-04",
+   "ms": 1517,
+   "slots": {
+    "0": "북부 해안 지역은 목요일까지 폭우가 예상되며, 돌풍은 시간당 70킬로미터에 달하고 기온은 약 12도입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-05",
+   "ms": 1517,
+   "slots": {
+    "0": "해당 회사는 월요일에 성명을 발표하며, 공급 문제로 인해 ",
+    "1": "플래그십 휴대폰의 출시를",
+    "2": "내년 초로 연기할 것이라고 밝혔습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-news-06",
+   "ms": 1517,
+   "slots": {
+    "0": "왜 많은 작은 빵집이 5년 이상 운영하지 못할까요? 경제학자들은 그 원인이 빵 자체보다는 임대료, ",
+    "1": "인력,",
+    "2": "그리고 적은 이윤에 더 달려 있다고 말합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-01",
+   "ms": 1517,
+   "slots": {
+    "0": "세상에, 라즈베리 파이가 드디어 부팅되었는데, 전원을 켜자마자 연기가 나더라고요. 뭐, 진짜 연기는 아니지만, 제 심정은 이미 무너졌습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-02",
+   "ms": 1517,
+   "slots": {
+    "0": "무례하게 말하자면: 탭이나 공백 모두 괜찮습니다. 새벽 두 시에도 이 논쟁을 하는 사람에게, 가서 뭐라도 먹고 자야죠."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-03",
+   "ms": 1517,
+   "slots": {
+    "0": "웃기네, 오류 메시지를 세 시간 동안 쳐다봤는데, 마침표 하나가 빠져있었어. 마침표 하나! 나 산으로 은둔해야겠다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-04",
+   "ms": 1517,
+   "slots": {
+    "0": "솔직히 말해서, 그 업데이트는",
+    "1": "내 환경을 완전히 망쳤어. 되돌렸고, 숨을 돌리고, 내일 다시 싸울 거야."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-05",
+   "ms": 1517,
+   "slots": {
+    "0": "맞아. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, 와이파이가 예전보다 더 안정적이더라. 묻지 마, 그건 신기한 거야."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-community-06",
+   "ms": 1517,
+   "slots": {
+    "0": "여러분, 저는 400위안을 주고 비가 내리는 것처럼 타이핑되는 키보드를 샀는데, 전혀 후회하지 않아요. 동료들은 뭐……",
+    "1": "그렇지 않을 수도 있고."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-01",
+   "ms": 1517,
+   "slots": {
+    "0": "변경 사항 저장"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-02",
+   "ms": 1517,
+   "slots": {
+    "0": "오류가 발생했습니다. 잠시 후 다시 시도해 주세요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-ui-03",
+   "ms": 1517,
+   "slots": {
+    "0": "읽지 않은 메시지가 3개 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-01",
+   "ms": 1517,
+   "slots": {
+    "0": "클릭"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-02",
+   "ms": 1517,
+   "slots": {
+    "0": "지원 플랫폼에 대해서는 ",
+    "1": "를 참조하세요. 자세한 내용을 알아보세요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-link-03",
+   "ms": 1517,
+   "slots": {
+    "0": "문제가 발생하면, ",
+    "1": "로그 파일을 첨부하세요."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hans-seq-01",
+   "ms": 1517,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-02",
+   "ms": 1517,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-03",
+   "ms": 1517,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-04",
+   "ms": 1517,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "zh-Hans-seq-05",
+   "ms": 1517,
+   "slots": null,
+   "error": "block missing in output"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hans-tech-01",
+    "zh-Hans-tech-02",
+    "zh-Hans-tech-03",
+    "zh-Hans-tech-04",
+    "zh-Hans-tech-05",
+    "zh-Hans-tech-06",
+    "zh-Hans-news-01",
+    "zh-Hans-news-02",
+    "zh-Hans-news-03",
+    "zh-Hans-news-04",
+    "zh-Hans-news-05",
+    "zh-Hans-news-06",
+    "zh-Hans-community-01",
+    "zh-Hans-community-02",
+    "zh-Hans-community-03",
+    "zh-Hans-community-04",
+    "zh-Hans-community-05",
+    "zh-Hans-community-06",
+    "zh-Hans-ui-01",
+    "zh-Hans-ui-02",
+    "zh-Hans-ui-03",
+    "zh-Hans-link-01",
+    "zh-Hans-link-02",
+    "zh-Hans-link-03",
+    "zh-Hans-seq-01",
+    "zh-Hans-seq-02",
+    "zh-Hans-seq-03",
+    "zh-Hans-seq-04",
+    "zh-Hans-seq-05"
+   ],
+   "ms": 43988,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "api=openai"
+ }
+}

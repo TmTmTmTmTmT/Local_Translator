@@ -1,0 +1,310 @@
+{
+ "engine": "mlx-gemma-4-e2b-4bit",
+ "model": "mlx-community/gemma-4-e2b-it-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 45186,
+ "totalMs": 45186,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 1558,
+   "slots": {
+    "0": "若要安裝命令列工具,請執行 ",
+    "1": "npm install -g fernctl",
+    "2": ",接著用 "
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 1558,
+   "slots": {
+    "0": "選項的單位為毫秒,預設值是 30000(30 秒),設為 0 則完全不限制逾時."
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 1558,
+   "slots": {
+    "0": "從 v1.x 升級之前,請先備份",
+    "1": "設定資料夾",
+    "2": "。遷移指令碼會直接覆寫所有檔案,而且無法復原。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 1558,
+   "slots": {
+    "0": "如果常駐程式無法啟動,請確認連接埠 8443 沒有被其他處理程序佔用。記錄檔可在 http://localhost:8443/debug/logs 查看。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 1558,
+   "slots": {
+    "0": "每個執行緒都有各自約 64 MB 的快取,因此記憶體為 8 GB 的電腦最多只應執行八個執行緒。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 1558,
+   "slots": {
+    "0": "請求最多會以指數退避的方式重試三次;若全部失敗,錯誤會以 ",
+    "1": "TransientError"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 1558,
+   "slots": {
+    "0": "市議會週二以 7 票對 2 票通過將公車路線延伸至東部郊區的方案,支持者表示,這將使通勤時間最多縮短 25%。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 1558,
+   "slots": {
+    "0": "哈爾沃森研究所的研究人員指出,一種新型電池在經過 2000 次充放電循環後,仍保有 90% 的電量,約為目前市售電池的兩倍。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 1558,
+   "slots": {
+    "0": "不過,批評者指出,這項成果尚未經過同儕審查,而且原型的生產成本約為每千瓦小時 340 美元。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 1558,
+   "slots": {
+    "0": "北部沿海地區預計到週四都會有大雨,陣風可達每小時 70 公里,氣溫約在攝氏 12 度上下。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 1558,
+   "slots": {
+    "0": "該公司週一發布聲明表示,由於供應鏈問題持續,將把",
+    "1": "旗艦手機的上市",
+    "2": "延後至明年年初。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 1558,
+   "slots": {
+    "0": "為什麼許多小型麵包店撐不過五年?經濟學家認為,原因與麵包本身關係不大,更多在於房租、",
+    "1": "人力",
+    "2": "與微薄的利潤。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 1558,
+   "slots": {
+    "0": "天啊,樹莓派終於開機了,結果一通電就冒煙。好啦也不是真的冒煙,但我的心已經碎了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 1558,
+   "slots": {
+    "0": "說句可能會被罵的:用 Tab 或空白都可以,凌晨兩點還在吵這個的人,該去吃點宵夜然後睡覺了啦。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 1558,
+   "slots": {
+    "0": "笑死,盯著錯誤訊息看了三個小時,結果只是少了一個分號。一個分號欸!我要去山上隱居了。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 1558,
+   "slots": {
+    "0": "老實說,那次更新",
+    "1": "直接把我的環境搞爆了",
+    "2": "。已經退回舊版,出門吹了風,明天再戰。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 1558,
+   "slots": {
+    "0": "真的啦。我家貓在路由器上趴了一個禮拜,Wi-Fi 居然比以前還穩。不要問,問就是貓的力量。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 1558,
+   "slots": {
+    "0": "各位,我花了 1,800 元台幣買了一支敲起來像下雨聲的鍵盤,完全不後悔,同事就……",
+    "1": "不確定了",
+    "2": "。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 1558,
+   "slots": {
+    "0": "儲存變更"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 1558,
+   "slots": {
+    "0": "發生錯誤,請稍後再試。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 1558,
+   "slots": {
+    "0": "您有 3 則未讀訊息"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 1558,
+   "slots": {
+    "0": "按一下",
+    "1": "這裡"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 1558,
+   "slots": {
+    "0": "如需瞭解支援的平台,請參閱",
+    "1": "安裝指南"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 1558,
+   "slots": {
+    "0": "如果遇到問題,請",
+    "1": "到問題追蹤頁面回報"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 1558,
+   "slots": {
+    "0": "去年春天,我決定把一台舊筆電改造成家用伺服器,用來存放家人的照片。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 1558,
+   "slots": {
+    "0": "這台 2014 年的",
+    "1": "ThinkBook",
+    "2": "配備 8 GB 記憶體,拿來做這件事剛剛好。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 1558,
+   "slots": {
+    "0": "我先安裝了 ",
+    "1": "Debian 12"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 1558,
+   "slots": {
+    "0": "妹妹起初半信半疑,但一週後她承認,Fernbox 比她用過的任何雲端服務都快。"
+   },
+   "error": null
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 1558,
+   "slots": {
+    "0": "現在,那台舊筆電安靜地放在架子上,而",
+    "1": "Fernbox",
+    "2": "已經成為全家人旅行回來後第一個開啟的應用程式。"
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01",
+    "zh-Hant-tech-02",
+    "zh-Hant-tech-03",
+    "zh-Hant-tech-04",
+    "zh-Hant-tech-05",
+    "zh-Hant-tech-06",
+    "zh-Hant-news-01",
+    "zh-Hant-news-02",
+    "zh-Hant-news-03",
+    "zh-Hant-news-04",
+    "zh-Hant-news-05",
+    "zh-Hant-news-06",
+    "zh-Hant-community-01",
+    "zh-Hant-community-02",
+    "zh-Hant-community-03",
+    "zh-Hant-community-04",
+    "zh-Hant-community-05",
+    "zh-Hant-community-06",
+    "zh-Hant-ui-01",
+    "zh-Hant-ui-02",
+    "zh-Hant-ui-03",
+    "zh-Hant-link-01",
+    "zh-Hant-link-02",
+    "zh-Hant-link-03",
+    "zh-Hant-seq-01",
+    "zh-Hant-seq-02",
+    "zh-Hant-seq-03",
+    "zh-Hant-seq-04",
+    "zh-Hant-seq-05"
+   ],
+   "ms": 45186,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

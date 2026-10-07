@@ -1,0 +1,9 @@
+{
+ "ollama-gemma4-e4b": {
+  "model": "gemma4:e4b",
+  "args": [
+   "--keep-alive",
+   "600"
+  ]
+ }
+}

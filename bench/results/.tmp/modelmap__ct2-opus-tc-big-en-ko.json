@@ -1,0 +1,6 @@
+{
+ "ct2-opus-tc-big-en-ko": {
+  "model": "opus-mt",
+  "args": []
+ }
+}

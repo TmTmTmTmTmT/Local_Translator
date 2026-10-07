@@ -1,0 +1,6 @@
+{
+ "mlx-gemma-3-1b-4bit": {
+  "model": "mlx-community/gemma-3-1b-it-qat-4bit",
+  "args": []
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "mlx-hy-mt2-1.8b-4bit-mt": {
+  "model": "mlx-community/Hy-MT2-1.8B-4bit",
+  "args": [
+   "--mode",
+   "mt"
+  ]
+ }
+}

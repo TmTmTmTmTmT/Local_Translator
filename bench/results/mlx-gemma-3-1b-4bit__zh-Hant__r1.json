@@ -1,0 +1,230 @@
+{
+ "engine": "mlx-gemma-3-1b-4bit",
+ "model": "mlx-community/gemma-3-1b-it-qat-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 62989,
+ "totalMs": 62989,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 2172,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01",
+    "zh-Hant-tech-02",
+    "zh-Hant-tech-03",
+    "zh-Hant-tech-04",
+    "zh-Hant-tech-05",
+    "zh-Hant-tech-06",
+    "zh-Hant-news-01",
+    "zh-Hant-news-02",
+    "zh-Hant-news-03",
+    "zh-Hant-news-04",
+    "zh-Hant-news-05",
+    "zh-Hant-news-06",
+    "zh-Hant-community-01",
+    "zh-Hant-community-02",
+    "zh-Hant-community-03",
+    "zh-Hant-community-04",
+    "zh-Hant-community-05",
+    "zh-Hant-community-06",
+    "zh-Hant-ui-01",
+    "zh-Hant-ui-02",
+    "zh-Hant-ui-03",
+    "zh-Hant-link-01",
+    "zh-Hant-link-02",
+    "zh-Hant-link-03",
+    "zh-Hant-seq-01",
+    "zh-Hant-seq-02",
+    "zh-Hant-seq-03",
+    "zh-Hant-seq-04",
+    "zh-Hant-seq-05"
+   ],
+   "ms": 62989,
+   "jsonValid": false,
+   "retried": true
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}
