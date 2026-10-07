@@ -55,7 +55,6 @@ export function buildCandidate(block, res) {
     else if (slots && typeof slots[String(it.i)] === 'string') parts.push({ k: 't', text: slots[String(it.i)] });
     else { missing = true; parts.push({ k: 'miss', text: '⟨누락⟩' }); }
   }
-  if (!error && missing) error = null; // missing 플래그만 표시
   return { engine: res ? res.engine : '(없음)', parts, error, missing: missing && !error };
 }
 
@@ -105,7 +104,7 @@ function main() {
   }
 
   const json = JSON.stringify(data)
-    .replace(/</g, '\\u003c').replace(/ /g, '\\u2028').replace(/ /g, '\\u2029');
+    .replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
   const rd = (f) => fs.readFileSync(path.join(here, f), 'utf8');
   // 함수 치환자를 써서 `$&` 등 특수 패턴 해석을 피한다.
   const html = rd('rate.html')
