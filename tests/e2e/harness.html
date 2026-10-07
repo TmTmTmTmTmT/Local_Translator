@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>KT e2e harness</title>
+<style>body{font:16px system-ui;max-width:720px;margin:2rem auto}.pad{height:2400px}</style></head>
+<body>
+<h1 id="h">Welcome to the Fernbox guide</h1>
+<p id="p1">Click <a id="lk" href="#x">here</a> to continue with the setup, then read <b id="bd">the docs</b> carefully.</p>
+<p id="p2">Run <code id="cd">npm install</code> and wait for it to finish.</p>
+<pre id="pr">const answer = 42; // keep me</pre>
+<p id="p3" translate="no">Do not translate this sentence at all.</p>
+<input id="in" value="Input value stays" placeholder="Search here">
+<details id="dt"><summary>Show more details</summary><p id="p4">Hidden paragraph that appears only after opening the panel.</p></details>
+<button id="more">Load more</button>
+<div id="feed"></div>
+<div class="pad"></div>
+<p id="p5">This paragraph sits far below the fold and should be translated lazily once scrolled.</p>
+<script>
+  window.__calls = [];
+  window.browser = { runtime: {
+    onMessage: { addListener() {} },
+    sendMessage: async (m) => {
+      if (m.type !== 'translate') return { ok: true };
+      window.__calls.push(m.blocks.map((b) => b.id));
+      return { ok: true, engine: 'mock', results: m.blocks.map((b) => {
+        const slots = {};
+        const items = b.items; let prevX = false;
+        items.forEach((it) => { if (it.k === 't') slots[it.i] = (prevX ? '을(를) ' : '') + '한글(' + it.text.trim() + ')'; prevX = it.k === 'x'; });
+        return { id: b.id, slots };
+      }) };
+    } } };
+</script>
+<script src="/extension/lib/lang.js"></script>
+<script src="/extension/lib/josa.js"></script>
+<script src="/extension/content/text.js"></script>
+<script src="/extension/content/filter.js"></script>
+<script src="/extension/content/segmenter.js"></script>
+<script src="/extension/content/apply.js"></script>
+<script src="/extension/content/main.js"></script>
+</body></html>

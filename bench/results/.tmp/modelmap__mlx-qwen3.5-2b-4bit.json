@@ -1,6 +1,0 @@
-{
- "mlx-qwen3.5-2b-4bit": {
-  "model": "mlx-community/Qwen3.5-2B-4bit",
-  "args": []
- }
-}

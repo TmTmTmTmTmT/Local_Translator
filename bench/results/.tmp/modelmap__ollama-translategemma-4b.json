@@ -1,9 +1,0 @@
-{
- "ollama-translategemma-4b": {
-  "model": "translategemma:4b",
-  "args": [
-   "--keep-alive",
-   "600"
-  ]
- }
-}

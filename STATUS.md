@@ -77,6 +77,11 @@
 - 테스트 196 통과. 미검증: Safari 실제 동작
 - 알려진 초과: content/*.js 38.9KB(목표 30KB 초과, 기존에도 33KB). 압축 시 문제 없으나 정리 필요 시 main.js 분리
 
+## 실브라우저 e2e (내장 브라우저, 모의 번역기, tests/e2e/harness.html)
+- 확인(모두 정상): 링크 텍스트·href·code·pre·translate=no·input 값 불변 / 문장 중간 링크 슬롯 분할 / 스크롤 지연 번역 / 접힌 details는 펼쳐져 화면에 보일 때 번역 / "더보기" 추가 노드(p·section+링크) 자동 번역 / 페이지가 원문으로 되돌리면 캐시로 즉시 재적용 / 교체된 노드 캐시 적용 / 조사 보정(Latin 링크 뒤는 병기 유지)
+- 설계상 동작: 화면 위쪽(뷰포트 밖)에 추가된 노드는 보일 때 번역(IntersectionObserver rootMargin은 아래쪽만 확장)
+- 실행: `python3 -m http.server 8731` 후 tests/e2e/harness.html 열기 (엔진은 모의, Safari 네이티브 경로는 미검증)
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
