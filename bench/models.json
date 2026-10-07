@@ -1,0 +1,22 @@
+[
+  {"engineId":"mlx-hy-mt2-1.8b-4bit","runtime":"mlx","model":"mlx-community/Hy-MT2-1.8B-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"Tencent translation-specialized, Apache-2.0"},
+  {"engineId":"mlx-translategemma-4b-4bit","runtime":"mlx","model":"mlx-community/translategemma-4b-it-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"Google translation-specialized, Gemma terms"},
+  {"engineId":"ollama-translategemma-4b","runtime":"ollama","model":"translategemma:4b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"same model as the MLX variant, Ollama runtime"},
+  {"engineId":"ct2-nllb-1.3b","runtime":"ct2","model":"nllb-1.3b","family":"nllb","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"NLLB-200 distilled 1.3B int8, CC-BY-NC"},
+  {"engineId":"ct2-nllb-600m","runtime":"ct2","model":"nllb-600m","family":"nllb","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"NLLB-200 distilled 600M int8, CC-BY-NC"},
+  {"engineId":"ct2-madlad-3b","runtime":"ct2","model":"madlad-3b","family":"madlad","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"MADLAD-400 3B MT int8, Apache-2.0"},
+  {"engineId":"ct2-m2m100-418m","runtime":"ct2","model":"m2m100-418m","family":"m2m100","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"m2m100 418M int8, MIT"},
+  {"engineId":"ct2-opus-tc-big-en-ko","runtime":"ct2","model":"opus-mt","family":"opus","langs":["en"],"tier":"L","notes":"opus-mt-tc-big en->ko only; model dir bench/models/opus-mt/en-ko is converted from bench/models/opus-tc-big-en-ko-src","convertFrom":"opus-tc-big-en-ko-src","convertTo":"opus-mt/en-ko"},
+  {"engineId":"mlx-qwen3.5-2b-4bit","runtime":"mlx","model":"mlx-community/Qwen3.5-2B-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"general LLM, L~M"},
+  {"engineId":"ollama-qwen3.5-2b","runtime":"ollama","model":"qwen3.5:2b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"Ollama variant; may not be pulled"},
+  {"engineId":"mlx-qwen3-1.7b-4bit","runtime":"mlx","model":"mlx-community/Qwen3-1.7B-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"general LLM; thinking disabled by adapter"},
+  {"engineId":"ollama-qwen3-1.7b","runtime":"ollama","model":"qwen3:1.7b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"Ollama variant; may not be pulled"},
+  {"engineId":"mlx-qwen3.5-4b-4bit","runtime":"mlx","model":"mlx-community/Qwen3.5-4B-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"general LLM, M~H"},
+  {"engineId":"mlx-exaone-4.0-1.2b-4bit","runtime":"mlx","model":"mlx-community/exaone-4.0-1.2b-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"ko-specialized; officially en/ko/es so ja/zh may be weak; NC license"},
+  {"engineId":"mlx-kanana-2-3b-4bit","runtime":"mlx","model":"mlx-community/kanana-2-3b-instruct-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"M","notes":"ko-specialized"},
+  {"engineId":"mlx-gemma-3-1b-4bit","runtime":"mlx","model":"mlx-community/gemma-3-1b-it-qat-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"Gemma 3 1B QAT"},
+  {"engineId":"mlx-gemma-4-e2b-4bit","runtime":"mlx","model":"mlx-community/gemma-4-e2b-it-4bit","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"Gemma 4 E2B"},
+  {"engineId":"mlx-hyperclovax-seed-1.5b-4bit","runtime":"mlx","model":"senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"L","notes":"community MLX port"},
+  {"engineId":"ollama-gemma4-e2b","runtime":"ollama","model":"gemma4:e2b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"installed; H-tier reference (7.2GB)"},
+  {"engineId":"ollama-gemma4-e4b","runtime":"ollama","model":"gemma4:e4b","langs":["en","ja","zh-Hans","zh-Hant"],"tier":"H","notes":"installed; H-tier reference (9.6GB)"}
+]

@@ -11,7 +11,8 @@ export function makeMlxChat(opts) {
   const base = (opts.baseUrl || DEFAULT_BASE).replace(/\/$/, '');
   return async ({ messages }) => {
     const body = {
-      model: opts.model, messages, stream: false, temperature: 0.2,
+      // 서버에 로드된 모델 사용: repo id를 보내면 mlx_lm.server가 모델을 다시 로드한다
+      model: 'default_model', messages, stream: false, temperature: 0.2,
       max_tokens: estimateMaxTokens(messages),
       ...(isQwen3(opts.model) ? { chat_template_kwargs: { enable_thinking: false } } : {}),
     };

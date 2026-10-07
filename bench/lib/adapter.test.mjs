@@ -106,7 +106,7 @@ test('mlx: OpenAI-compatible request', async () => {
   const { cp, out } = setup();
   await mlxMain(['--engine', 'mlx-m', '--corpus', cp, '--out', out, '--model', 'org/m-4bit', '--base-url', base]);
   srv.close();
-  assert.equal(calls[0].body.model, 'org/m-4bit');
+  assert.equal(calls[0].body.model, 'default_model');
   assert.ok(calls[0].body.max_tokens >= 1024);
   assert.equal(JSON.parse(readFileSync(out, 'utf8')).blocks[0].slots[1], 'b');
 });
