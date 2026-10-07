@@ -20,5 +20,13 @@
 - 진행 중: T0.3 Swift CLI, T0.4 Node 어댑터·실행기, T0.5 MT 서버, T0.6 평가 페이지
 - 다음: 다운로드 승인 → 설치·변환(bench/.venv) → T0.7 1차 실행
 
+## 2026-10-07 — Sonnet 진행 (/goal: 결정 항목은 DECISIONS.md로 넘기고 끝까지 완성)
+- 완료: T0 repo(public, 작성자 TmTmTmTmTmT로 정리), T0.1 후보 조사, T0.2 코퍼스, T0.3 Swift bench, T0.4 Node bench, T0.5 MT 서버(코드), T0.6 평가 페이지, T2 lib, T3/T7 content, T4 engines, T5 popup/options/manifest, T6 background. 테스트 전체 통과(`npm test`=`node --test`)
+- 확인: 언어팩 4종 설치됨, AFM available, Translation 헤드리스 세션 동작, SlotID 속성 보존 29/29(슬롯 전부 복구 28/29), AFM 컨텍스트 4096토큰
+- 진행 중: 모델 다운로드(15개, bench/results/download.log), T0.7 Apple 엔진 1차 실행, T8 Xcode/Swift, T9 PDF 뷰어
+- 조정: segmenter MAX_BLOCK_CHARS 2000→6000 (긴 단일 텍스트 노드가 번역 제외되던 문제)
+
 ## Opus 확인 필요
+- (T3) content 쪽 자체 캐시와 background 캐시 이중 구조 — 유지해도 무방(교체 노드 즉시 적용 목적). 역할 분담 확인
+- (T3) SPA URL 감지: Safari content script 격리 월드라 pushState 래핑 불완전 → popstate/hashchange/변이 틱 비교 병행
 - (없음)

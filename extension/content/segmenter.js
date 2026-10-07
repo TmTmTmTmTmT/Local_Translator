@@ -3,7 +3,7 @@
   'use strict';
 
   const KT = (globalThis.KT = globalThis.KT || {});
-  const MAX_BLOCK_CHARS = 2000;
+  const MAX_BLOCK_CHARS = 6000;
   const SUPPORTED = new Set(['en', 'ja', 'zh']);
   let counter = 0;
 
