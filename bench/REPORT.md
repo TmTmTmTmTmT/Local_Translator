@@ -1,6 +1,6 @@
 # Phase 0 벤치마크 REPORT
 
-생성: 2026-10-07T06:31:39.163Z · 엔진 4 · 언어 en, ja, zh-Hans, zh-Hant
+생성: 2026-10-07T06:38:00.779Z · 엔진 7 · 언어 en, ja, zh-Hans, zh-Hant
 
 ## 1. 엔진 x 언어 요약
 
@@ -22,6 +22,16 @@
 | apple-mt-plain-lowlatency | ja | 1 | 217 | -* | - | 217 (29) | 7249 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | apple-mt-plain-lowlatency | zh-Hans | 1 | 242 | -* | - | 243 (29) | 4836 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 | apple-mt-plain-lowlatency | zh-Hant | 1 | 236 | -* | - | 236 (29) | 5052 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hy-mt2-1.8b-4bit | en | 1 | 81684 | -* | - | 81685 (29) | 40 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hy-mt2-1.8b-4bit | ja | 1 | 90861 | -* | - | 90861 (29) | 17 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hy-mt2-1.8b-4bit | zh-Hans | 1 | 71840 | -* | - | 71840 (29) | 16 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-hy-mt2-1.8b-4bit | zh-Hant | 1 | 86546 | -* | - | 86546 (29) | 14 | 0% | - | 0% | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-translategemma-4b-4bit | en | 1 | 1967 | -* | - | 1967 (29) | 1649 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-translategemma-4b-4bit | ja | 1 | 31 | -* | - | 31 (29) | 50839 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-translategemma-4b-4bit | zh-Hans | 1 | 32 | -* | - | 32 (29) | 36656 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| mlx-translategemma-4b-4bit | zh-Hant | 1 | 32 | -* | - | 32 (29) | 37250 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
+| ollama-translategemma-4b | en | 1 | 26946 | 929* | 929 | 26946 (29) | 120 | 18% | - | 100% | 88% | 100% | 100% | 73% | 0 | 0 | 0 | 23 |
+| ollama-translategemma-4b | ja | 1 | 15994 | -* | - | 15994 (29) | 99 | 0% | - | - | - | - | - | - | 0 | 0 | 0 | 29 |
 
 - warm = run 2+ 전체 + run 1의 첫 배치 제외 블록 (`*` = 표본 부족으로 콜드 포함). 블록 ms는 배치 시간/블록 수.
 - x 보존: 결과에 `xPreserved`를 기록하는 엔진만 표시 (LLM 어댑터는 x를 출력하지 않아 `-`). JSON 유효 = 첫 시도 성공 배치 비율(JSON 계열만).
@@ -62,6 +72,16 @@ scenario 결과 없음.
 | apple-mt-plain-lowlatency | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | apple-mt-plain-lowlatency | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
 | apple-mt-plain-lowlatency | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-hy-mt2-1.8b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit | en | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit | zh-Hans | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| mlx-translategemma-4b-4bit | zh-Hant | N/A | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b | en | FAIL | FAIL | N/A | N/A | N/A | FAIL |
+| ollama-translategemma-4b | ja | N/A | FAIL | N/A | N/A | N/A | FAIL |
 
 PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언로드는 usage-sim(없으면 resident) 모니터 기준.
 
@@ -76,6 +96,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: CLI를 설치하려면 실행한[npm install -g fernctl]을  후 으로 버전을 확인하십시오[fernctl --version]. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-plain**: CLI를 설치하려면 실행하세요 [npm install -g fernctl] 그리고 버전을 확인하세요 [fernctl --version]. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: CLI를 설치하려면 다음 명령을 실행하세요[npm install -g fernctl]npm install -g fernctl[fernctl --version](누락)
 
 **en-tech-02** (tech)
 
@@ -84,6 +107,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 그 [timeout] 옵션은 밀리초 단위의 값을 받아들입니다; 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한이 완전히 비활성화됩니다.
 - **apple-mt-plain**: 그 [timeout] 옵션은 밀리초 단위의 값을 받아들입니다; 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한이 완전히 비활성화됩니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: timeout 옵션은 밀리초 단위의 값을 허용합니다. 기본값은 30000(30초)이며, 이를 0으로 설정하면 제한을 완전히 비활성화합니다.[timeout](누락)
 
 **en-tech-03** (tech)
 
@@ -92,6 +118,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: v1.x에서 업그레이드하기 전에, 백업하십시오구성 디렉토리를 이식 스크립트가 기존의 모든 파일을 다시 작성하고 되돌릴 수 없기 때문에 .
 - **apple-mt-plain**: v1.x에서 업그레이드하기 전에, 이식 스크립트가 기존의 모든 파일을 다시 작성하고 되돌릴 수 없기 때문에 구성 디렉토리를 백업하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: v1.x에서 업그레이드하기 전에, 설정 디렉토리를 백업하세요(누락)
 
 **en-tech-04** (tech)
 
@@ -100,6 +129,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 데아몬이 시작되지 않으면 8443 포트가 이미 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 데아몬이 시작되지 않으면 8443 포트가 이미 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: 데몬이 시작되지 않으면, 8443번 포트가 다른 프로세스에 의해 사용되지 않는지 확인하세요. 로그를 http://localhost:8443/debug/logs 에서 확인할 수 있습니다.
 
 **en-tech-05** (tech)
 
@@ -108,6 +140,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 각 작업자 스레드는 약 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 갖춘 기계에서는 8명의 작업자 이상을 실행해서는 안 됩니다.
 - **apple-mt-plain**: 각 작업자 스레드는 약 64MB의 자체 캐시를 유지하므로 8GB의 RAM을 갖춘 기계에서는 8명의 작업자 이상을 실행해서는 안 됩니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: 각 워커 스레드는 약 64MB의 캐시를 가지고 있으므로, 8GB의 RAM을 가진 머신에는 최대 8개의 워커를 실행할 수 있습니다.
 
 **en-tech-06** (tech)
 
@@ -116,6 +151,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 요청은 지수적 백오프를 사용하여 최대 세 번까지 재시도됩니다. 모든 시도가 실패하면 오류는 임시 오류(로 호출자에게 표시됩니다[TransientError]).
 - **apple-mt-plain**: 요청은 지수적 백오프를 적용하여 최대 세 번까지 재시도됩니다; 모든 시도가 실패하면 오류가 호출자에게 다음과 같이 표시됩니다. [TransientError].
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: 요청은 3번까지 재시도되며, 모든 시도가 실패하면, 호출자에게 [TransientError]TransientError
 
 **en-news-01** (news)
 
@@ -124,6 +162,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 시 의회는 화요일에 버스 서비스를 동부 교외로 연장하기 위해 7대 2로 투표했으며, 지지자들은 이 조치가 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말한다.
 - **apple-mt-plain**: 시 의회는 화요일에 버스 서비스를 동부 교외로 연장하기 위해 7대 2로 투표했으며, 지지자들은 이 조치가 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-02** (news)
 
@@ -132,6 +173,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 할로브센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후 용량의 90%를 유지했으며, 이는 현재 상업용 셀의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain**: 할로브센 연구소의 연구원들은 새로운 유형의 배터리가 2,000회 충전 사이클 후 용량의 90%를 유지했으며, 이는 현재 상업용 셀의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-03** (news)
 
@@ -140,6 +184,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 그러나 비평가들은 결과가 아직 동료 검토를 받지 않았으며 프로토타입을 생산하는 데 약 킬로와트시당 340달러가 소요된다고 지적한다.
 - **apple-mt-plain**: 그러나 비평가들은 결과가 아직 동료 검토를 받지 않았으며 프로토타입을 생산하는 데 약 킬로와트시당 340달러가 소요된다고 지적한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-04** (news)
 
@@ -148,6 +195,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 목요일까지 북부 해안 전체에 강한 비가 내릴 것으로 예상되며, 최대 시속 70km의 돌풍이 불고 기온은 섭씨 12도 정도를 유지할 것으로 예상된다.
 - **apple-mt-plain**: 목요일까지 북부 해안 전체에 강한 비가 내릴 것으로 예상되며, 최대 시속 70km의 돌풍이 불고 기온은 섭씨 12도 정도를 유지할 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-05** (news)
 
@@ -156,6 +206,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 월요일에 발표된 성명에서, 회사는 것이라고 밝혔다플래그십 폰 출시를 연기할 지속되는 공급망 문제를 근거로 내년 초까지 .
 - **apple-mt-plain**: 월요일에 발표된 성명에서, 회사는 지속되는 공급망 문제를 근거로 플래그십 폰 출시를 내년 초까지 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-news-06** (news)
 
@@ -164,6 +217,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 왜 많은 소규모 베이커리가 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 있다고 말합니다인력 부족, 그리고 얇은 마진과 더 관련이 .
 - **apple-mt-plain**: 왜 많은 소규모 베이커리가 5년 이내에 문을 닫는 걸까요? 경제학자들은 그 답이 빵보다는 임대료, 인력 부족, 그리고 얇은 마진과 더 관련이 있다고 말합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-01** (community)
 
@@ -172,6 +228,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 좋아, 그래서 나는 마침내 내 라즈베리 피를 부팅시켰는데 그것은 즉시 불이 났어. 음, 문자 그대로는 아니지만. 하지만 내 영혼은 그랬어.
 - **apple-mt-plain**: 좋아, 그래서 나는 마침내 내 라즈베리 피를 부팅시켰는데 그것은 즉시 불이 났어. 음, 문자 그대로는 아니지만. 하지만 내 영혼은 그랬어.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-02** (community)
 
@@ -180,6 +239,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 핫 테이크: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **apple-mt-plain**: 핫 테이크: 탭은 괜찮고, 공백도 괜찮으며, 새벽 2시에 이에 대해 논쟁하는 사람은 간식과 낮잠이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-03** (community)
 
@@ -188,6 +250,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: ㅋㅋㅋ 이 오류를 세 시간이나 보고 있었는데 분리표가 빠져 있었어요. 분리표요. 이제 숲에서 라이브 방송을 할게요.
 - **apple-mt-plain**: ㅋㅋㅋ 이 오류를 세 시간이나 보고 있었는데 분리표가 빠져 있었어요. 분리표요. 이제 숲에서 라이브 방송을 할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-04** (community)
 
@@ -196,6 +261,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히 말해서, 그 업데이트가 실제로 모든 것을 망쳤어요제 설정에서 . 되돌렸고, 잔디를 만졌고, 내일 다시 시도할게요.
 - **apple-mt-plain**: 솔직히 말해서, 그 업데이트가 제 설정에서 실제로 모든 것을 망쳤어요. 되돌렸고, 잔디를 만졌고, 내일 다시 시도할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-05** (community)
 
@@ -204,6 +272,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 확인할 수 있어요. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데 솔직히 와이파이가 지금까지보다 더 좋았어요. 의심하지 마세요.
 - **apple-mt-plain**: 확인할 수 있어요. 제 고양이가 라우터 위에 일주일 동안 앉아 있었는데 솔직히 와이파이가 지금까지보다 더 좋았어요. 의심하지 마세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-community-06** (community)
 
@@ -212,6 +283,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여러분, 저는 방금 비 소리가 나는 키보드에 60달러를 썼어요. 전혀 후회 없어요. 반면 제 동료들은... 아직 알 수 없네요.
 - **apple-mt-plain**: 여러분, 저는 방금 비 소리가 나는 키보드에 60달러를 썼어요. 전혀 후회 없어요. 반면 제 동료들은... 아직 알 수 없네요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-ui-01** (ui)
 
@@ -220,6 +294,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 변경 사항 저장하기
 - **apple-mt-plain**: 변경 사항 저장하기
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-ui-02** (ui)
 
@@ -228,6 +305,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 무언가가 잘못되었습니다. 나중에 다시 시도해 주세요.
 - **apple-mt-plain**: 무언가가 잘못되었습니다. 나중에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-ui-03** (ui)
 
@@ -236,6 +316,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-link-01** (link)
 
@@ -244,6 +327,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 클릭하세요[here]계속하려면 기를 .
 - **apple-mt-plain**: 클릭 [here] 계속하기 위해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-link-02** (link)
 
@@ -252,6 +338,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 참조하십시오[the installation guide]지원되는 플랫폼에 대한 자세한 내용은 .
 - **apple-mt-plain**: 보다 [the installation guide] 지원되는 플랫폼에 대한 자세한 내용은.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-link-03** (link)
 
@@ -260,6 +349,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 발생하면 [open an issue on the tracker]보고하고 로그 파일을 포함하십시오.
 - **apple-mt-plain**: 만약 당신이 곤경에 처한다면, [open an issue on the tracker] 그리고 로그 파일을 포함하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-01** (seq)
 
@@ -268,6 +360,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 작년 봄에 나는 오래된 노트북을 가족의 사진을 위한 가정용 서버로 바꾸기로 결정했다.
 - **apple-mt-plain**: 작년 봄에 나는 오래된 노트북을 가족의 사진을 위한 가정용 서버로 바꾸기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-02** (seq)
 
@@ -276,6 +371,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 2014년형 노트북은 ThinkBook으로 8GB의 RAM을 탑재한 이 일에 완벽하게 적합한 것으로 밝혀졌다.
 - **apple-mt-plain**: 2014년형 ThinkBook으로 8GB의 RAM을 탑재한 노트북은 이 일에 완벽하게 적합한 것으로 밝혀졌다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-03** (seq)
 
@@ -284,6 +382,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 먼저, 저는 를 설치하고[Debian 12] 사진을 둘러보기 위해 Fernbox라는 작은 웹 앱을 설정했습니다.
 - **apple-mt-plain**: 먼저, 저는 설치했습니다. [Debian 12] 그리고 사진을 둘러보기 위해 Fernbox라는 작은 웹 앱을 설정합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-04** (seq)
 
@@ -292,6 +393,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 내 여동생은 처음에는 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain**: 내 여동생은 처음에는 의심했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 **en-seq-05** (seq)
 
@@ -300,6 +404,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 여행 후 우리 가족 전체가 가장 먼저 열어보는 첫 번째 물건이 되었습니다.
 - **apple-mt-plain**: 이제 오래된 노트북은 선반 위에 조용히 놓여 있고, Fernbox는 여행 후 우리 가족 전체가 가장 먼저 열어보는 첫 번째 물건이 되었습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: block missing in output)
 
 ### ja
 
@@ -310,6 +417,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: CLI를 설치하려면 [npm install -g fernctl]실행하고, 계속해서 [fernctl --version]으로 버전을 확인하십시오. 버전 2.4.1 이상이 필요합니다.
 - **apple-mt-plain**: CLI를 설치하려면 [npm install -g fernctl] 을 실행하고, 계속해서 [fernctl --version] 에서 버전을 확인해 주세요. 버전 2.4.1 이후가 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-02** (tech)
 
@@ -318,6 +428,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: [timeout]옵션은 밀리초 단위로 지정한다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효가 된다.
 - **apple-mt-plain**: [timeout] 옵션은 밀리초 단위로 지정한다. 기본값은 30000(30초)이며, 0을 지정하면 제한이 완전히 무효가 된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-03** (tech)
 
@@ -326,6 +439,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 해 주세요. 이월 스크립트는 모든 파일을 그 자리에서 다시 작성하기 때문에, 되돌릴 수 없습니다.
 - **apple-mt-plain**: v1.x에서 업그레이드하기 전에 설정 디렉토리의 백업을 해 주세요. 이월 스크립트는 모든 파일을 그 자리에서 다시 작성하기 때문에, 되돌릴 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-04** (tech)
 
@@ -334,6 +450,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 데이몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 데이몬이 시작되지 않는 경우, 포트 8443이 다른 프로세스에 사용되지 않았는지 확인합니다. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-05** (tech)
 
@@ -342,6 +461,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 각 워커스레드는 약 64MB의 독자 캐시를 가지고 있으므로, RAM 8GB의 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋다.
 - **apple-mt-plain**: 각 워커스레드는 약 64MB의 독자 캐시를 가지고 있으므로, RAM 8GB의 머신에서는 워커를 8개 이상 실행하지 않는 것이 좋다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-tech-06** (tech)
 
@@ -350,6 +472,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 요청은 지수 백오프로 최대 3회까지 재시도된다. 모두 실패한 경우 [TransientError]로 호출元에 반환된다.
 - **apple-mt-plain**: 요청은 지수 백오프로 최대 3회까지 재시도된다. 모두 실패한 경우 [TransientError] 로서 호출원에게 반환된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-01** (news)
 
@@ -358,6 +483,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 의결했다. 찬성파는 출퇴근 시간이 최대 25% 단축된다고 말하고 있다.
 - **apple-mt-plain**: 시의회는 화요일, 동부 교외로의 버스 노선 연장을 찬성 7, 반대 2로 의결했다. 찬성파는 출퇴근 시간이 최대 25% 단축된다고 말하고 있다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-02** (news)
 
@@ -366,6 +494,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하루볼센 연구소의 연구팀은, 신형 배터리가 2,000회의 충전방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행의 시판품의 약 2배에 해당한다.
 - **apple-mt-plain**: 하루볼센 연구소의 연구팀은, 신형 배터리가 2,000회의 충전방전 후에도 용량의 90%를 유지했다고 발표했다. 이는 현행의 시판품의 약 2배에 해당한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-03** (news)
 
@@ -374,6 +505,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 한편, 이 결과는 아직 검토를 받지 않았으며, 시제품의 제조 비용은 1킬로와트시당 약 340달러에 이를 것이라는 지적도 나오고 있다.
 - **apple-mt-plain**: 한편, 이 결과는 아직 검토를 받지 않았으며, 시제품의 제조 비용은 1킬로와트시당 약 340달러에 이를 것이라는 지적도 나오고 있다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-04** (news)
 
@@ -382,6 +516,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 북부의 해안 지역에서는 목요일까지 대우가 될 전망이며, 최대 풍속은 70km/h, 기온은 12도 전후로 변동할 것입니다.
 - **apple-mt-plain**: 북부의 해안 지역에서는 목요일까지 대우가 될 전망이며, 최대 풍속은 70km/h, 기온은 12도 전후로 변동할 것입니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-05** (news)
 
@@ -390,6 +527,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 동사는 월요일에 발표한 성명에서, 공급망의 문제가 지속되고 있다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.
 - **apple-mt-plain**: 동사는 월요일에 발표한 성명에서, 공급망의 문제가 지속되고 있다는 이유로, 주력 스마트폰의 출시를 내년 초까지 연기한다고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-news-06** (news)
 
@@ -398,6 +538,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 왜 작은 빵집은 5년 이내에 문을 닫게 되는가. 경제학자들에 따르면, 답은 빵 그 자체보다 임대료와 인건비, 그리고 낮은 이익률에 있다고 한다.
 - **apple-mt-plain**: 왜 작은 빵집은 5년 이내에 문을 닫게 되는가. 경제학자들에 따르면, 답은 빵 그 자체보다 임대료와 인건비, 그리고 낮은 이익률에 있다고 한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-01** (community)
 
@@ -406,6 +549,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 드디어 Raspberry Pi가 부팅된 줄 알았더니, 초 단위로 불을 뿜었다. 아니, 실제로 불타지는 않았지만, 내 마음은 불탔다.
 - **apple-mt-plain**: 드디어 Raspberry Pi가 부팅된 줄 알았더니, 초 단위로 불을 뿜었다. 아니, 실제로 불타지는 않았지만, 내 마음은 불탔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-02** (community)
 
@@ -414,6 +560,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해. 자정 2시에 논쟁하고 있는 사람은 간식 먹고 자는 게 좋겠어(웃음)
 - **apple-mt-plain**: 솔직히, 탭이든 스페이스든 둘 다 괜찮다고 생각해. 자정 2시에 논쟁하고 있는 사람은 간식 먹고 자는 게 좋겠어(웃음)
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-03** (community)
 
@@ -422,6 +571,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 3시간 동안 오류와 눈싸움을 하고, 원인이 세미콜론 1개였어www 세미콜론이지? 이제 산에 틀어박힐게…
 - **apple-mt-plain**: 3시간 동안 오류와 눈싸움을 하고, 원인이 세미콜론 1개였어www 세미콜론이지? 이제 산에 틀어박힐게…
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-04** (community)
 
@@ -430,6 +582,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히, 저 업데이트로 환경이 다 망가졌는데.롤백해서 밖의 공기를 마셨어.내일 다시 할게.
 - **apple-mt-plain**: 솔직히, 저 업데이트로 환경이 다 망가졌는데.롤백해서 밖의 공기를 마셨어.내일 다시 할게.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-05** (community)
 
@@ -438,6 +593,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 이상하게도 Wi-Fi 상태가 역대 최고야. 이유는 물어보지 마.
 - **apple-mt-plain**: 우리 고양이가 라우터 위에 일주일 동안 머물고 있는데, 이상하게도 Wi-Fi 상태가 역대 최고야. 이유는 물어보지 마.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-community-06** (community)
 
@@ -446,6 +604,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 키보드에 6,000엔이나 썼다. 비소리 같은 누르기 소리로 최고. 동료의 반응은...음, 이해합니다w
 - **apple-mt-plain**: 키보드에 6,000엔이나 썼다. 비소리 같은 누르기 소리로 최고. 동료의 반응은...음, 이해합니다w
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-ui-01** (ui)
 
@@ -454,6 +615,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 변경을 저장
 - **apple-mt-plain**: 변경을 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-ui-02** (ui)
 
@@ -462,6 +626,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 발생했습니다. 잠시 후에 다시 한번 시도해 주세요.
 - **apple-mt-plain**: 문제가 발생했습니다. 잠시 후에 다시 한번 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-ui-03** (ui)
 
@@ -470,6 +637,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 미독 메시지가 3건 있습니다
 - **apple-mt-plain**: 미독 메시지가 3건 있습니다
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-link-01** (link)
 
@@ -478,6 +648,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 계속하려면 [こちら]기를 클릭하십시오.
 - **apple-mt-plain**: 계속하려면[こちら]를 클릭해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-link-02** (link)
 
@@ -486,6 +659,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지원 플랫폼의 자세한 내용은, [インストールガイド]참조하십시오.
 - **apple-mt-plain**: 대응 플랫폼의 자세한 내용은,[インストールガイド]를 보십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-link-03** (link)
 
@@ -494,6 +670,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 해결되지 않는 경우, [トラッカーでイシューを作成]하고, 로그 파일을 첨부해 주세요.
 - **apple-mt-plain**: 문제가 해결되지 않는 경우,[トラッカーでイシューを作成]그리고, 로그 파일을 첨부해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-01** (seq)
 
@@ -502,6 +681,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 작년 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC를 집 서버에 하는 것을 결정했습니다.
 - **apple-mt-plain**: 작년 봄, 가족의 사진을 저장하기 위해, 오래된 노트북 PC를 집 서버에 하는 것을 결정했습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-02** (seq)
 
@@ -510,6 +692,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 2014년식 ThinkBook(RAM 8GB)은, 이 용도에는 딱 맞았습니다.
 - **apple-mt-plain**: 2014년식 ThinkBook(RAM 8GB)은, 이 용도에는 딱 맞았습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-03** (seq)
 
@@ -518,6 +703,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 먼저 [Debian 12]을 설치하고, 사진을 감상하기 위한 작은 Web앱, Fernbox를 설정했습니다.
 - **apple-mt-plain**: 먼저 [Debian 12] 을 설치하고, 사진을 조회하기 위한 작은 Web앱, Fernbox를 설정했습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-04** (seq)
 
@@ -526,6 +714,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 1주일 후에는 "지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정해 주었습니다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 1주일 후에는 "지금까지 사용한 어떤 클라우드 서비스보다 Fernbox가 더 빠르다"고 인정해 주었습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 **ja-seq-05** (seq)
 
@@ -534,6 +725,9 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지금은 오래된 노트북은 선반 위에서 조용히 움직이고 있으며, Fernbox는 여행에서 돌아온 뒤, 가족 모두가 가장 먼저 열는 앱이 되었습니다.
 - **apple-mt-plain**: 지금은 오래된 노트북은 선반 위에서 조용히 움직이고 있으며, Fernbox는 여행에서 돌아온 뒤, 가족 모두가 가장 먼저 열는 앱이 되었습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
+- **ollama-translategemma-4b**: (오류: HTTP 500: {"error":{"message":"prediction aborted, token repeat limit reached","type":"api_error","param":null,"code":null}} )
 
 ### zh-Hans
 
@@ -544,6 +738,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 명령줄 도구를 설치하려면 을 실행한 [npm install -g fernctl]후 사용하여 [fernctl --version]버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl],그런 다음 사용한다 [fernctl --version] 버전 확인. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-tech-02** (tech)
 
@@ -552,6 +748,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
 - **apple-mt-plain**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 초과 시간을 전혀 제한하지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-tech-03** (tech)
 
@@ -560,6 +758,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: v1.x로 업그레이드하기 전에, 먼저 백업해 주세요구성 디렉토리를 . 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
 - **apple-mt-plain**: v1.x로 업그레이드하기 전에, 먼저 구성 디렉토리를 백업해 주세요. 이식 스크립트는 모든 파일을 직접 수정하며, 취소할 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-tech-04** (tech)
 
@@ -568,6 +768,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 보호 프로세스를 시작할 수 없는 경우, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그는 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-tech-05** (tech)
 
@@ -576,6 +778,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
 - **apple-mt-plain**: 각 작업 스레드는 각각 약 64 MB의 캐시를 가지고 있으므로, 메모리가 8 GB인 기계는 최대로 여덟 개의 작업 스레드를 실행할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-tech-06** (tech)
 
@@ -584,6 +788,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 요청은 최대 지수적 후퇴 방식으로 세 번 다시 시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError]의 형태로 호출자에게 반환된다.
 - **apple-mt-plain**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있다; 만약 모두 실패하면, 오류는 [TransientError] 의 형태가 호출자에게 반환된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-news-01** (news)
 
@@ -592,6 +798,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
 - **apple-mt-plain**: 시 의회는 화요일에 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 계획을 승인했으며, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 생각한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-news-02** (news)
 
@@ -600,6 +808,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain**: 하르보손 연구소의 연구원들은 새로운 배터리가 2000회 충전-방전 사이클을 거친 후에도 여전히 90%의 용량을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 달한다고 보고했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-news-03** (news)
 
@@ -608,6 +818,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain**: 하지만, 비판자들은 이 결과가 아직 동료 심사를 받지 않았고, 샘플의 생산비용이 약 킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-news-04** (news)
 
@@ -616,6 +828,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
 - **apple-mt-plain**: 북부 해안 지역은 목요일까지 큰 비가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 12도 정도일 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-news-05** (news)
 
@@ -624,6 +838,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서,   것이라고 플래그십 스마트폰의 출시를내년 초로 연기할밝혔다.
 - **apple-mt-plain**: 이 회사는 월요일에 성명을 발표하면서, 공급망 문제로 지속되면서, 플래그십 스마트폰의 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-news-06** (news)
 
@@ -632,6 +848,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 더 크게  본다인건비, 그리고 적은 이익에 기인한다고.
 - **apple-mt-plain**: 왜 이렇게 많은 작은 빵집이 5년도 안 돼서 문을 닫는 걸까? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 오히려 임대료, 인건비, 그리고 적은 이익에 더 크게 기인한다고 본다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-community-01** (community)
 
@@ -640,6 +858,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
 - **apple-mt-plain**: 와, 딸기 파이가 드디어 켜질 수 있었는데, 전원을 켜자마자 연기가 피어올랐다. 음, 진짜 연기는 아니지만, 내 마음가짐은 이미 무너졌다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-community-02** (community)
 
@@ -648,6 +868,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
 - **apple-mt-plain**: 불쾌하게 하는 말 하나 하자면: 기호표시를 쓰든 공백을 쓰든 상관없어, 새벽 두 시에 아직도 이 일 때문에 싸우는 사람은, 뭔가 먹고 자러 가야 해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-community-03** (community)
 
@@ -656,6 +878,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain**: 웃겨 죽겠어, 오류 메시지를 3시간 동안 쳐다보다가, 결과가 분기호 하나가 빠진 거야. 분기호 하나야! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-community-04** (community)
 
@@ -664,6 +888,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
 - **apple-mt-plain**: 솔직히, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 백업을 취했고, 밖에 나가서 숨을 푹 들이마셨어요. 내일 다시 도전할게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-community-05** (community)
 
@@ -672,6 +898,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
 - **apple-mt-plain**: 맞아요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 오히려 예전보다 더 안정적이었어요. 물어보지 마세요, 물어보는 건 점술이에요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-community-06** (community)
 
@@ -680,6 +908,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
 - **apple-mt-plain**: 가족 여러분, 저는 비가 오는 소리 나는 키보드를 사는데 400위안을 썼는데 전혀 후회하지 않아요. 동료들은 어때요……그건 다를 수 있어요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-ui-01** (ui)
 
@@ -688,6 +918,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 변경 저장
 - **apple-mt-plain**: 변경 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-ui-02** (ui)
 
@@ -696,6 +928,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain**: 오류가 발생했습니다, 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-ui-03** (ui)
 
@@ -704,6 +938,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 귀하에게는 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-link-01** (link)
 
@@ -712,6 +948,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 기를 클릭하여[此处] 계속하세요.
 - **apple-mt-plain**: 클릭[此处]계속해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-link-02** (link)
 
@@ -720,6 +958,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지원되는 플랫폼에 대해서는 참조하여 [安装指南]자세히 알아보세요.
 - **apple-mt-plain**: 지원되는 플랫폼에 대해서는 참조하십시오.[安装指南]자세히 알아보기.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-link-03** (link)
 
@@ -728,6 +968,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 발생하면, 주세요[在问题追踪页面提交反馈]하고, 로그 파일을 첨부해 .
 - **apple-mt-plain**: 문제가 생기면, 제발[在问题追踪页面提交反馈], 그리고 로그 파일을 첨부한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-seq-01** (seq)
 
@@ -736,6 +978,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
 - **apple-mt-plain**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족들의 사진을 보관하기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-seq-02** (seq)
 
@@ -744,6 +988,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어서 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-seq-03** (seq)
 
@@ -752,6 +998,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 나는 먼저 를 설치하고[Debian 12], 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치했다.
 - **apple-mt-plain**: 제가 먼저 설치했어요. [Debian 12],또 Fernbox라는 소형 웹사이트 애플리케이션을 이용해 사진을 둘러보았다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-seq-04** (seq)
 
@@ -760,6 +1008,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 인정했다, Fernbox는 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hans-seq-05** (seq)
 
@@ -768,6 +1018,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
 - **apple-mt-plain**: 지금, 그 오래된 노트북은 조용히 선반에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 첫 번째로 열리는 애플리케이션이 되었다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 ### zh-Hant
 
@@ -778,6 +1030,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 명령줄 도구를 설치하려면 을 실행한 [npm install -g fernctl]후 사용하여 [fernctl --version]버전을 확인하십시오. 2.4.1 이상 버전이 필요합니다.
 - **apple-mt-plain**: 명령줄 도구를 설치하려면 실행하십시오. [npm install -g fernctl],그 다음 사용 [fernctl --version] 버전 확인. 2.4.1 또는 이후 버전이 필요합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-tech-02** (tech)
 
@@ -786,6 +1040,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: [timeout]옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 완전히 시간 초과를 제한하지 않습니다.
 - **apple-mt-plain**: [timeout] 옵션의 단위는 밀리초이며, 기본값은 30000(30초)입니다. 0으로 설정하면 연체에 대해 완전히 제한되지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-tech-03** (tech)
 
@@ -794,6 +1050,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: v1.x로 업그레이드하기 전에 먼저 백업해 주세요설정 폴더를 . 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
 - **apple-mt-plain**: v1.x로 업그레이드하기 전에 설정 폴더를 먼저 백업해 주세요. 트랜스포트 명령어 코드는 모든 파일을 직접 재작성하며 복원할 수 없습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-tech-04** (tech)
 
@@ -802,6 +1060,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain**: 상시 실행 프로그램이 시작되지 않으면, 포트 8443이 다른 프로세스에 할당되지 않았는지 확인하십시오. 로그 파일은 http://localhost:8443/debug/logs에서 확인할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-tech-05** (tech)
 
@@ -810,6 +1070,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
 - **apple-mt-plain**: 각 실행 스레드는 각각 약 64MB의 캐시를 가지고 있으므로, 메모리가 8GB인 컴퓨터는 최대로 8개의 실행 스레드만 실행해야 합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-tech-06** (tech)
 
@@ -818,6 +1080,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 요청은 최대 지수적 회피 방식으로 세 번까지 재시도할 수 있습니다; 모두 실패하면 오류는 [TransientError]형태로 호출측으로 반환됩니다.
 - **apple-mt-plain**: 요청은 최대 지수적 후퇴 방식으로 세 번까지 재시도할 수 있습니다; 모두 실패하면 오류는 [TransientError] 의 형식을 호출단으로 반환한다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-news-01** (news)
 
@@ -826,6 +1090,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
 - **apple-mt-plain**: 시 의회는 화요일 7대 2의 표 차이로 버스 노선을 동부 교외로 연장하는 방안을 통과시켰고, 지지자들은 이것이 출퇴근 시간을 최대 25%까지 단축시킬 것이라고 말했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-news-02** (news)
 
@@ -834,6 +1100,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
 - **apple-mt-plain**: 하르보르슨 연구소의 연구원들은 새로운 유형의 배터리가 2000회 충전·방전 주기를 거친 후에도 여전히 90%의 전력을 유지하고 있으며, 이는 현재 시중에 나와 있는 배터리의 약 두 배에 해당한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-news-03** (news)
 
@@ -842,6 +1110,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain**: 그러나 비판자들은 이 성과가 아직 동료 검토를 받지 못했으며, 원형의 생산 비용이 약 1킬로와트시당 340달러에 달한다고 지적했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-news-04** (news)
 
@@ -850,6 +1120,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
 - **apple-mt-plain**: 북부 해안 지역은 목요일까지 폭우가 내릴 것으로 예상되며, 돌풍은 시속 70km에 달할 수 있고 기온은 약 12도 정도일 것으로 예상된다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-news-05** (news)
 
@@ -858,6 +1130,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 것이라고 밝혔다플래그십 스마트폰 출시를 내년 초로 연기할 .
 - **apple-mt-plain**: 해당 회사는 월요일 성명을 발표해 공급망 문제로 인해 플래그십 스마트폰 출시를 내년 초로 연기할 것이라고 밝혔다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-news-06** (news)
 
@@ -866,6 +1140,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, ,  더  생각합니다인력그리고 적은 이익에기인한다고.
 - **apple-mt-plain**: 왜 많은 소규모 빵집이 5년도 버티지 못하나요? 경제학자들은 그 이유는 빵 자체와는 별로 관련이 없으며, 임대료, 인력, 그리고 적은 이익에 더 기인한다고 생각합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-community-01** (community)
 
@@ -874,6 +1150,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
 - **apple-mt-plain**: 세상에, 딸기 파이가 드디어 켜졌는데, 전기가 들어오자마자 연기가 피어올랐어. 그래도 진짜 연기는 아니지만, 내 마음은 이미 부서졌어.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-community-02** (community)
 
@@ -882,6 +1160,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
 - **apple-mt-plain**: 날 때릴 수도 있는 말이지만: Tab 키나 빈칸을 사용해도 돼. 새벽 두 시에 아직도 이 일에 대해 논쟁하는 사람은, 이제 야식 좀 먹고 자러 가야 해.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-community-03** (community)
 
@@ -890,6 +1170,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain**: 웃겨 죽겠어, 잘못된 메시지를 세 시간이나 보고 있었는데, 결국 분기호 하나만 빠진 거야. 분기호라니! 나는 산으로 은둔하러 갈 거야.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-community-04** (community)
 
@@ -898,6 +1180,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
 - **apple-mt-plain**: 솔직히 말해서, 그 업데이트가 제 환경을 완전히 망쳐버렸어요. 이미 이전 버전에 복구했고, 밖에 나가서 바람을 불어봤어요, 내일 다시 싸울게요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-community-05** (community)
 
@@ -906,6 +1190,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
 - **apple-mt-plain**: 정말이에요. 우리 고양이가 라우터 위에 일주일 동안 누워 있었는데, Wi-Fi가 예전보다도 더 안정적이에요. 물어보지 마세요, 물어보는 게 바로 고양이의 힘이에요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-community-06** (community)
 
@@ -914,6 +1200,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
 - **apple-mt-plain**: 여러분, 저는 1,800위안을 들여 비 오는 소리처럼 울리는 키보드를 하나 샀는데, 전혀 후회하지 않습니다. 동료들은…… 확신이 서지 않습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-ui-01** (ui)
 
@@ -922,6 +1210,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 변경 저장
 - **apple-mt-plain**: 변경 저장
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-ui-02** (ui)
 
@@ -930,6 +1220,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain**: 오류가 발생했습니다. 잠시 후에 다시 시도해 주세요.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-ui-03** (ui)
 
@@ -938,6 +1230,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain**: 읽지 않은 메시지가 3개 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-link-01** (link)
 
@@ -946,6 +1240,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 눌러 주세요[這裡]그럼 계속할 수 있습니다.
 - **apple-mt-plain**: 눌러 주세요[這裡]그럼 계속할 수 있습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-link-02** (link)
 
@@ -954,6 +1250,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지원되는 플랫폼을 알고 싶으시면 참조하십시오[安裝指南].
 - **apple-mt-plain**: 지원되는 플랫폼을 확인하려면 참조하십시오.[安裝指南]。
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-link-03** (link)
 
@@ -962,6 +1260,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 문제가 발생하면, [到問題追蹤頁面回報]하고, 위 기록 파일을 첨부하십시오.
 - **apple-mt-plain**: 문제가 발생하면, 부탁드립니다.[到問題追蹤頁面回報], 그리고 위 기록 파일을 첨부합니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-seq-01** (seq)
 
@@ -970,6 +1270,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
 - **apple-mt-plain**: 작년 봄, 나는 오래된 노트북을 가정용 서버로 개조하여 가족의 사진을 보관하기로 결정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-seq-02** (seq)
 
@@ -978,6 +1280,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain**: 이 2014년형 ThinkBook은 8GB 메모리를 장착하고 있어, 이 일을 하기에 딱 맞습니다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-seq-03** (seq)
 
@@ -986,6 +1290,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 먼저 를 설치한 [Debian 12]후, 사진을 보려면 Fernbox라는 작은 웹 애플리케이션을 설치했습니다.
 - **apple-mt-plain**: 제가 먼저 설치했어요. [Debian 12], Fernbox라는 이름의 소형 웹사이트 애플리케이션을 하나 더 설치하여 사진을 감상하십시오.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-seq-04** (seq)
 
@@ -994,6 +1300,8 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain**: 여동생은 처음에는 반신반의했지만, 일주일 후 그녀는 Fernbox가 그녀가 사용해 본 어떤 클라우드 서비스보다 빠르다고 인정했다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 
 **zh-Hant-seq-05** (seq)
 
@@ -1002,4 +1310,6 @@ PENDING = 측정 데이터 없는 항목(N/A)이 있음. 메모리·스왑·언�
 - **apple-mt-attr**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
 - **apple-mt-plain**: 지금, 그 오래된 노트북은 조용히 선반 위에 놓여 있고, Fernbox는 이미 가족이 여행에서 돌아온 후 가장 먼저 실행하는 애플리케이션이 되었다.
 - **apple-mt-plain-lowlatency**: (오류: TranslationError(cause: Translation.TranslationError.Cause.notInstalled, sourceLanguage: nil, targetLanguage: nil))
+- **mlx-hy-mt2-1.8b-4bit**: (오류: JSON parse failure after retry: unexpected JSON structure)
+- **mlx-translategemma-4b-4bit**: (오류: HTTP 404: {"error": "Conversations must start with a user prompt."})
 

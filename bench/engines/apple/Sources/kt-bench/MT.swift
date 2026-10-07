@@ -2,7 +2,7 @@
 import Foundation
 import Translation
 
-enum MTMode: Sendable { case plain, attr }
+enum MTMode: Sendable { case plain, attr, marker }
 enum StrategyChoice: String, Sendable { case none = "", highFidelity = "highfidelity", lowLatency = "lowlatency" }
 
 struct NeedsLanguagePack: Error { var lang: String }
@@ -116,6 +116,7 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
     }
     let session = makeSession(lang: lang, strategy: strategy)
     let stats = MTStats()
+    let mstats = MarkerStats()
     let clock = ContinuousClock()
     let total = clock.now
     var first = true
@@ -124,8 +125,12 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
         let t0 = clock.now
         for b in batch {
             do {
-                let s = mode == .plain ? try await plainBlock(session, b, lang: lang)
-                                       : try await attrBlock(session, b, lang: lang, stats: stats)
+                let s: [String: String]
+                switch mode {
+                case .plain: s = try await plainBlock(session, b, lang: lang)
+                case .attr: s = try await attrBlock(session, b, lang: lang, stats: stats)
+                case .marker: s = try await markerBlock(session, b, lang: lang, stats: mstats)
+                }
                 partial.append((b.id, s, nil))
             } catch {
                 if case TranslationError.notInstalled = error {
@@ -147,6 +152,8 @@ func runMT(engine: String, mode: MTMode, strategy: StrategyChoice, corpus: Corpu
     if mode == .attr {
         notes += " attr: blocks=\(stats.attrBlocks) customAttrSeen=\(stats.attrSlotIDSeen) allSlotsRecovered=\(stats.attrAllSlots) skipAttrSeenInTarget=\(stats.attrXSkipSeen) xTextKept=\(stats.attrXTextKept) targetAttrNil=\(stats.attrTargetNil) fallbackToRunSplit=\(stats.attrFallback)."
         if !stats.firstFailure.isEmpty { notes += " firstFallback: \(stats.firstFailure)" }
+    } else if mode == .marker {
+        notes += " marker(\(markerEngineStyle.rawValue)): xBlocks=\(mstats.blocks) split=\(mstats.ok) fallbackToRunSplit=\(mstats.fallback) noXPlain=\(mstats.plainNoX)."
     } else {
         notes += " plain: x-split run translation (PLAN 4.4)."
     }

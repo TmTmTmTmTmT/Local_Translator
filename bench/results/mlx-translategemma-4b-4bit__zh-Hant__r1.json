@@ -1,0 +1,229 @@
+{
+ "engine": "mlx-translategemma-4b-4bit",
+ "model": "mlx-community/translategemma-4b-it-4bit",
+ "lang": "zh-Hant",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 32,
+ "totalMs": 32,
+ "blocks": [
+  {
+   "id": "zh-Hant-tech-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-tech-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-tech-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-tech-04",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-tech-05",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-tech-06",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-news-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-news-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-news-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-news-04",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-news-05",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-news-06",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-community-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-community-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-community-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-community-04",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-community-05",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-community-06",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-ui-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-ui-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-ui-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-link-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-link-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-link-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-seq-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-seq-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-seq-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-seq-04",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "zh-Hant-seq-05",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "zh-Hant-tech-01",
+    "zh-Hant-tech-02",
+    "zh-Hant-tech-03",
+    "zh-Hant-tech-04",
+    "zh-Hant-tech-05",
+    "zh-Hant-tech-06",
+    "zh-Hant-news-01",
+    "zh-Hant-news-02",
+    "zh-Hant-news-03",
+    "zh-Hant-news-04",
+    "zh-Hant-news-05",
+    "zh-Hant-news-06",
+    "zh-Hant-community-01",
+    "zh-Hant-community-02",
+    "zh-Hant-community-03",
+    "zh-Hant-community-04",
+    "zh-Hant-community-05",
+    "zh-Hant-community-06",
+    "zh-Hant-ui-01",
+    "zh-Hant-ui-02",
+    "zh-Hant-ui-03",
+    "zh-Hant-link-01",
+    "zh-Hant-link-02",
+    "zh-Hant-link-03",
+    "zh-Hant-seq-01",
+    "zh-Hant-seq-02",
+    "zh-Hant-seq-03",
+    "zh-Hant-seq-04",
+    "zh-Hant-seq-05"
+   ],
+   "ms": 32,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

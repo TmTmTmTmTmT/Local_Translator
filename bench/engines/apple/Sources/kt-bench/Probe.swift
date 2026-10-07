@@ -3,7 +3,7 @@ import Foundation
 import Translation
 import FoundationModels
 
-let mtBases = ["apple-mt-plain", "apple-mt-attr"]
+let mtBases = ["apple-mt-plain", "apple-mt-attr", "apple-mt-marker"]
 let strategySuffixes = ["", "-highfidelity", "-lowlatency"]
 
 func allEngineIds() -> [String] {

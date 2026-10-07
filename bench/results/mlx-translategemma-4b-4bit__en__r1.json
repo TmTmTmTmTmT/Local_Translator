@@ -1,0 +1,229 @@
+{
+ "engine": "mlx-translategemma-4b-4bit",
+ "model": "mlx-community/translategemma-4b-it-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 1967,
+ "totalMs": 1967,
+ "blocks": [
+  {
+   "id": "en-tech-01",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-tech-02",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-tech-03",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-tech-04",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-tech-05",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-tech-06",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-news-01",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-news-02",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-news-03",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-news-04",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-news-05",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-news-06",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-community-01",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-community-02",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-community-03",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-community-04",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-community-05",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-community-06",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-ui-01",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-ui-02",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-ui-03",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-link-01",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-link-02",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-link-03",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-seq-01",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-seq-02",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-seq-03",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-seq-04",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "en-seq-05",
+   "ms": 68,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "en-tech-01",
+    "en-tech-02",
+    "en-tech-03",
+    "en-tech-04",
+    "en-tech-05",
+    "en-tech-06",
+    "en-news-01",
+    "en-news-02",
+    "en-news-03",
+    "en-news-04",
+    "en-news-05",
+    "en-news-06",
+    "en-community-01",
+    "en-community-02",
+    "en-community-03",
+    "en-community-04",
+    "en-community-05",
+    "en-community-06",
+    "en-ui-01",
+    "en-ui-02",
+    "en-ui-03",
+    "en-link-01",
+    "en-link-02",
+    "en-link-03",
+    "en-seq-01",
+    "en-seq-02",
+    "en-seq-03",
+    "en-seq-04",
+    "en-seq-05"
+   ],
+   "ms": 1967,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}
