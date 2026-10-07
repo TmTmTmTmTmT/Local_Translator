@@ -1,20 +1,23 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildMtRequest, hyMtUserText, translateGemmaUserText, splitAtMarkers, makeMtTranslator, mtFamily, planMarkerBlock } from './mtmode.mjs';
-import { makeMlxMtChat, makeOllamaMtChat } from '../engines/mtchat.mjs';
+import { chatSystemText, needsNoThink, buildMtRequest, hyMtUserText, translateGemmaUserText, splitAtMarkers, makeMtTranslator, mtFamily, planMarkerBlock } from './mtmode.mjs';
+import { makeMlxMtChat, makeOllamaMtChat, foldSystem } from '../engines/mtchat.mjs';
 
 const t = (i, text) => ({ k: 't', i, text });
 const x = (text) => ({ k: 'x', text });
 const link = { id: 'l', items: [t(0, 'Click '), x('here'), t(1, ' to continue.')] };
 
 test('family detection', () => {
-  assert.equal(mtFamily('mlx-community/Hy-MT2-1.8B-4bit'), 'hymt');
+  assert.equal(mtFamily('mlx-community/Hy-MT2-1.8B-4bit'), 'hymt2');
   assert.equal(mtFamily('translategemma:4b'), 'translategemma');
-  assert.equal(mtFamily('qwen3:1.7b'), null);
+  assert.equal(mtFamily('qwen3:1.7b'), 'chat');
+  assert.equal(mtFamily('x/exaone', 'hymt2'), 'hymt2');
+  assert.equal(mtFamily('translategemma:4b', 'chat'), 'chat');
+  assert.throws(() => mtFamily('m', 'bogus'));
 });
 
 test('Hy-MT2 prompts: English for en/ja, Chinese for zh; chat message only', () => {
-  const en = buildMtRequest({ family: 'hymt', runtime: 'mlx', lang: 'en', text: 'Hello' });
+  const en = buildMtRequest({ family: 'hymt2', runtime: 'mlx', lang: 'en', text: 'Hello' });
   assert.deepEqual(en.messages, [{ role: 'user', content: 'Translate the following text into Korean. Note that you should only output the translated result without any additional explanation:\n\nHello' }]);
   assert.equal(hyMtUserText('ja', 'x').startsWith('Translate the following text into Korean.'), true);
   assert.equal(hyMtUserText('zh-Hans', '你好'), '将以下文本翻译为韩语，注意只需要输出翻译后的结果，不要额外解释：\n\n你好');
@@ -51,7 +54,7 @@ const fake = (replies, log = []) => async ({ request }) => {
 
 test('x block: one request with markers, split to slots', async () => {
   const log = [];
-  const tr = makeMtTranslator({ chat: fake(['계속하려면 ⟦1⟧을 클릭하세요.'], log), family: 'hymt', runtime: 'mlx' });
+  const tr = makeMtTranslator({ chat: fake(['계속하려면 ⟦1⟧을 클릭하세요.'], log), family: 'hymt2', runtime: 'mlx' });
   const { blocks } = await tr({ batch: [link], lang: 'en' });
   assert.equal(log.length, 1);
   assert.ok(log[0].endsWith('Click ⟦1⟧ to continue.'));
@@ -62,7 +65,7 @@ test('x block: one request with markers, split to slots', async () => {
 test('missing/duplicated markers => run-splitting fallback (one request per run)', async () => {
   for (const bad of ['계속하려면 클릭하세요.', '⟦1⟧ ⟦1⟧']) {
     const log = [];
-    const tr = makeMtTranslator({ chat: fake([bad, '계속하려면', '클릭하세요.'], log), family: 'hymt', runtime: 'mlx' });
+    const tr = makeMtTranslator({ chat: fake([bad, '계속하려면', '클릭하세요.'], log), family: 'hymt2', runtime: 'mlx' });
     const { blocks } = await tr({ batch: [link], lang: 'en' });
     assert.equal(log.length, 3);
     assert.equal(log[1].endsWith('\n\nClick'), true);
@@ -75,7 +78,7 @@ test('text in a slot-less gap or a dropped run triggers fallback', async () => {
   const b = { id: 'g', items: [x('A'), x('B'), t(0, ' and more')] };
   const plan = planMarkerBlock(b);
   assert.equal(plan.text, '⟦1⟧⟦2⟧ and more');
-  const tr = makeMtTranslator({ chat: fake(['⟦1⟧ 이상한 ⟦2⟧ 그리고 더', '그리고 더'], []), family: 'hymt', runtime: 'mlx' });
+  const tr = makeMtTranslator({ chat: fake(['⟦1⟧ 이상한 ⟦2⟧ 그리고 더', '그리고 더'], []), family: 'hymt2', runtime: 'mlx' });
   const { blocks } = await tr({ batch: [b], lang: 'en' });
   assert.equal(tr.stats.fallbackBlocks, 1);
   assert.deepEqual(blocks[0].slots, { 0: ' 그리고 더' });
@@ -94,7 +97,7 @@ test('x-less block is plain: one request, no markers; non-linguistic block passe
 });
 
 test('chat failure and empty output become per-block errors', async () => {
-  const tr = makeMtTranslator({ chat: fake([() => { throw new Error('HTTP 500'); }, '  ']), family: 'hymt', runtime: 'mlx' });
+  const tr = makeMtTranslator({ chat: fake([() => { throw new Error('HTTP 500'); }, '  ']), family: 'hymt2', runtime: 'mlx' });
   const { blocks } = await tr({ batch: [{ id: 'a', items: [t(0, 'Hello')] }, { id: 'b', items: [t(0, 'World')] }], lang: 'en' });
   assert.equal(blocks[0].error, 'HTTP 500');
   assert.equal(blocks[1].slots, null);
@@ -105,10 +108,67 @@ test('backends: mlx raw prompt -> /v1/completions, chat -> /v1/chat/completions,
   const post = async (url, body) => { calls.push([url, body]); return url.endsWith('/v1/completions') ? { choices: [{ text: 'A' }] } : url.endsWith('/api/chat') ? { message: { content: 'C' } } : { choices: [{ message: { content: 'B' } }] }; };
   const mlx = makeMlxMtChat({ model: 'm' }, 'translategemma', post);
   assert.equal(await mlx({ request: { prompt: 'p' } }), 'A');
-  assert.equal(await makeMlxMtChat({ model: 'm' }, 'hymt', post)({ request: { messages: [{ role: 'user', content: 'u' }] } }), 'B');
+  assert.equal(await makeMlxMtChat({ model: 'm' }, 'hymt2', post)({ request: { messages: [{ role: 'user', content: 'u' }] } }), 'B');
   assert.equal(await makeOllamaMtChat({ model: 'translategemma:4b', keepAlive: 600 }, 'translategemma', post)({ request: { messages: [{ role: 'user', content: 'u' }] } }), 'C');
   assert.equal(calls[0][0], 'http://127.0.0.1:8080/v1/completions');
   assert.equal(calls[1][1].top_k, 20);
   assert.equal(calls[2][0], 'http://127.0.0.1:11434/api/chat');
   assert.equal(calls[2][1].keep_alive, 600);
+});
+
+test('chat family prompt: Korean system instruction (+ marker/lang notes), source text as user turn', () => {
+  const r = buildMtRequest({ family: 'chat', runtime: 'mlx', lang: 'ja', text: 'クリック ⟦1⟧ です', model: 'mlx-community/gemma-3-1b-it-qat-4bit' });
+  assert.equal(r.messages[0].role, 'system');
+  assert.ok(r.messages[0].content.includes('⟦1⟧'));
+  assert.ok(r.messages[0].content.includes('일본어'));
+  assert.deepEqual(r.messages[1], { role: 'user', content: 'クリック ⟦1⟧ です' });
+  assert.ok(!chatSystemText('en', false).includes('⟦'));
+  assert.ok(chatSystemText('zh-Hant').includes('번체'));
+  assert.ok(chatSystemText('zh-Hans').includes('간체'));
+});
+
+test('chat family: Qwen3 gets /no_think + enable_thinking/think:false; others do not', async () => {
+  const q = buildMtRequest({ family: 'chat', runtime: 'mlx', lang: 'en', text: 'Hi', model: 'mlx-community/Qwen3-1.7B-4bit' });
+  assert.equal(q.messages[1].content, 'Hi\n/no_think');
+  assert.equal(needsNoThink('gemma4:e2b'), false);
+  const calls = [];
+  const post = async (url, body) => { calls.push(body); return url.endsWith('/api/chat') ? { message: { content: 'ok' } } : { choices: [{ message: { content: 'ok' } }] }; };
+  await makeMlxMtChat({ model: 'mlx-community/Qwen3.5-2B-4bit' }, 'chat', post)({ request: q });
+  await makeOllamaMtChat({ model: 'qwen3:1.7b' }, 'chat', post)({ request: q });
+  await makeMlxMtChat({ model: 'mlx-community/exaone-4.0-1.2b-4bit' }, 'chat', post)({ request: q });
+  assert.deepEqual(calls[0].chat_template_kwargs, { enable_thinking: false });
+  assert.equal(calls[1].think, false);
+  assert.equal(calls[2].chat_template_kwargs, undefined);
+  assert.equal(calls[0].top_k, 40);
+});
+
+test('mlx chat: system role rejected (400/404) => folded into user turn once, remembered', async () => {
+  const calls = [];
+  const post = async (url, body) => {
+    calls.push(body.messages);
+    if (body.messages.some((m) => m.role === 'system')) { const e = new Error('HTTP 404'); e.status = 404; throw e; }
+    return { choices: [{ message: { content: 'ok' } }] };
+  };
+  const chat = makeMlxMtChat({ model: 'm' }, 'chat', post);
+  const request = { messages: [{ role: 'system', content: 'SYS' }, { role: 'user', content: 'U' }] };
+  assert.equal(await chat({ request }), 'ok');
+  assert.equal(await chat({ request }), 'ok');
+  assert.equal(calls.length, 3);
+  assert.deepEqual(calls[1], [{ role: 'user', content: 'SYS\n\nU' }]);
+  assert.deepEqual(foldSystem([{ role: 'user', content: 'U' }]), [{ role: 'user', content: 'U' }]);
+  const boom = makeMlxMtChat({ model: 'm' }, 'chat', async () => { const e = new Error('HTTP 500'); e.status = 500; throw e; });
+  await assert.rejects(boom({ request }), /500/);
+});
+
+test('chat family end-to-end with fake chat: markers preserved, <think> stripped, reordered markers => fallback', async () => {
+  const log = [];
+  const tr = makeMtTranslator({ chat: async ({ request }) => { log.push(request.messages[1].content); return '<think>hmm</think>계속하려면 ⟦1⟧을 클릭하세요.'; }, family: 'chat', runtime: 'mlx', model: 'm' });
+  const { blocks } = await tr({ batch: [link], lang: 'en' });
+  assert.deepEqual(blocks[0].slots, { 0: '계속하려면 ', 1: '을 클릭하세요.' });
+  assert.equal(log.length, 1);
+  const replies = ['⟦2⟧ 틀림 ⟦1⟧', '계속하려면', '클릭하세요.'];
+  const tr2 = makeMtTranslator({ chat: async () => replies.shift(), family: 'chat', runtime: 'ollama', model: 'm' });
+  const r2 = await tr2({ batch: [link], lang: 'en' });
+  assert.equal(tr2.stats.fallbackBlocks, 1);
+  assert.deepEqual(r2.blocks[0].slots, { 0: '계속하려면 ', 1: ' 클릭하세요.' });
 });

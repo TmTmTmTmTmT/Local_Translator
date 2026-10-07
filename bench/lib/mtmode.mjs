@@ -11,19 +11,48 @@ export const SRC_LANGS = {
   'zh-Hant': { code: 'zh-Hant', name: 'Chinese', zh: '中文' },
 };
 
-export function mtFamily(model) {
+export const MT_FAMILIES = ['hymt2', 'translategemma', 'chat'];
+
+// Explicit override (models.json `mtFamily`, passed as --mt-family) wins; otherwise detect by model id; default 'chat'.
+export function mtFamily(model, override) {
+  if (override !== undefined && override !== null && override !== true) {
+    const o = String(override) === 'hymt' ? 'hymt2' : String(override);
+    if (!MT_FAMILIES.includes(o)) throw new Error(`mt mode: unknown mtFamily ${override} (expected ${MT_FAMILIES.join('|')})`);
+    return o;
+  }
   if (/translategemma/i.test(model || '')) return 'translategemma';
-  if (/hy-?mt/i.test(model || '')) return 'hymt';
-  return null;
+  if (/hy-?mt/i.test(model || '')) return 'hymt2';
+  return 'chat';
 }
 
 // Decoding params per family. Hy-MT2: values from the mlx-community card (--temp 0.7 --top-p 0.6 --top-k 20) +
 // generation_config repetition_penalty 1.05. TranslateGemma: generation_config top_k 64 / top_p 0.95 (card gives no
 // temperature; 0.2 matches the other adapters).
 export const SAMPLING = {
-  hymt: { temperature: 0.7, top_p: 0.6, top_k: 20, repetition_penalty: 1.05 },
+  hymt2: { temperature: 0.7, top_p: 0.6, top_k: 20, repetition_penalty: 1.05 },
   translategemma: { temperature: 0.2, top_p: 0.95, top_k: 64 },
+  // generic instruction-tuned LLMs: near-greedy so the output stays faithful and markers stay put
+  chat: { temperature: 0.2, top_p: 0.9, top_k: 40 },
 };
+
+// Qwen3/3.5 reason by default; the transports also switch thinking off (enable_thinking / think:false).
+export const needsNoThink = (model) => /qwen3/i.test(model || '');
+
+const LANG_NOTE = {
+  en: '',
+  ja: '원문은 일본어다. 경어체(です・ます)는 존댓말(해요체/합니다체)로, 평어체(だ・である)는 평서체(~다)로 대응시켜라.',
+  'zh-Hans': '원문은 중국어 간체(简体中文)다.',
+  'zh-Hant': '원문은 중국어 번체(繁體中文)다.',
+};
+
+// Generic chat-model instruction (Korean). Markers are only mentioned when the block has any.
+export function chatSystemText(lang, hasMarkers = true) {
+  return ['다음 텍스트를 자연스러운 한국어로 번역하라.',
+    '어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.',
+    ...(hasMarkers ? ['⟦1⟧, ⟦2⟧ 같은 표식은 번역문에서도 각각 정확히 한 번씩만, 문맥상 필요한 위치에 그대로 남겨라. 표식을 지우거나 바꾸거나 추가하지 마라.'] : []),
+    LANG_NOTE[lang] || '',
+    '번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.'].filter(Boolean).join('\n');
+}
 
 // TranslateGemma user turn, verbatim from the model's chat_template.jinja (type 'text').
 export function translateGemmaUserText(srcName, srcCode, text, tgtName = TARGET.en, tgtCode = TARGET.code) {
@@ -45,10 +74,14 @@ export function hyMtUserText(lang, text) {
 // mlx_lm.server flattens list content to a string, which breaks TranslateGemma's template (needs structured content), so
 // on mlx we send the rendered turn as a raw prompt (no <bos>: the tokenizer adds it). Ollama's own template wraps the
 // user message, so a plain user message is right there.
-export function buildMtRequest({ family, runtime, lang, text }) {
+export function buildMtRequest({ family, runtime, lang, text, model }) {
   const src = SRC_LANGS[lang];
   if (!src) throw new Error(`mt mode: unsupported source lang ${lang}`);
-  if (family === 'hymt') return { messages: [{ role: 'user', content: hyMtUserText(lang, text) }] };
+  if (family === 'chat') {
+    const user = needsNoThink(model) ? `${text}\n/no_think` : text;
+    return { messages: [{ role: 'system', content: chatSystemText(lang, /⟦\d+⟧/.test(text)) }, { role: 'user', content: user }] };
+  }
+  if (family === 'hymt2') return { messages: [{ role: 'user', content: hyMtUserText(lang, text) }] };
   if (family === 'translategemma') {
     const user = translateGemmaUserText(src.name, src.code, text);
     if (runtime === 'mlx') return { prompt: `<start_of_turn>user\n${user}<end_of_turn>\n<start_of_turn>model\n` };
@@ -86,7 +119,7 @@ export function planMarkerBlock(block) {
   return { segs, gaps, nX, text: text.trim() };
 }
 
-const clean = (s) => String(s ?? '').replace(/^```\w*\n?|\n?```$/g, '').trim();
+const clean = (s) => String(s ?? '').replace(/<think>[\s\S]*?<\/think>/g, '').replace(/^```\w*\n?|\n?```$/g, '').trim();
 
 // Marker path slots. Whitespace next to a marker comes from the model output (Korean spacing differs from the source);
 // only the block's outer edges keep the source whitespace. Returns slots, or null => fallback.
@@ -109,9 +142,9 @@ export function assembleMarker(plan, pieces) {
 }
 
 // chat({request, block}) -> text. request = {messages}|{prompt}. Sequential, one request per block (concurrency 1).
-export function makeMtTranslator({ chat, family, runtime }) {
+export function makeMtTranslator({ chat, family, runtime, model }) {
   const stats = { markerBlocks: 0, fallbackBlocks: 0, plainBlocks: 0, passthroughBlocks: 0 };
-  const ask = (lang, text, block) => chat({ request: buildMtRequest({ family, runtime, lang, text }), block }).then(clean);
+  const ask = (lang, text, block) => chat({ request: buildMtRequest({ family, runtime, lang, text, model }), block }).then(clean);
 
   async function oneBlock(block, lang) {
     const expected = block.items.filter((it) => it.k === 't').length;

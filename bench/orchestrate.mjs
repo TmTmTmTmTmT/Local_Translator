@@ -12,7 +12,7 @@ import { expandLangs } from './lib/plan.mjs';
 import { sleep } from './lib/timing.mjs';
 import { runProc } from './run.mjs';
 import {
-  validateModels, selectEntries, applicableLangs, serverCommand, ollamaStopCommand, modelMapFor, runMjsArgs,
+  validateModels, selectEntries, applicableLangs, serverCommand, ollamaStopCommand, modelMapFor, runMjsArgs, allErrorResults,
   missingResults, preflight, convertCommand, waitReady, httpCheck, parsePs, rssKbFor, formatLogLine, ENGINE_TIMEOUT_MS,
 } from './lib/orchestrate.mjs';
 
@@ -116,7 +116,9 @@ export async function main(argv) {
       }
       if (pf.status !== 'present') { status = 'SKIP'; detail = `${pf.status}: ${pf.detail}`; throw new Error('skip'); }
       if (!useLangs.length) { status = 'SKIP'; detail = 'no supported langs in selection'; throw new Error('skip'); }
-      if (a.skipExisting && !missingResults(entry, useLangs, runs, resultsDir, existsSync).length) { status = 'SKIP'; detail = 'results exist'; throw new Error('skip'); }
+      const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
+      const staleErr = allErrorResults(entry, useLangs, runs, resultsDir, readJson); // all-error results are not worth keeping: rerun with --force
+      if (a.skipExisting && !missingResults(entry, useLangs, runs, resultsDir, existsSync).length && !staleErr.length) { status = 'SKIP'; detail = 'results exist'; throw new Error('skip'); }
 
       if (entry.runtime !== 'ollama') {
         if (await portOpen(srv.port)) { detail = `port ${srv.port} already in use`; throw new Error(detail); }
@@ -147,7 +149,7 @@ export async function main(argv) {
       sampler = setInterval(async () => { if (sampling) return; sampling = true; peakKb = Math.max(peakKb, await sample()); sampling = false; }, 1000);
 
       const left = Math.max(60000, engineTimeout - (Date.now() - t0));
-      const rr = await runProc(process.execPath, runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, force: !a.skipExisting }), { timeoutMs: left });
+      const rr = await runProc(process.execPath, runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, force: !a.skipExisting || staleErr.length > 0 }), { timeoutMs: left });
       if (/\[timeout\]/.test(rr.tail)) detail += ' run.mjs timeout';
       if (entry.runtime === 'ollama') {
         // Metal 가중치는 RSS에 안 잡힘 → `ollama ps`의 적재 크기를 기록
@@ -166,6 +168,8 @@ export async function main(argv) {
       peakKb = Math.max(peakKb, await sample());
       const miss = missingResults(entry, useLangs, runs, resultsDir, existsSync);
       status = /timeout/.test(detail) ? 'TIMEOUT' : miss.length ? 'FAIL' : 'OK';
+      const bad = allErrorResults(entry, useLangs, runs, resultsDir, readJson);
+      if (bad.length) detail += ` ALL-ERROR=${bad.join('|')}`;
       detail += ` results=${useLangs.length * runs - miss.length}/${useLangs.length * runs}${miss.length ? ` missing=${miss.join('|')}` : ''}`;
     } catch (e) {
       if (e.message !== 'skip' && !detail) detail = String(e.message);

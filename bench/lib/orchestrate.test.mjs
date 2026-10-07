@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  validateModels, selectEntries, applicableLangs, serverCommand, modelMapFor, runMjsArgs, missingResults, parseOllamaList,
+  validateModels, selectEntries, applicableLangs, serverCommand, modelMapFor, runMjsArgs, allErrorResults, missingResults, parseOllamaList,
   convertCommand, preflight, waitReady, httpCheck, parsePs, rssKbFor, formatLogLine, ENGINE_ID_RE, ct2ModelFile,
 } from './orchestrate.mjs';
 
@@ -13,9 +13,9 @@ const models = JSON.parse(readFileSync(join(BENCH, 'models.json'), 'utf8'));
 const byId = (id) => models.find((m) => m.engineId === id);
 const ctx0 = { benchDir: '/b', venvPython: '/b/.venv/bin/python', venvBin: '/b/.venv/bin' };
 
-test('models.json passes schema validation with 23 entries', () => {
+test('models.json passes schema validation with 32 entries', () => {
   assert.deepEqual(validateModels(models), []);
-  assert.equal(models.length, 23);
+  assert.equal(models.length, 32);
   assert.ok(byId('ollama-gemma4-e2b').tier === 'H' && byId('ollama-gemma4-e4b').tier === 'H');
   assert.deepEqual(byId('ct2-opus-tc-big-en-ko').langs, ['en']);
 });
@@ -35,7 +35,7 @@ test('validateModels catches bad entries', () => {
 });
 
 test('selectEntries / applicableLangs', () => {
-  assert.equal(selectEntries(models, 'all').entries.length, 23);
+  assert.equal(selectEntries(models, 'all').entries.length, 32);
   const r = selectEntries(models, 'ct2-nllb-600m,nope');
   assert.deepEqual(r.entries.map((e) => e.engineId), ['ct2-nllb-600m']);
   assert.deepEqual(r.unknown, ['nope']);
@@ -132,4 +132,25 @@ test('ps parsing and RSS selection', () => {
 test('formatLogLine', () => {
   const l = formatLogLine({ ts: 'T', status: 'OK', entry: byId('ct2-nllb-1.3b'), durationSec: 12.4, baselineKb: 102400, peakKb: 204800, detail: 'results=4/4' });
   assert.equal(l, '[T] status=OK engine=ct2-nllb-1.3b runtime=ct2 durationSec=12 baselineRssMb=100 peakRssMb=200 results=4/4');
+});
+
+test('models.json: -mt chat entries mirror originals; mtFamily forwarded as --mt-family', () => {
+  const list = JSON.parse(readFileSync(new URL('../models.json', import.meta.url), 'utf8'));
+  assert.deepEqual(validateModels(list), []);
+  const mt = list.filter((e) => e.mtFamily === 'chat');
+  assert.equal(mt.length, 9);
+  for (const e of mt) {
+    const orig = list.find((o) => o.engineId === e.engineId.replace(/-mt$/, ''));
+    assert.ok(orig, e.engineId);
+    assert.equal(e.model, orig.model);
+    assert.deepEqual(e.args, ['--mode', 'mt']);
+  }
+  assert.deepEqual(modelMapFor(mt[0])[mt[0].engineId].args, ['--mode', 'mt', '--mt-family', 'chat']);
+  assert.ok(validateModels([{ ...mt[0], mtFamily: 'x' }]).some((m) => /mtFamily/.test(m)));
+});
+
+test('allErrorResults flags result files whose blocks all errored', () => {
+  const files = { '/r/a__en__r1.json': { blocks: [{ error: 'x' }, { error: 'y' }] }, '/r/a__ja__r1.json': { blocks: [{ error: 'x' }, { slots: {} }] } };
+  const read = (p) => { if (!files[p]) throw new Error('nf'); return files[p]; };
+  assert.deepEqual(allErrorResults({ engineId: 'a' }, ['en', 'ja', 'zh-Hans'], 1, '/r', read), ['en/r1']);
 });

@@ -2,6 +2,7 @@
 // Side effects (exec, fetch, fs, clock) are injected so everything here is unit-testable.
 import { join } from 'node:path';
 import { ALL_LANGS, resultPath } from './plan.mjs';
+import { MT_FAMILIES } from './mtmode.mjs';
 
 export const RUNTIMES = ['mlx', 'ollama', 'ct2'];
 export const TIERS = ['L', 'M', 'H'];
@@ -31,6 +32,7 @@ export function validateModels(list) {
     if (e.langs !== undefined) {
       if (!Array.isArray(e.langs) || !e.langs.length || e.langs.some((l) => !ALL_LANGS.includes(l))) errors.push(`${at}: bad langs`);
     }
+    if (e.mtFamily !== undefined && !MT_FAMILIES.includes(e.mtFamily)) errors.push(`${at}: bad mtFamily`);
     if (e.runtime === 'ct2') {
       if (!CT2_FAMILIES.includes(e.family)) errors.push(`${at}: ct2 needs family in ${CT2_FAMILIES.join('|')}`);
       if (e.convertFrom && !e.convertTo) errors.push(`${at}: convertFrom needs convertTo`);
@@ -71,7 +73,8 @@ export function serverCommand(entry, { venvPython, benchDir }) {
 export const ollamaStopCommand = (entry) => ({ cmd: 'ollama', args: ['stop', entry.model] });
 
 export function modelMapFor(entry, { keepAliveSec = 600 } = {}) {
-  const args = [...(entry.runtime === 'ollama' ? ['--keep-alive', String(keepAliveSec)] : []), ...(entry.args || [])];
+  const args = [...(entry.runtime === 'ollama' ? ['--keep-alive', String(keepAliveSec)] : []), ...(entry.args || []),
+    ...(entry.mtFamily ? ['--mt-family', entry.mtFamily] : [])];
   return { [entry.engineId]: { model: entry.model, args } };
 }
 
@@ -86,6 +89,18 @@ export function runMjsArgs(entry, { benchDir, langs, runs, modelMapFile, results
 export function missingResults(entry, langs, runs, resultsDir, exists) {
   const out = [];
   for (const l of langs) for (let r = 1; r <= runs; r++) if (!exists(resultPath(resultsDir, entry.engineId, l, r))) out.push(`${l}/r${r}`);
+  return out;
+}
+
+// Result files that exist but contain only errored blocks (server died, model failed to load, ...). Lazy-loading
+// mlx_lm.server answers /v1/models before the model loads, so such runs still look "OK" to the orchestrator.
+export function allErrorResults(entry, langs, runs, resultsDir, readJson) {
+  const out = [];
+  for (const l of langs) for (let r = 1; r <= runs; r++) {
+    let j = null;
+    try { j = readJson(resultPath(resultsDir, entry.engineId, l, r)); } catch { continue; }
+    if (j && Array.isArray(j.blocks) && j.blocks.length && j.blocks.every((b) => b.error)) out.push(`${l}/r${r}`);
+  }
   return out;
 }
 
