@@ -112,15 +112,21 @@ export function normalizeSlots(t, expected) {
   return slots;
 }
 
+const SLOT_KEYS = ['t', 'slots', 'translations', 'items'];
+// {id: {t:{..}}} or {id: {"0":..}} or {id: [..]}
+function keyedEntries(obj) {
+  return Object.entries(obj).map(([id, v]) => (isContainer(v) && !Array.isArray(v) && SLOT_KEYS.some((k) => k in v) ? { id, ...v } : { id, t: v }));
+}
+
 function findEntries(value) {
   if (Array.isArray(value)) return value;
   if (!isContainer(value)) return null;
   const b = value.blocks ?? value.translations ?? value.result;
   if (Array.isArray(b)) return b;
-  if (isContainer(b)) return Object.entries(b).map(([id, v]) => (isContainer(v) && !Array.isArray(v) ? { id, ...v } : { id, t: v }));
+  if (isContainer(b)) return keyedEntries(b);
   // Top-level object keyed by block id.
   const vals = Object.entries(value);
-  if (vals.length && vals.every(([, v]) => isContainer(v))) return vals.map(([id, v]) => ({ id, ...(Array.isArray(v) ? { t: v } : v) }));
+  if (vals.length && vals.every(([, v]) => isContainer(v))) return keyedEntries(value);
   return null;
 }
 

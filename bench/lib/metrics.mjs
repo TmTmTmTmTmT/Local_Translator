@@ -75,8 +75,7 @@ export function blockMetrics(block, res, lang) {
   }
   m.hangul = hangulRatio(out);
   const srcLetters = /\p{L}/u.test(src);
-  const nameOnly = tk.names.length && nonSpace(src.replace(/[A-Za-z0-9\s.,'"()-]/g, '')) === 0 && lang !== 'en' ? false : false;
-  m.untranslated = srcLetters && returned === expected && expected > 0 && (m.hangul === null || m.hangul < 0.3) && !nameOnly;
+  m.untranslated = srcLetters && returned === expected && expected > 0 && (m.hangul === null || m.hangul < 0.3);
   if (returned === expected && nonSpace(src) >= 8) {
     m.lenRatio = nonSpace(out) / nonSpace(src);
     m.lenOutlier = m.lenRatio < LEN_RATIO_BOUNDS[0] || m.lenRatio > LEN_RATIO_BOUNDS[1];
