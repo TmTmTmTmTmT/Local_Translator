@@ -122,6 +122,12 @@
 - 산출: bench/DECISION_BRIEF.md, bench/rate/rate-{en,ja,zh-Hans,zh-Hant}.html (후보 6개 블라인드)
 - GitHub push가 17:55부터 Internal Server Error(원격 일시 장애 추정) — 로컬 커밋 유지, 재시도 필요
 
+## 최종 상태 (2026-10-08)
+- PLAN §6 구현 항목 전부 완료(테스트 233 통과, Xcode ad-hoc 빌드 성공). 남은 것은 사용자 결정·실기 확인뿐 → DECISIONS.md
+- 사용자 결정: D1 엔진(블라인드 평가 `bench/rate/rate-*.html`, 자료 `bench/DECISION_BRIEF.md`), D2 언어별 엔진, D3 문맥 모드, D4 GPU 전력, D5 언어팩·Apple Intelligence, D6/D10 서명, D7 PDF 자동 진입, D8 NC 라이선스 모델, D9/D12 repo 라이선스, D11 lowLatency, D13 Bergamot, D14 용량 DoD
+- 실기 확인(Safari): 서명 안 된 확장 허용 → 확장 로딩 → sendNativeMessage 왕복 → 실제 사이트 번역·PDF 수동 버튼. README 절차
+- 미해결: GitHub push 서버 오류(로컬 커밋 2개 미푸시, 백그라운드 5분 간격 재시도 /tmp/push_retry2.log), 내장 브라우저 harness 재검증 보류
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
