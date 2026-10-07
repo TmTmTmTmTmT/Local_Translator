@@ -16,3 +16,5 @@
 | D9 | repo 라이선스 선택 (공개 repo) | 미지정 | LICENSE |
 | D10 | 서명: Team 서명 vs ad-hoc (Safari 재시작마다 "서명되지 않은 확장 허용" 재설정 필요) | ad-hoc 서명 | xcode/README.md |
 | D11 | Apple lowLatency 번역 전략 사용하려면 별도 언어 모델 설치 필요(현재 미설치, 측정 보류) | 제외 | bench/models.json |
+| D12 | repo 라이선스를 허용형(MIT/Apache-2.0)으로 할지 — GPL/AGPL 코드는 복사 불가(영감만) | 미지정(허용형 가정) | LICENSE |
+| D13 | Mozilla Bergamot 모델(en→ko/ja, MPL-2.0)을 벤치·폴백 후보로 추가할지 | 보류 | bench/models.json |

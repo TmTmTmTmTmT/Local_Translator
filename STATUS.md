@@ -65,6 +65,11 @@
 - 관측: mlx-hy-mt2-1.8b, translategemma-4b는 JSON 슬롯 출력이 거의 실패 → 번역 특화 모델은 JSON 대신 모델 고유 평문 프롬프트(마커 방식으로 x 처리)로 어댑터 변경 필요. qwen3-1.7b는 ja/zh에서 오류 다수, 하드 조건 후보는 NLLB 계열(en 기준)
 - Ollama 메모리는 runner 프로세스 기준으로 재측정 필요(ollama serve RSS만 잡힘)
 
+## 오픈소스 조사 (docs/RESEARCH.md)
+- 결론: GPL/AGPL/FSL 코드는 복사 금지(영감만). Koine(Safari+Apple Translation)은 JS Apache-2.0·Swift FSL → 아이디어만 재구현. Mozilla Bergamot 모델(MPL-2.0, en→ko/ja 확인, ja/zh→ko 없음)은 벤치 후보 추가 검토(제안 5, 보류)
+- 적용 진행: (1) Apple 세션 하드닝(가용성 캐시·타임아웃·서킷브레이커·유휴 해제) (2) DOM 병합 변이·속성 번역 옵션 (3) 한국어 조사 후처리 lib/josa.js. 보류: PDF 구획 규칙 개선(4), Bergamot 벤치(5)
+- background.js content 스크립트 목록에 lib/josa.js 추가 필요(작업 완료 후 반영)
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
