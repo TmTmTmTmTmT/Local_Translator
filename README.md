@@ -3,11 +3,9 @@
 지정한 사이트를 Safari에서 **항상 한국어로 자동 번역**하는 확장. **로컬 우선**(오프라인·무료), 링크 텍스트·코드 등은 원문 유지, 웹에서 연 PDF도 번역.
 
 - 언어: en / ja / zh(간체·번체) → ko (언어 표 구조라 추가 가능)
-- 번역 엔진: macOS 내장 번역(Translation) · Apple 온디바이스 AI · 로컬 모델 서버(Ollama / MLX / CTranslate2). 기본 엔진은 `bench/`의 벤치마크 후 결정 ([DECISIONS.md](DECISIONS.md))
+- 번역 엔진: macOS 내장 번역(Translation) · Apple 온디바이스 AI · 로컬 모델 서버(Ollama / MLX / CTranslate2).
 - 페이지에서 "더보기"·무한스크롤 등으로 추가된 내용도 자동 감지해 이어서 번역
 - 번역은 텍스트 노드 값만 교체 → 링크·이벤트·레이아웃 보존, SPA 안전
-
-문서: [PLAN.md](PLAN.md) · [GUIDELINES.md](GUIDELINES.md) · [STATUS.md](STATUS.md) · [DECISIONS.md](DECISIONS.md)
 
 ## 요구 사항
 
@@ -35,16 +33,6 @@ xcodebuild -project "xcode/Local Translator/Local Translator.xcodeproj" \
 - PDF: 팝업 "이 PDF 번역해서 보기" (확장 자체 뷰어, 나란히 보기/번역만 보기)
 - 제외: 링크 텍스트, `code/pre`, `translate="no"`, `.notranslate`, 입력 필드, 사이트별 사용자 셀렉터
 
-## 개발
-
-```bash
-npm install
-npm test            # node --test (jsdom)
-```
-
-- `extension/` 웹 확장 소스(번들러 없음), `xcode/` 컨테이너 앱+네이티브 핸들러, `bench/` 엔진 벤치마크
-- 벤치 실행: [bench/SPEC.md](bench/SPEC.md), `node bench/orchestrate.mjs --help`, 블라인드 평가 `node bench/rate/build.mjs --lang en`
-
 ## 라이선스
 
-미정 ([DECISIONS.md](DECISIONS.md) D9). `extension/vendor/pdfjs`는 Apache-2.0 (pdf.js).
+미정. `extension/vendor/pdfjs`는 Apache-2.0 (pdf.js).
