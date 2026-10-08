@@ -1,0 +1,186 @@
+{
+  "lang": "en",
+  "createdAt": "2026-10-08T08:55:22.742Z",
+  "ratings": [
+    {
+      "blockId": "art-link-01",
+      "candidates": [
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-link-02",
+      "candidates": [
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 B",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 C",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-link-03",
+      "candidates": [
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-nav-01",
+      "candidates": [
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 A",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "동일."
+    },
+    {
+      "blockId": "art-nav-02",
+      "candidates": [
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 C",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-cta-01",
+      "candidates": [
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 A",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "링크와 연결은 B, 뉴스에 대한 설명은 C"
+    }
+  ]
+}
