@@ -168,6 +168,9 @@
 
 - **R2**: B2는 측정 도구 문제(select/option·SVG = 의도된 제외) → F7 도구 보정. B3 일본어 한자-only 블록 zh 판정 → F8 페이지 lang 힌트·문서 다수결(NHK zh 67→10). 테스트 272 통과, 재설치. PDF 하네스에서 링크 구간 단어 중간 절단 발견(B4, 조사 중).
 
+- **R3**: B4 PDF 링크 구간 단어 절단 → F9(픽스처 rect 재생성 + 단어 경계 스냅), B5 옵션 오류 칸 구분 → F10, B6 팝업 모드 라벨 → F11(getMode). 하네스 3종 확인, 테스트 278. Safari 실기(사용자): 재시작 1회·옵션 유지·원문 토글 통과, 번역 불가(B7).
+- **R4**: B7 원인 = Safari 실행 중 재설치로 옛 플러그인 고정(로그 `No such plugin`/`Other version in use`) → F12(install.sh가 Safari 실행 중 중단, needs_safari_restart 코드·팝업 안내). 테스트 283, --allow-safari-running 재설치 완료. 사용자 Safari 재시작 후 실기 재확인 대기.
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

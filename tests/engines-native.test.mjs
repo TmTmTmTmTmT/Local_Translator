@@ -99,3 +99,14 @@ test('Swift extension never downloads/prepares language packs or touches cloud m
     assert.ok(!/prepareTranslation|translationTask|PrivateCloudComputeLanguageModel/.test(code), f);
   }
 });
+
+test('stale plugin rejections map to needs_safari_restart, others to engine_unavailable', async () => {
+  for (const msg of ['sendNativeMessage(). No such plugin (uuid not found)', 'Other version in use [u 7EEC]', 'x uuid not found y']) {
+    const eng = E.createNativeEngine('apple-mt', { send: async () => { throw new Error(msg); } });
+    await assert.rejects(eng.translate(blocks, {}, 'en'), { code: 'needs_safari_restart' });
+  }
+  const other = E.createNativeEngine('apple-mt', { send: async () => { throw new Error('boom'); } });
+  await assert.rejects(other.translate(blocks, {}, 'en'), { code: 'engine_unavailable' });
+  const st = await E.createNativeEngine('apple-mt', { send: async () => { throw new Error('No such plugin'); } }).status();
+  assert.deepEqual(st, { available: false, reason: 'needs_safari_restart' });
+});

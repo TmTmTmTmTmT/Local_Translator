@@ -4,7 +4,7 @@
   const E = () => globalThis.KT.engines;
 
   const DEFAULT_APP_ID = 'application.id';
-  const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown']);
+  const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown', 'needs_safari_restart']);
   const CODE_ALIASES = {
     language_pack_missing: 'needs_language_pack',
     model_unavailable: 'engine_unavailable',
@@ -25,6 +25,10 @@
     return E().makeError(code, (typeof raw.message === 'string' && raw.message) || code, extra);
   }
 
+  // Safari가 옛 플러그인을 붙잡은 경우(재설치 후). ASCII 패턴만 비교한다.
+  const STALE_PLUGIN_RE = /No such plugin|Other version in use|uuid not found/i;
+  function isStalePluginMessage(msg) { return STALE_PLUGIN_RE.test(String(msg || '')); }
+
   function baseLang(lang) { return String(lang || '').split('-')[0]; }
 
   function createNativeEngine(name, opts) {
@@ -38,7 +42,8 @@
       try {
         return await send(appId, msg);
       } catch (e) {
-        throw E().makeError('engine_unavailable', (e && e.message) || 'native handler unreachable');
+        const msg = (e && e.message) || 'native handler unreachable';
+        throw E().makeError(isStalePluginMessage(msg) ? 'needs_safari_restart' : 'engine_unavailable', msg);
       }
     }
 
@@ -67,7 +72,7 @@
       async status(lang) {
         let res;
         try { res = await send(appId, { type: 'status' }); } catch (e) {
-          return { available: false, reason: 'engine_unavailable' };
+          return { available: false, reason: isStalePluginMessage(e && e.message) ? 'needs_safari_restart' : 'engine_unavailable' };
         }
         if (!res || res.ok === false) return { available: false, reason: res && res.error ? mapNativeError(res.error).code : 'engine_unavailable' };
         const eng = res.engines && res.engines[name];
@@ -84,7 +89,7 @@
     };
   }
 
-  const api = { createNativeEngine, mapNativeError, DEFAULT_APP_ID };
+  const api = { createNativeEngine, mapNativeError, isStalePluginMessage, DEFAULT_APP_ID };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.engines = Object.assign(globalThis.KT.engines || {}, api);
   if (typeof module !== 'undefined') module.exports = api;
