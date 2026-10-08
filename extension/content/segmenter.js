@@ -32,22 +32,7 @@
     let kanaBlocks = 0;
     const undecided = []; // 힌트 없는 한자-only 블록: 수집 끝에 문서 다수결로 확정
 
-    function flush() {
-      const rec = cur;
-      cur = null;
-      if (!rec) return;
-      // 글자 있는 t 슬롯이 없고 링크 유래 x가 있으면(헤드라인·카드·메뉴) 링크 텍스트를 t로 승격.
-      if (!rec.slots.length && rec.links && rec.links.length) {
-        let chars = 0;
-        for (const c of rec.links) {
-          if (chars + c.text.length > maxChars && rec.slots.length) break;
-          const idx = rec.block.items.indexOf(c.item);
-          rec.block.items[idx] = { k: 't', i: rec.slots.length, text: c.text };
-          rec.slots.push({ node: c.node, original: c.node.nodeValue });
-          chars += c.text.length;
-        }
-        rec.chars = chars;
-      }
+    function finish(rec) {
       if (!rec.slots.length) return;
       const text = rec.slots.map((s) => T.cleanText(s.original)).join(' ');
       let lang = T.detectLang(text);
@@ -61,6 +46,45 @@
       if (!SUPPORTED.has(lang)) return; // 한국어·미지원 언어·판정 불가는 번역하지 않음
       rec.lang = rec.block.lang = lang;
       out.push(rec);
+    }
+
+    function promoteInto(rec, links) {
+      let chars = 0;
+      for (const c of links) {
+        if (chars + c.text.length > maxChars && rec.slots.length) break;
+        const idx = rec.block.items.indexOf(c.item);
+        rec.block.items[idx] = { k: 't', i: rec.slots.length, text: c.text };
+        rec.slots.push({ node: c.node, original: c.node.nodeValue });
+        chars += c.text.length;
+      }
+      rec.chars = chars;
+    }
+
+    function flush() {
+      const rec = cur;
+      cur = null;
+      if (!rec) return;
+      // 글자 있는 t 슬롯이 없고 링크 유래 x가 있으면(헤드라인·카드·메뉴) 링크 텍스트를 t로 승격.
+      if (!rec.slots.length && rec.links && rec.links.length) {
+        // 서로 다른 <a>가 2개 이상이면 앵커별 블록으로 나눈다(F15).
+        const groups = new Map();
+        for (const c of rec.links) {
+          const a = (c.node.parentElement && c.node.parentElement.closest('a')) || rec.el;
+          if (!groups.has(a)) groups.set(a, []);
+          groups.get(a).push(c);
+        }
+        if (groups.size >= 2) {
+          for (const [a, links] of groups) {
+            const r = newRec(a);
+            r.block.items = links.map((c) => c.item);
+            promoteInto(r, links);
+            finish(r);
+          }
+          return;
+        }
+        promoteInto(rec, rec.links);
+      }
+      finish(rec);
     }
 
     function visitText(node) {
