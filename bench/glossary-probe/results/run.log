@@ -1,0 +1,9 @@
+[2026-10-08T08:46:39.133Z] run apple-mt-marker en r1
+[2026-10-08T08:46:53.242Z] ok apple-mt-marker en r1 14107ms
+[2026-10-08T08:46:53.242Z] matrix done ran=1 skipped=0 failed=0
+[2026-10-08T08:46:58.307Z] run mlx-translategemma-4b-4bit-mt en r1
+[2026-10-08T08:47:06.774Z] ok mlx-translategemma-4b-4bit-mt en r1 8465ms
+[2026-10-08T08:47:06.774Z] matrix done ran=1 skipped=0 failed=0
+[2026-10-08T08:47:07.118Z] run ollama-gemma4-e2b-mt en r1
+[2026-10-08T08:48:02.020Z] ok ollama-gemma4-e2b-mt en r1 54899ms
+[2026-10-08T08:48:02.021Z] matrix done ran=1 skipped=0 failed=0

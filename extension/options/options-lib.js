@@ -12,6 +12,11 @@
   const KINDS = ['ollama', 'mlx', 'ct2'];
   const FAMILIES = ['hymt2', 'translategemma', 'chat'];
   const DEFAULT_KEEP_ALIVE = 300;
+  // 고품질 프리셋 (D1 평가 1위, PLAN §11.1). 저장은 사용자가 직접 누른다.
+  const PRESET_TRANSLATEGEMMA = {
+    engine: 'local:mt-ollama',
+    localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: 'translategemma:4b', family: 'translategemma', keepAlive: DEFAULT_KEEP_ALIVE },
+  };
   const HOST_RE = /^(?=.{1,253}$)[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/;
 
   function defaults() {
@@ -22,6 +27,7 @@
       enabled: true,
       translateAttrs: false,
       fixParticles: true,
+      glossary: [],
     };
   }
 
@@ -53,6 +59,7 @@
       enabled: typeof s.enabled === 'boolean' ? s.enabled : true,
       translateAttrs: typeof s.translateAttrs === 'boolean' ? s.translateAttrs : d.translateAttrs,
       fixParticles: typeof s.fixParticles === 'boolean' ? s.fixParticles : d.fixParticles,
+      glossary: Array.isArray(s.glossary) ? s.glossary : d.glossary,
     };
   }
 
@@ -139,6 +146,44 @@
     return u.hostname === '127.0.0.1' || u.hostname === 'localhost' || u.hostname === '[::1]';
   }
 
+  // 용어집 텍스트: 한 줄에 `원문 => 번역`. 기존 항목의 lang/case는 같은 원문이면 유지한다.
+  const MAX_GLOSSARY = 500;
+  const MAX_SRC = 80;
+  function parseGlossaryText(text, prev) {
+    const old = new Map();
+    for (const t of Array.isArray(prev) ? prev : []) if (t && typeof t.src === 'string') old.set(t.src.toLowerCase(), t);
+    const terms = [];
+    const errors = [];
+    const seen = new Set();
+    String(text || '').split(/\r?\n/).forEach((raw, idx) => {
+      const line = raw.trim();
+      if (!line || line.startsWith('#')) return;
+      const at = line.indexOf('=>');
+      if (at < 0) { errors.push({ line: idx + 1, message: '`원문 => 번역` 형식이어야 합니다' }); return; }
+      const src = line.slice(0, at).trim();
+      const dst = line.slice(at + 2).trim();
+      if (!src || !dst) { errors.push({ line: idx + 1, message: '원문과 번역이 모두 필요합니다' }); return; }
+      if (src.length > MAX_SRC) { errors.push({ line: idx + 1, message: `원문은 ${MAX_SRC}자 이하여야 합니다` }); return; }
+      const key = src.toLowerCase();
+      if (seen.has(key)) { errors.push({ line: idx + 1, message: '중복된 원문입니다' }); return; }
+      seen.add(key);
+      const o = old.get(key);
+      const term = { src, dst };
+      if (o && typeof o.lang === 'string' && o.lang) term.lang = o.lang;
+      if (o && o.case === true) term.case = true;
+      terms.push(term);
+    });
+    if (terms.length > MAX_GLOSSARY) errors.push({ line: 0, message: `용어는 최대 ${MAX_GLOSSARY}개입니다` });
+    return { terms: terms.slice(0, MAX_GLOSSARY), errors };
+  }
+
+  function glossaryToText(list) {
+    return (Array.isArray(list) ? list : [])
+      .filter((t) => t && typeof t.src === 'string' && typeof t.dst === 'string')
+      .map((t) => `${t.src} => ${t.dst}`)
+      .join('\n');
+  }
+
   function validateLocalhost(lh) {
     const errors = [];
     if (!isLoopbackUrl(lh.baseUrl)) errors.push('baseUrl은 http://127.0.0.1 또는 localhost 만 허용됩니다');
@@ -148,7 +193,7 @@
     return errors;
   }
 
-  const api = { ENGINES, KINDS, FAMILIES, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, isValidHost };
+  const api = { ENGINES, KINDS, FAMILIES, PRESET_TRANSLATEGEMMA, parseGlossaryText, glossaryToText, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, isValidHost };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.KTOptions = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -196,7 +196,7 @@
           family, runtime, userSuffix: family === 'chat' && isQwen3(model) ? '/no_think' : '',
           chat: ({ request }) => mtChat(ctx, runtime, base, model, family, keepAlive, request),
         });
-        const r = await tr({ blocks, lang });
+        const r = await tr({ blocks, lang, context });
         if (!r.out.size && r.errors.length) throw E().makeError(r.errors[0].code, r.errors[0].message);
         return r.out;
       },

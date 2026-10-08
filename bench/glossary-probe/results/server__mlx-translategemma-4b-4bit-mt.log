@@ -1,0 +1,32 @@
+/Users/kimmingyu/Documents/Claude/translator/bench/.venv/lib/python3.14/site-packages/mlx_lm/server.py:1745: UserWarning: mlx_lm.server is not recommended for production as it only implements basic security checks.
+  warnings.warn(
+2026-10-08 17:46:56,953 - INFO - Starting httpd at 127.0.0.1 on port 8080...
+127.0.0.1 - - [08/Oct/2026 17:46:58] "GET /v1/models HTTP/1.1" 200 -
+2026-10-08 17:46:59,462 - INFO - Prompt Cache: 0 sequences, 0.00 GB
+2026-10-08 17:46:59,463 - INFO - - assistant: 0 sequences, 0.00 GB
+2026-10-08 17:46:59,463 - INFO - - user: 0 sequences, 0.00 GB
+2026-10-08 17:46:59,463 - INFO - - system: 0 sequences, 0.00 GB
+127.0.0.1 - - [08/Oct/2026 17:46:59] "POST /v1/completions HTTP/1.1" 200 -
+2026-10-08 17:46:59,952 - INFO - Prompt processing progress: 122/123
+2026-10-08 17:46:59,994 - INFO - Prompt processing progress: 123/123
+2026-10-08 17:47:01,537 - INFO - Prompt Cache: 1 sequences, 0.03 GB
+2026-10-08 17:47:01,537 - INFO - - assistant: 1 sequences, 0.03 GB
+2026-10-08 17:47:01,537 - INFO - - user: 0 sequences, 0.00 GB
+2026-10-08 17:47:01,537 - INFO - - system: 0 sequences, 0.00 GB
+127.0.0.1 - - [08/Oct/2026 17:47:01] "POST /v1/completions HTTP/1.1" 200 -
+2026-10-08 17:47:01,730 - INFO - Prompt processing progress: 53/54
+2026-10-08 17:47:01,750 - INFO - Prompt processing progress: 54/54
+2026-10-08 17:47:03,309 - INFO - Prompt Cache: 2 sequences, 0.05 GB
+2026-10-08 17:47:03,309 - INFO - - assistant: 2 sequences, 0.05 GB
+2026-10-08 17:47:03,309 - INFO - - user: 0 sequences, 0.00 GB
+2026-10-08 17:47:03,309 - INFO - - system: 0 sequences, 0.00 GB
+127.0.0.1 - - [08/Oct/2026 17:47:03] "POST /v1/completions HTTP/1.1" 200 -
+2026-10-08 17:47:03,485 - INFO - Prompt processing progress: 51/52
+2026-10-08 17:47:03,505 - INFO - Prompt processing progress: 52/52
+2026-10-08 17:47:05,172 - INFO - Prompt Cache: 3 sequences, 0.08 GB
+2026-10-08 17:47:05,172 - INFO - - assistant: 3 sequences, 0.08 GB
+2026-10-08 17:47:05,172 - INFO - - user: 0 sequences, 0.00 GB
+2026-10-08 17:47:05,172 - INFO - - system: 0 sequences, 0.00 GB
+127.0.0.1 - - [08/Oct/2026 17:47:05] "POST /v1/completions HTTP/1.1" 200 -
+2026-10-08 17:47:05,357 - INFO - Prompt processing progress: 49/50
+2026-10-08 17:47:05,378 - INFO - Prompt processing progress: 50/50

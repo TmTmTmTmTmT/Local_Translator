@@ -27,6 +27,7 @@
     enabled: true,
     translateAttrs: false, // true면 content/extra.js 추가 주입(속성 번역)
     fixParticles: true, // 링크 뒤 조사 자동 보정(apply.js 옵션)
+    glossary: [], // PLAN §11.3: [{src,dst,lang?,case?}]
     pdfAuto: false, // D7: 자동 진입 방식 Safari 검증 전까지 기본 OFF
   };
 
@@ -107,6 +108,7 @@
     const KT = d.KT || globalThis.KT || {};
     const sites = d.sites || (KT.lib && KT.lib.sites);
     const hashLib = d.hash || (KT.lib && KT.lib.hash);
+    const glossaryLib = d.glossary || (KT.lib && KT.lib.glossary);
     const cacheLib = d.cacheLib || (KT.lib && KT.lib.cache);
     const engines = d.engines || KT.engines;
 
@@ -178,14 +180,31 @@
       return semaphores.get(engine.id);
     }
 
+    let glossaryFor = null;
+    let glossaryNorm = [];
+    function glossaryTerms(s) {
+      if (glossaryFor !== s.glossary) { glossaryFor = s.glossary; glossaryNorm = glossaryLib.normalize(s.glossary); }
+      return glossaryNorm;
+    }
+
     async function translateGroup(group, lang, context, s, out) {
       const engine = engines.pickEngine(s, lang);
       out.engine = out.engine || engine.id;
       const model = modelFor(engine, s);
       const misses = [];
       const keys = new Map();
+      const terms = glossaryLib ? glossaryTerms(s) : [];
+      const sub = new Map(); // id -> {block, applied} (치환이 일어난 블록만)
       for (const b of group) {
-        const key = hashLib.cacheKey(engine.id, model, b.items);
+        let gkey = '';
+        if (terms.length) {
+          const r = glossaryLib.applyToItems(b.items, lang, terms);
+          if (r.applied.length) {
+            sub.set(b.id, { block: Object.assign({}, b, { items: r.items }), applied: r.applied });
+            gkey = glossaryLib.appliedKey(r.applied);
+          }
+        }
+        const key = hashLib.cacheKey(engine.id, model + (gkey ? '|g' + gkey : ''), b.items);
         const hit = cache.get(key);
         if (hit) out.results.push({ id: b.id, slots: hit });
         else { keys.set(b.id, key); misses.push(b); }
@@ -194,7 +213,15 @@
       const sem = getSemaphore(engine);
       await Promise.all(batches.map((batch) => sem.run(async () => {
         try {
-          const map = await engine.translate(batch, context, lang, s);
+          const pairs = new Map();
+          const sent = batch.map((b) => {
+            const m = sub.get(b.id);
+            if (!m) return b;
+            for (const p of m.applied) pairs.set(p[0] + '\u0000' + p[1], p);
+            return m.block;
+          });
+          const ctx = pairs.size ? Object.assign({}, context, { glossary: Array.from(pairs.values()) }) : context;
+          const map = await engine.translate(sent, ctx, lang, s);
           for (const b of batch) {
             const slots = map && map.get(b.id);
             if (!slots || !Object.keys(slots).length) continue;

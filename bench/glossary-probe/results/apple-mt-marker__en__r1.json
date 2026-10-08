@@ -1,0 +1,62 @@
+{
+  "batchLimit" : {
+    "blocks" : 40,
+    "chars" : 6000
+  },
+  "batches" : [
+    {
+      "blockIds" : [
+        "art-body-02",
+        "art-body-03",
+        "art-body-04",
+        "art-analysis-01"
+      ],
+      "ms" : 14067.538959
+    }
+  ],
+  "blocks" : [
+    {
+      "error" : null,
+      "id" : "art-body-02",
+      "ms" : 3516.88473975,
+      "slots" : {
+        "0" : "\"솔직히 뒷바퀴가 멈추기 시작했을 때 우리가 이미 지났다고 생각했어요,\" 베르호벤은 나중에 말했다. \"각 바퀴마다 일어날 실수처럼 느껴졌기 때문에, 저는 그냥 차를 연석에서 멀리 떨어뜨리고 희망을 품으려고 노력했어요.\""
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-03",
+      "ms" : 3516.88473975,
+      "slots" : {
+        "0" : "Halcyon은 언더컷을 커버하기 위해 17랩에서 Calderón을 상대하기로 선택했지만, 그녀가 혼잡한 교통 속에서 나타나 백마커 두 개 뒤에 갇혀 거의 6초를 잃었을 때 그 움직임은 역효과를 냈다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-04",
+      "ms" : 3516.88473975,
+      "slots" : {
+        "0" : "중반 경주 중 세이프티카는 드미트리 오카포르가 하이드로라이드 고장으로 메인 스트레이트에서 정차했을 때 작동되어 필드를 밀어붙였고, 모두에게 무료 타이어 교체를 제공했으며, 이는 결국 추격 구간을 더욱 예측 불가능하게 만들었다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-analysis-01",
+      "ms" : 3516.88473975,
+      "slots" : {
+        "0" : "헬리콘에게 오후는 빠른 차가 승리의 절반일 뿐이라는 것을 상기시켜 주었다. 타이틀 싸움이 이렇게 치열할 때, 피트월에서 한 번의 어색한 호출이 운전석에서 한 실수가 될 만큼 큰 대가를 치르게 할 수 있다."
+      }
+    }
+  ],
+  "coldMs" : 14067.538959,
+  "engine" : "apple-mt-marker",
+  "env" : {
+    "keepAliveSec" : null,
+    "notes" : "headless TranslationSession(installedSource:target:) used, no SwiftUI/translationTask; strategy=default. marker(⟦n⟧): xBlocks=0 split=0 fallbackToRunSplit=0 noXPlain=4.",
+    "os" : "Version 27.2 (Build 26B5101f)"
+  },
+  "lang" : "en",
+  "model" : "apple-translation",
+  "run" : 1,
+  "totalMs" : 14067.587791
+}

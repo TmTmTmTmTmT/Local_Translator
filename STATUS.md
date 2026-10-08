@@ -132,6 +132,13 @@
 - 사용자 요청: 평가 페이지 영어만, the-race.com류 기사 중심. 자체 작성 모터스포츠 기사 코퍼스 `bench/corpus-articles/en.json`(26블록: 제목·리드·본문·인용·링크 문장·캡션·관련기사)
 - 첫 실행 실패: orchestrate.mjs가 `--corpus-dir`를 run.mjs로 넘기지 않아 기존 코퍼스로 측정됨 → 결과 폐기, FIX_GUIDE F1 작성 → 수정 완료(runMjsArgs corpusDir 전달, 테스트 233 통과, nllb-600m로 26블록 확인). 전체 en 재실행 완료(results-articles/, apple-mt-marker/plain/fm 포함). 평가 페이지 `bench/rate/rate-articles-en.html` 생성(엔진 20개·26블록, 오류 ≤2 엔진만; JSON 슬롯 방식 실패 엔진·apple-fm(7오류) 제외). 평가 결과 저장 대기 → `bench/results-articles/ratings-en.json`
 
+## T11–T13 (2026-10-08, PLAN §11)
+- **T11 완료**: apple-mt-marker vs plain 26블록 출력 100% 동일 → 평가 점수 차(2.98 vs 2.65)는 같은 출력에 대한 평가 편차(블라인드 라벨별 ±0.3). variant 결정 근거 없음 → marker 유지(링크 어순 근거 §4.3).
+- **발견(Opus 확인 필요)**: `bench/corpus-articles/en.json` 링크 블록에 `x` 항목이 0개. 생성 스크립트가 `("텍스트")`를 튜플로 착각해 링크가 일반 `t` 슬롯이 됨(art-link-*, art-nav-*, art-cta-01, 앞뒤 공백도 누락). 결과: 이번 D1 평가는 링크 문장 처리(marker/MT 표식)를 검증하지 못함. 순위 자체(일반 문장 품질)는 유효. 수정=코퍼스 데이터 정정 + 해당 6블록 재번역·재평가(사용자 평가 필요) — 진행 여부는 Opus/사용자 판단.
+- **T13 완료**: `extension/lib/glossary.js`(사전 치환·힌트·캐시키) + background 연동(빈 용어집이면 기존 캐시 키와 동일) + `context.glossary`로 chat 계열 프롬프트 힌트(hymt2/translategemma 템플릿 불변) + 옵션 화면 `원문 => 번역` 편집. 테스트 248 통과(신규 15). 범위 외/미구현: apple-fm Swift 쪽 힌트(사전 치환만 적용됨), 사이트별 용어집.
+- **T13 벤치 프로브**(`bench/glossary-probe/`, 용어 5개·적용 블록 4개): apple-mt-marker 5/5 용어 반영·문장 정상, gemma4-e2b-mt 5/5, mlx-translategemma-mt 4/5(kerbs를 "트랙을 벗어나지"로 의역해 누락). 한국어 훼손·음차 없음 → 중단 조건 미해당.
+- **T12 완료(코드)**: 옵션 화면 TranslateGemma 프리셋 버튼 + 메모리 안내, README "고품질 번역(선택)"·"용어집" 절(사용자용).
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

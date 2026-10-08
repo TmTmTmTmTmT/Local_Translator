@@ -46,11 +46,19 @@
     };
   }
 
+  // 용어집 힌트(lib/glossary.js hintFor와 문구 동일). pairs = [[src,dst],...]; 비었으면 ''.
+  function glossaryHint(pairs) {
+    if (!Array.isArray(pairs)) return '';
+    const ok = pairs.filter((p) => Array.isArray(p) && typeof p[0] === 'string' && typeof p[1] === 'string');
+    return ok.length ? '용어집(반드시 지킬 것): ' + ok.map((p) => `${p[0]} → ${p[1]}`).join('; ') : '';
+  }
+
   // userSuffix: qwen3 계열의 "/no_think" 등.
   function buildMessages({ lang, context, blocks, userSuffix }) {
     const user = JSON.stringify(buildUserPayload(lang, context, blocks)) + (userSuffix ? `\n${userSuffix}` : '');
+    const hint = glossaryHint(context && context.glossary);
     return [
-      { role: 'system', content: buildSystemPrompt(lang) },
+      { role: 'system', content: hint ? `${buildSystemPrompt(lang)}\n\n${hint}` : buildSystemPrompt(lang) },
       { role: 'user', content: user },
     ];
   }
@@ -204,7 +212,7 @@
     return { slots, missing, complete: missing.length === 0, present: block.id != null && !!(map && map.has && map.has(block.id)) };
   }
 
-  const api = { SYSTEM_PROMPT, LANG_NOTES, buildSystemPrompt, buildUserPayload, buildMessages, stripThink, repairJson, extractJson, parseLlmOutput, validateSlots };
+  const api = { SYSTEM_PROMPT, LANG_NOTES, buildSystemPrompt, buildUserPayload, buildMessages, glossaryHint, stripThink, repairJson, extractJson, parseLlmOutput, validateSlots };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.engines = Object.assign(globalThis.KT.engines || {}, api);
   if (typeof module !== 'undefined') module.exports = api;

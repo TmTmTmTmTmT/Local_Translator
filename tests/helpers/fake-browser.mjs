@@ -10,7 +10,7 @@ export function loadBackground() {
   const sandbox = { URL, TextEncoder, console, Promise, setTimeout, clearTimeout };
   sandbox.globalThis = sandbox;
   vm.createContext(sandbox);
-  for (const f of ['lib/hash.js', 'lib/sites.js', 'lib/cache.js', 'background.js']) {
+  for (const f of ['lib/hash.js', 'lib/glossary.js', 'lib/sites.js', 'lib/cache.js', 'background.js']) {
     vm.runInContext(fs.readFileSync(path.join(ext, f), 'utf8'), sandbox, { filename: f });
   }
   return sandbox.KT;

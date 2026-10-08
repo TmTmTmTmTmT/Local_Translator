@@ -1,0 +1,53 @@
+{
+ "lang": "en",
+ "context": {
+  "title": "Verhoeven wins Portimar thriller",
+  "host": "motorsport-news.example"
+ },
+ "blocks": [
+  {
+   "id": "art-body-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "\"I honestly thought we'd lost it when the rear started to go,\" Verhoeven said afterwards. \"Every lap felt like a mistake waiting to happen, so I just tried to keep the car off the 연석 and hope.\""
+    }
+   ]
+  },
+  {
+   "id": "art-body-03",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Halcyon chose to pit Calderón on lap 17 to cover off the 언더컷, but the move backfired when she emerged in heavy traffic and lost almost six seconds stuck in the dirty air behind a pair of 백마커."
+    }
+   ]
+  },
+  {
+   "id": "art-body-04",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "A mid-race 세이프티카, triggered when Dmitri Okafor stopped on the main straight with a hydraulic failure, bunched the field and gave everyone a free change of tyres, which only made the closing stages more unpredictable."
+    }
+   ]
+  },
+  {
+   "id": "art-analysis-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "For Halcyon, the afternoon was a reminder that a quick car is only half the battle: with the title fight this tight, one clumsy call on the 피트월 can cost as much as a mistake behind the wheel."
+    }
+   ]
+  }
+ ]
+}

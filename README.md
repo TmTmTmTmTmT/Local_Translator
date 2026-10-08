@@ -33,6 +33,25 @@ xcodebuild -project "xcode/Local Translator/Local Translator.xcodeproj" \
 - PDF: 팝업 "이 PDF 번역해서 보기" (확장 자체 뷰어, 나란히 보기/번역만 보기)
 - 제외: 링크 텍스트, `code/pre`, `translate="no"`, `.notranslate`, 입력 필드, 사이트별 사용자 셀렉터
 
+## 고품질 번역 (선택)
+
+기본 번역(Apple 번역)은 설치 없이 바로 쓸 수 있습니다. 더 자연스러운 번역을 원하면 로컬 모델 TranslateGemma 4B를 쓸 수 있습니다. 번역하는 동안 메모리를 약 3GB 쓰고, 5분 동안 쓰지 않으면 자동으로 해제됩니다.
+
+1. [Ollama](https://ollama.com)를 설치하고 실행합니다.
+2. 터미널에서 모델을 받습니다 (약 3GB).
+
+   ```bash
+   ollama pull translategemma:4b
+   ```
+
+3. 확장 옵션 › 엔진 › **고품질 번역 프리셋** 버튼을 누르고 **저장**합니다.
+
+모든 번역은 이 Mac 안에서만 처리되고 외부로 전송되지 않습니다.
+
+## 용어집
+
+옵션에서 고정하고 싶은 번역 쌍을 등록할 수 있습니다 (예: `kerbs => 연석`, `safety car => 세이프티카`). 등록한 용어는 번역 결과에 그대로 쓰입니다.
+
 ## 라이선스
 
 미정. `extension/vendor/pdfjs`는 Apache-2.0 (pdf.js).

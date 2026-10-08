@@ -10,11 +10,13 @@
   "localhost": { "baseUrl": "http://127.0.0.1:11434", "kind": "ollama|mlx|ct2", "model": "", "family": "hymt2|translategemma|chat", "keepAlive": 300 },
   "enabled": true,
   "translateAttrs": false,
-  "fixParticles": true
+  "fixParticles": true,
+  "glossary": [ { "src": "kerbs", "dst": "연석", "lang": "en", "case": false } ]
 }
 ```
 - `localhost.family`/`keepAlive`(초, 기본 300)는 MT 모드 엔진(`local:mt-ollama`, `local:mt-mlx`) 전용. `family` 미지정/무효 시 모델명에서 추정(translategemma/hy-mt) 후 `chat`. `local:mt-mlx`는 `model` 무시(요청 model=`default_model`). `baseUrl`은 모든 localhost 엔진 공통이므로 mlx는 8080 등으로 직접 지정. 루프백 검증 동일.
 - `translateAttrs`(boolean, 기본 false): true면 `content/extra.js`를 main.js 앞에 추가 주입해 title/alt/placeholder/aria-label 속성도 번역. `fixParticles`(boolean, 기본 true): main.js `start({fixParticles})` → `createApplier({fixParticles})`로 전달, false면 링크 뒤 조사 보정 안 함. 알 수 없는 키는 병합 시 그대로 통과.
+- `glossary`(기본 `[]`, PLAN §11.3): `{src, dst, lang?: "en"|"ja"|"zh"|null, case?: boolean}` 배열. 최대 500개, src 1~80자, dst 비어 있지 않음, 무효 항목은 버리고 소문자 src+lang 중복은 첫 항목만 유지(`lib/glossary.js normalize`). background가 엔진 호출 직전 블록의 `t` 항목(`x` 제외)에 사전 치환을 적용한다(라틴어 용어는 단어 경계·`case`가 true가 아니면 대소문자 무시, CJK/한글 용어는 단순 포함, 긴 용어 우선·겹침 없음, `lang`이 있으면 블록 언어와 일치할 때만). 캐시 키에 블록에 실제 적용된 용어 쌍의 해시가 들어간다(§6). 프롬프트 기반 엔진에는 적용된 쌍이 `context.glossary = [[src,dst],...]`로 전달되고(적용이 없으면 키 자체가 없음) prompt.js 시스템 프롬프트와 MT 모드 `chat` family 시스템 프롬프트에 한 줄 힌트로 붙는다(hymt2/translategemma 템플릿은 불변). 네이티브(Swift) 쪽 힌트는 아직 미구현이며 `context.glossary`는 그대로 전달만 된다.
 - `engine` 값은 엔진 ID 문자열. 엔진 레지스트리(`engines/registry.js`)가 ID → 엔진 객체 해석.
 
 ## 2. 메시지 (runtime.sendMessage, `{type, ...}`)
@@ -69,7 +71,7 @@
 `main.js`: 진입, 관찰자, 큐.
 
 ## 6. 캐시 키
-`hash(engineId + "|" + model + "|" + JSON(block.items))`. 값 = slotMap.
+`hash(engineId + "|" + model + "|" + JSON(block.items))`. 값 = slotMap. 용어집이 블록에 적용된 경우에만 model 자리가 `model + "|g" + appliedKey`(적용된 [src,dst] 쌍의 FNV 해시)가 되고 items는 항상 원본이다. 적용이 없으면 키는 용어집 도입 전과 동일.
 
 ## 7. 구현 중 확정된 해석 (T4/T6 보고)
 - native `status` 응답: `engines: {"apple-mt": true|{available,reason}, ...}`, `languagePacks: {en: "installed"|"supported"|"unsupported"}` — `supported`(= 지원되나 미설치)면 `needs_language_pack`. native 에러 코드는 `error:{code:"needs_language_pack", lang:"ja"}` 형식 권장(접미형 `needs_language_pack:ja`도 허용).
