@@ -1,0 +1,332 @@
+{
+ "engine": "mlx-exaone-4.0-1.2b-4bit-mt",
+ "model": "mlx-community/exaone-4.0-1.2b-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 6,
+ "totalMs": 24,
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "ms": 6,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-head-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-lede-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-lede-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-link-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-link-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-link-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-04",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-05",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-06",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-body-07",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-analysis-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-analysis-03",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-quote-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-quote-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-sub-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-sub-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-cap-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-meta-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 1,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"generation thread died\"}"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-head-01"
+   ],
+   "ms": 6
+  },
+  {
+   "blockIds": [
+    "art-head-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-lede-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-lede-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-03"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-link-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-link-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-link-03"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-04"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-05"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-06"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-body-07"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-analysis-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-analysis-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-analysis-03"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-quote-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-quote-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-sub-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-sub-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-cap-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-nav-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-nav-02"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-meta-01"
+   ],
+   "ms": 1
+  },
+  {
+   "blockIds": [
+    "art-cta-01"
+   ],
+   "ms": 1
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

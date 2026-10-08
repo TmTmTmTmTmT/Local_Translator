@@ -1,0 +1,209 @@
+{
+ "engine": "mlx-hyperclovax-seed-1.5b-4bit",
+ "model": "senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 33159,
+ "totalMs": 33159,
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-head-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-lede-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-lede-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-03",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-link-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-link-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-link-03",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-04",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-05",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-06",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-body-07",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-analysis-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-analysis-03",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-quote-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-quote-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-sub-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-sub-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-cap-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-meta-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 1275,
+   "slots": null,
+   "error": "JSON parse failure after retry: unexpected JSON structure"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-head-01",
+    "art-head-02",
+    "art-lede-01",
+    "art-lede-02",
+    "art-body-01",
+    "art-body-02",
+    "art-body-03",
+    "art-link-01",
+    "art-link-02",
+    "art-link-03",
+    "art-body-04",
+    "art-body-05",
+    "art-body-06",
+    "art-body-07",
+    "art-analysis-01",
+    "art-analysis-02",
+    "art-analysis-03",
+    "art-quote-01",
+    "art-quote-02",
+    "art-sub-01",
+    "art-sub-02",
+    "art-cap-01",
+    "art-nav-01",
+    "art-nav-02",
+    "art-meta-01",
+    "art-cta-01"
+   ],
+   "ms": 33159,
+   "jsonValid": false,
+   "retried": true
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

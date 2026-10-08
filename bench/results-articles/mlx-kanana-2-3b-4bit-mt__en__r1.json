@@ -1,0 +1,396 @@
+{
+ "engine": "mlx-kanana-2-3b-4bit-mt",
+ "model": "mlx-community/kanana-2-3b-instruct-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 683,
+ "totalMs": 20857,
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "ms": 683,
+   "slots": {
+    "0": "Verhoeven holds off late charge to take maiden Grand Prix victory in Portimar thriller."
+   },
+   "error": null
+  },
+  {
+   "id": "art-head-02",
+   "ms": 365,
+   "slots": {
+    "0": "Why Halcyon's strategy gamble handed its rivals the perfect opening"
+   },
+   "error": null
+  },
+  {
+   "id": "art-lede-01",
+   "ms": 1058,
+   "slots": {
+    "0": "Tomas Verhoeven kept his nerve through a frantic final ten laps to win a race that looked to be slipping away from him twice, ending a 41-race wait for a first victory in the sport's top category."
+   },
+   "error": null
+  },
+  {
+   "id": "art-lede-02",
+   "ms": 951,
+   "slots": {
+    "0": "The 24-year-old started second on the grid but passed pole-sitter Ines Calderón into Turn 1, then spent the afternoon managing a tyre problem that threatened to undo all of his early work."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-01",
+   "ms": 945,
+   "slots": {
+    "0": "Calderón had looked the faster of the two in qualifying, but the gap vanished on Sunday once track temperatures climbed past 90 degrees and the soft tyres began to fall off a cliff after only 14 laps."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-02",
+   "ms": 1017,
+   "slots": {
+    "0": "I honestly thought we'd lost it when the rear started to go,\" Verhoeven said afterwards. \"Every lap felt like a mistake waiting to happen, so I just tried to keep the car off the kerbs and hope.\""
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-03",
+   "ms": 1194,
+   "slots": {
+    "0": "Halcyon chose to pit Calderón on lap 17 to cover off the undercut, but the move backfired when she emerged in heavy traffic and lost almost six seconds stuck in the dirty air behind a pair of backmarkers."
+   },
+   "error": null
+  },
+  {
+   "id": "art-link-01",
+   "ms": 769,
+   "slots": {
+    "0": "Team principal Marco Delacroix admitted the call was \"probably one lap too early\" and said the squad would review its simulation tools before the next round.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-link-02",
+   "ms": 551,
+   "slots": {
+    "0": "The result moves Verhoevento within 12 points of the championship lead, with seven rounds still to run.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-link-03",
+   "ms": 590,
+   "slots": {
+    "0": "Our full race report and driver ratingsare available now, and you can watch the on-board footage from the closing laps below.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-04",
+   "ms": 1004,
+   "slots": {
+    "0": "A mid-race safety car, triggered when Dmitley Okafor stopped on the main straight with a hydraulic failure, bunched the field and gave everyone a free change of tyres, which only made the closing stages more unpredictable."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-05",
+   "ms": 1124,
+   "slots": {
+    "0": "Behind the leaders, the fight for the final podium place was arguably even better, with Priya Nandlakumar and Lucas Brandt trading places three times in a single lap before contact at the final chicane sent Brandt into the barriers."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-06",
+   "ms": 901,
+   "slots": {
+    "0": "Stewards reviewed the incident but decided no further action was necessary, a ruling that drew a sharp response from the Brandt camp, who described it as \"inular with what we've seen all year\"."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-07",
+   "ms": 944,
+   "slots": {
+    "0": "With power unit upgrades expected to arrive in time for the summer break, several teams privately believe the pecking order could be turned on its head, although none of them are willing to say so on the record."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 1052,
+   "slots": {
+    "0": "For Halcyon, the afternoon was a reminder that a quick car is only half the battle: with the title fight this tight, one clumsy call on the pit wall can cost as much as a mistake behind the wheel."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-02",
+   "ms": 1161,
+   "slots": {
+    "0": "The numbers back that up. Halcyon's average pit stop of 2.4 seconds was the slowest of the top four teams, and the 0.8 seconds it dropped in the pit lane was ultimately the margin between a win and a close second."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-03",
+   "ms": 975,
+   "slots": {
+    "0": "None of this is to take anything away from Verhoeven, who has quietly improved race after race since a difficult start to the season, and who held his composure when most drivers in his position would have cracked."
+   },
+   "error": null
+  },
+  {
+   "id": "art-quote-01",
+   "ms": 1129,
+   "slots": {
+    "0": "We came here hoping for a points finish,\" said Verhoeven's engineer, Hannah Ostrowseski. \"To stand on top of the podium, with all of those people in the garage crying, is something none of us will forget in a hurry.\""
+   },
+   "error": null
+  },
+  {
+   "id": "art-quote-02",
+   "ms": 1038,
+   "slots": {
+    "0": "Calderón, who finished second, was gracious in defeat but did not hide her frustration. \"It's easy to say it was the wrong stop now,\" she said. \"At the time, the information on the radio said otherwise.\""
+   },
+   "error": null
+  },
+  {
+   "id": "art-sub-01",
+   "ms": 413,
+   "slots": {
+    "0": "What the stewards said about the final chicane was very clear and decisive."
+   },
+   "error": null
+  },
+  {
+   "id": "art-sub-02",
+   "ms": 352,
+   "slots": {
+    "0": "Who will be on the grid for the next round?"
+   },
+   "error": null
+  },
+  {
+   "id": "art-cap-01",
+   "ms": 517,
+   "slots": {
+    "0": "Verhoeven celebrates in parc ferme after taking his first win. Photo: Elena Marchee"
+   },
+   "error": null
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 419,
+   "slots": {
+    "0": "Related: Why this season's title fight could go down to the final lap",
+    "1": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 585,
+   "slots": {
+    "0": "Read more: The ’10 drivers’ who defined the first half of the season, Halcyon’s upgrade package explained",
+    "1": "",
+    "2": "",
+    "3": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-meta-01",
+   "ms": 607,
+   "slots": {
+    "0": "This is a book published on September 14, 2026, and it has 6 minutes read and 128 comments."
+   },
+   "error": null
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 512,
+   "slots": {
+    "0": "Enjoyed this article? Subscribe to our newsletter to get the biggest stories delivered to your inbox every morning.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-head-01"
+   ],
+   "ms": 683
+  },
+  {
+   "blockIds": [
+    "art-head-02"
+   ],
+   "ms": 365
+  },
+  {
+   "blockIds": [
+    "art-lede-01"
+   ],
+   "ms": 1058
+  },
+  {
+   "blockIds": [
+    "art-lede-02"
+   ],
+   "ms": 951
+  },
+  {
+   "blockIds": [
+    "art-body-01"
+   ],
+   "ms": 945
+  },
+  {
+   "blockIds": [
+    "art-body-02"
+   ],
+   "ms": 1017
+  },
+  {
+   "blockIds": [
+    "art-body-03"
+   ],
+   "ms": 1194
+  },
+  {
+   "blockIds": [
+    "art-link-01"
+   ],
+   "ms": 769
+  },
+  {
+   "blockIds": [
+    "art-link-02"
+   ],
+   "ms": 551
+  },
+  {
+   "blockIds": [
+    "art-link-03"
+   ],
+   "ms": 590
+  },
+  {
+   "blockIds": [
+    "art-body-04"
+   ],
+   "ms": 1004
+  },
+  {
+   "blockIds": [
+    "art-body-05"
+   ],
+   "ms": 1124
+  },
+  {
+   "blockIds": [
+    "art-body-06"
+   ],
+   "ms": 901
+  },
+  {
+   "blockIds": [
+    "art-body-07"
+   ],
+   "ms": 944
+  },
+  {
+   "blockIds": [
+    "art-analysis-01"
+   ],
+   "ms": 1052
+  },
+  {
+   "blockIds": [
+    "art-analysis-02"
+   ],
+   "ms": 1161
+  },
+  {
+   "blockIds": [
+    "art-analysis-03"
+   ],
+   "ms": 975
+  },
+  {
+   "blockIds": [
+    "art-quote-01"
+   ],
+   "ms": 1129
+  },
+  {
+   "blockIds": [
+    "art-quote-02"
+   ],
+   "ms": 1038
+  },
+  {
+   "blockIds": [
+    "art-sub-01"
+   ],
+   "ms": 413
+  },
+  {
+   "blockIds": [
+    "art-sub-02"
+   ],
+   "ms": 352
+  },
+  {
+   "blockIds": [
+    "art-cap-01"
+   ],
+   "ms": 517
+  },
+  {
+   "blockIds": [
+    "art-nav-01"
+   ],
+   "ms": 419
+  },
+  {
+   "blockIds": [
+    "art-nav-02"
+   ],
+   "ms": 585
+  },
+  {
+   "blockIds": [
+    "art-meta-01"
+   ],
+   "ms": 607
+  },
+  {
+   "blockIds": [
+    "art-cta-01"
+   ],
+   "ms": 512
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

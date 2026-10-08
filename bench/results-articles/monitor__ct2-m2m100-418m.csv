@@ -1,0 +1,93 @@
+epoch,kind,f1,f2,f3,f4
+1791443385,proc,780,1120,visualintelligenced,1120
+1791443385,proc,787,1168,aned,1168
+1791443385,proc,811,4288,translationd,4288
+1791443385,proc,851,8016,generativeexperiencesd,8016
+1791443385,proc,852,1584,intelligenceflowd,1584
+1791443385,proc,858,3184,intelligencecontextd,3184
+1791443385,proc,1078,576,aneuserd,576
+1791443385,proc,1257,42144,Ollama,42144
+1791443385,proc,1284,15808,ollama,15808
+1791443385,proc,1299,1744,GenerativeExperiencesSafetyInferenceProvider,1744
+1791443385,proc,1359,7488,IntelligencePlatformComputeService,7488
+1791443385,proc,10533,704,intelligencetasksd,704
+1791443385,proc,11900,960,ANECompilerService,960
+1791443385,proc,27908,1440,intelligenceplatformd,1440
+1791443385,proc,37525,26304,Python,26304
+1791443385,sys,58736,71,320974,1|549|23738|148343
+1791443386,proc,780,1120,visualintelligenced,1120
+1791443386,proc,787,1168,aned,1168
+1791443386,proc,811,4288,translationd,4288
+1791443386,proc,851,8544,generativeexperiencesd,8016
+1791443386,proc,852,1584,intelligenceflowd,1584
+1791443386,proc,858,3184,intelligencecontextd,3184
+1791443386,proc,1078,576,aneuserd,576
+1791443386,proc,1257,42848,Ollama,42144
+1791443386,proc,1284,15808,ollama,15808
+1791443386,proc,1299,1744,GenerativeExperiencesSafetyInferenceProvider,1744
+1791443386,proc,1359,7488,IntelligencePlatformComputeService,7488
+1791443386,proc,10533,704,intelligencetasksd,704
+1791443386,proc,11900,960,ANECompilerService,960
+1791443386,proc,27908,1440,intelligenceplatformd,1440
+1791443386,proc,37525,78288,Python,26304
+1791443386,proc,37568,141664,Google Chrome Helper (Renderer),13632
+1791443386,proc,37574,153552,Google Chrome Helper (Renderer),1584
+1791443386,proc,37575,134624,Google Chrome Helper (Renderer),144
+1791443386,proc,37576,81808,Google Chrome Helper,2032
+1791443386,proc,37579,57360,node,0
+1791443386,proc,37581,32928,PasswordManagerBrowserExtensionHelper,0
+1791443386,proc,37735,105856,Google Chrome Helper (Renderer),0
+1791443386,sys,58736,71,287601,1|549|23937|147053
+1791443387,proc,738,320928,Google Chrome,259600
+1791443387,proc,780,1120,visualintelligenced,1120
+1791443387,proc,787,1168,aned,1168
+1791443387,proc,811,4288,translationd,4288
+1791443387,proc,851,8544,generativeexperiencesd,8016
+1791443387,proc,852,1584,intelligenceflowd,1584
+1791443387,proc,858,3136,intelligencecontextd,3184
+1791443387,proc,1078,576,aneuserd,576
+1791443387,proc,1257,42848,Ollama,42144
+1791443387,proc,1284,15808,ollama,15808
+1791443387,proc,1299,1744,GenerativeExperiencesSafetyInferenceProvider,1744
+1791443387,proc,1359,7488,IntelligencePlatformComputeService,7488
+1791443387,proc,10533,704,intelligencetasksd,704
+1791443387,proc,11900,960,ANECompilerService,960
+1791443387,proc,27908,1440,intelligenceplatformd,1440
+1791443387,proc,37027,258448,Google Chrome Helper (Renderer),184912
+1791443387,proc,37525,697408,Python,26304
+1791443387,proc,37568,141760,Google Chrome Helper (Renderer),13632
+1791443387,proc,37574,153872,Google Chrome Helper (Renderer),1584
+1791443387,proc,37575,204928,Google Chrome Helper (Renderer),144
+1791443387,proc,37576,81920,Google Chrome Helper,2032
+1791443387,proc,37579,57360,node,0
+1791443387,proc,37581,32928,PasswordManagerBrowserExtensionHelper,0
+1791443387,proc,37735,105984,Google Chrome Helper (Renderer),0
+1791443387,sys,58736,71,205143,1|541|24265|146808
+1791443388,proc,738,327920,Google Chrome,259600
+1791443388,proc,780,1120,visualintelligenced,1120
+1791443388,proc,787,1168,aned,1168
+1791443388,proc,811,4288,translationd,4288
+1791443388,proc,851,8544,generativeexperiencesd,8016
+1791443388,proc,852,5008,intelligenceflowd,1584
+1791443388,proc,858,3136,intelligencecontextd,3184
+1791443388,proc,963,88384,Google Chrome Helper,64576
+1791443388,proc,1078,576,aneuserd,576
+1791443388,proc,1257,42848,Ollama,42144
+1791443388,proc,1284,15808,ollama,15808
+1791443388,proc,1299,1744,GenerativeExperiencesSafetyInferenceProvider,1744
+1791443388,proc,1359,7488,IntelligencePlatformComputeService,7488
+1791443388,proc,10533,704,intelligencetasksd,704
+1791443388,proc,11900,960,ANECompilerService,960
+1791443388,proc,27908,1440,intelligenceplatformd,1440
+1791443388,proc,37027,262656,Google Chrome Helper (Renderer),184912
+1791443388,proc,37525,807232,Python,26304
+1791443388,proc,37568,141856,Google Chrome Helper (Renderer),13632
+1791443388,proc,37574,155040,Google Chrome Helper (Renderer),1584
+1791443388,proc,37575,327392,Google Chrome Helper (Renderer),144
+1791443388,proc,37576,81920,Google Chrome Helper,2032
+1791443388,proc,37579,57360,node,0
+1791443388,proc,37581,32928,PasswordManagerBrowserExtensionHelper,0
+1791443388,proc,37735,106048,Google Chrome Helper (Renderer),0
+1791443388,sys,58736,71,186479,1|541|24316|146524
+1791443389,mark,end,,,
+1791443389,mark,stop,,,
