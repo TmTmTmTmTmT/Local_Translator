@@ -8,6 +8,7 @@
   "background": {
     "scripts": [
       "lib/hash.js",
+      "lib/glossary.js",
       "lib/sites.js",
       "lib/cache.js",
       "lib/lang.js",

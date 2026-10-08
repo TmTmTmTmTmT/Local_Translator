@@ -56,6 +56,7 @@
     $('lh-keepalive').value = String(s.localhost.keepAlive);
     $('translate-attrs').checked = s.translateAttrs;
     $('fix-particles').checked = s.fixParticles;
+    $('glossary').value = lib.glossaryToText(s.glossary);
     $('sites').value = lib.sitesToText(s.sites);
     $('excludes').value = lib.excludesToText(s.sites);
   }
@@ -69,9 +70,10 @@
     const stored = (await api.storage.sync.get('settings')).settings || {};
     const current = lib.mergeSettings(stored);
     const built = lib.buildSites($('sites').value, $('excludes').value, validSelector);
+    const gl = lib.parseGlossaryText($('glossary').value, current.glossary);
     const localhost = { baseUrl: $('lh-base').value.trim(), kind: $('lh-kind').value, model: $('lh-model').value.trim(),
       family: $('lh-family').value, keepAlive: Number($('lh-keepalive').value === '' ? 300 : $('lh-keepalive').value) };
-    const errors = built.errors.map((e) => (e.line ? `${e.line}줄: ${e.message}` : e.message)).concat(lib.validateLocalhost(localhost));
+    const errors = built.errors.concat(gl.errors).map((e) => (e.line ? `${e.line}줄: ${e.message}` : e.message)).concat(lib.validateLocalhost(localhost));
     showErrors(errors);
     if (errors.length) {
       setFeedback('저장하지 않았습니다. 오류를 확인하세요', false);
@@ -88,6 +90,7 @@
       enabled: current.enabled,
       translateAttrs: $('translate-attrs').checked,
       fixParticles: $('fix-particles').checked,
+      glossary: gl.terms,
     };
     await api.storage.sync.set({ settings });
     setFeedback('저장했습니다', true);
@@ -107,5 +110,15 @@
   fillEngines($('engine-zh'), true);
   $('save').addEventListener('click', save);
   $('clear-cache').addEventListener('click', clearCache);
+  $('preset-tg').addEventListener('click', () => {
+    const p = lib.PRESET_TRANSLATEGEMMA;
+    $('engine-default').value = p.engine;
+    $('lh-kind').value = p.localhost.kind;
+    $('lh-base').value = p.localhost.baseUrl;
+    $('lh-model').value = p.localhost.model;
+    $('lh-family').value = p.localhost.family;
+    $('lh-keepalive').value = String(p.localhost.keepAlive);
+    setFeedback('프리셋을 채웠습니다. 저장을 눌러 적용하세요', true);
+  });
   load();
 })();

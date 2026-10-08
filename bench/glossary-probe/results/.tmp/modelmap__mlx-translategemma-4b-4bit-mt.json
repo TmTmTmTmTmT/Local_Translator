@@ -1,0 +1,9 @@
+{
+ "mlx-translategemma-4b-4bit-mt": {
+  "model": "mlx-community/translategemma-4b-it-4bit",
+  "args": [
+   "--mode",
+   "mt"
+  ]
+ }
+}

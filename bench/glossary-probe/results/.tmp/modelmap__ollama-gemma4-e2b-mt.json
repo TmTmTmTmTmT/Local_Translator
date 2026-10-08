@@ -1,0 +1,13 @@
+{
+ "ollama-gemma4-e2b-mt": {
+  "model": "gemma4:e2b",
+  "args": [
+   "--keep-alive",
+   "600",
+   "--mode",
+   "mt",
+   "--mt-family",
+   "chat"
+  ]
+ }
+}

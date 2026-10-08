@@ -1,0 +1,42 @@
+[
+ {
+  "id": "art-body-02",
+  "applied": [
+   [
+    "kerbs",
+    "연석"
+   ]
+  ]
+ },
+ {
+  "id": "art-body-03",
+  "applied": [
+   [
+    "backmarkers",
+    "백마커"
+   ],
+   [
+    "undercut",
+    "언더컷"
+   ]
+  ]
+ },
+ {
+  "id": "art-body-04",
+  "applied": [
+   [
+    "safety car",
+    "세이프티카"
+   ]
+  ]
+ },
+ {
+  "id": "art-analysis-01",
+  "applied": [
+   [
+    "pit wall",
+    "피트월"
+   ]
+  ]
+ }
+]

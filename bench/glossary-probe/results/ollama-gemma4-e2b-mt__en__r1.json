@@ -1,0 +1,76 @@
+{
+ "engine": "ollama-gemma4-e2b-mt",
+ "model": "gemma4:e2b",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 16762,
+ "totalMs": 54822,
+ "blocks": [
+  {
+   "id": "art-body-02",
+   "ms": 16762,
+   "slots": {
+    "0": "\"뒤쪽이 미끄러지기 시작했을 때 우리는 끝났다고 솔직히 생각했어,\" 베르호벤이 나중에 말했다. \"모든 랩이 벌어질 실수처럼 느껴졌기 때문에, 그냥 차를 연석에서 벗어나게 하고 희망만 가졌지.\""
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-03",
+   "ms": 13226,
+   "slots": {
+    "0": "Halcyon은 언더컷을 만회하기 위해 17랩에서 Calderón을 피트로 보냈지만, 그녀가 혼잡한 교통 상황에서 나타나면서 역효과가 났고, 백마커 한 쌍 뒤의 더러운 공기 속에 갇혀 거의 6초를 잃었다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-04",
+   "ms": 12007,
+   "slots": {
+    "0": "레이스 중반의 세이프티카는 드미트리 오카포르가 유압 고장으로 메인 스트레이트에 멈췄을 때 발동되었으며, 필드를 묶고 모두에게 무료 타이어 교체를 허용했는데, 이는 막판 단계를 더욱 예측 불가능하게 만들었다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 12826,
+   "slots": {
+    "0": "Halcyon에게 그 오후는 빠른 차가 싸움의 절반에 불과하다는 것을 상기시켜 주었다. 타이틀 싸움이 이토록 팽팽한 상황에서, 피트월에서의 한 번의 어설픈 호출은 운전 중의 실수만큼이나 큰 대가를 치르게 할 수 있다."
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-body-02"
+   ],
+   "ms": 16762
+  },
+  {
+   "blockIds": [
+    "art-body-03"
+   ],
+   "ms": 13226
+  },
+  {
+   "blockIds": [
+    "art-body-04"
+   ],
+   "ms": 12007
+  },
+  {
+   "blockIds": [
+    "art-analysis-01"
+   ],
+   "ms": 12826
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

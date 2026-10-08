@@ -59,14 +59,16 @@
     '3. ⟦1⟧, ⟦2⟧ 같은 표식은 링크·코드 등 위치가 고정된 항목의 자리입니다. 번역하거나 고치지 말고, 표식마다 정확히 한 번씩 같은 순서와 같은 형식으로 출력에 남깁니다. 표식 앞뒤 조사·어미가 자연스럽게 이어지도록 한국어 어순으로 작성합니다.',
   ].join('\n');
 
-  function chatSystemText(srcLang) {
+  function chatSystemText(srcLang, glossary) {
     const note = (E().LANG_NOTES || {})[srcLang];
-    return note ? `${CHAT_SYSTEM}\n${note}` : CHAT_SYSTEM;
+    const base = note ? `${CHAT_SYSTEM}\n${note}` : CHAT_SYSTEM;
+    const hint = E().glossaryHint ? E().glossaryHint(glossary) : '';
+    return hint ? `${base}\n${hint}` : base;
   }
 
   // {messages} (chat 엔드포인트) 또는 {prompt, stop} (raw completion). mlx_lm.server는 list content를 문자열로 납작하게 만들어
   // TranslateGemma 템플릿이 깨지므로 mlx에서는 렌더된 턴을 raw prompt로 보낸다(<bos>는 토크나이저가 추가).
-  function buildMtRequest({ family, runtime, srcLang, text, userSuffix }) {
+  function buildMtRequest({ family, runtime, srcLang, text, userSuffix, glossary }) {
     const src = SRC_LANGS[srcLang];
     if (!src) throw E().makeError('unsupported_lang', `mt mode: unsupported source lang ${srcLang}`);
     if (family === 'hymt2') return { messages: [{ role: 'user', content: hyMtUserText(srcLang, text) }] };
@@ -77,7 +79,7 @@
     }
     if (family === 'chat') {
       return { messages: [
-        { role: 'system', content: chatSystemText(srcLang) },
+        { role: 'system', content: chatSystemText(srcLang, glossary) },
         { role: 'user', content: text + (userSuffix ? `\n${userSuffix}` : '') },
       ] };
     }
@@ -141,8 +143,9 @@
   // chat({request, block}) -> text. 블록당 순차 1요청(concurrency 1).
   // translate({blocks, lang}) -> {out: Map<id, slots>, errors:[{id, code, message}], stats}
   function makeMtTranslator({ chat, family, runtime, userSuffix }) {
+    let glossary = null; // translate() 호출마다 context.glossary로 갱신
     const stats = { markerBlocks: 0, fallbackBlocks: 0, plainBlocks: 0, passthroughBlocks: 0 };
-    const ask = (srcLang, text, block) => Promise.resolve(chat({ request: buildMtRequest({ family, runtime, srcLang, text, userSuffix }), block })).then(clean);
+    const ask = (srcLang, text, block) => Promise.resolve(chat({ request: buildMtRequest({ family, runtime, srcLang, text, userSuffix, glossary }), block })).then(clean);
 
     async function oneBlock(block, lang) {
       const srcLang = resolveSrcLang(block.lang, lang);
@@ -166,7 +169,8 @@
       return Object.keys(slots).length || !expected ? slots : null;
     }
 
-    return async function translate({ blocks, lang }) {
+    return async function translate({ blocks, lang, context }) {
+      glossary = (context && context.glossary) || null;
       const out = new Map();
       const errors = [];
       for (const b of blocks) {

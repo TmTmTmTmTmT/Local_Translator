@@ -79,3 +79,22 @@ test('translateAttrs / fixParticles defaults, merge and garbage handling', () =>
   assert.equal(bad.translateAttrs, false);
   assert.equal(bad.fixParticles, true);
 });
+
+test('TranslateGemma preset is valid and uses a known engine', () => {
+  const p = lib.PRESET_TRANSLATEGEMMA;
+  assert.ok(lib.ENGINES.some((e) => e.id === p.engine));
+  assert.deepEqual(lib.validateLocalhost(p.localhost), []);
+  assert.equal(p.localhost.family, 'translategemma');
+});
+
+test('glossary text parse/format, errors, and attribute preservation', () => {
+  const prev = [{ src: 'Kerbs', dst: '연석', lang: 'en', case: true }];
+  const r = lib.parseGlossaryText('# c\nkerbs => 연석\nsafety car=>세이프티카\nbad line\n=> x\nSAFETY CAR => 중복\n', prev);
+  assert.deepEqual(r.terms, [{ src: 'kerbs', dst: '연석', lang: 'en', case: true }, { src: 'safety car', dst: '세이프티카' }]);
+  assert.deepEqual(r.errors.map((e) => e.line), [4, 5, 6]);
+  assert.equal(lib.glossaryToText(r.terms), 'kerbs => 연석\nsafety car => 세이프티카');
+  assert.equal(lib.parseGlossaryText('x'.repeat(81) + ' => y').errors.length, 1);
+  assert.deepEqual(lib.mergeSettings({}).glossary, []);
+  assert.deepEqual(lib.mergeSettings({ glossary: 'x' }).glossary, []);
+  assert.equal(lib.mergeSettings({ glossary: prev }).glossary, prev);
+});

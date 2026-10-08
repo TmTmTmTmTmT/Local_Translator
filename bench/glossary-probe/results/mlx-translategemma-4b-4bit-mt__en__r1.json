@@ -1,0 +1,76 @@
+{
+ "engine": "mlx-translategemma-4b-4bit-mt",
+ "model": "mlx-community/translategemma-4b-it-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 3171,
+ "totalMs": 8404,
+ "blocks": [
+  {
+   "id": "art-body-02",
+   "ms": 3171,
+   "slots": {
+    "0": "“솔직히 말해서, 뒷바퀴가 고장 나는 줄 알았을 때, 그렇게 생각했습니다,” 베르호이벤은 이후에 말했습니다. “각 라운드가 곧 사고를 당할 것 같은 느낌이라, 그냥 차가 트랙을 벗어나지 않도록 노력하고 희망하기만 했습니다.”"
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-03",
+   "ms": 1772,
+   "slots": {
+    "0": "할시온은 17랩에서 칼데론을 공격하여 언더컷을 커버하기로 결정했지만, 이 전략은 예상치 못한 결과를 낳았습니다. 그녀는 교통이 혼잡한 상황에 빠져 백마커 뒤의 불리한 공기 흐름에 6초 이상 지연되었습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-04",
+   "ms": 1864,
+   "slots": {
+    "0": "레이스 중간에 발생한 세이프티카, 드미트리 오카포가 메인 스트레이트에서 하이드로릭 문제로 인해 멈추면서, 경쟁자들이 뭉치게 되었고, 모든 참가자에게 타이어 교체 기회를 무료로 제공하여, 최종 레이스를 더욱 예측 불가능하게 만들었습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 1597,
+   "slots": {
+    "0": "할시온에게 오후는, 빠른 차는 그저 시작일 뿐이라는 것을 상기시키는 시간이었다. 타이틀 경쟁이 치열하게 진행되고 있는 상황에서, 피트월에서의 작은 실수 하나가 운전 중의 실책만큼 큰 결과를 초래할 수 있다는 것을 의미한다."
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-body-02"
+   ],
+   "ms": 3171
+  },
+  {
+   "blockIds": [
+    "art-body-03"
+   ],
+   "ms": 1772
+  },
+  {
+   "blockIds": [
+    "art-body-04"
+   ],
+   "ms": 1864
+  },
+  {
+   "blockIds": [
+    "art-analysis-01"
+   ],
+   "ms": 1597
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=translategemma marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}
