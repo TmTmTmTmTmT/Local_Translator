@@ -14,15 +14,12 @@ MLX=(
   mlx-community/Qwen3.5-2B-4bit
   mlx-community/Qwen3-1.7B-4bit
   mlx-community/Qwen3.5-4B-4bit
-  mlx-community/exaone-4.0-1.2b-4bit
   mlx-community/kanana-2-3b-instruct-4bit
   mlx-community/gemma-3-1b-it-qat-4bit
   mlx-community/gemma-4-e2b-it-4bit
   senaw/HyperCLOVAX-SEED-Text-Instruct-1.5B-MLX-Q4
 )
 CT2=(
-  "OpenNMT/nllb-200-distilled-1.3B-ct2-int8 nllb-1.3b"
-  "JustFrederik/nllb-200-distilled-600M-ct2-int8 nllb-600m"
   "Nextcloud-AI/madlad400-3b-mt-ct2-int8 madlad-3b"
   "jncraton/m2m100_418M-ct2-int8 m2m100-418m"
 )

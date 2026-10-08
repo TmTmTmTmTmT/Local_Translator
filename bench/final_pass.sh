@@ -3,6 +3,6 @@
 set -u
 cd "$(dirname "$0")/.."
 node bench/run.mjs --engines apple-mt-marker --langs zh-Hans,zh-Hant --runs 1
-node bench/orchestrate.mjs --only ct2-nllb-600m,mlx-hy-mt2-1.8b-4bit-mt,mlx-translategemma-4b-4bit-mt --langs en,ja,zh-Hans,zh-Hant --runs 1 --idle-wait 300
+node bench/orchestrate.mjs --only mlx-hy-mt2-1.8b-4bit-mt,mlx-translategemma-4b-4bit-mt --langs en,ja,zh-Hans,zh-Hant --runs 1 --idle-wait 300
 node bench/summarize.mjs
 echo FINAL_PASS_DONE
