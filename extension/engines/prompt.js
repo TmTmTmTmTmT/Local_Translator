@@ -3,30 +3,30 @@
   'use strict';
 
   const SYSTEM_PROMPT = [
-    '당신은 웹페이지 번역가입니다. 입력으로 주어진 외국어 웹페이지 조각을 자연스러운 한국어로 번역합니다.',
+    '\ub2f9\uc2e0\uc740 \uc6f9\ud398\uc774\uc9c0 \ubc88\uc5ed\uac00\uc785\ub2c8\ub2e4. \uc785\ub825\uc73c\ub85c \uc8fc\uc5b4\uc9c4 \uc678\uad6d\uc5b4 \uc6f9\ud398\uc774\uc9c0 \uc870\uac01\uc744 \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4\ub85c \ubc88\uc5ed\ud569\ub2c8\ub2e4.',
     '',
-    '[규칙]',
-    '1. 자연스러운 한국어로 번역합니다. 직역투를 피하고, 원문의 어조(격식체/구어체/유머/커뮤니티 말투)를 유지합니다.',
-    '2. 주어진 범위 전체를 먼저 읽고, 용어·호칭·문체를 일관되게 유지합니다. context.title은 글의 제목이며 번역 대상이 아닙니다.',
-    '3. 한 블록의 슬롯(k="t")들은 하나의 문장을 쪼갠 조각일 수 있습니다. 한국어 어순에 맞게 의미를 슬롯들 사이에 다시 배분해도 됩니다. k="x" 항목(링크·코드 등)은 위치가 고정이며 번역·수정하지 않습니다. x 앞뒤의 조사·어미가 자연스럽게 이어지도록 슬롯을 작성합니다. 예: [t0 "Click ", x "here", t1 " to continue"] 이면 t0="계속하려면 ", t1="을(를) 클릭하세요". 슬롯 앞뒤 공백도 문장이 이어지도록 맞춥니다.',
-    '4. 고유명사·제품명·브랜드명·코드·단위는 원문 그대로 둡니다. 숫자와 URL은 절대 바꾸지 않습니다.',
-    '5. 입력된 모든 블록의 모든 슬롯 번호를 빠짐없이 반환합니다. 내용이 없으면 빈 문자열 "" 을 반환할 수 있습니다. x 항목은 출력에 포함하지 않습니다.',
-    '6. x 항목 바로 뒤의 조사는 x의 마지막 글자 받침에 맞게 쓰고, 받침을 알 수 없으면(영문·숫자로 끝나는 경우 등) 은(는)/이(가)/을(를)처럼 병기합니다.',
+    '[\uaddc\uce59]',
+    '1. \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4\ub85c \ubc88\uc5ed\ud569\ub2c8\ub2e4. \uc9c1\uc5ed\ud22c\ub97c \ud53c\ud558\uace0, \uc6d0\ubb38\uc758 \uc5b4\uc870(\uaca9\uc2dd\uccb4/\uad6c\uc5b4\uccb4/\uc720\uba38/\ucee4\ubba4\ub2c8\ud2f0 \ub9d0\ud22c)\ub97c \uc720\uc9c0\ud569\ub2c8\ub2e4.',
+    '2. \uc8fc\uc5b4\uc9c4 \ubc94\uc704 \uc804\uccb4\ub97c \uba3c\uc800 \uc77d\uace0, \uc6a9\uc5b4\u00b7\ud638\uce6d\u00b7\ubb38\uccb4\ub97c \uc77c\uad00\ub418\uac8c \uc720\uc9c0\ud569\ub2c8\ub2e4. context.title\uc740 \uae00\uc758 \uc81c\ubaa9\uc774\uba70 \ubc88\uc5ed \ub300\uc0c1\uc774 \uc544\ub2d9\ub2c8\ub2e4.',
+    '3. \ud55c \ube14\ub85d\uc758 \uc2ac\ub86f(k="t")\ub4e4\uc740 \ud558\ub098\uc758 \ubb38\uc7a5\uc744 \ucabc\uac20 \uc870\uac01\uc77c \uc218 \uc788\uc2b5\ub2c8\ub2e4. \ud55c\uad6d\uc5b4 \uc5b4\uc21c\uc5d0 \ub9de\uac8c \uc758\ubbf8\ub97c \uc2ac\ub86f\ub4e4 \uc0ac\uc774\uc5d0 \ub2e4\uc2dc \ubc30\ubd84\ud574\ub3c4 \ub429\ub2c8\ub2e4. k="x" \ud56d\ubaa9(\ub9c1\ud06c\u00b7\ucf54\ub4dc \ub4f1)\uc740 \uc704\uce58\uac00 \uace0\uc815\uc774\uba70 \ubc88\uc5ed\u00b7\uc218\uc815\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. x \uc55e\ub4a4\uc758 \uc870\uc0ac\u00b7\uc5b4\ubbf8\uac00 \uc790\uc5f0\uc2a4\ub7fd\uac8c \uc774\uc5b4\uc9c0\ub3c4\ub85d \uc2ac\ub86f\uc744 \uc791\uc131\ud569\ub2c8\ub2e4. \uc608: [t0 "Click ", x "here", t1 " to continue"] \uc774\uba74 t0="\uacc4\uc18d\ud558\ub824\uba74 ", t1="\uc744(\ub97c) \ud074\ub9ad\ud558\uc138\uc694". \uc2ac\ub86f \uc55e\ub4a4 \uacf5\ubc31\ub3c4 \ubb38\uc7a5\uc774 \uc774\uc5b4\uc9c0\ub3c4\ub85d \ub9de\ucda5\ub2c8\ub2e4.',
+    '4. \uace0\uc720\uba85\uc0ac\u00b7\uc81c\ud488\uba85\u00b7\ube0c\ub79c\ub4dc\uba85\u00b7\ucf54\ub4dc\u00b7\ub2e8\uc704\ub294 \uc6d0\ubb38 \uadf8\ub300\ub85c \ub461\ub2c8\ub2e4. \uc22b\uc790\uc640 URL\uc740 \uc808\ub300 \ubc14\uafb8\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.',
+    '5. \uc785\ub825\ub41c \ubaa8\ub4e0 \ube14\ub85d\uc758 \ubaa8\ub4e0 \uc2ac\ub86f \ubc88\ud638\ub97c \ube60\uc9d0\uc5c6\uc774 \ubc18\ud658\ud569\ub2c8\ub2e4. \ub0b4\uc6a9\uc774 \uc5c6\uc73c\uba74 \ube48 \ubb38\uc790\uc5f4 "" \uc744 \ubc18\ud658\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. x \ud56d\ubaa9\uc740 \ucd9c\ub825\uc5d0 \ud3ec\ud568\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.',
+    '6. x \ud56d\ubaa9 \ubc14\ub85c \ub4a4\uc758 \uc870\uc0ac\ub294 x\uc758 \ub9c8\uc9c0\ub9c9 \uae00\uc790 \ubc1b\uce68\uc5d0 \ub9de\uac8c \uc4f0\uace0, \ubc1b\uce68\uc744 \uc54c \uc218 \uc5c6\uc73c\uba74(\uc601\ubb38\u00b7\uc22b\uc790\ub85c \ub05d\ub098\ub294 \uacbd\uc6b0 \ub4f1) \uc740(\ub294)/\uc774(\uac00)/\uc744(\ub97c)\ucc98\ub7fc \ubcd1\uae30\ud569\ub2c8\ub2e4.',
     '',
-    '[입력 형식]',
-    '{"lang":"원문 언어","context":{"title":"...","host":"..."},"blocks":[{"id":"블록id","items":[{"k":"t","i":0,"text":"..."},{"k":"x","text":"..."},{"k":"t","i":1,"text":"..."}]}]}',
+    '[\uc785\ub825 \ud615\uc2dd]',
+    '{"lang":"\uc6d0\ubb38 \uc5b8\uc5b4","context":{"title":"...","host":"..."},"blocks":[{"id":"\ube14\ub85did","items":[{"k":"t","i":0,"text":"..."},{"k":"x","text":"..."},{"k":"t","i":1,"text":"..."}]}]}',
     '',
-    '[출력 형식]',
-    '오직 JSON 객체 하나만 출력합니다. 설명, 생각 과정, 마크다운 코드펜스는 출력하지 않습니다.',
-    '{"blocks":[{"id":"블록id","t":{"0":"번역문","1":"번역문"}}]}',
-    '블록 id는 입력과 동일해야 하고, t의 키는 입력 슬롯의 i 값(문자열)입니다.',
+    '[\ucd9c\ub825 \ud615\uc2dd]',
+    '\uc624\uc9c1 JSON \uac1d\uccb4 \ud558\ub098\ub9cc \ucd9c\ub825\ud569\ub2c8\ub2e4. \uc124\uba85, \uc0dd\uac01 \uacfc\uc815, \ub9c8\ud06c\ub2e4\uc6b4 \ucf54\ub4dc\ud39c\uc2a4\ub294 \ucd9c\ub825\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.',
+    '{"blocks":[{"id":"\ube14\ub85did","t":{"0":"\ubc88\uc5ed\ubb38","1":"\ubc88\uc5ed\ubb38"}}]}',
+    '\ube14\ub85d id\ub294 \uc785\ub825\uacfc \ub3d9\uc77c\ud574\uc57c \ud558\uace0, t\uc758 \ud0a4\ub294 \uc785\ub825 \uc2ac\ub86f\uc758 i \uac12(\ubb38\uc790\uc5f4)\uc785\ub2c8\ub2e4.',
   ].join('\n');
 
   const LANG_NOTES = {
     en: '',
-    ja: '[일본어 보충] 일본어 경어 수준(です・ます / 丁寧語 / 敬語 / 常体)을 한국어 존댓말 수준(합쇼체·해요체·반말)에 대응시켜 번역합니다. 인터넷 슬랭과 줄임말은 한국어에서 비슷한 어감으로 옮깁니다.',
-    'zh-Hans': '[중국어 간체 보충] 한자어를 그대로 직역하지 말고 자연스러운 한국어 표현으로 풀어 씁니다. 고유명사(인명·지명·기관명)는 한국에서 통용되는 표기를 우선합니다.',
-    'zh-Hant': '[중국어 번체 보충] 한자어를 그대로 직역하지 말고 자연스러운 한국어 표현으로 풀어 씁니다. 고유명사(인명·지명·기관명)는 한국에서 통용되는 표기를 우선합니다. 대만·홍콩식 용어는 한국어 일반 용어로 옮깁니다.',
+    ja: '[\uc77c\ubcf8\uc5b4 \ubcf4\ucda9] \uc77c\ubcf8\uc5b4 \uacbd\uc5b4 \uc218\uc900(\u3067\u3059\u30fb\u307e\u3059 / \u4e01\u5be7\u8a9e / \u656c\u8a9e / \u5e38\u4f53)\uc744 \ud55c\uad6d\uc5b4 \uc874\ub313\ub9d0 \uc218\uc900(\ud569\uc1fc\uccb4\u00b7\ud574\uc694\uccb4\u00b7\ubc18\ub9d0)\uc5d0 \ub300\uc751\uc2dc\ucf1c \ubc88\uc5ed\ud569\ub2c8\ub2e4. \uc778\ud130\ub137 \uc2ac\ub7ad\uacfc \uc904\uc784\ub9d0\uc740 \ud55c\uad6d\uc5b4\uc5d0\uc11c \ube44\uc2b7\ud55c \uc5b4\uac10\uc73c\ub85c \uc62e\uae41\ub2c8\ub2e4.',
+    'zh-Hans': '[\uc911\uad6d\uc5b4 \uac04\uccb4 \ubcf4\ucda9] \ud55c\uc790\uc5b4\ub97c \uadf8\ub300\ub85c \uc9c1\uc5ed\ud558\uc9c0 \ub9d0\uace0 \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4 \ud45c\ud604\uc73c\ub85c \ud480\uc5b4 \uc501\ub2c8\ub2e4. \uace0\uc720\uba85\uc0ac(\uc778\uba85\u00b7\uc9c0\uba85\u00b7\uae30\uad00\uba85)\ub294 \ud55c\uad6d\uc5d0\uc11c \ud1b5\uc6a9\ub418\ub294 \ud45c\uae30\ub97c \uc6b0\uc120\ud569\ub2c8\ub2e4.',
+    'zh-Hant': '[\uc911\uad6d\uc5b4 \ubc88\uccb4 \ubcf4\ucda9] \ud55c\uc790\uc5b4\ub97c \uadf8\ub300\ub85c \uc9c1\uc5ed\ud558\uc9c0 \ub9d0\uace0 \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4 \ud45c\ud604\uc73c\ub85c \ud480\uc5b4 \uc501\ub2c8\ub2e4. \uace0\uc720\uba85\uc0ac(\uc778\uba85\u00b7\uc9c0\uba85\u00b7\uae30\uad00\uba85)\ub294 \ud55c\uad6d\uc5d0\uc11c \ud1b5\uc6a9\ub418\ub294 \ud45c\uae30\ub97c \uc6b0\uc120\ud569\ub2c8\ub2e4. \ub300\ub9cc\u00b7\ud64d\ucf69\uc2dd \uc6a9\uc5b4\ub294 \ud55c\uad6d\uc5b4 \uc77c\ubc18 \uc6a9\uc5b4\ub85c \uc62e\uae41\ub2c8\ub2e4.',
   };
   LANG_NOTES.zh = LANG_NOTES['zh-Hans'];
 
@@ -50,7 +50,7 @@
   function glossaryHint(pairs) {
     if (!Array.isArray(pairs)) return '';
     const ok = pairs.filter((p) => Array.isArray(p) && typeof p[0] === 'string' && typeof p[1] === 'string');
-    return ok.length ? '용어집(반드시 지킬 것): ' + ok.map((p) => `${p[0]} → ${p[1]}`).join('; ') : '';
+    return ok.length ? '\uc6a9\uc5b4\uc9d1(\ubc18\ub4dc\uc2dc \uc9c0\ud0ac \uac83): ' + ok.map((p) => `${p[0]} \u2192 ${p[1]}`).join('; ') : '';
   }
 
   // userSuffix: qwen3 계열의 "/no_think" 등.
@@ -133,7 +133,7 @@
   const isContainer = (v) => v !== null && typeof v === 'object';
 
   function extractJson(text) {
-    const s = stripThink(text).replace(/^﻿/, '');
+    const s = stripThink(text).replace(/^\ufeff/, '');
     const cands = [];
     for (const m of s.matchAll(/```(?:json|JSON)?[ \t]*\r?\n?([\s\S]*?)```/g)) cands.push(m[1]);
     const open = s.match(/```(?:json|JSON)?[ \t]*\r?\n?([\s\S]*)$/);

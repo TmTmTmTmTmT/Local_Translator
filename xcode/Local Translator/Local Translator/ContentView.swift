@@ -58,7 +58,14 @@ struct ContentView: View {
                         .fixedSize(horizontal: false, vertical: true)
                     Button("Safari 확장 설정 열기") {
                         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionID) { error in
-                            if let error { Task { @MainActor in message = "열기 실패: \(error.localizedDescription)" } }
+                            if let error {
+                                let ns = error as NSError
+                                // SFErrorNoExtensionFound(1): Safari가 방금 설치·등록된 확장을 아직 모름
+                                let text = (ns.domain == SFErrorDomain && ns.code == 1)
+                                    ? "Safari가 아직 확장을 인식하지 못했습니다. Safari를 완전히 종료(⌘Q)했다가 다시 연 뒤 시도하세요."
+                                    : "열기 실패: \(error.localizedDescription)"
+                                Task { @MainActor in message = text }
+                            }
                         }
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading).padding(4)

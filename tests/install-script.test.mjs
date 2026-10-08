@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
@@ -31,4 +32,13 @@ test('install.sh without a detectable team exits 2 with guidance', () => {
 
 test('install.sh rejects unknown options', () => {
   assert.equal(run(['--bogus'], {}).status, 64);
+});
+
+test('install.sh quits a running app before replacing it and warns about a running Safari', () => {
+  const r = run(['--dry-run', '-y', '--no-open'], { TEAM_ID: 'ABCDE12345' });
+  assert.match(r.stdout, /종료/);
+  const src = fs.readFileSync(script, 'utf8');
+  assert.match(src, /osascript .*quit/);
+  assert.match(src, /pgrep -x Safari/);
+  assert.ok(src.indexOf('quit_running_app\n') < src.indexOf('trash_copy "$DEST"') || src.indexOf('quit_running_app\n') < src.indexOf('ditto "$BUILT"'));
 });

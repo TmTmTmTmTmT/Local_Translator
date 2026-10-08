@@ -100,6 +100,21 @@ else
   for x in "$BUILT"/Contents/PlugIns/*.appex; do verify_signed "$x"; done
 fi
 
+# --- 실행 중인 앱 종료 (옛 프로세스가 새 번들을 가리지 않게)
+quit_running_app() {
+  if pgrep -f "$APP_NAME/Contents/MacOS/" >/dev/null 2>&1 || pgrep -x "Local Translator" >/dev/null 2>&1; then
+    say "실행 중인 Local Translator를 종료합니다"
+    run osascript -e "tell application id \"$APP_ID\" to quit" 2>/dev/null || true
+    if [ "$DRY" = 0 ]; then
+      for _ in 1 2 3 4 5 6 7 8 9 10; do pgrep -x "Local Translator" >/dev/null 2>&1 || break; sleep 0.5; done
+      pgrep -x "Local Translator" >/dev/null 2>&1 && pkill -x "Local Translator" 2>/dev/null || true
+    fi
+  elif [ "$DRY" = 1 ]; then
+    say "[dry-run] 실행 중인 앱이 있으면 종료 (osascript quit → 5초 후 pkill -x \"Local Translator\")"
+  fi
+}
+quit_running_app
+
 # --- 옛 사본 정리 (같은 번들 ID의 다른 경로) → 휴지통으로 이동, 삭제하지 않음
 bundle_id_of() { /usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$1/Contents/Info.plist" 2>/dev/null || true; }
 trash_copy() {
@@ -132,5 +147,6 @@ run "$LSREGISTER" -u "$BUILT" 2>/dev/null || true
 run "$LSREGISTER" -f "$DEST"
 say "설치 위치: $DEST"
 if [ "$OPEN_APP" = 1 ]; then run open "$DEST"; fi
+if pgrep -x Safari >/dev/null 2>&1; then say "※ Safari가 실행 중입니다. 확장이 목록에 보이도록 Safari를 완전히 종료(⌘Q)했다가 다시 여세요."; fi
 say "다음: Safari › 설정 › 확장 프로그램에서 Local Translator를 켜고 웹사이트 접근을 허용하세요."
 say "(약 7일 뒤 확장이 사라지면 scripts/install.sh 를 다시 실행)"

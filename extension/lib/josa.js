@@ -10,11 +10,11 @@
 
   // [받침 있을 때, 없을 때]
   const FORMS = {};
-  for (const [a, b] of [['은', '는'], ['이', '가'], ['을', '를'], ['과', '와'], ['으로', '로'], ['이다', '다']]) FORMS[a] = FORMS[b] = [a, b];
+  for (const [a, b] of [['\uc740', '\ub294'], ['\uc774', '\uac00'], ['\uc744', '\ub97c'], ['\uacfc', '\uc640'], ['\uc73c\ub85c', '\ub85c'], ['\uc774\ub2e4', '\ub2e4']]) FORMS[a] = FORMS[b] = [a, b];
   // 표기된 병기형 -> 기준 키
   const PAIRS = {
-    '은(는)': '은', '는(은)': '은', '이(가)': '이', '가(이)': '이', '을(를)': '을', '를(을)': '을',
-    '와(과)': '와', '과(와)': '와', '으로(로)': '으로', '(으)로': '으로',
+    '\uc740(\ub294)': '\uc740', '\ub294(\uc740)': '\uc740', '\uc774(\uac00)': '\uc774', '\uac00(\uc774)': '\uc774', '\uc744(\ub97c)': '\uc744', '\ub97c(\uc744)': '\uc744',
+    '\uc640(\uacfc)': '\uc640', '\uacfc(\uc640)': '\uc640', '\uc73c\ub85c(\ub85c)': '\uc73c\ub85c', '(\uc73c)\ub85c': '\uc73c\ub85c',
   };
 
   // pair: '은(는)' 같은 병기형 또는 한쪽 형태. prevChar가 한글 음절이 아니면 null(추측 안 함). (으)로는 ㄹ받침을 없는 것으로 취급.
@@ -23,7 +23,7 @@
     const forms = FORMS[key];
     const j = jongseong(prevChar);
     if (!forms || j < 0) return null;
-    return (key === '으로' ? j > 0 && j !== 8 : j > 0) ? forms[0] : forms[1];
+    return (key === '\uc73c\ub85c' ? j > 0 && j !== 8 : j > 0) ? forms[0] : forms[1];
   }
 
   const PAIR_RE = Object.keys(PAIRS).map((k) => k.replace(/[()]/g, '\\$&')).join('|');

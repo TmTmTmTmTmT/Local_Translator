@@ -12,6 +12,7 @@
       "lib/sites.js",
       "lib/cache.js",
       "lib/lang.js",
+      "engines/common.js",
       "engines/prompt.js",
       "engines/mtmode.js",
       "engines/native.js",

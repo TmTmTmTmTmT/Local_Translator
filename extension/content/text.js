@@ -6,7 +6,7 @@
   const EMAIL_RE = /[^\s@]+@[^\s@]+\.[^\s@]+/g;
   const str = (s) => String(s == null ? '' : s);
 
-  function cleanText(text) { return str(text).replace(/[​-‍⁠﻿]/g, '').trim(); }
+  function cleanText(text) { return str(text).replace(/[\u200b-\u200d\u2060\ufeff]/g, '').trim(); }
 
   function isNonlinguistic(text) {
     const t = cleanText(text);
