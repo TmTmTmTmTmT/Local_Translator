@@ -1,6 +1,6 @@
 # PLAN — ko-translator (Safari 한국어 자동번역 확장)
 
-작성: Opus · 2026-10-07 · **r8 (r7 + §11 D1 확정·용어집)**. 이전 개정(r1~r5) 내용을 모두 반영해 재작성.
+작성: Opus · 2026-10-07 · **r9 (r8 + §12 서명·설치·배포 대상 26.0)**. 이전 개정(r1~r5) 내용을 모두 반영해 재작성.
 구현은 Sonnet이 이 문서 + `GUIDELINES.md` 기준으로 진행. 계획 밖 설계 변경은 `STATUS.md` "Opus 확인 필요"로.
 
 ---
@@ -293,6 +293,10 @@ bench/
 | T11 | Apple marker/plain 출력 비교 → 기본 variant 확정 (§11.2) | — |
 | T12 | TranslateGemma 옵션 프리셋 + 사용자 README 안내 (§11.1) | — |
 | T13 | 용어집 기능 (§11.3) + 테스트 + 벤치 프로브 | — |
+| **Phase 6 (r9, §12)** | | |
+| T14 | 배포 대상 26.0 + 26.4 API 가용성 분기 (§12.1) | — |
+| T15 | `scripts/install.sh` 개인 팀 서명·설치·정리 (§12.2) | T14 |
+| T16 | 컨테이너 앱 서명 상태 표시 + README 설치 절 교체 (§12.3) | T15 |
 
 ---
 
@@ -365,3 +369,38 @@ bench/
 - 단위 테스트: 경계/대소문자/긴 용어 우선/겹침/lang 필터/CJK/캐시 키 변화/빈 용어집 시 기존 동작 동일.
 - 벤치 프로브: `bench/corpus-articles/en.json`에 용어 5개(kerbs→연석, safety car→세이프티카, undercut→언더컷, pit wall→피트월, backmarkers→백마커)로 apple-mt-marker·mlx translategemma MT 실행 → 대상 용어가 출력에 들어간 비율, 해당 블록 문장 깨짐 여부를 STATUS에 기록. 사전 치환이 Apple 번역에서 한국어를 훼손/음차하면 → 중단하고 Opus 보고(대안: 용어를 x 항목처럼 표식 처리 후 dst로 복원).
 - 범위 외: 형태소 기반 매칭, 사이트별 용어집.
+
+---
+
+## 12. r9 — 서명·설치 (D6/D10 확정, 2026-10-08)
+
+사용자 지시: Xcode는 **베타 Xcode**(`/Applications/Xcode-beta.app`), 배포 대상 **macOS 26.0**, 같은 사용자의 `TmTmTmTmTmT/Safari-Extension-HDR` 방식을 따라 "서명되지 않은 확장 허용" 절차를 없앤다. 참고 방식(확인된 사실):
+- 무료 Apple ID **Personal Team**의 "Apple Development" 인증서로 **앱과 appex 둘 다** 팀 서명(`CODE_SIGN_STYLE=Automatic`, `DEVELOPMENT_TEAM`은 커맨드라인으로만, 프로젝트 파일에 커밋 안 함). ad-hoc(`-`)은 TeamIdentifier 없음 → Safari 재시작마다 재허용 필요.
+- `scripts/install.sh`: 팀 ID 자동 탐지 → `xcodebuild -allowProvisioningUpdates` Release 빌드 → `codesign -dv` 검증 → 옛 사본 정리(`pluginkit -r`, `lsregister -u`, 휴지통 이동) → `/Applications`(쓰기 불가 시 `~/Applications`)에 `ditto` → `lsregister -f` → 앱 실행.
+- 관찰 근거는 macOS/Safari 27.2 한 대(추정). 무료 팀 서명 만료(약 7일, 미검증) 시 `install.sh` 재실행.
+
+### 12.1 배포 대상 26.0 (T14)
+- 두 타깃 `MACOSX_DEPLOYMENT_TARGET = 26.0`.
+- 26.4 이상 API(PLAN §10: `translate(_: AttributedString)`/`skipsTranslation`, `translations(from:)` 배치, `preferredStrategy`)는 `if #available(macOS 26.4, *)`로 감싸고, 26.0~26.3에서는 `attr` variant 요청 시 `marker`로 폴백. 기본 variant(marker)는 26.0에서 동작해야 함.
+- Sonnet 확인 필수: 베타 SDK `.swiftinterface`에서 `TranslationSession.init(installedSource:target:)`, `LanguageAvailability`, `FoundationModels` 사용 API의 `@available` 버전 확인 → 26.0보다 높은 API가 기본 경로에 있으면 **중단하고 보고**(Opus 재판단: 배포 대상 상향 또는 기능 분기).
+- README 요구사항 "macOS 26.4 이상" → "macOS 26.0 이상"(26.4 미만에서 제한 기능 한 줄).
+- `xcodebuild`는 `DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer` 명시(xcode-select 의존 금지).
+
+### 12.2 `scripts/install.sh` (T15)
+Safari-Extension-HDR의 `scripts/install.sh`·`scripts/lib/install-lib.sh` 구조를 참고하되 **코드는 새로 작성**(같은 사용자 repo지만 라이선스 미표기 — 구조만 참고).
+- 옵션: `--update`, `-y`, `--no-open`, `--dry-run`.
+- 팀 ID: env `TEAM_ID` → `.local/team-id` 캐시 → `security find-identity -v -p codesigning`의 "Apple Development" 인증서 OU → `defaults read com.apple.dt.Xcode IDEProvisioningTeamByIdentifier`. 없으면 "Xcode › Settings › Accounts에 Apple ID 추가" 안내 후 종료(코드 2). `.local/`은 gitignore.
+- 빌드: `xcodebuild -project "xcode/Local Translator/Local Translator.xcodeproj" -scheme "Local Translator" -configuration Release -derivedDataPath .local/build -allowProvisioningUpdates DEVELOPMENT_TEAM=$TEAM CODE_SIGN_STYLE=Automatic MACOSX_DEPLOYMENT_TARGET=26.0 build`.
+- 검증: 앱·appex 모두 `codesign -dv`에 `TeamIdentifier=$TEAM`, `Signature=adhoc` 없음. 실패 시 설치 중단.
+- 정리: 번들 ID `com.tmtmtmtmtmt.localtranslator(.Extension)`의 다른 사본(DerivedData·xcode/build·이전 /Applications 사본)을 `pluginkit -r` + `lsregister -u` 후 **휴지통으로 이동**(rm 금지, `--dry-run`이면 목록만). 저장소 밖 경로는 번들 ID 일치할 때만.
+- 설치: `ditto` → `/Applications/Local Translator.app`(불가 시 `~/Applications`), 빌드 산출물 등록 해제, `lsregister -f`, `open`(옵션). sudo 사용 금지, Safari 설정(`defaults write`) 건드리지 않음.
+- 기존 ad-hoc 빌드 명령(README)은 개발자용으로 `xcode/README.md`에만 남김.
+- 테스트: 셸 함수 단위는 `--dry-run` 출력 기반 node 테스트 1~2개(팀 ID 탐지 실패 메시지, 정리 대상 목록) — 실제 서명은 수동 검증.
+
+### 12.3 컨테이너 앱·README (T16)
+- 컨테이너 앱 화면에 서명 상태 한 줄: `SecCodeCopySigningInformation`으로 앱·appex의 팀 ID 유무/ad-hoc 여부 → "팀 서명됨(재시작 후에도 유지)" / "ad-hoc 서명 — Safari 재시작마다 '서명되지 않은 확장 허용' 필요, scripts/install.sh로 재설치".
+- README(사용자용) 설치 절 교체: ① Xcode 베타 설치 ② Xcode › Settings › Accounts에 Apple ID 추가(무료 개인 팀 가능) ③ `scripts/install.sh` ④ Safari › 설정 › 확장에서 켜고 웹사이트 접근 허용 ⑤ "서명되지 않은 확장 허용"은 켜지 않아도 됨(켜져 있으면 끄기 권장 — 다른 미서명 확장도 허용됨) ⑥ 약 7일 뒤 확장이 사라지면 `scripts/install.sh --update`.
+- 검증(사용자, Safari 실기): 설치 → Safari 재시작 2회 → 확장 유지 확인. 결과 STATUS 기록. 유지 안 되면 Opus 보고.
+
+### 범위 외
+- 유료 Developer ID 공증·배포, App Store, CI 서명(CI는 `CODE_SIGNING_ALLOWED=NO` 빌드만).

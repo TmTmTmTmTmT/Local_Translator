@@ -10,7 +10,7 @@
 | D3 | ✅ **확정 2026-10-08: TranslateGemma 4B로 충분, 별도 문맥 모드·고메모리 프리셋 없음**(수동 지정은 허용) | 옵션에서 선택 가능하게만 노출 | options |
 | D4 | 🔄 **측정 진행 2026-10-08**: 사용자가 sudo로 Apple/TranslateGemma 2개 측정 → 저장 후 summarize. 안내 bench/powermetrics.md |  미측정 표기 | bench/powermetrics.md |
 | D5 | ✅ **확정 2026-10-08: 언어팩 설치 완료**(사용자). Apple Intelligence는 apple-fm 옵션 전용이라 필수 아님 | — | README |
-| D6 | ✅ **확정 2026-10-08: 무료 개인 팀(Personal Team) 서명** → 사용자 작업 필요: Xcode › Settings › Accounts에 Apple ID 추가 후 Team ID 알려주기. 받으면 Sonnet이 `xcode/` 서명 설정 변경·재빌드. 재시작마다 재허용이 실제로 사라지는지 확인(무료 팀 프로파일은 7일 만료 가능) | ad-hoc 서명 | xcode/ |
+| D6 | ✅ **확정 2026-10-08: 무료 개인 팀(Personal Team) 서명** → 방식 확정: Safari-Extension-HDR처럼 `scripts/install.sh`가 팀 ID 자동 탐지·서명·설치(PLAN §12, T14–T16). 배포 대상 26.0, 베타 Xcode. 사용자 작업: Xcode › Settings › Accounts에 Apple ID 추가만. 재시작마다 재허용이 실제로 사라지는지 확인(무료 팀 프로파일은 7일 만료 가능) | ad-hoc 서명 | xcode/ |
 | D7 | ✅ **확정 2026-10-08: PDF 자동 진입 기본 ON**(`pdfAuto: true`, 적용 완료). Safari 실기 미검증 — 안 되면 알려주기 | 수동 버튼 경로 우선 구현 | background.js |
 | D8 | ✅ **확정 2026-10-08: NC 라이선스 모델(NLLB 1.3B/600M, EXAONE) 벤치에서 제거** — models.json 28개로 축소, 스크립트·CANDIDATES 반영. 기존 결과·보고서 파일은 기록으로 유지 | — | CANDIDATES.md |
 | D9 | ✅ **확정 2026-10-08: 라이선스 파일 없음(기본 저작권)**. 다른 사람이 복사·수정·재배포할 수 없음. vendor/pdfjs는 원 라이선스(Apache-2.0) 유지 | — | LICENSE |
