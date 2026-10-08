@@ -106,3 +106,12 @@ Safari 확장 오류: `SyntaxError: Invalid regular expression: range out of ord
 
 ### 순서
 F4 먼저(번역 자체가 막힘) → F3 → 재설치.
+
+### F4 추가 증상 (사용자 Safari 실사용, the-race.com)
+- 확장 로드·팝업 정상(`native:apple-mt · ready`), 화면 우측 하단 떠 있는 버튼 1개만 번역되고 본문·헤드라인·메뉴는 원문 그대로.
+- 추정: background에서 `engines/localhost.js`가 SyntaxError로 로드 실패 → 이후 스크립트(registry 등)·라우팅 일부가 깨졌거나, content 쪽 비ASCII 리터럴(`content/text.js` cleanText 정규식 등) 오해석. Apple 번역 속도(블록당 ~2초, 동시성 1)로 대기 중일 가능성도 배제 못 함.
+- Sonnet 처리: F4 수정 후 재설치 → 사용자 재확인. 그래도 부분 번역이면 다음 로그를 사용자에게 요청해 STATUS에 기록 후 Opus 보고:
+  1. Safari › 개발자용 › 웹 확장 프로그램 백그라운드 콘텐츠 › Local Translator → 콘솔 오류
+  2. 해당 페이지에서 개발자용 › 웹 속성 검사기 표시 → 콘솔(`kt` 관련 오류·경고)
+  3. 1분 기다린 뒤 번역 진행 여부(느린 것인지 멈춘 것인지)
+- 추가로 background 스크립트 하나가 로드 실패해도 나머지가 동작하도록 이미 있는 가드(`KT.lib.glossary` 없으면 건너뜀)와 같은 방어를 registry의 localhost/mtmode 참조에도 적용할지 확인(엔진 하나 실패가 전체 번역을 막지 않게). 계획 밖 변경이면 보고만.
