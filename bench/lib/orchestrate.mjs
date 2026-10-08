@@ -79,9 +79,10 @@ export function modelMapFor(entry, { keepAliveSec = 600 } = {}) {
 }
 
 // Args for `node bench/run.mjs`. Without skipExisting we pass --force so a rerun overwrites old results.
-export function runMjsArgs(entry, { benchDir, langs, runs, modelMapFile, resultsDir, force }) {
+export function runMjsArgs(entry, { benchDir, langs, runs, modelMapFile, resultsDir, force, corpusDir }) {
   const a = [join(benchDir, 'run.mjs'), '--engines', entry.engineId, '--langs', langs.join(','), '--runs', String(runs),
     '--model-map', modelMapFile, '--results-dir', resultsDir];
+  if (corpusDir) a.push('--corpus-dir', corpusDir);
   if (force) a.push('--force');
   return a;
 }

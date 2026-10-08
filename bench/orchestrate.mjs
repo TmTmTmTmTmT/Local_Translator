@@ -1,6 +1,6 @@
 // One-command benchmark orchestrator: per model, preflight -> start server -> monitor -> run.mjs -> teardown.
 //   node bench/orchestrate.mjs --only <id,...|all> [--langs en,ja,zh-Hans,zh-Hant] [--runs 1] [--skip-existing]
-//        [--idle-wait 0] [--engine-timeout 1200] [--results-dir dir] [--dry-run]
+//        [--idle-wait 0] [--engine-timeout 1200] [--results-dir dir] [--corpus-dir dir] [--dry-run]
 // Sequential, never two servers at once, 127.0.0.1 only, no downloads/installs. Without --skip-existing, run.mjs gets --force.
 import { spawn, execFile } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, readdirSync, appendFileSync, openSync, closeSync } from 'node:fs';
@@ -54,11 +54,12 @@ function killTree(child) {
 export async function main(argv) {
   const a = parseArgs(argv);
   const resultsDir = resolve(a.resultsDir || join(BENCH, 'results'));
+  const corpusDir = a.corpusDir ? resolve(a.corpusDir) : undefined;
   mkdirSync(resultsDir, { recursive: true });
   const models = JSON.parse(readFileSync(join(BENCH, 'models.json'), 'utf8'));
   const errs = validateModels(models);
   if (errs.length) { console.error('models.json invalid:\n' + errs.join('\n')); process.exit(2); }
-  if (!a.only || a.only === true) { console.error('usage: node bench/orchestrate.mjs --only <id,...|all> [--langs ..] [--runs 1] [--skip-existing] [--idle-wait 0] [--dry-run]'); process.exit(2); }
+  if (!a.only || a.only === true) { console.error('usage: node bench/orchestrate.mjs --only <id,...|all> [--langs ..] [--runs 1] [--skip-existing] [--idle-wait 0] [--corpus-dir dir] [--dry-run]'); process.exit(2); }
   const { entries, unknown } = selectEntries(models, a.only);
   if (unknown.length) { console.error(`unknown engine ids: ${unknown.join(', ')}`); process.exit(2); }
 
@@ -93,7 +94,7 @@ export async function main(argv) {
       const pf = await preflight(entry, ctx);
       say(`[${pf.status.toUpperCase()}] ${entry.engineId} (${entry.runtime}, tier ${entry.tier}) langs=${useLangs.join(',') || '-'}  ${pf.detail}`);
       say(`    server: ${entry.runtime === 'ollama' ? '(ollama service, keep_alive via adapter arg, then ollama stop)' : `${srv.cmd} ${srv.args.join(' ')}`} port=${srv.port}`);
-      say(`    run: node ${runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, force: !a.skipExisting }).join(' ')}`);
+      say(`    run: node ${runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, corpusDir, force: !a.skipExisting }).join(' ')}`);
       summary.push({ id: entry.engineId, status: pf.status });
       continue;
     }
@@ -149,7 +150,7 @@ export async function main(argv) {
       sampler = setInterval(async () => { if (sampling) return; sampling = true; peakKb = Math.max(peakKb, await sample()); sampling = false; }, 1000);
 
       const left = Math.max(60000, engineTimeout - (Date.now() - t0));
-      const rr = await runProc(process.execPath, runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, force: !a.skipExisting || staleErr.length > 0 }), { timeoutMs: left });
+      const rr = await runProc(process.execPath, runMjsArgs(entry, { benchDir: BENCH, langs: useLangs, runs, modelMapFile: mapFile, resultsDir, corpusDir, force: !a.skipExisting || staleErr.length > 0 }), { timeoutMs: left });
       if (/\[timeout\]/.test(rr.tail)) detail += ' run.mjs timeout';
       if (entry.runtime === 'ollama') {
         // Metal 가중치는 RSS에 안 잡힘 → `ollama ps`의 적재 크기를 기록
