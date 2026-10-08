@@ -44,3 +44,10 @@ test('render into popup.html', () => {
   assert.equal(document.getElementById('pending').hidden, true);
   assert.equal(document.getElementById('toggle-original').textContent, '원문 보기');
 });
+
+test('modeOf: initial mode from getMode response, default translated', () => {
+  assert.equal(lib.modeOf({ mode: 'original' }), 'original');
+  assert.equal(lib.modeOf({ mode: 'translated' }), 'translated');
+  assert.equal(lib.modeOf(undefined), 'translated');
+  assert.equal(lib.modeOf(null), 'translated');
+});

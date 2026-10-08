@@ -28,6 +28,7 @@
 | `getState` | popup/content → background | `{url?, tabId?}` (popup은 tabId 권장) | `{siteEnabled, host, engine, status, pending, errorCode?}` |
 | `setSiteEnabled` | popup → background | `{host, enabled}` | `{ok:true}` |
 | `toggleOriginal` | popup → content(tabs.sendMessage) | `{}` | `{mode:"translated"|"original"}` |
+| `getMode` | popup → content(tabs.sendMessage) | `{}` | `{mode:"translated"|"original"}` (상태 변경 없음) |
 | `reportStatus` | content → background | `{pending, done, error}` | — |
 | `openPdfViewer` | popup → background | `{url}` | `{ok}` |
 | `clearCache` | options → background | `{}` | `{ok}` |

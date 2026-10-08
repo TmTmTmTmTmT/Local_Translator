@@ -19,6 +19,13 @@
   async function init() {
     const tabs = await api.tabs.query({ active: true, currentWindow: true });
     tab = tabs[0] || null;
+    if (tab) {
+      try {
+        mode = lib.modeOf(await api.tabs.sendMessage(tab.id, { type: 'getMode' }));
+      } catch (e) {
+        mode = 'translated'; // content script not injected on this tab
+      }
+    }
     await refresh();
 
     document.getElementById('site-toggle').addEventListener('change', async (e) => {

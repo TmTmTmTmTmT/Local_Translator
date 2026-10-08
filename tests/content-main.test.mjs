@@ -85,7 +85,10 @@ test('main: toggle roundtrip restores nodeValue exactly; toggleOriginal message'
   await e.idle();
   const tr = nodes();
   assert.notDeepEqual(tr, orig);
+  assert.equal(e.KT.main.handleMessage({ type: 'getMode' }).mode, 'translated');
+  loose.deepEqual(nodes(), tr, 'getMode does not change state');
   assert.equal(e.KT.main.handleMessage({ type: 'toggleOriginal' }).mode, 'original');
+  assert.equal(e.KT.main.handleMessage({ type: 'getMode' }).mode, 'original');
   loose.deepEqual(nodes(), orig);
   assert.equal(e.q('#p').getAttribute('lang'), null);
   await e.idle();

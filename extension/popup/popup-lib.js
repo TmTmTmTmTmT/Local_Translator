@@ -67,7 +67,11 @@
     set('pending', (el) => { el.textContent = vm.pendingText; el.hidden = !vm.pendingVisible; });
   }
 
-  const api = { ERRORS, looksLikePdf, hostOf, buildViewModel, render };
+  function modeOf(res) {
+    return res && res.mode === 'original' ? 'original' : 'translated';
+  }
+
+  const api = { ERRORS, looksLikePdf, hostOf, buildViewModel, render, modeOf };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.KTPopup = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

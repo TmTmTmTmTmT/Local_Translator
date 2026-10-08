@@ -327,7 +327,9 @@
 
     // ---------- 메시지 ----------
     function handleMessage(msg) {
-      if (!msg || msg.type !== 'toggleOriginal') return undefined;
+      if (!msg) return undefined;
+      if (msg.type === 'getMode') return { mode: applier.mode === 'translation' ? 'translated' : 'original' };
+      if (msg.type !== 'toggleOriginal') return undefined;
       if (applier.mode === 'translation') applier.showOriginal(); else applier.showTranslation();
       return { mode: applier.mode === 'translation' ? 'translated' : 'original' };
     }
