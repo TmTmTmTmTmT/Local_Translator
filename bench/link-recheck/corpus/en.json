@@ -1,0 +1,128 @@
+{
+ "lang": "en",
+ "context": {
+  "title": "Verhoeven wins Portimar thriller",
+  "host": "motorsport-news.example"
+ },
+ "blocks": [
+  {
+   "id": "art-link-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Team principal "
+    },
+    {
+     "k": "x",
+     "text": "Marco Delacroix"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " admitted the call was \"probably one lap too early\" and said the squad would review its simulation tools before the next round."
+    }
+   ]
+  },
+  {
+   "id": "art-link-02",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The result moves "
+    },
+    {
+     "k": "x",
+     "text": "Verhoeven"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " to within 12 points of the championship lead, with seven rounds still to run."
+    }
+   ]
+  },
+  {
+   "id": "art-link-03",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Our full "
+    },
+    {
+     "k": "x",
+     "text": "race report and driver ratings"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " are available now, and you can watch the on-board footage from the closing laps below."
+    }
+   ]
+  },
+  {
+   "id": "art-nav-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Related: "
+    },
+    {
+     "k": "x",
+     "text": "Why this season's title fight could go down to the final lap"
+    }
+   ]
+  },
+  {
+   "id": "art-nav-02",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Read more: "
+    },
+    {
+     "k": "x",
+     "text": "The 10 drivers who defined the first half of the season"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": ", "
+    },
+    {
+     "k": "x",
+     "text": "Halcyon's upgrade package explained"
+    }
+   ]
+  },
+  {
+   "id": "art-cta-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Enjoyed this article? "
+    },
+    {
+     "k": "x",
+     "text": "Subscribe to our newsletter"
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": " to get the biggest stories delivered to your inbox every morning."
+    }
+   ]
+  }
+ ]
+}

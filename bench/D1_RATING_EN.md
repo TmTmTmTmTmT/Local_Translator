@@ -3,6 +3,8 @@
 자료: `bench/rate/ratings-en.json` (26블록 × 20엔진, 1~5점), 코퍼스 `bench/corpus-articles/en.json`, 성능 `bench/results-articles/orchestrate.log`·`run.log`.
 시간은 26블록 1회 실행 전체(모델 로드 포함), 메모리는 서버 프로세스 최대 RSS(ollama는 `ollama ps` 상주 크기).
 
+> 주의: 링크 블록(art-link-*, art-nav-*, art-cta-01)은 평가 당시 x 항목이 없어 일반 문장으로만 평가됨. 링크 처리는 `bench/link-recheck/`에서 별도 재측정(FIX_GUIDE F2).
+
 ## 상위 엔진
 
 | 순위 | 엔진 | 평균(자연/정확) | 최고 선택 | 4점↑ | 1점 | 26블록 시간 | 메모리 |

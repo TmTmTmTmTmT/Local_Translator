@@ -1,0 +1,115 @@
+{
+ "engine": "mlx-translategemma-4b-4bit-mt",
+ "model": "mlx-community/translategemma-4b-it-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 3817,
+ "totalMs": 8536,
+ "blocks": [
+  {
+   "id": "art-link-01",
+   "ms": 3817,
+   "slots": {
+    "0": "팀 책임자 ",
+    "1": " “이번 레이스는 ‘대략 한 바퀴는 너무 빠르다’고 인정했으며, 다음 라운드 전에 팀의 시뮬레이션 도구를 검토할 것이라고 밝혔습니다.”"
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "art-link-02",
+   "ms": 913,
+   "slots": {
+    "0": "이번 결과는 ",
+    "1": "를 현재 선두와의 12점 차이 내로 끌어내며, 아직 7라운드가 남았습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "art-link-03",
+   "ms": 1453,
+   "slots": {
+    "0": "전체 ",
+    "1": " 지금 이용 가능하며, 경기 막바지 영상들을 아래에서 확인하실 수 있습니다."
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 316,
+   "slots": {
+    "0": "관련: "
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 433,
+   "slots": {
+    "0": "더 보기: ",
+    "1": ", "
+   },
+   "error": null,
+   "xPreserved": true
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 1604,
+   "slots": {
+    "0": "이 기사를 재미있게 읽으셨나요? ",
+    "1": " 매일 아침, 가장 중요한 뉴스를 받으세요."
+   },
+   "error": null,
+   "xPreserved": true
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-link-01"
+   ],
+   "ms": 3817
+  },
+  {
+   "blockIds": [
+    "art-link-02"
+   ],
+   "ms": 913
+  },
+  {
+   "blockIds": [
+    "art-link-03"
+   ],
+   "ms": 1453
+  },
+  {
+   "blockIds": [
+    "art-nav-01"
+   ],
+   "ms": 316
+  },
+  {
+   "blockIds": [
+    "art-nav-02"
+   ],
+   "ms": 433
+  },
+  {
+   "blockIds": [
+    "art-cta-01"
+   ],
+   "ms": 1604
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=translategemma marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

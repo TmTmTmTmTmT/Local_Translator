@@ -1,0 +1,2 @@
+[2026-10-08T08:51:57.095Z] status=OK engine=mlx-translategemma-4b-4bit-mt runtime=mlx durationSec=14 baselineRssMb=2030 peakRssMb=2239 results=1/1
+[2026-10-08T08:52:07.838Z] status=OK engine=ollama-translategemma-4b-mt runtime=ollama durationSec=11 baselineRssMb=33 peakRssMb=42 ollamaPs="translategemma:4b c49d986b0764 2.9 GB 100% GPU 2048 9 minutes from now" results=1/1
