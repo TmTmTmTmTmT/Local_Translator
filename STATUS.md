@@ -144,6 +144,8 @@
 - 자동 지표: 3엔진 모두 6블록 슬롯 존재·x 원문 유지(TG는 xPreserved=true)·잘림/이중공백/가장자리공백 없음. 폴백 블록 수는 결과 파일에 기록 안 돼 집계 불가(mtmode stats 미저장 — 필요하면 Opus 판단).
 - 육안 비교(수치 아님): Apple은 링크 뒤 조사·어순 자연(Verhoeven을, Marco Delacroix는). TG는 조사 누락/어색(mlx link-03 "race report and driver ratings 지금", link-01 인용부호 위치 이상; ollama link-01 "Marco Delacroix 그들은", link-03 "영상" 추가). → 링크 문장은 Apple 우위. 사용자 평가 페이지 `bench/rate/rate-links-en.html`(6블록×3엔진) 준비, 결과 저장 시 `bench/link-recheck/ratings-en.json`.
 
+- **F2 종결(Opus)**: 사용자 평가 평균 Apple 4.33, TG ollama 4.42, TG mlx 4.33 → 차이 없음. 현행(Apple 기본 + TG 옵션) 유지. 폴백 통계 저장 불필요.
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

@@ -32,7 +32,7 @@
 - 사용자 요구: 평가 페이지는 영어만, 기사 중심(the-race.com 류). 기존 ja/zh 페이지는 D1 평가에서 제외. DECISIONS.md D1에 반영.
 - 참고: 직전 잘못된 실행에서도 m2m100(토크나이저 HTTP 500), mlx JSON 모드 Hy-MT/qwen3.5(슬롯 프로토콜 실패), mlx translategemma 비-MT(시스템 롤 404)는 기존과 같은 이미 알려진 실패. 평가 페이지에는 `-mt` 변형과 정상 엔진 위주로 포함 권장 (`--engines`로 선택).
 
-## F2. 기사 코퍼스 링크 블록에 x 항목 없음 → 링크 문장 재평가 범위 판단 (2026-10-08, Opus)
+## F2. ✅ 종결(2026-10-08: 평균 Apple 4.33 / TG 4.42·4.33 → 현행 유지, bench/D1_RATING_EN.md) — 기사 코퍼스 링크 블록에 x 항목 없음 → 링크 문장 재평가 범위 판단 (2026-10-08, Opus)
 
 ### 오류 원인
 `bench/corpus-articles/en.json` 생성 스크립트(Opus 작성)가 `("텍스트")`를 튜플로 착각 → 링크 6블록(art-link-01..03, art-nav-01..02, art-cta-01)이 전부 `t` 슬롯. 링크 앞뒤 공백도 빠짐(예: `"Marco Delacroix"` 다음 `"admitted…"`). `validateCorpus`는 genre와 x 항목 존재를 검사하지 않아 통과.

@@ -38,3 +38,16 @@
 1. Apple marker vs plain 출력 비교 → 기본 variant 결정
 2. 모터스포츠 등 사용자 용어집 기능을 계획에 넣을지
 3. ja/zh는 이번 평가 제외 → 기존 결과(DECISION_BRIEF) 기준으로 Apple 유지할지
+
+## 링크 문장 재측정 (FIX_GUIDE F2, 6블록 × 3엔진)
+
+자료 `bench/link-recheck/ratings-en.json`. 점수 = (자연+정확)/2 평균.
+
+| 엔진 | link-01 | link-02 | link-03 | nav-01 | nav-02 | cta-01 | 평균 |
+|---|---|---|---|---|---|---|---|
+| apple-mt-marker | 3.5 | 3.5 | 4.0 | 5 | 5 | 5.0 | **4.33** |
+| ollama-translategemma-4b (MT) | 4.5 | 5.0 | 5.0 | 5 | 5 | 2.0 | **4.42** |
+| mlx-translategemma-4b (MT) | 4.0 | 4.0 | 4.5 | 5 | 5 | 3.5 | **4.33** |
+
+판정(Opus): 차이 0.1점 이내 → F2 후속 기준(TG가 Apple보다 1점 이상 낮음) 미충족. **현행 유지, 종결.** 하이브리드(링크 블록만 Apple)·MT 모드 폴백 통계 저장 모두 하지 않음.
+관찰: TG는 링크가 동사의 목적어인 CTA 문장("Subscribe to our newsletter to get …")에서 행동 연결을 놓침(사용자 메모: "링크와 연결은 Apple"). 일반 링크 문장(link-01..03)에서는 TG가 더 높게 평가됨.
