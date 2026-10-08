@@ -5,7 +5,16 @@
   const KT = (globalThis.KT = globalThis.KT || {});
   const MAX_BLOCK_CHARS = 6000;
   const SUPPORTED = new Set(['en', 'ja', 'zh']);
+  const KANA = /[\u3040-\u30ff]/;
   let counter = 0;
+
+  // detectLang은 가나 없는 한자 위주 블록을 zh로 판정하므로, 일본어 페이지 보정용 lang 힌트를 읽는다.
+  function langHint(el) {
+    const host = el && el.closest ? el.closest('[lang]') : null;
+    const m = /^([a-z]{2,3})(?:[-_]|$)/i.exec(((host && host.getAttribute('lang')) || '').trim());
+    const p = m ? m[1].toLowerCase() : '';
+    return p === 'ja' || p === 'zh' ? p : '';
+  }
 
   function newRec(el) {
     const id = 'kt' + (++counter);
@@ -20,6 +29,8 @@
     const out = [];
     const promote = opts.linkMode !== 'never'; // 빈 값·알 수 없는 값은 standalone
     let cur = null;
+    let kanaBlocks = 0;
+    const undecided = []; // 힌트 없는 한자-only 블록: 수집 끝에 문서 다수결로 확정
 
     function flush() {
       const rec = cur;
@@ -38,7 +49,15 @@
         rec.chars = chars;
       }
       if (!rec.slots.length) return;
-      const lang = T.detectLang(rec.slots.map((s) => T.cleanText(s.original)).join(' '));
+      const text = rec.slots.map((s) => T.cleanText(s.original)).join(' ');
+      let lang = T.detectLang(text);
+      const kana = KANA.test(text);
+      if (lang === 'ja' && kana) kanaBlocks++;
+      else if (lang === 'zh' && !kana) {
+        const hint = langHint(rec.el);
+        if (hint) lang = hint;
+        else undecided.push(rec);
+      }
       if (!SUPPORTED.has(lang)) return; // 한국어·미지원 언어·판정 불가는 번역하지 않음
       rec.lang = rec.block.lang = lang;
       out.push(rec);
@@ -88,6 +107,9 @@
     });
     for (let n; (n = walker.nextNode());) visitText(n);
     flush();
+    if (undecided.length && kanaBlocks > undecided.length) {
+      for (const r of undecided) if (out.includes(r)) r.lang = r.block.lang = 'ja';
+    }
     return out;
   }
 

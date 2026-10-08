@@ -14,6 +14,8 @@ const BLOCK_TAGS = new Set(['DIV', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'UL'
 const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE', 'HEAD', 'TITLE', 'META', 'LINK']);
 const CODE_SEL = 'code,pre,kbd,samp,var,textarea';
 const BUTTON_SEL = 'button,[role="button"],summary';
+const FORM_SEL = 'select,optgroup,option,datalist,textarea,input';
+const GRAPHIC_SEL = 'svg,math';
 const NO_SEL = '[translate="no"],.notranslate';
 
 const RE = {
@@ -48,7 +50,7 @@ export async function measure(file, opts = {}) {
   const dom = new JSDOM(html, { url, runScripts: 'outside-only', pretendToBeVisual: true });
   const win = dom.window;
   const errors = [];
-  const out = { file, linkMode, calls: 0, blocks: 0, translatedNodes: 0, remaining: 0, byCategory: { inLink: 0, inBlockLink: 0, inCode: 0, inButton: 0, translateNo: 0, other: 0 }, samples: { other: [], inLink: [] }, errors };
+  const out = { file, linkMode, calls: 0, blocks: 0, translatedNodes: 0, remaining: 0, byCategory: { inLink: 0, inBlockLink: 0, inCode: 0, inButton: 0, translateNo: 0, formControl: 0, graphic: 0, other: 0 }, langs: {}, samples: { other: [], inLink: [] }, errors };
   let lastReq = Date.now();
 
   win.__KT_AUTOSTART = true;
@@ -69,6 +71,7 @@ export async function measure(file, opts = {}) {
         lastReq = Date.now();
         out.calls++;
         out.blocks += msg.blocks.length;
+        for (const b of msg.blocks) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
         return {
           ok: true, engine: 'mock',
           results: msg.blocks.map((b) => ({
@@ -106,15 +109,18 @@ export async function measure(file, opts = {}) {
     if (!text) continue;
     if (text.startsWith(MARK)) { out.translatedNodes++; continue; }
     if (isHidden(el) || !re.test(text)) continue;
-    out.remaining++;
     const a = el.closest('a');
     let cat = 'other';
     if (el.closest(NO_SEL)) cat = 'translateNo';
+    else if (el.closest(FORM_SEL)) cat = 'formControl';
+    else if (el.closest(GRAPHIC_SEL)) cat = 'graphic';
     else if (el.closest(CODE_SEL)) cat = 'inCode';
     else if (el.closest(BUTTON_SEL)) cat = 'inButton';
     else if (a && hasBlockChild(a)) cat = 'inBlockLink';
     else if (a) cat = 'inLink';
     out.byCategory[cat]++;
+    if (cat === 'formControl' || cat === 'graphic') continue;
+    out.remaining++;
     if (cat === 'other' && out.samples.other.length < 20) out.samples.other.push(text.slice(0, 120));
     if ((cat === 'inLink' || cat === 'inBlockLink') && out.samples.inLink.length < 10) out.samples.inLink.push(text.slice(0, 120));
   }
