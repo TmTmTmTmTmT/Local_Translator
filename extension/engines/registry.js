@@ -4,13 +4,13 @@
   const E = () => globalThis.KT.engines;
 
   const ENGINE_META = {
-    'native:apple-mt': { kind: 'native', langs: ['en', 'ja', 'zh'], label: 'Apple 번역 (온디바이스)' },
-    'native:apple-fm': { kind: 'native', langs: ['en', 'ja', 'zh'], label: 'Apple Foundation Models (온디바이스)' },
+    'native:apple-mt': { kind: 'native', langs: ['en', 'ja', 'zh'], label: 'Apple \ubc88\uc5ed (\uc628\ub514\ubc14\uc774\uc2a4)' },
+    'native:apple-fm': { kind: 'native', langs: ['en', 'ja', 'zh'], label: 'Apple Foundation Models (\uc628\ub514\ubc14\uc774\uc2a4)' },
     'local:ollama': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'Ollama (localhost)' },
-    'local:mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MLX 서버 (localhost)' },
-    'local:mt-ollama': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT 모드 Ollama (localhost)' },
-    'local:mt-mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT 모드 MLX (localhost)' },
-    'local:ct2': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'CT2 번역 서버 (localhost)' },
+    'local:mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MLX \uc11c\ubc84 (localhost)' },
+    'local:mt-ollama': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT \ubaa8\ub4dc Ollama (localhost)' },
+    'local:mt-mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT \ubaa8\ub4dc MLX (localhost)' },
+    'local:ct2': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'CT2 \ubc88\uc5ed \uc11c\ubc84 (localhost)' },
   };
 
   const FACTORIES = {

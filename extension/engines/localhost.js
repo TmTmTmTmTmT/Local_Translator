@@ -23,7 +23,7 @@
   const isQwen3 = (m) => /qwen3/i.test(m || '');
 
   function estimateTokens(text) {
-    const cjk = (text.match(/[　-鿿가-힯]/g) || []).length;
+    const cjk = (text.match(/[\u3000-\u9fff\uac00-\ud7af]/g) || []).length;
     return Math.ceil(cjk + (text.length - cjk) / 3);
   }
   function estimateMaxTokens(messages) {

@@ -3,7 +3,7 @@
   'use strict';
   const MAX_TERMS = 500;
   const MAX_SRC = 80;
-  const CJK_RE = /[ᄀ-ᇿ぀-ヿ㄰-㆏㐀-䶿一-鿿가-힯豈-﫿]/;
+  const CJK_RE = /[\u1100-\u11ff\u3040-\u30ff\u3130-\u318f\u3400-\u4dbf\u4e00-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
   const WORD_RE = /[A-Za-z0-9_]/;
 
   const baseLang = (l) => String(l || '').split('-')[0];
@@ -99,7 +99,7 @@
 
   function hintFor(applied) {
     if (!Array.isArray(applied) || !applied.length) return '';
-    return '용어집(반드시 지킬 것): ' + applied.map((p) => `${p[0]} → ${p[1]}`).join('; ');
+    return '\uc6a9\uc5b4\uc9d1(\ubc18\ub4dc\uc2dc \uc9c0\ud0ac \uac83): ' + applied.map((p) => `${p[0]} \u2192 ${p[1]}`).join('; ');
   }
 
   function fnv(str) {

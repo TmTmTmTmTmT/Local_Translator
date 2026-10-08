@@ -5,12 +5,12 @@
   const E = () => globalThis.KT.engines;
 
   const FAMILIES = ['hymt2', 'translategemma', 'chat'];
-  const TARGET = { code: 'ko', en: 'Korean', zh: '韩语' };
+  const TARGET = { code: 'ko', en: 'Korean', zh: '\u97e9\u8bed' };
   const SRC_LANGS = {
-    en: { code: 'en', name: 'English', zh: '英语' },
-    ja: { code: 'ja', name: 'Japanese', zh: '日语' },
-    'zh-Hans': { code: 'zh-Hans', name: 'Chinese', zh: '中文' },
-    'zh-Hant': { code: 'zh-Hant', name: 'Chinese', zh: '中文' },
+    en: { code: 'en', name: 'English', zh: '\u82f1\u8bed' },
+    ja: { code: 'ja', name: 'Japanese', zh: '\u65e5\u8bed' },
+    'zh-Hans': { code: 'zh-Hans', name: 'Chinese', zh: '\u4e2d\u6587' },
+    'zh-Hant': { code: 'zh-Hant', name: 'Chinese', zh: '\u4e2d\u6587' },
   };
 
   // 모델별 권장 샘플링 (Hy-MT2 mlx 카드, TranslateGemma generation_config; chat은 기존 LLM 엔진과 동일 0.2).
@@ -47,16 +47,16 @@
   // Hy-MT2: 중국어 원문은 중국어 지시문(공식), 그 외 영어 지시문.
   function hyMtUserText(srcLang, text) {
     if (srcLang === 'zh-Hans' || srcLang === 'zh-Hant') {
-      return `将以下文本翻译为${TARGET.zh}，注意只需要输出翻译后的结果，不要额外解释：\n\n${text}`;
+      return `\u5c06\u4ee5\u4e0b\u6587\u672c\u7ffb\u8bd1\u4e3a${TARGET.zh}\uff0c\u6ce8\u610f\u53ea\u9700\u8981\u8f93\u51fa\u7ffb\u8bd1\u540e\u7684\u7ed3\u679c\uff0c\u4e0d\u8981\u989d\u5916\u89e3\u91ca\uff1a\n\n${text}`;
     }
     return `Translate the following text into ${TARGET.en}. Note that you should only output the translated result without any additional explanation:\n\n${text}`;
   }
 
   const CHAT_SYSTEM = [
-    '당신은 웹페이지 번역가입니다. 주어진 외국어 텍스트를 자연스러운 한국어로 번역하고, 번역문만 출력합니다. 설명·인사·따옴표·마크다운 코드펜스는 출력하지 않습니다.',
-    '1. 직역투를 피하고 원문의 어조(격식체/구어체/유머/커뮤니티 말투)를 유지합니다.',
-    '2. 고유명사·제품명·브랜드명·코드·단위는 원문 그대로 두고, 숫자와 URL은 바꾸지 않습니다.',
-    '3. ⟦1⟧, ⟦2⟧ 같은 표식은 링크·코드 등 위치가 고정된 항목의 자리입니다. 번역하거나 고치지 말고, 표식마다 정확히 한 번씩 같은 순서와 같은 형식으로 출력에 남깁니다. 표식 앞뒤 조사·어미가 자연스럽게 이어지도록 한국어 어순으로 작성합니다.',
+    '\ub2f9\uc2e0\uc740 \uc6f9\ud398\uc774\uc9c0 \ubc88\uc5ed\uac00\uc785\ub2c8\ub2e4. \uc8fc\uc5b4\uc9c4 \uc678\uad6d\uc5b4 \ud14d\uc2a4\ud2b8\ub97c \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4\ub85c \ubc88\uc5ed\ud558\uace0, \ubc88\uc5ed\ubb38\ub9cc \ucd9c\ub825\ud569\ub2c8\ub2e4. \uc124\uba85\u00b7\uc778\uc0ac\u00b7\ub530\uc634\ud45c\u00b7\ub9c8\ud06c\ub2e4\uc6b4 \ucf54\ub4dc\ud39c\uc2a4\ub294 \ucd9c\ub825\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.',
+    '1. \uc9c1\uc5ed\ud22c\ub97c \ud53c\ud558\uace0 \uc6d0\ubb38\uc758 \uc5b4\uc870(\uaca9\uc2dd\uccb4/\uad6c\uc5b4\uccb4/\uc720\uba38/\ucee4\ubba4\ub2c8\ud2f0 \ub9d0\ud22c)\ub97c \uc720\uc9c0\ud569\ub2c8\ub2e4.',
+    '2. \uace0\uc720\uba85\uc0ac\u00b7\uc81c\ud488\uba85\u00b7\ube0c\ub79c\ub4dc\uba85\u00b7\ucf54\ub4dc\u00b7\ub2e8\uc704\ub294 \uc6d0\ubb38 \uadf8\ub300\ub85c \ub450\uace0, \uc22b\uc790\uc640 URL\uc740 \ubc14\uafb8\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.',
+    '3. \u27e61\u27e7, \u27e62\u27e7 \uac19\uc740 \ud45c\uc2dd\uc740 \ub9c1\ud06c\u00b7\ucf54\ub4dc \ub4f1 \uc704\uce58\uac00 \uace0\uc815\ub41c \ud56d\ubaa9\uc758 \uc790\ub9ac\uc785\ub2c8\ub2e4. \ubc88\uc5ed\ud558\uac70\ub098 \uace0\uce58\uc9c0 \ub9d0\uace0, \ud45c\uc2dd\ub9c8\ub2e4 \uc815\ud655\ud788 \ud55c \ubc88\uc529 \uac19\uc740 \uc21c\uc11c\uc640 \uac19\uc740 \ud615\uc2dd\uc73c\ub85c \ucd9c\ub825\uc5d0 \ub0a8\uae41\ub2c8\ub2e4. \ud45c\uc2dd \uc55e\ub4a4 \uc870\uc0ac\u00b7\uc5b4\ubbf8\uac00 \uc790\uc5f0\uc2a4\ub7fd\uac8c \uc774\uc5b4\uc9c0\ub3c4\ub85d \ud55c\uad6d\uc5b4 \uc5b4\uc21c\uc73c\ub85c \uc791\uc131\ud569\ub2c8\ub2e4.',
   ].join('\n');
 
   function chatSystemText(srcLang, glossary) {
@@ -86,11 +86,11 @@
     throw E().makeError('engine_unavailable', `mt mode: unknown family ${family}`);
   }
 
-  const marker = (n) => `⟦${n}⟧`;
+  const marker = (n) => `\u27e6${n}\u27e7`;
 
   // 표식 1..n이 각각 정확히 한 번, 순서대로 있어야 ok.
   function splitAtMarkers(text, n) {
-    const found = [...text.matchAll(/⟦\s*(\d+)\s*⟧/g)];
+    const found = [...text.matchAll(/\u27e6\s*(\d+)\s*\u27e7/g)];
     if (found.length !== n || found.some((m, i) => Number(m[1]) !== i + 1)) return { ok: false, pieces: null };
     const pieces = [];
     let pos = 0;
@@ -157,7 +157,7 @@
         const slots = E().assemblePlain(plan.segs, [await ask(srcLang, plan.text, block)]);
         return Object.keys(slots).length || !expected ? slots : null;
       }
-      if (!/[⟦⟧]/.test(plan.segs.map((s) => s.text).join(''))) {
+      if (!/[\u27e6\u27e7]/.test(plan.segs.map((s) => s.text).join(''))) {
         const sp = splitAtMarkers(await ask(srcLang, plan.text, block), plan.nX);
         const slots = sp.ok ? assembleMarker(plan, sp.pieces) : null;
         if (slots) { stats.markerBlocks++; return slots; }
