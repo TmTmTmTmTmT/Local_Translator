@@ -20,7 +20,8 @@ test('limits and ids', () => {
   const mt = E.createNativeEngine('apple-mt', { send: async () => ({}) });
   const fm = E.createNativeEngine('apple-fm', { send: async () => ({}) });
   assert.equal(mt.id, 'native:apple-mt');
-  assert.deepEqual(JSON.parse(JSON.stringify(mt.batchLimit)), { chars: 6000, blocks: 40 });
+  assert.deepEqual(JSON.parse(JSON.stringify(mt.batchLimit)), { chars: 1500, blocks: 10 });
+  assert.equal(mt.concurrency, 1);
   assert.deepEqual(JSON.parse(JSON.stringify(fm.batchLimit)), { chars: 1500, blocks: 8 });
   assert.equal(fm.concurrency, 1);
   assert.equal(fm.kind, 'native');
@@ -109,4 +110,13 @@ test('stale plugin rejections map to needs_safari_restart, others to engine_unav
   await assert.rejects(other.translate(blocks, {}, 'en'), { code: 'engine_unavailable' });
   const st = await E.createNativeEngine('apple-mt', { send: async () => { throw new Error('No such plugin'); } }).status();
   assert.deepEqual(st, { available: false, reason: 'needs_safari_restart' });
+});
+
+test('partial:true response returns only received results without error', async () => {
+  const eng = E.createNativeEngine('apple-mt', { send: async () => ({ ok: true, partial: true, results: [{ id: 'a', slots: { 0: 'x' } }], engine: 'apple-mt' }) });
+  const out = await eng.translate(blocks, {}, 'en');
+  assert.equal(out.size, 1);
+  assert.deepEqual(out.get('a'), { 0: 'x' });
+  const empty = E.createNativeEngine('apple-mt', { send: async () => ({ ok: true, partial: true, results: [] }) });
+  assert.equal((await empty.translate(blocks, {}, 'en')).size, 0);
 });

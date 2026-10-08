@@ -46,7 +46,8 @@
 ```
 
 ## 4. 네이티브 메시지 (native 엔진 ↔ Swift 핸들러, `runtime.sendNativeMessage`)
-요청 `{type:"translate", engine:"apple-mt"|"apple-fm", lang, context, blocks, variant?}` → 응답 `{ok:true, results:[{id,slots}], engine}` 또는 `{ok:false, error:{code, message, lang?}}`.
+요청 `{type:"translate", engine:"apple-mt"|"apple-fm", lang, context, blocks, variant?}` → 응답 `{ok:true, results:[{id,slots}], engine, partial?:true}` 또는 `{ok:false, error:{code, message, lang?}}`.
+`partial:true`는 기한 내 완료한 블록만 `results`에 담았다는 뜻이다(에러 아님). 누락 블록은 원문 유지(§2). JS는 받은 결과만 사용한다. 진행 0(결과 없음)인 기한 초과만 `timeout` 에러. apple-mt 배치 한도는 `{chars:1500, blocks:10}`, 동시성 1.
 `{type:"status"}` → `{ok, engines:{"apple-mt":{available,reason?}, "apple-fm":{...}}, languagePacks:{en|ja|zh|zh-Hans|zh-Hant: "installed"|"supported"|"unsupported"}}`.
 
 에러 코드 (Swift `error.code`, 모두 `message` 포함):
@@ -54,15 +55,16 @@
 |---|---|---|
 | `needs_language_pack` | 지원되나 미설치 | `lang` 필수. 확장은 다운로드/준비하지 않음(컨테이너 앱 담당) |
 | `unsupported_lang` | 언어/쌍 미지원 | `lang` 선택 |
-| `timeout` | 요청 제한시간 초과 (MT 45s, FM 90s) | 서킷브레이커 집계 대상 |
+| `timeout` | 요청 기한 초과로 완료 블록 0개 (MT `min(120, 15 + 3 × blocks)`초, FM 90s) | 서킷브레이커 집계 대상 |
 | `engine_unavailable` | 엔진 사용 불가, 알 수 없는 엔진, 서킷브레이커 열림 | 집계 대상 |
 | `bad_response` | 요청 형식 오류(깨진 메시지·알 수 없는 type) 또는 모델 컨텍스트 초과 | 집계 대상 |
 | `unknown` | 그 외 | 집계 대상 |
 
 핸들러 하드닝 규칙:
+- 요청 기한(MT): `min(120, 15 + 3 × blocks)`초, FM은 90초. 블록 사이에 기한을 확인해 넘으면 더 진행하지 않고, 이미 번역한 결과가 1개 이상이면 `partial:true`로 반환, 0개일 때만 `timeout` 에러.
 - 형식이 깨진 메시지(비-객체, 타입 불일치, 알 수 없는 type)는 항상 `{ok:false,error:{code:"bad_response",message}}`로 응답하고 크래시하지 않는다.
 - 언어팩 상태(LanguageAvailability)는 언어별 약 30초 캐시. 엔진 오류·타임아웃 시 전체 무효화. `status` 요청은 캐시를 건너뛰고 갱신(컨테이너 앱에서 방금 설치한 경우 반영).
-- 서킷브레이커(엔진별): 60초 안에 연속 3회 실패(`timeout`/`engine_unavailable`/`unknown`/`bad_response`) → 30초간 프레임워크 호출 없이 `engine_unavailable`. 성공 또는 `needs_language_pack`/`unsupported_lang` 응답은 카운트를 초기화.
+- 서킷브레이커(엔진별): 60초 안에 연속 3회 실패(진행 0인 `timeout`/`engine_unavailable`/`unknown`/`bad_response`) → 30초간 프레임워크 호출 없이 `engine_unavailable`. 결과가 1개 이상인 partial 응답은 실패로 세지 않는다. 성공 또는 `needs_language_pack`/`unsupported_lang` 응답은 카운트를 초기화.
 - TranslationSession 캐시: 언어쌍당 1개, 최대 8개(초과 시 가장 오래 쓰지 않은 것 제거), 60초 유휴 시 해제. FM 세션도 60초 유휴 해제.
 - JS(`native.js`)는 `error.lang`을 우선 사용하고 없으면 `needs_language_pack:ja` 접미형에서 추출한다. 알 수 없는 코드는 `unknown`.
 
