@@ -1,0 +1,396 @@
+{
+ "engine": "mlx-gemma-3-1b-4bit-mt",
+ "model": "mlx-community/gemma-3-1b-it-qat-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 1
+ },
+ "coldMs": 1170,
+ "totalMs": 81145,
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "ms": 1170,
+   "slots": {
+    "0": "2023년 7월 27일, 포르마이에서 벌어진 2023년 7월 27일 Grand Prix 결승전에서, 2023년 7월 27일 Grand Prix 결승전에서, Verhoeven은 포르마이에서 벌어진 2023년 7월 27일 Grand Prix 결승전에서 마지막까지의 힘을 쏟아부어 우승을 차지했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-head-02",
+   "ms": 2114,
+   "slots": {
+    "0": "이 문장은 다음과 같이 번역할 수 있습니다.\n\n\"하량의 전략은 베팅을 통해 경쟁자들에게 완벽한 개장을 제공했다.\"\n\n**설명:**\n\n*   **Why:** \"Why\"는 문맥상 \"왜\"라는 의미로 해석됩니다.\n*   **Halcyon's strategy:** \"하량의 전략\"은 \"하량의 전략\"이라는 이름의 전략을 의미합니다.\n*   **gamble:** \"베팅\"은 \"베팅\"이라는 단어입니다.\n*   **handed its rivals the perfect opening:** \"경쟁자들에게 완벽한 개장을 제공했다\"는 문장입니다. \"handed\"은 \"베팅\"이라는 단어의 의미로 해석됩니다.\n\n**주석:**\n\n\"하량의 전략은 베팅을 통해 경쟁자들에게 완벽한 개장을 제공했다.\"\n\n이 문장은 경쟁자들에게 하량의 전략이 제공한 완벽한 개장을 보여주는 상황을 설명하고 있습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-lede-01",
+   "ms": 2749,
+   "slots": {
+    "0": "Tomas Verhoeven kept his nerve through a frantic final ten laps to win a race that looked to be slipping away from him twice, ending a 41-race wait for a first victory in the sport's top category.\n\n**번역:**\n\n토마 베르호벤트는 41번의 레이스에 걸쳐서 격렬하게 마지막 10랩을 질주하며 우승을 차지했습니다.  그의 41번째 레이스 우승을 위한 기다림이 끝난 것처럼 보였습니다.\n\n**설명:**\n\n*   **\"keep his nerve\"**:  \"자연스럽게 견디다\" 또는 \"힘을 잃지 않고\"와 같이 번역했습니다.\n*   **\"frenzied final ten laps\"**:  \"격렬한 마지막 10랩\"으로 번역했습니다.\n*   **\"slipping away from him twice\"**:  \"두 번이나 그에게서 벗어나는 것처럼\"으로 번역했습니다.\n*   **\"41-race wait\"**:  \"41번의 레이스에 대한 기다림\"으로 번역했습니다.\n*   **\"first victory in the sport's top category\"**:  \"스포츠의 최고 등급에 대한 첫 우승\"으로 번역했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-lede-02",
+   "ms": 587,
+   "slots": {
+    "0": "24살의 고등학생이 경주에서 두 번째로 시작했지만, 펜스선수 인에 칼라르론을 1번으로 밀어 넣고, 그 후 그가 늦게까지 펑크 문제를 해결해야 했다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-01",
+   "ms": 720,
+   "slots": {
+    "0": "Calderón은 2차 결승전에서 속도가 빠른 선수였으나, 일요일 밤, 온도 상승이 40도 이상으로 올라가면서 부드러운 타이어가 14번 랩을 돌면서 급격히 쏟아지는 듯한 느낌을 주면서 멈춰버렸다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-02",
+   "ms": 3545,
+   "slots": {
+    "0": "\"뒤쪽이 고장났을 때, 저는 그게 우리를 잃었다고 생각했습니다. 각 랩은 실수할 가능성이 있다고 생각했고, 그래서 그냥 차를 도로에 멈추고 기다렸어요.\"\n\n**설명:**\n\n*   **I honestly thought:** \"저는 그게 우리를 잃었다고 생각했습니다.\" (저는 그게 우리를 잃었다고 생각했습니다.)\n*   **when the rear started to go:** \"뒤쪽이 고장났을 때\" (뒤쪽이 고장났을 때)\n*   **Every lap felt like a mistake waiting to happen:** \"각 랩은 실수할 가능성이 있다고 생각했고\" (각 랩은 실수할 가능성이 있다고 생각했고)\n*   **so I just tried to keep the car off the kerbs and hope:** \"그래서 그냥 차를 도로에 멈추고 기다렸어요.\" (그래서 그냥 차를 도로에 멈추고 기다렸어요.)\n\n**주석:**\n\n\"뒤쪽이 고장났을 때, 저는 그게 우리를 잃었다고 생각했습니다. 각 랩은 실수할 가능성이 있다고 생각했고, 그래서 그냥 차를 도로에 멈추고 기다렸어요.\"\n\n**생각 과정:**\n\n이 문장은 상황을 설명하는 뉘앙스를 담고 있습니다.  \"I honestly thought\"는 '나는 그게 우리를 잃었다고 생각했다'라는 사실을 강조하며, 'every lap felt like a mistake waiting to happen'는 상황의 불안감을 표현하는 문장입니다.  따라서 문장 전체를 자연스럽게 한국어로 번역하여 상황을 전달하는 것이 중요했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-03",
+   "ms": 3750,
+   "slots": {
+    "0": "Halcyon가 17번의 레이스에서 카르도르를 잡고 뒤를 돌아가기 위해 시도했지만, 그녀의 움직임이 뒤통수에서 밀려나고, 고속도로에 갇혀 거의 6초 동안 찌그러진 공기 뒤에 멈춰버렸다.\n\n**설명:**\n\n*   **Halcyon:**  원문 \"Halcyon\"은 영어 이름입니다.\n*   **pit:**  \"pit\"는 \"to cover off\"라는 의미로, 레이스에서 뒤를 돌아가기 위해 시도하는 것을 의미합니다.\n*   **Calderón:**  원문 \"Calderón\"은 영어 이름입니다.\n*   **on lap 17:**  레이스에서 17번의 레이스에 대한 정보입니다.\n*   **to cover off the undercut:**  \"under the undercut\"를 \"뒤를 돌아가기 위해\"로 바꾸어 표현했습니다.\n*   **heavy traffic:**  \"고속도로에 갇혀\"라는 의미로, 밀치고 있는 상황을 표현했습니다.\n*   **lost almost six seconds stuck in the dirty air behind a pair of backmarkers:**  \"6초 동안 찌그러진 공기 뒤에 멈춰버렸다\"는 상황을 설명하는 문장입니다.  \"backmarkers\"는 레이스에서 뒤를 잡는 사람들을 의미합니다.\n\n**추가 고려 사항:**\n\n*   \"Halcyon\"은 영어 이름이므로, 한국어 표현으로 \"하리온\"으로 번역하는 것이 더 자연스럽습니다.\n*   \"backmarkers\"는 레이스에서 뒤를 잡는 사람들을 의미하므로, \"뒤통수에서 밀려나\"라는 표현이 더 적절합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-link-01",
+   "ms": 709,
+   "slots": {
+    "0": "팀의 리더, 마르코 델락브레이드(Marco Delacroix)는 \"아마도 한 바퀴 앞서\"라고 말했다고 밝혔으며, 팀은 다음 라운드 전에 시뮬레이션 도구를 검토할 것이라고 말했다.\n\n(이 문장은 원문 그대로 유지했습니다.)",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-link-02",
+   "ms": 1126,
+   "slots": {
+    "0": "결과가 챔피언십 선두를 12점 벗어나, 여전히 7라운드가 남았습니다.\n\n(이 문장은 챔피언십 결과에 대한 간단한 설명입니다. \"결과\"는 챔피언십 결과를 의미하며, \"12점 벗어나\"는 챔피언십 선두를 12점만큼 벗어난다는 것을 나타냅니다. \"7라운드\"는 챔피언십 결과가 아직 남았음을 강조합니다.)",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-link-03",
+   "ms": 2244,
+   "slots": {
+    "0": "**Our full race report and driver ratings are now available, and you can watch the on-board footage from the closing laps below.**\n\n**(원문 그대로 유지)**\n\n**설명:**\n*   \"Our\"은 \"우리\"로 번역되었습니다.\n*   \"full race report\"는 \"전체 레이스 보고서\"로 번역되었습니다.\n*   \"driver ratings\"은 \"드라이버 평가\"로 번역되었습니다.\n*   \"are now available\"는 \"이제 곧 공개됩니다\"로 번역되었습니다.\n*   \"you can watch the on-board footage\"는 \"드라이버가 마지막 랩에서 촬영한 영상 시청 가능\"으로 번역되었습니다.\n*   \"below\"는 \"아래\"로 번역되었습니다.\n\n**추가적인 고려 사항:**\n\n*   \"on-board footage\"는 \"드라이버가 마지막 랩에서 촬영한 영상\"로 번역되었습니다.\n*   \"the closing laps\"는 \"마지막 랩\"으로 번역되었습니다.",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-04",
+   "ms": 4262,
+   "slots": {
+    "0": "A mid-race safety car was deployed when Dmitri Okafor, experiencing a hydraulic failure, caused a significant bunching of the field. This resulted in a free change of tires for everyone, which only exacerbated the unpredictable nature of the closing stages.\n\n**Explanation:**\n\n*   **A mid-race safety car:**  \"Mid-race\"는 \"중반\"이라는 의미로, 안전차를 멈추게 하는 상황을 나타냅니다.\n*   **triggered when...:**  \"triggered when\"은 \"안전차를 멈추게 했을 때\"라는 의미로, 안전차를 멈추게 하는 상황을 설명합니다.\n*   **bunched the field:** \"bunched the field\"은 \"전체 차량을 묶었다\"는 의미로, 안전차로 인해 차량이 묶이는 상황을 나타냅니다.\n*   **gave everyone a free change of tyres:** \"gave everyone a free change of tires\"는 \"모두에게 타이어 교체를 허용했다\"는 의미로, 안전차로 인해 차량이 타이어를 교체할 수 있는 기회를 제공했다는 의미입니다.\n*   **only made the closing stages more unpredictable:** \"only made the closing stages more unpredictable\"은 \"마지막 구간이 더욱 예측 불가능해졌다\"는 의미로, 안전차로 인해 차량이 예측하기 어려운 상황이 발생했다는 의미입니다.\n\n**추가적인 고려 사항:**\n\n*   \"Dmitri Okafor\"는 \"Dmitri Okafor\"로 번역되었을 것입니다.\n*   \"hydraulic failure\"은 \"수압 고장\"으로 번역되었을 것입니다.\n*   \"exacerbated the unpredictable nature\"은 \"예측 불가능한 상황을 더욱 악화시켰다\"로 번역되었을 것입니다.\n\n이것은 단순히 텍스트를 이해하고 번역하는 것을 위한 것입니다.  번역의 목적은 텍스트의 의미를 최대한 정확하게 전달하는 것이므로, 원문 그대로 유지하는 것이 중요합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-05",
+   "ms": 3763,
+   "slots": {
+    "0": "Behind the leaders, the fight for the final podium place was arguably even better, with Priya Nandakumar and Lucas Brandt trading places three times in a single lap before contact at the final chicane sent Brandt into the barriers.\n\n이 문장은 다음과 같이 번역할 수 있습니다.\n\n**Behind the leaders, the fight for the final podium place was arguably even better, with Priya Nandakumar and Lucas Brandt trading places three times in a single lap before contact at the final chicane sent Brandt into the barriers.**\n\n**Explanation:**\n\n*   **Behind the leaders:** \"Behind the leaders\"는 \"이들의 뒤에 있는\"이라는 의미로 해석됩니다.\n*   **the fight for the final podium place:** \"final podium place\"는 \"최종  podium 자리\"라는 의미로 해석됩니다.\n*   **arguably even better:** \"arguably even better\"는 \"아마도 더 나은 것일 가능성이 높았다\"라는 의미로 해석됩니다.\n*   **with Priya Nandakumar and Lucas Brandt trading places three times in a single lap before contact at the final chicane sent Brandt into the barriers:** \"Priya Nandakumar and Lucas Brandt trading places three times in a single lap before contact at the final chicane sent Brandt into the barriers\"은 \"Priya Nandakumar과 Lucas Brandt가 한 번에 한 번씩 서로 바꾸면서, 최종 챔피언십에서 접촉을 시도하는 동안 Brandt이 장벽으로 들어갔다\"라는 의미로 해석됩니다.\n\n**추가적인 고려 사항:**\n\n*   \"the final chicane\"는 \"최종 챔피언십\"이라는 의미로 해석됩니다.\n*   \"into the barriers\"는 \"장벽으로 들어갔다\"라는 의미로 해석됩니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-06",
+   "ms": 3067,
+   "slots": {
+    "0": "Stewards reviewed the incident but decided no further action was necessary, a ruling that drew a sharp response from the Brandt camp, who described it as \"inconsistent with what we've seen all year\".\n\n**Explanation:**\n\n*   \"Stewards\"는 '관리자들'이라는 뜻으로, 상황에 대한 관리를 담당하는 사람들을 의미합니다.\n*   \"review\"는 '검토'라는 뜻으로, 상황을 분석하고 결론을 내리는 과정을 나타냅니다.\n*   \"no further action was necessary\"는 '추가적인 조치나 대응이 필요하지 않다'라는 뜻입니다.\n*   \" Brandt camp\"는 '브란트 캠프'라는 이름의 특정 집단이나 그룹을 의미합니다.\n*   \"inconsistent with what we've seen all year\"는 '올해를 위해 일관되지 않다'라는 뜻으로, 이전의 상황과 다른 상황을 비유적으로 표현합니다.\n\n**추가적인 고려 사항:**\n\n*   \" Brandt camp\"는 특정 정치적 또는 사회적 그룹을 지칭하는 경우가 많으므로, 문맥에 따라 다른 표현으로 번역할 수 있습니다. (예: \"브란트 그룹\" 등)\n*   \"inconsistent with what we've seen all year\"는 '올해를 위해 일관되지 않다'라는 의미를 가장 잘 전달하는 표현입니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-body-07",
+   "ms": 3271,
+   "slots": {
+    "0": "With the anticipated arrival of power unit upgrades expected to coincide with the summer break, several teams privately believe the pecking order could be turned on its head, though none of them are willing to disclose this information publicly.\n\nThe original text was translated as follows:\n\n\"With power unit upgrades expected to arrive in time for the summer break, several teams privately believe the pecking order could be turned on its head, although none of them are willing to say so on the record.\"\n\nHere's the translation:\n\n\"With the anticipated arrival of power unit upgrades expected to coincide with the summer break, several teams privately believe the pecking order could be turned on its head, though none of them are willing to disclose this information publicly.\"\n\n**Explanation:**\n\n*   \"With\" replaced with \"With\" (more natural in this context)\n*   \"power unit upgrades\" translated as \"power unit upgrades\"\n*   \"expected to arrive in time for the summer break\" translated as \"anticipated arrival of power unit upgrades expected to coincide with the summer break\"\n*   \"several teams privately believe\" translated as \"several teams privately believe\"\n*   \"the pecking order could be turned on its head\" translated as \"the pecking order could be turned on its head\"\n*   \"though none of them are willing to say so on the record\" translated as \"though none of them are willing to disclose this information publicly\"\n\n**Thought Process:**\n\nI focused on maintaining the original meaning and tone while translating the text into a fluent and understandable Korean. I prioritized preserving the original wording and structure."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 10110,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL,"
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-02",
+   "ms": 3658,
+   "slots": {
+    "0": "The numbers back that up. Halcyon's average pit stop of 2.4 seconds was the slowest of the top four teams, and the 0.8 seconds it dropped in the pit lane was ultimately the margin between a win and a close second.\n\n**번역:**\n\n실제 숫자는 다시 돌아왔습니다. 2.4초의 평균 피트스루는 최고 4팀 중 가장 느린 피트스루였고, 피트 라인에서 0.8초가 결국 승리와 가까운 두 번째를 분리하는 간격이 되었습니다.\n\n**설명:**\n\n*   \"The numbers back that up\"은 \"실제 숫자는 다시 돌아왔습니다\"로 번역되었습니다.\n*   \"Halcyon's average pit stop of 2.4 seconds\"는 \"Halcyon의 평균 피트스루는 2.4초였습니다\"로 번역되었습니다.\n*   \"was the slowest of the top four teams\"는 \"최고 4팀 중 가장 느린 피트스루였습니다\"로 번역되었습니다.\n*   \"and the 0.8 seconds it dropped in the pit lane was ultimately the margin between a win and a close second\"는 \"피트 라인에서 0.8초가 결국 승리와 가까운 두 번째를 분리하는 간격이 되었습니다\"로 번역되었습니다.\n\n**추가적인 고려 사항:**\n\n*   \"Halcyon\"은 일반적인 이름이 아닌, 특정 상황이나 작품에 대한 이름일 수 있습니다. 이 경우, 해당 상황에 맞는 적절한 번역을 고려해야 합니다.\n*   \"0.8 seconds\"는 0.8이라는 숫자를 그대로 번역하는 것이 가장 자연스럽습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-analysis-03",
+   "ms": 2565,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\n**번역:**\n\n\"어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\"\n\n**참고:**\n\n*   **어조:**  \"quietly improved\"는 \"조심스럽게 개선했다\" 또는 \"침착하게 개선했다\" 정도로 해석할 수 있습니다.\n*   **고유명사:** \"Verhoeven\"은 \"버호우\"로 번역하는 것이 자연스럽습니다.\n*   **숫자:** \"a difficult start to the season\"은 \"힘든 시즌 시작\" 정도로 번역할 수 있습니다.\n*   **URL, 코드:**  이 부분은 그대로 유지합니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-quote-01",
+   "ms": 3951,
+   "slots": {
+    "0": "\"Verhoeven의 엔지니어, 하안스토브로프가 말했다. '포인트 랭킹을 위해 왔을 것이라고 기대했는데, 그 모든 사람들이 주방에 울고 있는 모든 사람들과 함께 그들을 멈춰 세워, 그건 우리 모두가 서둘러 기억할 수 없을 것이다.' '그것은 아무도 잊을 수 없을 것이다.'\"\n\n**설명:**\n\n*   **We came here hoping for a points finish:**  \"저희가 포인트를 랭킹하기를 기대했습니다.\" (We came here hoping for a points finish)\n*   **said Verhoeven's engineer, Hannah Ostrowski:** \"Verhoeven의 엔지니어, 하안스토브로프가 말했다.\" (Said Verhoeven's engineer, Hannah Ostrowski)\n*   **To stand on top of the podium, with all of those people in the garage crying:** \"그들을 멈춰 세워, 그 모든 사람들이 주방에 울고 있는 모든 사람들과 함께 그들을 멈춰 세워.\" (To stand on top of the podium, with all of those people in the garage crying)\n*   **is something none of us will forget in a hurry:** \"그것은 우리 모두가 서둘러 기억할 수 없을 것이다.\" (is something none of us will forget in a hurry)\n\n**추가적인 고려 사항:**\n\n*   \"We came here hoping for a points finish\"는 문맥상 \"저희가 포인트를 랭킹하기를 기대했습니다\"로 자연스럽게 번역될 수 있습니다.\n*   \"with all of those people in the garage crying\"는 \"그들을 멈춰 세워, 그 모든 사람들이 주방에 울고 있는 모든 사람들과 함께 그들을 멈춰 세워\"로 번역하여 문맥에 맞게 표현했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-quote-02",
+   "ms": 661,
+   "slots": {
+    "0": "Calderón, 두 번째로 패배했지만, 패배에도 불구하고 겸손하게 패배를 인정했습니다. \"지금은 그것이 잘못된 정거장이라고 말하는 것이 쉽다.\" 그녀는 \"라디오에서는 다른 정보가 알려줬다\"라고 말했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-sub-01",
+   "ms": 3752,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n\n**번역문:**\n\n최종 챔페아(Final Chicane)에 대한 장관들의 의견은 다음과 같다.\n\n*   **최종 챔페아:**  최종 챔페아는 2023년 12월 31일에 개최된 [예시: 2023년 12월 31일 개최의 챔페아]에서 진행된 챔페아 대회의 최종 챔페아이다.\n*   **최종 챔페아:**  최종 챔페아는 [예시: 챔페아 대회]의 최종 챔페아이며, [예시: 챔페아 대회]의 주요 챔페아 규칙과 관련된 중요한 정보이다.\n*   **최종 챔페아:**  최종 챔페아는 [예시: 챔페아 대회]에서 개최된 [예시: 챔페아 대회]의 최종 챔페아이며, [예시: 챔페아 대회]의 결과에 대한 의견을 담고 있다.\n*   **최종 챔페아:**  최종 챔페아는 [예시: 챔페아 대회]의 최종 챔페아이며, [예시: 챔페아 대회]의 개최에 대한 배경과 관련된 정보이다.\n*   **최종 챔페아:**  최종 챔페아는 [예시: 챔페아 대회]의 최종 챔페아이며, [예시: 챔페아 대회]의 개최에 대한 배경과 관련된 정보이다.\n\n**참고:**  이 번역은 원문 그대로 유지하도록 노력했습니다."
+   },
+   "error": null
+  },
+  {
+   "id": "art-sub-02",
+   "ms": 513,
+   "slots": {
+    "0": "다음라운드에 누가 참여할 예정인가요?\n\n(이 문장은 영어 텍스트를 그대로 번역합니다. 원문 그대로 유지하며, 고유명사, 숫자, URL, 코드는 그대로 유지합니다.)"
+   },
+   "error": null
+  },
+  {
+   "id": "art-cap-01",
+   "ms": 507,
+   "slots": {
+    "0": "Verhoeven는 파르크 페르메에서 첫 승을 차지한 후 어조로 기념하며 사진을 찍었습니다.\n(Verhoeven celebrates in parc ferme after taking his first win. Photo: Elena Marchetti)"
+   },
+   "error": null
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 10017,
+   "slots": {
+    "0": "**이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?**\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까?\n\n이 시즌의 제목 경쟁이 결승전까지 갈 수 있을까",
+    "1": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 697,
+   "slots": {
+    "0": "어조, 고유명사, 숫자, URL, 코드는 원문 그대로 유지하라.\n번역문만 출력하라. 설명, 주석, 따옴표, 생각 과정은 출력하지 마라.\n\nThe 10 drivers who defined the first half of the season, Halcyon's upgrade package explained.",
+    "1": "",
+    "2": "",
+    "3": ""
+   },
+   "error": null
+  },
+  {
+   "id": "art-meta-01",
+   "ms": 10049,
+   "slots": {
+    "0": "2026년 9월 14일 6분 읽기 · 128개 댓글\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 14일, 6분]**\n\n**[2026년 9월 1"
+   },
+   "error": null
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 1586,
+   "slots": {
+    "0": "이 글은 어떠셨나요? 저희 뉴스레터에 매일 아침 가장 큰 이야기들을 가장 먼저 받아보세요.\n\n**번역:**\n\n이 글은 어떠셨나요? Subscribe to our newsletter to get the biggest stories delivered to your inbox every morning.\n\n**설명:**\n\n*   **Enjoyed this article?**  이 글을 즐겼나요? (이 글에 대한 질문입니다.)\n*   **Subscribe to our newsletter**  저희 뉴스레터에 구독해주세요. (구독을 부탁하는 문구입니다.)\n*   **to get the biggest stories delivered to your inbox every morning.**  매일 아침, 여러분의 이메일로 가장 큰 이야기들을 전달받으세요. (구체적인 요청입니다.)",
+    "1": "",
+    "2": ""
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-head-01"
+   ],
+   "ms": 1170
+  },
+  {
+   "blockIds": [
+    "art-head-02"
+   ],
+   "ms": 2114
+  },
+  {
+   "blockIds": [
+    "art-lede-01"
+   ],
+   "ms": 2749
+  },
+  {
+   "blockIds": [
+    "art-lede-02"
+   ],
+   "ms": 587
+  },
+  {
+   "blockIds": [
+    "art-body-01"
+   ],
+   "ms": 720
+  },
+  {
+   "blockIds": [
+    "art-body-02"
+   ],
+   "ms": 3545
+  },
+  {
+   "blockIds": [
+    "art-body-03"
+   ],
+   "ms": 3750
+  },
+  {
+   "blockIds": [
+    "art-link-01"
+   ],
+   "ms": 709
+  },
+  {
+   "blockIds": [
+    "art-link-02"
+   ],
+   "ms": 1126
+  },
+  {
+   "blockIds": [
+    "art-link-03"
+   ],
+   "ms": 2244
+  },
+  {
+   "blockIds": [
+    "art-body-04"
+   ],
+   "ms": 4262
+  },
+  {
+   "blockIds": [
+    "art-body-05"
+   ],
+   "ms": 3763
+  },
+  {
+   "blockIds": [
+    "art-body-06"
+   ],
+   "ms": 3067
+  },
+  {
+   "blockIds": [
+    "art-body-07"
+   ],
+   "ms": 3271
+  },
+  {
+   "blockIds": [
+    "art-analysis-01"
+   ],
+   "ms": 10110
+  },
+  {
+   "blockIds": [
+    "art-analysis-02"
+   ],
+   "ms": 3658
+  },
+  {
+   "blockIds": [
+    "art-analysis-03"
+   ],
+   "ms": 2565
+  },
+  {
+   "blockIds": [
+    "art-quote-01"
+   ],
+   "ms": 3951
+  },
+  {
+   "blockIds": [
+    "art-quote-02"
+   ],
+   "ms": 661
+  },
+  {
+   "blockIds": [
+    "art-sub-01"
+   ],
+   "ms": 3752
+  },
+  {
+   "blockIds": [
+    "art-sub-02"
+   ],
+   "ms": 513
+  },
+  {
+   "blockIds": [
+    "art-cap-01"
+   ],
+   "ms": 507
+  },
+  {
+   "blockIds": [
+    "art-nav-01"
+   ],
+   "ms": 10017
+  },
+  {
+   "blockIds": [
+    "art-nav-02"
+   ],
+   "ms": 697
+  },
+  {
+   "blockIds": [
+    "art-meta-01"
+   ],
+   "ms": 10049
+  },
+  {
+   "blockIds": [
+    "art-cta-01"
+   ],
+   "ms": 1586
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "mode=mt family=chat marker=0 fallback=0 plain=0 passthrough=0"
+ }
+}

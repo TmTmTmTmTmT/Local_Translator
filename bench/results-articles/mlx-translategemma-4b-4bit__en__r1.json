@@ -1,0 +1,208 @@
+{
+ "engine": "mlx-translategemma-4b-4bit",
+ "model": "mlx-community/translategemma-4b-it-4bit",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 1089,
+ "totalMs": 1089,
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-head-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-lede-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-lede-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-03",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-link-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-link-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-link-03",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-04",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-05",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-06",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-body-07",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-analysis-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-analysis-03",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-quote-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-quote-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-sub-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-sub-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-cap-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-meta-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 42,
+   "slots": null,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-head-01",
+    "art-head-02",
+    "art-lede-01",
+    "art-lede-02",
+    "art-body-01",
+    "art-body-02",
+    "art-body-03",
+    "art-link-01",
+    "art-link-02",
+    "art-link-03",
+    "art-body-04",
+    "art-body-05",
+    "art-body-06",
+    "art-body-07",
+    "art-analysis-01",
+    "art-analysis-02",
+    "art-analysis-03",
+    "art-quote-01",
+    "art-quote-02",
+    "art-sub-01",
+    "art-sub-02",
+    "art-cap-01",
+    "art-nav-01",
+    "art-nav-02",
+    "art-meta-01",
+    "art-cta-01"
+   ],
+   "ms": 1089,
+   "error": "HTTP 404: {\"error\": \"Conversations must start with a user prompt.\"}"
+  }
+ ],
+ "env": {
+  "keepAliveSec": null,
+  "notes": "keep-alive not applicable (server-resident model)"
+ }
+}

@@ -1,0 +1,213 @@
+{
+ "engine": "ollama-gemma4-e4b",
+ "model": "gemma4:e4b",
+ "lang": "en",
+ "run": 1,
+ "batchLimit": {
+  "chars": 6000,
+  "blocks": 40
+ },
+ "coldMs": 164044,
+ "totalMs": 164044,
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-head-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-lede-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-lede-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-03",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-link-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-link-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-link-03",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-04",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-05",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-06",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-body-07",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-analysis-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-analysis-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-analysis-03",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-quote-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-quote-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-sub-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-sub-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-cap-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-nav-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-nav-02",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-meta-01",
+   "ms": 6309,
+   "slots": null,
+   "error": "block missing in output"
+  },
+  {
+   "id": "art-cta-01",
+   "ms": 6309,
+   "slots": {
+    "0": "이 기사가 마음에 드셨나요? ",
+    "1": "매일 아침 가장 큰 소식을 받은 편지함으로 받아보시려면 저희 뉴스레터를 구독하세요."
+   },
+   "error": null
+  }
+ ],
+ "batches": [
+  {
+   "blockIds": [
+    "art-head-01",
+    "art-head-02",
+    "art-lede-01",
+    "art-lede-02",
+    "art-body-01",
+    "art-body-02",
+    "art-body-03",
+    "art-link-01",
+    "art-link-02",
+    "art-link-03",
+    "art-body-04",
+    "art-body-05",
+    "art-body-06",
+    "art-body-07",
+    "art-analysis-01",
+    "art-analysis-02",
+    "art-analysis-03",
+    "art-quote-01",
+    "art-quote-02",
+    "art-sub-01",
+    "art-sub-02",
+    "art-cap-01",
+    "art-nav-01",
+    "art-nav-02",
+    "art-meta-01",
+    "art-cta-01"
+   ],
+   "ms": 164044,
+   "jsonValid": true,
+   "retried": false,
+   "repaired": false
+  }
+ ],
+ "env": {
+  "keepAliveSec": 600,
+  "notes": "api=openai"
+ }
+}

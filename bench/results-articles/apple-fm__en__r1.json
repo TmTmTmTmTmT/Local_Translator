@@ -1,0 +1,258 @@
+{
+  "batchLimit" : {
+    "blocks" : 40,
+    "chars" : 1500
+  },
+  "batches" : [
+    {
+      "blockIds" : [
+        "art-head-01",
+        "art-head-02",
+        "art-lede-01",
+        "art-lede-02",
+        "art-body-01",
+        "art-body-02",
+        "art-body-03",
+        "art-link-01",
+        "art-link-02"
+      ],
+      "ms" : 24874.355583
+    },
+    {
+      "blockIds" : [
+        "art-link-03",
+        "art-body-04",
+        "art-body-05",
+        "art-body-06",
+        "art-body-07",
+        "art-analysis-01",
+        "art-analysis-02"
+      ],
+      "ms" : 32634.857375
+    },
+    {
+      "blockIds" : [
+        "art-analysis-03",
+        "art-quote-01",
+        "art-quote-02",
+        "art-sub-01",
+        "art-sub-02",
+        "art-cap-01",
+        "art-nav-01",
+        "art-nav-02",
+        "art-meta-01",
+        "art-cta-01"
+      ],
+      "ms" : 11665.87075
+    }
+  ],
+  "blocks" : [
+    {
+      "error" : null,
+      "id" : "art-head-01",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "베르호벤이 포트마르에서 첫 그랑프리 우승을 위해 늦은 추격을 견뎌냈다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-head-02",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "해리즌의 전략적 도박이 라이벌들에게 완벽한 기회를 제공했다는 이유"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-lede-01",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "토마스 베르호벤은 41회 연속 기다렸던 첫 승리를 위해 마지막 10랩을 가볍게 치렀다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-lede-02",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "24세의 베르호벤은 출발선에서 2위로 출발했으나 1바퀴째에 폴 시팅인 인에스 칼데론을 제쳤고, 오후에는 타이어 문제로 모든 일정을 뒤집을 위기에 처했다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-01",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "칼데론은 예비 랩에서 더 빠른 모습을 보였지만, 토요일에는 트랙 온도가 40도 이상으로 올라가면서 부드러운 타이어가 14바퀴 만에 빠르게 마모되면서 차이가 사라졌다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-02",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "\"뒷바퀴가 풀리는 것을 보고 우리가 이미 졌다고 진심으로 생각했다,\" 베르호벤은 이후 말했다. \"매 바퀴마다 실수로 이어질 것 같은 느낌이었기 때문에 그냥 차를 경계에서 벗어나 유지하고 운을 빌리려고 했다\""
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-03",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "해리즌은 17바퀴째에 칼데론을 리드를 잡기 위해 교체했지만, 그 결정은 역효과를 낳았다. 뒤따르는 차량들 사이의 더러운 공기 속에서 교통체증에 갇혀 거의 6초를 잃었다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-link-01",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "\"가능한 한 한 바퀴 늦게 했다\"고 인정하며 다음 라운드까지 시뮬레이션 도구를 검토하겠다고 말했다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-link-02",
+      "ms" : 2763.817287,
+      "slots" : {
+        "0" : "결과는 베르호벤을 포함해 챔피언십 선두에서 12점 내로 끌어들였다. 여전히 7라운드가 남았다"
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-link-03",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "전체 레이스 보고서와 드라이버 평가는 지금 바로 이용할 수 있으며, 마지막 구간의 차량 내부 영상은 아래에서 시청할 수 있습니다.",
+        "1" : "",
+        "2" : ""
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-04",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "드미트리 오카포르가 하이드로압력 고장으로 직선 구간에서 멈추면서 작동한 중간 구간 안전 차량이 필드를 밀어내고 모두에게 무료 타이어 교체를 제공했으며, 이는 마지막 구간을 더욱 예측 불가능하게 만들었습니다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-05",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "선두 주위에서 피어 난두카르와 루카스 브란트가 단일 바퀴에 세 번씩 위치를 바꿨다가 마지막 칩케인에서 접촉하면서 브란트가 차벽에 부딪혔습니다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-06",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "판사들은 이 사건을 검토했지만 추가 조치가 필요하지 않다고 결정했으며, 이는 브란트 측에서 "
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-body-07",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "여름 휴식 전까지 예상되는 엔진 부품 업그레이드가 예상되면서 여러 팀이 개인적으로 순위가 뒤바뀔 수 있다고 믿고 있지만, 공식적으로는 아무도 그렇게 말하지 않고 있습니다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-analysis-01",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "해럴시안 측에겐 오후 시간은 빠른 차가 절반의 전투일 뿐이라는 점을 상기시켜 주었습니다. 타이틀 경쟁이 치열한 만큼 피트 벽에서 한 번의 부실한 결정은 운전 시의 실수만큼이나 큰 손실로 이어질 수 있습니다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-analysis-02",
+      "ms" : 4662.122482142857,
+      "slots" : {
+        "0" : "숫자들이 이를 뒷받침합니다. 해럴시안의 평균 피트 정지 시간은 2.4초로 상위 4개 팀 중 가장 느렸으며, 피트 라인에서 0.8초를 줄인 것이 결국 우승과 준우승의 간극이었습니다."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-analysis-03",
+      "ms" : 1166.587075,
+      "slots" : {
+        "0" : "이건 아무것도 빼기 위한 게 아니라, 시즌 초반 어려운 출발 이후 매 경주마다 침착하게 개선해 온 베르호벤의 노력을 존중하는 것이야. 대부분의 선수가 했을 법한 반응 대신 침착함을 유지한 것도 말해줄게."
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-quote-01",
+      "ms" : 1166.587075,
+      "slots" : {
+        "0" : "\"포인트 순위를 기록하기 위해 이곳에 왔는데, 그곳에서 모든 사람들이 공방에서 울면서 우승 트로피 위에 서게 된 건 우리 모두가 금방 잊지 못할 경험이야.\""
+      }
+    },
+    {
+      "error" : null,
+      "id" : "art-quote-02",
+      "ms" : 1166.587075,
+      "slots" : {
+        "0" : "두 번째로 마감한 칼데론은 패배에 대해 수치스럽게 생각했지만 좌절감을 숨기지 않았어. \"지금은 잘못된 페달을 밟았다는 걸 말하는 게 쉬워. 그때 라디오에서 받은 정보는 달랐거든.\"}]}, {"
+      }
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-sub-01",
+      "ms" : 1166.587075,
+      "slots" : null
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-sub-02",
+      "ms" : 1166.587075,
+      "slots" : null
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-cap-01",
+      "ms" : 1166.587075,
+      "slots" : null
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-nav-01",
+      "ms" : 1166.587075,
+      "slots" : null
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-nav-02",
+      "ms" : 1166.587075,
+      "slots" : null
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-meta-01",
+      "ms" : 1166.587075,
+      "slots" : null
+    },
+    {
+      "error" : "missing_in_output",
+      "id" : "art-cta-01",
+      "ms" : 1166.587075,
+      "slots" : null
+    }
+  ],
+  "coldMs" : 24874.355583,
+  "engine" : "apple-fm",
+  "env" : {
+    "keepAliveSec" : null,
+    "notes" : "on-device SystemLanguageModel(guardrails: permissiveContentTransformations); mode=guided(@Generable); new session per batch, contextResets=0; prompt=file:/Users/kimmingyu/Documents/Claude/translator/bench/prompt.json; batch<=1500 chars, 1 request at a time; no prewarm.",
+    "os" : "Version 27.2 (Build 26B5101f)"
+  },
+  "lang" : "en",
+  "model" : "apple-foundation-models-ondevice",
+  "run" : 1,
+  "totalMs" : 69175.858834
+}
