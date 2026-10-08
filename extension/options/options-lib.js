@@ -27,6 +27,7 @@
       enabled: true,
       translateAttrs: false,
       fixParticles: true,
+      linkMode: 'standalone',
       glossary: [],
     };
   }
@@ -59,6 +60,7 @@
       enabled: typeof s.enabled === 'boolean' ? s.enabled : true,
       translateAttrs: typeof s.translateAttrs === 'boolean' ? s.translateAttrs : d.translateAttrs,
       fixParticles: typeof s.fixParticles === 'boolean' ? s.fixParticles : d.fixParticles,
+      linkMode: s.linkMode === 'never' ? 'never' : 'standalone',
       glossary: Array.isArray(s.glossary) ? s.glossary : d.glossary,
     };
   }

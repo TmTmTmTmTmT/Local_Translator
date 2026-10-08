@@ -56,6 +56,7 @@
     $('lh-keepalive').value = String(s.localhost.keepAlive);
     $('translate-attrs').checked = s.translateAttrs;
     $('fix-particles').checked = s.fixParticles;
+    $('link-standalone').checked = s.linkMode !== 'never';
     $('glossary').value = lib.glossaryToText(s.glossary);
     $('sites').value = lib.sitesToText(s.sites);
     $('excludes').value = lib.excludesToText(s.sites);
@@ -90,6 +91,7 @@
       enabled: current.enabled,
       translateAttrs: $('translate-attrs').checked,
       fixParticles: $('fix-particles').checked,
+      linkMode: $('link-standalone').checked ? 'standalone' : 'never',
       glossary: gl.terms,
     };
     await api.storage.sync.set({ settings });

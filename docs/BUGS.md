@@ -2,9 +2,18 @@
 
 형식: B번호 | 상태(open/fixed/still/regressed/보류) | 항목(T#) | 재현 | 기대 / 실제 | 증거 | 심각도 | 가이드(F#)
 
-## B1 | open(F5) | T1 | 링크 안 텍스트 전부 미번역
+## B1 | fixed(H, R1) | T1 | 링크 안 텍스트 전부 미번역
 - 재현: 하네스(TEST_LOOP H)로 the-race.com 홈 → measure.js.
 - 기대: 헤드라인·카드·메뉴 번역. 실제: 번역 블록 12개, 남은 영어 85개 전부 `<a>` 안(블록 레벨 링크 카드 67개).
 - 원인(확인): `content/filter.js` `KEEP_TAGS`에 `a` → 링크 텍스트는 항상 x 항목(원문 유지). 뉴스 사이트는 헤드라인·카드 전체가 링크.
 - 증거: measure `{ko:12, en:85, inLink:85, inBlockLink:67}`, 사용자 Safari 스크린샷(우측 하단 버튼만 번역).
 - 심각도: 높음(주 사용 사이트에서 사실상 번역 안 됨). 요구사항 해석 필요 → Opus.
+- R1 확인(H, site-coverage): the-race 홈 남은 영어 135→0(never 대비), 목록 2쪽 5(아이콘 라벨 "lock-1", 무시). Safari 실기 확인 대기.
+
+## B2 | open | T1 | NHK(일본어) 화면 텍스트 50개 미번역
+- 재현: `node tests/e2e/site-coverage.mjs tests/e2e/sites/nhk.html --json` → remaining 50, 전부 "other"(링크·코드·버튼 아님). 예: 地域を選択, 都道府県を選ぶとその地域のニュースページへ移動します。, 北海道, 青森県…
+- 원인: 조사 중(Sonnet). 가설: 한자만 있는 짧은 블록의 언어 판정(ja vs zh/null), 또는 select/option 등 의도된 제외.
+- 심각도: 중(일본어 사이트 메뉴·지역 선택).
+
+## 관찰 (버그 아님, D15 범위)
+- HN: 제목은 번역, 부가 줄의 링크("55 minutes ago", "hide", "2 comments")는 문장 속 링크 규칙으로 원문 유지. Wikipedia 본문 인라인 링크 1101개 원문 유지(의도). MDN code 134·translate=no 18 원문 유지(의도).

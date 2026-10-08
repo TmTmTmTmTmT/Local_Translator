@@ -46,7 +46,8 @@ test('filter: exclusion rules', () => {
   assert.equal(ex('l2', { excludeSelector: '.site-x' }), true);
   assert.equal(ex('l2'), false, 'cache is selector specific');
   assert.equal(ex('l2', { excludeSelector: ':::bad' }), false, 'invalid selector ignored');
-  assert.equal(F.exclusionReason(e.q('#b2')), 'keep');
+  assert.equal(F.exclusionReason(e.q('#b2')), 'link');
+  assert.equal(F.exclusionReason(e.q('#c2')), 'keep');
   assert.equal(F.exclusionReason(e.q('#m')), 'skip');
   assert.equal(F.blockOf(e.q('#b2').firstChild), e.q('body'));
   assert.equal(F.blockOf(e.q('#a').firstChild), e.q('#a'));
@@ -58,7 +59,7 @@ test('segmenter: slots, x items, nested blocks, limits, skipping', () => {
     <div id=d>Intro text <p id=p2>Inner paragraph</p> tail text</div>
     <p id=k>이것은 한국어 문장입니다</p><p id=n>12345</p><p id=u>Это русский текст</p>
     <p id=c>Run <code>npm test</code> please</p><p id=only><a href="#">only link</a></p></body>`);
-  const recs = e.KT.collectBlocks(e.document.body, {});
+  const recs = e.KT.collectBlocks(e.document.body, { linkMode: 'never' }); // F5: 기본(standalone)에서는 링크뿐인 블록도 번역
   const byEl = (id) => recs.filter((r) => r.el.id === id);
   const p1 = byEl('p1')[0];
   loose.deepEqual(p1.block.items.map((i) => [i.k, i.text]), [['t', 'Click'], ['x', 'here'], ['t', 'to'], ['t', 'continue'], ['t', 'now.']]);

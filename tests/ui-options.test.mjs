@@ -98,3 +98,9 @@ test('glossary text parse/format, errors, and attribute preservation', () => {
   assert.deepEqual(lib.mergeSettings({ glossary: 'x' }).glossary, []);
   assert.equal(lib.mergeSettings({ glossary: prev }).glossary, prev);
 });
+
+test('linkMode default standalone; never kept; garbage falls back', () => {
+  assert.equal(lib.defaults().linkMode, 'standalone');
+  assert.equal(lib.mergeSettings({ linkMode: 'never' }).linkMode, 'never');
+  assert.equal(lib.mergeSettings({ linkMode: 5 }).linkMode, 'standalone');
+});

@@ -208,3 +208,7 @@ test('DEFAULT_SETTINGS: translateAttrs=false, fixParticles=true; merge keeps sto
   const d = BG.mergeSettings(BG.DEFAULT_SETTINGS, {});
   eq([d.translateAttrs, d.fixParticles], [false, true]);
 });
+
+test('DEFAULT_SETTINGS.linkMode is standalone', () => {
+  eq(BG.DEFAULT_SETTINGS.linkMode, 'standalone');
+});

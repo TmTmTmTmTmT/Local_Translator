@@ -5,7 +5,8 @@
   const SKIP_TAGS = new Set(['script', 'style', 'noscript', 'template', 'svg', 'math', 'canvas', 'iframe', 'object', 'video', 'audio',
     'input', 'textarea', 'select', 'option', 'optgroup']);
   // 링크·코드: 번역하지 않지만 문맥(x 항목)으로는 전달. role=code도 같이 취급.
-  const KEEP_TAGS = new Set(['a', 'pre', 'code', 'kbd', 'samp', 'var', 'tt']);
+  // 링크('a')는 별도 사유 'link'로 구분(블록이 링크뿐이면 segmenter가 번역 대상으로 승격). 나머지는 'keep'.
+  const KEEP_TAGS = new Set(['pre', 'code', 'kbd', 'samp', 'var', 'tt']);
   const BASE_SELECTOR = '[translate="no"],.notranslate,[contenteditable="true"],[contenteditable=""],[data-kt-ui]';
   const BLOCK_TAGS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'td', 'th', 'dd', 'dt', 'blockquote', 'figcaption',
     'summary', 'caption', 'div', 'section', 'article', 'aside', 'header', 'footer', 'main', 'nav', 'ul', 'ol', 'dl', 'table', 'tr',
@@ -25,10 +26,12 @@
     if (SKIP_TAGS.has(tag)) return 'skip';
     let matched = false;
     try { matched = el.matches(sel); } catch (_) { matched = el.matches(BASE_SELECTOR); } // 사용자 셀렉터 오류는 무시
-    return matched ? 'skip' : KEEP_TAGS.has(tag) || el.matches('[role="code"]') ? 'keep' : null;
+    if (matched) return 'skip';
+    if (tag === 'a') return 'link';
+    return KEEP_TAGS.has(tag) || el.matches('[role="code"]') ? 'keep' : null;
   }
 
-  // 반환: null(번역 대상) | 'keep'(원문 유지, 문맥 전달) | 'skip'(완전 무시). 가까운 조상 기준이되 skip이 우선.
+  // 반환: null(번역 대상) | 'link'(링크 유래, 원문 유지·문맥 전달) | 'keep'(코드 계열, 원문 유지, 문맥 전달) | 'skip'(완전 무시). 가까운 조상 기준이되 skip이 우선.
   function reasonOfElement(el, opts) {
     const extra = opts && typeof opts.excludeSelector === 'string' ? opts.excludeSelector.trim() : '';
     const sel = extra ? BASE_SELECTOR + ',' + extra : BASE_SELECTOR;
@@ -43,7 +46,8 @@
     }
     for (let i = chain.length - 1; i >= 0; i--) {
       const own = ownReason(chain[i], sel);
-      base = base === 'skip' || own === 'skip' ? 'skip' : own || base;
+      // 코드 계열 조상 안의 링크는 'keep' 유지(승격 금지).
+      base = base === 'skip' || own === 'skip' ? 'skip' : own === 'link' && base === 'keep' ? 'keep' : own || base;
       cache.set(chain[i], base);
     }
     return base;

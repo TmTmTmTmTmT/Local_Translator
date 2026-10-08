@@ -12,18 +12,32 @@
     return { id, el, lang: null, chars: 0, slots: [], block: { id, lang: null, items: [] } };
   }
 
-  // opts: excludeSelector, isHandled(node), onShadowRoot(root), maxBlockChars
+  // opts: linkMode('standalone'|'never'), excludeSelector, isHandled(node), onShadowRoot(root), maxBlockChars
   function collectBlocks(root, opts) {
     opts = opts || {};
     const T = KT.text, F = KT.filter;
     const maxChars = opts.maxBlockChars || MAX_BLOCK_CHARS;
     const out = [];
+    const promote = opts.linkMode !== 'never'; // 빈 값·알 수 없는 값은 standalone
     let cur = null;
 
     function flush() {
       const rec = cur;
       cur = null;
-      if (!rec || !rec.slots.length) return;
+      if (!rec) return;
+      // 글자 있는 t 슬롯이 없고 링크 유래 x가 있으면(헤드라인·카드·메뉴) 링크 텍스트를 t로 승격.
+      if (!rec.slots.length && rec.links && rec.links.length) {
+        let chars = 0;
+        for (const c of rec.links) {
+          if (chars + c.text.length > maxChars && rec.slots.length) break;
+          const idx = rec.block.items.indexOf(c.item);
+          rec.block.items[idx] = { k: 't', i: rec.slots.length, text: c.text };
+          rec.slots.push({ node: c.node, original: c.node.nodeValue });
+          chars += c.text.length;
+        }
+        rec.chars = chars;
+      }
+      if (!rec.slots.length) return;
       const lang = T.detectLang(rec.slots.map((s) => T.cleanText(s.original)).join(' '));
       if (!SUPPORTED.has(lang)) return; // 한국어·미지원 언어·판정 불가는 번역하지 않음
       rec.lang = rec.block.lang = lang;
@@ -39,7 +53,14 @@
       if (cur && cur.el !== blk) flush();
       if (!cur) cur = newRec(blk);
 
-      if (reason === 'keep' || T.isNonlinguistic(txt) || T.hangulRatio(txt) >= 0.5 || txt.length > maxChars ||
+      if (reason === 'link' && promote && !T.isNonlinguistic(txt) && T.hangulRatio(txt) < 0.5 && txt.length <= maxChars &&
+        !(opts.isHandled && opts.isHandled(node))) {
+        const item = { k: 'x', text: txt };
+        cur.block.items.push(item);
+        (cur.links = cur.links || []).push({ item, node, text: txt });
+        return;
+      }
+      if (reason === 'keep' || reason === 'link' || T.isNonlinguistic(txt) || T.hangulRatio(txt) >= 0.5 || txt.length > maxChars ||
         (opts.isHandled && opts.isHandled(node))) {
         cur.block.items.push({ k: 'x', text: txt });
         return;

@@ -11,11 +11,13 @@
   "enabled": true,
   "translateAttrs": false,
   "fixParticles": true,
+  "linkMode": "standalone",
   "glossary": [ { "src": "kerbs", "dst": "연석", "lang": "en", "case": false } ]
 }
 ```
 - `localhost.family`/`keepAlive`(초, 기본 300)는 MT 모드 엔진(`local:mt-ollama`, `local:mt-mlx`) 전용. `family` 미지정/무효 시 모델명에서 추정(translategemma/hy-mt) 후 `chat`. `local:mt-mlx`는 `model` 무시(요청 model=`default_model`). `baseUrl`은 모든 localhost 엔진 공통이므로 mlx는 8080 등으로 직접 지정. 루프백 검증 동일.
 - `translateAttrs`(boolean, 기본 false): true면 `content/extra.js`를 main.js 앞에 추가 주입해 title/alt/placeholder/aria-label 속성도 번역. `fixParticles`(boolean, 기본 true): main.js `start({fixParticles})` → `createApplier({fixParticles})`로 전달, false면 링크 뒤 조사 보정 안 함. 알 수 없는 키는 병합 시 그대로 통과.
+- `linkMode`(`"standalone"` 기본 | `"never"`): `standalone`은 문장 속 인라인 링크만 원문 유지(x)하고, 블록에 글자 있는 `t` 슬롯이 없고 링크 유래 x만 있으면(헤드라인·카드·메뉴) 그 링크 텍스트를 `t`로 승격해 번역. `never`는 링크를 항상 x로 유지(이전 동작). 빈 값/알 수 없는 값은 `standalone`. main.js가 `start({linkMode})` → `collectBlocks(root,{linkMode})`로 전달. filter의 `exclusionReason`은 링크 유래 `'link'`와 코드 계열 `'keep'`을 구분(코드 계열 조상 안의 링크는 `'keep'`).
 - `glossary`(기본 `[]`, PLAN §11.3): `{src, dst, lang?: "en"|"ja"|"zh"|null, case?: boolean}` 배열. 최대 500개, src 1~80자, dst 비어 있지 않음, 무효 항목은 버리고 소문자 src+lang 중복은 첫 항목만 유지(`lib/glossary.js normalize`). background가 엔진 호출 직전 블록의 `t` 항목(`x` 제외)에 사전 치환을 적용한다(라틴어 용어는 단어 경계·`case`가 true가 아니면 대소문자 무시, CJK/한글 용어는 단순 포함, 긴 용어 우선·겹침 없음, `lang`이 있으면 블록 언어와 일치할 때만). 캐시 키에 블록에 실제 적용된 용어 쌍의 해시가 들어간다(§6). 프롬프트 기반 엔진에는 적용된 쌍이 `context.glossary = [[src,dst],...]`로 전달되고(적용이 없으면 키 자체가 없음) prompt.js 시스템 프롬프트와 MT 모드 `chat` family 시스템 프롬프트에 한 줄 힌트로 붙는다(hymt2/translategemma 템플릿은 불변). 네이티브(Swift) 쪽 힌트는 아직 미구현이며 `context.glossary`는 그대로 전달만 된다.
 - `engine` 값은 엔진 ID 문자열. 엔진 레지스트리(`engines/registry.js`)가 ID → 엔진 객체 해석.
 
