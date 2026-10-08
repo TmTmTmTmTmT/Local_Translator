@@ -74,7 +74,7 @@
     const gl = lib.parseGlossaryText($('glossary').value, current.glossary);
     const localhost = { baseUrl: $('lh-base').value.trim(), kind: $('lh-kind').value, model: $('lh-model').value.trim(),
       family: $('lh-family').value, keepAlive: Number($('lh-keepalive').value === '' ? 300 : $('lh-keepalive').value) };
-    const errors = built.errors.concat(gl.errors).map((e) => (e.line ? `${e.line}줄: ${e.message}` : e.message)).concat(lib.validateLocalhost(localhost));
+    const errors = built.errors.concat(gl.errors).map(lib.formatError).concat(lib.validateLocalhost(localhost).map((m) => `Localhost: ${m}`));
     showErrors(errors);
     if (errors.length) {
       setFeedback('저장하지 않았습니다. 오류를 확인하세요', false);

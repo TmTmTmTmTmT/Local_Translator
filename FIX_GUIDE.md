@@ -178,3 +178,35 @@ NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2
 - 테스트: `<html lang="ja">` + "北海道" → ja, `<html lang="zh-CN">` → zh, lang 없음 + 가나 블록 다수 → ja, 조상 `lang="zh"` 우선, 기존 detectLang 테스트 불변.
 ### 영향 범위: `extension/content/segmenter.js`(필요 시 `main.js`에서 힌트 전달), 테스트. F7과 파일 겹치지 않음.
 ### 검증: npm test, nhk.html 커버리지에서 calls·blocks 변화 없이 블록 lang 분포 확인(도구가 블록 lang 집계를 내면 좋음 — F7에 `langs` 카운트 추가).
+
+## F9. PDF 링크 구간이 단어 중간에서 잘림 (B4, R3, Opus)
+
+### 원인 (Sonnet 조사로 확인)
+1. 픽스처 `tests/e2e/sample.pdf`의 Link rect가 문단 시작(x=72)부터 58pt로 잘못 작성됨("online guide" 위치 아님).
+2. 그러나 코드도 취약: `viewer/pdfseg.js` `splitByLink`는 글자 위치를 `(x - item.x) / item.w * len` 비례로 근사 → 가변폭 글꼴인 실제 PDF에서 1~2글자 어긋나 단어가 반으로 잘릴 수 있음. 기존 테스트는 고정폭·글자 경계 정렬 rect만 다룸.
+
+### 수정 방향 (Sonnet)
+1. `splitByLink`: 비례 계산한 `i0`/`i1`을 **단어 경계로 스냅** — `i0`은 왼쪽 공백 다음까지(현재 위치가 단어 중간일 때만), `i1`은 오른쪽 공백 직전까지 이동. 이동 폭이 단어 길이 절반을 넘거나 6글자를 넘으면 스냅하지 않고 가까운 경계(앞/뒤 중 짧은 쪽)로. CJK(공백 없는 문자)는 스냅하지 않음(현행). 결과 구간이 비면 링크를 해당 item 전체가 아닌 "겹침 비율이 가장 큰 단어"로.
+2. 픽스처 재생성: sample.pdf의 Link rect를 "online guide" 실제 글리프 범위로(Helvetica 11pt 폭 기준 x≈111..169.5). 생성 스크립트가 있으면 그걸 고치고, 없으면 `tests/e2e/make-sample-pdf.mjs`로 재현 가능하게 추가(외부 의존 없이).
+3. 테스트: (a) rect 끝이 단어 중간인 경우 스냅되어 단어 전체가 x, (b) 시작이 단어 중간, (c) CJK 무스냅, (d) 실제 pdf.js로 sample.pdf를 파싱해 segmentPage 결과에서 x 항목 = "online guide"(tests/pdf-parse.test.mjs에 링크 포함 케이스).
+### 영향 범위: `extension/viewer/pdfseg.js`, `tests/e2e/sample.pdf`(+생성 스크립트), `tests/pdf-seg.test.mjs`, `tests/pdf-parse.test.mjs`. viewer는 HTML이 utf-8 선언이라 비ASCII 가드 대상 아님(그래도 리터럴 비ASCII는 피함).
+### 검증: npm test, 내장 브라우저 pdf-harness에서 "번역(See the) online guide 번역(for details …)" 형태.
+
+## F10. 옵션 오류 메시지에 어느 칸의 줄인지 없음 (B5, R3, Opus)
+### 원인
+`options/options.js` save(): 사이트·제외 셀렉터·용어집 오류를 모두 `${line}줄: …`로 합쳐 표시 → "1줄: 잘못된 셀렉터", "1줄: 형식…"이 어느 입력칸인지 모름.
+### 수정 방향 (Sonnet)
+오류 출처별 접두: "사이트 N줄:", "제외 셀렉터 N줄:", "용어집 N줄:", localhost 오류는 "Localhost:". `buildSites`가 사이트/제외를 구분해 주지 않으면 options-lib에 출처 필드(`field: 'sites'|'excludes'`)를 추가. 테스트(ui-options)에 출처 구분 케이스.
+### 영향 범위: `extension/options/options.js`, `options-lib.js`, `tests/ui-options.test.mjs`. (F9와 파일 겹치지 않음)
+### 검증: npm test, options 하네스(.local/options-h.html)에서 메시지 확인.
+
+## F11. 팝업을 다시 열면 원문/번역 버튼 라벨이 실제 상태와 다름 (B6, R3, Opus)
+### 원인 (코드 확인)
+`popup/popup.js`는 `mode='translated'`로 시작하고 토글 응답으로만 갱신. 페이지가 원문 보기 상태에서 팝업을 닫았다 다시 열면 "원문 보기"로 표시 → 누르면 번역으로 돌아가 라벨과 동작이 반대. content `main.js` 리스너는 `toggleOriginal`만 처리.
+### 수정 방향 (Sonnet)
+- content `main.js` handleMessage: `{type:'getMode'}` → 상태 변경 없이 `{mode:'translated'|'original'}`.
+- popup init: 탭에 `getMode` 질의(실패하면 기본 'translated') 후 렌더. 토글 처리 그대로.
+- PROTOCOL §2 메시지 표에 `getMode` 추가.
+- 테스트: content-main(getMode가 상태 불변·토글 후 값 반영), ui-popup(초기 mode 반영 — 기존 테스트 구조에 맞게).
+### 영향 범위: `extension/content/main.js`, `extension/popup/popup.js`(필요 시 popup-lib), `extension/PROTOCOL.md`, `tests/content-main.test.mjs`, `tests/ui-popup.test.mjs`. 비ASCII 리터럴 금지(content).
+### 검증: npm test, Safari 실기 T5.

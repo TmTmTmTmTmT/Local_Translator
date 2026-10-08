@@ -104,3 +104,15 @@ test('linkMode default standalone; never kept; garbage falls back', () => {
   assert.equal(lib.mergeSettings({ linkMode: 'never' }).linkMode, 'never');
   assert.equal(lib.mergeSettings({ linkMode: 5 }).linkMode, 'standalone');
 });
+
+test('error messages name the source field and line', () => {
+  const b = lib.buildSites('a.com\nbad host\n', 'a.com | !!\nz.com | .q', (s) => s !== '!!');
+  const msgs = b.errors.map(lib.formatError);
+  assert.ok(msgs.includes('사이트 2줄: 잘못된 호스트: bad host'), msgs.join('|'));
+  assert.ok(msgs.includes('제외 셀렉터 1줄: 잘못된 셀렉터: !!'), msgs.join('|'));
+  assert.ok(msgs.some((m) => m.startsWith('제외 셀렉터: ')), msgs.join('|'));
+  assert.ok(b.errors.every((e) => e.field === 'sites' || e.field === 'excludes'));
+  const g = lib.parseGlossaryText('bad line');
+  assert.equal(lib.formatError(g.errors[0]), '용어집 1줄: `원문 => 번역` 형식이어야 합니다');
+  assert.equal(lib.formatError({ line: 0, message: 'm' }), 'm');
+});

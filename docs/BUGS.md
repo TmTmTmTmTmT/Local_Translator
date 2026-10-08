@@ -23,8 +23,29 @@
 - 심각도: 중(오역 위험, 번역 자체는 됨).
 - R2 확인(H): NHK 블록 lang zh 67→10, ja 121→178, 요청 수 99→24(배치 병합 개선). F7 후 NHK remaining 0(formControl 48, graphic 2).
 
-## B4 | open | T8 | PDF 링크 고정 구간이 단어 중간에서 잘림
+## B4 | fixed(H, R3) | T8 | PDF 링크 고정 구간이 단어 중간에서 잘림
 - 재현: 내장 브라우저 `tests/e2e/pdf-harness.html?src=…/tests/e2e/sample.pdf`(mock 번역기).
 - 기대: "See the " 번역 + 링크 텍스트 원문 + 나머지 번역. 실제: "See the onli번역(ne guide for details …)" — 원문 유지 구간이 문단 처음부터 12글자, 단어 중간에서 끊김. 실제 엔진이면 링크 문장이 깨짐.
-- 증거: 하네스 innerText(R2). 원인 조사 중(Sonnet).
+- 원인(R3 확인): 픽스처 rect 오류 + 비례 글자 위치 근사(가변폭에서 단어 절단 가능) → F9.
 - 심각도: 높음(링크가 있는 PDF 문단 전부).
+
+## B5 | fixed(H, R3) | T6 | 옵션 저장 오류 메시지에 입력칸 구분 없음
+- 재현: options 하네스(`.local/options-h.html`, storage 스텁)에서 제외 셀렉터 `the-race.com | ##bad[`, 용어집 `bad line` 입력 후 저장 → "1줄: 잘못된 셀렉터", "1줄: `원문 => 번역` 형식…" (어느 칸인지 불명).
+- 저장 차단·기존 값 보존은 정상. 심각도: 낮음(UX).
+- 같은 회차 확인(H): 저장 → 재열기 시 사이트 3개·용어집 2개·프리셋 값·linkMode 체크 복원, pdfAuto 등 화면 밖 키 보존. 비루프백 baseUrl 거부.
+
+## B6 | fixed(H, R3) | T5 | 팝업 재열기 시 원문/번역 라벨이 실제 상태와 반대일 수 있음
+- 재현(코드 검토로 확인): popup.js가 mode='translated'로 시작, content에 현재 모드 질의 메시지 없음. 원문 보기 상태에서 팝업 재열기 → 라벨 "원문 보기", 클릭 시 번역으로 전환.
+- 심각도: 낮음~중(혼동).
+
+### R3 확인 (H)
+- B4: pdf-harness → "번역(See the)online guide번역(for details …)" — 링크 구간 = "online guide" 정확(sample.pdf rect 재생성 + 단어 경계 스냅). 공백 붙음은 mock 번역기가 trim하는 탓(실엔진은 바깥 공백 보존).
+- B5: "사이트 2줄: 잘못된 호스트", "제외 셀렉터 1줄: …", "용어집 1줄: …", "Localhost: …".
+- B6: popup 하네스(원문 상태로 열기) 라벨 "번역 보기" → 토글 "원문 보기" → "번역 보기", getMode 질의 확인.
+
+## B7 | open | T1/T12 | Safari 실기: Apple 번역 엔진 사용 불가(engine_unavailable)
+- 재현(S, 사용자 2026-10-08): Safari 재시작 후 the-race.com·news.ycombinator.com에서 팝업 "native:apple-mt · error", "번역 엔진을 사용할 수 없습니다". content 스크립트·팝업·원문 토글은 동작, 번역 안 됨.
+- 의심: (a) Safari 실행 중 install.sh 재설치(14:22, 14:29)로 확장 프로세스 불일치, (b) sendNativeMessage 호출 형태, (c) Swift 핸들러(샌드박스·Translation) 실패. 조사 중(Sonnet, 시스템 로그).
+- 심각도: 치명(실기 번역 불가).
+- 함께 받은 S 결과: T11 1회 재시작 후 확장 켜짐·오류 없음(T12 일부 통과), T6 옵션 값 유지(통과), T5 원문 토글 왕복(통과).
+- 운영 수정: 사용자 실기 확인 중에는 재설치 금지(재설치 후엔 반드시 Safari 재시작 안내).

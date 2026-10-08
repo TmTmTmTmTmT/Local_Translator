@@ -82,7 +82,7 @@
       if (!line || line.startsWith('#')) return;
       const h = normalizeHost(line);
       if (!isValidHost(h)) {
-        errors.push({ line: idx + 1, message: `잘못된 호스트: ${line}` });
+        errors.push({ field: 'sites', line: idx + 1, message: `잘못된 호스트: ${line}` });
         return;
       }
       if (!hosts.includes(h)) hosts.push(h);
@@ -99,17 +99,17 @@
       if (!line || line.startsWith('#')) return;
       const p = line.indexOf('|');
       if (p < 0) {
-        errors.push({ line: idx + 1, message: `형식: host | selector (${line})` });
+        errors.push({ field: 'excludes', line: idx + 1, message: `형식: host | selector (${line})` });
         return;
       }
       const host = normalizeHost(line.slice(0, p));
       const sel = line.slice(p + 1).trim();
       if (!isValidHost(host)) {
-        errors.push({ line: idx + 1, message: `잘못된 호스트: ${host}` });
+        errors.push({ field: 'excludes', line: idx + 1, message: `잘못된 호스트: ${host}` });
         return;
       }
       if (!sel || (validate && !validate(sel))) {
-        errors.push({ line: idx + 1, message: `잘못된 셀렉터: ${sel}` });
+        errors.push({ field: 'excludes', line: idx + 1, message: `잘못된 셀렉터: ${sel}` });
         return;
       }
       map[host] = map[host] ? `${map[host]}, ${sel}` : sel;
@@ -122,7 +122,7 @@
     const b = parseExcludeText(excludeText, validate);
     const errors = a.errors.concat(b.errors);
     for (const h of Object.keys(b.map)) {
-      if (!a.hosts.includes(h)) errors.push({ line: 0, message: `제외 규칙의 호스트가 사이트 목록에 없음: ${h}` });
+      if (!a.hosts.includes(h)) errors.push({ field: 'excludes', line: 0, message: `제외 규칙의 호스트가 사이트 목록에 없음: ${h}` });
     }
     return { sites: a.hosts.map((host) => ({ host, exclude: b.map[host] || '' })), errors };
   }
@@ -161,13 +161,13 @@
       const line = raw.trim();
       if (!line || line.startsWith('#')) return;
       const at = line.indexOf('=>');
-      if (at < 0) { errors.push({ line: idx + 1, message: '`원문 => 번역` 형식이어야 합니다' }); return; }
+      if (at < 0) { errors.push({ field: 'glossary', line: idx + 1, message: '`원문 => 번역` 형식이어야 합니다' }); return; }
       const src = line.slice(0, at).trim();
       const dst = line.slice(at + 2).trim();
-      if (!src || !dst) { errors.push({ line: idx + 1, message: '원문과 번역이 모두 필요합니다' }); return; }
-      if (src.length > MAX_SRC) { errors.push({ line: idx + 1, message: `원문은 ${MAX_SRC}자 이하여야 합니다` }); return; }
+      if (!src || !dst) { errors.push({ field: 'glossary', line: idx + 1, message: '원문과 번역이 모두 필요합니다' }); return; }
+      if (src.length > MAX_SRC) { errors.push({ field: 'glossary', line: idx + 1, message: `원문은 ${MAX_SRC}자 이하여야 합니다` }); return; }
       const key = src.toLowerCase();
-      if (seen.has(key)) { errors.push({ line: idx + 1, message: '중복된 원문입니다' }); return; }
+      if (seen.has(key)) { errors.push({ field: 'glossary', line: idx + 1, message: '중복된 원문입니다' }); return; }
       seen.add(key);
       const o = old.get(key);
       const term = { src, dst };
@@ -175,7 +175,7 @@
       if (o && o.case === true) term.case = true;
       terms.push(term);
     });
-    if (terms.length > MAX_GLOSSARY) errors.push({ line: 0, message: `용어는 최대 ${MAX_GLOSSARY}개입니다` });
+    if (terms.length > MAX_GLOSSARY) errors.push({ field: 'glossary', line: 0, message: `용어는 최대 ${MAX_GLOSSARY}개입니다` });
     return { terms: terms.slice(0, MAX_GLOSSARY), errors };
   }
 
@@ -184,6 +184,14 @@
       .filter((t) => t && typeof t.src === 'string' && typeof t.dst === 'string')
       .map((t) => `${t.src} => ${t.dst}`)
       .join('\n');
+  }
+
+  const FIELD_LABEL = { sites: '사이트', excludes: '제외 셀렉터', glossary: '용어집' };
+  // 오류 출처(칸)와 줄 번호를 붙여 어느 입력칸의 문제인지 알 수 있게 한다.
+  function formatError(e) {
+    const label = FIELD_LABEL[e.field] || '';
+    const where = e.line ? `${label ? label + ' ' : ''}${e.line}줄` : label;
+    return where ? `${where}: ${e.message}` : e.message;
   }
 
   function validateLocalhost(lh) {
@@ -195,7 +203,7 @@
     return errors;
   }
 
-  const api = { ENGINES, KINDS, FAMILIES, PRESET_TRANSLATEGEMMA, parseGlossaryText, glossaryToText, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, isValidHost };
+  const api = { ENGINES, KINDS, FAMILIES, PRESET_TRANSLATEGEMMA, parseGlossaryText, glossaryToText, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, formatError, isValidHost };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.KTOptions = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

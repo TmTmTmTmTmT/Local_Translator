@@ -55,3 +55,39 @@ test('vendored pdf.js parses a hand-written PDF and pdfseg segments it', async (
   assert.equal(res[0].text, 'Hello world from the test.');
   await task.destroy();
 });
+
+test('sample.pdf link covers exactly "online guide" via real pdf.js', async (t) => {
+  if (!Promise.try) Promise.try = (f, ...a) => new Promise((r) => r(f(...a)));
+  if (!Uint8Array.prototype.toHex) Uint8Array.prototype.toHex = function () { return Array.from(this, (b) => b.toString(16).padStart(2, '0')).join(''); };
+  let pdfjs;
+  try {
+    pdfjs = await import(pathToFileURL(path.join(root, 'vendor/pdfjs/build/pdf.min.mjs')).href);
+  } catch (e) { t.skip('pdf.min.mjs not loadable in node: ' + e.message); return; }
+  pdfjs.GlobalWorkerOptions.workerSrc = pathToFileURL(path.join(root, 'vendor/pdfjs/build/pdf.worker.min.mjs')).href;
+  const sandbox = { console };
+  sandbox.globalThis = sandbox;
+  vm.createContext(sandbox);
+  vm.runInContext(fs.readFileSync(path.join(root, 'viewer/pdfseg.js'), 'utf8'), sandbox);
+  const data = new Uint8Array(fs.readFileSync(path.join(root, '..', 'tests/e2e/sample.pdf')));
+  const task = pdfjs.getDocument({
+    data, useSystemFonts: false, isEvalSupported: false,
+    standardFontDataUrl: pathToFileURL(path.join(root, 'vendor/pdfjs/standard_fonts') + '/').href,
+    disableFontFace: true, verbosity: 0,
+  });
+  const doc = await task.promise;
+  const page = await doc.getPage(1);
+  const vp = page.getViewport({ scale: 1 });
+  const tc = await page.getTextContent();
+  const annots = await page.getAnnotations();
+  const links = annots.filter((a) => a.subtype === 'Link').map((a) => a.rect);
+  assert.equal(links.length, 1);
+  const res = JSON.parse(JSON.stringify(sandbox.KT.pdfseg.segmentPage({
+    page: 1, width: vp.width, height: vp.height, viewTransform: vp.transform, items: tc.items, links, fonts: tc.styles,
+  })));
+  const para = res.find((p) => p.text.startsWith('See the'));
+  assert.ok(para);
+  const xs = para.items.filter((i) => i.k === 'x');
+  assert.deepEqual(xs.map((i) => i.text), ['online guide']);
+  assert.ok(para.items[0].k === 't' && para.items[0].text.endsWith('See the '));
+  await task.destroy();
+});

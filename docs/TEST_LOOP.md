@@ -8,14 +8,14 @@
 | T2 | 문장 속 링크는 원문·클릭 유지, 어순·조사 자연스러움 | H, S | 미실행 |
 | T3 | code/pre, 입력값, translate=no, .notranslate, 사이트별 제외 셀렉터 원문 유지 | H, U | 통과(R1 H: MDN code 134·translate=no 18 유지, U: content-units) |
 | T4 | 동적 콘텐츠: 더보기, 무한스크롤, details 펼침, SPA 라우팅 후 새 구간만 번역·중복 요청 없음 | H(__kt.calls/blocks), U, S | U 통과(content-main dynamic 11건: 추가·숨김→표시·재적용 상한·SPA·shadow), S 미확인 |
-| T5 | 팝업: 사이트 토글, 원문 보기 왕복, 상태(엔진·ready/translating/error) | S | 미실행 |
-| T6 | 옵션: 사이트·제외·엔진·TranslateGemma 프리셋·용어집 저장 후 재열기 복원, 오류 메시지 | S, U | 미실행 |
+| T5 | 팝업: 사이트 토글, 원문 보기 왕복, 상태(엔진·ready/translating/error) | H(popup 하네스), S | R3 H 통과(라벨·토글·상태 표시, B6 수정). S 통과(원문 토글 왕복, 사용자) — 단 상태 error(B7) |
+| T6 | 옵션: 사이트·제외·엔진·TranslateGemma 프리셋·용어집 저장 후 재열기 복원, 오류 메시지 | H(options 하네스), S, U | R3 H 통과(저장·복원·키 보존·검증·칸별 오류 메시지). S 통과(사이트 3개·용어집 저장 후 재열기 유지, 사용자) |
 | T7 | 용어집 적용(kerbs → 연석 등)·변경 시 해당 문장만 재번역 | H(mock은 치환 확인), S | 미실행 |
-| T8 | PDF: 자동 진입(pdfAuto), 수동 버튼, 문단 번역, 링크 동작, 원본 열기 | S, 기존 pdf-harness | R2 H: 렌더·문단 4·원본 링크 정상, 링크 구간 실패(B4) |
+| T8 | PDF: 자동 진입(pdfAuto), 수동 버튼, 문단 번역, 링크 동작, 원본 열기 | S, 기존 pdf-harness | R3 H 통과(렌더·문단·원본 링크·링크 구간 "online guide"). S 미확인(자동 진입·실제 PDF) |
 | T9 | 컨테이너 앱: 언어팩 상태, 서명 상태 "팀 서명됨", Safari 확장 설정 열기 | A | 통과(R1: 언어팩 4개 설치됨, "팀 서명됨 (K3YUPJD653)", 버튼 → Safari 확장 설정 창 전면) |
 | T10 | install.sh 재설치: 실행 중 앱 종료, 단일 등록(pluginkit), 팀 서명 검증 | Bash | 통과(R0: 실행 중 앱 종료, pluginkit 1곳, TeamIdentifier 검증) — 수정 후 재설치 때마다 재확인 |
-| T11 | Safari 재시작 2회 후 확장 유지("서명되지 않은 확장 허용" 꺼짐) | S | 미실행 |
-| T12 | Safari 확장 오류 창 없음, 엔진 오류 시 배지·팝업 안내 | S | 미실행 |
+| T11 | Safari 재시작 2회 후 확장 유지("서명되지 않은 확장 허용" 꺼짐) | S | 1회 통과(사용자), 2회째 미확인 |
+| T12 | Safari 확장 오류 창 없음, 엔진 오류 시 배지·팝업 안내 | S | S: 오류 창 없음·엔진 오류 팝업 안내 표시(사용자) — 엔진 오류 자체가 B7 |
 
 ## 하네스 절차 (H)
 1. `scratchpad/serve.py <dir>` — 127.0.0.1:8799, CORS 허용, no-store.
