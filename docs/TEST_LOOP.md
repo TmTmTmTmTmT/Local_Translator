@@ -4,7 +4,7 @@
 
 | # | 항목 | 확인 방법 | 결과 |
 |---|---|---|---|
-| T1 | 지정 사이트 자동 번역: 본문·헤드라인·메뉴·카드 커버리지 ≥95% (보이는 영어 텍스트 기준, 의도된 제외 빼고) | H site-coverage, S 스크린샷 | R1 H: en 사이트 통과(the-race 0, wiki·mdn·hn 남은 것은 의도된 링크/코드), ja 실패(B2), zh 통과(1). S 미확인 |
+| T1 | 지정 사이트 자동 번역: 본문·헤드라인·메뉴·카드 커버리지 ≥95% (보이는 영어 텍스트 기준, 의도된 제외 빼고) | H site-coverage, S 스크린샷 | H 통과(en·ja·zh, R1~R2), H-real 통과(R5·R8: 기사·NHK·BBC중문·HN 오류 0), S R7 통과(헤드라인·카드 번역) — 헤더 링크 합쳐짐 B10 수정 설치 후 재확인 필요 |
 | T2 | 문장 속 링크는 원문·클릭 유지, 어순·조사 자연스러움 | H, H-real(F13), S | R5 H-real: 링크 원문 유지 통과, 자연스러움은 대체로 양호하나 하이픈 붙은 링크 어색(D16 알려진 한계). S 미확인 |
 | T3 | code/pre, 입력값, translate=no, .notranslate, 사이트별 제외 셀렉터 원문 유지 | H, U | 통과(R1 H: MDN code 134·translate=no 18 유지, U: content-units) |
 | T4 | 동적 콘텐츠: 더보기, 무한스크롤, details 펼침, SPA 라우팅 후 새 구간만 번역·중복 요청 없음 | H(__kt.calls/blocks), U, S | U 통과(content-main dynamic 11건: 추가·숨김→표시·재적용 상한·SPA·shadow), S 미확인 |
