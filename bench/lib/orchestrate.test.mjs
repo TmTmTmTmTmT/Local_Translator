@@ -56,6 +56,8 @@ test('command builders per runtime', () => {
   assert.deepEqual(modelMapFor(byId('mlx-gemma-3-1b-4bit'))['mlx-gemma-3-1b-4bit'].args, []);
   const r = runMjsArgs(byId('ct2-nllb-1.3b'), { benchDir: '/b', langs: ['en', 'ja'], runs: 1, modelMapFile: '/m.json', resultsDir: '/r', force: true });
   assert.deepEqual(r, ['/b/run.mjs', '--engines', 'ct2-nllb-1.3b', '--langs', 'en,ja', '--runs', '1', '--model-map', '/m.json', '--results-dir', '/r', '--force']);
+  const rc = runMjsArgs(byId('ct2-nllb-1.3b'), { benchDir: '/b', langs: ['en'], runs: 1, modelMapFile: '/m.json', resultsDir: '/r', force: false, corpusDir: '/c' });
+  assert.deepEqual(rc, ['/b/run.mjs', '--engines', 'ct2-nllb-1.3b', '--langs', 'en', '--runs', '1', '--model-map', '/m.json', '--results-dir', '/r', '--corpus-dir', '/c']);
   for (const e of models) for (const x of serverCommand(e, ctx0).args) assert.ok(!/^https?:\/\/(?!127\.0\.0\.1)/.test(x));
 });
 

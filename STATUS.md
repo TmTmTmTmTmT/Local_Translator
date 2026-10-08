@@ -130,7 +130,7 @@
 
 ## D1 영어 기사 평가 준비 (2026-10-08)
 - 사용자 요청: 평가 페이지 영어만, the-race.com류 기사 중심. 자체 작성 모터스포츠 기사 코퍼스 `bench/corpus-articles/en.json`(26블록: 제목·리드·본문·인용·링크 문장·캡션·관련기사)
-- 첫 실행 실패: orchestrate.mjs가 `--corpus-dir`를 run.mjs로 넘기지 않아 기존 코퍼스로 측정됨 → 결과 폐기, FIX_GUIDE F1 작성 (Sonnet 수정 대기)
+- 첫 실행 실패: orchestrate.mjs가 `--corpus-dir`를 run.mjs로 넘기지 않아 기존 코퍼스로 측정됨 → 결과 폐기, FIX_GUIDE F1 작성 → 수정 완료(runMjsArgs corpusDir 전달, 테스트 233 통과, nllb-600m로 26블록 확인). 전체 en 재실행 중 (results-articles/)
 
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
