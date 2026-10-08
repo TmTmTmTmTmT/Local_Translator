@@ -232,3 +232,25 @@ mock 번역기로는 T2(링크 문장 어순·조사)·엔진 통합(marker 다�
 3. 네트워크·브리지 없는 npm test에는 넣지 않음(수동 도구). README-dev 성격 문서는 docs/TEST_LOOP.md 하네스 절에 사용법 3줄.
 ### 영향 범위: `tests/e2e/apple-bridge.mjs`, `tests/e2e/site-coverage.mjs`, `docs/TEST_LOOP.md`. 확장 코드 변경 없음, 재설치 없음.
 ### 검증: the-race 기사 1쪽·wiki로 실행, linkSamples 보고.
+
+## F14. 큰 배치가 Apple 번역 45초 제한을 넘겨 타임아웃 → 서킷브레이커 → 대부분 미번역 (B9, R6, Opus)
+### 원인 (Sonnet 조사: 로그·코드, 신뢰도 중상)
+- content·background·native MT 배치 한도 40블록/6000자(`content/main.js:8`, `engines/native.js:54`), MT 동시성 2(`native.js:55`).
+- Swift는 요청 전체를 `withDeadline(Limits.mtTimeout=45s)`로 감쌈(`SafariWebExtensionHandler.swift:58,68`, `Protocol.swift:205`), 블록은 순차 번역(`EngineMT.swift:255`). Apple 번역 블록당 1~2초 → 40블록은 40~80초 → 타임아웃, 이미 번역한 블록까지 버림. 타임아웃 3회/60초 → 브레이커 30초 열림(`Protocol.swift:165,187`) → engine_unavailable, 배지 "!". 짧은 배치(메뉴 라벨)만 성공. 취소가 프레임워크 호출을 멈추지 않아 버려진 작업이 엔진을 계속 점유.
+- 로그: 23:33~23:35 KST 사이 블록 125개 처리, 요청 완료 6건 후 호출 끊김.
+### 수정 방향
+**JS (Sonnet A)**
+1. `engines/native.js` apple-mt `batchLimit` → `{chars: 1500, blocks: 10}`, concurrency 1. apple-fm은 현행.
+2. 응답 `{ok:true, results, partial:true}` 허용: 받은 결과만 반환(누락 블록은 기존 "누락 = 원문 유지" 처리). 에러 아님.
+3. 테스트: 배치 분할(10블록), partial 응답 처리, 기존 테스트 유지.
+**Swift (Sonnet B)**
+1. 요청 기한을 블록 수 비례: `min(120, 15 + 3 × blocks)`초(MT). FM은 현행 90s 유지.
+2. 블록 사이 협조적 취소(`Task.checkCancellation()` 또는 기한 확인)로 기한 넘으면 더 진행하지 않고 **이미 번역한 결과를 `partial:true`로 반환**(전부 실패일 때만 timeout 에러).
+3. 서킷브레이커: 결과가 1개 이상인 partial/timeout은 실패로 세지 않음. 진행 0인 실패만 카운트.
+4. 진단 로그(`os_log`/Logger, subsystem `com.tmtmtmtmtmt.localtranslator`): 요청 시작(엔진·블록 수·언어), 소요 시간, 결과 코드·완료 블록 수. **번역 텍스트는 기록 금지**(개인정보).
+5. `xcodebuild`(Xcode-beta, `CODE_SIGNING_ALLOWED=NO` 컴파일 확인)만 — 설치는 메인이 지시.
+6. PROTOCOL §4 응답 `partial` 필드·기한 규칙 갱신(Sonnet A가 PROTOCOL 담당, B는 건드리지 않음).
+### 영향 범위
+A: `extension/engines/native.js`, `extension/PROTOCOL.md`, `tests/engines-native.test.mjs`. B: `xcode/Local Translator/Local Translator Extension/*.swift`. 파일 겹침 없음.
+### 검증
+npm test, xcodebuild 성공, 재설치 후 Safari 재시작 → the-race 홈 번역 진행(사용자) + `log show`로 요청별 소요 시간·완료 블록 수 확인(타임아웃 0, 브레이커 열림 0).
