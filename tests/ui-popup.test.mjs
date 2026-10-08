@@ -51,3 +51,7 @@ test('modeOf: initial mode from getMode response, default translated', () => {
   assert.equal(lib.modeOf(undefined), 'translated');
   assert.equal(lib.modeOf(null), 'translated');
 });
+
+test('needs_safari_restart message', () => {
+  assert.equal(lib.buildViewModel({ host: 'a.com', errorCode: 'needs_safari_restart' }, {}).errorMessage, '확장이 업데이트되었습니다. Safari를 완전히 종료(⌘Q)했다가 다시 여세요.');
+});

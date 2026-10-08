@@ -16,9 +16,9 @@
   // lib/lang.js는 주입하지 않는다(content/text.js가 동일 규칙의 판정을 내장). extra.js는 설정 translateAttrs=true일 때만 main.js 앞에 추가.
   const CONTENT_JS = ['lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
   const CONTENT_EXTRA_JS = 'content/extra.js';
-  const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown']);
+  const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown', 'needs_safari_restart']);
   // 사용자 조치가 필요한 에러만 배지 '!'.
-  const BADGE_CODES = new Set(['engine_unavailable', 'needs_language_pack']);
+  const BADGE_CODES = new Set(['engine_unavailable', 'needs_language_pack', 'needs_safari_restart']);
 
   const DEFAULT_SETTINGS = {
     sites: [],

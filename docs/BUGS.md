@@ -43,9 +43,9 @@
 - B5: "사이트 2줄: 잘못된 호스트", "제외 셀렉터 1줄: …", "용어집 1줄: …", "Localhost: …".
 - B6: popup 하네스(원문 상태로 열기) 라벨 "번역 보기" → 토글 "원문 보기" → "번역 보기", getMode 질의 확인.
 
-## B7 | open | T1/T12 | Safari 실기: Apple 번역 엔진 사용 불가(engine_unavailable)
+## B7 | open(F12) | T1/T12 | Safari 실기: Apple 번역 엔진 사용 불가(engine_unavailable)
 - 재현(S, 사용자 2026-10-08): Safari 재시작 후 the-race.com·news.ycombinator.com에서 팝업 "native:apple-mt · error", "번역 엔진을 사용할 수 없습니다". content 스크립트·팝업·원문 토글은 동작, 번역 안 됨.
-- 의심: (a) Safari 실행 중 install.sh 재설치(14:22, 14:29)로 확장 프로세스 불일치, (b) sendNativeMessage 호출 형태, (c) Swift 핸들러(샌드박스·Translation) 실패. 조사 중(Sonnet, 시스템 로그).
+- 의심: (a) Safari 실행 중 install.sh 재설치(14:22, 14:29)로 확장 프로세스 불일치, (b) sendNativeMessage 호출 형태, (c) Swift 핸들러(샌드박스·Translation) 실패. 원인(R4 확인): (a) Safari 실행 중 재설치 — 로그 `No such plugin (uuid not found)`, `Other version in use`(옛 플러그인 UUID 고정). 핸들러·권한·호출 형태 정상 → F12.
 - 심각도: 치명(실기 번역 불가).
 - 함께 받은 S 결과: T11 1회 재시작 후 확장 켜짐·오류 없음(T12 일부 통과), T6 옵션 값 유지(통과), T5 원문 토글 왕복(통과).
 - 운영 수정: 사용자 실기 확인 중에는 재설치 금지(재설치 후엔 반드시 Safari 재시작 안내).

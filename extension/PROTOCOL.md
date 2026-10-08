@@ -34,7 +34,7 @@
 | `clearCache` | options → background | `{}` | `{ok}` |
 
 - `Block` = `{id, lang, items:[{k:"t",i,text}|{k:"x",text}]}` (PLAN §4.3). `results[].slots`의 키는 슬롯 i 문자열. 누락 키 = 해당 슬롯 원문 유지.
-- 에러 `code`: `needs_language_pack`, `engine_unavailable`, `rate_limited`, `bad_response`, `unsupported_lang`, `timeout`, `unknown`.
+- 에러 `code`: `needs_language_pack`, `engine_unavailable`, `rate_limited`, `bad_response`, `unsupported_lang`, `timeout`, `unknown`, `needs_safari_restart`(재설치 후 Safari가 옛 플러그인을 붙잡음; native.js가 sendNativeMessage 거부 메시지의 `No such plugin`/`Other version in use`/`uuid not found`로 판정, 배지 `!`, Safari 완전 종료 후 재실행 필요).
 
 ## 3. 엔진 인터페이스 (`engines/*`)
 ```js
@@ -78,7 +78,7 @@
 
 ## 7. 구현 중 확정된 해석 (T4/T6 보고)
 - native `status` 응답: `engines: {"apple-mt": true|{available,reason}, ...}`, `languagePacks: {en: "installed"|"supported"|"unsupported"}` — `supported`(= 지원되나 미설치)면 `needs_language_pack`. native 에러 코드는 `error:{code:"needs_language_pack", lang:"ja"}` 형식 권장(접미형 `needs_language_pack:ja`도 허용).
-- `getState.status`: `ready|translating|error`. 배지 `!`: `engine_unavailable`, `needs_language_pack`.
+- `getState.status`: `ready|translating|error`. 배지 `!`: `engine_unavailable`, `needs_language_pack`, `needs_safari_restart`.
 - Apple FM 컨텍스트 4096토큰 → 배치 ≤1500자, 오버플로 시 새 세션으로 재시도.
 - native `status(lang)` JS 반환: `{available:false, reason:"needs_language_pack", lang}` (미설치), `{available:false, reason:"unsupported_lang"}`, 엔진 불가 시 `reason`은 Swift가 준 값(예: `appleIntelligenceNotEnabled`).
 

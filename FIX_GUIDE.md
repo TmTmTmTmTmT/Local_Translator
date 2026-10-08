@@ -210,3 +210,15 @@ NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2
 - 테스트: content-main(getMode가 상태 불변·토글 후 값 반영), ui-popup(초기 mode 반영 — 기존 테스트 구조에 맞게).
 ### 영향 범위: `extension/content/main.js`, `extension/popup/popup.js`(필요 시 popup-lib), `extension/PROTOCOL.md`, `tests/content-main.test.mjs`, `tests/ui-popup.test.mjs`. 비ASCII 리터럴 금지(content).
 ### 검증: npm test, Safari 실기 T5.
+
+## F12. Safari 실행 중 재설치 → 확장이 옛 플러그인을 붙잡아 번역 불가 (B7, R4, Opus)
+### 원인 (Sonnet 조사, 로그로 확인, 신뢰도 높음)
+14:29 UTC install.sh가 Safari 실행 중 appex를 교체·재등록 → Safari 로그 `sendNativeMessage(). No such plugin (uuid not found)`, `Other version in use … [u 7EEC860A…]`, "보조 응용 프로그램과 통신할 수 없습니다". native.js가 모든 거부를 `engine_unavailable`로 바꿔 팝업에 "번역 엔진을 사용할 수 없습니다"만 보임. Swift 핸들러·권한·호출 형태는 정상.
+### 수정 방향 (Sonnet)
+1. `scripts/install.sh`: Safari 실행 중이면 기본 **중단**(exit 3, "Safari를 완전히 종료(⌘Q)한 뒤 다시 실행하세요"). `--allow-safari-running` 지정 시에만 진행하고 끝에 "지금 Safari를 재시작해야 번역이 동작합니다" 강조 출력. `--dry-run`은 판정만 출력. 테스트 갱신(dry-run에 판정 표시, 옵션 파싱).
+2. `engines/native.js`: sendNativeMessage 거부 메시지에 `No such plugin`·`Other version in use`·`uuid not found` 또는 helper 통신 실패 문구가 있으면 code `needs_safari_restart`로 매핑(그 외 기존대로 engine_unavailable). 문자열 비교는 ASCII 부분만(한국어 로케일 문구는 `helper`/보조 앱 대신 앞 두 패턴 + 일반 실패는 기존 코드).
+3. background `KNOWN_CODES`·`BADGE_CODES`에 `needs_safari_restart` 추가, PROTOCOL §2 에러 코드 목록 갱신. popup-lib 문구: "확장이 업데이트되었습니다. Safari를 완전히 종료(⌘Q)했다가 다시 여세요."
+4. 테스트: native.js 매핑(3패턴 → needs_safari_restart, 기타 → engine_unavailable), popup 문구, background 배지.
+### 영향 범위: `scripts/install.sh`, `tests/install-script.test.mjs`, `extension/engines/native.js`, `extension/background.js`, `extension/popup/popup-lib.js`, `extension/PROTOCOL.md`, 관련 테스트. 비ASCII 리터럴 금지(background/engines).
+### 검증: npm test. 재설치는 --allow-safari-running으로 하고 사용자 Safari 재시작 후 실기 T1/T2.
+### 운영 규칙(루프): 사용자 실기 확인 중에는 재설치하지 않는다.

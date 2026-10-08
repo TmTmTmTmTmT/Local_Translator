@@ -212,3 +212,11 @@ test('DEFAULT_SETTINGS: translateAttrs=false, fixParticles=true; merge keeps sto
 test('DEFAULT_SETTINGS.linkMode is standalone', () => {
   eq(BG.DEFAULT_SETTINGS.linkMode, 'standalone');
 });
+
+test('translate: needs_safari_restart is kept and shows badge', async () => {
+  const engine = fakeEngine({ err: { code: 'needs_safari_restart', message: 'No such plugin' }, fail: new Set(['a']) });
+  const { bg, browser } = setup({ engine });
+  const r = await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('a', 'en', 'x')] }, sender);
+  eq([r.ok, r.code], [false, 'needs_safari_restart']);
+  eq(browser.calls.badge.at(-1), { text: '!', tabId: 7 });
+});

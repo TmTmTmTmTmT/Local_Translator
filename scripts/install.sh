@@ -1,7 +1,7 @@
 #!/bin/bash
 # Local Translator: 개인 팀(무료 Apple ID)으로 서명해 빌드하고 /Applications에 설치한다. (PLAN §12.2)
 # 앱과 확장 둘 다 팀 서명되면 Safari 재시작 후에도 "서명되지 않은 확장 허용" 없이 유지된다.
-#   scripts/install.sh [--update] [-y] [--no-open] [--dry-run]
+#   scripts/install.sh [--update] [-y] [--no-open] [--dry-run] [--allow-safari-running]
 # 사전: Xcode(베타 가능) › Settings › Accounts 에 Apple ID 추가. sudo·Safari 설정 변경 없음.
 set -euo pipefail
 
@@ -14,20 +14,43 @@ EXT_ID="com.tmtmtmtmtmt.localtranslator.Extension"
 BUILD_DIR="$ROOT/.local/build"
 LSREGISTER="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 
-DRY=0; ASSUME_YES=0; OPEN_APP=1
+DRY=0; ASSUME_YES=0; OPEN_APP=1; ALLOW_SAFARI=0
 for a in "$@"; do
   case "$a" in
     --dry-run) DRY=1 ;;
     -y) ASSUME_YES=1 ;;
     --no-open) OPEN_APP=0 ;;
+    --allow-safari-running) ALLOW_SAFARI=1 ;;
     --update) ;;  # 재설치와 동일 동작 (호환용)
-    -h|--help) sed -n 2,6p "${BASH_SOURCE[0]}"; exit 0 ;;
+    -h|--help) sed -n 2,7p "${BASH_SOURCE[0]}"; exit 0 ;;
     *) echo "알 수 없는 옵션: $a" >&2; exit 64 ;;
   esac
 done
 
 say() { printf '%s\n' "$*"; }
 run() { if [ "$DRY" = 1 ]; then say "[dry-run] $*"; else "$@"; fi; }
+
+# --- Safari 실행 중 재설치 금지: 실행 중이면 옛 플러그인을 붙잡아 번역이 안 된다 (B7)
+# KT_INSTALL_SAFARI_RUNNING=0/1 은 테스트용 덮어쓰기 (설정된 경우에만 사용)
+safari_running() {
+  if [ -n "${KT_INSTALL_SAFARI_RUNNING:-}" ]; then [ "$KT_INSTALL_SAFARI_RUNNING" = 1 ]; return; fi
+  pgrep -x Safari >/dev/null 2>&1
+}
+SAFARI_WAS_RUNNING=0
+if safari_running; then
+  SAFARI_WAS_RUNNING=1
+  if [ "$ALLOW_SAFARI" = 1 ]; then
+    say "Safari 실행 중: --allow-safari-running 지정됨, 계속 진행합니다 (끝나면 Safari 재시작 필요)"
+  elif [ "$DRY" = 1 ]; then
+    say "[dry-run] Safari 실행 중: 실제 실행이면 중단됩니다 (exit 3). --allow-safari-running 으로 진행 가능"
+  else
+    say "Safari가 실행 중입니다. Safari를 완전히 종료(⌘Q)한 뒤 다시 실행하세요." >&2
+    say "(강제로 진행하려면 --allow-safari-running, 이후 Safari 재시작 필요)" >&2
+    exit 3
+  fi
+else
+  say "Safari 실행 중 아님: 계속 진행합니다"
+fi
 
 # --- Xcode (베타 우선, xcode-select에 의존하지 않음)
 if [ -z "${DEVELOPER_DIR:-}" ]; then
@@ -147,6 +170,8 @@ run "$LSREGISTER" -u "$BUILT" 2>/dev/null || true
 run "$LSREGISTER" -f "$DEST"
 say "설치 위치: $DEST"
 if [ "$OPEN_APP" = 1 ]; then run open "$DEST"; fi
-if pgrep -x Safari >/dev/null 2>&1; then say "※ Safari가 실행 중입니다. 확장이 목록에 보이도록 Safari를 완전히 종료(⌘Q)했다가 다시 여세요."; fi
+if [ "$SAFARI_WAS_RUNNING" = 1 ]; then
+  say "!! 지금 Safari를 재시작해야 번역이 동작합니다 (⌘Q로 완전히 종료 후 다시 열기). 재시작 전에는 옛 플러그인을 붙잡아 번역이 실패합니다."
+fi
 say "다음: Safari › 설정 › 확장 프로그램에서 Local Translator를 켜고 웹사이트 접근을 허용하세요."
 say "(약 7일 뒤 확장이 사라지면 scripts/install.sh 를 다시 실행)"
