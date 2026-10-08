@@ -10,10 +10,14 @@
 - 심각도: 높음(주 사용 사이트에서 사실상 번역 안 됨). 요구사항 해석 필요 → Opus.
 - R1 확인(H, site-coverage): the-race 홈 남은 영어 135→0(never 대비), 목록 2쪽 5(아이콘 라벨 "lock-1", 무시). Safari 실기 확인 대기.
 
-## B2 | open | T1 | NHK(일본어) 화면 텍스트 50개 미번역
+## B2 | open(F7, 측정 오류) | T1 | NHK(일본어) 화면 텍스트 50개 미번역
 - 재현: `node tests/e2e/site-coverage.mjs tests/e2e/sites/nhk.html --json` → remaining 50, 전부 "other"(링크·코드·버튼 아님). 예: 地域を選択, 都道府県を選ぶとその地域のニュースページへ移動します。, 北海道, 青森県…
-- 원인: 조사 중(Sonnet). 가설: 한자만 있는 짧은 블록의 언어 판정(ja vs zh/null), 또는 select/option 등 의도된 제외.
+- 원인(R2 확인): select/option 48 + SVG title/desc 2 = 확장의 의도된 제외. 도구 분류 누락 → F7.
 - 심각도: 중(일본어 사이트 메뉴·지역 선택).
 
 ## 관찰 (버그 아님, D15 범위)
 - HN: 제목은 번역, 부가 줄의 링크("55 minutes ago", "hide", "2 comments")는 문장 속 링크 규칙으로 원문 유지. Wikipedia 본문 인라인 링크 1101개 원문 유지(의도). MDN code 134·translate=no 18 원문 유지(의도).
+
+## B3 | open(F8) | T1 | 일본어 페이지의 한자-only 블록을 zh로 판정
+- 재현: detectLang("北海道")="zh", "青森県"="zh", "東海"="zh" (text.js 가나 없음+한자≥0.5 규칙). F5로 링크 헤드라인·메뉴가 번역 대상이 되면서 일본어 사이트 메뉴·지명에 zh→ko 요청 발생 가능.
+- 심각도: 중(오역 위험, 번역 자체는 됨).
