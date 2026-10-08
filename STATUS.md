@@ -151,6 +151,12 @@
 - 사용자 작업 대기: D4 powermetrics 2개 측정(bench/powermetrics.md), D6/D10 Apple ID 추가 + Team ID 전달.
 - Opus 계획 필요: D11 lowLatency (컨테이너 앱에 lowLatency 언어 모델 준비 화면 필요).
 
+## T14–T16 서명·설치 (2026-10-08, PLAN §12)
+- **T14**: 배포 대상 26.0. 베타 SDK(27.2)로 빌드해 보니 26.4 전용 API는 `attr` variant(`TranslationAttributes`, `translate(AttributedString)`)뿐 → `#available(macOS 26.4)` 분기, 그 아래는 marker 폴백. 나머지 Translation/FoundationModels API는 26.0에서 가용(`init(installedSource:target:)` 26.0). 빌드 성공.
+- **T15**: `scripts/install.sh`(--dry-run/-y/--no-open). 팀 ID 자동 탐지(이 머신: Apple Development 인증서 OU로 K3YUPJD653 탐지) → Release 팀 서명 빌드 → 앱·appex `TeamIdentifier` 검증 → 옛 사본(mdfind + pluginkit 등록 경로, /tmp 포함)을 휴지통으로 → `/Applications` 설치. 실제 실행 2회 성공(`codesign`: 앱·appex 모두 TeamIdentifier 있음, pluginkit 등록은 /Applications 한 곳). 테스트 3개 추가(252 통과).
+- **T16**: 컨테이너 앱 서명 상태 표시(팀 서명/ad-hoc/미확인), README 설치 절 교체(사용자용), xcode/README 갱신.
+- **사용자 확인 대기(Safari 실기)**: Safari › 확장 프로그램에서 Local Translator 켜기 → Safari 종료·재시작 2회 후 확장이 유지되는지(“서명되지 않은 확장 허용”은 끈 상태로). 유지 안 되면 Opus 보고.
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
