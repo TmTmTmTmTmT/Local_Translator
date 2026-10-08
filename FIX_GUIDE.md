@@ -178,3 +178,16 @@ NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2
 - 테스트: `<html lang="ja">` + "北海道" → ja, `<html lang="zh-CN">` → zh, lang 없음 + 가나 블록 다수 → ja, 조상 `lang="zh"` 우선, 기존 detectLang 테스트 불변.
 ### 영향 범위: `extension/content/segmenter.js`(필요 시 `main.js`에서 힌트 전달), 테스트. F7과 파일 겹치지 않음.
 ### 검증: npm test, nhk.html 커버리지에서 calls·blocks 변화 없이 블록 lang 분포 확인(도구가 블록 lang 집계를 내면 좋음 — F7에 `langs` 카운트 추가).
+
+## F9. PDF 링크 구간이 단어 중간에서 잘림 (B4, R3, Opus)
+
+### 원인 (Sonnet 조사로 확인)
+1. 픽스처 `tests/e2e/sample.pdf`의 Link rect가 문단 시작(x=72)부터 58pt로 잘못 작성됨("online guide" 위치 아님).
+2. 그러나 코드도 취약: `viewer/pdfseg.js` `splitByLink`는 글자 위치를 `(x - item.x) / item.w * len` 비례로 근사 → 가변폭 글꼴인 실제 PDF에서 1~2글자 어긋나 단어가 반으로 잘릴 수 있음. 기존 테스트는 고정폭·글자 경계 정렬 rect만 다룸.
+
+### 수정 방향 (Sonnet)
+1. `splitByLink`: 비례 계산한 `i0`/`i1`을 **단어 경계로 스냅** — `i0`은 왼쪽 공백 다음까지(현재 위치가 단어 중간일 때만), `i1`은 오른쪽 공백 직전까지 이동. 이동 폭이 단어 길이 절반을 넘거나 6글자를 넘으면 스냅하지 않고 가까운 경계(앞/뒤 중 짧은 쪽)로. CJK(공백 없는 문자)는 스냅하지 않음(현행). 결과 구간이 비면 링크를 해당 item 전체가 아닌 "겹침 비율이 가장 큰 단어"로.
+2. 픽스처 재생성: sample.pdf의 Link rect를 "online guide" 실제 글리프 범위로(Helvetica 11pt 폭 기준 x≈111..169.5). 생성 스크립트가 있으면 그걸 고치고, 없으면 `tests/e2e/make-sample-pdf.mjs`로 재현 가능하게 추가(외부 의존 없이).
+3. 테스트: (a) rect 끝이 단어 중간인 경우 스냅되어 단어 전체가 x, (b) 시작이 단어 중간, (c) CJK 무스냅, (d) 실제 pdf.js로 sample.pdf를 파싱해 segmentPage 결과에서 x 항목 = "online guide"(tests/pdf-parse.test.mjs에 링크 포함 케이스).
+### 영향 범위: `extension/viewer/pdfseg.js`, `tests/e2e/sample.pdf`(+생성 스크립트), `tests/pdf-seg.test.mjs`, `tests/pdf-parse.test.mjs`. viewer는 HTML이 utf-8 선언이라 비ASCII 가드 대상 아님(그래도 리터럴 비ASCII는 피함).
+### 검증: npm test, 내장 브라우저 pdf-harness에서 "번역(See the) online guide 번역(for details …)" 형태.

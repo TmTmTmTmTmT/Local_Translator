@@ -23,8 +23,8 @@
 - 심각도: 중(오역 위험, 번역 자체는 됨).
 - R2 확인(H): NHK 블록 lang zh 67→10, ja 121→178, 요청 수 99→24(배치 병합 개선). F7 후 NHK remaining 0(formControl 48, graphic 2).
 
-## B4 | open | T8 | PDF 링크 고정 구간이 단어 중간에서 잘림
+## B4 | open(F9) | T8 | PDF 링크 고정 구간이 단어 중간에서 잘림
 - 재현: 내장 브라우저 `tests/e2e/pdf-harness.html?src=…/tests/e2e/sample.pdf`(mock 번역기).
 - 기대: "See the " 번역 + 링크 텍스트 원문 + 나머지 번역. 실제: "See the onli번역(ne guide for details …)" — 원문 유지 구간이 문단 처음부터 12글자, 단어 중간에서 끊김. 실제 엔진이면 링크 문장이 깨짐.
-- 증거: 하네스 innerText(R2). 원인 조사 중(Sonnet).
+- 원인(R3 확인): 픽스처 rect 오류 + 비례 글자 위치 근사(가변폭에서 단어 절단 가능) → F9.
 - 심각도: 높음(링크가 있는 PDF 문단 전부).
