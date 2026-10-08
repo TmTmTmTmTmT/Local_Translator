@@ -80,3 +80,29 @@
 ### 검증
 - 앱 실행 중 install.sh 실행 → 새 프로세스로 뜨고 서명 상태 줄 보임.
 - Safari 재시작 후 "Safari 확장 설정 열기" 정상 동작.
+
+## F4. Safari에서 background/content 스크립트가 UTF-8로 해석되지 않음 (2026-10-08, Opus) — **긴급**
+
+### 증상
+Safari 확장 오류: `SyntaxError: Invalid regular expression: range out of order in character class (lib/glossary.js:6)`, `(engines/localhost.js:26)`. 두 줄 모두 정규식 문자 클래스에 한글/CJK 문자를 **그대로** 씀(`/[ᄀ-ᇿ…가-힯…]/`, `/[　-鿿가-힯]/`).
+
+### 원인
+`manifest.background.scripts`와 `scripting.registerContentScripts`로 넣는 스크립트는 문서 `<meta charset>`이 없어 Safari가 UTF-8이 아닌 기본 인코딩(Latin-1/Windows-1252 추정)으로 디코딩 → 멀티바이트 문자가 여러 글자로 깨져 범위 순서 오류. Node 테스트·HTML 하네스는 UTF-8이라 못 잡음.
+**더 위험한 부분**: 문법 오류가 안 나는 비ASCII 리터럴도 조용히 깨짐 — `engines/prompt.js`·`mtmode.js` 한국어 지시문(LLM에 깨진 글자 전송), `lib/josa.js` 조사 표, `content/text.js`·`lib/lang.js` 언어 판별 정규식(잘못된 범위면 언어 오판→번역 안 됨), 용어집 힌트 등. popup/options/viewer는 HTML에 `meta charset=utf-8`이 있어 해당 없음(그 페이지의 스크립트는 문서 인코딩 상속).
+
+### 수정 방향 (Sonnet) — 두 겹으로 막는다
+1. **비ASCII를 코드에서 제거(확실한 해결)**: background·content 경로로 로드되는 모든 JS(`background.js`, `lib/*.js`, `engines/*.js`, `content/*.js`)의 **문자열·정규식·템플릿 리터럴** 안 비ASCII 문자를 `\uXXXX`(BMP 밖이면 `\u{…}`, 정규식은 `u` 플래그 확인)로 바꾼다. 주석의 한글은 그대로 둬도 됨(깨져도 실행 영향 없음). 수작업 대신 스크립트 `scripts/escape-nonascii.mjs`(주석/리터럴 구분: 간단한 토크나이저 또는 `acorn` 미사용 시 정규식 기반이 위험하므로 — 리터럴 위치는 Node 내장 파서가 없으니 **각 파일을 수정 후 테스트로 검증**하는 방식 허용). 사람이 읽을 원문은 리터럴 옆 주석으로 1줄 남김(긴 프롬프트는 주석 블록으로 원문 유지).
+   - prompt.js 한국어 지시문은 Swift 쪽과 "문구 동일" 규칙(GUIDELINES) — 의미 동일 유지, 표현만 escape.
+2. **회귀 방지 테스트**: `tests/ascii-only.test.mjs` — 위 경로 JS에서 주석을 제거한 코드에 비ASCII가 있으면 실패(간단한 주석 제거기: `//`·`/* */` 처리, 문자열 안 `//`는 escape 후엔 ASCII라 오탐 낮음). vendor/·popup/·options/·viewer/는 제외(HTML 인코딩 보장).
+3. 동작 검증 테스트: 기존 테스트 전부 통과(escape 전후 의미 동일) + `KT.text.detectLang`·josa·glossary CJK 정규식 단위 테스트가 그대로 통과하는지.
+4. 재설치: `scripts/install.sh` (F3 반영 후) → 사용자에게 Safari 오류 창 사라졌는지 확인 요청.
+- BOM 추가는 대안이지만 Safari의 확장 스크립트 BOM 처리 미검증 → 채택 안 함.
+
+### 영향 범위
+확장 JS(문자열 표현만, 의미 불변), 신규 테스트·스크립트. Swift·HTML 변경 없음.
+
+### 검증
+`npm test` 통과, ascii-only 테스트 통과, Safari 확장 오류 목록 비어 있음(사용자), 지정 사이트에서 번역 동작(사용자).
+
+### 순서
+F4 먼저(번역 자체가 막힘) → F3 → 재설치.
