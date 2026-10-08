@@ -61,3 +61,22 @@
 ### 후속 판단 기준 (Opus, 데이터 받은 뒤)
 - TG-MT 폴백 ≥2/6 또는 사용자 평가에서 링크 문장 평균이 Apple보다 1점 이상 낮음 → 별도 계획: TG 링크 처리 개선(표식 스타일 `[n]` 재시도 등) 또는 "링크 포함 블록은 Apple로 처리" 하이브리드 검토.
 - 그렇지 않으면 현행 유지, 종결.
+
+## F3. "Safari 확장 설정 열기" 실패 (SFErrorDomain error 1) + 옛 앱 프로세스 (2026-10-08, Opus)
+
+### 오류 원인
+- `SFErrorDomain` code 1 = `SFErrorNoExtensionFound`: Safari가 그 확장 ID를 아직 모름. install.sh가 Safari 실행 중에 번들을 두 번 교체·재등록했고, 실행 중이던 Safari가 새 등록을 반영하지 못한 상태로 추정.
+- 화면에 서명 상태 줄(T16)이 없음 → 떠 있는 앱은 재설치 **전**에 실행된 프로세스(13:52 실행, 13:53 재등록). install.sh가 실행 중인 앱을 끄지 않고 번들을 교체했고, `open`은 이미 떠 있는 옛 프로세스를 앞으로 가져오기만 함.
+
+### 수정 방향 (Sonnet)
+1. install.sh: 설치(휴지통 이동·ditto) 전에 실행 중인 앱 종료 — `osascript -e 'tell application id "com.tmtmtmtmtmt.localtranslator" to quit'` 후 최대 5초 대기, 남아 있으면 `pkill -x "Local Translator"`(해당 번들 경로 프로세스만). `--dry-run`이면 출력만.
+2. install.sh 끝 안내: Safari가 실행 중이면(`pgrep -x Safari`) "Safari를 완전히 종료(⌘Q) 후 다시 열어야 확장이 보입니다" 출력. Safari를 스크립트가 끄지는 않음.
+3. ContentView: `showPreferencesForExtension` 오류가 `SFErrorDomain` code 1이면 "Safari가 아직 확장을 인식하지 못했습니다. Safari를 완전히 종료(⌘Q)했다가 다시 연 뒤 시도하세요."로 표시(그 외 오류는 기존 문구).
+4. install.sh 테스트: dry-run 출력에 앱 종료 단계 포함 확인.
+
+### 영향 범위
+`scripts/install.sh`, `tests/install-script.test.mjs`, `xcode/.../ContentView.swift`. 확장 JS 변경 없음.
+
+### 검증
+- 앱 실행 중 install.sh 실행 → 새 프로세스로 뜨고 서명 상태 줄 보임.
+- Safari 재시작 후 "Safari 확장 설정 열기" 정상 동작.
