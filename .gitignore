@@ -12,3 +12,5 @@ build/
 *.bin
 bench/models/
 bench/results/*.log
+bench/results-articles/*.log
+bench/results-articles/.tmp/

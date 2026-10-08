@@ -1,0 +1,355 @@
+{
+ "lang": "en",
+ "context": {
+  "title": "Verhoeven wins Portimar thriller",
+  "host": "motorsport-news.example"
+ },
+ "blocks": [
+  {
+   "id": "art-head-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Verhoeven holds off late charge to take maiden Grand Prix victory in Portimar thriller"
+    }
+   ]
+  },
+  {
+   "id": "art-head-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Why Halcyon's strategy gamble handed its rivals the perfect opening"
+    }
+   ]
+  },
+  {
+   "id": "art-lede-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Tomas Verhoeven kept his nerve through a frantic final ten laps to win a race that looked to be slipping away from him twice, ending a 41-race wait for a first victory in the sport's top category."
+    }
+   ]
+  },
+  {
+   "id": "art-lede-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The 24-year-old started second on the grid but passed pole-sitter Ines Calderón into Turn 1, then spent the afternoon managing a tyre problem that threatened to undo all of his early work."
+    }
+   ]
+  },
+  {
+   "id": "art-body-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Calderón had looked the faster of the two in qualifying, but the gap vanished on Sunday once track temperatures climbed past 40 degrees and the soft tyres began to fall off a cliff after only 14 laps."
+    }
+   ]
+  },
+  {
+   "id": "art-body-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "\"I honestly thought we'd lost it when the rear started to go,\" Verhoeven said afterwards. \"Every lap felt like a mistake waiting to happen, so I just tried to keep the car off the kerbs and hope.\""
+    }
+   ]
+  },
+  {
+   "id": "art-body-03",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Halcyon chose to pit Calderón on lap 17 to cover off the undercut, but the move backfired when she emerged in heavy traffic and lost almost six seconds stuck in the dirty air behind a pair of backmarkers."
+    }
+   ]
+  },
+  {
+   "id": "art-link-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Team principal "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "Marco Delacroix"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": "admitted the call was \"probably one lap too early\" and said the squad would review its simulation tools before the next round."
+    }
+   ]
+  },
+  {
+   "id": "art-link-02",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The result moves "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "Verhoeven"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": "to within 12 points of the championship lead, with seven rounds still to run."
+    }
+   ]
+  },
+  {
+   "id": "art-link-03",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Our full "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "race report and driver ratings"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": "are available now, and you can watch the on-board footage from the closing laps below."
+    }
+   ]
+  },
+  {
+   "id": "art-body-04",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "A mid-race safety car, triggered when Dmitri Okafor stopped on the main straight with a hydraulic failure, bunched the field and gave everyone a free change of tyres, which only made the closing stages more unpredictable."
+    }
+   ]
+  },
+  {
+   "id": "art-body-05",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Behind the leaders, the fight for the final podium place was arguably even better, with Priya Nandakumar and Lucas Brandt trading places three times in a single lap before contact at the final chicane sent Brandt into the barriers."
+    }
+   ]
+  },
+  {
+   "id": "art-body-06",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Stewards reviewed the incident but decided no further action was necessary, a ruling that drew a sharp response from the Brandt camp, who described it as \"inconsistent with what we've seen all year\"."
+    }
+   ]
+  },
+  {
+   "id": "art-body-07",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "With power unit upgrades expected to arrive in time for the summer break, several teams privately believe the pecking order could be turned on its head, although none of them are willing to say so on the record."
+    }
+   ]
+  },
+  {
+   "id": "art-analysis-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "For Halcyon, the afternoon was a reminder that a quick car is only half the battle: with the title fight this tight, one clumsy call on the pit wall can cost as much as a mistake behind the wheel."
+    }
+   ]
+  },
+  {
+   "id": "art-analysis-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "The numbers back that up. Halcyon's average pit stop of 2.4 seconds was the slowest of the top four teams, and the 0.8 seconds it dropped in the pit lane was ultimately the margin between a win and a close second."
+    }
+   ]
+  },
+  {
+   "id": "art-analysis-03",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "None of this is to take anything away from Verhoeven, who has quietly improved race after race since a difficult start to the season, and who held his composure when most drivers in his position would have cracked."
+    }
+   ]
+  },
+  {
+   "id": "art-quote-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "\"We came here hoping for a points finish,\" said Verhoeven's engineer, Hannah Ostrowski. \"To stand on top of the podium, with all of those people in the garage crying, is something none of us will forget in a hurry.\""
+    }
+   ]
+  },
+  {
+   "id": "art-quote-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Calderón, who finished second, was gracious in defeat but did not hide her frustration. \"It's easy to say it was the wrong stop now,\" she said. \"At the time, the information on the radio said otherwise.\""
+    }
+   ]
+  },
+  {
+   "id": "art-sub-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "What the stewards said about the final chicane"
+    }
+   ]
+  },
+  {
+   "id": "art-sub-02",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Who will be on the grid for the next round?"
+    }
+   ]
+  },
+  {
+   "id": "art-cap-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Verhoeven celebrates in parc ferme after taking his first win. Photo: Elena Marchetti"
+    }
+   ]
+  },
+  {
+   "id": "art-nav-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Related: "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "Why this season's title fight could go down to the final lap"
+    }
+   ]
+  },
+  {
+   "id": "art-nav-02",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Read more: "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "The 10 drivers who defined the first half of the season"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": ", "
+    },
+    {
+     "k": "t",
+     "i": 3,
+     "text": "Halcyon's upgrade package explained"
+    }
+   ]
+  },
+  {
+   "id": "art-meta-01",
+   "genre": "news",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Published 14 September 2026 · 6 min read · 128 comments"
+    }
+   ]
+  },
+  {
+   "id": "art-cta-01",
+   "genre": "link",
+   "items": [
+    {
+     "k": "t",
+     "i": 0,
+     "text": "Enjoyed this article? "
+    },
+    {
+     "k": "t",
+     "i": 1,
+     "text": "Subscribe to our newsletter"
+    },
+    {
+     "k": "t",
+     "i": 2,
+     "text": "to get the biggest stories delivered to your inbox every morning."
+    }
+   ]
+  }
+ ]
+}
