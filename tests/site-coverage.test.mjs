@@ -15,7 +15,11 @@ test('site-coverage measures the offline fixture', async () => {
   assert.ok(r.translatedNodes >= 5, 'translated ' + r.translatedNodes);
   assert.equal(r.byCategory.translateNo, 2);
   assert.equal(r.byCategory.inCode, 2);
-  assert.equal(r.remaining, Object.values(r.byCategory).reduce((a, b) => a + b, 0));
+  assert.equal(r.byCategory.formControl, 2);
+  assert.equal(r.byCategory.graphic, 2);
+  const { formControl, graphic, ...rest } = r.byCategory;
+  assert.equal(r.remaining, Object.values(rest).reduce((a, b) => a + b, 0));
+  assert.ok(r.langs.en >= 1, JSON.stringify(r.langs));
   assert.equal(r.byCategory.other, 0, JSON.stringify(r.samples.other));
   assert.ok(!JSON.stringify(r.samples).includes('Hidden paragraph never'));
   assert.equal(MARK, '\u{D55C}(');

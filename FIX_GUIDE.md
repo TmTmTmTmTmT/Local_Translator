@@ -155,3 +155,26 @@ F4 먼저(번역 자체가 막힘) → F3 → 재설치.
 
 ### 검증
 픽스처 테스트 통과, 실제 사이트 1개에서 JSON 출력 확인.
+
+## F7. 커버리지 도구가 의도된 제외(폼 컨트롤·SVG)를 미번역으로 셈 (B2, R2, Opus)
+
+### 원인 (Sonnet 조사로 확인)
+NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2개. 확장은 `filter.js` SKIP_TAGS로 의도적으로 건너뜀. `tests/e2e/site-coverage.mjs`의 숨김/분류 판정이 확장보다 좁아 "other"로 집계.
+
+### 수정 방향 (Sonnet)
+- site-coverage: `select/optgroup/option/datalist/textarea/input` 조상 → `formControl` 분류, `svg/math` 조상 → `graphic` 분류(둘 다 remaining에서는 제외하고 별도 카운트로 보고). `other`는 진짜 미번역만 남게.
+- 픽스처 `cards.html`에 select/option, svg title 추가 + 테스트 갱신.
+### 영향 범위: `tests/e2e/site-coverage.mjs`, `tests/e2e/fixtures/cards.html`, `tests/site-coverage.test.mjs`.
+### 검증: nhk.html → other 0, formControl 48, graphic 2.
+
+## F8. 한자만 있는 짧은 블록을 일본어 페이지에서 zh로 판정 (B3, R2, Opus)
+
+### 원인 (확인)
+`content/text.js` detectLang: 가나가 없고 한자 비율 ≥0.5면 `zh`. 일본어 페이지의 지명·제목·메뉴(北海道, 東京都, 東海…)가 `zh`로 분류 → 엔진에 zh→ko로 요청(일본식 한자 표현 오역 위험). 현재 select 안이라 영향 없었지만 헤드라인·카드·메뉴 링크(F5로 이제 번역됨)에서 나타남.
+
+### 수정 방향 (Sonnet)
+- 페이지 언어 힌트: `document.documentElement.lang`(BCP-47 앞부분)이 `ja`면 "가나 없음 + 한자 위주" 블록을 `ja`로, `zh*`면 `zh` 유지. lang 속성이 없거나 다른 값이면, 같은 수집 회차에서 가나가 있는 블록 수가 한자-only 블록보다 많으면 `ja`로(문서 다수결). 가까운 조상 요소의 `lang` 속성이 있으면 그것을 최우선.
+- 구현 위치: `segmenter.js` flush의 언어 결정(텍스트 판정이 `zh`이고 가나 0일 때만 힌트 적용). `text.js` detectLang 시그니처는 유지하고 힌트 적용은 segmenter에서. 비ASCII 리터럴 금지.
+- 테스트: `<html lang="ja">` + "北海道" → ja, `<html lang="zh-CN">` → zh, lang 없음 + 가나 블록 다수 → ja, 조상 `lang="zh"` 우선, 기존 detectLang 테스트 불변.
+### 영향 범위: `extension/content/segmenter.js`(필요 시 `main.js`에서 힌트 전달), 테스트. F7과 파일 겹치지 않음.
+### 검증: npm test, nhk.html 커버리지에서 calls·blocks 변화 없이 블록 lang 분포 확인(도구가 블록 lang 집계를 내면 좋음 — F7에 `langs` 카운트 추가).
