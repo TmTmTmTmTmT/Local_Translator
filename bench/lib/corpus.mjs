@@ -6,12 +6,15 @@ export function validateCorpus(c) {
   for (const b of c.blocks) {
     if (!b.id || !Array.isArray(b.items)) throw new Error(`corpus: bad block ${b && b.id}`);
     let n = 0;
+    let xs = 0;
     for (const it of b.items) {
       if (it.k === 't') {
         if (it.i !== n) throw new Error(`corpus: ${b.id} slot index ${it.i} != ${n}`);
         n++;
-      } else if (it.k !== 'x') throw new Error(`corpus: ${b.id} bad item kind ${it.k}`);
+      } else if (it.k === 'x') xs++;
+      else throw new Error(`corpus: ${b.id} bad item kind ${it.k}`);
     }
+    if (b.genre === 'link' && xs === 0) throw new Error(`corpus: ${b.id} has genre link but no x item`);
   }
   return c;
 }

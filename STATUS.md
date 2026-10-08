@@ -139,6 +139,11 @@
 - **T13 벤치 프로브**(`bench/glossary-probe/`, 용어 5개·적용 블록 4개): apple-mt-marker 5/5 용어 반영·문장 정상, gemma4-e2b-mt 5/5, mlx-translategemma-mt 4/5(kerbs를 "트랙을 벗어나지"로 의역해 누락). 한국어 훼손·음차 없음 → 중단 조건 미해당.
 - **T12 완료(코드)**: 옵션 화면 TranslateGemma 프리셋 버튼 + 메모리 안내, README "고품질 번역(선택)"·"용어집" 절(사용자용).
 
+## F2 링크 6블록 재측정 (2026-10-08)
+- 코퍼스 정정(x 7개) + `validateCorpus` 링크 규칙(테스트 249 통과). 재측정: `bench/link-recheck/` (apple-mt-marker, mlx-translategemma-mt, ollama-translategemma-mt, 6블록).
+- 자동 지표: 3엔진 모두 6블록 슬롯 존재·x 원문 유지(TG는 xPreserved=true)·잘림/이중공백/가장자리공백 없음. 폴백 블록 수는 결과 파일에 기록 안 돼 집계 불가(mtmode stats 미저장 — 필요하면 Opus 판단).
+- 육안 비교(수치 아님): Apple은 링크 뒤 조사·어순 자연(Verhoeven을, Marco Delacroix는). TG는 조사 누락/어색(mlx link-03 "race report and driver ratings 지금", link-01 인용부호 위치 이상; ollama link-01 "Marco Delacroix 그들은", link-03 "영상" 추가). → 링크 문장은 Apple 우위. 사용자 평가 페이지 `bench/rate/rate-links-en.html`(6블록×3엔진) 준비, 결과 저장 시 `bench/link-recheck/ratings-en.json`.
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

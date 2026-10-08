@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeBatches } from './batcher.mjs';
-import { validateCorpus, sliceCorpus, blockChars } from './corpus.mjs';
+import { validateCorpus, loadCorpus, sliceCorpus, blockChars } from './corpus.mjs';
 
 const blk = (id, n) => ({ id, items: [{ k: 't', i: 0, text: 'x'.repeat(n) }] });
 
@@ -27,4 +27,19 @@ test('validateCorpus checks slot index continuity; sliceCorpus wraps', () => {
   const c = validateCorpus({ blocks: ['a', 'b', 'c'].map((id) => blk(id, 1)) });
   assert.deepEqual(sliceCorpus(c, 2, 2).blocks.map((b) => b.id), ['c', 'a']);
   assert.equal(blockChars(blk('z', 5)), 5);
+});
+
+test('validateCorpus: link genre needs an x item; shipped corpora pass', async () => {
+  const t = [{ k: 't', i: 0, text: 'a' }];
+  assert.throws(() => validateCorpus({ blocks: [{ id: 'l', genre: 'link', items: t }] }), /no x item/);
+  validateCorpus({ blocks: [{ id: 'l', genre: 'link', items: [...t, { k: 'x', text: 'u' }] }] });
+  const { readdirSync } = await import('node:fs');
+  const { fileURLToPath } = await import('node:url');
+  const { join } = await import('node:path');
+  const bench = join(fileURLToPath(import.meta.url), '../..');
+  for (const dir of ['corpus', 'corpus-articles']) {
+    for (const f of readdirSync(join(bench, dir)).filter((n) => n.endsWith('.json'))) {
+      assert.doesNotThrow(() => loadCorpus(join(bench, dir, f)), `${dir}/${f}`);
+    }
+  }
 });
