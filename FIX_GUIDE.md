@@ -199,3 +199,14 @@ NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2
 오류 출처별 접두: "사이트 N줄:", "제외 셀렉터 N줄:", "용어집 N줄:", localhost 오류는 "Localhost:". `buildSites`가 사이트/제외를 구분해 주지 않으면 options-lib에 출처 필드(`field: 'sites'|'excludes'`)를 추가. 테스트(ui-options)에 출처 구분 케이스.
 ### 영향 범위: `extension/options/options.js`, `options-lib.js`, `tests/ui-options.test.mjs`. (F9와 파일 겹치지 않음)
 ### 검증: npm test, options 하네스(.local/options-h.html)에서 메시지 확인.
+
+## F11. 팝업을 다시 열면 원문/번역 버튼 라벨이 실제 상태와 다름 (B6, R3, Opus)
+### 원인 (코드 확인)
+`popup/popup.js`는 `mode='translated'`로 시작하고 토글 응답으로만 갱신. 페이지가 원문 보기 상태에서 팝업을 닫았다 다시 열면 "원문 보기"로 표시 → 누르면 번역으로 돌아가 라벨과 동작이 반대. content `main.js` 리스너는 `toggleOriginal`만 처리.
+### 수정 방향 (Sonnet)
+- content `main.js` handleMessage: `{type:'getMode'}` → 상태 변경 없이 `{mode:'translated'|'original'}`.
+- popup init: 탭에 `getMode` 질의(실패하면 기본 'translated') 후 렌더. 토글 처리 그대로.
+- PROTOCOL §2 메시지 표에 `getMode` 추가.
+- 테스트: content-main(getMode가 상태 불변·토글 후 값 반영), ui-popup(초기 mode 반영 — 기존 테스트 구조에 맞게).
+### 영향 범위: `extension/content/main.js`, `extension/popup/popup.js`(필요 시 popup-lib), `extension/PROTOCOL.md`, `tests/content-main.test.mjs`, `tests/ui-popup.test.mjs`. 비ASCII 리터럴 금지(content).
+### 검증: npm test, Safari 실기 T5.

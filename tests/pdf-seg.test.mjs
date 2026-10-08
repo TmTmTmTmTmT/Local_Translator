@@ -140,7 +140,7 @@ test('link starting mid-word snaps to the whole word', () => {
 
 test('CJK link boundaries are not snapped', () => {
   const str = '\u3053\u308c\u306f\u65e5\u672c\u8a9e\u306e\u30da\u30fc\u30b8\u3067\u3059';
-  const items = [it(str, 72, 100, { width: 110 })]; // 10 per char, 11 chars
+  const items = [it(str, 72, 100, { width: 120 })]; // 10 per char, 12 chars
   const r = seg.segmentPage(page(items, { links: [[72 + 30, H - 102, 72 + 60, H - 90]] })); // chars 3..6
   assert.deepEqual(r[0].items.map((x) => x.k), ['t', 'x', 't']);
   assert.equal(r[0].items[1].text, '\u65e5\u672c\u8a9e');
