@@ -1,6 +1,6 @@
 # PLAN — ko-translator (Safari 한국어 자동번역 확장)
 
-작성: Opus · 2026-10-07 · **r7 (통합본 + 동적 콘텐츠 §4.5.1, 상주 메모리 측정)**. 이전 개정(r1~r5) 내용을 모두 반영해 재작성.
+작성: Opus · 2026-10-07 · **r8 (r7 + §11 D1 확정·용어집)**. 이전 개정(r1~r5) 내용을 모두 반영해 재작성.
 구현은 Sonnet이 이 문서 + `GUIDELINES.md` 기준으로 진행. 계획 밖 설계 변경은 `STATUS.md` "Opus 확인 필요"로.
 
 ---
@@ -289,6 +289,10 @@ bench/
 | T9 | PDF: `vendor/pdfjs`, `viewer/*`, `pdfseg.js` + 테스트, background 진입 처리 | T1, T6 |
 | **Phase 4** | | |
 | T10 | 수동 E2E(§7), README(설치·언어팩·모델·서명 안 된 확장 허용), 커밋·푸시 | T7–T9 |
+| **Phase 5 (r8, §11)** | | |
+| T11 | Apple marker/plain 출력 비교 → 기본 variant 확정 (§11.2) | — |
+| T12 | TranslateGemma 옵션 프리셋 + 사용자 README 안내 (§11.1) | — |
+| T13 | 용어집 기능 (§11.3) + 테스트 + 벤치 프로브 | — |
 
 ---
 
@@ -327,3 +331,37 @@ bench/
 - `translations(from:)` 배치, `preferredStrategy` (26.4+).
 - `FoundationModels.SystemLanguageModel` 온디바이스, `supportedLanguages`, guardrails `permissiveContentTransformations`. `PrivateCloudComputeLanguageModel`(27.0)은 클라우드 → 제외.
 - 로컬 환경: M1 Pro / 16GB, Ollama 설치(`gemma4:e2b` 보유).
+
+---
+
+## 11. r8 — D1 확정(2026-10-08)과 후속 작업
+
+근거: `bench/D1_RATING_EN.md` (영어 기사 26블록 × 20엔진 블라인드 평가). ja/zh는 기존 DECISION_BRIEF 기준 유지.
+
+### 11.1 엔진 결정 (사용자 확정)
+- **기본 = Apple 번역(`native:apple-mt`)** 유지. 설치·추가 메모리 없음.
+- **고품질 옵션 = TranslateGemma 4B, MT 모드** (`local:mt-mlx` 또는 `local:mt-ollama`, `family: translategemma`). 평가 1위(3.38), 26블록 35~39s, 상주 ~2.9GB.
+- 코드상 이미 지원됨. T12 범위:
+  - 옵션 화면에 "고품질(TranslateGemma)" 프리셋 버튼: 클릭 시 engine.default=`local:mt-ollama`, localhost `{baseUrl:http://127.0.0.1:11434, kind:ollama, model:translategemma:4b, family:translategemma, keepAlive:300}` 채움(저장은 사용자가 누름). MLX 대안은 안내 문구만.
+  - 옵션 화면에 메모리 경고 문구(“번역 중 약 3GB 사용, 5분 유휴 시 해제”).
+  - README(사용자용)에 "고품질 번역(선택)" 절: Ollama 설치 → `ollama pull translategemma:4b` → 옵션 프리셋. 개발 내용 금지.
+- Gemma4-e2b(7GB), madlad(6.6GB), Hy-MT2·qwen 소형 등은 권장 목록에서 제외(설정으로 직접 지정은 허용).
+
+### 11.2 Apple variant (T11)
+- 평가에서 plain 2.98 > marker 2.65. 링크 없는 블록은 두 방식 출력이 같아야 하므로 편차 의심.
+- Sonnet: `bench/results-articles/apple-mt-{marker,plain}__en__r1.json` 블록별 출력 동일 여부 표로 정리(STATUS 기록). 링크 블록(art-link-*, art-nav-*, art-cta-01)만 다르면 → marker 유지(링크 문장 어순 근거 §4.3). 링크 없는 블록도 다르면 원인(배치/세션 차이) 보고 → Opus 판단.
+- 코드 변경 없음(결과만 기록).
+
+### 11.3 용어집 (T13)
+설정: `settings.glossary = [{ "src": "kerbs", "dst": "연석", "lang": "en"|null, "case": false }]` (최대 500개, src 1~80자). 옵션 화면에 표 편집(추가/삭제, 텍스트 영역 일괄 입력 `src => dst` 줄 단위). PROTOCOL §1에 키 추가.
+
+적용 방식 (background 번역 라우터, 엔진 호출 직전 — 모든 엔진 공통):
+1. **사전 치환**: 블록의 각 `t` 항목에서 용어(단어 경계, `case:false`면 대소문자 무시, 긴 용어 우선, 겹침 금지)를 `dst`로 바꾼 텍스트를 엔진에 보냄. 블록 lang과 `lang` 불일치 항목 제외. CJK는 단어 경계 대신 단순 포함.
+2. **프롬프트 힌트**: 프롬프트 기반 엔진(apple-fm, localhost chat/JSON, MT 모드 `chat` family)은 해당 블록에 실제 등장한 용어만 "용어: src → dst" 목록으로 지시문에 추가. translategemma/hymt2 템플릿은 힌트 없이 사전 치환만.
+3. 캐시 키에 "블록에 적용된 용어 쌍" 해시 포함(용어집 변경 시 해당 블록만 재번역).
+4. content script 변경 없음(용량 D14 영향 없음).
+
+검증(T13):
+- 단위 테스트: 경계/대소문자/긴 용어 우선/겹침/lang 필터/CJK/캐시 키 변화/빈 용어집 시 기존 동작 동일.
+- 벤치 프로브: `bench/corpus-articles/en.json`에 용어 5개(kerbs→연석, safety car→세이프티카, undercut→언더컷, pit wall→피트월, backmarkers→백마커)로 apple-mt-marker·mlx translategemma MT 실행 → 대상 용어가 출력에 들어간 비율, 해당 블록 문장 깨짐 여부를 STATUS에 기록. 사전 치환이 Apple 번역에서 한국어를 훼손/음차하면 → 중단하고 Opus 보고(대안: 용어를 x 항목처럼 표식 처리 후 dst로 복원).
+- 범위 외: 형태소 기반 매칭, 사이트별 용어집.

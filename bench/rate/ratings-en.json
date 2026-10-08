@@ -1,0 +1,4322 @@
+{
+  "lang": "en",
+  "createdAt": "2026-10-08T08:37:50.854Z",
+  "ratings": [
+    {
+      "blockId": "art-head-01",
+      "candidates": [
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 B",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 J",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 L",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 T",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-head-02",
+      "candidates": [
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 B",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 T",
+          "naturalness": 4,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "E, F 둘다 만족."
+    },
+    {
+      "blockId": "art-lede-01",
+      "candidates": [
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 B",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 D",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 J",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 K",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 L",
+          "naturalness": 2,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 M",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 Q",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 R",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "K, N 괜찮음."
+    },
+    {
+      "blockId": "art-lede-02",
+      "candidates": [
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 C",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 H",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 M",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 T",
+          "naturalness": 3,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "C,E, T 괜찮음."
+    },
+    {
+      "blockId": "art-body-01",
+      "candidates": [
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 N",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 P",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 Q",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 R",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "L, N 둘다."
+    },
+    {
+      "blockId": "art-body-02",
+      "candidates": [
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 D",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 F",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 G",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 M",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 P",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 S",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "다 별론데, 그나마 S가 조금 나음. kerbs는 연석."
+    },
+    {
+      "blockId": "art-body-03",
+      "candidates": [
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 K",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 M",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 N",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 P",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "M, P, T 우수."
+    },
+    {
+      "blockId": "art-link-01",
+      "candidates": [
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 F",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 H",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 J",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 O",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "F, J, M 우수"
+    },
+    {
+      "blockId": "art-link-02",
+      "candidates": [
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 B",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 Q",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 S",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 T",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "E, J, S, T 우수"
+    },
+    {
+      "blockId": "art-link-03",
+      "candidates": [
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 K",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 M",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 N",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 P",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "N, P, R 우수"
+    },
+    {
+      "blockId": "art-body-04",
+      "candidates": [
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 A",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 F",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 H",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 N",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 R",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "N, R(세이프티카 단어 선정) 우수"
+    },
+    {
+      "blockId": "art-body-05",
+      "candidates": [
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 B",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 H",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 K",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 L",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 M",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "M, R 우수"
+    },
+    {
+      "blockId": "art-body-06",
+      "candidates": [
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 F",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 G",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 H",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 I",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 K",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 M",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "I, J 우수"
+    },
+    {
+      "blockId": "art-body-07",
+      "candidates": [
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 H",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 J",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 K",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 O",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 P",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-analysis-01",
+      "candidates": [
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 H",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 K",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 L",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 T",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-analysis-02",
+      "candidates": [
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 K",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 L",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 M",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 Q",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-analysis-03",
+      "candidates": [
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 A",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 D",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 G",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 K",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 L",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 O",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 S",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 T",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-quote-01",
+      "candidates": [
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 D",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 E",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 G",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 M",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 S",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "J, M, R 우수"
+    },
+    {
+      "blockId": "art-quote-02",
+      "candidates": [
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 B",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 O",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 P",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 R",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 T",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "P, Q 우수"
+    },
+    {
+      "blockId": "art-sub-01",
+      "candidates": [
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 B",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 F",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 I",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 S",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "B, S 우수"
+    },
+    {
+      "blockId": "art-sub-02",
+      "candidates": [
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 B",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 I",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 J",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 M",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 R",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 S",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-cap-01",
+      "candidates": [
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 B",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 C",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 F",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 4,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 J",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 L",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 M",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 T",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "L, T 우수"
+    },
+    {
+      "blockId": "art-nav-01",
+      "candidates": [
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 A",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 B",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 C",
+          "naturalness": 4,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 4,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 G",
+          "naturalness": 4,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 4,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 L",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 O",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 R",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 S",
+          "naturalness": 5,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "M, O, S 우수"
+    },
+    {
+      "blockId": "art-nav-02",
+      "candidates": [
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 A",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 C",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 D",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 E",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 H",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 K",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 M",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 N",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 P",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 S",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": ""
+    },
+    {
+      "blockId": "art-meta-01",
+      "candidates": [
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 C",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 D",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 E",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 G",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 H",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 J",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 K",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 L",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 M",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 4,
+          "accuracy": 4,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 P",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 Q",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 R",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 T",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "C, J, M, T 우수"
+    },
+    {
+      "blockId": "art-cta-01",
+      "candidates": [
+        {
+          "engine": "mlx-qwen3.5-2b-4bit-mt",
+          "label": "후보 A",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3.5-4b-4bit-mt",
+          "label": "후보 B",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "apple-mt-plain",
+          "label": "후보 C",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b",
+          "label": "후보 D",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "ct2-nllb-600m",
+          "label": "후보 E",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-qwen3-1.7b-4bit-mt",
+          "label": "후보 F",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-gemma4-e2b-mt",
+          "label": "후보 G",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-translategemma-4b-4bit-mt",
+          "label": "후보 H",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": true,
+          "error": null
+        },
+        {
+          "engine": "ollama-qwen3.5-2b",
+          "label": "후보 I",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "ct2-madlad-3b",
+          "label": "후보 J",
+          "naturalness": 2,
+          "accuracy": 2,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-3-1b-4bit-mt",
+          "label": "후보 K",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b-mt",
+          "label": "후보 L",
+          "naturalness": 3,
+          "accuracy": 3,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-opus-tc-big-en-ko",
+          "label": "후보 M",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-kanana-2-3b-4bit-mt",
+          "label": "후보 N",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-gemma-4-e2b-4bit-mt",
+          "label": "후보 O",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hyperclovax-seed-1.5b-4bit-mt",
+          "label": "후보 P",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ct2-nllb-1.3b",
+          "label": "후보 Q",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "ollama-translategemma-4b",
+          "label": "후보 R",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": "missing-slots"
+        },
+        {
+          "engine": "apple-mt-marker",
+          "label": "후보 S",
+          "naturalness": 1,
+          "accuracy": 1,
+          "best": false,
+          "error": null
+        },
+        {
+          "engine": "mlx-hy-mt2-1.8b-4bit-mt",
+          "label": "후보 T",
+          "naturalness": 5,
+          "accuracy": 5,
+          "best": false,
+          "error": null
+        }
+      ],
+      "memo": "H, T 우수"
+    }
+  ]
+}
