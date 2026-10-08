@@ -2,7 +2,7 @@
 
 프로젝트: `xcode/Local Translator/Local Translator.xcodeproj` (스킴 `Local Translator`, 타깃 `Local Translator` 앱 + `Local Translator Extension` appex).
 `xcrun safari-web-extension-packager`로 생성했고 웹 확장 리소스는 `../extension/`을 **참조**한다(복사 아님) — JS를 고치면 다시 빌드만 하면 된다.
-Xcode 27의 새 프로젝트 형식(`project.xcproj`)이므로 Xcode 27 이상에서 연다. 배포 대상 macOS 26.4, Swift 6.
+Xcode 27의 새 프로젝트 형식(`project.xcproj`)이므로 Xcode 27 이상에서 연다. 배포 대상 macOS 26.0 (26.4 이상 전용 API인 `attr` variant는 `#available(macOS 26.4)`로 감싸고 그 아래에서는 marker로 폴백), Swift 6. 빌드는 베타 Xcode(`DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer`).
 
 ## 구성
 - `Local Translator Extension/` — Swift 핸들러. `Protocol.swift`(Codable, PROTOCOL §4), `EngineMT.swift`(apple-mt: marker/attr/plain), `EngineFM.swift`(apple-fm, 온디바이스 전용), `SafariWebExtensionHandler.swift`(디스패치).
@@ -23,10 +23,12 @@ xcodebuild -project "Local Translator.xcodeproj" -scheme "Local Translator" -con
 ```
 산출물은 `~/Library/Developer/Xcode/DerivedData/Local_Translator-*/Build/Products/Debug/Local Translator.app`.
 
-## 서명 (사용자가 직접)
-Apple Developer Team 서명은 이 환경에 없어 ad-hoc(`-`)로만 검증했다. Team으로 서명하려면 Xcode에서 프로젝트를 열고 두 타깃의 Signing & Capabilities에서 Team 선택(Automatic signing) 후 Run. 번들 ID는 `com.tmtmtmtmtmt.localtranslator`(앱), `com.tmtmtmtmtmt.localtranslator.Extension`(확장). 다른 Team이면 번들 ID 접두를 바꾸고, 컨테이너 앱 `ContentView.swift`의 `extensionID`도 같이 바꾼다.
+## 서명
+기본 설치는 저장소 루트의 `scripts/install.sh`(PLAN §12): 개인 팀(무료 Apple ID)으로 앱·확장을 모두 팀 서명 → 서명 검증 → 옛 사본 정리(휴지통) → `/Applications` 설치. 팀 ID는 `TEAM_ID` env → `.local/team-id` → 키체인 "Apple Development" 인증서 OU → Xcode 설정 순으로 찾는다. `--dry-run`으로 실행 계획만 볼 수 있다.
+아래 ad-hoc 빌드는 컴파일·CLI 검증용이며, 이 경우 Safari 재시작마다 "서명되지 않은 확장 프로그램 허용"을 다시 켜야 한다. 번들 ID는 `com.tmtmtmtmtmt.localtranslator`(앱), `.Extension`(확장). 다른 사람이 빌드하면 번들 ID 접두와 `ContentView.swift`의 `extensionID`를 바꾼다.
 
-## Safari에서 켜기
+## Safari에서 켜기 (ad-hoc 빌드일 때)
+(팀 서명 설치는 3번이 필요 없다)
 1. 앱을 한 번 실행한다(`open "…/Local Translator.app"`) — 확장이 시스템에 등록된다.
 2. Safari > 설정 > 고급 > "메뉴 막대에서 개발자용 메뉴 보기" 체크.
 3. 개발자용 > **서명되지 않은 확장 프로그램 허용**(Develop > Allow Unsigned Extensions). Safari를 재시작하면 매번 다시 켜야 한다.

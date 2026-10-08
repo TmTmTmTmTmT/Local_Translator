@@ -9,23 +9,24 @@
 
 ## 요구 사항
 
-- macOS 26.4 이상, Xcode 27 (Safari 확장 빌드)
+- macOS 26.0 이상 (일부 기능은 26.4 이상에서만), Xcode 27 이상(베타 가능)과 Apple ID (무료 개인 팀이면 충분)
 - 시스템 설정 › 일반 › 언어 및 지역 › **번역 언어**: 영어·일본어·중국어(간체·번체)·한국어 다운로드
 - (선택) Apple Intelligence 켜기 — 온디바이스 AI 엔진용
 - (선택) Ollama / `mlx_lm` / CTranslate2 — 로컬 모델 엔진용
 
-## 빌드·설치
+## 설치
 
-```bash
-xcodebuild -project "xcode/Local Translator/Local Translator.xcodeproj" \
-  -scheme "Local Translator" -configuration Debug \
-  CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= build
-```
+1. Xcode › Settings › Accounts 에서 Apple ID를 추가합니다 (무료 개인 팀 가능).
+2. 터미널에서 설치 스크립트를 실행합니다. 팀 서명으로 빌드해 `/Applications`에 설치하고 앱을 엽니다.
 
-1. 빌드된 `Local Translator.app`을 한 번 실행 (확장 활성화 안내, 언어팩 상태·설치)
-2. Safari › 설정 › 고급 › "메뉴 막대에서 개발자용 메뉴 보기" 켜고, 개발자용 › **서명되지 않은 확장 프로그램 허용** (Safari 재시작마다 다시 켜야 함. Apple Team으로 서명하면 불필요 — [xcode/README.md](xcode/README.md))
-3. Safari › 설정 › 확장 프로그램 › Local Translator 켜고 웹사이트 접근 허용
-4. 확장 옵션에서 번역할 사이트 추가 (예: `example.com`)
+   ```bash
+   scripts/install.sh
+   ```
+
+3. Safari › 설정 › 확장 프로그램에서 Local Translator를 켜고 웹사이트 접근을 허용합니다.
+4. 확장 옵션에서 번역할 사이트를 추가합니다 (예: `example.com`).
+
+팀 서명이 되어 있으면 Safari를 다시 시작해도 **"서명되지 않은 확장 프로그램 허용"을 켜지 않아도 됩니다**(켜 두었다면 다른 미서명 확장도 허용되므로 끄는 것을 권장합니다). 약 7일 뒤 확장이 사라지면 `scripts/install.sh`를 다시 실행하세요. 앱 창에서 서명 상태를 볼 수 있습니다.
 
 ## 사용
 

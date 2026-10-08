@@ -4,10 +4,12 @@ import Foundation
 import Translation
 
 /// Custom attribute carrying the slot id (>=0 for t slots, -(n+1) for x items) through the translator.
+@available(macOS 26.4, *)
 enum SlotIDKey: AttributedStringKey {
     typealias Value = Int
     static let name = "kt.slotID"
 }
+@available(macOS 26.4, *)
 typealias SkipKey = AttributeScopes.TranslationAttributes.SkipTranslationAttribute
 
 enum MTVariant: String, Sendable { case attr, plain, marker }
@@ -110,7 +112,10 @@ actor MTEngine {
                 do {
                     let slots: [String: String]
                     switch variant {
-                    case .attr: slots = try await attrBlock(s, b)
+                    case .attr:
+                        // attr는 26.4+ 전용 API. 그 아래 버전에서는 기본 경로(marker)로 폴백 (PLAN §12.1).
+                        if #available(macOS 26.4, *) { slots = try await attrBlock(s, b) }
+                        else { slots = try await markerBlock(s, b) }
                     case .plain: slots = try await plainBlock(s, b)
                     case .marker: slots = try await markerBlock(s, b)
                     }
@@ -133,6 +138,7 @@ actor MTEngine {
 
     // MARK: attributed translation with SlotID recovery
 
+    @available(macOS 26.4, *)
     private nonisolated func attrBlock(_ box: SessionBox, _ b: ProtoBlock) async throws -> [String: String] {
         let tItems = b.slotItems
         if !tItems.contains(where: { hasLetters($0.text) }) {

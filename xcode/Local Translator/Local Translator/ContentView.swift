@@ -2,12 +2,35 @@ import SwiftUI
 import SafariServices
 @preconcurrency import Translation
 import FoundationModels
+import Security
 
 private let extensionID = "com.tmtmtmtmtmt.localtranslator.Extension"
 
 struct PackLang: Identifiable {
     let id: String      // BCP-47 source code
     let label: String
+}
+
+/// 앱·확장의 코드 서명 상태. 팀 서명(TeamIdentifier 있음, ad-hoc 아님)이어야 Safari 재시작 후에도 확장이 유지된다.
+enum SigningState {
+    case team(String), adhoc, unknown
+
+    static func current() -> SigningState {
+        func info(_ url: URL) -> (team: String?, adhoc: Bool)? {
+            var code: SecStaticCode?
+            guard SecStaticCodeCreateWithPath(url as CFURL, [], &code) == errSecSuccess, let code else { return nil }
+            var cf: CFDictionary?
+            guard SecCodeCopySigningInformation(code, SecCSFlags(rawValue: kSecCSSigningInformation), &cf) == errSecSuccess,
+                  let d = cf as? [String: Any] else { return nil }
+            let flags = (d[kSecCodeInfoFlags as String] as? UInt32) ?? 0
+            return (d[kSecCodeInfoTeamIdentifier as String] as? String, flags & 0x2 != 0)
+        }
+        let app = Bundle.main.bundleURL
+        let appex = app.appendingPathComponent("Contents/PlugIns/Local Translator Extension.appex")
+        guard let a = info(app), let x = info(appex) else { return .unknown }
+        if a.adhoc || x.adhoc || a.team == nil || x.team == nil { return .adhoc }
+        return .team(a.team ?? "")
+    }
 }
 
 private let packLangs = [
@@ -23,6 +46,7 @@ struct ContentView: View {
     @State private var installing: String?
     @State private var message = ""
     @State private var aiText = "확인 중…"
+    @State private var signing = SigningState.current()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -61,6 +85,8 @@ struct ContentView: View {
                 Text(aiText).frame(maxWidth: .infinity, alignment: .leading).padding(4)
             }
 
+            signingView
+
             Text("사용법: 확장 팝업에서 번역할 사이트를 추가하면 해당 사이트가 자동으로 한국어로 번역됩니다. 언어팩은 이 앱에서만 설치할 수 있으며, 설치되지 않은 언어는 번역되지 않습니다.")
                 .font(.callout).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
             if !message.isEmpty { Text(message).foregroundStyle(.orange) }
@@ -75,6 +101,18 @@ struct ContentView: View {
             }
             installing = nil
             await refresh()
+        }
+    }
+
+    @ViewBuilder private var signingView: some View {
+        switch signing {
+        case .team(let id):
+            Label("팀 서명됨 (\(id)) — Safari를 다시 시작해도 확장이 유지됩니다.", systemImage: "checkmark.seal.fill").foregroundStyle(.green)
+        case .adhoc:
+            Label("서명 없음(ad-hoc) — Safari를 다시 시작할 때마다 개발자용 › '서명되지 않은 확장 프로그램 허용'을 켜야 합니다. scripts/install.sh로 다시 설치하세요.", systemImage: "exclamationmark.triangle.fill")
+                .foregroundStyle(.orange).fixedSize(horizontal: false, vertical: true)
+        case .unknown:
+            Label("서명 상태를 확인하지 못했습니다.", systemImage: "questionmark.circle").foregroundStyle(.secondary)
         }
     }
 
