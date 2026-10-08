@@ -254,3 +254,14 @@ mock 번역기로는 T2(링크 문장 어순·조사)·엔진 통합(marker 다�
 A: `extension/engines/native.js`, `extension/PROTOCOL.md`, `tests/engines-native.test.mjs`. B: `xcode/Local Translator/Local Translator Extension/*.swift`. 파일 겹침 없음.
 ### 검증
 npm test, xcodebuild 성공, 재설치 후 Safari 재시작 → the-race 홈 번역 진행(사용자) + `log show`로 요청별 소요 시간·완료 블록 수 확인(타임아웃 0, 브레이커 열림 0).
+
+## F15. 링크 여러 개만 있는 블록에서 번역이 첫 링크에 몰리고 나머지 링크가 비어 버림 (B10, R7, Opus)
+### 원인 (Sonnet 조사, Safari 실기 스크린샷)
+the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Members' Club"` → 블록 하나(div), F5 승격으로 t 슬롯 2개가 붙어 있음. Swift `EngineMT.swift` runs()가 연속 t를 구분자 없이 이어 붙여("LoginJoin Members' Club") 한 번 번역하고 첫 슬롯에 전부, 나머지 `''`(`EngineMT.swift:242, 264`) → "회원가입 회원클럽에 가입하기" + 빈 버튼. 메뉴·버튼 UI 파손.
+### 수정 방향 (Sonnet)
+1. `content/segmenter.js` flush 승격: 승격 대상 링크가 **서로 다른 `<a>` 요소 2개 이상**이면 링크(앵커)별로 별도 블록 레코드로 나눠 내보냄(각 블록 = 그 앵커 안의 텍스트 노드들, 블록 el은 앵커). 앵커 하나 안의 여러 텍스트 노드는 한 블록(현행).
+2. 언어 판정·F8 힌트·MAX 규칙은 나뉜 블록마다 적용. 요청 수가 늘어도 background 배치가 묶어 보냄.
+3. (방어, 확장 JS 쪽만) 이번엔 Swift 수정 없음 — 슬롯 분배 규칙은 문장 단위 설계라 유지.
+4. 테스트: 헤더 패턴(div > a + a) → 블록 2개, 각 1슬롯; 앵커 하나에 span 2개 → 블록 1개; 기존 승격 테스트 유지; `linkMode:"never"` 불변.
+### 영향 범위: `extension/content/segmenter.js`, `tests/content-linkmode.test.mjs`(또는 새 테스트). 비ASCII 리터럴 금지.
+### 검증: npm test, site-coverage(therace) 블록 수 증가 확인, 재설치 후 Safari 헤더 "로그인"·"회원 클럽 가입"류로 각각 표시.
