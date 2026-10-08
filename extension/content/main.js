@@ -4,7 +4,7 @@
 
   const KT = (globalThis.KT = globalThis.KT || {});
   // translateAttrs: 속성 번역(extra.js가 주입된 경우에만 동작). fixParticles: 조사 병기 확정(apply.js).
-  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, tickLimit: 200, fixParticles: true, translateAttrs: false };
+  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
   const MAX_BATCH_CHARS = 6000, MAX_BATCH_BLOCKS = 40, CACHE_SIZE = 2000;
 
   let S = null; // 실행 상태(없으면 정지)
@@ -89,6 +89,7 @@
     function scan(root) {
       register(KT.collectBlocks(root, {
         excludeSelector: opt.excludeSelector,
+        linkMode: opt.linkMode,
         isHandled: (n) => handled.has(n),
         onShadowRoot: (sr) => { if (!shadowSeen.has(sr)) { shadowSeen.add(sr); st.shadowTodo.push(sr); } },
       }));
@@ -380,7 +381,7 @@
         const h = String((s && s.host) || s || '').toLowerCase().replace(/^\*\./, '');
         if (h && (host === h || host.endsWith('.' + h)) && s.exclude) ex.push(s.exclude);
       }
-      start({ excludeSelector: ex.join(','), translateAttrs: !!(settings && settings.translateAttrs), fixParticles: !(settings && settings.fixParticles === false) });
+      start({ excludeSelector: ex.join(','), translateAttrs: !!(settings && settings.translateAttrs), fixParticles: !(settings && settings.fixParticles === false), linkMode: settings && settings.linkMode === 'never' ? 'never' : 'standalone' });
     };
     try {
       if (api && api.storage && api.storage.sync) {

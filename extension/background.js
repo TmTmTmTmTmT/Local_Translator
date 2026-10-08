@@ -27,6 +27,7 @@
     enabled: true,
     translateAttrs: false, // true면 content/extra.js 추가 주입(속성 번역)
     fixParticles: true, // 링크 뒤 조사 자동 보정(apply.js 옵션)
+    linkMode: 'standalone', // 'standalone'(링크뿐인 블록도 번역) | 'never'(링크 항상 원문 유지)
     glossary: [], // PLAN §11.3: [{src,dst,lang?,case?}]
     pdfAuto: true, // D7(2026-10-08): 사용자 결정으로 기본 ON. Safari 실기 검증 전이므로 동작 확인 필요
   };

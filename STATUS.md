@@ -163,6 +163,9 @@
 - **F3**: install.sh가 실행 중 앱 종료·Safari 실행 중 안내, 앱의 `SFErrorDomain 1` 안내 문구.
 - 테스트 257 통과, 재설치 완료(설치본 코드 비ASCII 0). **사용자 재확인 대기**: Safari ⌘Q 후 재실행 → 오류 창 사라짐, the-race.com 본문 번역 여부. 여전히 부분 번역이면 Safari 콘솔 로그 요청(FIX_GUIDE F4).
 
+## 실사용 검증 루프 (docs/GOAL_PROMPT.md, docs/TEST_LOOP.md, docs/BUGS.md)
+- **R1 (2026-10-08)**: 탐색 — 하네스로 the-race.com 남은 영어 85개 전부 링크 안(B1). Opus F5(링크로만 된 블록 번역, D15 임시 결정)·F6(jsdom 사이트 커버리지 도구). Sonnet 병렬 구현, 테스트 268 통과. Haiku 확인 — the-race 남은 0, wiki/mdn/hn 남은 것은 의도된 인라인 링크·코드, bbczh 1, NHK 50 미번역(B2 조사 중). T3·T9·T10 통과. install.sh 재설치(팀 서명·단일 등록 확인).
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

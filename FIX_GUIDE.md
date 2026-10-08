@@ -115,3 +115,43 @@ F4 먼저(번역 자체가 막힘) → F3 → 재설치.
   2. 해당 페이지에서 개발자용 › 웹 속성 검사기 표시 → 콘솔(`kt` 관련 오류·경고)
   3. 1분 기다린 뒤 번역 진행 여부(느린 것인지 멈춘 것인지)
 - 추가로 background 스크립트 하나가 로드 실패해도 나머지가 동작하도록 이미 있는 가드(`KT.lib.glossary` 없으면 건너뜀)와 같은 방어를 registry의 localhost/mtmode 참조에도 적용할지 확인(엔진 하나 실패가 전체 번역을 막지 않게). 계획 밖 변경이면 보고만.
+
+## F5. 링크만으로 된 블록(헤드라인·카드·메뉴)도 번역 (B1, 2026-10-08, Opus)
+
+### 원인
+`content/filter.js` `KEEP_TAGS`에 `a` → 링크 텍스트는 항상 `x`(원문 유지). 뉴스·포털은 헤드라인·카드·메뉴 전체가 `<a>`라 블록에 `t` 슬롯이 0개 → 번역 요청 자체가 없음(the-race.com: 남은 영어 85개 전부 링크 안).
+
+### 판단
+원 요구 "링크 제외"의 목적은 문장 속 링크 텍스트(클릭 대상 이름)를 보존하는 것. 사용자는 헤드라인이 번역되지 않는 것을 버그로 보고함 → **문장 속 인라인 링크만 원문 유지, 블록 전체가 링크뿐이면 번역**을 기본값으로(D15에 기록, 사용자 확인 대기지만 진행).
+
+### 수정 방향 (Sonnet)
+1. filter: 제외 사유를 구분 — 링크 유래 `'link'`와 코드 계열 `'keep'`(pre/code/kbd/samp/var/tt/role=code). 가장 가까운 KEEP 조상이 `a`면 `'link'`. skip 우선 규칙 유지. 기존 `isExcluded`/`exclusionReason` 호출부 의미 유지(‘link’도 제외로 취급되는 곳은 그대로).
+2. segmenter: 링크 유래 x 항목에는 원래 텍스트 노드를 함께 보관. `flush()`에서 **블록에 글자 있는 `t` 슬롯이 하나도 없고** 링크 유래 x가 1개 이상이면, 그 링크 x들을 원래 순서대로 `t` 슬롯으로 승격(코드 계열 x는 그대로 x). 승격 후 언어 판정·MAX_BLOCK_CHARS 규칙 동일 적용.
+   - 예: `li > a "MotoGP"`, `a > h3 "What's really…"`, `a > p "Formula 1"`, 단독 "Read more" 링크 → 번역. `p: "Click <a>here</a> to continue"` → 링크 원문 유지(기존). `"Related: <a>title</a>"` → t가 있으므로 링크 유지(기존).
+3. 설정 `linkMode`: `"standalone"`(기본) | `"never"`(기존 동작). content `main.js`가 settings에서 읽어 `collectBlocks` opts로 전달(fixParticles와 같은 경로). background DEFAULT_SETTINGS·options(`options-lib` defaults/merge, 체크박스 "제목·메뉴처럼 링크로만 된 문장도 번역", 기본 체크)·PROTOCOL §1 갱신.
+4. 원문 토글: 승격된 링크 텍스트 노드도 applier 기록에 들어가 원문 보기 왕복 정상이어야 함.
+5. 테스트(jsdom): 카드(`a>h3+p`), 메뉴(`ul>li>a`), 인라인 링크 문장(변화 없음), 코드만 있는 블록(번역 안 함), `linkMode:"never"`(기존 동작), 원문 토글 왕복.
+
+### 영향 범위
+`content/filter.js`, `content/segmenter.js`, `content/main.js`, `background.js`(DEFAULT_SETTINGS), `options/*`, `PROTOCOL.md`, 테스트. 비ASCII 리터럴 금지(F4 가드).
+
+### 검증
+`npm test` 전부 통과 + F6 도구로 the-race.com 커버리지: 남은 영어 중 링크 안 비율이 인라인 링크 수준으로 감소(블록 링크 남은 수 0 목표).
+
+## F6. 헤드리스 사이트 커버리지 도구 (검증 루프용, 2026-10-08, Opus)
+
+### 목적
+내장 브라우저 하네스는 한 창을 공유해 병렬·반복이 어렵고 IO가 숨김 창에서 멈춤. 서브에이전트가 반복 측정할 수 있게 jsdom 기반 측정기를 만든다(레이아웃 없음 → 가시성 대신 숨김 속성만 판정).
+
+### 수정 방향 (Sonnet)
+1. `tests/e2e/site-coverage.mjs <html파일> [--link-mode standalone|never] [--json]`: jsdom으로 HTML 로드(사이트 스크립트 실행 안 함), IntersectionObserver(전부 교차)·rAF 스텁, `browser` 스텁(translate → 각 t 슬롯 `한(원문)`, 호출·블록 수 집계), 기존 테스트 헬퍼(`tests/helpers/load-content.mjs`)처럼 content 스크립트 6개 로드 → 큐가 빌 때까지 대기 → 집계: 번역 텍스트 노드 수, 남은 영어(라틴 3글자↑) 수와 분류(inLink, inBlockLink=블록 요소를 품은 a, inCode, inButton, translateNo/notranslate, hidden=hidden 속성·aria-hidden·인라인 display:none·head 안 제외), errors. 일본어·중국어 페이지는 "남은 원문" 판정을 각 문자 범위로(가나/한자 2글자↑, 정규식은 `\u` 이스케이프).
+2. `tests/e2e/fetch-site.sh <name> <url>`: Safari UA curl → `tests/e2e/sites/<name>.html`(`.gitignore`에 추가 — 사이트 HTML 저작권, 커밋 금지).
+3. `tests/e2e/build-inject.mjs <out.js>`: 내장 브라우저 하네스용 주입 번들 생성(TEST_LOOP H 절차 그대로, node로 생성).
+4. 오프라인 픽스처 `tests/e2e/fixtures/cards.html`(직접 작성: 카드 링크·메뉴·인라인 링크·code·translate=no·details) + `tests/site-coverage.test.mjs`(픽스처로 도구 동작 검증, npm test 포함, 네트워크 없음).
+5. `package.json` script `e2e:coverage`.
+
+### 영향 범위
+`tests/**`, `package.json`, `.gitignore`. 확장 코드 변경 없음(F5와 파일 겹치지 않음).
+
+### 검증
+픽스처 테스트 통과, 실제 사이트 1개에서 JSON 출력 확인.
