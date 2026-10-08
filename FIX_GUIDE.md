@@ -222,3 +222,13 @@ NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2
 ### 영향 범위: `scripts/install.sh`, `tests/install-script.test.mjs`, `extension/engines/native.js`, `extension/background.js`, `extension/popup/popup-lib.js`, `extension/PROTOCOL.md`, 관련 테스트. 비ASCII 리터럴 금지(background/engines).
 ### 검증: npm test. 재설치는 --allow-safari-running으로 하고 사용자 Safari 재시작 후 실기 T1/T2.
 ### 운영 규칙(루프): 사용자 실기 확인 중에는 재설치하지 않는다.
+
+## F13. 실엔진(Apple 번역) 하네스 — 문장 자연스러움·엔진 통합 자동 확인 (R5 도구, Opus)
+### 목적
+mock 번역기로는 T2(링크 문장 어순·조사)·엔진 통합(marker 다중 링크, 긴 블록, 배치)을 못 봄. Safari 실기는 사용자 조작이 필요해 반복이 어려움 → 같은 Swift 엔진 로직(bench kt-bench, `bench/engines/apple`)을 로컬 HTTP 브리지로 띄워 하네스에서 실제 번역.
+### 수정 방향 (Sonnet)
+1. `tests/e2e/apple-bridge.mjs`: 127.0.0.1:8797 전용 HTTP 서버. `POST /translate {blocks, lang}` → 블록을 임시 코퍼스 JSON으로 써서 bench apple 어댑터(apple-mt-marker 경로, `bench/run.mjs`/어댑터가 쓰는 kt-bench 실행 방식 재사용)로 번역 → `{ok, results:[{id,slots}]}`. CORS 허용, 요청당 타임아웃 120s, 루프백 바인딩만.
+2. `site-coverage.mjs`에 `--engine apple` 옵션: mock 대신 브리지 호출(번역문은 그대로 적용, 번역 노드 판정은 "블록이 요청·응답됐는지"로). 결과 JSON에 링크 포함 블록 샘플(원문 → 번역 결과 텍스트, 링크 원문 유지 여부) 10개 추가: `linkSamples`.
+3. 네트워크·브리지 없는 npm test에는 넣지 않음(수동 도구). README-dev 성격 문서는 docs/TEST_LOOP.md 하네스 절에 사용법 3줄.
+### 영향 범위: `tests/e2e/apple-bridge.mjs`, `tests/e2e/site-coverage.mjs`, `docs/TEST_LOOP.md`. 확장 코드 변경 없음, 재설치 없음.
+### 검증: the-race 기사 1쪽·wiki로 실행, linkSamples 보고.

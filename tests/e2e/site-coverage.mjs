@@ -42,7 +42,7 @@ function hasBlockChild(a) {
 export async function measure(file, opts = {}) {
   const linkMode = opts.linkMode || 'standalone';
   const quietMs = opts.quietMs ?? 500;
-  const timeoutMs = opts.timeoutMs ?? 30000;
+  const timeoutMs = opts.timeoutMs ?? (opts.engine === 'apple' ? 900000 : 30000);
   const html = readFileSync(resolve(file), 'utf8');
   const base = /<base[^>]+href=["']([^"']+)["']/i.exec(html);
   let url = 'https://example.com/';
@@ -52,6 +52,9 @@ export async function measure(file, opts = {}) {
   const errors = [];
   const out = { file, linkMode, calls: 0, blocks: 0, translatedNodes: 0, remaining: 0, byCategory: { inLink: 0, inBlockLink: 0, inCode: 0, inButton: 0, translateNo: 0, formControl: 0, graphic: 0, other: 0 }, langs: {}, samples: { other: [], inLink: [] }, errors };
   let lastReq = Date.now();
+  const responded = new Set();
+  const slotTexts = new Set();
+  const linkSamples = [];
 
   win.__KT_AUTOSTART = true;
   win.requestAnimationFrame = (f) => win.setTimeout(() => f(0), 0);
@@ -70,6 +73,31 @@ export async function measure(file, opts = {}) {
         if (!msg || msg.type !== 'translate') return {};
         lastReq = Date.now();
         out.calls++;
+        if (opts.engine === 'apple') {
+          const room = opts.maxBlocks == null ? Infinity : opts.maxBlocks - out.blocks;
+          if (room <= 0) return { ok: true, engine: 'apple', results: [] };
+          const sent = msg.blocks.slice(0, room);
+          out.blocks += sent.length;
+          for (const b of sent) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
+          let resp;
+          try {
+            const r = await fetch('http://127.0.0.1:8797/translate', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ blocks: sent, lang: msg.lang, context: msg.context }) });
+            resp = await r.json();
+          } catch (e) { errors.push('bridge: ' + e.message); return { ok: false, error: 'bridge' }; }
+          if (!resp.ok) { errors.push('bridge: ' + resp.error); return { ok: false, error: resp.error }; }
+          const results = resp.results.filter((x) => x.slots);
+          for (const x of resp.results) if (!x.slots) errors.push('block ' + x.id + ': ' + x.error);
+          for (const x of results) {
+            const b = sent.find((y) => y.id === x.id);
+            responded.add(x.id);
+            for (const v of Object.values(x.slots)) slotTexts.add(String(v).trim());
+            if (b && b.items.some((i) => i.k === 'x') && linkSamples.length < 10) {
+              linkSamples.push({ id: x.id, source: b.items.map((i) => (i.k === 'x' ? '[' + i.text + ']' : i.text)).join(''),
+                result: b.items.filter((i) => i.k === 't').map((i) => x.slots[String(i.i)] ?? '').join(' | ') });
+            }
+          }
+          return { ok: true, engine: 'apple', results };
+        }
         out.blocks += msg.blocks.length;
         for (const b of msg.blocks) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
         return {
@@ -107,7 +135,7 @@ export async function measure(file, opts = {}) {
     if (!el) continue;
     const text = n.nodeValue.trim();
     if (!text) continue;
-    if (text.startsWith(MARK)) { out.translatedNodes++; continue; }
+    if (text.startsWith(MARK) || (opts.engine === 'apple' && slotTexts.has(text))) { out.translatedNodes++; continue; }
     if (isHidden(el) || !re.test(text)) continue;
     const a = el.closest('a');
     let cat = 'other';
@@ -124,6 +152,7 @@ export async function measure(file, opts = {}) {
     if (cat === 'other' && out.samples.other.length < 20) out.samples.other.push(text.slice(0, 120));
     if ((cat === 'inLink' || cat === 'inBlockLink') && out.samples.inLink.length < 10) out.samples.inLink.push(text.slice(0, 120));
   }
+  if (opts.engine === 'apple') { out.engine = 'apple'; out.respondedBlocks = responded.size; out.linkSamples = linkSamples; }
   try { win.KT.main.stop(); } catch (_) { /* ignore */ }
   win.close();
   return out;
@@ -131,16 +160,20 @@ export async function measure(file, opts = {}) {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
-  const file = args.find((a, i) => !a.startsWith('--') && args[i - 1] !== '--link-mode');
+  const file = args.find((a, i) => !a.startsWith('--') && !['--link-mode', '--engine', '--max-blocks'].includes(args[i - 1]));
   const li = args.indexOf('--link-mode');
-  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--json]'); process.exit(2); }
-  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone' });
+  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple] [--max-blocks N] [--json]'); process.exit(2); }
+  const ei = args.indexOf('--engine'), mi = args.indexOf('--max-blocks');
+  const t0 = Date.now();
+  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null });
+  r.wallSec = Math.round((Date.now() - t0) / 100) / 10;
   if (args.includes('--json')) console.log(JSON.stringify(r, null, 2));
   else {
     console.log(`${r.file} linkMode=${r.linkMode} calls=${r.calls} blocks=${r.blocks} translated=${r.translatedNodes} remaining=${r.remaining}`);
     console.log(JSON.stringify(r.byCategory));
     for (const s of r.samples.other) console.log('  other: ' + s);
     for (const s of r.samples.inLink) console.log('  link: ' + s);
+    for (const l of r.linkSamples || []) console.log('  linkSample: ' + l.source + ' => ' + l.result);
     for (const e of r.errors) console.log('  error: ' + e);
   }
   process.exit(0);
