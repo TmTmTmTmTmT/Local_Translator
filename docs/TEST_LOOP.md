@@ -10,7 +10,7 @@
 | T4 | 동적 콘텐츠: 더보기, 무한스크롤, details 펼침, SPA 라우팅 후 새 구간만 번역·중복 요청 없음 | H(__kt.calls/blocks), U, S | U 통과(content-main dynamic 11건: 추가·숨김→표시·재적용 상한·SPA·shadow), S 미확인 |
 | T5 | 팝업: 사이트 토글, 원문 보기 왕복, 상태(엔진·ready/translating/error) | H(popup 하네스), S | R3 H 통과(라벨·토글·상태 표시, B6 수정). S 통과(원문 토글 왕복, 사용자) — 단 상태 error(B7) |
 | T6 | 옵션: 사이트·제외·엔진·TranslateGemma 프리셋·용어집 저장 후 재열기 복원, 오류 메시지 | H(options 하네스), S, U | R3 H 통과(저장·복원·키 보존·검증·칸별 오류 메시지). S 통과(사이트 3개·용어집 저장 후 재열기 유지, 사용자) |
-| T7 | 용어집 적용(kerbs → 연석 등)·변경 시 해당 문장만 재번역 | H(mock은 치환 확인), S | 미실행 |
+| T7 | 용어집 적용(kerbs → 연석 등)·변경 시 해당 문장만 재번역 | H(mock은 치환 확인), S | S 통과(R7: "Formula 1"→"포뮬러 원" 메뉴·분류 라벨), U 통과(캐시 키) |
 | T8 | PDF: 자동 진입(pdfAuto), 수동 버튼, 문단 번역, 링크 동작, 원본 열기 | S, 기존 pdf-harness | R3 H 통과(렌더·문단·원본 링크·링크 구간 "online guide"). S 미확인(자동 진입·실제 PDF) |
 | T9 | 컨테이너 앱: 언어팩 상태, 서명 상태 "팀 서명됨", Safari 확장 설정 열기 | A | 통과(R1: 언어팩 4개 설치됨, "팀 서명됨 (K3YUPJD653)", 버튼 → Safari 확장 설정 창 전면) |
 | T10 | install.sh 재설치: 실행 중 앱 종료, 단일 등록(pluginkit), 팀 서명 검증 | Bash | 통과(R0: 실행 중 앱 종료, pluginkit 1곳, TeamIdentifier 검증) — 수정 후 재설치 때마다 재확인 |
