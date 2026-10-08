@@ -20,3 +20,4 @@
 | D13 | ✅ **확정 2026-10-08: Bergamot 추가 안 함** | — | — |
 | D14 | ✅ **확정 2026-10-08: 용량 기준을 gzip으로 변경.** 측정: 기본 주입 비압축 34.3KB / gzip 13.9KB (<30KB 충족). PLAN §7 문구 수정 | — | PLAN §7 |
 | D15 | 링크 텍스트 번역 범위: **임시 결정(2026-10-08, Opus)** 문장 속 인라인 링크만 원문 유지, 블록 전체가 링크뿐(헤드라인·카드·메뉴)이면 번역. 옵션 `linkMode`(standalone 기본/never)로 이전 동작 선택 가능. 근거: B1(the-race.com 헤드라인 미번역) — 사용자 확인 필요 | standalone | content/segmenter.js, options |
+| D16 | 알려진 한계(2026-10-08, Opus): 문장 속 링크가 하이픈·복합어에 붙은 경우 Apple 번역+표식 방식에서 어순 어색/중복이 생길 수 있음(실엔진 하네스 R5). 개선안(링크 앞뒤 공백 정규화, TranslateGemma 사용)은 보류 — 사용자 판단 | 현행 유지 | engines/native, EngineMT.swift |

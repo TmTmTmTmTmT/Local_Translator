@@ -5,7 +5,7 @@
 | # | 항목 | 확인 방법 | 결과 |
 |---|---|---|---|
 | T1 | 지정 사이트 자동 번역: 본문·헤드라인·메뉴·카드 커버리지 ≥95% (보이는 영어 텍스트 기준, 의도된 제외 빼고) | H site-coverage, S 스크린샷 | R1 H: en 사이트 통과(the-race 0, wiki·mdn·hn 남은 것은 의도된 링크/코드), ja 실패(B2), zh 통과(1). S 미확인 |
-| T2 | 문장 속 링크는 원문·클릭 유지, 어순·조사 자연스러움 | H, S | 미실행 |
+| T2 | 문장 속 링크는 원문·클릭 유지, 어순·조사 자연스러움 | H, H-real(F13), S | R5 H-real: 링크 원문 유지 통과, 자연스러움은 대체로 양호하나 하이픈 붙은 링크 어색(D16 알려진 한계). S 미확인 |
 | T3 | code/pre, 입력값, translate=no, .notranslate, 사이트별 제외 셀렉터 원문 유지 | H, U | 통과(R1 H: MDN code 134·translate=no 18 유지, U: content-units) |
 | T4 | 동적 콘텐츠: 더보기, 무한스크롤, details 펼침, SPA 라우팅 후 새 구간만 번역·중복 요청 없음 | H(__kt.calls/blocks), U, S | U 통과(content-main dynamic 11건: 추가·숨김→표시·재적용 상한·SPA·shadow), S 미확인 |
 | T5 | 팝업: 사이트 토글, 원문 보기 왕복, 상태(엔진·ready/translating/error) | H(popup 하네스), S | R3 H 통과(라벨·토글·상태 표시, B6 수정). S 통과(원문 토글 왕복, 사용자) — 단 상태 error(B7) |
@@ -23,3 +23,8 @@
 3. 대상 사이트 HTML을 curl(Safari UA)로 받아 CSP meta 제거, `<base href=원 사이트>`, `</body>` 앞에 `<script>window.__ktAll=true</script><script src="http://127.0.0.1:8799/inject.js">` 삽입.
 4. 내장 브라우저로 `http://127.0.0.1:8799/<page>.html` 열고 10초 뒤 `measure.js`(절대 URL로 fetch — `<base>` 때문에 상대경로는 원 사이트로 감)로 집계: 남은 영어 텍스트 수, 링크 안/블록 링크 안/버튼 안 분류.
 - 한계: 사이트 JS가 렌더하는 부분은 하네스에서 다를 수 있음, 엔진은 mock(번역 품질 아님), Safari 고유 문제(인코딩·등록)는 S로만 확인.
+
+### 실엔진(Apple 번역) 하네스 (수동 도구, npm test 제외)
+1. `node tests/e2e/apple-bridge.mjs &` — 127.0.0.1:8797 브리지, bench `kt-bench`(apple-mt-marker)로 번역(요청 직렬 처리, 요청당 120s 타임아웃). 먼저 `bench/engines/apple`에서 release 빌드 필요.
+2. `node tests/e2e/site-coverage.mjs tests/e2e/sites/<page>.html --engine apple [--max-blocks N] --json` — 결과의 `linkSamples`(원문 `[링크]` 표시 → 한국어 슬롯 결과)로 링크 문장 어순·조사 확인.
+3. 끝나면 브리지 프로세스 종료. 한계: 링크 안 텍스트(x 항목)는 번역되지 않음, 슬롯 결과는 `|`로 이어 표시.
