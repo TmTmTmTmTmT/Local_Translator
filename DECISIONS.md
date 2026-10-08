@@ -5,7 +5,7 @@
 
 | # | 결정/평가 | 임시 처리 | 바꿀 곳 |
 |---|---|---|---|
-| D1 | 기본 엔진 확정 (G0) — 자료 [bench/DECISION_BRIEF.md](bench/DECISION_BRIEF.md), 자연스러움 블라인드 평가는 **영어만, 기사 중심**(사용자 요청 2026-10-08; 코퍼스 `bench/corpus-articles/en.json`, 페이지 `bench/rate/rate-articles-en.html` 재실행 후 생성 — FIX_GUIDE F1). 기존 rate-ja/zh 페이지는 D1 평가 제외. 속도: apple-mt ~1.7s/블록(느림), nllb-600m ~0.25s, hy-mt2 ~0.7s | apple-mt 기본(설치 불필요) + 로컬 서버 엔진 옵션 | settings.engine.default, PLAN §4.7 |
+| D1 | ✅ **확정 2026-10-08: 기본 Apple 번역 + 고품질 옵션 TranslateGemma 4B(MT)** — 근거 bench/D1_RATING_EN.md, 후속 PLAN §11. 용어집 기능 추가 확정(§11.3). 이전 내용: 기본 엔진 확정 (G0) — 자료 [bench/DECISION_BRIEF.md](bench/DECISION_BRIEF.md), 자연스러움 블라인드 평가는 **영어만, 기사 중심**(사용자 요청 2026-10-08; 코퍼스 `bench/corpus-articles/en.json`, 페이지 `bench/rate/rate-articles-en.html` 재실행 후 생성 — FIX_GUIDE F1). 기존 rate-ja/zh 페이지는 D1 평가 제외. 속도: apple-mt ~1.7s/블록(느림), nllb-600m ~0.25s, hy-mt2 ~0.7s | apple-mt 기본(설치 불필요) + 로컬 서버 엔진 옵션 | settings.engine.default, PLAN §4.7 |
 | D2 | 언어별 엔진 분리 여부 (en/ja/zh) | 단일 기본 엔진 | settings.engine.byLang |
 | D3 | 고품질 "문맥 모드" 엔진 후보 (H 등급 포함 여부) | 옵션에서 선택 가능하게만 노출 | options |
 | D4 | GPU/ANE 전력 측정 (`sudo powermetrics`) | 미측정 표기 | bench/powermetrics.md |
