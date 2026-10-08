@@ -146,6 +146,11 @@
 
 - **F2 종결(Opus)**: 사용자 평가 평균 Apple 4.33, TG ollama 4.42, TG mlx 4.33 → 차이 없음. 현행(Apple 기본 + TG 옵션) 유지. 폴백 통계 저장 불필요.
 
+## 결정 D2–D14 반영 (2026-10-08)
+- 반영 완료: D7 pdfAuto 기본 ON(테스트 수정), D8 NC 모델(NLLB·EXAONE) bench/models.json 28개로 축소(테스트·스크립트·CANDIDATES), D14 PLAN §7 gzip 기준(측정 gzip 13.9KB), D2·D3·D5·D13 현행 유지, D9/D12 라이선스 없음. 테스트 249 통과.
+- 사용자 작업 대기: D4 powermetrics 2개 측정(bench/powermetrics.md), D6/D10 Apple ID 추가 + Team ID 전달.
+- Opus 계획 필요: D11 lowLatency (컨테이너 앱에 lowLatency 언어 모델 준비 화면 필요).
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

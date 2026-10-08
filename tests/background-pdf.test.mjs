@@ -12,8 +12,10 @@ const mk = (settings) => {
 };
 const nav = (tabId, url, frameId = 0) => ({ tabId, url, frameId });
 
-test('pdfAuto is off by default: no redirect', async () => {
-  const { browser, bg } = mk({ sites: [{ host: 'example.com' }] });
+test('pdfAuto is on by default (D7); explicit false disables redirect', async () => {
+  const on = mk({ sites: [{ host: 'example.com' }] });
+  assert.equal((await on.bg.getSettings()).pdfAuto, true);
+  const { browser, bg } = mk({ pdfAuto: false, sites: [{ host: 'example.com' }] });
   assert.equal((await bg.getSettings()).pdfAuto, false);
   await bg.onBeforeNavigate(nav(1, 'https://example.com/a.pdf'));
   assert.equal(browser.calls.tabsUpdate.length, 0);

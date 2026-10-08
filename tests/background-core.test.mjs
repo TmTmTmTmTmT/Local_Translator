@@ -42,7 +42,7 @@ test('settings merge defaults', async () => {
   assert.equal(s.engine.default, 'native:apple-mt');
   assert.equal(s.engine.byLang.ja, 'local:ollama');
   assert.equal(s.localhost.baseUrl, 'http://127.0.0.1:11434');
-  assert.equal(s.pdfAuto, false);
+  assert.equal(s.pdfAuto, true);
   assert.equal(s.sites.length, 1);
 });
 

@@ -28,7 +28,7 @@
     translateAttrs: false, // true면 content/extra.js 추가 주입(속성 번역)
     fixParticles: true, // 링크 뒤 조사 자동 보정(apply.js 옵션)
     glossary: [], // PLAN §11.3: [{src,dst,lang?,case?}]
-    pdfAuto: false, // D7: 자동 진입 방식 Safari 검증 전까지 기본 OFF
+    pdfAuto: true, // D7(2026-10-08): 사용자 결정으로 기본 ON. Safari 실기 검증 전이므로 동작 확인 필요
   };
 
   const isPlain = (v) => v && typeof v === 'object' && !Array.isArray(v);
