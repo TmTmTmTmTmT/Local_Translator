@@ -14,6 +14,7 @@ private final class MessageBox: @unchecked Sendable {
 }
 
 enum Dispatcher {
+    static let log = Logger(subsystem: "com.tmtmtmtmtmt.localtranslator", category: "native")
     static let mtBreaker = CircuitBreaker()
     static let fmBreaker = CircuitBreaker()
 
@@ -53,37 +54,52 @@ enum Dispatcher {
 
     static func translate(_ req: ProtoRequest) async -> ProtoResponse {
         let name = req.engine ?? "apple-mt"
+        let blocks = req.blocks ?? []
         let breaker: CircuitBreaker, timeout: Double
         switch name {
-        case "apple-mt": breaker = mtBreaker; timeout = Limits.mtTimeout
+        case "apple-mt": breaker = mtBreaker; timeout = Limits.mtTimeout(blocks: blocks.count)
         case "apple-fm": breaker = fmBreaker; timeout = Limits.fmTimeout
         default: return .failure("engine_unavailable", "unknown engine: \(name)")
         }
         if await breaker.isOpen() {
+            log.notice("translate engine=\(name, privacy: .public) blocks=\(blocks.count) rejected: breaker open")
             return .failure("engine_unavailable", "\(name) temporarily disabled after repeated failures")
         }
-        let blocks = req.blocks ?? []
-        let resp: ProtoResponse
+        let started = ContinuousClock.now
+        log.notice("translate start engine=\(name, privacy: .public) blocks=\(blocks.count) lang=\(req.lang ?? "-", privacy: .public) deadline=\(Int(timeout))s")
+        let progress = ProgressBox()
+        var resp: ProtoResponse
         do {
             let results: [ProtoResult] = try await withDeadline(seconds: timeout) {
                 if name == "apple-mt" {
                     return try await MTEngine.shared.translate(blocks: blocks, requestLang: req.lang,
-                                                               variant: MTVariant(rawValue: req.variant ?? "marker") ?? .marker)
+                                                               variant: MTVariant(rawValue: req.variant ?? "marker") ?? .marker,
+                                                               progress: progress)
                 }
                 return try await FMEngine.shared.translate(blocks: blocks, context: req.context, requestLang: req.lang)
             }
+            _ = progress.close()
             resp = ProtoResponse(ok: true, results: results, engine: name)
         } catch let e as EngineError {
-            resp = e.response
+            let done = progress.close()
+            if e.code == "timeout", !done.isEmpty {
+                resp = ProtoResponse(ok: true, results: done, engine: name, partial: true)
+            } else {
+                resp = e.response
+            }
         } catch {
+            _ = progress.close()
             resp = .failure("unknown", "\(error)")
         }
+        // Breaker counts only zero-progress failures; a partial response is progress, not a failure.
         if let code = resp.error?.code, CircuitBreaker.counts(code) {
             await breaker.recordFailure()
             await MTEngine.invalidateAvailability()
         } else {
             await breaker.recordSuccess()
         }
+        let ms = started.duration(to: .now) / .milliseconds(1)
+        log.notice("translate done engine=\(name, privacy: .public) blocks=\(blocks.count) completed=\(resp.results?.count ?? 0) partial=\(resp.partial ?? false) code=\(resp.error?.code ?? "ok", privacy: .public) ms=\(ms)")
         return resp
     }
 }

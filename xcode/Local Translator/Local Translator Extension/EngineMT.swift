@@ -77,16 +77,20 @@ actor MTEngine {
 
     func releaseAllSessions() { sessions.removeAll() }
 
-    func translate(blocks: [ProtoBlock], requestLang: String?, variant: MTVariant) async throws -> [ProtoResult] {
+    func translate(blocks: [ProtoBlock], requestLang: String?, variant: MTVariant,
+                   progress: ProgressBox? = nil) async throws -> [ProtoResult] {
         do {
-            return try await translateInner(blocks: blocks, requestLang: requestLang, variant: variant)
+            return try await translateInner(blocks: blocks, requestLang: requestLang, variant: variant, progress: progress)
+        } catch is CancellationError {
+            throw CancellationError()
         } catch {
             await Self.invalidateAvailability()
             throw error
         }
     }
 
-    private func translateInner(blocks: [ProtoBlock], requestLang: String?, variant: MTVariant) async throws -> [ProtoResult] {
+    private func translateInner(blocks: [ProtoBlock], requestLang: String?, variant: MTVariant,
+                                progress: ProgressBox?) async throws -> [ProtoResult] {
         // Group by effective source language, keeping document order within each group.
         var byLang: [String: [ProtoBlock]] = [:]
         var order: [String] = []
@@ -109,6 +113,7 @@ actor MTEngine {
         for l in order {
             let s = session(for: l)
             for b in byLang[l] ?? [] {
+                try Task.checkCancellation()   // deadline hit: stop; completed blocks are in `progress`
                 do {
                     let slots: [String: String]
                     switch variant {
@@ -119,7 +124,9 @@ actor MTEngine {
                     case .plain: slots = try await plainBlock(s, b)
                     case .marker: slots = try await markerBlock(s, b)
                     }
-                    results.append(ProtoResult(id: b.id, slots: slots))
+                    let r = ProtoResult(id: b.id, slots: slots)
+                    results.append(r)
+                    progress?.append(r)
                 } catch {
                     if case TranslationError.notInstalled = error {
                         sessions[l] = nil

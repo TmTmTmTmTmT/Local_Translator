@@ -51,13 +51,14 @@
       id: `native:${name}`,
       kind: 'native',
       langs,
-      batchLimit: isFm ? { chars: 1500, blocks: 8 } : { chars: 6000, blocks: 40 },
-      concurrency: isFm ? 1 : 2,
+      batchLimit: isFm ? { chars: 1500, blocks: 8 } : { chars: 1500, blocks: 10 },
+      concurrency: 1,
       async translate(blocks, context, lang) {
         if (!langs.includes(baseLang(lang))) throw E().makeError('unsupported_lang', `unsupported lang: ${lang}`);
         const res = await call({ type: 'translate', engine: name, lang, context: context || {}, blocks });
         if (!res || typeof res !== 'object') throw E().makeError('bad_response', 'empty native response');
         if (res.ok === false || res.error) throw mapNativeError(res.error || { code: 'unknown', message: 'native error' });
+        // partial:true = Swift 기한 내 완료분만 반환. 에러가 아니며 누락 블록은 원문 유지(호출 측 처리).
         if (!Array.isArray(res.results)) throw E().makeError('bad_response', 'missing results');
         const out = new Map();
         for (const r of res.results) {

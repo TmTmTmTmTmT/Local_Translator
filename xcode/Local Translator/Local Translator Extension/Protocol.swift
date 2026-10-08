@@ -52,6 +52,8 @@ struct ProtoResponse: Codable, Sendable {
     var error: ProtoError?
     var engines: [String: ProtoEngineStatus]?
     var languagePacks: [String: String]?
+    /// true when the deadline cut the request short; `results` then holds only the completed blocks.
+    var partial: Bool?
 
     static func failure(_ code: String, _ message: String, lang: String? = nil) -> ProtoResponse {
         ProtoResponse(ok: false, error: ProtoError(code: code, message: message, lang: lang))
@@ -201,8 +203,19 @@ actor TTLCache<V: Sendable> {
     func invalidate() { map.removeAll() }
 }
 
+/// Thread-safe collector of completed block results so a deadline can return work already done.
+/// After `close()` further appends are ignored (an abandoned framework call may still finish later).
+final class ProgressBox: @unchecked Sendable {
+    private let lock = NSLock()
+    private var items: [ProtoResult] = []
+    private var closed = false
+    func append(_ r: ProtoResult) { lock.lock(); if !closed { items.append(r) }; lock.unlock() }
+    func close() -> [ProtoResult] { lock.lock(); closed = true; let r = items; lock.unlock(); return r }
+}
+
 enum Limits {
-    static let mtTimeout = 45.0
+    /// MT request deadline scales with block count: min(120, 15 + 3 * blocks) seconds.
+    static func mtTimeout(blocks: Int) -> Double { min(120.0, 15.0 + 3.0 * Double(blocks)) }
     static let fmTimeout = 90.0
     static let maxSessions = 8
     static let idleSeconds = 60
