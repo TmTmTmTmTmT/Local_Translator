@@ -119,6 +119,33 @@ test('link covering part of one item splits it', () => {
   assert.equal(r[0].items[1].text, 'docs');
 });
 
+test('link ending mid-word snaps to the whole word', () => {
+  const str = 'See the online guide for details';
+  const items = [it(str, 72, 100, { width: 320 })]; // 10 per char; "online guide" = chars 8..20
+  // rect end at char 18 (inside "guide"), start exactly at word boundary
+  const r = seg.segmentPage(page(items, { links: [[72 + 80, H - 102, 72 + 180, H - 90]] }));
+  assert.deepEqual(r[0].items.map((x) => x.k), ['t', 'x', 't']);
+  assert.equal(r[0].items[1].text, 'online guide');
+  assert.equal(r[0].items[2].text, ' for details');
+});
+
+test('link starting mid-word snaps to the whole word', () => {
+  const str = 'See the online guide for details';
+  const items = [it(str, 72, 100, { width: 320 })];
+  // rect start at char 10 (inside "online"), end at word boundary char 20
+  const r = seg.segmentPage(page(items, { links: [[72 + 100, H - 102, 72 + 200, H - 90]] }));
+  assert.deepEqual(r[0].items.map((x) => x.k), ['t', 'x', 't']);
+  assert.equal(r[0].items[1].text, 'online guide');
+});
+
+test('CJK link boundaries are not snapped', () => {
+  const str = '\u3053\u308c\u306f\u65e5\u672c\u8a9e\u306e\u30da\u30fc\u30b8\u3067\u3059';
+  const items = [it(str, 72, 100, { width: 110 })]; // 10 per char, 11 chars
+  const r = seg.segmentPage(page(items, { links: [[72 + 30, H - 102, 72 + 60, H - 90]] })); // chars 3..6
+  assert.deepEqual(r[0].items.map((x) => x.k), ['t', 'x', 't']);
+  assert.equal(r[0].items[1].text, '\u65e5\u672c\u8a9e');
+});
+
 test('monospace font becomes x', () => {
   const items = [it('Call ', 72, 100, { width: 25 }), it('foo_bar()', 97, 100, { width: 45, font: 'g_font_1' }), it(' to start.', 142, 100, { width: 50 })];
   const r = seg.segmentPage(page(items, { fonts: { g_font_1: { fontFamily: 'Courier New, monospace' } } }));

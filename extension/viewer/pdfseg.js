@@ -45,7 +45,25 @@
     return [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
   }
 
-  // 링크 rect와 겹치는 구간만 x 조각으로 분리 (문자 위치는 폭 비례 근사).
+  // 비례 근사 인덱스가 단어 중간이면 단어 경계로 이동 (가변폭 글꼴 오차 보정). CJK는 그대로.
+  // start=true: 기본은 왼쪽 경계, false: 오른쪽 경계. 이동이 단어 절반/6자 초과면 가까운 경계.
+  function snapIndex(str, i, start) {
+    const isWs = (c) => /\s/.test(c);
+    if (i <= 0 || i >= str.length) return i;
+    const l = str[i - 1];
+    const r = str[i];
+    if (isWs(l) || isWs(r) || CJK_RE.test(l) || CJK_RE.test(r)) return i;
+    let ws = i;
+    while (ws > 0 && !isWs(str[ws - 1]) && !CJK_RE.test(str[ws - 1])) ws--;
+    let we = i;
+    while (we < str.length && !isWs(str[we]) && !CJK_RE.test(str[we])) we++;
+    const pref = start ? ws : we;
+    const move = Math.abs(pref - i);
+    if (move <= (we - ws) / 2 && move <= 6) return pref;
+    return i - ws <= we - i ? ws : we;
+  }
+
+  // 링크 rect와 겹치는 구간만 x 조각으로 분리 (문자 위치는 폭 비례 근사 + 단어 경계 스냅).
   function splitByLink(part, rect) {
     const top = part.y - part.size;
     const bottom = part.y + part.size * 0.2;
@@ -57,8 +75,22 @@
     if (b - a >= LINK_COVER * part.w) return [Object.assign({}, part, { link: true })];
     if (b - a < 0.1 * part.w) return [part];
     const len = part.str.length;
-    const i0 = Math.max(0, Math.min(len, Math.round(((a - part.x) / part.w) * len)));
-    const i1 = Math.max(i0, Math.min(len, Math.round(((b - part.x) / part.w) * len)));
+    const r0 = Math.max(0, Math.min(len, Math.round(((a - part.x) / part.w) * len)));
+    const r1 = Math.max(r0, Math.min(len, Math.round(((b - part.x) / part.w) * len)));
+    let i0 = snapIndex(part.str, r0, true);
+    let i1 = snapIndex(part.str, r1, false);
+    if (i1 <= i0) {
+      // 스냅 결과가 비면 겹침이 가장 큰 단어 하나만 링크로.
+      const re = /\S+/g;
+      let best = null;
+      let m;
+      while ((m = re.exec(part.str))) {
+        const ov = Math.min(m.index + m[0].length, r1) - Math.max(m.index, r0);
+        if (!best || ov > best.ov) best = { ov, s: m.index, e: m.index + m[0].length };
+      }
+      if (!best || best.ov <= 0) return [part];
+      i0 = best.s; i1 = best.e;
+    }
     const mk = (s, i, j, link) => {
       if (j <= i) return null;
       return Object.assign({}, part, {

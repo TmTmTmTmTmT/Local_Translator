@@ -191,3 +191,11 @@ NHK 남은 50개 = `<select>/<optgroup>/<option>` 48개 + SVG `<title>/<desc>` 2
 3. 테스트: (a) rect 끝이 단어 중간인 경우 스냅되어 단어 전체가 x, (b) 시작이 단어 중간, (c) CJK 무스냅, (d) 실제 pdf.js로 sample.pdf를 파싱해 segmentPage 결과에서 x 항목 = "online guide"(tests/pdf-parse.test.mjs에 링크 포함 케이스).
 ### 영향 범위: `extension/viewer/pdfseg.js`, `tests/e2e/sample.pdf`(+생성 스크립트), `tests/pdf-seg.test.mjs`, `tests/pdf-parse.test.mjs`. viewer는 HTML이 utf-8 선언이라 비ASCII 가드 대상 아님(그래도 리터럴 비ASCII는 피함).
 ### 검증: npm test, 내장 브라우저 pdf-harness에서 "번역(See the) online guide 번역(for details …)" 형태.
+
+## F10. 옵션 오류 메시지에 어느 칸의 줄인지 없음 (B5, R3, Opus)
+### 원인
+`options/options.js` save(): 사이트·제외 셀렉터·용어집 오류를 모두 `${line}줄: …`로 합쳐 표시 → "1줄: 잘못된 셀렉터", "1줄: 형식…"이 어느 입력칸인지 모름.
+### 수정 방향 (Sonnet)
+오류 출처별 접두: "사이트 N줄:", "제외 셀렉터 N줄:", "용어집 N줄:", localhost 오류는 "Localhost:". `buildSites`가 사이트/제외를 구분해 주지 않으면 options-lib에 출처 필드(`field: 'sites'|'excludes'`)를 추가. 테스트(ui-options)에 출처 구분 케이스.
+### 영향 범위: `extension/options/options.js`, `options-lib.js`, `tests/ui-options.test.mjs`. (F9와 파일 겹치지 않음)
+### 검증: npm test, options 하네스(.local/options-h.html)에서 메시지 확인.
