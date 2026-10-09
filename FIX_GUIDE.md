@@ -353,3 +353,15 @@ Safari 확장 background의 fetch는 `Origin: safari-web-extension://<id>`를 �
 3. PROTOCOL §4에 `http` 메시지·제한 기록. 테스트: 네이티브 경로 선택·폴백·403 힌트·비루프백 거부.
 ### 영향 범위: A `extension/engines/localhost.js`, `extension/engines/native.js`(필요 시 헬퍼 공유), `extension/PROTOCOL.md`, `tests/engines-localhost.test.mjs`. B `xcode/.../SafariWebExtensionHandler.swift`, `Protocol.swift`, 프로젝트 설정(확장 타깃 권한).
 ### 검증: npm test, 빌드, 재설치 후 Safari에서 프리셋 → the-race 번역(사용자) + Ollama `ps`·확장 로그.
+
+## F22. PDF 자동 진입 시 빈 탭에서 멈춤 (B14 still, R12, Opus)
+### 원인 (Sonnet 조사, 신뢰도 중)
+설치본은 F17 포함. `onBeforeNavigate`(응답 전)·`onCommitted`·`tabs.onUpdated` 세 곳에서 HEAD 확인(최대 3초) 후 `tabs.update(tabId, viewerUrl)` — PDF 탐색이 커밋/Safari 내장 PDF 처리로 넘어가는 중간에 끼어들어 확장 URL 탐색이 커밋되지 않는 것으로 추정(빈 화면·빈 주소창·로딩 막대). 오류는 `.catch(() => {})`로 묻힘. 실기에서 검증된 유일한 경로는 팝업 수동 버튼(`tabs.create` 새 탭).
+### 수정 방향 (Sonnet)
+1. 자동 진입 트리거는 `webNavigation.onCommitted`(frameId 0)만 사용. `onBeforeNavigate`·`tabs.onUpdated` 리다이렉트 트리거 제거(호스트 기록 용도는 유지 가능).
+2. 리다이렉트 방식: 검증된 수동 경로와 같은 `tabs.create({url: viewerUrl, index: tab.index + 1, active: true})` 후 원래 탭 `tabs.remove`. 원래 탭 제거 실패해도 무시(뷰어는 열림).
+3. 오류 삼키지 말고 `console.warn('[kt pdf]', …)`로 기록(백그라운드 콘솔에서 확인 가능).
+4. 뷰어 하트비트: `viewer.html` 정적 마크업에 "불러오는 중…" 상태 텍스트가 모듈 로드 전부터 보이게(이미 있으면 유지).
+5. 테스트(background-pdf): onCommitted만 트리거, tabs.create+remove 호출, 중복 1회, #kt-original 무시, onBeforeNavigate만 오면 리다이렉트 안 함.
+### 영향 범위: `extension/background.js`(PDF 훅), `extension/viewer/viewer.html`(필요 시), `tests/background-pdf.test.mjs`, `tests/helpers/fake-browser.mjs`(tabs.create/remove 스텁 필요 시), PROTOCOL 한 줄.
+### 검증: npm test, 재설치 후 Safari arxiv 링크(사용자).
