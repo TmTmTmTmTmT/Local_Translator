@@ -310,3 +310,13 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 6. 테스트: 프레임 2개 보고 합계, 이동 시 초기화, 즉시 0 보고, sendBatch 타임아웃, translate 상한 해제.
 ### 영향 범위: `extension/content/main.js`, `extension/background.js`(tabState·translateGroup·onCommitted 등록), 테스트. F17과 같은 파일(background.js)이므로 **한 작업자가 F17·F18을 순서대로** 처리.
 ### 검증: npm test, 재설치 후 Safari the-race 번역 완료 시 팝업 남은 0·HN 진행(사용자).
+
+## F19. 고품질 번역(Ollama TranslateGemma) 실사용 검증 도구 (R11, Opus)
+### 배경
+사용자: Ollama 고품질 번역도 자주 쓸 예정 → Apple·고품질 둘 다 검증 요구. Safari는 computer-use read 등급이라 옵션 전환·페이지 조작은 사용자 몫. 확장의 고품질 경로(`engines/mtmode.js` `local:mt-ollama`, family translategemma, keepAlive)를 **확장 코드 그대로** Node에서 실제 Ollama(127.0.0.1:11434)에 붙여 사이트 단위로 검증한다.
+### 수정 방향 (Sonnet)
+1. `tests/e2e/site-coverage.mjs`에 `--engine ollama-tg`: background의 번역 경로와 같은 방식으로 `extension/engines/*.js`(common, prompt, mtmode, localhost, registry)와 `lib/glossary.js`를 로드해 registry의 `local:mt-ollama` 엔진을 settings `{engine:{default:'local:mt-ollama'}, localhost:{baseUrl:'http://127.0.0.1:11434', kind:'ollama', model:'translategemma:4b', family:'translategemma', keepAlive:300}}`로 호출(fetch는 Node 내장). content 쪽 요청 → 엔진 → 적용 흐름은 mock 대신 이 엔진. `--glossary "src=>dst;..."` 옵션.
+2. 출력: calls, blocks, respondedBlocks, remaining, errors, wallSec, ms/블록, linkSamples(링크 포함 블록 10개: 원문[링크] → 결과), 무작위 일반 블록 샘플 5개, Ollama `ollama ps` 메모리(실행 전후).
+3. 루프백 외 주소 금지(코드에서 검증). npm test에는 포함하지 않음. docs/TEST_LOOP.md 하네스 절에 사용법 2줄.
+### 영향 범위: `tests/e2e/site-coverage.mjs`, `docs/TEST_LOOP.md`. 확장 코드 변경 없음.
+### 검증: the-race 홈·기사, HN, NHK 각 30블록 실행 결과 보고.

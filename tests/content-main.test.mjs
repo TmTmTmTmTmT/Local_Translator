@@ -343,3 +343,33 @@ test('main: works with chrome fallback sender and KT.lib.detectLang absent/prese
   assert.ok(sent.includes('translate'));
   e.close();
 });
+
+test('F18: pending drop to 0 is reported immediately, not delayed by the debounce', async () => {
+  const e = setup('<body><p>Hello there friend</p></body>', { start: { reportDebounceMs: 5000 } });
+  e.start();
+  await e.idle();
+  await sleep(0);
+  const reports = e.messenger.calls.filter((c) => c.type === 'reportStatus');
+  assert.ok(reports.length >= 1);
+  assert.equal(reports.at(-1).pending, 0);
+  assert.equal(reports.at(-1).done, 1);
+  e.close();
+});
+
+test('F18: sendBatch times out a lost response, applies error handling and frees inflight', async () => {
+  const gate = deferred();
+  const e = setup('<body><p>Hello there friend</p></body>', { respond: () => gate.promise, start: { sendTimeoutMs: 30 } });
+  const st = e.start();
+  await e.idle();
+  await sleep(10);
+  assert.equal(st.inflight, 0);
+  assert.equal(e.q('p').getAttribute('data-kt'), 'error');
+  assert.equal(e.q('p').firstChild.nodeValue, 'Hello there friend');
+  // late response after the timeout is ignored
+  gate.resolve({ ok: true, results: [] });
+  await sleep(10);
+  assert.equal(st.inflight, 0);
+  const reports = e.messenger.calls.filter((c) => c.type === 'reportStatus');
+  assert.equal(reports.at(-1).pending, 0);
+  e.close();
+});

@@ -243,3 +243,60 @@ test('F16: translate priority orders queued engine batches', async () => {
   // a is already running when the high request arrives; c must run before b
   eq(engine.calls.map((c) => c.ids[0]), ['a', 'c', 'b']);
 });
+
+// F18: per-frame pending, reset on navigation, engine deadline releases the semaphore.
+test('F18: pending is summed across frames; later report from one frame does not hide another', async () => {
+  const { bg } = setup();
+  const top = { tab: { id: 7 }, frameId: 0 };
+  const frame = { tab: { id: 7 }, frameId: 5 };
+  await bg.handleMessage({ type: 'reportStatus', pending: 3, done: 0, error: 0 }, top);
+  await bg.handleMessage({ type: 'reportStatus', pending: 2, done: 0, error: 0 }, frame);
+  assert.equal((await bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {})).pending, 5);
+  await bg.handleMessage({ type: 'reportStatus', pending: 0, done: 3, error: 0 }, top);
+  const st = await bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {});
+  assert.equal(st.pending, 2);
+  await bg.handleMessage({ type: 'reportStatus', pending: 0, done: 2, error: 0 }, frame);
+  const st2 = await bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {});
+  eq([st2.pending, st2.status], [0, 'ready']);
+});
+
+test('F18: top-frame commit resets tab state; subframe commit resets only that frame', async () => {
+  const { bg, browser } = setup();
+  await bg.handleMessage({ type: 'reportStatus', pending: 3 }, { tab: { id: 7 }, frameId: 0 });
+  await bg.handleMessage({ type: 'reportStatus', pending: 2 }, { tab: { id: 7 }, frameId: 5 });
+  await bg.onCommitted({ tabId: 7, frameId: 5, url: 'https://example.com/x' });
+  assert.equal((await bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {})).pending, 3);
+  // lastError is cleared on top-frame navigation
+  await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('a', 'en', 'x')] }, sender); // ok, creates tab 7 state
+  const bad = setup({ engine: fakeEngine({ async translate() { throw { code: 'engine_unavailable', message: 'x' }; } }) });
+  await bad.bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('a', 'en', 'x')] }, sender);
+  assert.equal((await bad.bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {})).errorCode, 'engine_unavailable');
+  await bad.bg.onCommitted({ tabId: 7, frameId: 0, url: 'https://example.com/next' });
+  const after = await bad.bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {});
+  eq([after.pending, after.status, 'errorCode' in after], [0, 'ready', false]);
+  eq(bad.browser.calls.badge.at(-1), { text: '', tabId: 7 });
+  await bg.onCommitted({ tabId: 7, frameId: 0, url: 'https://example.com/next' });
+  assert.equal((await bg.handleMessage({ type: 'getState', tabId: 7, url: 'https://example.com' }, {})).pending, 0);
+  void browser;
+});
+
+test('F18: engine.translate that never settles times out and releases the semaphore', async () => {
+  let n = 0;
+  const engine = fakeEngine({
+    concurrency: 1,
+    async translate(blocks) {
+      if (n++ === 0) return new Promise(() => {}); // lost response
+      return new Map(blocks.map((b) => [b.id, { 0: 'KO:' + b.items[0].text }]));
+    },
+  });
+  const browser = makeFakeBrowser();
+  const bg = BG.createBackground({ browser, KT, engines: { pickEngine: () => engine }, deadlineMs: () => 20 });
+  const t0 = Date.now();
+  const first = await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('a', 'en', 'x')] }, sender);
+  eq([first.ok, first.code], [false, 'timeout']);
+  assert.ok(Date.now() - t0 < 2000);
+  // the semaphore is free again: the next request runs
+  const second = await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('b', 'en', 'y')] }, sender);
+  eq(second.ok, true);
+  eq(second.results[0].slots, { 0: 'KO:y' });
+});

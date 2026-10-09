@@ -4,7 +4,7 @@
 
   const KT = (globalThis.KT = globalThis.KT || {});
   // translateAttrs: 속성 번역(extra.js가 주입된 경우에만 동작). fixParticles: 조사 병기 확정(apply.js).
-  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
+  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, sendTimeoutMs: 90000, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
   const MAX_BATCH_CHARS = 1500, MAX_BATCH_BLOCKS = 10, CACHE_SIZE = 2000;
   // 페이지 첫 요청은 작게 보내 첫 번역이 빨리 보이게 한다(엔진이 배치를 직렬로 처리하므로 첫 결과 지연 = 첫 배치 크기).
   const FIRST_BATCH_BLOCKS = 4;
@@ -94,7 +94,7 @@
     const st = {
       applier, queue: [], applyQueue: [], inflight: 0, flushTimer: null, mutTimer: null, tickPending: false,
       rafPending: false, firstSent: false, reportTimer: null, seq: 0, done: 0, error: 0, lastReport: '', lastUrl: win.location ? win.location.href : '',
-      work: [], chars: new Set(), workSet: new Set(), needPrune: false, shadowTodo: [],
+      sendTimers: new Set(), lastPending: -1, work: [], chars: new Set(), workSet: new Set(), needPrune: false, shadowTodo: [],
       metrics: { requests: 0, cacheHits: 0, ticks: 0, maxUnitsPerTick: 0, ownWrites: 0, coalesced: 0, deduped: 0 }, stopped: false,
     };
     S = st;
@@ -187,10 +187,19 @@
       st.metrics.requests++;
       st.firstSent = true;
       const msg = { type: 'translate', priority: batch.priority | 0, blocks: batch.recs.map((r) => r.block), context: { title: doc.title || '', host: (win.location && win.location.hostname) || '' }, lang: batch.lang };
+      // 응답 유실 시 영원히 inflight로 남지 않도록 기한을 둔다(기한 후 도착한 응답은 무시).
+      let settled = false, tm = null;
+      const finish = (resp) => {
+        if (settled) return;
+        settled = true;
+        if (tm) { win.clearTimeout(tm); st.sendTimers.delete(tm); }
+        try { onResponse(batch, resp); } finally { st.inflight--; reportSoon(); }
+      };
+      tm = win.setTimeout(() => finish(null), opt.sendTimeoutMs);
+      st.sendTimers.add(tm);
       let p;
       try { p = Promise.resolve(send(msg)); } catch (e) { p = Promise.reject(e); }
-      p.then((resp) => onResponse(batch, resp), () => onResponse(batch, null))
-        .finally(() => { st.inflight--; reportSoon(); });
+      p.then(finish, () => finish(null));
     }
     function onResponse(batch, resp) {
       if (st.stopped) return;
@@ -229,15 +238,24 @@
       for (const r of tracked) if (r.state === 'queued' || r.state === 'inflight') pending++;
       return { pending, done: st.done, error: st.error };
     }
+    function sendReport() {
+      const c = counts();
+      const key = JSON.stringify(c);
+      st.lastPending = c.pending;
+      if (key === st.lastReport) return;
+      st.lastReport = key;
+      try { Promise.resolve(send(Object.assign({ type: 'reportStatus' }, c))).catch(() => {}); } catch (_) { /* 보고 실패는 무시 */ }
+    }
+    // 0으로 떨어지거나 0에서 벗어나는 순간은 디바운스 없이 즉시 보고해 마지막 값(0)이 유실되지 않게 한다.
     function reportSoon() {
       if (st.stopped) return;
-      timer('reportTimer', opt.reportDebounceMs, () => {
-        const c = counts();
-        const key = JSON.stringify(c);
-        if (key === st.lastReport) return;
-        st.lastReport = key;
-        try { Promise.resolve(send(Object.assign({ type: 'reportStatus' }, c))).catch(() => {}); } catch (_) { /* 보고 실패는 무시 */ }
-      });
+      const pending = counts().pending;
+      if (pending === 0 || st.lastPending === 0) {
+        if (st.reportTimer) { win.clearTimeout(st.reportTimer); st.reportTimer = null; }
+        sendReport();
+        return;
+      }
+      timer('reportTimer', opt.reportDebounceMs, sendReport);
     }
 
     // ---------- 동적 콘텐츠 ----------
@@ -379,6 +397,8 @@
     st.teardown = () => {
       st.stopped = true;
       for (const k of ['flushTimer', 'mutTimer', 'reportTimer']) if (st[k]) { win.clearTimeout(st[k]); st[k] = null; }
+      for (const t of st.sendTimers) win.clearTimeout(t);
+      st.sendTimers.clear();
       st.io.disconnect();
       st.mo.disconnect();
       win.removeEventListener('popstate', onNav);
