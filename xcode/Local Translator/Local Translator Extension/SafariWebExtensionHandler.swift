@@ -32,6 +32,7 @@ enum Dispatcher {
         switch req.type {
         case "status": return await status()
         case "translate": return await translate(req)
+        case "http": return await LoopbackHTTP.perform(req)
         default: return .failure("bad_response", "unknown type: \(req.type)")
         }
     }

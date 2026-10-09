@@ -53,6 +53,8 @@
 `partial:true`는 기한 내 완료한 블록만 `results`에 담았다는 뜻이다(에러 아님). 누락 블록은 원문 유지(§2). JS는 받은 결과만 사용한다. 진행 0(결과 없음)인 기한 초과만 `timeout` 에러. apple-mt 배치 한도는 `{chars:1500, blocks:10}`, 동시성 1.
 `{type:"status"}` → `{ok, engines:{"apple-mt":{available,reason?}, "apple-fm":{...}}, languagePacks:{en|ja|zh|zh-Hans|zh-Hant: "installed"|"supported"|"unsupported"}}`.
 
+`{type:"http", method:"GET"|"POST", url, headers?, body?(문자열), timeoutMs}` → `{ok:true, status, body}` 또는 `{ok:false, error:{code,message}}`. 루프백 HTTP 대리(F21): Safari fetch는 `Origin: safari-web-extension://...`가 붙어 Ollama(`OLLAMA_ORIGINS` 기본값)가 403으로 거부하므로 Origin 없는 URLSession이 대신 호출한다. 제한: scheme `http`, host `127.0.0.1`/`localhost`/`::1`만, 포트 1~65535, 요청 본문 4MB, 응답 8MB, 타임아웃 기본 120s·최대 300s, 위반 시 `bad_response`. JS(`localhost.js`)는 `sendNativeMessage`가 있고 fetch 주입이 없으면 이 경로를 쓰고(JS에서도 루프백 검증), 없거나 `bad_response`+`unknown type`(옛 빌드)이면 fetch로 폴백한다. fetch 경로의 403은 `OLLAMA_ORIGINS` 힌트 메시지(`engine_unavailable`)로 표시.
+
 에러 코드 (Swift `error.code`, 모두 `message` 포함):
 | code | 의미 | 비고 |
 |---|---|---|
