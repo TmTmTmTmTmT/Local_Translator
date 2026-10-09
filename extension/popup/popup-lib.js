@@ -4,10 +4,10 @@
     needs_language_pack: '컨테이너 앱에서 언어팩을 설치하세요',
     engine_unavailable: '번역 엔진을 사용할 수 없습니다. 옵션에서 엔진과 서버를 확인하세요',
     needs_safari_restart: '확장이 업데이트되었습니다. Safari를 완전히 종료(⌘Q)했다가 다시 여세요.',
-    rate_limited: '요청이 많아 잠시 후 다시 시도합니다',
-    bad_response: '엔진 응답을 해석하지 못했습니다',
+    rate_limited: '요청 제한(잠시 후 재시도)',
+    bad_response: '엔진 응답 오류(잠시 후 재시도)',
     unsupported_lang: '지원하지 않는 언어입니다',
-    timeout: '엔진 응답 시간이 초과되었습니다',
+    timeout: '응답 시간 초과(잠시 후 재시도)',
     unknown: '알 수 없는 오류가 발생했습니다',
   };
 

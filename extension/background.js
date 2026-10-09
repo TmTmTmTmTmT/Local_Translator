@@ -17,8 +17,8 @@
   const CONTENT_JS = ['lib/josa.js', 'content/text.js', 'content/filter.js', 'content/segmenter.js', 'content/apply.js', 'content/main.js'];
   const CONTENT_EXTRA_JS = 'content/extra.js';
   const KNOWN_CODES = new Set(['needs_language_pack', 'engine_unavailable', 'rate_limited', 'bad_response', 'unsupported_lang', 'timeout', 'unknown', 'needs_safari_restart']);
-  // 사용자 조치가 필요한 에러만 배지 '!'.
-  const BADGE_CODES = new Set(['engine_unavailable', 'needs_language_pack', 'needs_safari_restart']);
+  // 사용자 조치가 필요하거나 번역이 실제로 누락되는 에러는 배지 '!' (F25: 요청 제한·응답 오류·시간 초과 포함).
+  const BADGE_CODES = new Set(['engine_unavailable', 'needs_language_pack', 'needs_safari_restart', 'rate_limited', 'bad_response', 'timeout']);
 
   const DEFAULT_SETTINGS = {
     sites: [],
@@ -102,7 +102,9 @@
   function mapError(e) {
     const raw = e && typeof e === 'object' ? e : { message: String(e || '') };
     const code = KNOWN_CODES.has(raw.code) ? raw.code : 'unknown';
-    return { code, message: raw.message || code };
+    const out = { code, message: raw.message || code };
+    if (Number.isFinite(raw.status)) out.status = raw.status;
+    return out;
   }
 
   function hostOfUrl(url) {
@@ -257,27 +259,93 @@
       }
       const batches = splitBatches(misses, engine.batchLimit);
       const sem = getSemaphore(engine, s);
-      await Promise.all(batches.map((batch) => sem.run(async () => {
-        try {
+      const merge = engine.mergeBatches === true ? getMergeQueue(engine) : null;
+      await Promise.all(batches.map((batch) => {
+        const pairs = new Map();
+        const sent = batch.map((b) => {
+          const m = sub.get(b.id);
+          if (!m) return b;
+          for (const p of m.applied) pairs.set(p[0] + '\u0000' + p[1], p);
+          return m.block;
+        });
+        const entry = { batch, sent, pairs, lang, context, priority, keys, out, engine, s };
+        return merge ? runMerged(sem, merge, entry) : sem.run(() => runBatch(entry), priority);
+      }));
+    }
+
+    // 엔진 호출 + 결과 반영. 실패는 out.errors에 기록하고(F25: 엔진 id·코드·HTTP 상태만 로그) 예외는 밖으로 내지 않는다.
+    function applyBatchResult(e, map) {
+      for (const b of e.batch) {
+        const slots = map && map.get(b.id);
+        if (!slots || !Object.keys(slots).length) continue;
+        cache.set(e.keys.get(b.id), slots);
+        e.out.results.push({ id: b.id, slots });
+      }
+    }
+    function failBatch(e, err) {
+      const m = mapError(err);
+      console.warn('[kt engine]', e.engine.id, 'code=' + m.code, 'status=' + (m.status != null ? m.status : '-'));
+      e.out.errors.push(m);
+    }
+    function ctxOf(e, pairs) {
+      return pairs.size ? Object.assign({}, e.context, { glossary: Array.from(pairs.values()) }) : e.context;
+    }
+    function deadlineOf(engine, n) {
+      return d.deadlineMs ? d.deadlineMs(engine, n) : engineDeadlineMs(engine, n) + DEADLINE_SLACK_MS;
+    }
+    async function runBatch(e) {
+      try {
+        const map = await withDeadline(e.engine.translate(e.sent, ctxOf(e, e.pairs), e.lang, e.s), deadlineOf(e.engine, e.sent.length));
+        applyBatchResult(e, map);
+      } catch (err) { failBatch(e, err); }
+    }
+
+    // F25: mergeBatches 엔진(DeepL)은 세마포어 슬롯이 비길 때 대기 중인 배치를 한도(batchLimit)까지 합쳐 한 요청으로 보낸다.
+    const mergeQueues = new Map(); // engineId -> entry[]
+    function getMergeQueue(engine) {
+      if (!mergeQueues.has(engine.id)) mergeQueues.set(engine.id, []);
+      return mergeQueues.get(engine.id);
+    }
+    function takeMerged(queue, engine) {
+      if (!queue.length) return [];
+      let best = 0;
+      for (let i = 1; i < queue.length; i++) if (queue[i].priority > queue[best].priority) best = i;
+      const first = queue.splice(best, 1)[0];
+      const group = [first];
+      const lim = engine.batchLimit || {};
+      const maxBlocks = lim.blocks || Infinity;
+      const maxChars = lim.chars || Infinity;
+      let nb = first.sent.length;
+      let nc = first.sent.reduce((a, b) => a + blockChars(b), 0);
+      for (let i = 0; i < queue.length;) {
+        const q = queue[i];
+        const c = q.sent.reduce((a, b) => a + blockChars(b), 0);
+        if (q.lang !== first.lang || nb + q.sent.length > maxBlocks || nc + c > maxChars) { i++; continue; }
+        queue.splice(i, 1);
+        group.push(q);
+        nb += q.sent.length;
+        nc += c;
+      }
+      return group;
+    }
+    function runMerged(sem, queue, entry) {
+      return new Promise((resolve) => {
+        entry.resolve = resolve;
+        queue.push(entry);
+        sem.run(async () => {
+          const group = takeMerged(queue, entry.engine);
+          if (!group.length) return; // 이미 다른 실행이 합쳐 처리함
+          const first = group[0];
           const pairs = new Map();
-          const sent = batch.map((b) => {
-            const m = sub.get(b.id);
-            if (!m) return b;
-            for (const p of m.applied) pairs.set(p[0] + '\u0000' + p[1], p);
-            return m.block;
-          });
-          const ctx = pairs.size ? Object.assign({}, context, { glossary: Array.from(pairs.values()) }) : context;
-          const map = await withDeadline(engine.translate(sent, ctx, lang, s), d.deadlineMs ? d.deadlineMs(engine, sent.length) : engineDeadlineMs(engine, sent.length) + DEADLINE_SLACK_MS);
-          for (const b of batch) {
-            const slots = map && map.get(b.id);
-            if (!slots || !Object.keys(slots).length) continue;
-            cache.set(keys.get(b.id), slots);
-            out.results.push({ id: b.id, slots });
-          }
-        } catch (e) {
-          out.errors.push(mapError(e));
-        }
-      }, priority)));
+          const sent = [];
+          for (const g of group) { for (const [k, v] of g.pairs) pairs.set(k, v); for (const b of g.sent) sent.push(b); }
+          try {
+            const map = await withDeadline(first.engine.translate(sent, ctxOf(first, pairs), first.lang, first.s), deadlineOf(first.engine, sent.length));
+            for (const g of group) applyBatchResult(g, map);
+          } catch (err) { for (const g of group) failBatch(g, err); }
+          finally { for (const g of group) g.resolve(); }
+        }, entry.priority);
+      });
     }
 
     async function handleTranslate(msg, sender) {
@@ -311,11 +379,15 @@
         const err = out.errors[0];
         if (st) st.lastError = err.code;
         updateBadge(tabId);
-        return { ok: false, code: err.code, message: err.message };
+        const fail = { ok: false, code: err.code, message: err.message };
+        if (err.status != null) fail.status = err.status;
+        return fail;
       }
       if (st) st.lastError = out.errors.length ? out.errors[0].code : null;
       updateBadge(tabId);
-      return { ok: true, results: out.results, engine: out.engine };
+      const res = { ok: true, results: out.results, engine: out.engine };
+      if (out.errors.length) { res.partial = out.errors[0].code; if (out.errors[0].status != null) res.status = out.errors[0].status; } // 일부 배치 실패(content가 재시도 판단에 사용)
+      return res;
     }
 
     // ---- 탭 상태·배지 ----
