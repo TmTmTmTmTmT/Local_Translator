@@ -333,3 +333,5 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 - B: `xcode/.../EngineMT.swift` `markerBlock` 진입 시 같은 규칙 → `plainBlock`(구간별). 기존 marker 동작 그 외 불변. Xcode-beta 컴파일 확인만(CODE_SIGNING_ALLOWED=NO, 산출물 삭제).
 ### 영향 범위: A `extension/engines/mtmode.js`, `extension/PROTOCOL.md`, `tests/engines-mtmode.test.mjs`. B `EngineMT.swift`. 겹침 없음.
 ### 검증: npm test, 빌드, 하네스(`--engine ollama-tg`, `--engine apple`) HN 30블록 linkSamples 재확인.
+### F20b (R11 결과 후 Opus 결정)
+구간별 번역으로 바꿔도 TranslateGemma가 홀로 남은 조각("17 points by")을 "17점 (작성자: )"처럼 빈 괄호로 확장 → MT 모드 출력 후처리: 원문에 괄호가 없는 구간에서 출력의 빈 괄호 패턴(`(` 공백 `)`, `(` 6자 이내 `:` 공백 `)`)과 그 앞 공백을 제거. 원문에 괄호가 있으면 손대지 않음. 테스트: "17점 (작성자: )" → "17점", 원문 괄호 보존. 영향: `extension/engines/mtmode.js`, `tests/engines-mtmode.test.mjs`. 나머지(“by” 의미 손실)는 D16 한계로 둠.

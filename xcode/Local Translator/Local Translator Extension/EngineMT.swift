@@ -184,9 +184,16 @@ actor MTEngine {
 
     // MARK: marker: whole block in one request, x items replaced by ⟦n⟧, split translation at the markers
 
+    /// F20: link-heavy label-like lines (x >= 3, or x >= 2 with no lettered t segment >= 12 chars) go per-run, not marker.
+    private nonisolated func prefersRunSplitting(_ b: ProtoBlock, _ k: Int) -> Bool {
+        if k >= 3 { return true }
+        if k >= 2 { return !b.items.contains { $0.k == "t" && hasLetters($0.text) && $0.text.count >= 12 } }
+        return false
+    }
+
     private nonisolated func markerBlock(_ box: SessionBox, _ b: ProtoBlock) async throws -> [String: String] {
         let k = b.items.filter { $0.k != "t" }.count
-        if k == 0 { return try await plainBlock(box, b) }
+        if k == 0 || prefersRunSplitting(b, k) { return try await plainBlock(box, b) }
         let tItems = b.slotItems
         if !tItems.contains(where: { hasLetters($0.text) }) {
             return Dictionary(uniqueKeysWithValues: tItems.compactMap { it in it.i.map { (String($0), it.text) } })

@@ -16,7 +16,7 @@ func markerBatch(_ session: TranslationSession, _ blocks: [Block], lang: String,
         if !tItems.contains(where: { hasLetters($0.text) }) {
             out[bi] = Dictionary(uniqueKeysWithValues: tItems.compactMap { it in it.i.map { (String($0), it.text) } }); continue
         }
-        if k == 0 {
+        if k == 0 || prefersRunSplitting(b, k) {
             stats.plainNoX += 1
             for run in runs(of: b) {
                 let core = run.text.trimmingCharacters(in: .whitespacesAndNewlines)

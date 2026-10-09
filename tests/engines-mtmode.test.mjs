@@ -185,3 +185,23 @@ test('registry: mt engine instances have ids, concurrency 1', () => {
   assert.equal(e.concurrency, 1);
   assert.equal(E.getEngine('local:mt-ollama', {}).id, 'local:mt-ollama');
 });
+
+test('F20: link-heavy meta line goes straight to run-splitting; sentence with 1-2 links keeps markers', async () => {
+  let n = 0;
+  const f = mockFetch(() => ollamaReply(`KO${++n}`));
+  const hn = B('h', t(0, '17 points by '), x('user'), t(1, ' '), x('55 minutes ago'), t(2, ' | '), x('hide'), t(3, ' | '), x('2 comments'));
+  await ollama(f).translate([hn], {}, 'en', S('http://127.0.0.1:11434', 'm', 'hymt2'));
+  assert.equal(f.calls.length, 1); // only one translatable run
+  assert.ok(!/⟦/.test(f.calls[0].body.messages[0].content));
+
+  const f2 = mockFetch(() => ollamaReply('A ⟦1⟧ B ⟦2⟧ C'));
+  const two = B('s', t(0, 'See '), x('a'), t(1, ' and '), x('b'), t(2, ' for details on the matter at hand'));
+  await ollama(f2).translate([two], {}, 'en', S('http://127.0.0.1:11434', 'm', 'hymt2'));
+  assert.equal(f2.calls.length, 1);
+  assert.match(f2.calls[0].body.messages[0].content, /See ⟦1⟧ and ⟦2⟧ for details/);
+
+  const f3 = mockFetch(() => ollamaReply('KO'));
+  const shortTwo = B('q', t(0, 'See '), x('a'), t(1, ' and '), x('b'));
+  await ollama(f3).translate([shortTwo], {}, 'en', S('http://127.0.0.1:11434', 'm', 'hymt2'));
+  assert.equal(f3.calls.length, 2); // "See", "and" -> 2 requests, no markers
+});
