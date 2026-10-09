@@ -26,7 +26,7 @@ export function makeFakeBrowser(initial = {}) {
   const local = Object.assign({}, initial.local);
   const pick = (store, k) => (k == null ? { ...store } : { [k]: store[k] }.constructor === Object && k in store ? { [k]: store[k] } : {});
   const b = {
-    calls: { register: [], unregister: [], badge: [], tabsCreate: [], tabsUpdate: [] },
+    calls: { register: [], unregister: [], badge: [], tabsCreate: [], tabsUpdate: [], tabsRemove: [] },
     unregisterThrows: true,
     storage: {
       sync: { get: async (k) => pick(sync, k), set: async (o) => { Object.assign(sync, o); } },
@@ -44,6 +44,8 @@ export function makeFakeBrowser(initial = {}) {
     action: { setBadgeText: async (o) => { b.calls.badge.push(o); } },
     tabs: {
       create: async (o) => { b.calls.tabsCreate.push(o); return { id: 99 }; },
+      get: async (id) => { if (b.tabsGetThrows) throw new Error('no tab'); return { id, index: 3 }; },
+      remove: async (id) => { b.calls.tabsRemove.push(id); if (b.tabsRemoveThrows) throw new Error('rm'); },
       update: async (id, o) => { b.calls.tabsUpdate.push({ id, ...o }); },
       query: async () => [{ id: 1 }],
       onRemoved: ev(),

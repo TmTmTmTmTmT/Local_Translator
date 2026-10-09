@@ -35,7 +35,7 @@
 
 - `translate.priority`(선택): 1=뷰포트 안 블록 요청, 0=그 외(없으면 1로 간주). content는 요청을 작게 나눠 보낸다: 첫 요청 4블록, 이후 `MAX_BATCH_BLOCKS`=10블록 / `MAX_BATCH_CHARS`=1500자 단위(background가 요청 전체를 모아 응답하므로 작을수록 앞 블록이 빨리 보임).
 - `reportStatus`는 프레임별로 저장되고(`sender.frameId`) `getState.pending`은 탭 내 프레임 합계다. 최상위 프레임 `webNavigation.onCommitted`에서 탭 상태(pending·lastError)가 초기화되고 하위 프레임은 해당 프레임 값만 지워진다. content는 pending이 0이 되거나 0에서 벗어날 때 디바운스 없이 즉시 보고한다. content `translate` 응답 대기 상한 90초(초과 시 해당 배치는 오류 처리), background는 `engine.translate`를 엔진 기한+15초로 제한하고 초과 시 `timeout`.
-- `pdfAuto`(기본 true): 지정 사이트에서 경로가 `.pdf`로 끝나면 즉시, 경로 세그먼트에 `pdf`가 있거나 쿼리에 `format=pdf`면 후보로 보고 background가 HEAD(실패/405면 `Range: bytes=0-0` GET, 3초 제한)로 `content-type: application/pdf`를 확인한 뒤 뷰어로 이동한다. `onBeforeNavigate`/`onCommitted`/`tabs.onUpdated`가 같은 판정을 쓰며 탭+URL당 1회만 이동하고, `#kt-original`은 무시한다. 판정 결과는 메모리 캐시(최대 200).
+- `pdfAuto`(기본 true): 지정 사이트에서 경로가 `.pdf`로 끝나면 즉시, 경로 세그먼트에 `pdf`가 있거나 쿼리에 `format=pdf`면 후보로 보고 background가 HEAD(실패/405면 `Range: bytes=0-0` GET, 3초 제한)로 `content-type: application/pdf`를 확인한 뒤 뷰어로 이동한다. 트리거는 `webNavigation.onCommitted`(frameId 0)뿐이며(F22) `tabs.create`(원래 탭 index+1, active)로 뷰어를 연 뒤 원래 탭을 `tabs.remove`(실패 무시)하고 실패는 `console.warn('[kt pdf]')`로 남긴다. 탭+URL당 1회만 이동하고, `#kt-original`은 무시한다. 판정 결과는 메모리 캐시(최대 200).
 - `Block` = `{id, lang, items:[{k:"t",i,text}|{k:"x",text}]}` (PLAN §4.3). `results[].slots`의 키는 슬롯 i 문자열. 누락 키 = 해당 슬롯 원문 유지.
 - 에러 `code`: `needs_language_pack`, `engine_unavailable`, `rate_limited`, `bad_response`, `unsupported_lang`, `timeout`, `unknown`, `needs_safari_restart`(재설치 후 Safari가 옛 플러그인을 붙잡음; native.js가 sendNativeMessage 거부 메시지의 `No such plugin`/`Other version in use`/`uuid not found`로 판정, 배지 `!`, Safari 완전 종료 후 재실행 필요).
 

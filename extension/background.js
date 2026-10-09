@@ -454,9 +454,36 @@
       return !!r && r.url === url && Date.now() - r.at < PDF_DEDUPE_MS;
     }
 
-    // 자동 진입 훅: settings.pdfAuto일 때만 동작 (D7). onBeforeNavigate / onCommitted / tabs.onUpdated가 함께 호출하며 탭+URL당 1회만 리다이렉트한다.
-    async function onBeforeNavigate(details) {
+    // 자동 진입 훅: settings.pdfAuto일 때만 동작 (D7). F22: 트리거는 onCommitted(frameId 0)뿐.
+    // onBeforeNavigate / tabs.onUpdated는 호스트 기록만 한다(응답 전/커밋 중 탐색 끼어들기가 빈 탭을 만들었음).
+    function recordHost(details) {
       if (!details || details.frameId !== 0) return;
+      let u;
+      try { u = new URL(details.url); } catch (e) { return; }
+      const host = hostOfUrl(details.url);
+      if (!classifyPdfUrl(u) && host) tabHost.set(details.tabId, host);
+    }
+
+    async function onBeforeNavigate(details) {
+      recordHost(details);
+    }
+
+    async function openViewerInNewTab(tabId, url) {
+      let index;
+      try {
+        const t = await api.tabs.get(tabId);
+        if (t && typeof t.index === 'number') index = t.index + 1;
+      } catch (e) { console.warn('[kt pdf]', 'tabs.get failed', String(e && e.message || e)); }
+      const opts = { url: viewerUrl(url), active: true };
+      if (index !== undefined) opts.index = index;
+      await api.tabs.create(opts);
+      try { await api.tabs.remove(tabId); } catch (e) { console.warn('[kt pdf]', 'tabs.remove failed', String(e && e.message || e)); }
+    }
+
+    async function onCommitted(details) {
+      if (!details) return;
+      resetFrames(details.tabId, details.frameId);
+      if (details.frameId !== 0) return;
       const s = await getSettings();
       const host = hostOfUrl(details.url);
       let u;
@@ -469,23 +496,16 @@
         if (kind === 'pdf' || await probePdf(details.url)) {
           if (recentlyRedirected(details.tabId, details.url)) return;
           pdfRedirected.set(details.tabId, { url: details.url, at: Date.now() });
-          await api.tabs.update(details.tabId, { url: viewerUrl(details.url) });
+          try { await openViewerInNewTab(details.tabId, details.url); } catch (e) { console.warn('[kt pdf]', 'open viewer failed', String(e && e.message || e)); }
           return;
         }
       }
-      // 후보 URL은 직전 지정 사이트 호스트를 덮어쓰지 않는다(뒤따르는 이벤트가 같은 판정을 내리도록).
       if (!kind && host) tabHost.set(details.tabId, host);
     }
 
-    function onCommitted(details) {
-      if (!details) return Promise.resolve();
-      resetFrames(details.tabId, details.frameId);
-      return onBeforeNavigate(details);
-    }
-
-    function onTabUpdated(tabId, changeInfo) {
-      if (!changeInfo || !changeInfo.url) return Promise.resolve();
-      return onBeforeNavigate({ tabId, url: changeInfo.url, frameId: 0 });
+    async function onTabUpdated(tabId, changeInfo) {
+      if (!changeInfo || !changeInfo.url) return;
+      recordHost({ tabId, url: changeInfo.url, frameId: 0 });
     }
 
     // ---- 라우터 ----
