@@ -95,5 +95,6 @@
 ## R11 고품질 번역(Ollama TranslateGemma) 실엔진 하네스 (F19)
 - the-race·기사·HN·NHK 각 30블록: 오류 0, 표식 누출·빈 출력·언어 오류·타임아웃 0, 블록당 0.48~0.86초(Apple ~1초보다 빠름), Ollama 2.9GB·GPU·keepAlive 5분. 일반 문장 품질 양호.
 
-## B15 | open(F20) | T2 | 링크가 많은 메타 줄에서 표식 번역이 깨짐
+## B15 | fixed(H-real, R11; 잔여 의미 손실은 D16) | T2 | 링크가 많은 메타 줄에서 표식 번역이 깨짐
 - 재현(H-real): HN `17 points by [user][time] | hide | comments` → TG "93점 (출처: )", Apple "17점by".
+- R11 확인(H-real TG): HN 메타 줄 → "17점 | ", "93점 | "(빈 괄호 제거, 구간별 번역). "by" 의미 손실은 D16 한계.

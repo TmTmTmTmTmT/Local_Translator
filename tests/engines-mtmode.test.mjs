@@ -205,3 +205,14 @@ test('F20: link-heavy meta line goes straight to run-splitting; sentence with 1-
   await ollama(f3).translate([shortTwo], {}, 'en', S('http://127.0.0.1:11434', 'm', 'hymt2'));
   assert.equal(f3.calls.length, 2); // "See", "and" -> 2 requests, no markers
 });
+
+test('F20b: empty parens added by the model are stripped unless the source has parens', async () => {
+  assert.equal(M.stripEmptyParens('17 points by', '17\uc810 (\uc791\uc131\uc790: )'), '17\uc810');
+  assert.equal(M.stripEmptyParens('x', 'a ( ) b'), 'a b');
+  assert.equal(M.stripEmptyParens('x', 'a \uff08 \uff09'), 'a');
+  assert.equal(M.stripEmptyParens('f(x) is', 'f(x) \ub294 (\uc791\uc131\uc790: )'), 'f(x) \ub294 (\uc791\uc131\uc790: )');
+  assert.equal(M.stripEmptyParens('x', 'a (note: text)'), 'a (note: text)');
+  const f = mockFetch(() => ollamaReply('17\uc810 (\uc791\uc131\uc790: )'));
+  const r = await ollama(f).translate([B('h', t(0, '17 points by '), x('user'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'translategemma'));
+  assert.deepEqual(r.get('h'), { 0: '17\uc810 ' });
+});
