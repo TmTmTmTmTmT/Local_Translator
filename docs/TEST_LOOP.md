@@ -28,3 +28,7 @@
 1. `node tests/e2e/apple-bridge.mjs &` — 127.0.0.1:8797 브리지, bench `kt-bench`(apple-mt-marker)로 번역(요청 직렬 처리, 요청당 120s 타임아웃). 먼저 `bench/engines/apple`에서 release 빌드 필요.
 2. `node tests/e2e/site-coverage.mjs tests/e2e/sites/<page>.html --engine apple [--max-blocks N] --json` — 결과의 `linkSamples`(원문 `[링크]` 표시 → 한국어 슬롯 결과)로 링크 문장 어순·조사 확인.
 3. 끝나면 브리지 프로세스 종료. 한계: 링크 안 텍스트(x 항목)는 번역되지 않음, 슬롯 결과는 `|`로 이어 표시.
+
+### 실엔진(Ollama TranslateGemma, 고품질 경로) 하네스 (수동 도구, npm test 제외)
+1. Ollama가 127.0.0.1:11434에서 실행 중이고 `translategemma:4b`가 설치돼 있어야 한다. 확장의 `local:mt-ollama` 엔진(루프백 외 주소는 거부)을 Node에서 그대로 호출한다.
+2. `node tests/e2e/site-coverage.mjs tests/e2e/sites/<page>.html --engine ollama-tg [--max-blocks N] [--glossary "Formula 1=>포뮬러 원;..."] --json` — `linkSamples`, `generalSamples`, `msPerBlock`, `ollamaPsBefore/After`(메모리) 출력.

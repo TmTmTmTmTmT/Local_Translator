@@ -91,3 +91,9 @@
 
 ## B14 | open(F17) | T8 | PDF 자동 진입 안 됨
 - 재현(S): arxiv.org(사이트 목록에 있음)에서 https://arxiv.org/pdf/1706.03762 → 번역 뷰어로 자동 이동 안 함. 조사 중(URL에 .pdf 없음, Safari 내비게이션 이벤트 의심).
+
+## R11 고품질 번역(Ollama TranslateGemma) 실엔진 하네스 (F19)
+- the-race·기사·HN·NHK 각 30블록: 오류 0, 표식 누출·빈 출력·언어 오류·타임아웃 0, 블록당 0.48~0.86초(Apple ~1초보다 빠름), Ollama 2.9GB·GPU·keepAlive 5분. 일반 문장 품질 양호.
+
+## B15 | open(F20) | T2 | 링크가 많은 메타 줄에서 표식 번역이 깨짐
+- 재현(H-real): HN `17 points by [user][time] | hide | comments` → TG "93점 (출처: )", Apple "17점by".

@@ -2,6 +2,8 @@
 // Loads the content scripts into a jsdom copy of the page (site scripts are not run), mocks the translator
 // (every t slot becomes "\u{D55C}(" + text.trim() + ")") and counts translated vs. remaining source-language text nodes.
 import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { JSDOM } from 'jsdom';
@@ -17,6 +19,33 @@ const BUTTON_SEL = 'button,[role="button"],summary';
 const FORM_SEL = 'select,optgroup,option,datalist,textarea,input';
 const GRAPHIC_SEL = 'svg,math';
 const NO_SEL = '[translate="no"],.notranslate';
+
+// ---- --engine ollama-tg: extension engines (registry local:mt-ollama) run in Node against a real loopback Ollama ----
+const OLLAMA_SETTINGS = { engine: { default: 'local:mt-ollama' }, localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: 'translategemma:4b', family: 'translategemma', keepAlive: 300 } };
+let EXT = null;
+function loadExt() {
+  if (EXT) return EXT;
+  const req = createRequire(import.meta.url);
+  for (const f of ['lib/hash.js', 'lib/glossary.js', 'engines/common.js', 'engines/prompt.js', 'engines/mtmode.js', 'engines/native.js', 'engines/localhost.js', 'engines/registry.js']) req(join(ROOT, f));
+  EXT = globalThis.KT;
+  return EXT;
+}
+export function parseGlossary(str) {
+  return String(str || '').split(';').map((p) => p.trim()).filter(Boolean).map((p) => { const i = p.indexOf('=>'); return { src: p.slice(0, i).trim(), dst: p.slice(i + 2).trim() }; }).filter((e) => e.src && e.dst);
+}
+// background.js splitBatches와 동일
+function splitBatches(blocks, limit) {
+  const maxChars = (limit && limit.chars) || Infinity, maxBlocks = (limit && limit.blocks) || Infinity;
+  const out = []; let cur = [], chars = 0;
+  for (const b of blocks) {
+    const c = b.items.filter((i) => i.k === 't').reduce((n, i) => n + String(i.text || '').length, 0);
+    if (cur.length && (cur.length >= maxBlocks || chars + c > maxChars)) { out.push(cur); cur = []; chars = 0; }
+    cur.push(b); chars += c;
+  }
+  if (cur.length) out.push(cur);
+  return out;
+}
+export function ollamaPs() { try { return execSync('ollama ps', { encoding: 'utf8', timeout: 10000 }).trim(); } catch (e) { return 'ollama ps failed: ' + e.message; } }
 
 const RE = {
   en: /[A-Za-z]{3,}/,
@@ -42,7 +71,7 @@ function hasBlockChild(a) {
 export async function measure(file, opts = {}) {
   const linkMode = opts.linkMode || 'standalone';
   const quietMs = opts.quietMs ?? 500;
-  const timeoutMs = opts.timeoutMs ?? (opts.engine === 'apple' ? 900000 : 30000);
+  const timeoutMs = opts.timeoutMs ?? (opts.engine === 'apple' || opts.engine === 'ollama-tg' ? 900000 : 30000);
   const html = readFileSync(resolve(file), 'utf8');
   const base = /<base[^>]+href=["']([^"']+)["']/i.exec(html);
   let url = 'https://example.com/';
@@ -56,6 +85,15 @@ export async function measure(file, opts = {}) {
   const slotTexts = new Set();
   const linkSamples = [];
   const navTexts = new Set();
+  const generalSamples = [];
+  let tgChain = Promise.resolve();
+  if (opts.engine === 'ollama-tg') {
+    loadExt();
+    const base = OLLAMA_SETTINGS.localhost.baseUrl;
+    const h = new URL(base).hostname;
+    if (!['127.0.0.1', 'localhost', '[::1]'].includes(h)) throw new Error('non-loopback base URL refused: ' + base);
+    out.ollamaPsBefore = ollamaPs();
+  }
   if (opts.traceOrder) {
     out.requests = [];
     for (const el of dom.window.document.querySelectorAll('header, nav')) {
@@ -110,6 +148,54 @@ export async function measure(file, opts = {}) {
           }
           return { ok: true, engine: 'apple', results };
         }
+        if (opts.engine === 'ollama-tg') {
+          const KT = globalThis.KT;
+          const room = opts.maxBlocks == null ? Infinity : opts.maxBlocks - out.blocks;
+          if (room <= 0) return { ok: true, engine: 'local:mt-ollama', results: [] };
+          const sent = msg.blocks.slice(0, room);
+          out.blocks += sent.length;
+          for (const b of sent) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
+          const run = async () => {
+            const s = Object.assign({}, OLLAMA_SETTINGS, { glossary: opts.glossary || [] });
+            const terms = s.glossary.length ? KT.lib.glossary.normalize(s.glossary) : [];
+            const groups = new Map();
+            for (const b of sent) { const l = String(b.lang || msg.lang || 'en').split('-')[0]; if (!groups.has(l)) groups.set(l, []); groups.get(l).push(b); }
+            const results = [];
+            for (const [lang, group] of groups) {
+              let engine;
+              try { engine = KT.engines.pickEngine(s, lang); } catch (e) { errors.push('pick: ' + (e.code || '') + ' ' + e.message); continue; }
+              const sub = new Map();
+              for (const b of group) {
+                if (!terms.length) break;
+                const r = KT.lib.glossary.applyToItems(b.items, lang, terms);
+                if (r.applied.length) sub.set(b.id, { block: Object.assign({}, b, { items: r.items }), applied: r.applied });
+              }
+              for (const batch of splitBatches(group, engine.batchLimit)) {
+                const pairs = new Map();
+                const tosend = batch.map((b) => { const m = sub.get(b.id); if (!m) return b; for (const p of m.applied) pairs.set(p[0] + '\u0000' + p[1], p); return m.block; });
+                const ctx = pairs.size ? Object.assign({}, msg.context, { glossary: Array.from(pairs.values()) }) : (msg.context || {});
+                try {
+                  const map = await engine.translate(tosend, ctx, lang, s);
+                  for (const b of batch) {
+                    const slots = map && map.get(b.id);
+                    if (!slots || !Object.keys(slots).length) continue;
+                    results.push({ id: b.id, slots });
+                    responded.add(b.id);
+                    for (const v of Object.values(slots)) slotTexts.add(String(v).trim());
+                    const src = b.items.map((i) => (i.k === 'x' ? '[' + i.text + ']' : i.text)).join('');
+                    const res = b.items.filter((i) => i.k === 't').map((i) => slots[String(i.i)] ?? '').join(' | ');
+                    if (b.items.some((i) => i.k === 'x')) { if (linkSamples.length < 10) linkSamples.push({ id: b.id, source: src, result: res }); }
+                    else generalSamples.push({ id: b.id, source: src, result: res });
+                  }
+                } catch (e) { errors.push('engine: ' + (e.code || '') + ' ' + e.message); }
+              }
+            }
+            return results;
+          };
+          const p = tgChain.then(run, run);
+          tgChain = p.catch(() => {});
+          return { ok: true, engine: 'local:mt-ollama', results: await p };
+        }
         out.blocks += msg.blocks.length;
         for (const b of msg.blocks) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
         return {
@@ -147,7 +233,7 @@ export async function measure(file, opts = {}) {
     if (!el) continue;
     const text = n.nodeValue.trim();
     if (!text) continue;
-    if (text.startsWith(MARK) || (opts.engine === 'apple' && slotTexts.has(text))) { out.translatedNodes++; continue; }
+    if (text.startsWith(MARK) || ((opts.engine === 'apple' || opts.engine === 'ollama-tg') && slotTexts.has(text))) { out.translatedNodes++; continue; }
     if (isHidden(el) || !re.test(text)) continue;
     const a = el.closest('a');
     let cat = 'other';
@@ -165,6 +251,13 @@ export async function measure(file, opts = {}) {
     if ((cat === 'inLink' || cat === 'inBlockLink') && out.samples.inLink.length < 10) out.samples.inLink.push(text.slice(0, 120));
   }
   if (opts.engine === 'apple') { out.engine = 'apple'; out.respondedBlocks = responded.size; out.linkSamples = linkSamples; }
+  if (opts.engine === 'ollama-tg') {
+    out.engine = 'ollama-tg'; out.respondedBlocks = responded.size; out.linkSamples = linkSamples;
+    const pool = generalSamples.slice(); out.generalSamples = [];
+    while (pool.length && out.generalSamples.length < 5) out.generalSamples.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    out.msPerBlock = responded.size ? Math.round((Date.now() - t0) / responded.size) : null;
+    out.ollamaPsAfter = ollamaPs();
+  }
   try { win.KT.main.stop(); } catch (_) { /* ignore */ }
   win.close();
   return out;
@@ -172,12 +265,13 @@ export async function measure(file, opts = {}) {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
-  const file = args.find((a, i) => !a.startsWith('--') && !['--link-mode', '--engine', '--max-blocks'].includes(args[i - 1]));
+  const file = args.find((a, i) => !a.startsWith('--') && !['--link-mode', '--engine', '--max-blocks', '--glossary'].includes(args[i - 1]));
   const li = args.indexOf('--link-mode');
-  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple] [--max-blocks N] [--trace-order] [--json]'); process.exit(2); }
+  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple|ollama-tg] [--glossary "src=>dst;..."] [--max-blocks N] [--trace-order] [--json]'); process.exit(2); }
   const ei = args.indexOf('--engine'), mi = args.indexOf('--max-blocks');
+  const gi = args.indexOf('--glossary');
   const t0 = Date.now();
-  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null, traceOrder: args.includes('--trace-order') });
+  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', glossary: gi >= 0 ? parseGlossary(args[gi + 1]) : [], maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null, traceOrder: args.includes('--trace-order') });
   r.wallSec = Math.round((Date.now() - t0) / 100) / 10;
   if (args.includes('--json')) console.log(JSON.stringify(r, null, 2));
   else {
@@ -186,6 +280,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     for (const s of r.samples.other) console.log('  other: ' + s);
     for (const s of r.samples.inLink) console.log('  link: ' + s);
     for (const l of r.linkSamples || []) console.log('  linkSample: ' + l.source + ' => ' + l.result);
+    for (const l of r.generalSamples || []) console.log('  sample: ' + l.source + ' => ' + l.result);
     for (const e of r.errors) console.log('  error: ' + e);
   }
   process.exit(0);

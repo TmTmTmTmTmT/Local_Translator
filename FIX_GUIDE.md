@@ -320,3 +320,16 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 3. 루프백 외 주소 금지(코드에서 검증). npm test에는 포함하지 않음. docs/TEST_LOOP.md 하네스 절에 사용법 2줄.
 ### 영향 범위: `tests/e2e/site-coverage.mjs`, `docs/TEST_LOOP.md`. 확장 코드 변경 없음.
 ### 검증: the-race 홈·기사, HN, NHK 각 30블록 실행 결과 보고.
+
+## F20. 링크가 많은 짧은 줄에서 표식 방식 번역이 의미를 잃음 (B15, R11, Opus)
+### 증거 (실엔진 하네스)
+- TranslateGemma(MT 모드): HN `17 points by [user] [55 minutes ago] [|] [hide] [|] [2 comments]` → "17개 |", "93점 (출처: )", "140 포인트 (작성자: )" — 표식 수는 맞지만 표식 주변을 모델이 재구성해 빈 괄호·조각만 남음.
+- Apple(marker): 같은 줄 → "17점by" (R8). 기사 `now-[banned engine trick] deployed …` → 양 엔진 모두 문장 연결 어색(D16).
+### 판단
+링크(x)가 3개 이상이거나, x 사이 t 구간이 대부분 짧은(글자 3개 미만 또는 구두점뿐) **메타 줄**은 문장이 아니라 라벨 나열 → 문장 전체 표식 번역보다 **구간별 번역(run-splitting)** 이 안전. 문장 속 링크 1~2개는 현행 표식 유지(어순 이점, F2 평가).
+### 수정 방향 (Sonnet A: JS, Sonnet B: Swift)
+- 규칙(양쪽 동일): 블록의 x 항목 수 ≥ 3 **또는** (x ≥ 2 이고 글자 있는 t 구간 중 길이 ≥ 12자인 구간이 없음) → 구간별 번역. 그 외 표식.
+- A: `extension/engines/mtmode.js` 표식 경로 진입 전 규칙 적용(이미 있는 run-splitting 폴백 재사용). 테스트: HN 줄 → run-splitting 요청 수/슬롯, 일반 링크 문장 → 표식 유지. PROTOCOL §8에 규칙 한 줄.
+- B: `xcode/.../EngineMT.swift` `markerBlock` 진입 시 같은 규칙 → `plainBlock`(구간별). 기존 marker 동작 그 외 불변. Xcode-beta 컴파일 확인만(CODE_SIGNING_ALLOWED=NO, 산출물 삭제).
+### 영향 범위: A `extension/engines/mtmode.js`, `extension/PROTOCOL.md`, `tests/engines-mtmode.test.mjs`. B `EngineMT.swift`. 겹침 없음.
+### 검증: npm test, 빌드, 하네스(`--engine ollama-tg`, `--engine apple`) HN 30블록 linkSamples 재확인.
