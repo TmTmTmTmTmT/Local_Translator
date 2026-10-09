@@ -280,3 +280,7 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 6. 테스트: 큐 정렬(뷰포트 우선·위→아래), 첫 배치 크기, background 우선순위 진입, 팝업 문구. 비ASCII 리터럴 금지.
 ### 영향 범위: `extension/content/main.js`, `extension/background.js`, `extension/popup/popup-lib.js`, `extension/PROTOCOL.md`, 테스트.
 ### 검증: npm test, site-coverage(mock)에서 요청 순서 로그(첫 요청에 메뉴·첫 화면 블록 포함), 재설치 후 Safari에서 새로고침 → 수 초 안에 화면 상단 번역 시작(사용자).
+### F16 추가 결정 (Opus, R9 구현 보고 후)
+- content 요청 크기를 엔진 배치와 맞춘다: `MAX_BATCH_BLOCKS` 40→10, `MAX_BATCH_CHARS` 6000→1500(첫 요청 4블록 유지). background가 요청 전체를 `Promise.all`로 모아 응답하므로 큰 요청은 앞 블록도 늦게 보임. 로컬 서버 엔진은 요청 수가 늘지만 background 배치/세마포어로 감당(성능 저하 미미).
+- PROTOCOL §2 translate 요청에 선택 필드 `priority`(1=뷰포트, 0=그 외) 기록.
+- 우선순위 상승(화면 밖으로 이미 보낸 블록이 나중에 보일 때)은 하지 않음 — 요청이 작아져 대기 시간이 짧으므로 충분.

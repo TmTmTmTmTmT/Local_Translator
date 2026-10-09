@@ -55,3 +55,11 @@ test('modeOf: initial mode from getMode response, default translated', () => {
 test('needs_safari_restart message', () => {
   assert.equal(lib.buildViewModel({ host: 'a.com', errorCode: 'needs_safari_restart' }, {}).errorMessage, '확장이 업데이트되었습니다. Safari를 완전히 종료(⌘Q)했다가 다시 여세요.');
 });
+
+test('F16: translating status shows remaining block count without debug', () => {
+  const vm = lib.buildViewModel({ siteEnabled: true, host: 'a.com', engine: 'e', status: 'translating', pending: 7 }, { url: 'https://a.com/x' });
+  assert.equal(vm.pendingVisible, true);
+  assert.equal(vm.pendingText, '번역 중… (남은 7블록)');
+  const idle = lib.buildViewModel({ siteEnabled: true, host: 'a.com', engine: 'e', status: 'translating', pending: 0 }, { url: 'https://a.com/x' });
+  assert.equal(idle.pendingVisible, false);
+});

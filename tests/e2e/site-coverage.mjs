@@ -55,6 +55,14 @@ export async function measure(file, opts = {}) {
   const responded = new Set();
   const slotTexts = new Set();
   const linkSamples = [];
+  const navTexts = new Set();
+  if (opts.traceOrder) {
+    out.requests = [];
+    for (const el of dom.window.document.querySelectorAll('header, nav')) {
+      const tw = dom.window.document.createTreeWalker(el, 0x4);
+      for (let n; (n = tw.nextNode());) if (n.nodeValue.trim()) navTexts.add(n.nodeValue.trim());
+    }
+  }
 
   win.__KT_AUTOSTART = true;
   win.requestAnimationFrame = (f) => win.setTimeout(() => f(0), 0);
@@ -73,6 +81,10 @@ export async function measure(file, opts = {}) {
         if (!msg || msg.type !== 'translate') return {};
         lastReq = Date.now();
         out.calls++;
+        if (opts.traceOrder) {
+          const txt = (b) => b.items.filter((i) => i.k === 't').map((i) => i.text.trim()).join(' ');
+          out.requests.push({ n: msg.blocks.length, priority: msg.priority, navBlocks: msg.blocks.filter((b) => navTexts.has(b.items.find((i) => i.k === 't').text.trim())).length, first: msg.blocks.slice(0, 6).map((b) => txt(b).slice(0, 40)) });
+        }
         if (opts.engine === 'apple') {
           const room = opts.maxBlocks == null ? Infinity : opts.maxBlocks - out.blocks;
           if (room <= 0) return { ok: true, engine: 'apple', results: [] };
@@ -162,10 +174,10 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const args = process.argv.slice(2);
   const file = args.find((a, i) => !a.startsWith('--') && !['--link-mode', '--engine', '--max-blocks'].includes(args[i - 1]));
   const li = args.indexOf('--link-mode');
-  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple] [--max-blocks N] [--json]'); process.exit(2); }
+  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple] [--max-blocks N] [--trace-order] [--json]'); process.exit(2); }
   const ei = args.indexOf('--engine'), mi = args.indexOf('--max-blocks');
   const t0 = Date.now();
-  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null });
+  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null, traceOrder: args.includes('--trace-order') });
   r.wallSec = Math.round((Date.now() - t0) / 100) / 10;
   if (args.includes('--json')) console.log(JSON.stringify(r, null, 2));
   else {

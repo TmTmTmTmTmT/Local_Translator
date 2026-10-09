@@ -62,7 +62,7 @@ test('main: batches split by 40 blocks / 6000 chars and by language', async () =
   const e = setup(`<body>${mk(45, 10)}</body>`);
   e.start();
   await e.idle();
-  loose.deepEqual(e.messenger.translates.map((m) => m.blocks.length), [40, 5]);
+  loose.deepEqual(e.messenger.translates.map((m) => m.blocks.length), [4, 36, 5]); // F16: first request is small
   e.close();
   const e2 = setup(`<body>${mk(8, 1500)}</body>`);
   e2.start();

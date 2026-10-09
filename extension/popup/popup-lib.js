@@ -41,6 +41,8 @@
     else if (!state) errorMessage = '확장 상태를 가져오지 못했습니다';
     const status = s.status || (state ? 'ready' : 'unknown');
     const engine = s.engine || '-';
+    const pending = Number.isFinite(s.pending) ? s.pending : 0;
+    const translating = status === 'translating' && pending > 0 && !code;
     return {
       host,
       hasHost: !!host,
@@ -51,8 +53,8 @@
       pdfLooksLikePdf: pdf,
       pdfEnabled: !!c.url,
       pdfHint: pdf ? '' : 'PDF가 아닌 페이지에서도 시도할 수 있습니다',
-      pendingVisible: !!c.debug,
-      pendingText: `번역 대기 ${Number.isFinite(s.pending) ? s.pending : 0}블록`,
+      pendingVisible: !!c.debug || translating,
+      pendingText: translating ? `번역 중… (남은 ${pending}블록)` : `번역 대기 ${pending}블록`,
       toggleLabel: c.mode === 'original' ? '번역 보기' : '원문 보기',
     };
   }
