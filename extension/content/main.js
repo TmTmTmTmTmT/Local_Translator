@@ -5,7 +5,7 @@
   const KT = (globalThis.KT = globalThis.KT || {});
   // translateAttrs: 속성 번역(extra.js가 주입된 경우에만 동작). fixParticles: 조사 병기 확정(apply.js).
   const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
-  const MAX_BATCH_CHARS = 6000, MAX_BATCH_BLOCKS = 40, CACHE_SIZE = 2000;
+  const MAX_BATCH_CHARS = 1500, MAX_BATCH_BLOCKS = 10, CACHE_SIZE = 2000;
   // 페이지 첫 요청은 작게 보내 첫 번역이 빨리 보이게 한다(엔진이 배치를 직렬로 처리하므로 첫 결과 지연 = 첫 배치 크기).
   const FIRST_BATCH_BLOCKS = 4;
 
