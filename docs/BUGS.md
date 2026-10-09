@@ -43,7 +43,7 @@
 - B5: "사이트 2줄: 잘못된 호스트", "제외 셀렉터 1줄: …", "용어집 1줄: …", "Localhost: …".
 - B6: popup 하네스(원문 상태로 열기) 라벨 "번역 보기" → 토글 "원문 보기" → "번역 보기", getMode 질의 확인.
 
-## B7 | open(F12) | T1/T12 | Safari 실기: Apple 번역 엔진 사용 불가(engine_unavailable)
+## B7 | fixed(S, R6~R13: 재설치 후 재시작 시 정상, 이후 재발 없음) | T1/T12 | Safari 실기: Apple 번역 엔진 사용 불가(engine_unavailable)
 - 재현(S, 사용자 2026-10-08): Safari 재시작 후 the-race.com·news.ycombinator.com에서 팝업 "native:apple-mt · error", "번역 엔진을 사용할 수 없습니다". content 스크립트·팝업·원문 토글은 동작, 번역 안 됨.
 - 의심: (a) Safari 실행 중 install.sh 재설치(14:22, 14:29)로 확장 프로세스 불일치, (b) sendNativeMessage 호출 형태, (c) Swift 핸들러(샌드박스·Translation) 실패. 원인(R4 확인): (a) Safari 실행 중 재설치 — 로그 `No such plugin (uuid not found)`, `Other version in use`(옛 플러그인 UUID 고정). 핸들러·권한·호출 형태 정상 → F12.
 - 심각도: 치명(실기 번역 불가).
@@ -89,7 +89,7 @@
 ## B13 | 보류(D18: 진행은 됨·느림 — 엔진 처리량) | T4 | HN "More"(다음 쪽) 이후 번역이 진행되지 않음
 - 재현(S): news.ycombinator.com 맨 아래 More → 번역 진행 안 됨. 조사 중.
 
-## B14 | open(F17) | T8 | PDF 자동 진입 안 됨
+## B14a | fixed(→ B14, F17+F22) | T8 | PDF 자동 진입 안 됨
 - 재현(S): arxiv.org(사이트 목록에 있음)에서 https://arxiv.org/pdf/1706.03762 → 번역 뷰어로 자동 이동 안 함. 조사 중(URL에 .pdf 없음, Safari 내비게이션 이벤트 의심).
 
 ## R11 고품질 번역(Ollama TranslateGemma) 실엔진 하네스 (F19)
