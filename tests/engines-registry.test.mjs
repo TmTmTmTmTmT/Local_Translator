@@ -7,7 +7,7 @@ const send = async () => ({});
 
 test('listEngines covers all IDs with en/ja/zh', () => {
   const l = E.listEngines();
-  assert.deepEqual(l.map((e) => e.id).sort(), ['local:ct2', 'local:mlx', 'local:mt-mlx', 'local:mt-ollama', 'local:ollama', 'native:apple-fm', 'native:apple-mt']);
+  assert.deepEqual(l.map((e) => e.id).sort(), ['cloud:deepl', 'local:ct2', 'local:mlx', 'local:mt-mlx', 'local:mt-ollama', 'local:ollama', 'native:apple-fm', 'native:apple-mt']);
   for (const e of l) assert.deepEqual([...e.langs], ['en', 'ja', 'zh']);
 });
 

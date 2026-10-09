@@ -17,6 +17,7 @@
       "engines/mtmode.js",
       "engines/native.js",
       "engines/localhost.js",
+      "engines/deepl.js",
       "engines/registry.js",
       "background.js"
     ],

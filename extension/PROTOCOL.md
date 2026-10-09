@@ -7,7 +7,7 @@
 {
   "sites": [ { "host": "example.com", "exclude": "" } ],
   "engine": { "default": "native:apple-mt", "byLang": { "ja": null, "zh": null } },
-  "localhost": { "baseUrl": "http://127.0.0.1:11434", "kind": "ollama|mlx|ct2", "model": "", "family": "hymt2|translategemma|chat", "keepAlive": 300 },
+  "localhost": { "baseUrl": "http://127.0.0.1:11434", "kind": "ollama|mlx|ct2", "model": "", "family": "hymt2|translategemma|chat", "keepAlive": 300, "parallel": 4 },
   "enabled": true,
   "translateAttrs": false,
   "fixParticles": true,
@@ -15,10 +15,11 @@
   "glossary": [ { "src": "kerbs", "dst": "연석", "lang": "en", "case": false } ]
 }
 ```
-- `localhost.family`/`keepAlive`(초, 기본 300)는 MT 모드 엔진(`local:mt-ollama`, `local:mt-mlx`) 전용. `family` 미지정/무효 시 모델명에서 추정(translategemma/hy-mt) 후 `chat`. `local:mt-mlx`는 `model` 무시(요청 model=`default_model`). `baseUrl`은 모든 localhost 엔진 공통이므로 mlx는 8080 등으로 직접 지정. 루프백 검증 동일.
+- `localhost.family`/`keepAlive`(초, 기본 300)는 MT 모드 엔진(`local:mt-ollama`, `local:mt-mlx`) 전용. `family` 미지정/무효 시 모델명에서 추정(translategemma/hy-mt) 후 `chat`. `local:mt-mlx`는 `model` 무시(요청 model=`default_model`). `baseUrl`은 모든 localhost 엔진 공통이므로 mlx는 8080 등으로 직접 지정. 루프백 검증 동일. `localhost.parallel`(정수 1~4, 기본 4, F23)은 모든 localhost 엔진의 동시 요청 수: background 세마포어 크기(`engine.concurrencyFor(settings)`, 변경 시 재생성)이자 MT 모드 엔진 내부 블록 동시 처리 수(엔진 단위 게이트로 동시 HTTP 요청이 이 값을 넘지 않음).
 - `translateAttrs`(boolean, 기본 false): true면 `content/extra.js`를 main.js 앞에 추가 주입해 title/alt/placeholder/aria-label 속성도 번역. `fixParticles`(boolean, 기본 true): main.js `start({fixParticles})` → `createApplier({fixParticles})`로 전달, false면 링크 뒤 조사 보정 안 함. 알 수 없는 키는 병합 시 그대로 통과.
 - `linkMode`(`"standalone"` 기본 | `"never"`): `standalone`은 문장 속 인라인 링크만 원문 유지(x)하고, 블록에 글자 있는 `t` 슬롯이 없고 링크 유래 x만 있으면(헤드라인·카드·메뉴) 그 링크 텍스트를 `t`로 승격해 번역. `never`는 링크를 항상 x로 유지(이전 동작). 빈 값/알 수 없는 값은 `standalone`. main.js가 `start({linkMode})` → `collectBlocks(root,{linkMode})`로 전달. filter의 `exclusionReason`은 링크 유래 `'link'`와 코드 계열 `'keep'`을 구분(코드 계열 조상 안의 링크는 `'keep'`).
 - `glossary`(기본 `[]`, PLAN §11.3): `{src, dst, lang?: "en"|"ja"|"zh"|null, case?: boolean}` 배열. 최대 500개, src 1~80자, dst 비어 있지 않음, 무효 항목은 버리고 소문자 src+lang 중복은 첫 항목만 유지(`lib/glossary.js normalize`). background가 엔진 호출 직전 블록의 `t` 항목(`x` 제외)에 사전 치환을 적용한다(라틴어 용어는 단어 경계·`case`가 true가 아니면 대소문자 무시, CJK/한글 용어는 단순 포함, 긴 용어 우선·겹침 없음, `lang`이 있으면 블록 언어와 일치할 때만). 캐시 키에 블록에 실제 적용된 용어 쌍의 해시가 들어간다(§6). 프롬프트 기반 엔진에는 적용된 쌍이 `context.glossary = [[src,dst],...]`로 전달되고(적용이 없으면 키 자체가 없음) prompt.js 시스템 프롬프트와 MT 모드 `chat` family 시스템 프롬프트에 한 줄 힌트로 붙는다(hymt2/translategemma 템플릿은 불변). 네이티브(Swift) 쪽 힌트는 아직 미구현이며 `context.glossary`는 그대로 전달만 된다.
+- DeepL(F24, 옵트인): `engine`을 `cloud:deepl`로 직접 고른 경우에만 동작. API 키는 `browser.storage.local` key `deeplKey`에만 저장(동기화 안 함, `settings`에 넣지 않음; `settings.deepl = {"apiKeyRef":"local"}`는 위치 표시일 뿐). 키는 옵션 화면과 background의 `engines/deepl.js`만 읽고 content 스크립트·팝업 메시지·로그로 나가지 않는다. 키 형식 `[A-Za-z0-9:_-]{8,200}`, `:fx`로 끝나면 무료 엔드포인트.
 - `engine` 값은 엔진 ID 문자열. 엔진 레지스트리(`engines/registry.js`)가 ID → 엔진 객체 해석.
 
 ## 2. 메시지 (runtime.sendMessage, `{type, ...}`)
@@ -41,19 +42,20 @@
 
 ## 3. 엔진 인터페이스 (`engines/*`)
 ```js
-{ id, kind: "native"|"localhost", langs: ["en","ja","zh"],
+{ id, kind: "native"|"localhost"|"cloud", langs: ["en","ja","zh"],
   batchLimit: {chars, blocks}, concurrency: n,
   async translate(blocks, context, lang, settings) -> Map<blockId, {slotIdx: text}>  // throws {code, message}
   async status() -> {available:boolean, reason?:string}
 }
 ```
+- `cloud:deepl`(`engines/deepl.js`, F24): `POST https://api-free.deepl.com/v2/translate`(키가 `:fx`로 끝남) 또는 `https://api.deepl.com/v2/translate`, 헤더 `Authorization: DeepL-Auth-Key <key>`, JSON `{text:[블록당 1개], target_lang:"KO", source_lang:"EN"|"JA"|"ZH", tag_handling:"xml", ignore_tags:["x"], preserve_formatting:true}`. 블록 → XML: 연속된 `t` 항목은 XML 이스케이프(`& < >`)한 텍스트 하나로 합치고, `x` 항목은 `<x i="n">원문</x>`(n = 블록 내 x 순번). 응답 `{translations:[{text}]}`의 각 text를 `<x i="n"/>` 태그로 나눠 x 사이 구간 문장을 해당 구간의 첫 `t` 슬롯에 넣고 나머지 슬롯은 `""`(공백은 원문 앞뒤 유지). x 태그 개수·순서(0..n-1)가 다르거나 x가 없던 구간에 텍스트가 생기면 그 블록만 x 경계 구간별 plain 텍스트(태그 처리 없음)로 재요청. 글자 없는 구간/블록은 전송 안 함(원문 유지). 요청 1회 최대 50 텍스트·100KB, `batchLimit` {chars:30000, blocks:50}, `concurrency` 2. 오류: 401/403 → `engine_unavailable`("check key"), 456 → `rate_limited`(월 사용량 초과, 재시도 없음), 429 → 백오프 2회 후 `rate_limited`, 5xx → 백오프 2회 후 `engine_unavailable`, 네트워크 → `engine_unavailable`. `status()`는 네트워크 호출 없이 키 저장 여부만 확인. fetch가 TypeError(Safari CORS 등)로 실패하면 §4 `http` 메시지로 같은 요청을 대리하고 이후 요청은 계속 네이티브를 쓴다.
 
 ## 4. 네이티브 메시지 (native 엔진 ↔ Swift 핸들러, `runtime.sendNativeMessage`)
 요청 `{type:"translate", engine:"apple-mt"|"apple-fm", lang, context, blocks, variant?}` → 응답 `{ok:true, results:[{id,slots}], engine, partial?:true}` 또는 `{ok:false, error:{code, message, lang?}}`.
 `partial:true`는 기한 내 완료한 블록만 `results`에 담았다는 뜻이다(에러 아님). 누락 블록은 원문 유지(§2). JS는 받은 결과만 사용한다. 진행 0(결과 없음)인 기한 초과만 `timeout` 에러. apple-mt 배치 한도는 `{chars:1500, blocks:10}`, 동시성 1.
 `{type:"status"}` → `{ok, engines:{"apple-mt":{available,reason?}, "apple-fm":{...}}, languagePacks:{en|ja|zh|zh-Hans|zh-Hant: "installed"|"supported"|"unsupported"}}`.
 
-`{type:"http", method:"GET"|"POST", url, headers?, body?(문자열), timeoutMs}` → `{ok:true, status, body}` 또는 `{ok:false, error:{code,message}}`. 루프백 HTTP 대리(F21): Safari fetch는 `Origin: safari-web-extension://...`가 붙어 Ollama(`OLLAMA_ORIGINS` 기본값)가 403으로 거부하므로 Origin 없는 URLSession이 대신 호출한다. 제한: scheme `http`, host `127.0.0.1`/`localhost`/`::1`만, 포트 1~65535, 요청 본문 4MB, 응답 8MB, 타임아웃 기본 120s·최대 300s, 위반 시 `bad_response`. JS(`localhost.js`)는 `sendNativeMessage`가 있고 fetch 주입이 없으면 이 경로를 쓰고(JS에서도 루프백 검증), 없거나 `bad_response`+`unknown type`(옛 빌드)이면 fetch로 폴백한다. fetch 경로의 403은 `OLLAMA_ORIGINS` 힌트 메시지(`engine_unavailable`)로 표시.
+`{type:"http", method:"GET"|"POST", url, headers?, body?(문자열), timeoutMs}` → `{ok:true, status, body}` 또는 `{ok:false, error:{code,message}}`. 루프백 HTTP 대리(F21): Safari fetch는 `Origin: safari-web-extension://...`가 붙어 Ollama(`OLLAMA_ORIGINS` 기본값)가 403으로 거부하므로 Origin 없는 URLSession이 대신 호출한다. 제한: scheme `http`, host `127.0.0.1`/`localhost`/`::1`만, 포트 1~65535, 요청 본문 4MB, 응답 8MB, 타임아웃 기본 120s·최대 300s, 위반 시 `bad_response`. F24 확장: scheme `https`는 host가 `api-free.deepl.com` / `api.deepl.com` 정확히 일치(포트 없음 또는 443, userinfo 없음)일 때만 허용(`engines/deepl.js`가 사용; 헤더에 API 키가 실리므로 Swift는 헤더·본문을 로그하지 않고, https 요청은 시스템 프록시 설정을 그대로 따름). 리디렉션은 모두 거부. JS(`localhost.js`)는 `sendNativeMessage`가 있고 fetch 주입이 없으면 이 경로를 쓰고(JS에서도 루프백 검증), 없거나 `bad_response`+`unknown type`(옛 빌드)이면 fetch로 폴백한다. fetch 경로의 403은 `OLLAMA_ORIGINS` 힌트 메시지(`engine_unavailable`)로 표시.
 
 에러 코드 (Swift `error.code`, 모두 `message` 포함):
 | code | 의미 | 비고 |

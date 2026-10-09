@@ -188,3 +188,14 @@ test('fetch path: 403 carries OLLAMA_ORIGINS hint', async () => {
   const eng = E.createLlmEngine('ollama', { fetch: f, sleep });
   await assert.rejects(eng.translate(blocks, {}, 'en', S('http://127.0.0.1:11434')), (e) => e.code === 'engine_unavailable' && /OLLAMA_ORIGINS/.test(e.message));
 });
+
+test('F23: concurrencyFor reads localhost.parallel (1..4, default 4) on all localhost engines', () => {
+  const engines = [E.createLlmEngine('ollama', {}), E.createLlmEngine('mlx', {}), E.createMtEngine('ollama', {}), E.createMtEngine('mlx', {}), E.createCt2Engine({})];
+  for (const e of engines) {
+    assert.equal(e.concurrencyFor({}), 4);
+    assert.equal(e.concurrencyFor({ localhost: { parallel: 3 } }), 3);
+    assert.equal(e.concurrencyFor({ localhost: { parallel: 7 } }), 4);
+    assert.equal(e.concurrencyFor({ localhost: { parallel: 0 } }), 4);
+    assert.equal(e.concurrencyFor({ localhost: { parallel: 'x' } }), 4);
+  }
+});

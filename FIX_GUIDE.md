@@ -365,3 +365,30 @@ Safari 확장 background의 fetch는 `Origin: safari-web-extension://<id>`를 �
 5. 테스트(background-pdf): onCommitted만 트리거, tabs.create+remove 호출, 중복 1회, #kt-original 무시, onBeforeNavigate만 오면 리다이렉트 안 함.
 ### 영향 범위: `extension/background.js`(PDF 훅), `extension/viewer/viewer.html`(필요 시), `tests/background-pdf.test.mjs`, `tests/helpers/fake-browser.mjs`(tabs.create/remove 스텁 필요 시), PROTOCOL 한 줄.
 ### 검증: npm test, 재설치 후 Safari arxiv 링크(사용자).
+
+## D18 결정 (사용자 2026-10-09): 외부 API(DeepL) 옵트인 + 로컬 병렬화 둘 다. 기본값은 로컬 유지.
+
+## F23. 로컬 모델 서버 병렬 요청 (R14, Opus)
+### 근거
+Safari 로그: TranslateGemma 요청은 블록당 0.27~2초, 동시 1이라 분당 42~88건. Ollama는 동시 요청을 서버에서 병렬 처리 가능(OLLAMA_NUM_PARALLEL 기본 자동).
+### 수정 방향 (Sonnet A)
+1. 설정 `localhost.parallel`(정수 1~4, 기본 2) — MT 모드(`local:mt-ollama`, `local:mt-mlx`)와 일반 localhost 엔진의 동시 요청 수. 옵션 UI는 이번엔 추가하지 않음(F24 작업자가 옵션 담당, 숫자 입력 하나 추가 요청할 것 — 아래 F24-6).
+2. background 세마포어가 엔진별 고정 `concurrency` 대신 설정을 반영(엔진 객체의 `concurrencyFor(settings)` 또는 background에서 localhost 계열이면 settings 값 사용). 설정 변경 시 세마포어 재생성. 우선순위 대기열(F16) 유지.
+3. MT 모드 엔진 내부에서 배치의 블록들을 `parallel`개까지 동시에 요청(현재 블록당 순차). 응답 순서와 무관하게 id로 결과 맵 구성.
+4. 측정: `tests/e2e/site-coverage.mjs --engine ollama-tg --max-blocks 40`에 `--parallel N` 옵션 → N=1,2,3,4 각각 wallSec·ms/block·오류 기록. 결과로 기본값 확정(오류 없고 가장 빠른 값, 최대 4). 메모리(ollama ps) 변화 기록.
+5. 테스트: 동시 요청 수 상한 준수, 결과 매핑, 설정 변경 반영. 비ASCII 리터럴 금지.
+### 영향 범위: `extension/engines/mtmode.js`, `extension/engines/localhost.js`, `extension/background.js`(세마포어 부분), `extension/PROTOCOL.md`(§1 localhost.parallel), `tests/e2e/site-coverage.mjs`, 관련 테스트.
+
+## F24. DeepL 엔진 (옵트인, 외부 전송) (R14, Opus)
+### 원칙
+기본 꺼짐. 사용자가 엔진으로 직접 고르고 API 키를 넣어야만 동작. 키는 `browser.storage.local`(동기화 안 함)에만 저장, content 스크립트·팝업으로 전달 금지, 로그 금지. 옵션 화면에 "선택 시 페이지 텍스트가 DeepL 서버로 전송됩니다" 경고.
+### 수정 방향 (Sonnet B)
+1. `extension/engines/deepl.js` 엔진 `cloud:deepl`: `POST https://api-free.deepl.com/v2/translate`(키 끝이 `:fx`) 또는 `https://api.deepl.com/v2/translate`, 헤더 `Authorization: DeepL-Auth-Key <key>`, JSON `{text:[...], target_lang:"KO", source_lang: EN|JA|ZH, tag_handling:"xml", ignore_tags:["x"], preserve_formatting:true}`. 블록마다 text 1개: t 항목은 XML 이스케이프한 텍스트, x 항목은 `<x i="n">링크 원문</x>`(ignore_tags로 원문 유지·위치는 DeepL이 어순에 맞게 배치). 응답을 `<x>` 태그로 분할해 t 슬롯 배분(태그 개수·순서가 원문과 다르면 기존 run-splitting 방식 폴백: x 경계 구간별 text로 재요청). 배치 한도 50블록/100KB, 동시 2.
+2. 오류 매핑: 403/401 → engine_unavailable("API 키 확인"), 456 → rate_limited("월 사용량 초과"), 429 → rate_limited, 5xx/네트워크 → engine_unavailable.
+3. Safari에서 CORS로 fetch가 막히면: 네이티브 `http` 메시지(F21)를 **https + 호스트 허용목록 {api-free.deepl.com, api.deepl.com}** 으로 확장해 대리(Swift는 이 두 호스트만 https 허용, 나머지는 기존 루프백 규칙). JS는 fetch 실패(TypeError) 시 네이티브로 재시도. → Swift 변경 포함(Sonnet B가 함께 처리).
+4. 용어집: 기존 사전 치환 그대로(DeepL 글로서리 API는 범위 외).
+5. registry 등록, PROTOCOL §1(settings.deepl {apiKeyRef: 'local'} 형태 — 키 자체는 storage.local `deeplKey`), §3 엔진 목록, §4 http 확장.
+6. 옵션: 엔진 목록에 "DeepL (외부 API, 키 필요)", API 키 password 입력(저장 시 storage.local), 경고 문구, F23의 `localhost.parallel` 숫자 입력(1~4). popup 엔진 표시는 `cloud:deepl`.
+7. README(사용자용): "더 빠른 번역(선택): DeepL" 절 — 무료 키 발급 안내 링크, 전송 경고.
+8. 테스트: 요청 형식(XML 태그·KO·source_lang), 응답 분할, 태그 불일치 폴백, 오류 매핑, 키가 storage.local에만 저장·sync에 없음, content로 키 미전달, Swift 컴파일.
+### 영향 범위: `extension/engines/deepl.js`(신규), `extension/engines/registry.js`, `extension/manifest.json`(background scripts 목록), `extension/options/*`, `extension/PROTOCOL.md`(F23 작업자와 같은 파일 — §1 localhost.parallel은 A, 나머지는 B. 충돌 시 B가 병합), `README.md`, `xcode/.../LoopbackHTTP.swift`, 테스트. A와 겹치는 파일: PROTOCOL.md만(절 단위로 분리).

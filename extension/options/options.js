@@ -54,6 +54,7 @@
     $('lh-model').value = s.localhost.model;
     $('lh-family').value = s.localhost.family;
     $('lh-keepalive').value = String(s.localhost.keepAlive);
+    $('lh-parallel').value = String(s.localhost.parallel);
     $('translate-attrs').checked = s.translateAttrs;
     $('fix-particles').checked = s.fixParticles;
     $('link-standalone').checked = s.linkMode !== 'never';
@@ -62,9 +63,25 @@
     $('excludes').value = lib.excludesToText(s.sites);
   }
 
+  // The key never leaves storage.local: it is not shown back, not synced, not part of `settings`.
+  async function refreshKeyState() {
+    const r = await api.storage.local.get('deeplKey');
+    const has = !!(r && typeof r.deeplKey === 'string' && r.deeplKey);
+    $('deepl-key-state').textContent = has ? '저장된 키가 있습니다' : '저장된 키가 없습니다';
+    $('deepl-key-clear').disabled = !has;
+  }
+
   async function load() {
     const got = await api.storage.sync.get('settings');
     populate(lib.mergeSettings(got && got.settings));
+    await refreshKeyState();
+  }
+
+  async function clearKey() {
+    await api.storage.local.remove('deeplKey');
+    $('deepl-key').value = '';
+    await refreshKeyState();
+    setFeedback('DeepL 키를 삭제했습니다', true);
   }
 
   async function save() {
@@ -73,8 +90,12 @@
     const built = lib.buildSites($('sites').value, $('excludes').value, validSelector);
     const gl = lib.parseGlossaryText($('glossary').value, current.glossary);
     const localhost = { baseUrl: $('lh-base').value.trim(), kind: $('lh-kind').value, model: $('lh-model').value.trim(),
-      family: $('lh-family').value, keepAlive: Number($('lh-keepalive').value === '' ? 300 : $('lh-keepalive').value) };
+      family: $('lh-family').value, keepAlive: Number($('lh-keepalive').value === '' ? 300 : $('lh-keepalive').value),
+      parallel: Number($('lh-parallel').value === '' ? lib.DEFAULT_PARALLEL : $('lh-parallel').value) };
+    const deeplKey = $('deepl-key').value.trim();
     const errors = built.errors.concat(gl.errors).map(lib.formatError).concat(lib.validateLocalhost(localhost).map((m) => `Localhost: ${m}`));
+    const keyErr = lib.validateDeeplKey(deeplKey);
+    if (keyErr) errors.push(keyErr);
     showErrors(errors);
     if (errors.length) {
       setFeedback('저장하지 않았습니다. 오류를 확인하세요', false);
@@ -88,6 +109,7 @@
         byLang: { ja: $('engine-ja').value || null, zh: $('engine-zh').value || null },
       },
       localhost,
+      deepl: { apiKeyRef: 'local' },
       enabled: current.enabled,
       translateAttrs: $('translate-attrs').checked,
       fixParticles: $('fix-particles').checked,
@@ -95,6 +117,11 @@
       glossary: gl.terms,
     };
     await api.storage.sync.set({ settings });
+    if (deeplKey) {
+      await api.storage.local.set({ deeplKey });
+      $('deepl-key').value = '';
+      await refreshKeyState();
+    }
     setFeedback('저장했습니다', true);
   }
 
@@ -112,6 +139,7 @@
   fillEngines($('engine-zh'), true);
   $('save').addEventListener('click', save);
   $('clear-cache').addEventListener('click', clearCache);
+  $('deepl-key-clear').addEventListener('click', clearKey);
   $('preset-tg').addEventListener('click', () => {
     const p = lib.PRESET_TRANSLATEGEMMA;
     $('engine-default').value = p.engine;
@@ -120,6 +148,7 @@
     $('lh-model').value = p.localhost.model;
     $('lh-family').value = p.localhost.family;
     $('lh-keepalive').value = String(p.localhost.keepAlive);
+    $('lh-parallel').value = String(lib.DEFAULT_PARALLEL);
     setFeedback('프리셋을 채웠습니다. 저장을 눌러 적용하세요', true);
   });
   load();

@@ -1,5 +1,5 @@
-// Native `http` message: loopback-only HTTP proxy so Ollama sees no browser Origin header (F21).
-// Host restriction is enforced here independently of the JS side; bodies are never logged.
+// Native `http` message: loopback HTTP proxy so Ollama sees no browser Origin header (F21), plus https to the DeepL API hosts only (F24).
+// Host restriction is enforced here independently of the JS side; bodies and headers (API key) are never logged.
 import Foundation
 import os.log
 
@@ -9,22 +9,31 @@ enum LoopbackHTTP {
     static let defaultTimeout = 120.0
     static let maxTimeout = 300.0
     static let allowedHosts: Set<String> = ["127.0.0.1", "localhost", "::1"]
+    static let httpsHosts: Set<String> = ["api-free.deepl.com", "api.deepl.com"]
     private static let log = Logger(subsystem: "com.tmtmtmtmtmt.localtranslator", category: "http")
 
-    /// Returns the validated URL, or nil unless it is http://<loopback>[:1-65535]/... without credentials.
+    /// Returns the validated URL, or nil unless it is http://<loopback>[:1-65535]/... or https://<DeepL host>[:443]/... without credentials.
     static func validate(_ raw: String?) -> URL? {
         guard let raw, let u = URL(string: raw), let c = URLComponents(url: u, resolvingAgainstBaseURL: false),
-              c.scheme?.lowercased() == "http", c.user == nil, c.password == nil,
-              let host = c.host?.lowercased(), allowedHosts.contains(host) || allowedHosts.contains(host.trimmingCharacters(in: ["[", "]"]))
+              c.user == nil, c.password == nil, let host = c.host?.lowercased()
         else { return nil }
-        if let p = c.port, !(1...65535).contains(p) { return nil }
-        return u
+        switch c.scheme?.lowercased() {
+        case "http":
+            guard allowedHosts.contains(host) || allowedHosts.contains(host.trimmingCharacters(in: ["[", "]"])) else { return nil }
+            if let p = c.port, !(1...65535).contains(p) { return nil }
+            return u
+        case "https":
+            guard httpsHosts.contains(host), c.port == nil || c.port == 443 else { return nil }
+            return u
+        default:
+            return nil
+        }
     }
 
     static func perform(_ req: ProtoRequest) async -> ProtoResponse {
         let method = (req.method ?? "POST").uppercased()
         guard method == "GET" || method == "POST" else { return .failure("bad_response", "http method not allowed") }
-        guard let url = validate(req.url) else { return .failure("bad_response", "http target must be loopback http") }
+        guard let url = validate(req.url) else { return .failure("bad_response", "http target not allowed (loopback http or DeepL https only)") }
         let bodyData = req.body.map { Data($0.utf8) }
         if let b = bodyData, b.count > maxRequestBytes { return .failure("bad_response", "http request body too large") }
         let timeout = min(max(req.timeoutMs.map { $0 / 1000 } ?? defaultTimeout, 1), maxTimeout)
@@ -37,7 +46,7 @@ enum LoopbackHTTP {
         cfg.requestCachePolicy = .reloadIgnoringLocalCacheData
         cfg.timeoutIntervalForRequest = timeout
         cfg.timeoutIntervalForResource = timeout
-        cfg.connectionProxyDictionary = [:]  // never route loopback traffic through a system proxy
+        if url.scheme?.lowercased() == "http" { cfg.connectionProxyDictionary = [:] }  // never route loopback traffic through a system proxy
         let session = URLSession(configuration: cfg, delegate: NoRedirect(), delegateQueue: nil)
         defer { session.finishTasksAndInvalidate() }
 
@@ -81,7 +90,7 @@ enum LoopbackHTTP {
         }
     }
 
-    /// Redirects could leave loopback; refuse them all.
+    /// Redirects could leave the allowlist; refuse them all.
     private final class NoRedirect: NSObject, URLSessionTaskDelegate, @unchecked Sendable {
         func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse,
                         newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {

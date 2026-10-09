@@ -184,6 +184,9 @@
 
 - **R12**: Safari(사용자): the-race 즉시 번역(B12 fixed), arxiv 빈 탭(B14 still), 고품질 "엔진 사용 불가"(B17). B17 원인 = Ollama가 safari-web-extension 출처 CORS 403(curl 재현) → F21 네이티브 루프백 HTTP 대리(URLSession, 루프백·크기·시간 제한, 리다이렉트 거부, 확장 타깃 network.client). B14 → F22 onCommitted만·새 탭 열고 원탭 닫기·오류 로그. 테스트 319, 재설치(02:35 UTC).
 
+- **R13**: Safari: PDF 자동 진입 새 탭 뷰어(B14 fixed), 고품질 번역 동작(로그 57건 200, B17 fixed), 체감 속도 느림 → D18 사용자 결정(DeepL 옵트인 + 로컬 병렬화).
+- **R14**: F23 로컬 병렬(측정: N=1→4 블록당 996→909ms, Ollama 서버가 사실상 직렬 — 효과 ~10%, 기본 4), F24 DeepL 엔진(XML 태그로 링크 원문 유지, 키는 storage.local만, Safari CORS 시 네이티브 https 허용목록 대리). 테스트 336, 재설치(02:49 UTC). 실제 DeepL 호출은 사용자 키 필요.
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족
