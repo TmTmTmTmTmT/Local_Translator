@@ -127,7 +127,7 @@ test('translate: partial failure keeps successes; total failure maps code', asyn
   engine.err = { code: 'weird', message: 'm' };
   const r3 = await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('bad', 'en', 'z')] }, sender);
   assert.equal(r3.code, 'unknown');
-  assert.equal(browser.calls.badge.at(-1).text, ''); // rate_limited/unknown는 배지 없음
+  assert.equal(browser.calls.badge.at(-1).text, ''); // unknown는 배지 없음 (F25: rate_limited는 '!')
 });
 
 test('translate: concurrency capped by engine.concurrency', async () => {
@@ -313,4 +313,56 @@ test('F23: semaphore size follows engine.concurrencyFor(settings) and is rebuilt
   await browser.storage.onChanged.fire({ settings: {} }, 'sync');
   await bg.handleMessage({ type: 'translate', lang: 'en', blocks: blocks('b') }, sender);
   assert.equal(engine.maxActive, 1);
+});
+
+// ---- F25 ----
+test('F25: badge "!" for rate_limited, bad_response and timeout; cleared after success', async () => {
+  for (const code of ['rate_limited', 'bad_response', 'timeout']) {
+    const engine = fakeEngine({ batchLimit: { chars: 1000, blocks: 1 }, fail: new Set(['bad']), err: { code, message: 'm' } });
+    const { bg, browser } = setup({ engine });
+    await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('bad', 'en', 'y')] }, sender);
+    assert.equal(browser.calls.badge.at(-1).text, '!', code);
+    await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('good', 'en', 'z')] }, sender);
+    assert.equal(browser.calls.badge.at(-1).text, '', code);
+  }
+});
+
+test('F25: engine failure is logged with engine id, code and HTTP status only (no message/text)', async () => {
+  const engine = fakeEngine({ id: 'cloud:deepl', kind: 'cloud', fail: new Set(['bad']), err: { code: 'rate_limited', message: 'SECRET-TEXT-hello', status: 429 } });
+  const { bg } = setup({ engine });
+  const logs = [];
+  const orig = console.warn;
+  console.warn = (...a) => logs.push(a.join(' '));
+  let r;
+  try { r = await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('bad', 'en', 'secret page text')] }, sender); } finally { console.warn = orig; }
+  assert.equal(r.ok, false);
+  const line = logs.find((l) => l.includes('cloud:deepl'));
+  assert.ok(line, 'warn line present');
+  assert.ok(/rate_limited/.test(line) && /429/.test(line));
+  assert.ok(!/SECRET|secret/.test(line));
+});
+
+test('F25: partial batch failure reports partial code to content', async () => {
+  const engine = fakeEngine({ batchLimit: { chars: 1000, blocks: 1 }, fail: new Set(['bad']) });
+  const { bg } = setup({ engine });
+  const r = await bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('ok', 'en', 'x'), B('bad', 'en', 'y')] }, sender);
+  assert.equal(r.ok, true);
+  assert.equal(r.partial, 'rate_limited');
+});
+
+test('F25: mergeBatches engine combines waiting batches into larger requests (limit respected)', async () => {
+  const engine = fakeEngine({ id: 'cloud:deepl', kind: 'cloud', mergeBatches: true, concurrency: 1, batchLimit: { chars: 30000, blocks: 6 } });
+  const { bg } = setup({ engine });
+  const mk = (p, n) => Array.from({ length: n }, (_, i) => B(p + i, 'en', 'text ' + p + i));
+  const msgs = ['a', 'b', 'c', 'd', 'e'].map((p) => bg.handleMessage({ type: 'translate', lang: 'en', blocks: mk(p, 2) }, sender));
+  const res = await Promise.all(msgs);
+  for (const r of res) { assert.equal(r.ok, true); assert.equal(r.results.length, 2); }
+  assert.ok(engine.calls.length < 5, 'fewer engine calls than messages: ' + engine.calls.length);
+  assert.ok(engine.calls.every((c) => c.ids.length <= 6));
+  assert.equal(engine.calls.reduce((a, c) => a + c.ids.length, 0), 10);
+  // failure of a merged call reaches every member
+  const bad = fakeEngine({ id: 'cloud:deepl', kind: 'cloud', mergeBatches: true, concurrency: 1, batchLimit: { chars: 30000, blocks: 6 }, fail: new Set(['x0', 'y0']) });
+  const h = setup({ engine: bad });
+  const rs = await Promise.all([h.bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('x0', 'en', 'q')] }, sender), h.bg.handleMessage({ type: 'translate', lang: 'en', blocks: [B('y0', 'en', 'w')] }, sender)]);
+  for (const r of rs) eq([r.ok, r.code], [false, 'rate_limited']);
 });

@@ -4,10 +4,12 @@
 
   const KT = (globalThis.KT = globalThis.KT || {});
   // translateAttrs: 속성 번역(extra.js가 주입된 경우에만 동작). fixParticles: 조사 병기 확정(apply.js).
-  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, sendTimeoutMs: 90000, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
+  const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, sendTimeoutMs: 90000, retryDelayMs: 5000, maxRetries: 2, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
   const MAX_BATCH_CHARS = 1500, MAX_BATCH_BLOCKS = 10, CACHE_SIZE = 2000;
   // 페이지 첫 요청은 작게 보내 첫 번역이 빨리 보이게 한다(엔진이 배치를 직렬로 처리하므로 첫 결과 지연 = 첫 배치 크기).
   const FIRST_BATCH_BLOCKS = 4;
+
+  const RETRY_CODES = new Set(['rate_limited', 'timeout', 'bad_response']);
 
   let S = null; // 실행 상태(없으면 정지)
 
@@ -205,13 +207,27 @@
       if (st.stopped) return;
       const byId = new Map();
       if (resp && resp.ok && Array.isArray(resp.results)) for (const x of resp.results) if (x) byId.set(x.id, x.slots);
+      // F25: 일시적 오류(요청 제한·시간 초과·응답 오류)나 일부 누락은 일정 지연 후 최대 maxRetries회 다시 요청. 인증·엔진 사용 불가 등은 재시도 안 함.
+      const retryable = !resp || (RETRY_CODES.has(resp.ok ? resp.partial : resp.code) && resp.status !== 456); // 456: 월 한도 초과는 재시도해도 소용없음
       for (const r of batch.recs) {
         const slots = byId.get(r.id);
+        if (!slots && retryable && (r.retries | 0) < opt.maxRetries) { scheduleRetry(r); continue; }
         // 모든 슬롯이 문자열일 때만 캐시
         if (slots && r.slots.every((_, i) => typeof slots[String(i)] === 'string')) cache.set(cacheKey(r), slots);
         st.applyQueue.push({ rec: r, slots: slots || null });
       }
       scheduleApply();
+    }
+    function scheduleRetry(r) {
+      r.retries = (r.retries | 0) + 1;
+      r.state = 'retrying';
+      const tm = win.setTimeout(() => {
+        st.sendTimers.delete(tm);
+        if (st.stopped || r.state !== 'retrying') return;
+        if (!attached(r)) { drop(r); reportSoon(); return; }
+        enqueue(r);
+      }, opt.retryDelayMs);
+      st.sendTimers.add(tm);
     }
     function scheduleApply() {
       if (st.rafPending) return;
@@ -235,7 +251,7 @@
     // ---------- 상태 보고 ----------
     function counts() {
       let pending = 0;
-      for (const r of tracked) if (r.state === 'queued' || r.state === 'inflight') pending++;
+      for (const r of tracked) if (r.state === 'queued' || r.state === 'inflight' || r.state === 'retrying') pending++;
       return { pending, done: st.done, error: st.error };
     }
     function sendReport() {

@@ -140,7 +140,7 @@ test('main: missing slots from engine (some / half or more) and error response',
   assert.equal(e2.q('#a').firstChild.nodeValue, 'Hello world');
   assert.equal(e2.q('#a').getAttribute('data-kt'), 'error');
   e2.close();
-  const e3 = setup('<body><p id=a>Hello world</p></body>', { respond: () => { throw new Error('boom'); } });
+  const e3 = setup('<body><p id=a>Hello world</p></body>', { respond: () => { throw new Error('boom'); }, start: { maxRetries: 0 } });
   e3.start();
   await e3.idle();
   assert.equal(e3.q('#a').getAttribute('data-kt'), 'error');
@@ -358,7 +358,7 @@ test('F18: pending drop to 0 is reported immediately, not delayed by the debounc
 
 test('F18: sendBatch times out a lost response, applies error handling and frees inflight', async () => {
   const gate = deferred();
-  const e = setup('<body><p>Hello there friend</p></body>', { respond: () => gate.promise, start: { sendTimeoutMs: 30 } });
+  const e = setup('<body><p>Hello there friend</p></body>', { respond: () => gate.promise, start: { sendTimeoutMs: 30, maxRetries: 0 } });
   const st = e.start();
   await e.idle();
   await sleep(10);
@@ -371,5 +371,71 @@ test('F18: sendBatch times out a lost response, applies error handling and frees
   assert.equal(st.inflight, 0);
   const reports = e.messenger.calls.filter((c) => c.type === 'reportStatus');
   assert.equal(reports.at(-1).pending, 0);
+  e.close();
+});
+
+// ---- F25: error blocks are re-requested ----
+test('F25: rate_limited response is retried after a delay, then translated', async () => {
+  let n = 0;
+  const e = setup('<body><p id=a>Hello world</p></body>', {
+    respond: (m) => (++n === 1 ? { ok: false, code: 'rate_limited', message: 'x' } : fakeTranslateResponse(m)),
+    start: { retryDelayMs: 20 },
+  });
+  const st = e.start();
+  await e.idle();
+  assert.equal(st.inflight, 0);
+  assert.equal(e.q('#a').firstChild.nodeValue, 'Hello world'); // not yet, waiting
+  await sleep(80);
+  await e.idle();
+  assert.equal(e.q('#a').firstChild.nodeValue, 'KO:Hello world');
+  assert.equal(n, 2);
+  e.close();
+});
+
+test('F25: retries are capped (maxRetries) and the block ends as error', async () => {
+  let n = 0;
+  const e = setup('<body><p id=a>Hello world</p></body>', { respond: () => { n++; return { ok: false, code: 'timeout', message: 'x' }; }, start: { retryDelayMs: 10 } });
+  e.start();
+  for (let i = 0; i < 8; i++) { await e.idle(); await sleep(20); }
+  assert.equal(n, 3); // 1 + 2 retries
+  assert.equal(e.q('#a').getAttribute('data-kt'), 'error');
+  e.close();
+});
+
+test('F25: engine_unavailable is not retried', async () => {
+  let n = 0;
+  const e = setup('<body><p id=a>Hello world</p></body>', { respond: () => { n++; return { ok: false, code: 'engine_unavailable', message: 'x' }; }, start: { retryDelayMs: 10 } });
+  e.start();
+  for (let i = 0; i < 4; i++) { await e.idle(); await sleep(20); }
+  assert.equal(n, 1);
+  assert.equal(e.q('#a').getAttribute('data-kt'), 'error');
+  e.close();
+});
+
+test('F25: partial response (ok + partial code) retries only the missing blocks', async () => {
+  const seen = [];
+  const e = setup('<body><p id=a>First block</p><p id=b>Second block</p></body>', {
+    respond: (m) => {
+      seen.push(m.blocks.map((b) => b.items[0].text));
+      const r = fakeTranslateResponse(m);
+      if (seen.length === 1) { r.results = r.results.filter((x) => m.blocks.find((b) => b.id === x.id).items[0].text === 'First block'); r.partial = 'rate_limited'; }
+      return r;
+    },
+    start: { retryDelayMs: 10 },
+  });
+  e.start();
+  await e.idle(); await sleep(60); await e.idle();
+  assert.equal(e.q('#a').firstChild.nodeValue, 'KO:First block');
+  assert.equal(e.q('#b').firstChild.nodeValue, 'KO:Second block');
+  loose.deepEqual(seen, [['First block', 'Second block'], ['Second block']]);
+  e.close();
+});
+
+test('F25: HTTP 456 (quota) is not retried even though the code is rate_limited', async () => {
+  let n = 0;
+  const e = setup('<body><p id=a>Hello world</p></body>', { respond: () => { n++; return { ok: false, code: 'rate_limited', status: 456, message: 'x' }; }, start: { retryDelayMs: 10 } });
+  e.start();
+  for (let i = 0; i < 4; i++) { await e.idle(); await sleep(20); }
+  assert.equal(n, 1);
   e.close();
 });

@@ -99,8 +99,8 @@ test('error mapping: 403/401 key, 456 quota, 429 retry then rate_limited, 5xx', 
   await assert.rejects(mk(E, f).translate(blocks, {}, 'en', {}), (e) => e.code === 'rate_limited');
   assert.equal(f.calls.length, 1);
   f = deeplFetch(() => ({ status: 429, body: {} }));
-  await assert.rejects(mk(E, f).translate(blocks, {}, 'en', {}), (e) => e.code === 'rate_limited');
-  assert.equal(f.calls.length, 3);
+  await assert.rejects(mk(E, f).translate(blocks, {}, 'en', {}), (e) => e.code === 'rate_limited' && e.status === 429);
+  assert.equal(f.calls.length, 6); // F25: 1 + 5 retries
   f = deeplFetch(() => ({ status: 503, body: {} }));
   await assert.rejects(mk(E, f).translate(blocks, {}, 'en', {}), (e) => e.code === 'engine_unavailable');
 });
@@ -158,4 +158,140 @@ test('registry exposes cloud:deepl for en/ja/zh; engine/background never touch s
   for (const f of fs.readdirSync(path.join(root, 'extension/content'))) {
     assert.ok(!/deepl/i.test(fs.readFileSync(path.join(root, 'extension/content', f), 'utf8')), f);
   }
+});
+
+// ---- F25 ----
+function vclock() {
+  const c = { t: 0, sleeps: [] };
+  c.now = () => c.t;
+  c.sleep = async (ms) => { c.sleeps.push(ms); c.t += ms; };
+  return c;
+}
+const okBody = (p) => ({ translations: p.text.map((s) => ({ detected_source_language: 'EN', text: s })) });
+function seqFetch(clock, handler) {
+  const calls = [];
+  const fn = async (url, init) => {
+    const payload = JSON.parse(init.body);
+    calls.push({ at: clock.t, payload });
+    const r = await handler(payload, calls.length);
+    const status = r.status || 200;
+    const text = JSON.stringify(r.body || okBody(payload));
+    const headers = { get: (k) => (r.headers ? r.headers[k.toLowerCase()] : null) };
+    return { ok: status < 300, status, headers, text: async () => text };
+  };
+  fn.calls = calls;
+  return fn;
+}
+const mkc = (E, f, clock, extra) => E.createDeeplEngine(Object.assign({ fetch: f, getKey: async () => KEY, sleep: clock.sleep, now: clock.now, minIntervalMs: 0 }, extra));
+
+test('F25: 429 repeated then success uses exponential backoff 1,2,4 s', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  const f = seqFetch(clock, (p, n) => (n <= 3 ? { status: 429, body: {} } : {}));
+  const out = await mkc(E, f, clock).translate([B('a', t(0, 'Hello there'))], {}, 'en', {});
+  assert.equal(out.get('a')['0'], 'Hello there');
+  assert.equal(f.calls.length, 4);
+  assert.deepEqual(clock.sleeps, [1000, 2000, 4000]);
+});
+
+test('F25: Retry-After header wins over backoff and is capped at 30 s', async () => {
+  const E = loadEngines();
+  let clock = vclock();
+  let f = seqFetch(clock, (p, n) => (n === 1 ? { status: 429, body: {}, headers: { 'retry-after': '7' } } : {}));
+  await mkc(E, f, clock).translate([B('a', t(0, 'Hello there'))], {}, 'en', {});
+  assert.deepEqual(clock.sleeps, [7000]);
+  clock = vclock();
+  f = seqFetch(clock, (p, n) => (n === 1 ? { status: 429, body: {}, headers: { 'retry-after': '600' } } : {}));
+  await mkc(E, f, clock).translate([B('a', t(0, 'Hello there'))], {}, 'en', {});
+  assert.deepEqual(clock.sleeps, [30000]);
+});
+
+test('F25: 456 and 401/403 fail immediately without retry or sleep; error carries status', async () => {
+  const E = loadEngines();
+  for (const s of [456, 401, 403]) {
+    const clock = vclock();
+    const f = seqFetch(clock, () => ({ status: s, body: {} }));
+    await assert.rejects(mkc(E, f, clock).translate([B('a', t(0, 'Hello there'))], {}, 'en', {}), (e) => e.status === s);
+    assert.equal(f.calls.length, 1);
+    assert.deepEqual(clock.sleeps, []);
+  }
+});
+
+test('F25: a 429 sets an engine-wide cooldown that holds concurrent requests', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  const f = seqFetch(clock, (p, n) => (n === 1 ? { status: 429, body: {} } : {}));
+  let eng;
+  let p2 = null;
+  const sleep = async (ms) => {
+    if (!p2) p2 = eng.translate([B('b', t(0, 'Second block'))], {}, 'en', {}); // second request arrives during the cooldown
+    await clock.sleep(ms);
+  };
+  eng = mkc(E, f, clock, { sleep });
+  await Promise.all([eng.translate([B('a', t(0, 'First block'))], {}, 'en', {}), (async () => { while (!p2) await new Promise((r) => setTimeout(r, 1)); return p2; })()]);
+  assert.equal(f.calls.length, 3);
+  assert.equal(f.calls[0].at, 0);
+  assert.ok(f.calls[1].at >= 1000 && f.calls[2].at >= 1000, 'no request starts during the cooldown');
+});
+
+test('F25: request starts are spaced by the minimum interval', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  const starts = [];
+  const f = seqFetch(clock, () => { starts.push(Date.now()); return {}; });
+  // real clock and real sleep: concurrent callers must be serialized by the start-slot reservation
+  const eng = E.createDeeplEngine({ fetch: f, getKey: async () => KEY, minIntervalMs: 60 });
+  await Promise.all([1, 2, 3].map((i) => eng.translate([B('b' + i, t(0, 'Block ' + i))], {}, 'en', {})));
+  starts.sort((a, b) => a - b);
+  assert.ok(starts[1] - starts[0] >= 50 && starts[2] - starts[1] >= 50, JSON.stringify(starts));
+});
+
+test('F25: network failure is retried with backoff', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  let n = 0;
+  const send = async () => {
+    n++;
+    if (n <= 2) return { ok: false, error: { code: 'network' } };
+    return { ok: true, status: 200, body: JSON.stringify({ translations: [{ text: 'OK' }] }) };
+  };
+  const f = async () => { throw new Error('cors'); };
+  const out = await mkc(E, f, clock, { send }).translate([B('a', t(0, 'Hello there'))], {}, 'en', {});
+  assert.equal(out.get('a')['0'], 'OK');
+  assert.equal(n, 3);
+  assert.deepEqual(clock.sleeps, [1000, 2000]);
+});
+
+test('F25: fallback request failure keeps the blocks that already succeeded (partial result)', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  // block b comes back with a missing x tag -> fallback plain request, which then fails with 400
+  const f = seqFetch(clock, (p) => {
+    if (p.tag_handling) return { translations: ['A1 ok', 'broken without tag'].map((s) => ({ text: s })), body: { translations: [{ text: 'A1 ok' }, { text: 'broken without tag' }] } };
+    return { status: 400, body: {} };
+  });
+  const blocks = [B('a', t(0, 'Alpha text')), B('b', t(0, 'Bravo '), x('link'), t(1, ' tail'))];
+  const out = await mkc(E, f, clock).translate(blocks, {}, 'en', {});
+  assert.equal(out.get('a')['0'], 'A1 ok');
+  assert.equal(out.has('b'), false);
+});
+
+test('F25: nothing succeeded -> the error is thrown with its status', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  const f = seqFetch(clock, () => ({ status: 400, body: {} }));
+  await assert.rejects(mkc(E, f, clock).translate([B('a', t(0, 'Hello there'))], {}, 'en', {}), (e) => e.code === 'bad_response' && e.status === 400);
+});
+
+test('F25: whitespace around x items is preserved in the XML ("points by")', async () => {
+  const E = loadEngines();
+  const clock = vclock();
+  const f = seqFetch(clock, () => ({}));
+  const blocks = [B('a', x('123 points'), t(0, 'by'), x('someuser'), t(1, '2 hours ago'), x('|'), t(2, 'hide'))];
+  await mkc(E, f, clock).translate(blocks, {}, 'en', {});
+  assert.equal(f.calls[0].payload.text[0], '<x i="0">123 points</x> by <x i="1">someuser</x> 2 hours ago <x i="2">|</x> hide');
+  // already spaced input gains no double spaces
+  const g = seqFetch(clock, () => ({}));
+  await mkc(E, g, clock).translate([B('a', t(0, 'Go '), x('here'), t(1, ' now'))], {}, 'en', {});
+  assert.equal(g.calls[0].payload.text[0], 'Go <x i="0">here</x> now');
 });
