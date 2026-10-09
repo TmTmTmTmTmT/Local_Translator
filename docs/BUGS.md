@@ -106,6 +106,7 @@
 ## B14 | still(F17 후) | T8 | arxiv PDF → 빈 화면에서 멈춤
 - 재현(S 스크린샷): https://arxiv.org/pdf/1706.03762 → 주소창 비고 로딩 막대만 있는 빈 탭. 리다이렉트는 시도된 것으로 보이나 뷰어가 뜨지 않음. 조사 중.
 
-## B17 | open(F21) | T6/T1 | Safari에서 고품질(Ollama) 번역 "엔진 사용 불가"
+## B17 | fixed(S·로그, R13) | T6/T1 | Safari에서 고품질(Ollama) 번역 "엔진 사용 불가"
 - 재현(S): 프리셋 저장 후 the-race 새로고침 → "번역 엔진을 사용할 수 없습니다".
 - 원인(확인): Ollama가 `safari-web-extension://` 출처의 CORS 사전요청을 403으로 거부(curl 재현).
+- R13 확인(Safari 11:38 재시작 후, appex 로그): `http POST /api/chat status=200` 57건, 비정상 0건, 요청당 0.27~2.0초 — 네이티브 대리 경로로 Ollama TranslateGemma 번역 동작.
