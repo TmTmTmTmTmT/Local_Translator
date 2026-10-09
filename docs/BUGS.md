@@ -115,3 +115,14 @@
 - PDF 자동 진입: 새 탭 뷰어 열림 확인(B14 fixed, T8 S 통과).
 - 고품질(TranslateGemma): 동작하나 체감 여전히 느림. 로그: 분당 42~88요청(블록당 ~0.7~1.4초, 동시 1).
 - HN: 느림(진행은 됨). → 속도 개선은 엔진 선택 문제로 D18(외부 API·로컬 병렬화) 결정 대기.
+
+## B18 | open | T1/T4 | DeepL 엔진으로 HN 2쪽 제목·부가 줄 미번역(상단 메뉴만 번역)
+- 재현(S, R15 사용자 + Opus 스크린샷 scratchpad `R15-hn-p2.jpg`): 엔진 DeepL(Free 키) → news.ycombinator.com "More"(p=2) → 상단 "해커 뉴스 | 새 | 과거 | 댓글"만 번역, 제목 31~60·부가 줄 전부 영어. the-race.com은 DeepL로 전부 번역(스크린샷 `R15-therace-deepl.jpg`).
+- 오프라인(Sonnet, `scratchpad/b18/run.mjs`, 실제 content+background+deepl.js, 가짜 DeepL): 정상 응답이면 12요청·108블록 전부 번역 → 분절·인코딩은 원인 아님(확인). 증상은 "첫 요청(메뉴 4블록) 성공 + 이후 요청 전부 실패"와만 일치 — 429 연속(DeepL Free 제한) 시 재현(확인), 실제 원인은 추정(로그 없음).
+- 확인된 결함: 오류 무기록(`background.js` translateGroup catch), rate_limited·bad_response·timeout 배지 없음, content가 오류 블록 재시도 안 함, 429 재시도 2회·1.5초·Retry-After 무시, 폴백 실패 시 배치 전체 버림, t 슬롯 trim으로 x 주변 공백 소실("pointsby").
+- 심각도: 높음(DeepL 사용 시 링크 많은 페이지 대부분 미번역). 가이드 F25.
+
+## R15 Safari 결과 (사용자 + Opus 스크린샷, 2026-10-09 16:1x)
+- T11: Safari 설정 확장 프로그램 화면 Local Translator 체크됨(스크린샷 `R15-ext-settings.jpg`), 미서명 허용 꺼짐 사용자 확인 "문제없음".
+- D20: the-race.com DeepL 번역 화면 확인(메뉴·헤드라인·카드·사이드 목록 전부 한국어).
+- T4: HN 다음 쪽 — DeepL에서는 B18로 실패.

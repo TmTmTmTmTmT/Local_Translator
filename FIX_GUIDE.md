@@ -392,3 +392,20 @@ Safari 로그: TranslateGemma 요청은 블록당 0.27~2초, 동시 1이라 분�
 7. README(사용자용): "더 빠른 번역(선택): DeepL" 절 — 무료 키 발급 안내 링크, 전송 경고.
 8. 테스트: 요청 형식(XML 태그·KO·source_lang), 응답 분할, 태그 불일치 폴백, 오류 매핑, 키가 storage.local에만 저장·sync에 없음, content로 키 미전달, Swift 컴파일.
 ### 영향 범위: `extension/engines/deepl.js`(신규), `extension/engines/registry.js`, `extension/manifest.json`(background scripts 목록), `extension/options/*`, `extension/PROTOCOL.md`(F23 작업자와 같은 파일 — §1 localhost.parallel은 A, 나머지는 B. 충돌 시 B가 병합), `README.md`, `xcode/.../LoopbackHTTP.swift`, 테스트. A와 겹치는 파일: PROTOCOL.md만(절 단위로 분리).
+
+## F25. DeepL 연속 요청 실패 시 조용히 미번역 (B18) (R15, Opus)
+### 원인
+확인: 정상 응답 가정 시 HN 2쪽 전부 번역됨 → 분절·XML 인코딩 문제 아님. 실사용 증상(첫 요청만 성공)은 이후 요청이 연속 실패할 때만 나옴. 가장 유력한 원인은 DeepL Free의 429(짧은 시간 다수 요청) — 현재 재시도 2회·총 1.5초, Retry-After 무시라 곧 포기. 실패는 로그·배지 없이 삼켜지고 content는 오류 블록을 다시 요청하지 않아 영구 영어로 남음. 추정 부분은 진단 로그로 확정한다.
+### 수정 방향 (Sonnet)
+1. 진단: background의 엔진 호출 catch에서 엔진 id·오류 코드·HTTP 상태만 console.warn(본문·키·텍스트 금지). deepl.js 오류 객체에 status 필드 포함.
+2. 배지·팝업: `rate_limited`·`bad_response`·`timeout`도 배지 "!" 대상. 팝업 상태 문구에 "요청 제한(잠시 후 재시도)" 등 코드별 짧은 안내.
+3. DeepL 재시도: 429·5xx·네트워크 오류는 지수 백오프(1→2→4→8초, 최대 5회, Retry-After 헤더 있으면 그 값 우선, 상한 30초). 456(쿼터)·401/403은 재시도 없음. 429 발생 시 엔진 전역 쿨다운(그 동안 새 요청 대기) — 동시 요청 폭주 방지.
+4. DeepL 동시성·속도: 동시 2 유지하되 요청 간 최소 간격(예 250ms) 또는 토큰 버킷. 배치는 블록 수를 늘려(최대 50블록/요청, 기존 한도 내) 요청 수 자체를 줄인다 — background가 DeepL에 한해 첫 요청 이후 배치 크기를 키우는 방식 허용(F16 첫 요청 4블록 규칙은 유지).
+5. 실패 격리: 태그 불일치 폴백 요청이 실패해도 같은 배치에서 성공한 블록 결과는 반환(부분 결과). 실패 블록만 오류로 표시.
+6. content 재시도: 오류로 끝난 블록은 rate_limited·timeout·bad_response일 때 일정 지연(예 5초, 최대 2회) 후 재요청 대기열에 다시 넣는다. engine_unavailable·auth 오류는 재시도 안 함.
+7. 공백 보존: DeepL XML 구성 시 t 슬롯과 x 사이 원래 공백을 유지(trim으로 사라진 경계 공백을 원문 노드 기준으로 복원하거나, 인코딩 단계에서 구분 공백 삽입). 결과 적용 시 이중 공백 없게.
+8. 테스트: 429 연속 후 성공(백오프·Retry-After), 456 즉시 실패, 쿨다운 중 동시 요청 직렬화, 폴백 실패 시 부분 결과, content 오류 블록 재요청(횟수 상한), 배지 코드, 공백 보존("points by"). 오프라인 하네스 `scratchpad`의 run.mjs 방식을 `tests/e2e/`에 정식 추가(가짜 DeepL 모드 ok/429burst/456) — HN 2쪽 HTML은 tests/e2e/sites(gitignore)에서 읽고 없으면 건너뜀. 비ASCII 리터럴 금지.
+### 영향 범위
+`extension/engines/deepl.js`, `extension/background.js`(catch 로그·BADGE_CODES·DeepL 배치 크기), `extension/content/main.js`(오류 재시도), `extension/popup/*`(문구), 테스트·e2e 하네스. Swift 변경 없음.
+### 검증
+npm test 전부 통과, 하네스 429burst 모드에서 HN 2쪽 전 블록 번역(재시도 후), 빌드·install.sh(--allow-safari-running) → 사용자 Safari 재시작 후 DeepL로 HN 2쪽 번역 확인(스크린샷). 실패 시 Safari 웹 검사기 콘솔의 경고(코드·상태)로 원인 확정.
