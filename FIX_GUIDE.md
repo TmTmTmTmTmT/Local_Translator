@@ -284,3 +284,14 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 - content 요청 크기를 엔진 배치와 맞춘다: `MAX_BATCH_BLOCKS` 40→10, `MAX_BATCH_CHARS` 6000→1500(첫 요청 4블록 유지). background가 요청 전체를 `Promise.all`로 모아 응답하므로 큰 요청은 앞 블록도 늦게 보임. 로컬 서버 엔진은 요청 수가 늘지만 background 배치/세마포어로 감당(성능 저하 미미).
 - PROTOCOL §2 translate 요청에 선택 필드 `priority`(1=뷰포트, 0=그 외) 기록.
 - 우선순위 상승(화면 밖으로 이미 보낸 블록이 나중에 보일 때)은 하지 않음 — 요청이 작아져 대기 시간이 짧으므로 충분.
+
+## F17. PDF 자동 진입이 확장자 없는 PDF URL에서 동작 안 함 (B14, R10, Opus)
+### 원인 (Sonnet 조사, 확실)
+`background.js:375` `isPdf = /\.pdf$/i.test(u.pathname)` — arxiv `/pdf/1706.03762`(확장자 없음) 불일치 → 리다이렉트 안 함. 사이트 매칭·권한·리스너 등록은 정상. `onBeforeNavigate`만 등록되어 Safari에서 이벤트 누락 시 대안 없음(미확인).
+### 수정 방향 (Sonnet)
+1. 후보 판정(지정 사이트에서만): (a) 경로가 `.pdf`로 끝남(쿼리 무관) → 즉시 PDF, (b) 경로 세그먼트에 `pdf`가 있음(`/pdf/…`, `…/pdf`) 또는 쿼리에 `format=pdf` → **후보**.
+2. 후보는 background에서 `fetch(url, {method:'HEAD', credentials:'include', redirect:'follow'})`(3초 타임아웃)로 `content-type`이 `application/pdf`면 리다이렉트. HEAD 실패/405면 `Range: bytes=0-0` GET 1회 시도. URL별 결과 캐시(메모리, 최대 200). 외부 전송 없음(사용자가 이미 여는 같은 URL).
+3. 이벤트 보강: `webNavigation.onCommitted`(frameId 0)와 `tabs.onUpdated`(`changeInfo.url`)도 같은 판정에 연결, 탭+URL별 1회만 리다이렉트(중복 방지). `#kt-original` 탈출구 유지.
+4. 테스트(background-pdf): `/pdf/1706.03762` + HEAD application/pdf → 리다이렉트, HEAD text/html → 안 함, `.pdf` 즉시, 비지정 사이트 무시, 이벤트 중복 1회, `#kt-original` 무시, HEAD 실패 폴백.
+### 영향 범위: `extension/background.js`(PDF 훅 부분만), `tests/background-pdf.test.mjs`, `PROTOCOL.md`(pdfAuto 동작 한 줄). 비ASCII 리터럴 금지.
+### 검증: npm test, 재설치·Safari 재시작 후 arxiv 링크로 실기(사용자).
