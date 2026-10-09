@@ -265,3 +265,18 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 4. 테스트: 헤더 패턴(div > a + a) → 블록 2개, 각 1슬롯; 앵커 하나에 span 2개 → 블록 1개; 기존 승격 테스트 유지; `linkMode:"never"` 불변.
 ### 영향 범위: `extension/content/segmenter.js`, `tests/content-linkmode.test.mjs`(또는 새 테스트). 비ASCII 리터럴 금지.
 ### 검증: npm test, site-coverage(therace) 블록 수 증가 확인, 재설치 후 Safari 헤더 "로그인"·"회원 클럽 가입"류로 각각 표시.
+
+## F16. 새로고침 후 "번역이 안 된다"로 보임 — 첫 결과가 늦고 화면 위쪽이 나중에 번역됨 (B11, R9, Opus)
+### 증거
+- 사용자(S, 10:5x KST): the-race 새로고침 후 번역 안 됨. 같은 시각 appex 로그: 10:50:11부터 요청 정상 처리(10블록 3.6~18.5초, 전부 code=ok, 오류 0) — 실패가 아니라 **느리게 진행** 중. 홈 기사 목록이 바뀌어 캐시 미스 다수(정상).
+- R7 관찰: 페이지 맨 위 메뉴가 카드들보다 늦게 번역됨 → 사용자가 보는 화면이 마지막에 바뀜.
+- 배치는 직렬(동시성 1, F14) → 첫 결과까지 최소 한 배치(10블록 ≈ 10초), 화면 전체 수 분.
+### 수정 방향 (Sonnet — 먼저 원인 확인 후 수정)
+1. 조사: `content/main.js` 큐 순서(IntersectionObserver 진입 순·문서 순·shadow·재스캔), background `translateGroup`/`splitBatches`/세마포어가 요청 도착 순서를 보존하는지, 메뉴가 늦은 이유(메뉴가 큐 뒤로 밀리는 지점)를 file:line으로 확인해 STATUS가 아닌 보고로 반환.
+2. 우선순위: 현재 뷰포트 안 블록을 먼저, 그 안에서는 위→아래(문서 순). 뷰포트 밖(rootMargin 아래 150%)은 그 뒤. 스크롤로 새로 보이는 블록은 대기 중인 화면 밖 블록보다 앞으로.
+3. 첫 응답 가속: content가 페이지 첫 요청은 작게(예: 뷰포트 상단 블록 최대 4개) 보내 2~4초 안에 첫 번역이 보이게. 이후 정상 배치.
+4. background: 대기 중인 배치가 여러 개면 우선순위(뷰포트 플래그 `priority` 필드, content가 블록마다 지정) 높은 것부터 세마포어 진입. PROTOCOL §2 translate 요청에 선택 필드 `priority` 추가.
+5. 팝업 상태: translating일 때 "번역 중… (남은 N블록)" 표시(이미 pending 있음, 문구만).
+6. 테스트: 큐 정렬(뷰포트 우선·위→아래), 첫 배치 크기, background 우선순위 진입, 팝업 문구. 비ASCII 리터럴 금지.
+### 영향 범위: `extension/content/main.js`, `extension/background.js`, `extension/popup/popup-lib.js`, `extension/PROTOCOL.md`, 테스트.
+### 검증: npm test, site-coverage(mock)에서 요청 순서 로그(첫 요청에 메뉴·첫 화면 블록 포함), 재설치 후 Safari에서 새로고침 → 수 초 안에 화면 상단 번역 시작(사용자).
