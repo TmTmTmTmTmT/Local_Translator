@@ -7,11 +7,11 @@
 | T1 | 지정 사이트 자동 번역: 본문·헤드라인·메뉴·카드 커버리지 ≥95% (보이는 영어 텍스트 기준, 의도된 제외 빼고) | H site-coverage, S 스크린샷 | H 통과(en·ja·zh, R1~R2), H-real 통과(R5·R8: 기사·NHK·BBC중문·HN 오류 0), S R7 통과(헤드라인·카드 번역) — 헤더 링크 합쳐짐 B10 수정 설치 후 재확인 필요 |
 | T2 | 문장 속 링크는 원문·클릭 유지, 어순·조사 자연스러움 | H, H-real(F13), S | R5 H-real: 링크 원문 유지 통과, 자연스러움은 대체로 양호하나 하이픈 붙은 링크 어색(D16 알려진 한계). S 미확인 |
 | T3 | code/pre, 입력값, translate=no, .notranslate, 사이트별 제외 셀렉터 원문 유지 | H, U | 통과(R1 H: MDN code 134·translate=no 18 유지, U: content-units) |
-| T4 | 동적 콘텐츠: 더보기, 무한스크롤, details 펼침, SPA 라우팅 후 새 구간만 번역·중복 요청 없음 | H(__kt.calls/blocks), U, S | U 통과(content-main dynamic 11건: 추가·숨김→표시·재적용 상한·SPA·shadow), S 미확인 |
+| T4 | 동적 콘텐츠: 더보기, 무한스크롤, details 펼침, SPA 라우팅 후 새 구간만 번역·중복 요청 없음 | H(__kt.calls/blocks), U, S | U 통과(content-main dynamic 11건), S: HN 다음 쪽 번역 진행됨(느림, D18) |
 | T5 | 팝업: 사이트 토글, 원문 보기 왕복, 상태(엔진·ready/translating/error) | H(popup 하네스), S | R3 H 통과(라벨·토글·상태 표시, B6 수정). S 통과(원문 토글 왕복, 사용자) — 단 상태 error(B7) |
 | T6 | 옵션: 사이트·제외·엔진·TranslateGemma 프리셋·용어집 저장 후 재열기 복원, 오류 메시지 | H(options 하네스), S, U | R3 H 통과(저장·복원·키 보존·검증·칸별 오류 메시지). S 통과(사이트 3개·용어집 저장 후 재열기 유지, 사용자) |
 | T7 | 용어집 적용(kerbs → 연석 등)·변경 시 해당 문장만 재번역 | H(mock은 치환 확인), S | S 통과(R7: "Formula 1"→"포뮬러 원" 메뉴·분류 라벨), U 통과(캐시 키) |
-| T8 | PDF: 자동 진입(pdfAuto), 수동 버튼, 문단 번역, 링크 동작, 원본 열기 | S, 기존 pdf-harness | R3 H 통과(렌더·문단·원본 링크·링크 구간 "online guide"). S 미확인(자동 진입·실제 PDF) |
+| T8 | PDF: 자동 진입(pdfAuto), 수동 버튼, 문단 번역, 링크 동작, 원본 열기 | S, 기존 pdf-harness | H 통과(R3), S 통과(R13: arxiv 자동 진입 → 새 탭 뷰어) |
 | T9 | 컨테이너 앱: 언어팩 상태, 서명 상태 "팀 서명됨", Safari 확장 설정 열기 | A | 통과(R1: 언어팩 4개 설치됨, "팀 서명됨 (K3YUPJD653)", 버튼 → Safari 확장 설정 창 전면) |
 | T10 | install.sh 재설치: 실행 중 앱 종료, 단일 등록(pluginkit), 팀 서명 검증 | Bash | 통과(R0: 실행 중 앱 종료, pluginkit 1곳, TeamIdentifier 검증) — 수정 후 재설치 때마다 재확인 |
 | T11 | Safari 재시작 2회 후 확장 유지("서명되지 않은 확장 허용" 꺼짐) | S | 재시작 2회 통과(사용자 R3·R10, 각 재시작 후 확장 켜짐·오류 없음). "서명되지 않은 확장 허용" 꺼짐 상태 확인은 사용자 보고 기준 |
