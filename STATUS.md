@@ -182,6 +182,8 @@
 - **R10**: Safari(사용자): 재시작 OK, 5초 내 번역 시작, 헤더 분리(B10 fixed), 남은 9블록 정체(B12)·HN 진행 안 됨(B13)·PDF 자동 진입 실패(B14). F17(.pdf 없는 PDF URL: HEAD content-type 확인, onCommitted/tabs.onUpdated 보강), F18(프레임별 pending·이동 시 초기화·즉시 0 보고·요청/엔진 상한 타임아웃). 테스트 306, 재설치(02:10 UTC).
 - **R11**: 사용자 요청으로 고품질(Ollama TranslateGemma) 검증 — F19 하네스(확장 엔진 코드+실제 Ollama): 4사이트 오류 0, 블록당 0.5~0.9초. B15(링크 많은 메타 줄 깨짐) → F20 구간별 번역(JS+Swift)·F20b 빈 괄호 제거. 테스트 308. 설치는 사용자 Safari 확인 후.
 
+- **R12**: Safari(사용자): the-race 즉시 번역(B12 fixed), arxiv 빈 탭(B14 still), 고품질 "엔진 사용 불가"(B17). B17 원인 = Ollama가 safari-web-extension 출처 CORS 403(curl 재현) → F21 네이티브 루프백 HTTP 대리(URLSession, 루프백·크기·시간 제한, 리다이렉트 거부, 확장 타깃 network.client). B14 → F22 onCommitted만·새 탭 열고 원탭 닫기·오류 로그. 테스트 319, 재설치(02:35 UTC).
+
 ## Opus 확인 필요
 - (T9) 뷰어가 문서에서 최대 20쪽 표본으로 반복 머리글·언어 판정, 문맥은 "같은 쪽 앞 문단" 대신 연속 문단 배치 — PLAN §4.8 변형 허용 여부
 - (T9) pdfjs 6.x가 Safari 최소 버전을 18.2+로 올림 — 배포 대상(macOS 26.4+)에서는 충족

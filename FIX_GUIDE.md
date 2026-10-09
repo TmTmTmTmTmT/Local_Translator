@@ -335,3 +335,33 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 ### 검증: npm test, 빌드, 하네스(`--engine ollama-tg`, `--engine apple`) HN 30블록 linkSamples 재확인.
 ### F20b (R11 결과 후 Opus 결정)
 구간별 번역으로 바꿔도 TranslateGemma가 홀로 남은 조각("17 points by")을 "17점 (작성자: )"처럼 빈 괄호로 확장 → MT 모드 출력 후처리: 원문에 괄호가 없는 구간에서 출력의 빈 괄호 패턴(`(` 공백 `)`, `(` 6자 이내 `:` 공백 `)`)과 그 앞 공백을 제거. 원문에 괄호가 있으면 손대지 않음. 테스트: "17점 (작성자: )" → "17점", 원문 괄호 보존. 영향: `extension/engines/mtmode.js`, `tests/engines-mtmode.test.mjs`. 나머지(“by” 의미 손실)는 D16 한계로 둠.
+
+## F21. Safari에서 고품질(Ollama) 번역이 "엔진 사용 불가" (B17, R12, Opus)
+### 원인 (Opus 확인, curl 재현)
+Safari 확장 background의 fetch는 `Origin: safari-web-extension://<id>`를 붙임. Ollama 기본 `OLLAMA_ORIGINS`는 이 출처를 허용하지 않아 CORS 사전요청 `OPTIONS /api/chat` → **403**, `text/plain` 단순 요청도 403. Node 하네스(F19)는 Origin이 없어 통과했던 것. JS는 fetch 실패를 engine_unavailable로 표시.
+### 판단
+사용자에게 `OLLAMA_ORIGINS` 환경변수 설정을 요구하는 대신, **네이티브 핸들러(URLSession, Origin 없음)로 루프백 요청을 대리**한다. 설정 없이 동작, 루프백 제한은 Swift에서 재검증.
+### 수정 방향
+**Swift (Sonnet B)**
+1. 새 네이티브 메시지 `{type:"http", method:"POST"|"GET", url, headers?, body?(문자열), timeoutMs}` → `{ok:true, status, body}` 또는 `{ok:false, error:{code, message}}`.
+2. 허용: scheme http, host가 `127.0.0.1`/`localhost`/`::1`만, 포트 1~65535. 그 외 `bad_response`(거부). 본문 최대 4MB, 응답 최대 8MB, 타임아웃 기본 120s·최대 300s. 로그는 URL 경로·상태·소요만(본문 기록 금지).
+3. 확장 타깃 샌드박스에 네트워크 클라이언트 권한(`ENABLE_OUTGOING_NETWORK_CONNECTIONS=YES` 또는 entitlements `com.apple.security.network.client`) 추가.
+4. Xcode-beta 컴파일 확인(CODE_SIGNING_ALLOWED=NO, 산출물 삭제).
+**JS (Sonnet A)**
+1. `engines/localhost.js`의 HTTP 호출부(postJson/getJson 등): `browser.runtime.sendNativeMessage`가 있으면 네이티브 `http` 메시지로, 없거나 네이티브가 `unknown type`이면 기존 fetch로. 응답 status/본문 처리 동일. 루프백 검증은 기존대로 JS에서도.
+2. fetch 경로에서 403이면 메시지에 "Ollama가 확장 출처를 거부(OLLAMA_ORIGINS)" 힌트.
+3. PROTOCOL §4에 `http` 메시지·제한 기록. 테스트: 네이티브 경로 선택·폴백·403 힌트·비루프백 거부.
+### 영향 범위: A `extension/engines/localhost.js`, `extension/engines/native.js`(필요 시 헬퍼 공유), `extension/PROTOCOL.md`, `tests/engines-localhost.test.mjs`. B `xcode/.../SafariWebExtensionHandler.swift`, `Protocol.swift`, 프로젝트 설정(확장 타깃 권한).
+### 검증: npm test, 빌드, 재설치 후 Safari에서 프리셋 → the-race 번역(사용자) + Ollama `ps`·확장 로그.
+
+## F22. PDF 자동 진입 시 빈 탭에서 멈춤 (B14 still, R12, Opus)
+### 원인 (Sonnet 조사, 신뢰도 중)
+설치본은 F17 포함. `onBeforeNavigate`(응답 전)·`onCommitted`·`tabs.onUpdated` 세 곳에서 HEAD 확인(최대 3초) 후 `tabs.update(tabId, viewerUrl)` — PDF 탐색이 커밋/Safari 내장 PDF 처리로 넘어가는 중간에 끼어들어 확장 URL 탐색이 커밋되지 않는 것으로 추정(빈 화면·빈 주소창·로딩 막대). 오류는 `.catch(() => {})`로 묻힘. 실기에서 검증된 유일한 경로는 팝업 수동 버튼(`tabs.create` 새 탭).
+### 수정 방향 (Sonnet)
+1. 자동 진입 트리거는 `webNavigation.onCommitted`(frameId 0)만 사용. `onBeforeNavigate`·`tabs.onUpdated` 리다이렉트 트리거 제거(호스트 기록 용도는 유지 가능).
+2. 리다이렉트 방식: 검증된 수동 경로와 같은 `tabs.create({url: viewerUrl, index: tab.index + 1, active: true})` 후 원래 탭 `tabs.remove`. 원래 탭 제거 실패해도 무시(뷰어는 열림).
+3. 오류 삼키지 말고 `console.warn('[kt pdf]', …)`로 기록(백그라운드 콘솔에서 확인 가능).
+4. 뷰어 하트비트: `viewer.html` 정적 마크업에 "불러오는 중…" 상태 텍스트가 모듈 로드 전부터 보이게(이미 있으면 유지).
+5. 테스트(background-pdf): onCommitted만 트리거, tabs.create+remove 호출, 중복 1회, #kt-original 무시, onBeforeNavigate만 오면 리다이렉트 안 함.
+### 영향 범위: `extension/background.js`(PDF 훅), `extension/viewer/viewer.html`(필요 시), `tests/background-pdf.test.mjs`, `tests/helpers/fake-browser.mjs`(tabs.create/remove 스텁 필요 시), PROTOCOL 한 줄.
+### 검증: npm test, 재설치 후 Safari arxiv 링크(사용자).

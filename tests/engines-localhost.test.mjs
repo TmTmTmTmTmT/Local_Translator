@@ -122,3 +122,69 @@ test('status: available / down', async () => {
   const down = E.createCt2Engine({ fetch: async () => { throw new TypeError('x'); }, sleep });
   assert.equal((await down.status()).available, false);
 });
+
+// ---- F21: native http proxy ----
+const nativeOk = (reply) => {
+  const calls = [];
+  const send = async (id, msg) => { calls.push({ id, msg }); return { ok: true, status: 200, body: JSON.stringify(chatReply(reply).body) }; };
+  send.calls = calls;
+  return send;
+};
+
+test('native http: used when send given, fetch not called', async () => {
+  const send = nativeOk(good);
+  const f = mockFetch(() => chatReply(good));
+  const eng = E.createLlmEngine('ollama', { send, fetch: f, sleep });
+  const out = await eng.translate(blocks, {}, 'en', S('http://127.0.0.1:11434'));
+  assert.deepEqual(out.get('a'), { 0: '안녕', 1: ' 세상' });
+  assert.equal(f.calls.length, 0);
+  const m = send.calls[0].msg;
+  assert.equal(m.type, 'http');
+  assert.equal(m.method, 'POST');
+  assert.equal(m.url, 'http://127.0.0.1:11434/v1/chat/completions');
+  assert.equal(typeof m.body, 'string');
+  assert.ok(m.timeoutMs > 0);
+});
+
+test('native http: unknown type falls back to fetch and stays off', async () => {
+  const send = async () => ({ ok: false, error: { code: 'bad_response', message: 'unknown type: http' } });
+  const f = mockFetch(() => chatReply(good));
+  const eng = E.createLlmEngine('ollama', { send, fetch: f, sleep });
+  await eng.translate(blocks, {}, 'en', S('http://127.0.0.1:11434'));
+  await eng.translate(blocks, {}, 'en', S('http://127.0.0.1:11434'));
+  assert.equal(f.calls.length, 2);
+});
+
+test('native http: send throwing falls back to fetch', async () => {
+  const send = async () => { throw new Error('native handler unreachable'); };
+  const f = mockFetch(() => chatReply(good));
+  const eng = E.createLlmEngine('ollama', { send, fetch: f, sleep });
+  await eng.translate(blocks, {}, 'en', S('http://127.0.0.1:11434'));
+  assert.equal(f.calls.length, 1);
+});
+
+test('native http: error mapping and non-2xx status', async () => {
+  const mk = (r) => E.createLlmEngine('ollama', { send: async () => r, fetch: mockFetch(() => chatReply(good)), sleep });
+  await assert.rejects(mk({ ok: false, error: { code: 'timeout', message: 'slow' } }).translate(blocks, {}, 'en', S('http://127.0.0.1:11434')), { code: 'timeout' });
+  await assert.rejects(mk({ ok: false, error: { code: 'engine_unavailable', message: 'refused' } }).translate(blocks, {}, 'en', S('http://127.0.0.1:11434')), { code: 'engine_unavailable' });
+  await assert.rejects(mk({ ok: true, status: 404, body: '{}' }).translate(blocks, {}, 'en', S('http://127.0.0.1:11434')), { code: 'bad_response' });
+});
+
+test('native http: non-loopback baseUrl never reaches native', async () => {
+  const send = nativeOk(good);
+  const eng = E.createLlmEngine('ollama', { send, sleep });
+  await assert.rejects(eng.translate(blocks, {}, 'en', S('http://evil.com')), { code: 'engine_unavailable' });
+  assert.equal(send.calls.length, 0);
+});
+
+test('native http: GET status uses native', async () => {
+  const send = async (id, msg) => ({ ok: true, status: 200, body: '{}', seen: msg });
+  const eng = E.createLlmEngine('ollama', { send, sleep });
+  assert.deepEqual(await eng.status(), { available: true });
+});
+
+test('fetch path: 403 carries OLLAMA_ORIGINS hint', async () => {
+  const f = mockFetch(() => ({ status: 403, body: '' }));
+  const eng = E.createLlmEngine('ollama', { fetch: f, sleep });
+  await assert.rejects(eng.translate(blocks, {}, 'en', S('http://127.0.0.1:11434')), (e) => e.code === 'engine_unavailable' && /OLLAMA_ORIGINS/.test(e.message));
+});

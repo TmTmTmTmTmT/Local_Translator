@@ -27,6 +27,12 @@ struct ProtoRequest: Codable, Sendable {
     var variant: String?
     var context: ProtoContext?
     var blocks: [ProtoBlock]?
+    // `http` loopback proxy fields (PROTOCOL §4)
+    var method: String?
+    var url: String?
+    var headers: [String: String]?
+    var body: String?
+    var timeoutMs: Double?
 }
 
 struct ProtoResult: Codable, Sendable {
@@ -54,6 +60,9 @@ struct ProtoResponse: Codable, Sendable {
     var languagePacks: [String: String]?
     /// true when the deadline cut the request short; `results` then holds only the completed blocks.
     var partial: Bool?
+    /// `http` proxy result.
+    var status: Int?
+    var body: String?
 
     static func failure(_ code: String, _ message: String, lang: String? = nil) -> ProtoResponse {
         ProtoResponse(ok: false, error: ProtoError(code: code, message: message, lang: lang))

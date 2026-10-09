@@ -31,27 +31,61 @@
     return Math.min(8192, Math.max(1024, Math.ceil(inTok * 1.5)));
   }
 
+  const NATIVE_HINT_403 = 'HTTP 403: Ollama rejected the extension origin (set OLLAMA_ORIGINS)';
+
+  // Safari fetch는 Origin 헤더가 붙어 Ollama가 403으로 거부하므로, 가능하면 네이티브 핸들러(Origin 없음)가 대리한다 (PROTOCOL §4 http).
+  // 반환: {ok, status, text}. 네이티브 미지원(없음/옛 빌드)이면 null -> fetch 폴백.
+  async function nativeHttp(ctx, url, init) {
+    if (ctx.nativeOff || !ctx.send || !/^http:/i.test(url)) return null;
+    const msg = { type: 'http', method: init.method || 'GET', url, timeoutMs: ctx.timeoutMs };
+    if (init.headers) msg.headers = init.headers;
+    if (typeof init.body === 'string') msg.body = init.body;
+    let timer;
+    const timeout = new Promise((_, rej) => { timer = setTimeout(() => rej(E().makeError('timeout', 'request timed out')), ctx.timeoutMs + 2000); });
+    let res;
+    try {
+      res = await Promise.race([ctx.send(ctx.appId, msg), timeout]);
+    } catch (e) {
+      if (e && e.code === 'timeout') throw e;
+      return null; // 네이티브 호출 자체 실패 -> fetch로 시도
+    } finally { clearTimeout(timer); }
+    if (!res || typeof res !== 'object') return null;
+    if (res.ok === true) return { ok: res.status >= 200 && res.status < 300, status: res.status, text: typeof res.body === 'string' ? res.body : '' };
+    const er = res.error || {};
+    const m = String(er.message || '');
+    if (er.code === 'bad_response' && /unknown type/i.test(m)) { ctx.nativeOff = true; return null; }
+    if (er.code === 'timeout') throw E().makeError('timeout', m || 'request timed out');
+    throw E().makeError(er.code === 'bad_response' ? 'bad_response' : 'engine_unavailable', m || 'native http failed');
+  }
+
+  async function fetchHttp(ctx, url, init) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ctx.timeoutMs);
+    try {
+      const res = await ctx.fetch(url, Object.assign({ redirect: 'error', signal: ctrl.signal }, init));
+      const text = await res.text();
+      return { ok: res.ok, status: res.status, text };
+    } catch (e) {
+      if (ctrl.signal.aborted) throw E().makeError('timeout', 'request timed out');
+      throw E().makeError('engine_unavailable', 'local server unreachable');
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   // 단일 HTTP 호출: 타임아웃, 429/5xx 백오프(최대 2회 재시도), 에러 코드 매핑. JSON 응답 반환.
   async function requestJson(ctx, url, init) {
     for (let attempt = 0; ; attempt++) {
-      const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), ctx.timeoutMs);
-      let res, text;
-      try {
-        res = await ctx.fetch(url, Object.assign({ redirect: 'error', signal: ctrl.signal }, init));
-        text = await res.text();
-      } catch (e) {
-        if (ctrl.signal.aborted) throw E().makeError('timeout', 'request timed out');
-        throw E().makeError('engine_unavailable', 'local server unreachable');
-      } finally {
-        clearTimeout(timer);
-      }
+      let res = await nativeHttp(ctx, url, init);
+      const viaFetch = !res;
+      if (!res) res = await fetchHttp(ctx, url, init);
       if (res.ok) {
-        try { return JSON.parse(text); } catch (e) { throw E().makeError('bad_response', 'non-JSON response'); }
+        try { return JSON.parse(res.text); } catch (e) { throw E().makeError('bad_response', 'non-JSON response'); }
       }
       const retryable = res.status === 429 || res.status >= 500;
       if (retryable && attempt < MAX_RETRIES) { await ctx.sleep(BACKOFF_MS * 2 ** attempt); continue; }
       const err = res.status === 429 ? E().makeError('rate_limited', 'HTTP 429')
+        : res.status === 403 && viaFetch ? E().makeError('engine_unavailable', NATIVE_HINT_403)
         : res.status >= 500 || res.status === 401 || res.status === 403 ? E().makeError('engine_unavailable', `HTTP ${res.status}`)
         : E().makeError('bad_response', `HTTP ${res.status}`);
       err.status = res.status;
@@ -65,7 +99,14 @@
 
   function makeCtx(opts) {
     const o = opts || {};
+    // 명시 send > (fetch 주입이 없을 때) 브라우저 sendNativeMessage. 주입 fetch가 있으면 항상 fetch(테스트/Node).
+    const br = globalThis.browser;
+    const send = o.send || (!o.fetch && br && br.runtime && typeof br.runtime.sendNativeMessage === 'function'
+      ? (id, m) => br.runtime.sendNativeMessage(id, m) : null);
     return {
+      send,
+      appId: o.applicationId || E().DEFAULT_APP_ID || 'application.id',
+      nativeOff: false,
       fetch: o.fetch || ((...a) => globalThis.fetch(...a)),
       sleep: o.sleep || E().sleep,
       timeoutMs: o.timeoutMs || TIMEOUT_MS,
