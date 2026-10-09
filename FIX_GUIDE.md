@@ -295,3 +295,18 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 4. 테스트(background-pdf): `/pdf/1706.03762` + HEAD application/pdf → 리다이렉트, HEAD text/html → 안 함, `.pdf` 즉시, 비지정 사이트 무시, 이벤트 중복 1회, `#kt-original` 무시, HEAD 실패 폴백.
 ### 영향 범위: `extension/background.js`(PDF 훅 부분만), `tests/background-pdf.test.mjs`, `PROTOCOL.md`(pdfAuto 동작 한 줄). 비ASCII 리터럴 금지.
 ### 검증: npm test, 재설치·Safari 재시작 후 arxiv 링크로 실기(사용자).
+
+## F18. 팝업 "남은 N블록" 정체·HN 느림 (B12·B13, R10, Opus)
+### 원인 (Sonnet 조사 + Opus 로그 확인)
+- 11:04~11:05 네이티브 요청은 전부 완료(마지막 11:05:26, 미완료 0) → 엔진 멈춤 아님. pending은 content가 queued/inflight 레코드 수를 보고(`main.js:227-231`), background는 탭별 1개 값만 저장(`background.js:~347`) → `allFrames:true`로 iframe마다 보고하면 마지막 보고 프레임 값이 남음(iframe의 정체된 값이 표시될 수 있음). 페이지 이동 시 tabState 초기화 없음. 보고가 디바운스로 마지막 0을 놓칠 가능성도 있음(확인 필요).
+- 방어 부재: content `sendBatch` 응답 타임아웃 없음, background `engine.translate` 상한 없음 → 응답 유실 시 영원히 inflight·세마포어 점유 가능.
+- HN(B13): 정체가 아니라 느림 — 이야기 한 줄이 작은 블록 여러 개(110블록, 12요청, 요청당 ~7초 ≈ 80초/쪽), 첫 두 요청은 메뉴 단어. Apple 처리량 한계.
+### 수정 방향 (Sonnet)
+1. background tabState를 **프레임별**로: reportStatus의 `sender.frameId`별 pending 저장, getState는 합계. `webNavigation.onCommitted`(frameId 0)에서 탭 상태 초기화(pending·lastError), 하위 프레임은 해당 프레임만.
+2. content 보고: pending이 0이 되거나 상태가 바뀌면 디바운스 무시하고 즉시 1회 보고(마지막 값 유실 방지).
+3. content `sendBatch`: 90초 응답 타임아웃 → 해당 배치 `onResponse(batch, null)`(오류 처리, 이후 재시도 정책은 기존대로).
+4. background: `engine.translate`를 엔진 기한+15초(`Promise.race`)로 감싸 세마포어 반드시 해제, 초과 시 `timeout` 코드.
+5. HN 체감: 이번엔 구조 변경 없음(엔진 한계, D16·D11에 기록). 첫 요청이 메뉴 단어로만 채워지지 않게 — 첫 요청(4블록)은 뷰포트 안에서 **글자 수가 많은 블록 우선**이 아니라 현행 위→아래 유지(판단: 메뉴 먼저 보이는 게 사용자에게 진행 신호).
+6. 테스트: 프레임 2개 보고 합계, 이동 시 초기화, 즉시 0 보고, sendBatch 타임아웃, translate 상한 해제.
+### 영향 범위: `extension/content/main.js`, `extension/background.js`(tabState·translateGroup·onCommitted 등록), 테스트. F17과 같은 파일(background.js)이므로 **한 작업자가 F17·F18을 순서대로** 처리.
+### 검증: npm test, 재설치 후 Safari the-race 번역 완료 시 팝업 남은 0·HN 진행(사용자).
