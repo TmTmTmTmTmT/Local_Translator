@@ -284,3 +284,54 @@ the-race 헤더 `div.gh-navigation-members > a "Login" + a.gh-button "Join Membe
 - content 요청 크기를 엔진 배치와 맞춘다: `MAX_BATCH_BLOCKS` 40→10, `MAX_BATCH_CHARS` 6000→1500(첫 요청 4블록 유지). background가 요청 전체를 `Promise.all`로 모아 응답하므로 큰 요청은 앞 블록도 늦게 보임. 로컬 서버 엔진은 요청 수가 늘지만 background 배치/세마포어로 감당(성능 저하 미미).
 - PROTOCOL §2 translate 요청에 선택 필드 `priority`(1=뷰포트, 0=그 외) 기록.
 - 우선순위 상승(화면 밖으로 이미 보낸 블록이 나중에 보일 때)은 하지 않음 — 요청이 작아져 대기 시간이 짧으므로 충분.
+
+## F17. PDF 자동 진입이 확장자 없는 PDF URL에서 동작 안 함 (B14, R10, Opus)
+### 원인 (Sonnet 조사, 확실)
+`background.js:375` `isPdf = /\.pdf$/i.test(u.pathname)` — arxiv `/pdf/1706.03762`(확장자 없음) 불일치 → 리다이렉트 안 함. 사이트 매칭·권한·리스너 등록은 정상. `onBeforeNavigate`만 등록되어 Safari에서 이벤트 누락 시 대안 없음(미확인).
+### 수정 방향 (Sonnet)
+1. 후보 판정(지정 사이트에서만): (a) 경로가 `.pdf`로 끝남(쿼리 무관) → 즉시 PDF, (b) 경로 세그먼트에 `pdf`가 있음(`/pdf/…`, `…/pdf`) 또는 쿼리에 `format=pdf` → **후보**.
+2. 후보는 background에서 `fetch(url, {method:'HEAD', credentials:'include', redirect:'follow'})`(3초 타임아웃)로 `content-type`이 `application/pdf`면 리다이렉트. HEAD 실패/405면 `Range: bytes=0-0` GET 1회 시도. URL별 결과 캐시(메모리, 최대 200). 외부 전송 없음(사용자가 이미 여는 같은 URL).
+3. 이벤트 보강: `webNavigation.onCommitted`(frameId 0)와 `tabs.onUpdated`(`changeInfo.url`)도 같은 판정에 연결, 탭+URL별 1회만 리다이렉트(중복 방지). `#kt-original` 탈출구 유지.
+4. 테스트(background-pdf): `/pdf/1706.03762` + HEAD application/pdf → 리다이렉트, HEAD text/html → 안 함, `.pdf` 즉시, 비지정 사이트 무시, 이벤트 중복 1회, `#kt-original` 무시, HEAD 실패 폴백.
+### 영향 범위: `extension/background.js`(PDF 훅 부분만), `tests/background-pdf.test.mjs`, `PROTOCOL.md`(pdfAuto 동작 한 줄). 비ASCII 리터럴 금지.
+### 검증: npm test, 재설치·Safari 재시작 후 arxiv 링크로 실기(사용자).
+
+## F18. 팝업 "남은 N블록" 정체·HN 느림 (B12·B13, R10, Opus)
+### 원인 (Sonnet 조사 + Opus 로그 확인)
+- 11:04~11:05 네이티브 요청은 전부 완료(마지막 11:05:26, 미완료 0) → 엔진 멈춤 아님. pending은 content가 queued/inflight 레코드 수를 보고(`main.js:227-231`), background는 탭별 1개 값만 저장(`background.js:~347`) → `allFrames:true`로 iframe마다 보고하면 마지막 보고 프레임 값이 남음(iframe의 정체된 값이 표시될 수 있음). 페이지 이동 시 tabState 초기화 없음. 보고가 디바운스로 마지막 0을 놓칠 가능성도 있음(확인 필요).
+- 방어 부재: content `sendBatch` 응답 타임아웃 없음, background `engine.translate` 상한 없음 → 응답 유실 시 영원히 inflight·세마포어 점유 가능.
+- HN(B13): 정체가 아니라 느림 — 이야기 한 줄이 작은 블록 여러 개(110블록, 12요청, 요청당 ~7초 ≈ 80초/쪽), 첫 두 요청은 메뉴 단어. Apple 처리량 한계.
+### 수정 방향 (Sonnet)
+1. background tabState를 **프레임별**로: reportStatus의 `sender.frameId`별 pending 저장, getState는 합계. `webNavigation.onCommitted`(frameId 0)에서 탭 상태 초기화(pending·lastError), 하위 프레임은 해당 프레임만.
+2. content 보고: pending이 0이 되거나 상태가 바뀌면 디바운스 무시하고 즉시 1회 보고(마지막 값 유실 방지).
+3. content `sendBatch`: 90초 응답 타임아웃 → 해당 배치 `onResponse(batch, null)`(오류 처리, 이후 재시도 정책은 기존대로).
+4. background: `engine.translate`를 엔진 기한+15초(`Promise.race`)로 감싸 세마포어 반드시 해제, 초과 시 `timeout` 코드.
+5. HN 체감: 이번엔 구조 변경 없음(엔진 한계, D16·D11에 기록). 첫 요청이 메뉴 단어로만 채워지지 않게 — 첫 요청(4블록)은 뷰포트 안에서 **글자 수가 많은 블록 우선**이 아니라 현행 위→아래 유지(판단: 메뉴 먼저 보이는 게 사용자에게 진행 신호).
+6. 테스트: 프레임 2개 보고 합계, 이동 시 초기화, 즉시 0 보고, sendBatch 타임아웃, translate 상한 해제.
+### 영향 범위: `extension/content/main.js`, `extension/background.js`(tabState·translateGroup·onCommitted 등록), 테스트. F17과 같은 파일(background.js)이므로 **한 작업자가 F17·F18을 순서대로** 처리.
+### 검증: npm test, 재설치 후 Safari the-race 번역 완료 시 팝업 남은 0·HN 진행(사용자).
+
+## F19. 고품질 번역(Ollama TranslateGemma) 실사용 검증 도구 (R11, Opus)
+### 배경
+사용자: Ollama 고품질 번역도 자주 쓸 예정 → Apple·고품질 둘 다 검증 요구. Safari는 computer-use read 등급이라 옵션 전환·페이지 조작은 사용자 몫. 확장의 고품질 경로(`engines/mtmode.js` `local:mt-ollama`, family translategemma, keepAlive)를 **확장 코드 그대로** Node에서 실제 Ollama(127.0.0.1:11434)에 붙여 사이트 단위로 검증한다.
+### 수정 방향 (Sonnet)
+1. `tests/e2e/site-coverage.mjs`에 `--engine ollama-tg`: background의 번역 경로와 같은 방식으로 `extension/engines/*.js`(common, prompt, mtmode, localhost, registry)와 `lib/glossary.js`를 로드해 registry의 `local:mt-ollama` 엔진을 settings `{engine:{default:'local:mt-ollama'}, localhost:{baseUrl:'http://127.0.0.1:11434', kind:'ollama', model:'translategemma:4b', family:'translategemma', keepAlive:300}}`로 호출(fetch는 Node 내장). content 쪽 요청 → 엔진 → 적용 흐름은 mock 대신 이 엔진. `--glossary "src=>dst;..."` 옵션.
+2. 출력: calls, blocks, respondedBlocks, remaining, errors, wallSec, ms/블록, linkSamples(링크 포함 블록 10개: 원문[링크] → 결과), 무작위 일반 블록 샘플 5개, Ollama `ollama ps` 메모리(실행 전후).
+3. 루프백 외 주소 금지(코드에서 검증). npm test에는 포함하지 않음. docs/TEST_LOOP.md 하네스 절에 사용법 2줄.
+### 영향 범위: `tests/e2e/site-coverage.mjs`, `docs/TEST_LOOP.md`. 확장 코드 변경 없음.
+### 검증: the-race 홈·기사, HN, NHK 각 30블록 실행 결과 보고.
+
+## F20. 링크가 많은 짧은 줄에서 표식 방식 번역이 의미를 잃음 (B15, R11, Opus)
+### 증거 (실엔진 하네스)
+- TranslateGemma(MT 모드): HN `17 points by [user] [55 minutes ago] [|] [hide] [|] [2 comments]` → "17개 |", "93점 (출처: )", "140 포인트 (작성자: )" — 표식 수는 맞지만 표식 주변을 모델이 재구성해 빈 괄호·조각만 남음.
+- Apple(marker): 같은 줄 → "17점by" (R8). 기사 `now-[banned engine trick] deployed …` → 양 엔진 모두 문장 연결 어색(D16).
+### 판단
+링크(x)가 3개 이상이거나, x 사이 t 구간이 대부분 짧은(글자 3개 미만 또는 구두점뿐) **메타 줄**은 문장이 아니라 라벨 나열 → 문장 전체 표식 번역보다 **구간별 번역(run-splitting)** 이 안전. 문장 속 링크 1~2개는 현행 표식 유지(어순 이점, F2 평가).
+### 수정 방향 (Sonnet A: JS, Sonnet B: Swift)
+- 규칙(양쪽 동일): 블록의 x 항목 수 ≥ 3 **또는** (x ≥ 2 이고 글자 있는 t 구간 중 길이 ≥ 12자인 구간이 없음) → 구간별 번역. 그 외 표식.
+- A: `extension/engines/mtmode.js` 표식 경로 진입 전 규칙 적용(이미 있는 run-splitting 폴백 재사용). 테스트: HN 줄 → run-splitting 요청 수/슬롯, 일반 링크 문장 → 표식 유지. PROTOCOL §8에 규칙 한 줄.
+- B: `xcode/.../EngineMT.swift` `markerBlock` 진입 시 같은 규칙 → `plainBlock`(구간별). 기존 marker 동작 그 외 불변. Xcode-beta 컴파일 확인만(CODE_SIGNING_ALLOWED=NO, 산출물 삭제).
+### 영향 범위: A `extension/engines/mtmode.js`, `extension/PROTOCOL.md`, `tests/engines-mtmode.test.mjs`. B `EngineMT.swift`. 겹침 없음.
+### 검증: npm test, 빌드, 하네스(`--engine ollama-tg`, `--engine apple`) HN 30블록 linkSamples 재확인.
+### F20b (R11 결과 후 Opus 결정)
+구간별 번역으로 바꿔도 TranslateGemma가 홀로 남은 조각("17 points by")을 "17점 (작성자: )"처럼 빈 괄호로 확장 → MT 모드 출력 후처리: 원문에 괄호가 없는 구간에서 출력의 빈 괄호 패턴(`(` 공백 `)`, `(` 6자 이내 `:` 공백 `)`)과 그 앞 공백을 제거. 원문에 괄호가 있으면 손대지 않음. 테스트: "17점 (작성자: )" → "17점", 원문 괄호 보존. 영향: `extension/engines/mtmode.js`, `tests/engines-mtmode.test.mjs`. 나머지(“by” 의미 손실)는 D16 한계로 둠.

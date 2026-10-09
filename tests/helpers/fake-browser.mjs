@@ -47,9 +47,10 @@ export function makeFakeBrowser(initial = {}) {
       update: async (id, o) => { b.calls.tabsUpdate.push({ id, ...o }); },
       query: async () => [{ id: 1 }],
       onRemoved: ev(),
+      onUpdated: ev(),
     },
     runtime: { getURL: (p) => 'safari-web-extension://abc/' + p, onMessage: ev(), onInstalled: ev(), onStartup: ev() },
-    webNavigation: { onBeforeNavigate: ev() },
+    webNavigation: { onBeforeNavigate: ev(), onCommitted: ev() },
   };
   return b;
 }

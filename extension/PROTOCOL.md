@@ -34,6 +34,8 @@
 | `clearCache` | options → background | `{}` | `{ok}` |
 
 - `translate.priority`(선택): 1=뷰포트 안 블록 요청, 0=그 외(없으면 1로 간주). content는 요청을 작게 나눠 보낸다: 첫 요청 4블록, 이후 `MAX_BATCH_BLOCKS`=10블록 / `MAX_BATCH_CHARS`=1500자 단위(background가 요청 전체를 모아 응답하므로 작을수록 앞 블록이 빨리 보임).
+- `reportStatus`는 프레임별로 저장되고(`sender.frameId`) `getState.pending`은 탭 내 프레임 합계다. 최상위 프레임 `webNavigation.onCommitted`에서 탭 상태(pending·lastError)가 초기화되고 하위 프레임은 해당 프레임 값만 지워진다. content는 pending이 0이 되거나 0에서 벗어날 때 디바운스 없이 즉시 보고한다. content `translate` 응답 대기 상한 90초(초과 시 해당 배치는 오류 처리), background는 `engine.translate`를 엔진 기한+15초로 제한하고 초과 시 `timeout`.
+- `pdfAuto`(기본 true): 지정 사이트에서 경로가 `.pdf`로 끝나면 즉시, 경로 세그먼트에 `pdf`가 있거나 쿼리에 `format=pdf`면 후보로 보고 background가 HEAD(실패/405면 `Range: bytes=0-0` GET, 3초 제한)로 `content-type: application/pdf`를 확인한 뒤 뷰어로 이동한다. `onBeforeNavigate`/`onCommitted`/`tabs.onUpdated`가 같은 판정을 쓰며 탭+URL당 1회만 이동하고, `#kt-original`은 무시한다. 판정 결과는 메모리 캐시(최대 200).
 - `Block` = `{id, lang, items:[{k:"t",i,text}|{k:"x",text}]}` (PLAN §4.3). `results[].slots`의 키는 슬롯 i 문자열. 누락 키 = 해당 슬롯 원문 유지.
 - 에러 `code`: `needs_language_pack`, `engine_unavailable`, `rate_limited`, `bad_response`, `unsupported_lang`, `timeout`, `unknown`, `needs_safari_restart`(재설치 후 Safari가 옛 플러그인을 붙잡음; native.js가 sendNativeMessage 거부 메시지의 `No such plugin`/`Other version in use`/`uuid not found`로 판정, 배지 `!`, Safari 완전 종료 후 재실행 필요).
 
@@ -87,6 +89,7 @@
 
 ## 8. MT 모드 엔진 (`engines/mtmode.js`, `local:mt-ollama` / `local:mt-mlx`)
 - 번역 특화 모델용. JSON 슬롯 프롬프트 대신 **블록당 1요청(동시성 1)**, 평문 출력. 블록의 x 항목은 `⟦n⟧`(1부터) 표식으로 치환해 보내고, 응답을 표식에서 분할해 t-구간 슬롯에 배분(구간 전체 번역은 구간 첫 슬롯, 나머지 `""`). 표식이 1..n 각 1회·순서대로가 아니거나 원문에 `⟦⟧`가 있거나 빈 구간이면 x 경계 구간별 별도 요청(run-splitting)으로 폴백. 표식 옆 공백은 모델 출력을 따르고 블록 바깥 가장자리만 원문 공백 유지. 문자 없는 구간/블록은 원문 유지.
+- 표식 경로 진입 규칙(F20): 블록의 x 항목 수 ≥ 3, 또는 x ≥ 2 이고 글자 있는 t 구간 중 길이(trim) ≥ 12자인 것이 없으면(링크 나열형 메타 줄) 표식 없이 바로 구간별 번역(run-splitting). 그 외 표식 유지.
 - family별 프롬프트: `hymt2`(en/ja 영어 지시문, zh 중국어 지시문 `将以下文本翻译为韩语，…`), `translategemma`(모델 템플릿 원문), `chat`(system: 한국어 번역 지시 + 표식 규칙 + 언어별 보충 `LANG_NOTES`; qwen3는 `/no_think`).
 - 전송: Ollama는 `/api/chat`(`keep_alive`, `options.num_ctx` 등). MLX는 translategemma만 raw `/v1/completions`(렌더된 prompt, `stop:["<end_of_turn>"]`), 그 외 `/v1/chat/completions`(model `default_model`).
 - 에러: `engine_unavailable`/`timeout`/`rate_limited`는 배치 즉시 중단(throw). 그 외 블록 단위 실패는 해당 블록만 Map에서 누락, 전부 실패하면 첫 에러 throw. 배치 한도 `{chars:1500, blocks:8}`.

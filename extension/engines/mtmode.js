@@ -113,6 +113,17 @@
     return { segs, gaps, nX, text: text.trim() };
   }
 
+  // F20: 링크 많은 짧은 메타 줄은 표식 대신 구간별 번역. x >= 3, 또는 x >= 2 이고 글자 있는 t 구간 중 12자 이상이 없을 때.
+  function preferRunSplit(block) {
+    let nX = 0, longRun = false, run = '';
+    const flush = () => { if (/\p{L}/u.test(run) && run.trim().length >= 12) longRun = true; run = ''; };
+    for (const it of block.items) {
+      if (it.k === 't') run += it.text; else { nX++; flush(); }
+    }
+    flush();
+    return nX >= 3 || (nX >= 2 && !longRun);
+  }
+
   // 모델 출력의 코드펜스·<think>를 제거.
   function clean(s) {
     return E().stripThink(String(s == null ? '' : s)).replace(/^```\w*\n?|\n?```$/g, '').trim();
@@ -138,14 +149,21 @@
     return slots;
   }
 
+  // F20b: 원문에 괄호가 없는데 모델이 덧붙인 빈 괄호 "( )", "(작성자: )"와 그 앞 공백을 제거. 원문에 괄호가 있으면 그대로.
+  function stripEmptyParens(src, out) {
+    if (/[()\uff08\uff09]/.test(src)) return out;
+    return out.replace(/[ \t\u00a0]*[(\uff08][ \t]*[)\uff09]/g, '')
+      .replace(/[ \t\u00a0]*[(\uff08][^()\uff08\uff09:\uff1a\n]{0,6}[:\uff1a][ \t]*[)\uff09]/g, '').trim();
+  }
+
   const ABORT_CODES = ['engine_unavailable', 'timeout', 'rate_limited'];
 
   // chat({request, block}) -> text. 블록당 순차 1요청(concurrency 1).
   // translate({blocks, lang}) -> {out: Map<id, slots>, errors:[{id, code, message}], stats}
   function makeMtTranslator({ chat, family, runtime, userSuffix }) {
     let glossary = null; // translate() 호출마다 context.glossary로 갱신
-    const stats = { markerBlocks: 0, fallbackBlocks: 0, plainBlocks: 0, passthroughBlocks: 0 };
-    const ask = (srcLang, text, block) => Promise.resolve(chat({ request: buildMtRequest({ family, runtime, srcLang, text, userSuffix, glossary }), block })).then(clean);
+    const stats = { markerBlocks: 0, fallbackBlocks: 0, runSplitBlocks: 0, plainBlocks: 0, passthroughBlocks: 0 };
+    const ask = (srcLang, text, block) => Promise.resolve(chat({ request: buildMtRequest({ family, runtime, srcLang, text, userSuffix, glossary }), block })).then((r) => stripEmptyParens(text, clean(r)));
 
     async function oneBlock(block, lang) {
       const srcLang = resolveSrcLang(block.lang, lang);
@@ -157,12 +175,12 @@
         const slots = E().assemblePlain(plan.segs, [await ask(srcLang, plan.text, block)]);
         return Object.keys(slots).length || !expected ? slots : null;
       }
-      if (!/[\u27e6\u27e7]/.test(plan.segs.map((s) => s.text).join(''))) {
+      if (!preferRunSplit(block) && !/[\u27e6\u27e7]/.test(plan.segs.map((s) => s.text).join(''))) {
         const sp = splitAtMarkers(await ask(srcLang, plan.text, block), plan.nX);
         const slots = sp.ok ? assembleMarker(plan, sp.pieces) : null;
         if (slots) { stats.markerBlocks++; return slots; }
       }
-      stats.fallbackBlocks++;
+      (preferRunSplit(block) ? stats.runSplitBlocks++ : stats.fallbackBlocks++);
       const tr = [];
       for (const seg of plan.segs) tr.push(seg.translatable ? await ask(srcLang, seg.text.trim(), block) : null);
       const slots = E().assemblePlain(plan.segs, tr);
@@ -187,7 +205,7 @@
     };
   }
 
-  const api = { FAMILIES, SAMPLING, SRC_LANGS, inferFamily, resolveSrcLang, translateGemmaUserText, hyMtUserText, chatSystemText, buildMtRequest, marker, splitAtMarkers, planMarkerBlock, assembleMarker, makeMtTranslator };
+  const api = { FAMILIES, SAMPLING, SRC_LANGS, inferFamily, resolveSrcLang, translateGemmaUserText, hyMtUserText, chatSystemText, buildMtRequest, marker, splitAtMarkers, planMarkerBlock, assembleMarker, stripEmptyParens, makeMtTranslator };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.engines = Object.assign(globalThis.KT.engines || {}, { mtmode: api });
   if (typeof module !== 'undefined') module.exports = api;

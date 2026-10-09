@@ -109,6 +109,28 @@
     try { return new URL(url).hostname.toLowerCase(); } catch (e) { return ''; }
   }
 
+  const DEADLINE_SLACK_MS = 15000; // 엔진 자체 기한 뒤 여유: 응답 유실 시에도 세마포어를 반드시 해제
+  const PDF_PROBE_TIMEOUT_MS = 3000;
+  const PDF_CACHE_MAX = 200;
+  const PDF_DEDUPE_MS = 10000;
+
+  // 엔진이 알려주는 기한이 없으면 네이티브 Swift 핸들러 규칙(PROTOCOL §4) / localhost 블록당 60초로 추정.
+  function engineDeadlineMs(engine, nBlocks) {
+    if (engine && Number.isFinite(engine.deadlineMs)) return engine.deadlineMs;
+    const n = Math.max(1, nBlocks | 0);
+    if (engine && engine.kind === 'localhost') return 60000 * n;
+    if (engine && /apple-fm$/.test(String(engine.id))) return 90000;
+    return Math.min(120, 15 + 3 * n) * 1000;
+  }
+
+  // PDF 후보 판정(지정 사이트 확인 전, URL 모양만): 'pdf' 확정 | 'candidate' HEAD 확인 필요 | null.
+  function classifyPdfUrl(u) {
+    if (/\.pdf$/i.test(u.pathname)) return 'pdf';
+    if (u.pathname.split('/').some((seg) => seg.toLowerCase() === 'pdf')) return 'candidate';
+    if (/(^|&)format=pdf(&|$)/i.test(u.search.replace(/^\?/, ''))) return 'candidate';
+    return null;
+  }
+
   function createBackground(deps) {
     const d = deps || {};
     const api = d.browser;
@@ -130,6 +152,8 @@
     let settings = null;
     let settingsJson = '';
     const tabState = new Map(); // tabId -> {pending, done, error, lastError}
+    const pdfRedirected = new Map(); // tabId -> {url, at}: 마지막으로 뷰어로 보낸 URL (이벤트 중복 방지)
+    const pdfProbes = new Map(); // url -> Promise<boolean>(진행 중) / boolean(결과), 삽입 순서 LRU 근사
     const tabHost = new Map(); // tabId -> 직전 top-frame 호스트 (PDF 자동 진입용)
     const semaphores = new Map(); // engineId -> semaphore
     let regChain = Promise.resolve();
@@ -194,6 +218,12 @@
       return glossaryNorm;
     }
 
+    function withDeadline(promise, ms) {
+      let t;
+      const timeout = new Promise((_, reject) => { t = setTimeout(() => reject({ code: 'timeout', message: 'engine did not respond' }), ms); });
+      return Promise.race([promise, timeout]).finally(() => clearTimeout(t));
+    }
+
     async function translateGroup(group, lang, context, s, out, priority) {
       const engine = engines.pickEngine(s, lang);
       out.engine = out.engine || engine.id;
@@ -228,7 +258,7 @@
             return m.block;
           });
           const ctx = pairs.size ? Object.assign({}, context, { glossary: Array.from(pairs.values()) }) : context;
-          const map = await engine.translate(sent, ctx, lang, s);
+          const map = await withDeadline(engine.translate(sent, ctx, lang, s), d.deadlineMs ? d.deadlineMs(engine, sent.length) : engineDeadlineMs(engine, sent.length) + DEADLINE_SLACK_MS);
           for (const b of batch) {
             const slots = map && map.get(b.id);
             if (!slots || !Object.keys(slots).length) continue;
@@ -281,8 +311,24 @@
 
     // ---- 탭 상태·배지 ----
     function getTab(tabId) {
-      if (!tabState.has(tabId)) tabState.set(tabId, { pending: 0, done: 0, error: 0, lastError: null });
+      if (!tabState.has(tabId)) tabState.set(tabId, { frames: new Map(), lastError: null });
       return tabState.get(tabId);
+    }
+    // iframe마다 content가 따로 보고하므로 프레임별로 저장하고 합산한다.
+    function pendingOf(st) {
+      let n = 0;
+      if (st) for (const f of st.frames.values()) n += f.pending;
+      return n;
+    }
+    function resetFrames(tabId, frameId) {
+      if (frameId === 0) {
+        if (!tabState.has(tabId)) return;
+        tabState.delete(tabId);
+        updateBadge(tabId);
+      } else {
+        const st = tabState.get(tabId);
+        if (st) st.frames.delete(frameId);
+      }
     }
     function updateBadge(tabId) {
       if (tabId == null || !api.action || !api.action.setBadgeText) return;
@@ -315,8 +361,8 @@
         siteEnabled: !!host && sites.isSiteEnabled(s, host),
         host,
         engine: (eng.byLang && eng.byLang.en) || eng.default,
-        status: st && st.lastError ? 'error' : (st && st.pending > 0 ? 'translating' : 'ready'),
-        pending: st ? st.pending : 0,
+        status: st && st.lastError ? 'error' : (pendingOf(st) > 0 ? 'translating' : 'ready'),
+        pending: pendingOf(st),
       };
       if (st && st.lastError) res.errorCode = st.lastError;
       return res;
@@ -344,9 +390,12 @@
       const tabId = sender && sender.tab && sender.tab.id;
       if (tabId == null) return undefined;
       const st = getTab(tabId);
-      if (Number.isFinite(msg.pending)) st.pending = msg.pending;
-      if (Number.isFinite(msg.done)) st.done = msg.done;
-      if (Number.isFinite(msg.error)) st.error = msg.error;
+      const fid = Number.isFinite(sender.frameId) ? sender.frameId : 0;
+      let f = st.frames.get(fid);
+      if (!f) st.frames.set(fid, (f = { pending: 0, done: 0, error: 0 }));
+      if (Number.isFinite(msg.pending)) f.pending = msg.pending;
+      if (Number.isFinite(msg.done)) f.done = msg.done;
+      if (Number.isFinite(msg.error)) f.error = msg.error;
       updateBadge(tabId);
       return undefined;
     }
@@ -364,7 +413,48 @@
       return { ok: true };
     }
 
-    // 자동 진입 훅: settings.pdfAuto일 때만 동작 (D7).
+    // 후보 URL의 Content-Type 확인: HEAD, 실패/비정상 응답이면 Range GET 1회. URL별 결과 캐시. 같은 URL을 사용자가 이미 여는 요청이다.
+    async function fetchType(fetchFn, url, init) {
+      const ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+      let t;
+      const timeout = new Promise((_, reject) => { t = setTimeout(() => { if (ctrl) ctrl.abort(); reject(new Error('probe timeout')); }, PDF_PROBE_TIMEOUT_MS); });
+      try {
+        return await Promise.race([fetchFn(url, Object.assign({ credentials: 'include', redirect: 'follow' }, ctrl ? { signal: ctrl.signal } : {}, init)), timeout]);
+      } finally { clearTimeout(t); }
+    }
+    const isPdfType = (r) => /application\/pdf/i.test(String((r.headers && r.headers.get && r.headers.get('content-type')) || ''));
+    async function probePdfUncached(url) {
+      const fetchFn = d.fetch || (typeof globalThis.fetch === 'function' ? globalThis.fetch.bind(globalThis) : null);
+      if (!fetchFn) return null;
+      try {
+        const r = await fetchType(fetchFn, url, { method: 'HEAD' });
+        if (r && r.ok && r.status !== 405) return isPdfType(r);
+      } catch (e) { /* GET 폴백 */ }
+      try {
+        const r = await fetchType(fetchFn, url, { method: 'GET', headers: { Range: 'bytes=0-0' } });
+        if (r && (r.ok || r.status === 206)) return isPdfType(r);
+      } catch (e) { /* 판정 불가 */ }
+      return null;
+    }
+    function probePdf(url) {
+      if (pdfProbes.has(url)) return Promise.resolve(pdfProbes.get(url));
+      const p = probePdfUncached(url).then((v) => {
+        // 판정 불가(null)는 캐시하지 않아 다음 이벤트가 다시 시도한다.
+        if (v === null) pdfProbes.delete(url); else pdfProbes.set(url, v);
+        return v === true;
+      });
+      pdfProbes.set(url, p);
+      while (pdfProbes.size > PDF_CACHE_MAX) pdfProbes.delete(pdfProbes.keys().next().value);
+      return p;
+    }
+
+    // 같은 탭+URL의 중복 이벤트만 거른다. 시간 창을 두는 이유: 뷰어에서 뒤로 가기로 같은 URL에 다시 올 때는 다시 진입해야 함.
+    function recentlyRedirected(tabId, url) {
+      const r = pdfRedirected.get(tabId);
+      return !!r && r.url === url && Date.now() - r.at < PDF_DEDUPE_MS;
+    }
+
+    // 자동 진입 훅: settings.pdfAuto일 때만 동작 (D7). onBeforeNavigate / onCommitted / tabs.onUpdated가 함께 호출하며 탭+URL당 1회만 리다이렉트한다.
     async function onBeforeNavigate(details) {
       if (!details || details.frameId !== 0) return;
       const s = await getSettings();
@@ -372,13 +462,30 @@
       let u;
       try { u = new URL(details.url); } catch (e) { return; }
       const prev = tabHost.get(details.tabId);
-      const isPdf = /\.pdf$/i.test(u.pathname) && u.hash !== '#kt-original';
-      if (s.pdfAuto === true && isPdf && /^https?:$/.test(u.protocol)
+      const kind = u.hash === '#kt-original' ? null : classifyPdfUrl(u);
+      if (s.pdfAuto === true && kind && /^https?:$/.test(u.protocol)
         && (sites.isSiteEnabled(s, host) || (prev && sites.isSiteEnabled(s, prev)))) {
-        await api.tabs.update(details.tabId, { url: viewerUrl(details.url) });
-        return;
+        if (recentlyRedirected(details.tabId, details.url)) return;
+        if (kind === 'pdf' || await probePdf(details.url)) {
+          if (recentlyRedirected(details.tabId, details.url)) return;
+          pdfRedirected.set(details.tabId, { url: details.url, at: Date.now() });
+          await api.tabs.update(details.tabId, { url: viewerUrl(details.url) });
+          return;
+        }
       }
-      if (!isPdf && host) tabHost.set(details.tabId, host);
+      // 후보 URL은 직전 지정 사이트 호스트를 덮어쓰지 않는다(뒤따르는 이벤트가 같은 판정을 내리도록).
+      if (!kind && host) tabHost.set(details.tabId, host);
+    }
+
+    function onCommitted(details) {
+      if (!details) return Promise.resolve();
+      resetFrames(details.tabId, details.frameId);
+      return onBeforeNavigate(details);
+    }
+
+    function onTabUpdated(tabId, changeInfo) {
+      if (!changeInfo || !changeInfo.url) return Promise.resolve();
+      return onBeforeNavigate({ tabId, url: changeInfo.url, frameId: 0 });
     }
 
     // ---- 라우터 ----
@@ -426,12 +533,14 @@
       if (api.runtime.onInstalled) api.runtime.onInstalled.addListener(() => { registerContentScripts(); });
       if (api.runtime.onStartup) api.runtime.onStartup.addListener(() => { registerContentScripts(); });
       if (api.webNavigation && api.webNavigation.onBeforeNavigate) api.webNavigation.onBeforeNavigate.addListener((det) => { onBeforeNavigate(det).catch(() => {}); });
-      if (api.tabs && api.tabs.onRemoved) api.tabs.onRemoved.addListener((id) => { tabState.delete(id); tabHost.delete(id); });
+      if (api.webNavigation && api.webNavigation.onCommitted) api.webNavigation.onCommitted.addListener((det) => { onCommitted(det).catch(() => {}); });
+      if (api.tabs && api.tabs.onUpdated) api.tabs.onUpdated.addListener((id, ci) => { onTabUpdated(id, ci).catch(() => {}); });
+      if (api.tabs && api.tabs.onRemoved) api.tabs.onRemoved.addListener((id) => { tabState.delete(id); tabHost.delete(id); pdfRedirected.delete(id); });
       return registerContentScripts();
     }
 
     return {
-      start, handleMessage, onMessage, onStorageChanged, onBeforeNavigate,
+      start, handleMessage, onMessage, onStorageChanged, onBeforeNavigate, onCommitted, onTabUpdated,
       registerContentScripts, loadSettings, getSettings,
     };
   }

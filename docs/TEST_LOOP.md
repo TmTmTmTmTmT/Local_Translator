@@ -14,7 +14,7 @@
 | T8 | PDF: 자동 진입(pdfAuto), 수동 버튼, 문단 번역, 링크 동작, 원본 열기 | S, 기존 pdf-harness | R3 H 통과(렌더·문단·원본 링크·링크 구간 "online guide"). S 미확인(자동 진입·실제 PDF) |
 | T9 | 컨테이너 앱: 언어팩 상태, 서명 상태 "팀 서명됨", Safari 확장 설정 열기 | A | 통과(R1: 언어팩 4개 설치됨, "팀 서명됨 (K3YUPJD653)", 버튼 → Safari 확장 설정 창 전면) |
 | T10 | install.sh 재설치: 실행 중 앱 종료, 단일 등록(pluginkit), 팀 서명 검증 | Bash | 통과(R0: 실행 중 앱 종료, pluginkit 1곳, TeamIdentifier 검증) — 수정 후 재설치 때마다 재확인 |
-| T11 | Safari 재시작 2회 후 확장 유지("서명되지 않은 확장 허용" 꺼짐) | S | 1회 통과(사용자), 2회째 미확인 |
+| T11 | Safari 재시작 2회 후 확장 유지("서명되지 않은 확장 허용" 꺼짐) | S | 재시작 2회 통과(사용자 R3·R10, 각 재시작 후 확장 켜짐·오류 없음). "서명되지 않은 확장 허용" 꺼짐 상태 확인은 사용자 보고 기준 |
 | T12 | Safari 확장 오류 창 없음, 엔진 오류 시 배지·팝업 안내 | S | S: 오류 창 없음·엔진 오류 팝업 안내 표시(사용자) — 엔진 오류 자체가 B7 |
 
 ## 하네스 절차 (H)
@@ -28,3 +28,7 @@
 1. `node tests/e2e/apple-bridge.mjs &` — 127.0.0.1:8797 브리지, bench `kt-bench`(apple-mt-marker)로 번역(요청 직렬 처리, 요청당 120s 타임아웃). 먼저 `bench/engines/apple`에서 release 빌드 필요.
 2. `node tests/e2e/site-coverage.mjs tests/e2e/sites/<page>.html --engine apple [--max-blocks N] --json` — 결과의 `linkSamples`(원문 `[링크]` 표시 → 한국어 슬롯 결과)로 링크 문장 어순·조사 확인.
 3. 끝나면 브리지 프로세스 종료. 한계: 링크 안 텍스트(x 항목)는 번역되지 않음, 슬롯 결과는 `|`로 이어 표시.
+
+### 실엔진(Ollama TranslateGemma, 고품질 경로) 하네스 (수동 도구, npm test 제외)
+1. Ollama가 127.0.0.1:11434에서 실행 중이고 `translategemma:4b`가 설치돼 있어야 한다. 확장의 `local:mt-ollama` 엔진(루프백 외 주소는 거부)을 Node에서 그대로 호출한다.
+2. `node tests/e2e/site-coverage.mjs tests/e2e/sites/<page>.html --engine ollama-tg [--max-blocks N] [--glossary "Formula 1=>포뮬러 원;..."] --json` — `linkSamples`, `generalSamples`, `msPerBlock`, `ollamaPsBefore/After`(메모리) 출력.
