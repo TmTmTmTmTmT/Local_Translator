@@ -57,18 +57,18 @@ test('main: x items are sent as context; request shape; batches in document orde
   e.close();
 });
 
-test('main: batches split by 40 blocks / 6000 chars and by language', async () => {
+test('main: batches split by 10 blocks / 1500 chars and by language', async () => {
   const mk = (n, len) => Array.from({ length: n }, (_, i) => `<p>${'w'.repeat(len)} ${i}</p>`).join('');
   const e = setup(`<body>${mk(45, 10)}</body>`);
   e.start();
   await e.idle();
-  loose.deepEqual(e.messenger.translates.map((m) => m.blocks.length), [40, 5]);
+  loose.deepEqual(e.messenger.translates.map((m) => m.blocks.length), [4, 6, 10, 10, 10, 5]); // F16: first request capped to 4 (rest of that 10-block batch follows), then 10-block batches
   e.close();
   const e2 = setup(`<body>${mk(8, 1500)}</body>`);
   e2.start();
   await e2.idle();
   assert.ok(e2.messenger.translates.length >= 2);
-  for (const m of e2.messenger.translates) assert.ok(m.blocks.reduce((a, b) => a + b.items[0].text.length, 0) <= 6000);
+  for (const m of e2.messenger.translates) assert.ok(m.blocks.reduce((a, b) => a + b.items[0].text.length, 0) <= 1500 || m.blocks.length === 1);
   e2.close();
   const e3 = setup('<body><p>English sentence one</p><p>これは日本語の文です</p><p>Another English sentence</p></body>');
   e3.start();

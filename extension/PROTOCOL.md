@@ -24,7 +24,7 @@
 ## 2. 메시지 (runtime.sendMessage, `{type, ...}`)
 | type | 방향 | 요청 | 응답 |
 |---|---|---|---|
-| `translate` | content/viewer → background | `{blocks:[Block], context:{title,host}, lang}` | `{ok:true, results:[{id, slots:{"0":"…"}}], engine}` 또는 `{ok:false, code, message}` |
+| `translate` | content/viewer → background | `{blocks:[Block], context:{title,host}, lang, priority?}` | `{ok:true, results:[{id, slots:{"0":"…"}}], engine}` 또는 `{ok:false, code, message}` |
 | `getState` | popup/content → background | `{url?, tabId?}` (popup은 tabId 권장) | `{siteEnabled, host, engine, status, pending, errorCode?}` |
 | `setSiteEnabled` | popup → background | `{host, enabled}` | `{ok:true}` |
 | `toggleOriginal` | popup → content(tabs.sendMessage) | `{}` | `{mode:"translated"|"original"}` |
@@ -33,6 +33,7 @@
 | `openPdfViewer` | popup → background | `{url}` | `{ok}` |
 | `clearCache` | options → background | `{}` | `{ok}` |
 
+- `translate.priority`(선택): 1=뷰포트 안 블록 요청, 0=그 외(없으면 1로 간주). content는 요청을 작게 나눠 보낸다: 첫 요청 4블록, 이후 `MAX_BATCH_BLOCKS`=10블록 / `MAX_BATCH_CHARS`=1500자 단위(background가 요청 전체를 모아 응답하므로 작을수록 앞 블록이 빨리 보임).
 - `Block` = `{id, lang, items:[{k:"t",i,text}|{k:"x",text}]}` (PLAN §4.3). `results[].slots`의 키는 슬롯 i 문자열. 누락 키 = 해당 슬롯 원문 유지.
 - 에러 `code`: `needs_language_pack`, `engine_unavailable`, `rate_limited`, `bad_response`, `unsupported_lang`, `timeout`, `unknown`, `needs_safari_restart`(재설치 후 Safari가 옛 플러그인을 붙잡음; native.js가 sendNativeMessage 거부 메시지의 `No such plugin`/`Other version in use`/`uuid not found`로 판정, 배지 `!`, Safari 완전 종료 후 재실행 필요).
 

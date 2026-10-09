@@ -78,16 +78,22 @@
 
   function createSemaphore(max) {
     let active = 0;
-    const waiters = [];
+    const waiters = []; // {pr, wake}: priority 내림차순, 같으면 도착 순
     const release = () => {
       active--;
       const next = waiters.shift();
-      if (next) { active++; next(); }
+      if (next) { active++; next.wake(); }
     };
     return {
-      async run(fn) {
-        if (active >= Math.max(1, max | 0)) await new Promise((r) => waiters.push(r));
-        else active++;
+      async run(fn, priority) {
+        const pr = Number.isFinite(priority) ? priority : 0;
+        if (active >= Math.max(1, max | 0)) {
+          await new Promise((wake) => {
+            let i = waiters.length;
+            while (i > 0 && waiters[i - 1].pr < pr) i--;
+            waiters.splice(i, 0, { pr, wake });
+          });
+        } else active++;
         try { return await fn(); } finally { release(); }
       },
     };
@@ -188,7 +194,7 @@
       return glossaryNorm;
     }
 
-    async function translateGroup(group, lang, context, s, out) {
+    async function translateGroup(group, lang, context, s, out, priority) {
       const engine = engines.pickEngine(s, lang);
       out.engine = out.engine || engine.id;
       const model = modelFor(engine, s);
@@ -232,7 +238,7 @@
         } catch (e) {
           out.errors.push(mapError(e));
         }
-      })));
+      }, priority)));
     }
 
     async function handleTranslate(msg, sender) {
@@ -254,7 +260,7 @@
       }
       await Promise.all(Array.from(groups, async ([lang, group]) => {
         try {
-          await translateGroup(group, lang, msg.context || {}, s, out);
+          await translateGroup(group, lang, msg.context || {}, s, out, Number.isFinite(msg.priority) ? msg.priority : 0);
         } catch (e) {
           const m = mapError(e);
           // 엔진 선택 실패(레지스트리가 던짐)는 미지원 언어 외엔 사용 불가로 취급.

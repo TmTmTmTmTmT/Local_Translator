@@ -220,3 +220,26 @@ test('translate: needs_safari_restart is kept and shows badge', async () => {
   eq([r.ok, r.code], [false, 'needs_safari_restart']);
   eq(browser.calls.badge.at(-1), { text: '!', tabId: 7 });
 });
+
+test('F16: semaphore admits waiting runs by priority, FIFO within equal priority', async () => {
+  const sem = BG.createSemaphore(1);
+  const order = [];
+  const gate = {};
+  const first = sem.run(() => new Promise((r) => { gate.open = r; }));
+  const mk = (name, pr) => sem.run(async () => { order.push(name); }, pr);
+  const rest = Promise.all([mk('low1', 0), mk('low2', 0), mk('high1', 1), mk('high2', 1), mk('none')]);
+  gate.open();
+  await first; await rest;
+  eq(order, ['high1', 'high2', 'low1', 'low2', 'none']);
+});
+
+test('F16: translate priority orders queued engine batches', async () => {
+  const engine = fakeEngine({ concurrency: 1, batchLimit: { chars: 1000, blocks: 1 } });
+  const { bg } = setup({ sync: { settings: { sites: [{ host: 'example.com' }] } }, engine });
+  const lo = bg.handleMessage({ type: 'translate', priority: 0, lang: 'en', blocks: [B('a', 'en', 'one'), B('b', 'en', 'two')] }, sender);
+  await new Promise((r) => setTimeout(r, 1));
+  const hi = bg.handleMessage({ type: 'translate', priority: 1, lang: 'en', blocks: [B('c', 'en', 'three')] }, sender);
+  await Promise.all([lo, hi]);
+  // a is already running when the high request arrives; c must run before b
+  eq(engine.calls.map((c) => c.ids[0]), ['a', 'c', 'b']);
+});

@@ -5,7 +5,9 @@
   const KT = (globalThis.KT = globalThis.KT || {});
   // translateAttrs: 속성 번역(extra.js가 주입된 경우에만 동작). fixParticles: 조사 병기 확정(apply.js).
   const DEFAULTS = { debounceMs: 50, mutationDebounceMs: 300, reportDebounceMs: 200, tickLimit: 200, fixParticles: true, translateAttrs: false, linkMode: 'standalone' };
-  const MAX_BATCH_CHARS = 6000, MAX_BATCH_BLOCKS = 40, CACHE_SIZE = 2000;
+  const MAX_BATCH_CHARS = 1500, MAX_BATCH_BLOCKS = 10, CACHE_SIZE = 2000;
+  // 페이지 첫 요청은 작게 보내 첫 번역이 빨리 보이게 한다(엔진이 배치를 직렬로 처리하므로 첫 결과 지연 = 첫 배치 크기).
+  const FIRST_BATCH_BLOCKS = 4;
 
   let S = null; // 실행 상태(없으면 정지)
 
@@ -59,6 +61,20 @@
     return out;
   }
 
+  // 뷰포트 안 블록(priority 1)을 먼저, 그 안에서는 문서 순. 화면 밖(rootMargin 영역)은 priority 0.
+  function byPriority(a, b) { return ((b.priority | 0) - (a.priority | 0)) || docOrder(a, b); }
+
+  // 아직 아무 요청도 보내지 않았다면 첫 배치를 n블록으로 줄이고 나머지는 바로 뒤 배치로 보낸다.
+  function capFirst(batches, n) {
+    const b = batches[0];
+    if (!b || b.recs.length <= n) return batches;
+    const rest = { lang: b.lang, priority: b.priority, chars: 0, recs: b.recs.slice(n) };
+    for (const r of rest.recs) rest.chars += r.chars;
+    b.recs = b.recs.slice(0, n);
+    b.chars -= rest.chars;
+    return [b, rest].concat(batches.slice(1));
+  }
+
   function start(options) {
     if (S) stop();
     const opt = Object.assign({}, DEFAULTS, options || {});
@@ -77,7 +93,7 @@
     const shadowSeen = new WeakSet();
     const st = {
       applier, queue: [], applyQueue: [], inflight: 0, flushTimer: null, mutTimer: null, tickPending: false,
-      rafPending: false, reportTimer: null, seq: 0, done: 0, error: 0, lastReport: '', lastUrl: win.location ? win.location.href : '',
+      rafPending: false, firstSent: false, reportTimer: null, seq: 0, done: 0, error: 0, lastReport: '', lastUrl: win.location ? win.location.href : '',
       work: [], chars: new Set(), workSet: new Set(), needPrune: false, shadowTodo: [],
       metrics: { requests: 0, cacheHits: 0, ticks: 0, maxUnitsPerTick: 0, ownWrites: 0, coalesced: 0, deduped: 0 }, stopped: false,
     };
@@ -115,14 +131,21 @@
         st.io.observe(rec.el);
       }
     }
+    // 교차 정보에 위치가 없으면(스텁 등) 뷰포트 안으로 본다. innerHeight 읽기는 레이아웃을 강제하지 않는다.
+    function priorityOf(e) {
+      const r = e.boundingClientRect, vh = win.innerHeight;
+      if (!r || !vh) return 1;
+      return r.bottom > 0 && r.top < vh ? 1 : 0;
+    }
     function onIntersect(entries) {
       if (st.stopped) return;
       for (const e of entries) {
         if (!e.isIntersecting) continue;
+        const pr = priorityOf(e);
         const arr = byEl.get(e.target);
         st.io.unobserve(e.target);
         byEl.delete(e.target);
-        if (arr) for (const rec of arr) if (rec.state === 'observed') enqueue(rec);
+        if (arr) for (const rec of arr) if (rec.state === 'observed') { rec.priority = pr; enqueue(rec); }
       }
     }
 
@@ -143,7 +166,7 @@
       });
       st.queue = [];
       if (!q.length) return;
-      q.sort(docOrder);
+      q.sort(byPriority);
       const misses = [];
       for (const r of q) {
         const hit = cache.get(cacheKey(r));
@@ -151,14 +174,19 @@
         else misses.push(r);
       }
       if (st.applyQueue.length) scheduleApply();
-      for (const b of makeBatches(misses, MAX_BATCH_CHARS, MAX_BATCH_BLOCKS)) sendBatch(b);
+      const batches = [];
+      for (const pr of [1, 0]) {
+        for (const b of makeBatches(misses.filter((r) => (r.priority | 0) === pr), MAX_BATCH_CHARS, MAX_BATCH_BLOCKS)) { b.priority = pr; batches.push(b); }
+      }
+      for (const b of st.firstSent ? batches : capFirst(batches, FIRST_BATCH_BLOCKS)) sendBatch(b);
       reportSoon();
     }
     function sendBatch(batch) {
       for (const r of batch.recs) r.state = 'inflight';
       st.inflight++;
       st.metrics.requests++;
-      const msg = { type: 'translate', blocks: batch.recs.map((r) => r.block), context: { title: doc.title || '', host: (win.location && win.location.hostname) || '' }, lang: batch.lang };
+      st.firstSent = true;
+      const msg = { type: 'translate', priority: batch.priority | 0, blocks: batch.recs.map((r) => r.block), context: { title: doc.title || '', host: (win.location && win.location.hostname) || '' }, lang: batch.lang };
       let p;
       try { p = Promise.resolve(send(msg)); } catch (e) { p = Promise.reject(e); }
       p.then((resp) => onResponse(batch, resp), () => onResponse(batch, null))
