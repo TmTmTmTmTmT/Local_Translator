@@ -27,7 +27,7 @@ test('background/content scripts contain no non-ASCII outside comments (Safari d
 
 test('manifest background scripts include every engine module the tests load, common.js first', () => {
   const list = manifest.background.scripts;
-  for (const m of ['common', 'prompt', 'mtmode', 'native', 'localhost', 'registry']) assert.ok(list.includes(`engines/${m}.js`), m);
+  for (const m of ['common', 'prompt', 'mtmode', 'native', 'localhost', 'deepl', 'registry']) assert.ok(list.includes(`engines/${m}.js`), m);
   assert.ok(list.indexOf('engines/common.js') < list.indexOf('engines/prompt.js'));
   assert.ok(list.indexOf('engines/registry.js') < list.indexOf('background.js'));
 });

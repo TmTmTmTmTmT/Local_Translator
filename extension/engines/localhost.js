@@ -113,6 +113,24 @@
     };
   }
 
+  // F23: localhost.parallel 정수 1~4, 기본 4 (F23 측정: 4가 가장 빠르고 오류 없음). MT 모드/일반 localhost 엔진의 동시 요청 수.
+  const DEFAULT_PARALLEL = 4;
+  function resolveParallel(settings) {
+    const v = Number(settings && settings.localhost && settings.localhost.parallel);
+    return Number.isFinite(v) && v >= 1 ? Math.min(4, Math.trunc(v)) : DEFAULT_PARALLEL;
+  }
+
+  // 엔진 인스턴스 단위 요청 게이트: 배치가 겹쳐도 동시 HTTP 요청 수가 max를 넘지 않게 한다(max는 호출 시점 설정값).
+  function createGate() {
+    let active = 0;
+    const waiters = [];
+    return async function run(max, fn) {
+      while (active >= max) await new Promise((r) => waiters.push(r));
+      active++;
+      try { return await fn(); } finally { active--; const w = waiters.shift(); if (w) w(); }
+    };
+  }
+
   function resolveBase(kind, settings) {
     const l = (settings && settings.localhost) || {};
     return validateBaseUrl(l.baseUrl || DEFAULT_BASE[kind]);
@@ -143,6 +161,7 @@
       langs: ['en', 'ja', 'zh'],
       batchLimit: { chars: 3000, blocks: 20 },
       concurrency: 1,
+      concurrencyFor: resolveParallel,
       async translate(blocks, context, lang, settings) {
         const base = resolveBase(kind, settings);
         const model = ((settings && settings.localhost && settings.localhost.model) || '').trim();
@@ -217,25 +236,29 @@
     return (r && r.choices && r.choices[0] && r.choices[0].message && typeof r.choices[0].message.content === 'string') ? r.choices[0].message.content : '';
   }
 
-  // MT 모드 엔진 (local:mt-ollama / local:mt-mlx). 블록당 1요청, 동시성 1 (mtmode.js).
+  // MT 모드 엔진 (local:mt-ollama / local:mt-mlx). 블록당 1요청, 동시 요청은 localhost.parallel (F23).
   function createMtEngine(runtime, opts) {
     const ctx = makeCtx(opts);
     const kind = runtime; // DEFAULT_BASE 키와 동일
+    const gate = createGate();
     return {
       id: `local:mt-${runtime}`,
       kind: 'localhost',
       langs: ['en', 'ja', 'zh'],
       batchLimit: { chars: 1500, blocks: 8 },
       concurrency: 1,
+      concurrencyFor: resolveParallel,
       async translate(blocks, context, lang, settings) {
         const base = resolveBase(kind, settings);
         const model = ((settings && settings.localhost && settings.localhost.model) || '').trim();
         if (runtime === 'ollama' && !model) throw E().makeError('engine_unavailable', 'localhost.model not set');
         const family = resolveFamily(settings, model);
         const keepAlive = resolveKeepAlive(settings);
+        const parallel = resolveParallel(settings);
         const tr = E().mtmode.makeMtTranslator({
           family, runtime, userSuffix: family === 'chat' && isQwen3(model) ? '/no_think' : '',
-          chat: ({ request }) => mtChat(ctx, runtime, base, model, family, keepAlive, request),
+          parallel,
+          chat: ({ request }) => gate(parallel, () => mtChat(ctx, runtime, base, model, family, keepAlive, request)),
         });
         const r = await tr({ blocks, lang, context });
         if (!r.out.size && r.errors.length) throw E().makeError(r.errors[0].code, r.errors[0].message);
@@ -260,6 +283,7 @@
       langs: ['en', 'ja', 'zh'],
       batchLimit: { chars: 6000, blocks: 40 },
       concurrency: 2,
+      concurrencyFor: resolveParallel,
       async translate(blocks, context, lang, settings) {
         const base = resolveBase('ct2', settings);
         const plan = E().planBatch(blocks);
@@ -285,7 +309,7 @@
     };
   }
 
-  const api = { validateBaseUrl, createLlmEngine, createMtEngine, createCt2Engine, LOOPBACK_HOSTS };
+  const api = { validateBaseUrl, resolveParallel, createLlmEngine, createMtEngine, createCt2Engine, LOOPBACK_HOSTS };
   globalThis.KT = globalThis.KT || {};
   globalThis.KT.engines = Object.assign(globalThis.KT.engines || {}, api);
   if (typeof module !== 'undefined') module.exports = api;

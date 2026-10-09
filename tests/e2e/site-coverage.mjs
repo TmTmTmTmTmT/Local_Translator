@@ -22,6 +22,15 @@ const NO_SEL = '[translate="no"],.notranslate';
 
 // ---- --engine ollama-tg: extension engines (registry local:mt-ollama) run in Node against a real loopback Ollama ----
 const OLLAMA_SETTINGS = { engine: { default: 'local:mt-ollama' }, localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: 'translategemma:4b', family: 'translategemma', keepAlive: 300 } };
+// F23: --parallel N (1..4) -> localhost.parallel. The harness mirrors background.js: batches run through a semaphore sized engine.concurrencyFor(settings).
+function makeSem(max) {
+  let active = 0; const q = [];
+  return async (fn) => {
+    while (active >= max) await new Promise((r) => q.push(r));
+    active++;
+    try { return await fn(); } finally { active--; const w = q.shift(); if (w) w(); }
+  };
+}
 let EXT = null;
 function loadExt() {
   if (EXT) return EXT;
@@ -86,13 +95,20 @@ export async function measure(file, opts = {}) {
   const linkSamples = [];
   const navTexts = new Set();
   const generalSamples = [];
-  let tgChain = Promise.resolve();
+  const sems = new Map();
+  const semFor = (engine, st) => {
+    const n = typeof engine.concurrencyFor === 'function' ? engine.concurrencyFor(st) : (engine.concurrency || 1);
+    const k = engine.id + ':' + n;
+    if (!sems.has(k)) sems.set(k, makeSem(n));
+    return sems.get(k);
+  };
   if (opts.engine === 'ollama-tg') {
     loadExt();
     const base = OLLAMA_SETTINGS.localhost.baseUrl;
     const h = new URL(base).hostname;
     if (!['127.0.0.1', 'localhost', '[::1]'].includes(h)) throw new Error('non-loopback base URL refused: ' + base);
     out.ollamaPsBefore = ollamaPs();
+    out.parallel = opts.parallel != null ? opts.parallel : 'default';
   }
   if (opts.traceOrder) {
     out.requests = [];
@@ -156,7 +172,8 @@ export async function measure(file, opts = {}) {
           out.blocks += sent.length;
           for (const b of sent) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
           const run = async () => {
-            const s = Object.assign({}, OLLAMA_SETTINGS, { glossary: opts.glossary || [] });
+            const loc = Object.assign({}, OLLAMA_SETTINGS.localhost, opts.parallel != null ? { parallel: opts.parallel } : {});
+            const s = Object.assign({}, OLLAMA_SETTINGS, { localhost: loc, glossary: opts.glossary || [] });
             const terms = s.glossary.length ? KT.lib.glossary.normalize(s.glossary) : [];
             const groups = new Map();
             for (const b of sent) { const l = String(b.lang || msg.lang || 'en').split('-')[0]; if (!groups.has(l)) groups.set(l, []); groups.get(l).push(b); }
@@ -170,7 +187,8 @@ export async function measure(file, opts = {}) {
                 const r = KT.lib.glossary.applyToItems(b.items, lang, terms);
                 if (r.applied.length) sub.set(b.id, { block: Object.assign({}, b, { items: r.items }), applied: r.applied });
               }
-              for (const batch of splitBatches(group, engine.batchLimit)) {
+              const sem = semFor(engine, s);
+              await Promise.all(splitBatches(group, engine.batchLimit).map((batch) => sem(async () => {
                 const pairs = new Map();
                 const tosend = batch.map((b) => { const m = sub.get(b.id); if (!m) return b; for (const p of m.applied) pairs.set(p[0] + '\u0000' + p[1], p); return m.block; });
                 const ctx = pairs.size ? Object.assign({}, msg.context, { glossary: Array.from(pairs.values()) }) : (msg.context || {});
@@ -188,13 +206,11 @@ export async function measure(file, opts = {}) {
                     else generalSamples.push({ id: b.id, source: src, result: res });
                   }
                 } catch (e) { errors.push('engine: ' + (e.code || '') + ' ' + e.message); }
-              }
+              })));
             }
             return results;
           };
-          const p = tgChain.then(run, run);
-          tgChain = p.catch(() => {});
-          return { ok: true, engine: 'local:mt-ollama', results: await p };
+          return { ok: true, engine: 'local:mt-ollama', results: await run() };
         }
         out.blocks += msg.blocks.length;
         for (const b of msg.blocks) { const l = b.lang || 'unknown'; out.langs[l] = (out.langs[l] || 0) + 1; }
@@ -265,13 +281,13 @@ export async function measure(file, opts = {}) {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
-  const file = args.find((a, i) => !a.startsWith('--') && !['--link-mode', '--engine', '--max-blocks', '--glossary'].includes(args[i - 1]));
+  const file = args.find((a, i) => !a.startsWith('--') && !['--link-mode', '--engine', '--max-blocks', '--glossary', '--parallel'].includes(args[i - 1]));
   const li = args.indexOf('--link-mode');
-  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple|ollama-tg] [--glossary "src=>dst;..."] [--max-blocks N] [--trace-order] [--json]'); process.exit(2); }
+  if (!file) { console.error('usage: site-coverage.mjs <html> [--link-mode standalone|never] [--engine apple|ollama-tg] [--glossary "src=>dst;..."] [--max-blocks N] [--parallel 1..4] [--trace-order] [--json]'); process.exit(2); }
   const ei = args.indexOf('--engine'), mi = args.indexOf('--max-blocks');
   const gi = args.indexOf('--glossary');
   const t0 = Date.now();
-  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', glossary: gi >= 0 ? parseGlossary(args[gi + 1]) : [], maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null, traceOrder: args.includes('--trace-order') });
+  const r = await measure(file, { linkMode: li >= 0 ? args[li + 1] : 'standalone', engine: ei >= 0 ? args[ei + 1] : 'mock', glossary: gi >= 0 ? parseGlossary(args[gi + 1]) : [], parallel: args.includes('--parallel') ? Number(args[args.indexOf('--parallel') + 1]) : null, maxBlocks: mi >= 0 ? Number(args[mi + 1]) : null, traceOrder: args.includes('--trace-order') });
   r.wallSec = Math.round((Date.now() - t0) / 100) / 10;
   if (args.includes('--json')) console.log(JSON.stringify(r, null, 2));
   else {

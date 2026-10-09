@@ -8,10 +8,13 @@
     { id: 'local:mt-ollama', label: 'MT 모드 Ollama (번역 특화 모델, localhost)' },
     { id: 'local:mt-mlx', label: 'MT 모드 MLX (번역 특화 모델, localhost)' },
     { id: 'local:ct2', label: 'CTranslate2 MT 서버 (localhost)' },
+    { id: 'cloud:deepl', label: 'DeepL (외부 API, 키 필요)' },
   ];
   const KINDS = ['ollama', 'mlx', 'ct2'];
   const FAMILIES = ['hymt2', 'translategemma', 'chat'];
   const DEFAULT_KEEP_ALIVE = 300;
+  const DEFAULT_PARALLEL = 4;
+  const DEEPL_KEY_RE = /^[A-Za-z0-9:_-]{8,200}$/;
   // 고품질 프리셋 (D1 평가 1위, PLAN §11.1). 저장은 사용자가 직접 누른다.
   const PRESET_TRANSLATEGEMMA = {
     engine: 'local:mt-ollama',
@@ -23,7 +26,8 @@
     return {
       sites: [],
       engine: { default: 'native:apple-mt', byLang: { ja: null, zh: null } },
-      localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '', family: 'hymt2', keepAlive: DEFAULT_KEEP_ALIVE },
+      localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '', family: 'hymt2', keepAlive: DEFAULT_KEEP_ALIVE, parallel: DEFAULT_PARALLEL },
+      deepl: { apiKeyRef: 'local' },
       enabled: true,
       translateAttrs: false,
       fixParticles: true,
@@ -56,7 +60,9 @@
         model: typeof lh.model === 'string' ? lh.model : '',
         family: FAMILIES.includes(lh.family) ? lh.family : d.localhost.family,
         keepAlive: Number.isFinite(lh.keepAlive) && lh.keepAlive >= -1 ? Math.trunc(lh.keepAlive) : d.localhost.keepAlive,
+        parallel: Number.isFinite(lh.parallel) ? Math.min(4, Math.max(1, Math.trunc(lh.parallel))) : d.localhost.parallel,
       },
+      deepl: { apiKeyRef: 'local' }, // the key itself is only in storage.local (deeplKey)
       enabled: typeof s.enabled === 'boolean' ? s.enabled : true,
       translateAttrs: typeof s.translateAttrs === 'boolean' ? s.translateAttrs : d.translateAttrs,
       fixParticles: typeof s.fixParticles === 'boolean' ? s.fixParticles : d.fixParticles,
@@ -200,10 +206,18 @@
     if (!KINDS.includes(lh.kind)) errors.push('kind는 ollama, mlx, ct2 중 하나여야 합니다');
     if (lh.family !== undefined && !FAMILIES.includes(lh.family)) errors.push('family는 hymt2, translategemma, chat 중 하나여야 합니다');
     if (lh.keepAlive !== undefined && !(Number.isFinite(lh.keepAlive) && lh.keepAlive >= -1)) errors.push('keep-alive는 -1 이상의 초 단위 숫자여야 합니다');
+    if (lh.parallel !== undefined && !(Number.isInteger(lh.parallel) && lh.parallel >= 1 && lh.parallel <= 4)) errors.push('동시 요청 수는 1~4 정수여야 합니다');
     return errors;
   }
 
-  const api = { ENGINES, KINDS, FAMILIES, PRESET_TRANSLATEGEMMA, parseGlossaryText, glossaryToText, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, formatError, isValidHost };
+  // Empty key is allowed (means "leave stored key as is"). Returns an error message or ''.
+  function validateDeeplKey(key) {
+    const k = String(key || '').trim();
+    if (!k) return '';
+    return DEEPL_KEY_RE.test(k) ? '' : 'DeepL API 키 형식이 올바르지 않습니다';
+  }
+
+  const api = { ENGINES, KINDS, FAMILIES, PRESET_TRANSLATEGEMMA, parseGlossaryText, glossaryToText, defaults, mergeSettings, parseSitesText, parseExcludeText, buildSites, sitesToText, excludesToText, isLoopbackUrl, validateLocalhost, validateDeeplKey, DEFAULT_PARALLEL, formatError, isValidHost };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.KTOptions = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

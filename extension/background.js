@@ -23,7 +23,7 @@
   const DEFAULT_SETTINGS = {
     sites: [],
     engine: { default: 'native:apple-mt', byLang: { ja: null, zh: null } },
-    localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '' },
+    localhost: { baseUrl: 'http://127.0.0.1:11434', kind: 'ollama', model: '', parallel: 4 },
     enabled: true,
     translateAttrs: false, // true면 content/extra.js 추가 주입(속성 번역)
     fixParticles: true, // 링크 뒤 조사 자동 보정(apply.js 옵션)
@@ -206,9 +206,18 @@
     function modelFor(engine, s) {
       return engine.kind === 'localhost' ? ((s.localhost && s.localhost.model) || '') : '';
     }
-    function getSemaphore(engine) {
-      if (!semaphores.has(engine.id)) semaphores.set(engine.id, createSemaphore(engine.concurrency || 1));
-      return semaphores.get(engine.id);
+    // F23: engine.concurrencyFor(settings)가 있으면 설정 반영(localhost.parallel). 값이 바뀌면 세마포어 재생성.
+    function getSemaphore(engine, s) {
+      let n = engine.concurrency || 1;
+      if (typeof engine.concurrencyFor === 'function') {
+        const v = Number(engine.concurrencyFor(s));
+        if (Number.isFinite(v) && v >= 1) n = Math.trunc(v);
+      }
+      const cur = semaphores.get(engine.id);
+      if (cur && cur.size === n) return cur.sem;
+      const sem = createSemaphore(n);
+      semaphores.set(engine.id, { size: n, sem });
+      return sem;
     }
 
     let glossaryFor = null;
@@ -247,7 +256,7 @@
         else { keys.set(b.id, key); misses.push(b); }
       }
       const batches = splitBatches(misses, engine.batchLimit);
-      const sem = getSemaphore(engine);
+      const sem = getSemaphore(engine, s);
       await Promise.all(batches.map((batch) => sem.run(async () => {
         try {
           const pairs = new Map();

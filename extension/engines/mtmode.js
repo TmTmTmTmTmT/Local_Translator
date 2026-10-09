@@ -158,9 +158,9 @@
 
   const ABORT_CODES = ['engine_unavailable', 'timeout', 'rate_limited'];
 
-  // chat({request, block}) -> text. 블록당 순차 1요청(concurrency 1).
+  // chat({request, block}) -> text. parallel(F23): 배치의 블록을 최대 parallel개까지 동시에 처리(기본 1 = 순차). 숫자 또는 () => 숫자.
   // translate({blocks, lang}) -> {out: Map<id, slots>, errors:[{id, code, message}], stats}
-  function makeMtTranslator({ chat, family, runtime, userSuffix }) {
+  function makeMtTranslator({ chat, family, runtime, userSuffix, parallel }) {
     let glossary = null; // translate() 호출마다 context.glossary로 갱신
     const stats = { markerBlocks: 0, fallbackBlocks: 0, runSplitBlocks: 0, plainBlocks: 0, passthroughBlocks: 0 };
     const ask = (srcLang, text, block) => Promise.resolve(chat({ request: buildMtRequest({ family, runtime, srcLang, text, userSuffix, glossary }), block })).then((r) => stripEmptyParens(text, clean(r)));
@@ -191,16 +191,29 @@
       glossary = (context && context.glossary) || null;
       const out = new Map();
       const errors = [];
-      for (const b of blocks) {
-        try {
-          const slots = await oneBlock(b, lang);
-          if (slots && Object.keys(slots).length) out.set(b.id, slots);
-          else if (slots === null) errors.push({ id: b.id, code: 'bad_response', message: 'no translation returned' });
-        } catch (e) {
-          if (e && ABORT_CODES.includes(e.code)) throw e; // 서버 불능: 남은 블록도 실패하므로 즉시 중단
-          errors.push({ id: b.id, code: (e && e.code) || 'unknown', message: String((e && e.message) || e) });
+      const pv = Number(typeof parallel === 'function' ? parallel() : parallel);
+      const width = Math.min(Math.max(1, Number.isFinite(pv) ? Math.trunc(pv) : 1), Math.max(1, blocks.length));
+      const res = new Array(blocks.length); // 인덱스별 결과: 완료 순서와 무관하게 입력 순서로 조립
+      let next = 0, abort = null;
+      const worker = async () => {
+        while (!abort && next < blocks.length) {
+          const i = next++;
+          const b = blocks[i];
+          try { res[i] = { slots: await oneBlock(b, lang) }; } catch (e) {
+            if (e && ABORT_CODES.includes(e.code)) { abort = abort || e; return; } // 서버 불능: 남은 블록도 실패하므로 즉시 중단
+            res[i] = { err: e };
+          }
         }
-      }
+      };
+      await Promise.all(Array.from({ length: width }, worker));
+      if (abort) throw abort;
+      blocks.forEach((b, i) => {
+        const r = res[i];
+        if (!r) return;
+        if (r.err) { const e = r.err; errors.push({ id: b.id, code: (e && e.code) || 'unknown', message: String((e && e.message) || e) }); return; }
+        if (r.slots && Object.keys(r.slots).length) out.set(b.id, r.slots);
+        else if (r.slots === null) errors.push({ id: b.id, code: 'bad_response', message: 'no translation returned' });
+      });
       return { out, errors, stats };
     };
   }

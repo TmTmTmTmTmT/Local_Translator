@@ -116,3 +116,31 @@ test('error messages name the source field and line', () => {
   assert.equal(lib.formatError(g.errors[0]), '용어집 1줄: `원문 => 번역` 형식이어야 합니다');
   assert.equal(lib.formatError({ line: 0, message: 'm' }), 'm');
 });
+
+test('F24: DeepL engine entry, deepl ref and localhost.parallel merge/validate', async () => {
+  assert.ok(lib.ENGINES.some((e) => e.id === 'cloud:deepl'));
+  assert.equal(lib.defaults().localhost.parallel, 4);
+  assert.equal(lib.mergeSettings({ localhost: { parallel: 3 } }).localhost.parallel, 3);
+  assert.equal(lib.mergeSettings({ localhost: { parallel: 9 } }).localhost.parallel, 4);
+  assert.equal(lib.mergeSettings({ localhost: { parallel: 0 } }).localhost.parallel, 1);
+  assert.equal(lib.mergeSettings({ localhost: { parallel: 'x' } }).localhost.parallel, 4);
+  assert.deepEqual(lib.mergeSettings({ deepl: { apiKeyRef: 'x', deeplKey: 'secret' } }).deepl, { apiKeyRef: 'local' });
+  assert.equal(lib.mergeSettings({ engine: { default: 'cloud:deepl' } }).engine.default, 'cloud:deepl');
+  assert.equal(lib.validateLocalhost({ baseUrl: 'http://127.0.0.1:1', kind: 'ollama', parallel: 5 }).length, 1);
+  assert.equal(lib.validateLocalhost({ baseUrl: 'http://127.0.0.1:1', kind: 'ollama', parallel: 2 }).length, 0);
+  assert.equal(lib.validateDeeplKey(''), '');
+  assert.equal(lib.validateDeeplKey('abcd1234-ef56:fx'), '');
+  assert.notEqual(lib.validateDeeplKey('bad key\nx'), '');
+});
+
+test('F24: options page keeps the DeepL key in storage.local only (static check)', async () => {
+  const fs = await import('node:fs');
+  const { ROOT } = await import('./ui-helpers.mjs');
+  const js = fs.readFileSync(`${ROOT}/extension/options/options.js`, 'utf8');
+  const html = fs.readFileSync(`${ROOT}/extension/options/options.html`, 'utf8');
+  assert.match(html, /id="deepl-key" type="password"/);
+  assert.match(html, /id="lh-parallel" type="number" min="1" max="4"/);
+  assert.match(js, /storage\.local\.set\(\{ deeplKey \}\)/);
+  assert.ok(!/storage\.sync\.set\([^)]*deeplKey/.test(js));
+  assert.ok(!/settings\.deepl\s*=|deepl:\s*\{[^}]*deeplKey/.test(js));
+});

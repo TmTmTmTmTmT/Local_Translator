@@ -149,14 +149,14 @@ test('errors: missing ollama model, server down aborts batch, empty reply', asyn
   await assert.rejects(ollama(f).translate([B('a', t(0, 'Hi'))], {}, 'en', S('http://127.0.0.1:11434', '', 'hymt2')), { code: 'engine_unavailable' });
   assert.equal(f.calls.length, 0);
   const down = mockFetch(() => { throw new TypeError('fetch failed'); });
-  await assert.rejects(ollama(down).translate([B('a', t(0, 'Hi')), B('b', t(0, 'Yo'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'chat')), { code: 'engine_unavailable' });
-  assert.equal(down.calls.length, 1);
+  await assert.rejects(ollama(down).translate([B('a', t(0, 'Hi')), B('b', t(0, 'Yo'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'chat', { parallel: 1 })), { code: 'engine_unavailable' });
+  assert.equal(down.calls.length, 1); // sequential: stops after the first failure
   const empty = mockFetch(() => ollamaReply('  '));
   await assert.rejects(ollama(empty).translate([B('a', t(0, 'Hi'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'chat')), { code: 'bad_response' });
   // partial failure: first block empty, second ok -> Map has only second
   let n = 0;
   const part = mockFetch(() => ollamaReply(++n === 1 ? '' : '안녕'));
-  const out = await ollama(part).translate([B('a', t(0, 'Hi')), B('b', t(0, 'Yo'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'chat'));
+  const out = await ollama(part).translate([B('a', t(0, 'Hi')), B('b', t(0, 'Yo'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'chat', { parallel: 1 }));
   assert.deepEqual([...out.keys()], ['b']);
 });
 
@@ -215,4 +215,52 @@ test('F20b: empty parens added by the model are stripped unless the source has p
   const f = mockFetch(() => ollamaReply('17\uc810 (\uc791\uc131\uc790: )'));
   const r = await ollama(f).translate([B('h', t(0, '17 points by '), x('user'))], {}, 'en', S('http://127.0.0.1:11434', 'm', 'translategemma'));
   assert.deepEqual(r.get('h'), { 0: '17\uc810 ' });
+});
+
+test('F23: mt translator runs blocks in parallel up to the limit and maps results by id', async () => {
+  let active = 0, maxActive = 0;
+  const delays = { a: 30, b: 5, c: 20, d: 1, e: 10 };
+  const tr = M.makeMtTranslator({
+    family: 'hymt2', runtime: 'ollama', parallel: 3,
+    chat: async ({ request }) => {
+      const src = request.messages[0].content.split('\n\n').pop();
+      active++; maxActive = Math.max(maxActive, active);
+      await new Promise((r) => setTimeout(r, delays[src]));
+      active--;
+      return 'T-' + src;
+    },
+  });
+  const blocks = ['a', 'b', 'c', 'd', 'e'].map((id) => B(id, t(0, id)));
+  const r = await tr({ blocks, lang: 'en' });
+  assert.equal(maxActive, 3);
+  assert.deepEqual([...r.out.keys()], ['a', 'b', 'c', 'd', 'e']);
+  for (const id of ['a', 'b', 'c', 'd', 'e']) assert.equal(r.out.get(id)[0], 'T-' + id);
+});
+
+test('F23: parallel defaults to sequential; abort codes still stop', async () => {
+  let active = 0, maxActive = 0;
+  const tr = M.makeMtTranslator({ family: 'hymt2', runtime: 'ollama', chat: async () => { active++; maxActive = Math.max(maxActive, active); await new Promise((r) => setTimeout(r, 2)); active--; return 'x'; } });
+  await tr({ blocks: [B('a', t(0, 'a')), B('b', t(0, 'b')), B('c', t(0, 'c'))], lang: 'en' });
+  assert.equal(maxActive, 1);
+  const bad = M.makeMtTranslator({ family: 'hymt2', runtime: 'ollama', parallel: 2, chat: async () => { throw { code: 'engine_unavailable', message: 'down' }; } });
+  await assert.rejects(bad({ blocks: [B('a', t(0, 'a')), B('b', t(0, 'b'))], lang: 'en' }), { code: 'engine_unavailable' });
+});
+
+test('F23: mt engine caps in-flight HTTP requests at localhost.parallel (across blocks)', async () => {
+  for (const [par, expect] of [[undefined, 4], [1, 1], [3, 3], [9, 4], [0, 4]]) {
+    let active = 0, maxActive = 0;
+    const f = mockFetch(async () => {
+      active++; maxActive = Math.max(maxActive, active);
+      await new Promise((r) => setTimeout(r, 5));
+      active--;
+      return ollamaReply('ko');
+    });
+    const eng = E.createMtEngine('ollama', { fetch: f, sleep });
+    const blocks = Array.from({ length: 8 }, (_, i) => B('k' + i, t(0, 'word' + i)));
+    const s = S('http://127.0.0.1:11434', 'translategemma:4b', 'translategemma', par === undefined ? {} : { parallel: par });
+    const out = await eng.translate(blocks, {}, 'en', s);
+    assert.equal(out.size, 8);
+    assert.equal(maxActive, expect, 'parallel=' + par);
+    assert.equal(eng.concurrencyFor(s), expect);
+  }
 });

@@ -300,3 +300,17 @@ test('F18: engine.translate that never settles times out and releases the semaph
   eq(second.ok, true);
   eq(second.results[0].slots, { 0: 'KO:y' });
 });
+
+test('F23: semaphore size follows engine.concurrencyFor(settings) and is rebuilt on change', async () => {
+  const engine = fakeEngine({ batchLimit: { chars: 1000, blocks: 1 }, concurrency: 1, concurrencyFor: (s) => (s.localhost && s.localhost.parallel) || 2 });
+  const { bg, browser } = setup({ engine, sync: { settings: { localhost: { parallel: 3 } } } });
+  const blocks = (p) => Array.from({ length: 8 }, (_, i) => B(p + i, 'en', p + 't' + i));
+  await bg.handleMessage({ type: 'translate', lang: 'en', blocks: blocks('a') }, sender);
+  assert.equal(engine.maxActive, 3);
+  bg.start();
+  engine.maxActive = 0;
+  browser.storage._sync.settings = { localhost: { parallel: 1 } };
+  await browser.storage.onChanged.fire({ settings: {} }, 'sync');
+  await bg.handleMessage({ type: 'translate', lang: 'en', blocks: blocks('b') }, sender);
+  assert.equal(engine.maxActive, 1);
+});

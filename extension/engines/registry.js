@@ -11,6 +11,7 @@
     'local:mt-ollama': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT \ubaa8\ub4dc Ollama (localhost)' },
     'local:mt-mlx': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'MT \ubaa8\ub4dc MLX (localhost)' },
     'local:ct2': { kind: 'localhost', langs: ['en', 'ja', 'zh'], label: 'CT2 \ubc88\uc5ed \uc11c\ubc84 (localhost)' },
+    'cloud:deepl': { kind: 'cloud', langs: ['en', 'ja', 'zh'], label: 'DeepL (\uc678\ubd80 API, \ud0a4 \ud544\uc694)' },
   };
 
   const FACTORIES = {
@@ -21,6 +22,7 @@
     'local:mt-ollama': (o) => E().createMtEngine('ollama', o),
     'local:mt-mlx': (o) => E().createMtEngine('mlx', o),
     'local:ct2': (o) => E().createCt2Engine(o),
+    'cloud:deepl': (o) => E().createDeeplEngine(o),
   };
 
   const langKey = (lang) => String(lang || '').split('-')[0]; // zh-Hans/zh-Hant -> zh
